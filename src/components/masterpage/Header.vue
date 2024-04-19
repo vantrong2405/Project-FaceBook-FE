@@ -1,5 +1,5 @@
 <template>
-  <div class="shadow-lg shadow-gray-100 grid grid-cols-3 px-2 py-1">
+  <div class="shadow-lg shadow-gray-100 grid grid-cols-3 px-4 py-1">
     <div class="flex items-center">
       <i class="fa-brands fa-facebook text-[#0866FF] text-4xl mr-5"></i>
       <div class="flex items-center border rounded-full p-2">

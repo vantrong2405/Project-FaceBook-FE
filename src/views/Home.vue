@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/no-mutating-props -->
 <template>
   <div class="grid grid-cols-3 px-2 py-1">
-    <div class="overflow-y-auto h-[630px] w-[70%]">
+    <div class="overflow-y-auto h-[670px] w-[70%]">
       <RouterLink to="/">
         <a href="#" class="flex items-center hover:bg-[#cccccc6f] hover:cursor-pointer p-1 rounded-md mt-3">
           <div class=" w-[33px] h-[33px] overflow-hidden rounded-full mr-2">
@@ -74,7 +74,7 @@
           Chỉnh sửa
         </div>
       </div>
-      <template v-for="(value, key) in items" :key="key">
+      <template v-for="(value, key) in displayedItemsGroup" :key="key">
         <RouterLink to="/">
           <a href="#" class="flex items-center hover:bg-[#cccccc6f] hover:cursor-pointer p-1 rounded-md">
             <img src="http://localhost:5173/src/assets/images/daihocduytan.jpg" alt="" class="w-[33px] h-[33px] mr-2">
@@ -85,15 +85,24 @@
       </template>
       <RouterLink to="/">
         <!-- txt -->
-        <a href="#" class="flex items-center hover:bg-[#cccccc6f] hover:cursor-pointer p-2 rounded-md">
+        <a href="#" class="flex items-center hover:bg-[#cccccc6f] hover:cursor-pointer p-2 rounded-md"
+          v-if="showAllItemsGroup === false" @click="showAllItemsGroup = true; displayedItemsGroup">
           <div class="mr-2">
             <div class="rounded-full py-1 px-2 bg-[#cccfd34f]">
               <i class="fa-solid fa-angle-down fa-md"></i>
             </div>
           </div>
-          <span class="font-medium text-[15px] see-more" v-if="!this.showAllItems" v-click="handleChangShowAllItems">Xem
+          <span class="font-medium text-[15px]">Xem
             thêm</span>
-          <span class="font-medium text-[15px] see-more" v-if="this.showAllItems" v-click="handleChangShowAllItems">Ẩn
+        </a>
+        <a href="#" class="flex items-center hover:bg-[#cccccc6f] hover:cursor-pointer p-2 rounded-md"
+          v-if="showAllItemsGroup === true" @click="showAllItemsGroup = false; displayedItemsGroup">
+          <div class="mr-2">
+            <div class="rounded-full py-1 px-2 bg-[#cccfd34f]">
+              <i class="fa-solid fa-angle-up fa-md"></i>
+            </div>
+          </div>
+          <span class="font-medium text-[15px]">Ẩn
             bớt</span>
         </a>
       </RouterLink>
@@ -136,33 +145,50 @@
 </template>
 <script>
 export default {
-  props: {
-    items: {
-      type: Array,
-      default: []
-    },
-    showAllItems: {
-      type: Boolean,
-      default: false
-    }
-  },
   mounted() {
   },
   data() {
     return {
-
+      itemsTool: [
+        { id: 1, img: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
+        { id: 2, img: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
+        { id: 3, img: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
+        { id: 4, img: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
+        { id: 5, img: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
+        { id: 6, img: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
+        { id: 7, img: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
+        { id: 8, img: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
+        { id: 9, img: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
+        { id: 10, img: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
+      ],
+      itemsGroup: [
+        { id: 1, img: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
+        { id: 2, img: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
+        { id: 3, img: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
+        { id: 4, img: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
+        { id: 5, img: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
+        { id: 6, img: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
+        { id: 7, img: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
+        { id: 8, img: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
+        { id: 9, img: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
+        { id: 10, img: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
+      ],
+      showAllItemsGroup: false,
+      showALlItemsTool: false
     }
   },
   computed: {
-    displayedItems() {
-      return this.showAllItems ? this.items : this.items.slice(0, 4);
+    displayedItemsTool() {
+      return this.showALlItemsTool ? this.itemsGroup : this.itemsGroup.slice(0, 4);
+    },
+    displayedItemsGroup() {
+      return this.showAllItemsGroup ? this.itemsGroup : this.itemsGroup.slice(0, 4);
     },
   },
   methods: {
-    handleChangShowAllItems() {
-      this.$emit('handleChangShowAllItemsEvent')
-    }
-  }
+
+  },
+
 }
 </script>
 <style></style>
