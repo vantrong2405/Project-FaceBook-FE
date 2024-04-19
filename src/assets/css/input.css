@@ -45,3 +45,7 @@
 .avatar:hover::after {
   display: initial;
 }
+
+.item-group:hover div{
+  visibility: visible;
+}
