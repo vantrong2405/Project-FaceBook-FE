@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/no-mutating-props -->
 <template>
   <div class="grid grid-cols-3 px-2 py-1">
-    <div class="overflow-y-auto h-[670px] w-[70%]">
+    <div class="overflow-y-scroll h-dvh w-[70%]">
       <RouterLink to="/">
         <a href="#" class="flex items-center hover:bg-[#cccccc6f] hover:cursor-pointer p-1 rounded-md mt-3">
           <div class=" w-[33px] h-[33px] overflow-hidden rounded-full mr-2">
@@ -60,7 +60,8 @@
       <div class=" item-group">
         <div class="m-2 flex justify-between items-center">
           <div class="text-[17px] font-medium text-[#65676B]">Lối tắt của bạn</div>
-          <div class="text-[#0064D1] invisible cursor-pointer">
+          <div class="text-[#0064D1] invisible cursor-pointer" data-modal-target="default-modal"
+            data-modal-toggle="default-modal">
             Chỉnh sửa
           </div>
         </div>
@@ -133,8 +134,53 @@
     <div></div>
     <div></div>
   </div>
+  <!-- Modal toggle -->
+
+
+  <!-- Main modal -->
+  <div id="default-modal" tabindex="-1" aria-hidden="true"
+    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative p-4 w-full max-w-2xl max-h-full">
+      <!-- Modal content -->
+      <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+        <!-- Modal header -->
+        <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+            Chỉnh sửa lối tắt
+          </h3>
+          <button type="button"
+            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+            data-modal-hide="default-modal">
+            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+            </svg>
+            <span class="sr-only">Close modal</span>
+          </button>
+        </div>
+        <!-- Modal body -->
+        <div class="p-4 md:p-5 space-y-4">
+          <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+            Với lối tắt, bạn có thể nhanh chóng truy cập vào những việc mình hay làm nhất trên Facebook. Tuy lối tắt
+            được
+            sắp xếp tự động nhưng bạn có thể ghim nội dung nào đó để luôn thấy ở đầu hoặc ẩn khỏi danh sách.
+          </p>
+
+        </div>
+        <!-- Modal footer -->
+        <div class="flex items-center justify-end p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+          <button data-modal-hide="default-modal" type="button"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">I
+            accept</button>
+          <button data-modal-hide="default-modal" type="button"
+            class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Decline</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 <script>
+
 export default {
   mounted() {
   },
@@ -146,7 +192,16 @@ export default {
         { id: 3, url: 'https://static.xx.fbcdn.net/rsrc.php/v3/y6/r/MXx87JcFKzH.png?_nc_eui2=AeFqXC4dShOxxeeIAbs7EmtfpjWidniF_5qmNaJ2eIX_mmWG2FNfPPdAq3ZEx7lEaOKZMgcGqjVyQf1BxciYsc_I', description: 'video' },
         { id: 4, url: 'https://static.xx.fbcdn.net/rsrc.php/v3/y6/r/MXx87JcFKzH.png?_nc_eui2=AeFqXC4dShOxxeeIAbs7EmtfpjWidniF_5qmNaJ2eIX_mmWG2FNfPPdAq3ZEx7lEaOKZMgcGqjVyQf1BxciYsc_I', description: 'video' },
         { id: 5, url: 'https://static.xx.fbcdn.net/rsrc.php/v3/y6/r/MXx87JcFKzH.png?_nc_eui2=AeFqXC4dShOxxeeIAbs7EmtfpjWidniF_5qmNaJ2eIX_mmWG2FNfPPdAq3ZEx7lEaOKZMgcGqjVyQf1BxciYsc_I', description: 'video' },
-        { id: 6, url: 'https://static.xx.fbcdn.net/rsrc.php/v3/y6/r/MXx87JcFKzH.png?_nc_eui2=AeFqXC4dShOxxeeIAbs7EmtfpjWidniF_5qmNaJ2eIX_mmWG2FNfPPdAq3ZEx7lEaOKZMgcGqjVyQf1BxciYsc_I', description: 'video' }
+        { id: 7, url: 'https://static.xx.fbcdn.net/rsrc.php/v3/y6/r/MXx87JcFKzH.png?_nc_eui2=AeFqXC4dShOxxeeIAbs7EmtfpjWidniF_5qmNaJ2eIX_mmWG2FNfPPdAq3ZEx7lEaOKZMgcGqjVyQf1BxciYsc_I', description: 'video' },
+        { id: 8, url: 'https://static.xx.fbcdn.net/rsrc.php/v3/y6/r/MXx87JcFKzH.png?_nc_eui2=AeFqXC4dShOxxeeIAbs7EmtfpjWidniF_5qmNaJ2eIX_mmWG2FNfPPdAq3ZEx7lEaOKZMgcGqjVyQf1BxciYsc_I', description: 'video' },
+        { id: 9, url: 'https://static.xx.fbcdn.net/rsrc.php/v3/y6/r/MXx87JcFKzH.png?_nc_eui2=AeFqXC4dShOxxeeIAbs7EmtfpjWidniF_5qmNaJ2eIX_mmWG2FNfPPdAq3ZEx7lEaOKZMgcGqjVyQf1BxciYsc_I', description: 'video' },
+        { id: 10, url: 'https://static.xx.fbcdn.net/rsrc.php/v3/y6/r/MXx87JcFKzH.png?_nc_eui2=AeFqXC4dShOxxeeIAbs7EmtfpjWidniF_5qmNaJ2eIX_mmWG2FNfPPdAq3ZEx7lEaOKZMgcGqjVyQf1BxciYsc_I', description: 'video' },
+        { id: 11, url: 'https://static.xx.fbcdn.net/rsrc.php/v3/y6/r/MXx87JcFKzH.png?_nc_eui2=AeFqXC4dShOxxeeIAbs7EmtfpjWidniF_5qmNaJ2eIX_mmWG2FNfPPdAq3ZEx7lEaOKZMgcGqjVyQf1BxciYsc_I', description: 'video' },
+        { id: 12, url: 'https://static.xx.fbcdn.net/rsrc.php/v3/y6/r/MXx87JcFKzH.png?_nc_eui2=AeFqXC4dShOxxeeIAbs7EmtfpjWidniF_5qmNaJ2eIX_mmWG2FNfPPdAq3ZEx7lEaOKZMgcGqjVyQf1BxciYsc_I', description: 'video' },
+        { id: 13, url: 'https://static.xx.fbcdn.net/rsrc.php/v3/y6/r/MXx87JcFKzH.png?_nc_eui2=AeFqXC4dShOxxeeIAbs7EmtfpjWidniF_5qmNaJ2eIX_mmWG2FNfPPdAq3ZEx7lEaOKZMgcGqjVyQf1BxciYsc_I', description: 'video' },
+        { id: 14, url: 'https://static.xx.fbcdn.net/rsrc.php/v3/y6/r/MXx87JcFKzH.png?_nc_eui2=AeFqXC4dShOxxeeIAbs7EmtfpjWidniF_5qmNaJ2eIX_mmWG2FNfPPdAq3ZEx7lEaOKZMgcGqjVyQf1BxciYsc_I', description: 'video' },
+        { id: 15, url: 'https://static.xx.fbcdn.net/rsrc.php/v3/y6/r/MXx87JcFKzH.png?_nc_eui2=AeFqXC4dShOxxeeIAbs7EmtfpjWidniF_5qmNaJ2eIX_mmWG2FNfPPdAq3ZEx7lEaOKZMgcGqjVyQf1BxciYsc_I', description: 'video' },
+        { id: 16, url: 'https://static.xx.fbcdn.net/rsrc.php/v3/y6/r/MXx87JcFKzH.png?_nc_eui2=AeFqXC4dShOxxeeIAbs7EmtfpjWidniF_5qmNaJ2eIX_mmWG2FNfPPdAq3ZEx7lEaOKZMgcGqjVyQf1BxciYsc_I', description: 'video' },
       ],
       itemsGroup: [
         { id: 1, url: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
@@ -158,7 +213,11 @@ export default {
         { id: 7, url: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
         { id: 8, url: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
         { id: 9, url: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
-        { id: 10, url: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
+        { id: 11, url: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
+        { id: 12, url: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
+        { id: 13, url: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
+        { id: 14, url: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
+        { id: 15, url: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
       ],
       showAllItemsGroup: false,
       showALlItemsTool: false
@@ -166,10 +225,10 @@ export default {
   },
   computed: {
     displayedItemsTool() {
-      return this.showALlItemsTool ? this.itemsTool : this.itemsTool.slice(0, 4);
+      return this.showALlItemsTool ? this.itemsTool : this.itemsTool.slice(0, 10);
     },
     displayedItemsGroup() {
-      return this.showAllItemsGroup ? this.itemsGroup : this.itemsGroup.slice(0, 7);
+      return this.showAllItemsGroup ? this.itemsGroup : this.itemsGroup.slice(0, 10);
     },
   },
   methods: {
