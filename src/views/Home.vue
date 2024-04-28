@@ -1,19 +1,7 @@
-<!-- eslint-disable vue/no-mutating-props -->
 <template>
-  <div class="bg-myGray-100 w-full h-full font-face">
-    <div class="relative w-full h-14">
-      <div class="absolute top-0 w-full h-full">
-        <Navbar class="fixed" />
-      </div>
-    </div>
-    <div class="flex gap-5">
-      <div class="relative w-80 hidden xl:block">
-        <div class="absolute">
-          <LeftBar class="fixed w-80" />
-        </div>
-      </div>
-      <div class="flex-1">
-        <div class="
+  <div>
+    <div class="flex-1">
+      <div class="
       h-auto
       desktop:w-180
       laptop:w-160
@@ -26,9 +14,9 @@
       font-semibold
       mobile-x:text-tiny mobile-x:p-8
     ">
-          <div class="flex flex-col gap-4">
-            <div id="storie" class="p-2 bg-myGray-150 rounded-lg">
-              <div class="
+        <div class="flex flex-col gap-4">
+          <div id="storie" class="p-2 bg-myGray-150 rounded-lg">
+            <div class="
           w-full
           h-18
           rounded-lg
@@ -42,22 +30,22 @@
           transition-colors
           duration-300
         ">
-                <div id="post-svg-plus" class="p-2.5 bg-face-blue-light rounded-full cursor-pointer">
-                  <svg-create class="w-5 text-face-blue" />
-                </div>
-                <div id="title" class="flex flex-col">
-                  <span class="mobile-x:text-lg text-tiny">Create Story</span>
-                  <span class="mobile-x:text-tiny text-xs text-myGray-600">Share a photo or write something.</span>
-                </div>
+              <div id="post-svg-plus" class="p-2.5 bg-face-blue-light rounded-full cursor-pointer">
+                <svg-create class="w-5 text-face-blue" />
+              </div>
+              <div id="title" class="flex flex-col">
+                <span class="mobile-x:text-lg text-tiny">Create Story</span>
+                <span class="mobile-x:text-tiny text-xs text-myGray-600">Share a photo or write something.</span>
               </div>
             </div>
+          </div>
 
-            <div id="new-post" class="h-32 p-2 bg-myGray-150 rounded-lg flex flex-col justify-between">
-              <div id="new-post-top" class="p-1 flex gap-3 items-center">
-                <div class="_pp_ cursor-pointer">
-                  <img src="../assets/images/pp.jpg" class="w-10 rounded-full" alt="" />
-                </div>
-                <input class="
+          <div id="new-post" class="h-32 p-2 bg-myGray-150 rounded-lg flex flex-col justify-between">
+            <div id="new-post-top" class="p-1 flex gap-3 items-center">
+              <div class="_pp_ cursor-pointer">
+                <img src="../assets/images/pp.jpg" class="w-10 rounded-full" alt="" />
+              </div>
+              <input class="
             cursor-pointer
             w-full
             bg-myGray-250
@@ -73,10 +61,26 @@
             duration-300
             mobile-x:text-base
           " type="text" name="" placeholder="What's on your mind, Elliot ?" />
+            </div>
+            <hr class="mx-2 border-myGray-250" />
+            <div id="new-post-bottom" class="flex items-center justify-around px-2 text-myGray-700">
+              <div class="
+            w-full
+            h-10
+            flex
+            items-center
+            justify-center
+            gap-2
+            hover:bg-myGray-250
+            rounded-lg
+            cursor-pointer
+            transition-colors
+            duration-300
+          ">
+                <svg-live-video class="w-6 text-red-500" />
+                <span>Live Video</span>
               </div>
-              <hr class="mx-2 border-myGray-250" />
-              <div id="new-post-bottom" class="flex items-center justify-around px-2 text-myGray-700">
-                <div class="
+              <div class="
             w-full
             h-10
             flex
@@ -89,26 +93,10 @@
             transition-colors
             duration-300
           ">
-                  <svg-live-video class="w-6 text-red-500" />
-                  <span>Live Video</span>
-                </div>
-                <div class="
-            w-full
-            h-10
-            flex
-            items-center
-            justify-center
-            gap-2
-            hover:bg-myGray-250
-            rounded-lg
-            cursor-pointer
-            transition-colors
-            duration-300
-          ">
-                  <svg-photo class="w-6 text-green-500" />
-                  <span>Photo/video</span>
-                </div>
-                <div class="
+                <svg-photo class="w-6 text-green-500" />
+                <span>Photo/video</span>
+              </div>
+              <div class="
             w-full
             h-10
             items-center
@@ -122,37 +110,37 @@
             hidden
             mobile-x:flex
           ">
-                  <svg-smile class="w-6 text-yellow-400" />
-                  <span>Feeling/activity</span>
-                </div>
+                <svg-smile class="w-6 text-yellow-400" />
+                <span>Feeling/activity</span>
               </div>
             </div>
           </div>
-          <!-- start -->
+        </div>
+        <!-- start -->
 
-          <ul v-for="(user, index) in users" :key="index">
-            <li class="w-full bg-myGray-150 my-4 rounded-lg transition-colors duration-300">
-              <div id="post-top" class="w-full flex items-center justify-between p-4">
-                <div id="post-top_left" class="flex items-center gap-4">
-                  <div id="post-top_left_pp" class="
+        <ul v-for="(user, index) in users" :key="index">
+          <li class="w-full bg-myGray-150 my-4 rounded-lg transition-colors duration-300">
+            <div id="post-top" class="w-full flex items-center justify-between p-4">
+              <div id="post-top_left" class="flex items-center gap-4">
+                <div id="post-top_left_pp" class="
             ring-2 ring-blue-500 ring-opacity-70
             border-2 border-black
             w-max
             rounded-full
             cursor-pointer
           ">
-                    <img :src="user.route" class="w-8 h-8 rounded-full" alt="" />
-                  </div>
-                  <div id="post-top_left_title">
-                    <p class="hover:underline cursor-pointer">{{ user.name }}</p>
-                    <p class="flex text-xs text-myGray-500 mt-1 items-center">
-                      <span class="hover:underline cursor-pointer">3d</span>
-                      <span class="mx-1">·</span>
-                      <svg-world class="w-3" />
-                    </p>
-                  </div>
+                  <img :src="user.route" class="w-8 h-8 rounded-full" alt="" />
                 </div>
-                <div id="post-top_right" class="
+                <div id="post-top_left_title">
+                  <p class="hover:underline cursor-pointer">{{ user.name }}</p>
+                  <p class="flex text-xs text-myGray-500 mt-1 items-center">
+                    <span class="hover:underline cursor-pointer">3d</span>
+                    <span class="mx-1">·</span>
+                    <svg-world class="w-3" />
+                  </p>
+                </div>
+              </div>
+              <div id="post-top_right" class="
           p-2
           rounded-full
           hover:bg-myGray-200
@@ -160,26 +148,26 @@
           transition-colors
           duration-300
         ">
-                  <svg-dots class="w-4" />
+                <svg-dots class="w-4" />
+              </div>
+            </div>
+            <div id="post-middle">
+              <p class="px-3 font-normal leading-5 text-sm">
+                {{ user.post.title }}
+              </p>
+              <img :src="user.post.pictures" class="w-full my-2" alt="" />
+            </div>
+            <div id="post-bottom" class="px-4 py-2 text-sm font-normal">
+              <div id="post-bottom_info" class="flex items-center justify-between">
+                <div id="info_left" class="flex gap-2 cursor-pointer">
+                  <svg-like class="w-5" />
+                  <span class="hover:underline"> {{ user.post.like }} </span>
+                </div>
+                <div id="info_right">
+                  <span class="hover:underline cursor-pointer">1 Comment</span>
                 </div>
               </div>
-              <div id="post-middle">
-                <p class="px-3 font-normal leading-5 text-sm">
-                  {{ user.post.title }}
-                </p>
-                <img :src="user.post.pictures" class="w-full my-2" alt="" />
-              </div>
-              <div id="post-bottom" class="px-4 py-2 text-sm font-normal">
-                <div id="post-bottom_info" class="flex items-center justify-between">
-                  <div id="info_left" class="flex gap-2 cursor-pointer">
-                    <svg-like class="w-5" />
-                    <span class="hover:underline"> {{ user.post.like }} </span>
-                  </div>
-                  <div id="info_right">
-                    <span class="hover:underline cursor-pointer">1 Comment</span>
-                  </div>
-                </div>
-                <div id="post-bottom_buttons" class="
+              <div id="post-bottom_buttons" class="
           text-myGray-600
           font-bold
           text-sm
@@ -189,7 +177,7 @@
           my-2
           border-b border-t border-myGray-300
         ">
-                  <div class="
+                <div class="
             flex
             gap-2
             w-full
@@ -203,57 +191,77 @@
             transition-colors
             duration-300
           ">
-                    <svg-like2 class="w-5" />
-                    <span>Like</span>
+                  <svg-like2 class="w-5" />
+                  <span>Like</span>
+                </div>
+                <div class="
+            flex
+            gap-2
+            w-full
+            items-center
+            justify-center
+            p-2
+            hover:bg-myGray-250
+            cursor-pointer
+            rounded-lg
+            my-1
+            transition-colors
+            duration-300
+          ">
+                  <svg-comment class="w-5" />
+                  <span>Comment</span>
+                </div>
+              </div>
+              <div id="post-bottom-comments">
+                <div id="other" class="flex gap-2 my-4">
+                  <div id="other_pp">
+                    <img :src="user.post.comment.route" class="w-9 h-9 rounded-full cursor-pointer" alt="" />
                   </div>
-                  <div class="
-            flex
-            gap-2
-            w-full
-            items-center
-            justify-center
-            p-2
-            hover:bg-myGray-250
-            cursor-pointer
-            rounded-lg
-            my-1
-            transition-colors
-            duration-300
-          ">
-                    <svg-comment class="w-5" />
-                    <span>Comment</span>
+                  <div id="other_comment">
+                    <div class="py-2 px-3 bg-myGray-200 rounded-2xl">
+                      <div id="commnet-name" class="cursor-pointer hover:underline font-bold text-xs">
+                        {{ user.post.comment.name }}
+                      </div>
+                      <div id="comment-title">
+                        {{ user.post.comment.text }}
+                      </div>
+                    </div>
+                    <div class="px-3 text-xs mt-1">
+                      <span class="cursor-pointer hover:underline">Like</span> ·
+                      <span class="cursor-pointer hover:underline">Reply</span> ·
+                      <span class="cursor-pointer hover:underline">Share</span> ·
+                      <span class="cursor-pointer hover:underline">2d</span>
+                    </div>
                   </div>
                 </div>
-                <div id="post-bottom-comments">
-                  <div id="other" class="flex gap-2 my-4">
-                    <div id="other_pp">
-                      <img :src="user.post.comment.route" class="w-9 h-9 rounded-full cursor-pointer" alt="" />
-                    </div>
-                    <div id="other_comment">
-                      <div class="py-2 px-3 bg-myGray-200 rounded-2xl">
-                        <div id="commnet-name" class="cursor-pointer hover:underline font-bold text-xs">
-                          {{ user.post.comment.name }}
+                <div id="me" class="flex w-full gap-2">
+                  <img src="../assets/images/pp.jpg" class="w-9 h-9 rounded-full cursor-pointer" alt="" />
+                  <div class="flex w-full flex-col">
+                    <div id="me_comment" class="flex w-full bg-myGray-200 rounded-2xl">
+                      <input class="w-full bg-transparent px-3 outline-none" type="text"
+                        placeholder="Write a public comment..." />
+                      <div id="me_comment_buttons" class="flex items-center">
+                        <div class="
+                    p-2
+                    hover:bg-myGray-300
+                    rounded-full
+                    cursor-pointer
+                    transition-colors
+                    duration-300
+                  ">
+                          <svg-smile class="w-4 text-myGray-600" />
                         </div>
-                        <div id="comment-title">
-                          {{ user.post.comment.text }}
+                        <div class="
+                    p-2
+                    hover:bg-myGray-300
+                    rounded-full
+                    cursor-pointer
+                    transition-colors
+                    duration-300
+                  ">
+                          <svg-live-video class="w-4 text-myGray-600" />
                         </div>
-                      </div>
-                      <div class="px-3 text-xs mt-1">
-                        <span class="cursor-pointer hover:underline">Like</span> ·
-                        <span class="cursor-pointer hover:underline">Reply</span> ·
-                        <span class="cursor-pointer hover:underline">Share</span> ·
-                        <span class="cursor-pointer hover:underline">2d</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div id="me" class="flex w-full gap-2">
-                    <img src="../assets/images/pp.jpg" class="w-9 h-9 rounded-full cursor-pointer" alt="" />
-                    <div class="flex w-full flex-col">
-                      <div id="me_comment" class="flex w-full bg-myGray-200 rounded-2xl">
-                        <input class="w-full bg-transparent px-3 outline-none" type="text"
-                          placeholder="Write a public comment..." />
-                        <div id="me_comment_buttons" class="flex items-center">
-                          <div class="
+                        <div class="
                     p-2
                     hover:bg-myGray-300
                     rounded-full
@@ -261,9 +269,9 @@
                     transition-colors
                     duration-300
                   ">
-                            <svg-smile class="w-4 text-myGray-600" />
-                          </div>
-                          <div class="
+                          <svg-menu class="w-4 text-myGray-600" />
+                        </div>
+                        <div class="
                     p-2
                     hover:bg-myGray-300
                     rounded-full
@@ -271,69 +279,29 @@
                     transition-colors
                     duration-300
                   ">
-                            <svg-live-video class="w-4 text-myGray-600" />
-                          </div>
-                          <div class="
-                    p-2
-                    hover:bg-myGray-300
-                    rounded-full
-                    cursor-pointer
-                    transition-colors
-                    duration-300
-                  ">
-                            <svg-menu class="w-4 text-myGray-600" />
-                          </div>
-                          <div class="
-                    p-2
-                    hover:bg-myGray-300
-                    rounded-full
-                    cursor-pointer
-                    transition-colors
-                    duration-300
-                  ">
-                            <svg-photo class="w-4 text-myGray-600" />
-                          </div>
+                          <svg-photo class="w-4 text-myGray-600" />
                         </div>
                       </div>
-                      <span class="text-xs">Press Enter the post</span>
                     </div>
+                    <span class="text-xs">Press Enter the post</span>
                   </div>
                 </div>
               </div>
-            </li>
-          </ul>
+            </div>
+          </li>
+        </ul>
 
-          <!-- end -->
-        </div>
-      </div>
-      <div class="relative w-80 hidden lg:block">
-        <div class="absolute">
-          <RightBar class="fixed" />
-        </div>
+        <!-- end -->
       </div>
     </div>
-    <div class="
-      p-4
-      flex
-      items-center
-      justify-center
-      rounded-full
-      bg-myGray-250
-      fixed
-      right-5
-      bottom-5
-      cursor-pointer
-      hover:bg-myGray-300
-      transition-colors
-      duration-300
-    ">
-      <svg-new-message class="w-5 text-myGray-800" />
+    <div class="relative w-80 hidden lg:block">
+      <div class="absolute">
+        <RightBar class="fixed" />
+      </div>
     </div>
   </div>
 </template>
 <script>
-import Navbar from "../components/Navbar/index.vue";
-import LeftBar from "../components/LeftBar/index.vue";
 import RightBar from "../components/RightBar/index.vue";
 import svgCreate from "../components/svg/svgCreate.vue";
 import svgLiveVideo from "../components/svg/svgLiveVideo.vue";
@@ -346,11 +314,8 @@ import svgLike from "../components/svg/svgLike.vue";
 import svgLike2 from "../components/svg/svgLike2.vue";
 import svgComment from "../components/svg/svgComment.vue";
 import svgMenu from "../components/svg/svgMenu.vue";
-import svgNewMessage from "../components/svg/svgNewMessage.vue";
 export default {
   components: {
-    Navbar,
-    LeftBar,
     RightBar,
     svgCreate,
     svgLiveVideo,
@@ -362,9 +327,6 @@ export default {
     svgLike2,
     svgComment,
     svgMenu,
-    svgNewMessage,
-  },
-  mounted() {
   },
   data() {
     return {

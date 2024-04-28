@@ -1,19 +1,17 @@
-<template class="bg-[#E4E6E8]">
-  <div>
+<template>
+  <component :is="layout">
     <router-view></router-view>
-  </div>
+  </component>
 </template>
 <script>
 import 'https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js'
-
+const default_layout = "default";
 export default {
-  data() {
-    return {
-    }
+  computed: {
+    layout() {
+      return (this.$route.meta.layout || default_layout) + "-layout";
+    },
   },
-  methods: {
-
-  }
 }
 </script>
 <style>
