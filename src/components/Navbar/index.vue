@@ -26,7 +26,6 @@ export default {
   <div class="
       w-full
       h-14
-      bg-myGray-150
       border-b border-myGray-250
       grid grid-cols-2
       md:grid-cols-3
@@ -37,7 +36,6 @@ export default {
     <div id="mid" class="
         m-auto
         h-full
-        flex
         items-center
         justify-center
         gap-2
@@ -45,26 +43,27 @@ export default {
         md:flex
       ">
       <div id="svg-home-box" class="
-          lg:w-40
-          h-full
-          text-face-blue
+      lg:w-40
+          h-12
           flex
           items-center
           justify-center
-          border-b-2 border-face-blue
           cursor-pointer
+          hover:bg-myGray-900
+          rounded-lg
+          transition-colors
+          duration-300
         ">
         <svg-home class="w-7" />
       </div>
       <div id="svg-groups-box" class="
           lg:w-40
           h-12
-          text-myGray-700
           flex
           items-center
           justify-center
           cursor-pointer
-          hover:bg-myGray-250
+          hover:bg-myGray-900
           rounded-lg
           transition-colors
           duration-300
@@ -74,12 +73,11 @@ export default {
       <div id="svg-more-box" class="
           lg:w-40
           h-12
-          text-myGray-700
           flex
           items-center
           justify-center
           cursor-pointer
-          hover:bg-myGray-250
+          hover:bg-myGray-700
           rounded-lg
           lg:hidden
           transition-colors

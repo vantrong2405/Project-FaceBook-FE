@@ -1,10 +1,6 @@
 <!-- eslint-disable vue/no-export-in-script-setup -->
 <script>
-import items from "../../db/item";
-//SVG
 import svgSeeMore from "../svg/svgSeeMore.vue";
-//SVG
-
 import Privacy from "./Privacy.vue";
 import Item from "./Item.vue";
 export default {
@@ -68,7 +64,6 @@ export default {
 
 <template>
   <div class="
-      bg-myGray-100
       h-screen
       px-2
       py-4
@@ -89,21 +84,20 @@ export default {
           w-full
           cursor-pointer
           rounded-lg
-          hover:bg-myGray-150
+        hover:bg-myGray-900
           transition-color
           duration-300
         ">
         <div id="svg-see-more-box" class="
             p-2
             rounded-full
-            bg-myGray-200
             flex
             items-center
             justify-center
           ">
-          <svg-see-more class="w-5 text-myGray-800" />
+          <svg-see-more class="w-5 " />
         </div>
-        <span class="text-myGray-800 font-bold text-base"> See more </span>
+        <span class="font-semibold text-base"> See more </span>
       </div>
     </div>
     <div id="privacy" class="w-full hidden 2xl:block">

@@ -5,8 +5,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <li
-    class="
+  <li class="
       flex
       items-center
       gap-2
@@ -15,13 +14,10 @@ const props = defineProps({
       w-full
       cursor-pointer
       rounded-lg
-      hover:bg-myGray-150
-      transition-color
-      duration-300
-    "
-  >
+      hover:bg-myGray-900
+    ">
     <img :src="props.item.route" class="rounded-full w-9" alt="" />
-    <span class="text-myGray-800 font-bold text-tiny">
+    <span class="font-semibold text-tiny">
       {{ props.item.title }}
     </span>
   </li>

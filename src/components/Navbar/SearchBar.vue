@@ -19,8 +19,7 @@ export default {
 </script>
 
 <template>
-  <div class="w-72 h-14 py-2 flex items-center gap-1 sm:gap-2"
-    :class="isFocus ? 'bg-myGray-150 w-screen pr-4 sm:w-72' : ''">
+  <div class="w-72 h-14 py-2 flex items-center gap-1 sm:gap-2" :class="isFocus ? ' w-screen pr-4 sm:w-72' : ''">
     <div class="__logo">
       <svg-facebook class="
           text-face-blue
@@ -57,7 +56,7 @@ export default {
         items-center
         justify-center
         h-full
-        bg-myGray-200
+        bg-gray-100
         rounded-full
         overflow-hidden
         cursor-pointer
@@ -75,10 +74,12 @@ export default {
           bg-transparent
           text-sm
           px-2
+          border-none
           outline-none
           text-myGray-800
           xl:block
           focus:outline-none
+          focus:ring-transparent
         " :class="isFocus ? 'block' : 'hidden'" type="text" placeholder="Search Facebook" @focus="isFocus = true"
         @blur="isFocus = false" />
     </div>

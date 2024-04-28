@@ -10,14 +10,15 @@ import users from "../../db/user";
 </script>
 
 <template>
-  <div class="bg-myGray-100 h-screen px-5 py-5 hidden w-80 lg:block">
-    <div id="contacts" class="w-full flex items-center justfiy-between text-myGray-800">
+  <div class=" h-screen px-5 py-5 hidden w-80 lg:block">
+    <div id="contacts" class="w-full flex items-center justfiy-between">
       <span class="flex-1 font-semibold text-base pl-5">Contacts</span>
       <div id="contact-buttons" class="flex gap-1">
         <div class="
             p-2
             rounded-full
-            hover:bg-myGray-200
+            bg-myGray-900
+            hover:bg-myGray-700
             cursor-pointer
             transition-colors
             duration-300
@@ -27,7 +28,8 @@ import users from "../../db/user";
         <div class="
             p-2
             rounded-full
-            hover:bg-myGray-200
+            bg-myGray-900
+            hover:bg-myGray-700
             cursor-pointer
             transition-colors
             duration-300
@@ -37,7 +39,8 @@ import users from "../../db/user";
         <div class="
             p-2
             rounded-full
-            hover:bg-myGray-200
+            bg-myGray-900
+            hover:bg-myGray-700
             cursor-pointer
             transition-colors
             duration-300
@@ -52,11 +55,10 @@ import users from "../../db/user";
             flex
             items-center
             gap-3
-            text-myGray-800
             font-bold
             text-tiny
             cursor-pointer
-            hover:bg-myGray-150
+            hover:bg-myGray-900
             rounded-lg
             my-2
             px-3
@@ -70,7 +72,7 @@ import users from "../../db/user";
       </ul>
     </div>
     <div id="group-conversation" class="mt-2">
-      <div class="my-4 font-semibold text-base text-myGray-650 px-3">
+      <div class="my-4 font-semibold text-base  px-3">
         Group conversations
       </div>
       <div class="
@@ -79,16 +81,16 @@ import users from "../../db/user";
           gap-3
           w-full
           cursor-pointer
-          hover:bg-myGray-150
+          hover:bg-myGray-900
           p-3
           rounded-lg
           transition-colors
           duration-300
         ">
-        <div id="svg-box" class="p-2 rounded-full bg-myGray-200 text-myGray-800">
+        <div id="svg-box" class="p-2 rounded-full bg-myGray-900">
           <svg-create class="w-5" />
         </div>
-        <span class="text-myGray-800 font-semibold text-tiny">Create New Group</span>
+        <span class=" font-semibold text-tiny">Create New Group</span>
       </div>
     </div>
   </div>

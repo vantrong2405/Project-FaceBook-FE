@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/no-mutating-props -->
 <template>
-    <div class="bg-myGray-100 w-full h-full font-face">
+    <div class="w-full h-full font-face">
         <div class="relative w-full h-14">
             <div class="absolute top-0 w-full h-full">
                 <Navbar class="fixed" />

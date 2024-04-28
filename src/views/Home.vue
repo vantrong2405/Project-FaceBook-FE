@@ -9,12 +9,12 @@
       w-full
       sm:m-auto
       p-1
-      text-xs text-myGray-800
+      text-xs 
       font-semibold
       mobile-x:text-tiny mobile-x:p-8
     ">
-      <div class="flex flex-col gap-4">
-        <div id="storie" class="p-2 bg-myGray-150 rounded-lg">
+      <div class="flex flex-col gap-4 border-2 p-2">
+        <div id="storie" class="rounded-lg">
           <div class="
           w-full
           h-18
@@ -25,7 +25,7 @@
           items-center
           gap-3
           cursor-pointer
-          hover:bg-myGray-200
+          hover:bg-myGray-900
           transition-colors
           duration-300
         ">
@@ -39,7 +39,7 @@
           </div>
         </div>
 
-        <div id="new-post" class="h-32 p-2 bg-myGray-150 rounded-lg flex flex-col justify-between">
+        <div id="new-post" class="h-32 p-2 rounded-lg flex flex-col justify-between">
           <div id="new-post-top" class="p-1 flex gap-3 items-center">
             <div class="_pp_ cursor-pointer">
               <img src="../assets/images/pp.jpg" class="w-10 rounded-full" alt="" />
@@ -47,22 +47,22 @@
             <input class="
             cursor-pointer
             w-full
-            bg-myGray-250
             h-10
             rounded-full
             outline-none
             text-tiny
             px-3
             font-semibold
-            placeholder-myGray-650
-            hover:bg-myGray-300
             transition-colors
             duration-300
             mobile-x:text-base
+            focus:outline-none
+            focus:shadow-none
+            focus:ring-transparent
           " type="text" name="" placeholder="What's on your mind, Elliot ?" />
           </div>
-          <hr class="mx-2 border-myGray-250" />
-          <div id="new-post-bottom" class="flex items-center justify-around px-2 text-myGray-700">
+          <hr class="mx-2 " />
+          <div id="new-post-bottom" class="flex items-center justify-around px-2 ">
             <div class="
             w-full
             h-10
@@ -70,7 +70,7 @@
             items-center
             justify-center
             gap-2
-            hover:bg-myGray-250
+            hover:bg-myGray-900
             rounded-lg
             cursor-pointer
             transition-colors
@@ -86,7 +86,7 @@
             items-center
             justify-center
             gap-2
-            hover:bg-myGray-250
+            hover:bg-myGray-900
             rounded-lg
             cursor-pointer
             transition-colors
@@ -101,7 +101,7 @@
             items-center
             justify-center
             gap-2
-            hover:bg-myGray-250
+            hover:bg-myGray-900
             rounded-lg
             cursor-pointer
             transition-colors
@@ -118,7 +118,7 @@
       <!-- start -->
 
       <ul v-for="(user, index) in users" :key="index">
-        <li class="w-full bg-myGray-150 my-4 rounded-lg transition-colors duration-300">
+        <li class="w-full my-4 rounded-lg transition-colors duration-300 border-2 py-2">
           <div id="post-top" class="w-full flex items-center justify-between p-4">
             <div id="post-top_left" class="flex items-center gap-4">
               <div id="post-top_left_pp" class="
@@ -132,7 +132,7 @@
               </div>
               <div id="post-top_left_title">
                 <p class="hover:underline cursor-pointer">{{ user.name }}</p>
-                <p class="flex text-xs text-myGray-500 mt-1 items-center">
+                <p class="flex text-xs  mt-1 items-center">
                   <span class="hover:underline cursor-pointer">3d</span>
                   <span class="mx-1">·</span>
                   <svg-world class="w-3" />
@@ -142,7 +142,7 @@
             <div id="post-top_right" class="
           p-2
           rounded-full
-          hover:bg-myGray-200
+          hover:bg-myGray-900
           cursor-pointer
           transition-colors
           duration-300
@@ -167,14 +167,13 @@
               </div>
             </div>
             <div id="post-bottom_buttons" class="
-          text-myGray-600
-          font-bold
+          font-normal
           text-sm
           sm:text-tiny
           flex
           items-center
           my-2
-          border-b border-t border-myGray-300
+          border-b border-t border-myGray-900
         ">
               <div class="
             flex
@@ -183,7 +182,7 @@
             items-center
             justify-center
             p-2
-            hover:bg-myGray-250
+            hover:bg-myGray-900
             cursor-pointer
             rounded-lg
             my-1
@@ -200,7 +199,7 @@
             items-center
             justify-center
             p-2
-            hover:bg-myGray-250
+            hover:bg-myGray-900
             cursor-pointer
             rounded-lg
             my-1
@@ -211,13 +210,13 @@
                 <span>Comment</span>
               </div>
             </div>
-            <div id="post-bottom-comments">
-              <div id="other" class="flex gap-2 my-4">
+            <div id="post-bottom-comments ">
+              <div id="other" class="flex gap-2 my-4 ">
                 <div id="other_pp">
                   <img :src="user.post.comment.route" class="w-9 h-9 rounded-full cursor-pointer" alt="" />
                 </div>
-                <div id="other_comment">
-                  <div class="py-2 px-3 bg-myGray-200 rounded-2xl">
+                <div id="other_comment" class="w-full rounded-lg pb-2">
+                  <div class="py-2 px-3 rounded-2xl bg-myGray-900 ">
                     <div id="commnet-name" class="cursor-pointer hover:underline font-bold text-xs">
                       {{ user.post.comment.name }}
                     </div>
@@ -236,13 +235,13 @@
               <div id="me" class="flex w-full gap-2">
                 <img src="../assets/images/pp.jpg" class="w-9 h-9 rounded-full cursor-pointer" alt="" />
                 <div class="flex w-full flex-col">
-                  <div id="me_comment" class="flex w-full bg-myGray-200 rounded-2xl">
-                    <input class="w-full bg-transparent px-3 outline-none" type="text"
-                      placeholder="Write a public comment..." />
+                  <div id="me_comment" class="flex w-full outline-none focus:outline-none ring-transparent rounded-2xl">
+                    <input
+                      class="w-full bg-transparent px-3 outline-none focus:outline-none  focus:ring-transparent focus:border-black"
+                      type="text" placeholder="Write a public comment..." />
                     <div id="me_comment_buttons" class="flex items-center">
                       <div class="
                     p-2
-                    hover:bg-myGray-300
                     rounded-full
                     cursor-pointer
                     transition-colors
@@ -252,7 +251,7 @@
                       </div>
                       <div class="
                     p-2
-                    hover:bg-myGray-300
+                    hover:bg-myGray-900
                     rounded-full
                     cursor-pointer
                     transition-colors
@@ -262,7 +261,7 @@
                       </div>
                       <div class="
                     p-2
-                    hover:bg-myGray-300
+                    hover:bg-myGray-900
                     rounded-full
                     cursor-pointer
                     transition-colors
@@ -272,7 +271,7 @@
                       </div>
                       <div class="
                     p-2
-                    hover:bg-myGray-300
+                    hover:bg-myGray-900
                     rounded-full
                     cursor-pointer
                     transition-colors

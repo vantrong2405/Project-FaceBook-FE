@@ -18,51 +18,32 @@ export default {
 
 <template>
   <div class="flex items-center gap-1 sm:gap-2 justify-end px-4">
-    <div id="friends-box" class="
-        min-w-max
-        px-3
-        rounded-full
-        h-9
-        items-center
-        justify-center
-        bg-myGray-200
-        cursor-pointer
-        hover:bg-myGray-250
-        hidden
-        xl:flex
-        transition-colors
-        duration-300
-      ">
-      <span class="text-sm text-myGray-900 font-semibold">Find Friends</span>
-    </div>
+
     <div id="pp-info" class="
-        items-center
-        gap-1
-        rounded-full
-        hover:bg-myGray-200
-        cursor-pointer
-        py-1
-        px-2
-        hidden
-        xl:flex
-        transition-colors
-        duration-300
-      ">
-      <div id="pp" class="rounded-full overflow-hidden w-7">
-        <img src="../../assets/images/pp.jpg" alt="" />
-      </div>
-      <span class="text-sm font-semibold text-myGray-900">Elliot</span>
-    </div>
-    <div id="menu-box" class="
-        p-3
-        text-myGray-900
-        bg-myGray-200
+    p-2
         rounded-full
         flex
         items-center
         justify-center
         cursor-pointer
-        hover:bg-myGray-250
+        bg-myGray-900
+        hover:bg-myGray-700
+        transition-colors
+        duration-300
+      ">
+      <div id="pp" class="rounded-full overflow-hidden w-7">
+        <img src="../../assets/images/pp.jpg" alt="" width="100%" />
+      </div>
+    </div>
+    <div id="menu-box" class="
+        p-3
+        rounded-full
+        flex
+        items-center
+        justify-center
+        cursor-pointer
+        bg-myGray-900
+        hover:bg-myGray-700
         transition-colors
         duration-300
       ">
@@ -71,14 +52,13 @@ export default {
     </div>
     <div id="messenger-box" class="
         p-3
-        text-myGray-900
-        bg-myGray-200
         rounded-full
         flex
         items-center
         justify-center
         cursor-pointer
-        hover:bg-myGray-250
+        bg-myGray-900
+        hover:bg-myGray-700
         transition-colors
         duration-300
       ">
@@ -86,14 +66,13 @@ export default {
     </div>
     <div id="notifications-box" class="
         p-3
-        text-myGray-900
-        bg-myGray-200
         rounded-full
         flex
         items-center
         justify-center
         cursor-pointer
-        hover:bg-myGray-250
+        bg-myGray-900
+        hover:bg-myGray-700
         transition-colors
         duration-300
       ">
@@ -101,14 +80,13 @@ export default {
     </div>
     <div id="account-box" class="
         p-3
-        text-myGray-900
-        bg-myGray-200
         rounded-full
         flex
         items-center
         justify-center
         cursor-pointer
-        hover:bg-myGray-250
+        bg-myGray-900
+        hover:bg-myGray-700
         transition-colors
         duration-300
       ">
