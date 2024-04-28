@@ -1,4 +1,4 @@
-<script setup>
+<script>
 // SVG
 import svgHome from "../svg/svgHome.vue";
 import svgGroups from "../svg/svgGroups.vue";
@@ -6,6 +6,20 @@ import svgMore from "../svg/svgMore.vue";
 
 import SearchBar from "./SearchBar.vue";
 import RightMenu from "./RightMenu.vue";
+export default {
+  components: {
+    svgHome,
+    svgGroups,
+    svgMore,
+    SearchBar,
+    RightMenu,
+  },
+  data() {
+    return {
+
+    }
+  },
+}
 </script>
 
 <template>

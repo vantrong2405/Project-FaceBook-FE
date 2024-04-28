@@ -1,10 +1,19 @@
-<script setup>
+<script>
 // SVG
 import svgMenu from "../svg/svgMenu.vue";
 import svgMessenger from "../svg/svgMessenger.vue";
 import svgNotifications from "../svg/svgNotifications.vue";
 import svgAccount from "../svg/svgAccount.vue";
 import svgCreate from "../svg/svgCreate.vue";
+export default {
+  components: {
+    svgMenu,
+    svgMessenger,
+    svgNotifications,
+    svgAccount,
+    svgCreate,
+  }
+}
 </script>
 
 <template>

@@ -1,11 +1,21 @@
-<script setup>
-import { ref } from "vue";
+<script>
 
 import svgSearch from "../svg/svgSearch.vue";
 import svgFacebook from "../svg/svgFacebook.vue";
 import svgLeft from "../svg/svgLeft.vue";
 
-let isFocus = ref(false);
+export default {
+  components: {
+    svgSearch,
+    svgFacebook,
+    svgLeft,
+  },
+  data() {
+    return {
+      isFocus: false
+    }
+  },
+}
 </script>
 
 <template>

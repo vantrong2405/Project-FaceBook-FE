@@ -13,7 +13,6 @@
                 </div>
             </div>
             <!-- start -->
-
             <router-view></router-view>
             <!-- end -->
         </div>
