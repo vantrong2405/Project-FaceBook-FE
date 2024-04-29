@@ -1,6 +1,7 @@
 <template>
   <div class="flex-1">
     <div class="
+    bg-white
       h-auto
       desktop:w-180
       laptop:w-160
@@ -13,7 +14,7 @@
       font-semibold
       mobile-x:text-tiny mobile-x:p-8
     ">
-      <div class="flex flex-col gap-4 border-2 p-2">
+      <div class="flex flex-col gap-4 border-2 p-2 ">
         <div id="storie" class="rounded-lg">
           <div class="
           w-full

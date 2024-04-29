@@ -24,13 +24,14 @@ export default {
 
 <template>
   <div class="
+  shadow-lg
       w-full
       h-14
-      border-b border-myGray-250
       grid grid-cols-2
       md:grid-cols-3
       items-center
       z-50
+      bg-white
     ">
     <SearchBar class="z-20" />
     <div id="mid" class="
@@ -41,6 +42,7 @@ export default {
         gap-2
         hidden
         md:flex
+        
       ">
       <div id="svg-home-box" class="
       lg:w-40
