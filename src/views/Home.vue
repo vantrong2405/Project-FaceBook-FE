@@ -1,240 +1,397 @@
-<!-- eslint-disable vue/no-mutating-props -->
 <template>
-  <div class="grid grid-cols-3 px-2 py-1">
-    <div class="overflow-y-scroll h-dvh w-[70%]">
-      <RouterLink to="/">
-        <a href="#" class="flex items-center hover:bg-[#cccccc6f] hover:cursor-pointer p-1 rounded-md mt-3">
-          <div class=" w-[33px] h-[33px] overflow-hidden rounded-full mr-2">
-            <img
-              src="https://scontent.fdad3-4.fna.fbcdn.net/v/t39.30808-1/254126749_940952320167144_7907103038249429186_n.jpg?stp=c70.23.333.334a_cp0_dst-jpg_s60x60&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHXUz2Sx3oChvsA219ofZBsSpj3YYANOOhKmPdhgA046L-MfgL9m14N_rt9E955NZgxwpBK0Beb4mBMITamBHhh&_nc_ohc=p44wDGH_5w4Ab5VfH8e&_nc_ht=scontent.fdad3-4.fna&oh=00_AfDWMWJpsa3BH-OKSNXfz0NRcirkfVKgo8Jkhsiua-SFzw&oe=6626636E"
-              alt="" width="100%" />
-          </div>
-          <span class="font-medium text-[15px]">Văn Trọng</span>
-        </a>
-      </RouterLink>
-      <template v-for="(value, key) in displayedItemsTool" :key="key">
-        <RouterLink to="/">
-          <a href="#" class="flex items-center hover:bg-[#cccccc6f] hover:cursor-pointer p-1 rounded-md">
-            <div class="mr-2">
-              <i data-visualcompletion="css-url" v-bind:style="{
-                'background-image': 'url(\'' + value.url + '\')',
-                'background-position': '0px -304px',
-                'background-size': '38px 570px',
-                'width': '33px',
-                'height': '33px',
-                'background-repeat': 'no-repeat',
-                'display': 'inline-block'
-              }">
-              </i>
-
-
+  <div class="flex-1">
+    <div class="
+    bg-white
+      h-auto
+      desktop:w-180
+      laptop:w-160
+      lg:w-160
+      sm:w-140
+      w-full
+      sm:m-auto
+      p-1
+      text-xs 
+      font-semibold
+      mobile-x:text-tiny mobile-x:p-8
+    ">
+      <div class="flex flex-col gap-4 border-2 p-2 ">
+        <div id="storie" class="rounded-lg">
+          <div class="
+          w-full
+          h-18
+          rounded-lg
+          py-1
+          px-2
+          flex
+          items-center
+          gap-3
+          cursor-pointer
+          hover:bg-myGray-900
+          transition-colors
+          duration-300
+        ">
+            <div id="post-svg-plus" class="p-2.5 bg-face-blue-light rounded-full cursor-pointer">
+              <svg-create class="w-5 text-face-blue" />
             </div>
-            <span class="font-medium text-[15px] line-clamp-2">Video</span>
-          </a>
-        </RouterLink>
-      </template>
-
-      <RouterLink to="/">
-        <a href="#" class="flex items-center hover:bg-[#cccccc6f] hover:cursor-pointer p-2 rounded-md"
-          v-if="showALlItemsTool === false" @click="showALlItemsTool = true; displayedItemsTool;">
-          <div class="mr-2">
-            <div class="rounded-full py-1 px-2 bg-[#cccfd34f]">
-              <i class="fa-solid fa-angle-down fa-md"></i>
+            <div id="title" class="flex flex-col">
+              <span class="mobile-x:text-lg text-tiny">Create Story</span>
+              <span class="mobile-x:text-tiny text-xs text-myGray-600">Share a photo or write something.</span>
             </div>
-          </div>
-          <span class="font-medium text-[15px]">Xem
-            thêm</span>
-        </a>
-        <a href="#" class="flex items-center hover:bg-[#cccccc6f] hover:cursor-pointer p-2 rounded-md"
-          v-if="showALlItemsTool === true" @click="showALlItemsTool = false; displayedItemsTool">
-          <div class="mr-2">
-            <div class="rounded-full py-1 px-2 bg-[#cccfd34f]">
-              <i class="fa-solid fa-angle-up fa-md"></i>
-            </div>
-          </div>
-          <span class="font-medium text-[15px]">Ẩn
-            bớt</span>
-        </a>
-      </RouterLink>
-      <hr class="m-2">
-      <div class=" item-group">
-        <div class="m-2 flex justify-between items-center">
-          <div class="text-[17px] font-medium text-[#65676B]">Lối tắt của bạn</div>
-          <div class="text-[#0064D1] invisible cursor-pointer" data-modal-target="default-modal"
-            data-modal-toggle="default-modal">
-            Chỉnh sửa
           </div>
         </div>
-        <template v-for="(value, key) in displayedItemsGroup" :key="key">
-          <RouterLink to="/">
-            <a href="#" class="flex items-center hover:bg-[#cccccc6f] hover:cursor-pointer p-1 rounded-md">
-              <img src="http://localhost:5173/src/assets/images/daihocduytan.jpg" alt="" class="w-[33px] h-[33px] mr-2">
-              <span class="font-medium text-[15px] line-clamp-2">DTU - K27 - Sinh viên Đại học Duy Tân 2021
-                (Official)</span>
-            </a>
-          </RouterLink>
-        </template>
-        <RouterLink to="/">
-          <!-- txt -->
-          <a href="#" class="flex items-center hover:bg-[#cccccc6f] hover:cursor-pointer p-2 rounded-md"
-            v-if="showAllItemsGroup === false" @click="showAllItemsGroup = true; displayedItemsGroup">
-            <div class="mr-2">
-              <div class="rounded-full py-1 px-2 bg-[#cccfd34f]">
-                <i class="fa-solid fa-angle-down fa-md"></i>
-              </div>
+
+        <div id="new-post" class="h-32 p-2 rounded-lg flex flex-col justify-between">
+          <div id="new-post-top" class="p-1 flex gap-3 items-center">
+            <div class="_pp_ cursor-pointer">
+              <img src="../assets/images/pp.jpg" class="w-10 rounded-full" alt="" />
             </div>
-            <span class="font-medium text-[15px]">Xem
-              thêm</span>
-          </a>
-          <a href="#" class="flex items-center hover:bg-[#cccccc6f] hover:cursor-pointer p-2 rounded-md"
-            v-if="showAllItemsGroup === true" @click="showAllItemsGroup = false; displayedItemsGroup">
-            <div class="mr-2">
-              <div class="rounded-full py-1 px-2 bg-[#cccfd34f]">
-                <i class="fa-solid fa-angle-up fa-md"></i>
-              </div>
+            <input class="
+            cursor-pointer
+            w-full
+            h-10
+            rounded-full
+            outline-none
+            text-tiny
+            px-3
+            font-semibold
+            transition-colors
+            duration-300
+            mobile-x:text-base
+            focus:outline-none
+            focus:shadow-none
+            focus:ring-transparent
+          " type="text" name="" placeholder="What's on your mind, Elliot ?" />
+          </div>
+          <hr class="mx-2 " />
+          <div id="new-post-bottom" class="flex items-center justify-around px-2 ">
+            <div class="
+            w-full
+            h-10
+            flex
+            items-center
+            justify-center
+            gap-2
+            hover:bg-myGray-900
+            rounded-lg
+            cursor-pointer
+            transition-colors
+            duration-300
+          ">
+              <svg-live-video class="w-6 text-red-500" />
+              <span>Live Video</span>
             </div>
-            <span class="font-medium text-[15px]">Ẩn
-              bớt</span>
-          </a>
-        </RouterLink>
-        <div class="flex flex-wrap mb-2">
-          <router-link to="" class="mx-1">
-            <a href="" class="text-[13px] hover:underline hover:underline-offset-3">Quyền riêng tư</a>
-          </router-link>
-          <router-link to="" class="mx-1">
-            <a href="" class="text-[13px] hover:underline hover:underline-offset-3">Điều khoản</a>
-          </router-link>
-          <router-link to="" class="mx-1">
-            <a href="" class="text-[13px] hover:underline hover:underline-offset-3">Quảng cáo</a>
-          </router-link>
-          <router-link to="" class="mx-1">
-            <a href="" class="text-[13px] hover:underline hover:underline-offset-3">Lựa chọn</a>
-          </router-link>
-          <router-link to="" class="mx-1">
-            <a href="" class="text-[13px] hover:underline hover:underline-offset-3">Quảng cáo</a>
-          </router-link>
-          <router-link to="" class="mx-1">
-            <a href="" class="text-[13px] hover:underline hover:underline-offset-3">
-              <i data-visualcompletion="css-url" class="x1b0d499 x1d69dk1"
-                style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yu/r/URWFZWqtz7m.png?_nc_eui2=AeHJRKY6U27CN-ocGFiTpwav0cTZKKl7RSTRxNkoqXtFJHocBvH1Y8oGUkLwSe8oQzaBeWBV0eXdJ83XdYygsAtW&quot;); background-position: 0px -872px; background-size: 26px 984px; width: 12px; height: 12px; background-repeat: no-repeat; display: inline-block;"></i>
-            </a>
-          </router-link>
-          <router-link to="" class="mx-1">
-            <a href="" class="text-[13px] hover:underline hover:underline-offset-3">Cookie</a>
-          </router-link>
-          <router-link to="" class="mx-1">
-            <a href="" class="text-[13px] hover:underline hover:underline-offset-3">Xem thêm</a>
-          </router-link>
-          <router-link to="" class="mx-1">
-            <a href="" class="text-[13px] hover:underline hover:underline-offset-3">Meta © 2024</a>
-          </router-link>
+            <div class="
+            w-full
+            h-10
+            flex
+            items-center
+            justify-center
+            gap-2
+            hover:bg-myGray-900
+            rounded-lg
+            cursor-pointer
+            transition-colors
+            duration-300
+          ">
+              <svg-photo class="w-6 text-green-500" />
+              <span>Photo/video</span>
+            </div>
+            <div class="
+            w-full
+            h-10
+            items-center
+            justify-center
+            gap-2
+            hover:bg-myGray-900
+            rounded-lg
+            cursor-pointer
+            transition-colors
+            duration-300
+            hidden
+            mobile-x:flex
+          ">
+              <svg-smile class="w-6 text-yellow-400" />
+              <span>Feeling/activity</span>
+            </div>
+          </div>
         </div>
       </div>
+      <!-- start -->
+
+      <ul v-for="(user, index) in users" :key="index">
+        <li class="w-full my-4 rounded-lg transition-colors duration-300 border-2 py-2">
+          <div id="post-top" class="w-full flex items-center justify-between p-4">
+            <div id="post-top_left" class="flex items-center gap-4">
+              <div id="post-top_left_pp" class="
+            ring-2 ring-blue-500 ring-opacity-70
+            border-2 border-black
+            w-max
+            rounded-full
+            cursor-pointer
+          ">
+                <img :src="user.route" class="w-8 h-8 rounded-full" alt="" />
+              </div>
+              <div id="post-top_left_title">
+                <p class="hover:underline cursor-pointer">{{ user.name }}</p>
+                <p class="flex text-xs  mt-1 items-center">
+                  <span class="hover:underline cursor-pointer">3d</span>
+                  <span class="mx-1">·</span>
+                  <svg-world class="w-3" />
+                </p>
+              </div>
+            </div>
+            <div id="post-top_right" class="
+          p-2
+          rounded-full
+          hover:bg-myGray-900
+          cursor-pointer
+          transition-colors
+          duration-300
+        ">
+              <svg-dots class="w-4" />
+            </div>
+          </div>
+          <div id="post-middle">
+            <p class="px-3 font-normal leading-5 text-sm">
+              {{ user.post.title }}
+            </p>
+            <img :src="user.post.pictures" class="w-full my-2" alt="" />
+          </div>
+          <div id="post-bottom" class="px-4 py-2 text-sm font-normal">
+            <div id="post-bottom_info" class="flex items-center justify-between">
+              <div id="info_left" class="flex gap-2 cursor-pointer">
+                <svg-like class="w-5" />
+                <span class="hover:underline"> {{ user.post.like }} </span>
+              </div>
+              <div id="info_right">
+                <span class="hover:underline cursor-pointer">1 Comment</span>
+              </div>
+            </div>
+            <div id="post-bottom_buttons" class="
+          font-normal
+          text-sm
+          sm:text-tiny
+          flex
+          items-center
+          my-2
+          border-b border-t border-myGray-900
+        ">
+              <div class="
+            flex
+            gap-2
+            w-full
+            items-center
+            justify-center
+            p-2
+            hover:bg-myGray-900
+            cursor-pointer
+            rounded-lg
+            my-1
+            transition-colors
+            duration-300
+          ">
+                <svg-like2 class="w-5" />
+                <span>Like</span>
+              </div>
+              <div class="
+            flex
+            gap-2
+            w-full
+            items-center
+            justify-center
+            p-2
+            hover:bg-myGray-900
+            cursor-pointer
+            rounded-lg
+            my-1
+            transition-colors
+            duration-300
+          ">
+                <svg-comment class="w-5" />
+                <span>Comment</span>
+              </div>
+            </div>
+            <div id="post-bottom-comments ">
+              <div id="other" class="flex gap-2 my-4 ">
+                <div id="other_pp">
+                  <img :src="user.post.comment.route" class="w-9 h-9 rounded-full cursor-pointer" alt="" />
+                </div>
+                <div id="other_comment" class="w-full rounded-lg pb-2">
+                  <div class="py-2 px-3 rounded-2xl bg-myGray-900 ">
+                    <div id="commnet-name" class="cursor-pointer hover:underline font-bold text-xs">
+                      {{ user.post.comment.name }}
+                    </div>
+                    <div id="comment-title">
+                      {{ user.post.comment.text }}
+                    </div>
+                  </div>
+                  <div class="px-3 text-xs mt-1">
+                    <span class="cursor-pointer hover:underline">Like</span> ·
+                    <span class="cursor-pointer hover:underline">Reply</span> ·
+                    <span class="cursor-pointer hover:underline">Share</span> ·
+                    <span class="cursor-pointer hover:underline">2d</span>
+                  </div>
+                </div>
+              </div>
+              <div id="me" class="flex w-full gap-2">
+                <img src="../assets/images/pp.jpg" class="w-9 h-9 rounded-full cursor-pointer" alt="" />
+                <div class="flex w-full flex-col">
+                  <div id="me_comment" class="flex w-full outline-none focus:outline-none ring-transparent rounded-2xl">
+                    <input
+                      class="w-full bg-transparent px-3 outline-none focus:outline-none  focus:ring-transparent focus:border-black"
+                      type="text" placeholder="Write a public comment..." />
+                    <div id="me_comment_buttons" class="flex items-center">
+                      <div class="
+                    p-2
+                    rounded-full
+                    cursor-pointer
+                    transition-colors
+                    duration-300
+                  ">
+                        <svg-smile class="w-4 text-myGray-600" />
+                      </div>
+                      <div class="
+                    p-2
+                    hover:bg-myGray-900
+                    rounded-full
+                    cursor-pointer
+                    transition-colors
+                    duration-300
+                  ">
+                        <svg-live-video class="w-4 text-myGray-600" />
+                      </div>
+                      <div class="
+                    p-2
+                    hover:bg-myGray-900
+                    rounded-full
+                    cursor-pointer
+                    transition-colors
+                    duration-300
+                  ">
+                        <svg-menu class="w-4 text-myGray-600" />
+                      </div>
+                      <div class="
+                    p-2
+                    hover:bg-myGray-900
+                    rounded-full
+                    cursor-pointer
+                    transition-colors
+                    duration-300
+                  ">
+                        <svg-photo class="w-4 text-myGray-600" />
+                      </div>
+                    </div>
+                  </div>
+                  <span class="text-xs">Press Enter the post</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <!-- end -->
     </div>
-    <div></div>
-    <div></div>
   </div>
-  <!-- Modal toggle -->
-
-
-  <!-- Main modal -->
-  <div id="default-modal" tabindex="-1" aria-hidden="true"
-    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-    <div class="relative p-4 w-full max-w-2xl max-h-full">
-      <!-- Modal content -->
-      <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-        <!-- Modal header -->
-        <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-          <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-            Chỉnh sửa lối tắt
-          </h3>
-          <button type="button"
-            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-            data-modal-hide="default-modal">
-            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-            </svg>
-            <span class="sr-only">Close modal</span>
-          </button>
-        </div>
-        <!-- Modal body -->
-        <div class="p-4 md:p-5 space-y-4">
-          <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-            Với lối tắt, bạn có thể nhanh chóng truy cập vào những việc mình hay làm nhất trên Facebook. Tuy lối tắt
-            được
-            sắp xếp tự động nhưng bạn có thể ghim nội dung nào đó để luôn thấy ở đầu hoặc ẩn khỏi danh sách.
-          </p>
-
-        </div>
-        <!-- Modal footer -->
-        <div class="flex items-center justify-end p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
-          <button data-modal-hide="default-modal" type="button"
-            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">I
-            accept</button>
-          <button data-modal-hide="default-modal" type="button"
-            class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Decline</button>
-        </div>
-      </div>
+  <div class="relative w-80 hidden lg:block">
+    <div class="absolute">
+      <RightBar class="fixed" />
     </div>
   </div>
 </template>
 <script>
-
+import RightBar from "../components/RightBar/index.vue";
+import svgCreate from "../components/svg/svgCreate.vue";
+import svgLiveVideo from "../components/svg/svgLiveVideo.vue";
+import svgPhoto from "../components/svg/svgPhoto.vue";
+import svgSmile from "../components/svg/svgSmile.vue";
+// item
+import svgDots from "../components/svg/svgDots.vue";
+import svgWorld from "../components/svg/svgWorld.vue";
+import svgLike from "../components/svg/svgLike.vue";
+import svgLike2 from "../components/svg/svgLike2.vue";
+import svgComment from "../components/svg/svgComment.vue";
+import svgMenu from "../components/svg/svgMenu.vue";
 export default {
-  mounted() {
+  components: {
+    RightBar,
+    svgCreate,
+    svgLiveVideo,
+    svgPhoto,
+    svgSmile,
+    svgDots,
+    svgWorld,
+    svgLike,
+    svgLike2,
+    svgComment,
+    svgMenu,
   },
   data() {
     return {
-      itemsTool: [
-        { id: 1, url: 'https://static.xx.fbcdn.net/rsrc.php/v3/y6/r/MXx87JcFKzH.png?_nc_eui2=AeFqXC4dShOxxeeIAbs7EmtfpjWidniF_5qmNaJ2eIX_mmWG2FNfPPdAq3ZEx7lEaOKZMgcGqjVyQf1BxciYsc_I', description: 'video' },
-        { id: 2, url: 'https://static.xx.fbcdn.net/rsrc.php/v3/y6/r/MXx87JcFKzH.png?_nc_eui2=AeFqXC4dShOxxeeIAbs7EmtfpjWidniF_5qmNaJ2eIX_mmWG2FNfPPdAq3ZEx7lEaOKZMgcGqjVyQf1BxciYsc_I', description: 'video' },
-        { id: 3, url: 'https://static.xx.fbcdn.net/rsrc.php/v3/y6/r/MXx87JcFKzH.png?_nc_eui2=AeFqXC4dShOxxeeIAbs7EmtfpjWidniF_5qmNaJ2eIX_mmWG2FNfPPdAq3ZEx7lEaOKZMgcGqjVyQf1BxciYsc_I', description: 'video' },
-        { id: 4, url: 'https://static.xx.fbcdn.net/rsrc.php/v3/y6/r/MXx87JcFKzH.png?_nc_eui2=AeFqXC4dShOxxeeIAbs7EmtfpjWidniF_5qmNaJ2eIX_mmWG2FNfPPdAq3ZEx7lEaOKZMgcGqjVyQf1BxciYsc_I', description: 'video' },
-        { id: 5, url: 'https://static.xx.fbcdn.net/rsrc.php/v3/y6/r/MXx87JcFKzH.png?_nc_eui2=AeFqXC4dShOxxeeIAbs7EmtfpjWidniF_5qmNaJ2eIX_mmWG2FNfPPdAq3ZEx7lEaOKZMgcGqjVyQf1BxciYsc_I', description: 'video' },
-        { id: 7, url: 'https://static.xx.fbcdn.net/rsrc.php/v3/y6/r/MXx87JcFKzH.png?_nc_eui2=AeFqXC4dShOxxeeIAbs7EmtfpjWidniF_5qmNaJ2eIX_mmWG2FNfPPdAq3ZEx7lEaOKZMgcGqjVyQf1BxciYsc_I', description: 'video' },
-        { id: 8, url: 'https://static.xx.fbcdn.net/rsrc.php/v3/y6/r/MXx87JcFKzH.png?_nc_eui2=AeFqXC4dShOxxeeIAbs7EmtfpjWidniF_5qmNaJ2eIX_mmWG2FNfPPdAq3ZEx7lEaOKZMgcGqjVyQf1BxciYsc_I', description: 'video' },
-        { id: 9, url: 'https://static.xx.fbcdn.net/rsrc.php/v3/y6/r/MXx87JcFKzH.png?_nc_eui2=AeFqXC4dShOxxeeIAbs7EmtfpjWidniF_5qmNaJ2eIX_mmWG2FNfPPdAq3ZEx7lEaOKZMgcGqjVyQf1BxciYsc_I', description: 'video' },
-        { id: 10, url: 'https://static.xx.fbcdn.net/rsrc.php/v3/y6/r/MXx87JcFKzH.png?_nc_eui2=AeFqXC4dShOxxeeIAbs7EmtfpjWidniF_5qmNaJ2eIX_mmWG2FNfPPdAq3ZEx7lEaOKZMgcGqjVyQf1BxciYsc_I', description: 'video' },
-        { id: 11, url: 'https://static.xx.fbcdn.net/rsrc.php/v3/y6/r/MXx87JcFKzH.png?_nc_eui2=AeFqXC4dShOxxeeIAbs7EmtfpjWidniF_5qmNaJ2eIX_mmWG2FNfPPdAq3ZEx7lEaOKZMgcGqjVyQf1BxciYsc_I', description: 'video' },
-        { id: 12, url: 'https://static.xx.fbcdn.net/rsrc.php/v3/y6/r/MXx87JcFKzH.png?_nc_eui2=AeFqXC4dShOxxeeIAbs7EmtfpjWidniF_5qmNaJ2eIX_mmWG2FNfPPdAq3ZEx7lEaOKZMgcGqjVyQf1BxciYsc_I', description: 'video' },
-        { id: 13, url: 'https://static.xx.fbcdn.net/rsrc.php/v3/y6/r/MXx87JcFKzH.png?_nc_eui2=AeFqXC4dShOxxeeIAbs7EmtfpjWidniF_5qmNaJ2eIX_mmWG2FNfPPdAq3ZEx7lEaOKZMgcGqjVyQf1BxciYsc_I', description: 'video' },
-        { id: 14, url: 'https://static.xx.fbcdn.net/rsrc.php/v3/y6/r/MXx87JcFKzH.png?_nc_eui2=AeFqXC4dShOxxeeIAbs7EmtfpjWidniF_5qmNaJ2eIX_mmWG2FNfPPdAq3ZEx7lEaOKZMgcGqjVyQf1BxciYsc_I', description: 'video' },
-        { id: 15, url: 'https://static.xx.fbcdn.net/rsrc.php/v3/y6/r/MXx87JcFKzH.png?_nc_eui2=AeFqXC4dShOxxeeIAbs7EmtfpjWidniF_5qmNaJ2eIX_mmWG2FNfPPdAq3ZEx7lEaOKZMgcGqjVyQf1BxciYsc_I', description: 'video' },
-        { id: 16, url: 'https://static.xx.fbcdn.net/rsrc.php/v3/y6/r/MXx87JcFKzH.png?_nc_eui2=AeFqXC4dShOxxeeIAbs7EmtfpjWidniF_5qmNaJ2eIX_mmWG2FNfPPdAq3ZEx7lEaOKZMgcGqjVyQf1BxciYsc_I', description: 'video' },
+      users: [
+        {
+          name: "Angela Moss",
+          route: "src/assets/images/angela-pp.jpg",
+          post: {
+            title:
+              "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae inventore assumenda nulla temporibus ea ",
+            pictures: "https://picsum.photos/300/",
+            like: "128",
+            comment: {
+              name: "Tyrell Wellick",
+              route: "src/assets/images/tyrell-pp.jpg",
+              text: "Lorem ipsum dolor.",
+            },
+          },
+        },
+        {
+          name: "Tyrell Wellick",
+          route: "src/assets/images/tyrell-pp.jpg",
+          post: {
+            title:
+              "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae inventore assumenda nulla temporibus ea tempore nihil praesentium necessitatibus vel quia!",
+            pictures: "https://picsum.photos/200",
+            like: "63",
+            comment: {
+              name: "Angela Moss",
+              route: "src/assets/images/angela-pp.jpg",
+              text: "Lorem ipsum dolor sit amet consectetur.",
+            },
+          },
+        },
+        {
+          name: "Darlene Alderson",
+          route: "src/assets/images/darlene-pp.jpg",
+          post: {
+            title:
+              "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae inventore assumenda nulla temporibus ea tempore nihil praesentium necessitatibus vel quia!",
+            pictures: "https://picsum.photos/250",
+            like: "99",
+            comment: {
+              name: "DiPierro",
+              route: "src/assets/images/dominique-pp.jpg",
+              text: "Lorem ipsum dolor sit amet.",
+            },
+          },
+        },
+        {
+          name: "Dominique DiPierro",
+          route: "src/assets/images/dominique-pp.jpg",
+          post: {
+            title:
+              "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae inventore assumenda nulla temporibus ea tempore nihil praesentium necessitatibus vel quia!",
+            pictures: "https://picsum.photos/350",
+            like: "135",
+            comment: {
+              name: "Darlene Alderson",
+              route: "src/assets/images/darlene-pp.jpg",
+              text: "Lorem ipsum.",
+            },
+          },
+        },
       ],
-      itemsGroup: [
-        { id: 1, url: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
-        { id: 2, url: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
-        { id: 3, url: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
-        { id: 4, url: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
-        { id: 5, url: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
-        { id: 6, url: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
-        { id: 7, url: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
-        { id: 8, url: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
-        { id: 9, url: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
-        { id: 11, url: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
-        { id: 12, url: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
-        { id: 13, url: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
-        { id: 14, url: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
-        { id: 15, url: 'http://localhost:5173/src/assets/images/daihocduytan.jpg', description: 'DTU - K27 - Sinh viên Đại học Duy Tân 2021 (Official)' },
-      ],
-      showAllItemsGroup: false,
-      showALlItemsTool: false
     }
   },
-  computed: {
-    displayedItemsTool() {
-      return this.showALlItemsTool ? this.itemsTool : this.itemsTool.slice(0, 10);
-    },
-    displayedItemsGroup() {
-      return this.showAllItemsGroup ? this.itemsGroup : this.itemsGroup.slice(0, 10);
-    },
-  },
-  methods: {
-
-  },
-
 }
 </script>
 <style></style>
