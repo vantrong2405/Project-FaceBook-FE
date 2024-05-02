@@ -1,9 +1,5 @@
 <template>
-  <svg
-    fill="currentColor"
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 16 16"
-  >
+  <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
     <g fill-rule="evenodd" transform="translate(-448 -544)">
       <path
         fill-rule="nonzero"
