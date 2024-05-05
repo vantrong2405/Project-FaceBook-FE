@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-1" v-if="leftBarMove == 0">
+  <div class="flex-1">
     <div class="bg-white h-auto desktop:w-180 la
       ptop:w-160 lg:w-160 sm:w-140 w-full sm:m-auto p-1 text-xs font-semibold mobile-x:text-tiny mobile-x:p-8">
       <div class="flex flex-col gap-4 border-2 p-2">
@@ -153,15 +153,6 @@
       <!-- end -->
     </div>
   </div>
-  <div class="flex-1" v-if="leftBarMove == 1">
-    <div class="bg-white h-auto desktop:w-180 la
-      ptop:w-160 lg:w-160 sm:w-140 w-full sm:m-auto p-1 text-xs font-semibold mobile-x:text-tiny mobile-x:p-8">
-      <div class="h-[1000px]">
-
-      </div>
-    </div>
-  </div>
-
   <div class="relative w-80 hidden lg:block">
     <div class="absolute">
       <RightBar class="fixed" />
@@ -182,12 +173,6 @@ import svgLike2 from '../components/svg/svgLike2.vue'
 import svgComment from '../components/svg/svgComment.vue'
 import svgMenu from '../components/svg/svgMenu.vue'
 export default {
-  props: {
-    leftBarMove: {
-      type: Number,
-      default: 0
-    }
-  },
   components: {
     RightBar,
     svgCreate,

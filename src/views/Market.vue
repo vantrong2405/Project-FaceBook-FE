@@ -1,5 +1,5 @@
 <template>
-  <div>Đây là trang market</div>
+  <div>Page market</div>
 </template>
 <script>
 export default {}

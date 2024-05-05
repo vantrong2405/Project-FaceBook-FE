@@ -13,7 +13,7 @@
         </div>
       </div>
       <!-- start -->
-      <router-view :leftBarMove="leftBarMove"></router-view>
+      <router-view></router-view>
       <!-- end -->
     </div>
     <div
@@ -66,7 +66,7 @@ export default {
     },
     handleChangeleftBarMoveEvent(data) {
       this.leftBarMove = data
-      // console.log(this.leftBarMove);
+      console.log(this.leftBarMove);
     }
   }
 }

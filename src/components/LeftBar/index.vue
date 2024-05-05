@@ -108,6 +108,120 @@
           <span class="font-semibold text-tiny">Video đã lưu</span>
         </li>
       </ul>
+      <ul v-if="leftBarMove == 2">
+        <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+          <img
+            src="https://scontent.fsgn5-2.fna.fbcdn.net/v/t39.30808-1/254126749_940952320167144_7907103038249429186_n.jpg?stp=c37.12.175.176a_dst-jpg_p200x200&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHXUz2Sx3oChvsA219ofZBsSpj3YYANOOhKmPdhgA046L-MfgL9m14N_rt9E955NZgxwpBK0Beb4mBMITamBHhh&_nc_ohc=2g5-IkMyFt8Q7kNvgEX4RNi&_nc_ht=scontent.fsgn5-2.fna&oh=00_AfAjGioHm234i1D8nSvSrEkT_ed-oMss55bcSgO_G_fBuQ&oe=66351C2E"
+            class="rounded-full w-9" alt="" />
+          <span class="font-semibold text-tiny">Trang chủ</span>
+        </li>
+        <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+          <img
+            src="https://scontent.fsgn5-2.fna.fbcdn.net/v/t39.30808-1/254126749_940952320167144_7907103038249429186_n.jpg?stp=c37.12.175.176a_dst-jpg_p200x200&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHXUz2Sx3oChvsA219ofZBsSpj3YYANOOhKmPdhgA046L-MfgL9m14N_rt9E955NZgxwpBK0Beb4mBMITamBHhh&_nc_ohc=2g5-IkMyFt8Q7kNvgEX4RNi&_nc_ht=scontent.fsgn5-2.fna&oh=00_AfAjGioHm234i1D8nSvSrEkT_ed-oMss55bcSgO_G_fBuQ&oe=66351C2E"
+            class="rounded-full w-9" alt="" />
+          <span class="font-semibold text-tiny">Trực tiếp</span>
+        </li>
+        <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+          <img
+            src="https://scontent.fsgn5-2.fna.fbcdn.net/v/t39.30808-1/254126749_940952320167144_7907103038249429186_n.jpg?stp=c37.12.175.176a_dst-jpg_p200x200&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHXUz2Sx3oChvsA219ofZBsSpj3YYANOOhKmPdhgA046L-MfgL9m14N_rt9E955NZgxwpBK0Beb4mBMITamBHhh&_nc_ohc=2g5-IkMyFt8Q7kNvgEX4RNi&_nc_ht=scontent.fsgn5-2.fna&oh=00_AfAjGioHm234i1D8nSvSrEkT_ed-oMss55bcSgO_G_fBuQ&oe=66351C2E"
+            class="rounded-full w-9" alt="" />
+          <span class="font-semibold text-tiny">Reels</span>
+        </li>
+        <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+          <img
+            src="https://scontent.fsgn5-2.fna.fbcdn.net/v/t39.30808-1/254126749_940952320167144_7907103038249429186_n.jpg?stp=c37.12.175.176a_dst-jpg_p200x200&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHXUz2Sx3oChvsA219ofZBsSpj3YYANOOhKmPdhgA046L-MfgL9m14N_rt9E955NZgxwpBK0Beb4mBMITamBHhh&_nc_ohc=2g5-IkMyFt8Q7kNvgEX4RNi&_nc_ht=scontent.fsgn5-2.fna&oh=00_AfAjGioHm234i1D8nSvSrEkT_ed-oMss55bcSgO_G_fBuQ&oe=66351C2E"
+            class="rounded-full w-9" alt="" />
+          <span class="font-semibold text-tiny">Chương trình</span>
+        </li>
+        <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+          <img
+            src="https://scontent.fsgn5-2.fna.fbcdn.net/v/t39.30808-1/254126749_940952320167144_7907103038249429186_n.jpg?stp=c37.12.175.176a_dst-jpg_p200x200&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHXUz2Sx3oChvsA219ofZBsSpj3YYANOOhKmPdhgA046L-MfgL9m14N_rt9E955NZgxwpBK0Beb4mBMITamBHhh&_nc_ohc=2g5-IkMyFt8Q7kNvgEX4RNi&_nc_ht=scontent.fsgn5-2.fna&oh=00_AfAjGioHm234i1D8nSvSrEkT_ed-oMss55bcSgO_G_fBuQ&oe=66351C2E"
+            class="rounded-full w-9" alt="" />
+          <span class="font-semibold text-tiny">Khám phá</span>
+        </li>
+        <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+          <img
+            src="https://scontent.fsgn5-2.fna.fbcdn.net/v/t39.30808-1/254126749_940952320167144_7907103038249429186_n.jpg?stp=c37.12.175.176a_dst-jpg_p200x200&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHXUz2Sx3oChvsA219ofZBsSpj3YYANOOhKmPdhgA046L-MfgL9m14N_rt9E955NZgxwpBK0Beb4mBMITamBHhh&_nc_ohc=2g5-IkMyFt8Q7kNvgEX4RNi&_nc_ht=scontent.fsgn5-2.fna&oh=00_AfAjGioHm234i1D8nSvSrEkT_ed-oMss55bcSgO_G_fBuQ&oe=66351C2E"
+            class="rounded-full w-9" alt="" />
+          <span class="font-semibold text-tiny">Video đã lưu</span>
+        </li>
+      </ul>
+      <ul v-if="leftBarMove == 3">
+        <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+          <img
+            src="https://scontent.fsgn5-2.fna.fbcdn.net/v/t39.30808-1/254126749_940952320167144_7907103038249429186_n.jpg?stp=c37.12.175.176a_dst-jpg_p200x200&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHXUz2Sx3oChvsA219ofZBsSpj3YYANOOhKmPdhgA046L-MfgL9m14N_rt9E955NZgxwpBK0Beb4mBMITamBHhh&_nc_ohc=2g5-IkMyFt8Q7kNvgEX4RNi&_nc_ht=scontent.fsgn5-2.fna&oh=00_AfAjGioHm234i1D8nSvSrEkT_ed-oMss55bcSgO_G_fBuQ&oe=66351C2E"
+            class="rounded-full w-9" alt="" />
+          <span class="font-semibold text-tiny">Trang chủ</span>
+        </li>
+        <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+          <img
+            src="https://scontent.fsgn5-2.fna.fbcdn.net/v/t39.30808-1/254126749_940952320167144_7907103038249429186_n.jpg?stp=c37.12.175.176a_dst-jpg_p200x200&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHXUz2Sx3oChvsA219ofZBsSpj3YYANOOhKmPdhgA046L-MfgL9m14N_rt9E955NZgxwpBK0Beb4mBMITamBHhh&_nc_ohc=2g5-IkMyFt8Q7kNvgEX4RNi&_nc_ht=scontent.fsgn5-2.fna&oh=00_AfAjGioHm234i1D8nSvSrEkT_ed-oMss55bcSgO_G_fBuQ&oe=66351C2E"
+            class="rounded-full w-9" alt="" />
+          <span class="font-semibold text-tiny">Trực tiếp</span>
+        </li>
+        <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+          <img
+            src="https://scontent.fsgn5-2.fna.fbcdn.net/v/t39.30808-1/254126749_940952320167144_7907103038249429186_n.jpg?stp=c37.12.175.176a_dst-jpg_p200x200&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHXUz2Sx3oChvsA219ofZBsSpj3YYANOOhKmPdhgA046L-MfgL9m14N_rt9E955NZgxwpBK0Beb4mBMITamBHhh&_nc_ohc=2g5-IkMyFt8Q7kNvgEX4RNi&_nc_ht=scontent.fsgn5-2.fna&oh=00_AfAjGioHm234i1D8nSvSrEkT_ed-oMss55bcSgO_G_fBuQ&oe=66351C2E"
+            class="rounded-full w-9" alt="" />
+          <span class="font-semibold text-tiny">Reels</span>
+        </li>
+        <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+          <img
+            src="https://scontent.fsgn5-2.fna.fbcdn.net/v/t39.30808-1/254126749_940952320167144_7907103038249429186_n.jpg?stp=c37.12.175.176a_dst-jpg_p200x200&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHXUz2Sx3oChvsA219ofZBsSpj3YYANOOhKmPdhgA046L-MfgL9m14N_rt9E955NZgxwpBK0Beb4mBMITamBHhh&_nc_ohc=2g5-IkMyFt8Q7kNvgEX4RNi&_nc_ht=scontent.fsgn5-2.fna&oh=00_AfAjGioHm234i1D8nSvSrEkT_ed-oMss55bcSgO_G_fBuQ&oe=66351C2E"
+            class="rounded-full w-9" alt="" />
+          <span class="font-semibold text-tiny">Chương trình</span>
+        </li>
+        <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+          <img
+            src="https://scontent.fsgn5-2.fna.fbcdn.net/v/t39.30808-1/254126749_940952320167144_7907103038249429186_n.jpg?stp=c37.12.175.176a_dst-jpg_p200x200&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHXUz2Sx3oChvsA219ofZBsSpj3YYANOOhKmPdhgA046L-MfgL9m14N_rt9E955NZgxwpBK0Beb4mBMITamBHhh&_nc_ohc=2g5-IkMyFt8Q7kNvgEX4RNi&_nc_ht=scontent.fsgn5-2.fna&oh=00_AfAjGioHm234i1D8nSvSrEkT_ed-oMss55bcSgO_G_fBuQ&oe=66351C2E"
+            class="rounded-full w-9" alt="" />
+          <span class="font-semibold text-tiny">Khám phá</span>
+        </li>
+        <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+          <img
+            src="https://scontent.fsgn5-2.fna.fbcdn.net/v/t39.30808-1/254126749_940952320167144_7907103038249429186_n.jpg?stp=c37.12.175.176a_dst-jpg_p200x200&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHXUz2Sx3oChvsA219ofZBsSpj3YYANOOhKmPdhgA046L-MfgL9m14N_rt9E955NZgxwpBK0Beb4mBMITamBHhh&_nc_ohc=2g5-IkMyFt8Q7kNvgEX4RNi&_nc_ht=scontent.fsgn5-2.fna&oh=00_AfAjGioHm234i1D8nSvSrEkT_ed-oMss55bcSgO_G_fBuQ&oe=66351C2E"
+            class="rounded-full w-9" alt="" />
+          <span class="font-semibold text-tiny">Video đã lưu</span>
+        </li>
+      </ul>
+      <ul v-if="leftBarMove == 4">
+        <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+          <img
+            src="https://scontent.fsgn5-2.fna.fbcdn.net/v/t39.30808-1/254126749_940952320167144_7907103038249429186_n.jpg?stp=c37.12.175.176a_dst-jpg_p200x200&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHXUz2Sx3oChvsA219ofZBsSpj3YYANOOhKmPdhgA046L-MfgL9m14N_rt9E955NZgxwpBK0Beb4mBMITamBHhh&_nc_ohc=2g5-IkMyFt8Q7kNvgEX4RNi&_nc_ht=scontent.fsgn5-2.fna&oh=00_AfAjGioHm234i1D8nSvSrEkT_ed-oMss55bcSgO_G_fBuQ&oe=66351C2E"
+            class="rounded-full w-9" alt="" />
+          <span class="font-semibold text-tiny">Trang chủ</span>
+        </li>
+        <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+          <img
+            src="https://scontent.fsgn5-2.fna.fbcdn.net/v/t39.30808-1/254126749_940952320167144_7907103038249429186_n.jpg?stp=c37.12.175.176a_dst-jpg_p200x200&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHXUz2Sx3oChvsA219ofZBsSpj3YYANOOhKmPdhgA046L-MfgL9m14N_rt9E955NZgxwpBK0Beb4mBMITamBHhh&_nc_ohc=2g5-IkMyFt8Q7kNvgEX4RNi&_nc_ht=scontent.fsgn5-2.fna&oh=00_AfAjGioHm234i1D8nSvSrEkT_ed-oMss55bcSgO_G_fBuQ&oe=66351C2E"
+            class="rounded-full w-9" alt="" />
+          <span class="font-semibold text-tiny">Trực tiếp</span>
+        </li>
+        <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+          <img
+            src="https://scontent.fsgn5-2.fna.fbcdn.net/v/t39.30808-1/254126749_940952320167144_7907103038249429186_n.jpg?stp=c37.12.175.176a_dst-jpg_p200x200&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHXUz2Sx3oChvsA219ofZBsSpj3YYANOOhKmPdhgA046L-MfgL9m14N_rt9E955NZgxwpBK0Beb4mBMITamBHhh&_nc_ohc=2g5-IkMyFt8Q7kNvgEX4RNi&_nc_ht=scontent.fsgn5-2.fna&oh=00_AfAjGioHm234i1D8nSvSrEkT_ed-oMss55bcSgO_G_fBuQ&oe=66351C2E"
+            class="rounded-full w-9" alt="" />
+          <span class="font-semibold text-tiny">Reels</span>
+        </li>
+        <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+          <img
+            src="https://scontent.fsgn5-2.fna.fbcdn.net/v/t39.30808-1/254126749_940952320167144_7907103038249429186_n.jpg?stp=c37.12.175.176a_dst-jpg_p200x200&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHXUz2Sx3oChvsA219ofZBsSpj3YYANOOhKmPdhgA046L-MfgL9m14N_rt9E955NZgxwpBK0Beb4mBMITamBHhh&_nc_ohc=2g5-IkMyFt8Q7kNvgEX4RNi&_nc_ht=scontent.fsgn5-2.fna&oh=00_AfAjGioHm234i1D8nSvSrEkT_ed-oMss55bcSgO_G_fBuQ&oe=66351C2E"
+            class="rounded-full w-9" alt="" />
+          <span class="font-semibold text-tiny">Chương trình</span>
+        </li>
+        <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+          <img
+            src="https://scontent.fsgn5-2.fna.fbcdn.net/v/t39.30808-1/254126749_940952320167144_7907103038249429186_n.jpg?stp=c37.12.175.176a_dst-jpg_p200x200&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHXUz2Sx3oChvsA219ofZBsSpj3YYANOOhKmPdhgA046L-MfgL9m14N_rt9E955NZgxwpBK0Beb4mBMITamBHhh&_nc_ohc=2g5-IkMyFt8Q7kNvgEX4RNi&_nc_ht=scontent.fsgn5-2.fna&oh=00_AfAjGioHm234i1D8nSvSrEkT_ed-oMss55bcSgO_G_fBuQ&oe=66351C2E"
+            class="rounded-full w-9" alt="" />
+          <span class="font-semibold text-tiny">Khám phá</span>
+        </li>
+        <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+          <img
+            src="https://scontent.fsgn5-2.fna.fbcdn.net/v/t39.30808-1/254126749_940952320167144_7907103038249429186_n.jpg?stp=c37.12.175.176a_dst-jpg_p200x200&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHXUz2Sx3oChvsA219ofZBsSpj3YYANOOhKmPdhgA046L-MfgL9m14N_rt9E955NZgxwpBK0Beb4mBMITamBHhh&_nc_ohc=2g5-IkMyFt8Q7kNvgEX4RNi&_nc_ht=scontent.fsgn5-2.fna&oh=00_AfAjGioHm234i1D8nSvSrEkT_ed-oMss55bcSgO_G_fBuQ&oe=66351C2E"
+            class="rounded-full w-9" alt="" />
+          <span class="font-semibold text-tiny">Video đã lưu</span>
+        </li>
+      </ul>
       <!-- end -->
 
     </div>
