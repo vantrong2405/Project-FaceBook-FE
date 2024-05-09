@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "scripts": {  
+  "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
@@ -11,6 +11,8 @@
     "format": "prettier --write \"src/**/*.{js,vue,css}\""
   },
   "dependencies": {
+    "lucide-vue-next": "^0.378.0",
+    "swiper": "^11.1.1",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   },

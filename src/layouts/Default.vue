@@ -13,7 +13,9 @@
         </div>
       </div>
       <!-- start -->
-      <router-view></router-view>
+      <div>
+        <router-view></router-view>
+      </div>
       <!-- end -->
     </div>
     <div

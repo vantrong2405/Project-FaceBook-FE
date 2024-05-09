@@ -155,7 +155,7 @@
   </div>
   <div class="relative w-80 hidden lg:block">
     <div class="absolute">
-      <RightBar class="fixed" />
+      <RightBar class="fixed left-0 nnnn" />
     </div>
   </div>
 </template>

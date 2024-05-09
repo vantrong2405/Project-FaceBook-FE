@@ -64,3 +64,10 @@
 #pp:hover .image-avatar {
   display: block;
 }
+
+
+/* swipper */
+
+.swiper-wrapper {
+  display: block;
+}
