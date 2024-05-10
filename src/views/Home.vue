@@ -153,9 +153,9 @@
       <!-- end -->
     </div>
   </div>
-  <div class="relative w-80 hidden lg:block">
+  <div class=" w-80 hidden lg:block">
     <div class="absolute">
-      <RightBar class="fixed left-0 nnnn" />
+      <RightBar class="fixed top-0 right-0" />
     </div>
   </div>
 </template>
