@@ -5,6 +5,7 @@ import Market from '../views/Market.vue'
 import Login from '../views/Login.vue'
 import Game from '../views/Game.vue'
 import Group from '../views/Group.vue'
+import Profile from '../views/Profile.vue'
 
 
 const router = createRouter({
@@ -40,6 +41,12 @@ const router = createRouter({
       path: '/game',
       name: 'game',
       component: Game
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: Profile,
+      meta: { layout: 'Empty' }
     },
   ]
 })
