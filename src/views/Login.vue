@@ -23,34 +23,46 @@
               <!-- Add-login-ava -->
               <div id="Add-login-ava" class="relative">
                 <div
-                  class="inline-block shadow-sm shadow-[#dddfe2] hover:shadow-lg rounded-lg border-[1px] border-[#e5e7eb] bg-white group transition-shadow duration-[0.2s]">
+                  class="inline-block shadow-sm shadow-[#dddfe2] hover:shadow-lg rounded-lg border-[1px] border-[#e5e7eb] bg-white group transition-shadow duration-[0.2s]"
+                >
                   <a title="" class="inline-block rounded-lg" href="#">
                     <img class="rounded-t-lg h-[160px] w-[160px]" src="./img/ava.jpg" alt="" />
-                    <div class="text-[#4b4f56] text-[18px] leading-[22px] p-[12px] w-[160px] text-center rounded-b-lg">
+                    <div
+                      class="text-[#4b4f56] text-[18px] leading-[22px] p-[12px] w-[160px] text-center rounded-b-lg"
+                    >
                       Name
                     </div>
                   </a>
                   <!-- Close btn Login-L2  -->
-                  <div id="Close-btn-login-L2"
-                    class="bg-black h-[16px] w-[16px] bg-opacity-30 text-center rounded-[16px] absolute top-[5px] left-[4px] cursor-pointer group-hover:bg-white group-hover:h-[25px] group-hover:w-[25px] group-hover:top-[-3px] group-hover:left-[-3px] group-hover:shadow-lg transition-all duration-[0.1s]">
+                  <div
+                    id="Close-btn-login-L2"
+                    class="bg-black h-[16px] w-[16px] bg-opacity-30 text-center rounded-[16px] absolute top-[5px] left-[4px] cursor-pointer group-hover:bg-white group-hover:h-[25px] group-hover:w-[25px] group-hover:top-[-3px] group-hover:left-[-3px] group-hover:shadow-lg transition-all duration-[0.1s]"
+                  >
                     <i
-                      class="fa-solid fa-xmark text-[12px] absolute bottom-[2px] left-[5px] text-white group-hover:text-[16px] group-hover:text-black group-hover:text-opacity-40 group-hover:bottom-[4px] group-hover:left-[7px]"></i>
+                      class="fa-solid fa-xmark text-[12px] absolute bottom-[2px] left-[5px] text-white group-hover:text-[16px] group-hover:text-black group-hover:text-opacity-40 group-hover:bottom-[4px] group-hover:left-[7px]"
+                    ></i>
                   </div>
                   <span
                     class="bg-[#fa3e3e] text-[13px] h-[24px] w-[24px] text-center absolute leading-[24px] text-white rounded-[24px] right-[12px] top-[-3px] shadow-lg cursor-default"
-                    title="">8</span>
+                    title=""
+                    >8</span
+                  >
                 </div>
               </div>
             </div>
             <div class="flex flex-grow-0 flex-shrink-0 basis-[178px] mb-[20px]">
               <!-- Addloginnormal -->
-              <div id="Add-login-normal"
-                class="inline-block w-[160px] shadow-sm shadow-[#dddfe2] hover:shadow-lg rounded-lg border-[1px] border-[#e5e7eb] bg-white group transition-shadow duration-[0.2s]">
+              <div
+                id="Add-login-normal"
+                class="inline-block w-[160px] shadow-sm shadow-[#dddfe2] hover:shadow-lg rounded-lg border-[1px] border-[#e5e7eb] bg-white group transition-shadow duration-[0.2s]"
+              >
                 <a class="inline-block rounded-lg" href="#">
                   <div
-                    class="h-[160px] w-[160px] bg-[#f5f6f7] text-center rounded-t-lg border-[1px] border-[#e5e7eb] border-b-0 relative">
+                    class="h-[160px] w-[160px] bg-[#f5f6f7] text-center rounded-t-lg border-[1px] border-[#e5e7eb] border-b-0 relative"
+                  >
                     <div
-                      class="bg-[#1976F2] h-[43px] w-[43px] rounded-[43px] text-center absolute top-[60px] left-[58px]">
+                      class="bg-[#1976F2] h-[43px] w-[43px] rounded-[43px] text-center absolute top-[60px] left-[58px]"
+                    >
                       <i class="fa-solid fa-plus leading-[43px] text-white text-[25px]"></i>
                     </div>
                   </div>
@@ -64,23 +76,32 @@
           <div class="shadow-lg bg-white px-[15px] p-[15px] rounded-[10px]">
             <!-- form login -->
             <form class="h-2/4">
-              <input type="text" class="block border-2 w-full py-[12px] px-[16px] text-[16px] rounded-md mb-[10px]"
-                placeholder="Email or hoặc số điện thoại" />
-              <input type="text"
+              <input
+                type="text"
+                class="block border-2 w-full py-[12px] px-[16px] text-[16px] rounded-md mb-[10px]"
+                placeholder="Email or hoặc số điện thoại"
+              />
+              <input
+                type="text"
                 class="block border-2 w-full py-[12px] px-[16px] text-[16px] rounded-md mt-[10px] mb-[20px]"
-                placeholder="Mật khẩu" />
-              <input type="submit"
+                placeholder="Mật khẩu"
+              />
+              <input
+                type="submit"
                 class="block w-full rounded-md px-[14px] py-[10px] text-[20px] hover:bg-[#1877F2] cursor-pointer font-bold bg-[#0866ff] text-white"
-                value="Đăng nhập" />
+                value="Đăng nhập"
+              />
             </form>
             <div class="text-center pt-[10px]">
               <a href="#" class="text-[#0866ff] text-[14px] hover:underline">Quên mật khẩu?</a>
             </div>
             <hr class="mb-[10px] pb-[20px] mt-[16px]" />
             <div class="text-center pb-[20px]">
-              <a id="creat-acc" href="#"
-                class="rounded-md text-lg font-[650] bg-[#42b72a] hover:bg-[#36A420] text-[17px] text-white py-[13px] px-[18px]">Tạo
-                tài khoản mới
+              <a
+                id="creat-acc"
+                href="#"
+                class="rounded-md text-lg font-[650] bg-[#42b72a] hover:bg-[#36A420] text-[17px] text-white py-[13px] px-[18px]"
+                >Tạo tài khoản mới
               </a>
             </div>
           </div>
@@ -95,14 +116,21 @@
     </div>
     <!-- Sub_Login -->
     <!-- Sub-login-normal -->
-    <section id="Sub-login-normal" class="bg-black bg-opacity-[0.4] fixed bottom-0 right-0 left-0 top-0 z-40">
+    <section
+      id="Sub-login-normal"
+      class="bg-black bg-opacity-[0.4] fixed bottom-0 right-0 left-0 top-0 z-40"
+    >
       <div class="w-full h-full py-[11%]">
         <div class="container w-[400px] bg-white mx-auto rounded-lg">
           <div class="p-[16px] relative">
             <!-- Close-btn-sub -->
-            <div id="Close-btn-sub-normal"
-              class="h-[36px] w-[36px] bg-[#ebedf0] hover:bg-[#DADDE1] text-center float-end rounded-[50%]">
-              <i class="fa-solid fa-xmark text-[24px] leading-[36px] text-[black] text-opacity-70"></i>
+            <div
+              id="Close-btn-sub-normal"
+              class="h-[36px] w-[36px] bg-[#ebedf0] hover:bg-[#DADDE1] text-center float-end rounded-[50%]"
+            >
+              <i
+                class="fa-solid fa-xmark text-[24px] leading-[36px] text-[black] text-opacity-70"
+              ></i>
             </div>
             <div class="text-[20px] text-center leading-[24px] pt-[6px] pb-[12px] pl-[36px]">
               Đăng nhập Facebook
@@ -112,32 +140,51 @@
             </div>
             <form action="" class="">
               <div class="py-[6px]">
-                <input type="text"
+                <input
+                  type="text"
                   class="block border-[1px] border-[#dddfe2] w-full py-[12px] px-[16px] text-[16px] rounded-md"
-                  placeholder="Email or hoặc số điện thoại" />
+                  placeholder="Email or hoặc số điện thoại"
+                />
               </div>
               <div class="py-[6px]">
-                <input type="text"
+                <input
+                  type="text"
                   class="block border-[1px] border-[#dddfe2] w-full py-[12px] px-[16px] text-[16px] rounded-md"
-                  placeholder="Mật khẩu" />
+                  placeholder="Mật khẩu"
+                />
               </div>
               <div class="pt-[6px] pb-[16px]">
-                <label for="savepass-normal" class="relative text-left pl-[32px] cursor-pointer font-[600]">
-                  <input id="savepass-normal" class="class h-0 w-0 absolute" type="checkbox" name="savepass" value="" />
-                  <span id="checkbox-savepass-normal"
-                    class="h-[20px] w-[20px] leading-[18px] border-[1px] border-[#d7dade] rounded absolute top-0 left-0 pl-[3px] bg-transparent"></span>
+                <label
+                  for="savepass-normal"
+                  class="relative text-left pl-[32px] cursor-pointer font-[600]"
+                >
+                  <input
+                    id="savepass-normal"
+                    class="class h-0 w-0 absolute"
+                    type="checkbox"
+                    name="savepass"
+                    value=""
+                  />
+                  <span
+                    id="checkbox-savepass-normal"
+                    class="h-[20px] w-[20px] leading-[18px] border-[1px] border-[#d7dade] rounded absolute top-0 left-0 pl-[3px] bg-transparent"
+                  ></span>
                   <div class="inline-block text-[#606770] text-[15px] leading-[20px] font-normal">
                     Nhớ mật khẩu
                   </div>
                 </label>
               </div>
               <div class="my-[12px]">
-                <input type="submit"
+                <input
+                  type="submit"
                   class="block w-full rounded-md px-[7px] py-[8px] text-[17px] hover:bg-[#1877F2] cursor-pointer font-bold bg-[#0866ff] text-white"
-                  value="Đăng nhập" />
+                  value="Đăng nhập"
+                />
               </div>
               <div class="text-center py-[10px]">
-                <a href="#" class="text-[#0866ff] text-[17px] leading-[20px] hover:underline">Quên mật khẩu?</a>
+                <a href="#" class="text-[#0866ff] text-[17px] leading-[20px] hover:underline"
+                  >Quên mật khẩu?</a
+                >
               </div>
             </form>
           </div>
@@ -145,44 +192,70 @@
       </div>
     </section>
     <!-- Sub-login-ava-->
-    <section id="Sub-login-ava" class="bg-black bg-opacity-[0.4] fixed bottom-0 right-0 left-0 top-0 z-40">
-      <div class="w-full h-full ">
+    <section
+      id="Sub-login-ava"
+      class="bg-black bg-opacity-[0.4] fixed bottom-0 right-0 left-0 top-0 z-40"
+    >
+      <div class="w-full h-full">
         <div class="container w-[400px] bg-white mx-auto rounded-lg">
           <div class="p-[16px] relative">
             <!-- Close-btn-sub -->
-            <div id="Close-btn-sub-ava"
-              class="h-[36px] w-[36px] bg-[#ebedf0] hover:bg-[#DADDE1] text-center float-end rounded-[50%]">
-              <i class="fa-solid fa-xmark text-[24px] leading-[36px] text-[black] text-opacity-70"></i>
+            <div
+              id="Close-btn-sub-ava"
+              class="h-[36px] w-[36px] bg-[#ebedf0] hover:bg-[#DADDE1] text-center float-end rounded-[50%]"
+            >
+              <i
+                class="fa-solid fa-xmark text-[24px] leading-[36px] text-[black] text-opacity-70"
+              ></i>
             </div>
             <div class="text-center">
               <img
                 class="inline-block h-[160px] w-[160px] border-[1px] text-center border-black border-opacity-10 rounded-[50%] mt-[44px] mr-[-36px]"
-                src="./img/ava.jpg" alt="" />
+                src="./img/ava.jpg"
+                alt=""
+              />
             </div>
             <form action="" class="">
               <div class="pd-[4px] pb-[14px] text-center text-[17px]">Name</div>
               <div class="py-[6px]">
-                <input type="text"
+                <input
+                  type="text"
                   class="block border-[1px] border-[#dddfe2] w-full py-[12px] px-[16px] text-[16px] rounded-md"
-                  placeholder="Mật khẩu" />
+                  placeholder="Mật khẩu"
+                />
               </div>
               <div class="pt-[6px] pb-[16px]">
-                <label for="savepass-ava" class="relative text-left pl-[32px] cursor-pointer font-[600]">
-                  <input id="savepass-ava" class="class h-0 w-0 absolute" type="checkbox" name="savepass" value="" />
-                  <span id="checkbox-savepass-ava"
-                    class="h-[20px] w-[20px] leading-[18px] border-[1px] border-[#d7dade] rounded absolute top-0 left-0 pl-[3px] bg-transparent"></span>
+                <label
+                  for="savepass-ava"
+                  class="relative text-left pl-[32px] cursor-pointer font-[600]"
+                >
+                  <input
+                    id="savepass-ava"
+                    class="class h-0 w-0 absolute"
+                    type="checkbox"
+                    name="savepass"
+                    value=""
+                  />
+                  <span
+                    id="checkbox-savepass-ava"
+                    class="h-[20px] w-[20px] leading-[18px] border-[1px] border-[#d7dade] rounded absolute top-0 left-0 pl-[3px] bg-transparent"
+                  ></span>
                   <div class="inline-block text-[#606770] text-[15px] leading-[20px] font-normal">
                     Nhớ mật khẩu
                   </div>
                 </label>
               </div>
               <div class="my-[12px]">
-                <input type="submit"
+                <input
+                  type="submit"
                   class="block w-full rounded-md px-[7px] py-[8px] text-[17px] hover:bg-[#1877F2] cursor-pointer font-bold bg-[#0866ff] text-white"
-                  value="Đăng nhập" />
+                  value="Đăng nhập"
+                />
               </div>
               <div class="text-center py-[10px]">
-                <a href="#" class="text-[#0866ff] text-[17px] leading-[20px] hover:underline">Quên mật khẩu?</a>
+                <a href="#" class="text-[#0866ff] text-[17px] leading-[20px] hover:underline"
+                  >Quên mật khẩu?</a
+                >
               </div>
             </form>
           </div>
@@ -194,7 +267,12 @@
       <div class="w-full text-center pt-[5%]">
         <div class="inline-block text-left m-[20px] relative">
           <div class="w-[430px] bg-white shadow-lg rounded-md">
-            <img id="cancel" class="w-[24px] h-[24px] absolute top-[10px] right-[12px]" src="./img/cancel.png" alt="" />
+            <img
+              id="cancel"
+              class="w-[24px] h-[24px] absolute top-[10px] right-[12px]"
+              src="./img/cancel.png"
+              alt=""
+            />
             <div class="py-[10px] px-[16px]">
               <h1 class="text-[32px] leading-[38px] font-bold">Đăng ký</h1>
               <p class="text-[#606770] text-[15px] pt-[2px]">Nhanh chóng và dễ dàng.</p>
@@ -203,18 +281,30 @@
               <!-- form register -->
               <form class="w-full">
                 <div class="flex justify-between mb-[10px]">
-                  <input type="text" class="input border-[1px] border-[#ccd0d5] p-[6px] bg-[#F5F6F7] rounded-md"
-                    placeholder="Họ" />
-                  <input type="text" class="input border-[1px] border-[#ccd0d5] p-[6px] bg-[#F5F6F7] rounded-md"
-                    placeholder="Tên" />
+                  <input
+                    type="text"
+                    class="input border-[1px] border-[#ccd0d5] p-[6px] bg-[#F5F6F7] rounded-md"
+                    placeholder="Họ"
+                  />
+                  <input
+                    type="text"
+                    class="input border-[1px] border-[#ccd0d5] p-[6px] bg-[#F5F6F7] rounded-md"
+                    placeholder="Tên"
+                  />
                 </div>
                 <div class="mb-[10px]">
-                  <input type="text" class="input w-full border-[1px] border-[#ccd0d5] p-[6px] bg-[#F5F6F7] rounded-md"
-                    placeholder="Số di động hoặc email" />
+                  <input
+                    type="text"
+                    class="input w-full border-[1px] border-[#ccd0d5] p-[6px] bg-[#F5F6F7] rounded-md"
+                    placeholder="Số di động hoặc email"
+                  />
                 </div>
                 <div class="mb-[15px]">
-                  <input type="text" class="input w-full border-[1px] border-[#ccd0d5] p-[6px] bg-[#F5F6F7] rounded-md"
-                    placeholder="Mật khẩu mới " />
+                  <input
+                    type="text"
+                    class="input w-full border-[1px] border-[#ccd0d5] p-[6px] bg-[#F5F6F7] rounded-md"
+                    placeholder="Mật khẩu mới "
+                  />
                 </div>
                 <!-- ngày sinh -->
                 <div class="mb-[15px]">
@@ -226,8 +316,11 @@
                   </div>
                   <div class="flex justify-between w-100%">
                     <span class="justify-start h-[36px] w-[31%]">
-                      <select id="day" title="Ngày"
-                        class="border-[1px] text-[15px] border-[#ccd0d5] text-[#1c1e21] text-sm rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full py-[7px]">
+                      <select
+                        id="day"
+                        title="Ngày"
+                        class="border-[1px] text-[15px] border-[#ccd0d5] text-[#1c1e21] text-sm rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full py-[7px]"
+                      >
                         <option value="1" selected>1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -245,8 +338,11 @@
                       </select>
                     </span>
                     <span class="h-[36px] w-[31%]">
-                      <select id="Month " title="Tháng"
-                        class="border-[1px] text-[15px] border-[#ccd0d5] text-[#1c1e21] text-sm rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full py-[7px]">
+                      <select
+                        id="Month "
+                        title="Tháng"
+                        class="border-[1px] text-[15px] border-[#ccd0d5] text-[#1c1e21] text-sm rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full py-[7px]"
+                      >
                         <option value="1" selected>Tháng 1</option>
                         <option value="2">Tháng 2</option>
                         <option value="3">Tháng 3</option>
@@ -262,8 +358,11 @@
                       </select>
                     </span>
                     <span class="justify-end h-[36px] w-[31%]">
-                      <select id="years " title="năm"
-                        class="border-[1px] text-[15px] border-[#ccd0d5] text-[#1c1e21] text-sm rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full py-[7px]">
+                      <select
+                        id="years "
+                        title="năm"
+                        class="border-[1px] text-[15px] border-[#ccd0d5] text-[#1c1e21] text-sm rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full py-[7px]"
+                      >
                         <option value="2024" selected="1">2024</option>
                         <option value="2023">2023</option>
                         <option value="2022">2022</option>
@@ -291,23 +390,45 @@
                   </div>
                   <div class="text-[15px] flex justify-between w-100%">
                     <span
-                      class="h-[36px] input w-[28%] leading-[36px] relative rounded-[4px] border-[1px] border-[#ccd0d5]">
+                      class="h-[36px] input w-[28%] leading-[36px] relative rounded-[4px] border-[1px] border-[#ccd0d5]"
+                    >
                       <label class="pr-[28px] pl-[10px]" for="female">Nữ</label>
-                      <input name="sex" id="female" class="absolute top-0 bottom-0 right-[10px]" type="radio" />
+                      <input
+                        name="sex"
+                        id="female"
+                        class="absolute top-0 bottom-0 right-[10px]"
+                        type="radio"
+                      />
                     </span>
-                    <span class="h-[36px] w-[28%] leading-[36px] relative rounded-[4px] border-[1px] border-[#ccd0d5]">
+                    <span
+                      class="h-[36px] w-[28%] leading-[36px] relative rounded-[4px] border-[1px] border-[#ccd0d5]"
+                    >
                       <label class="pr-[28px] pl-[10px]" for="male">Nam</label>
-                      <input name="sex" id="male" class="absolute top-0 bottom-0 right-[10px]" type="radio" />
+                      <input
+                        name="sex"
+                        id="male"
+                        class="absolute top-0 bottom-0 right-[10px]"
+                        type="radio"
+                      />
                     </span>
-                    <span class="h-[36px] w-[38%] leading-[36px] relative rounded-[4px] border-[1px] border-[#ccd0d5]">
+                    <span
+                      class="h-[36px] w-[38%] leading-[36px] relative rounded-[4px] border-[1px] border-[#ccd0d5]"
+                    >
                       <label class="pr-[28px] pl-[10px]" for="option">Tùy chỉnh</label>
-                      <input name="sex" id="option" class="absolute top-0 bottom-0 right-[10px]" type="radio" />
+                      <input
+                        name="sex"
+                        id="option"
+                        class="absolute top-0 bottom-0 right-[10px]"
+                        type="radio"
+                      />
                     </span>
                   </div>
                   <div id="custom-gender" class="mt-[10px]">
                     <div class="mb-[5px]">
-                      <select aria-label="Chọn danh xưng"
-                        class="border-[1px] text-[15px] border-[#ccd0d5] text-[#1c1e21] text-sm rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full py-[7px]">
+                      <select
+                        aria-label="Chọn danh xưng"
+                        class="border-[1px] text-[15px] border-[#ccd0d5] text-[#1c1e21] text-sm rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full py-[7px]"
+                      >
                         <option value="1" disabled="1" selected="1">Chọn danh xưng</option>
                         <option value="1">Cô ấy: "Chúc cô ấy sinh nhật vui vẻ!"</option>
                         <option value="2">Anh ấy: "Chúc anh ấy sinh nhật vui vẻ!"</option>
@@ -322,9 +443,11 @@
 
                     <div class="my-[8px]">
                       <div class="w-full">
-                        <input type="text"
+                        <input
+                          type="text"
                           class="w-full border-[1px] border-[#ccd0d5] p-[6px] text-[15px] bg-[#F5F6F7] rounded-md"
-                          placeholder="Giới tính (không bắt buộc)" />
+                          placeholder="Giới tính (không bắt buộc)"
+                        />
                       </div>
                     </div>
                   </div>
@@ -334,25 +457,35 @@
                 <p class="my-[11px] text-[#777] text-[11px]">
                   Những người dùng dịch vụ của chúng tôi có thể đã tải thông tin liên hệ của bạn lên
                   Facebook.
-                  <a class="text-[#385898] cursor-pointer hover:underline" href="#">Tìm hiểu thêm.</a>
+                  <a class="text-[#385898] cursor-pointer hover:underline" href="#"
+                    >Tìm hiểu thêm.</a
+                  >
                 </p>
               </div>
               <div>
                 <p class="my-[11px] text-[#777] text-[11px]">
                   Bằng cách nhấp vào Đăng ký, bạn đồng ý với
                   <a class="text-[#385898] cursor-pointer hover:underline" href="#">Điều khoản</a>,
-                  <a class="text-[#385898] cursor-pointer hover:underline" href="#">Chính sách quyền riêng tư
+                  <a class="text-[#385898] cursor-pointer hover:underline" href="#"
+                    >Chính sách quyền riêng tư
                   </a>
                   và
-                  <a class="text-[#385898] cursor-pointer hover:underline" href="">Chính sách cookie </a>của chúng tôi.
-                  Bạn có thể nhận được thông báo của chúng tôi qua SMS và hủy nhận
+                  <a class="text-[#385898] cursor-pointer hover:underline" href=""
+                    >Chính sách cookie </a
+                  >của chúng tôi. Bạn có thể nhận được thông báo của chúng tôi qua SMS và hủy nhận
                   bất kỳ lúc nào.
                 </p>
               </div>
               <div class="w-full text-center py-[10px]">
-                <div id="registerButton"
-                  class="inline-block cursor-pointer rounded-md bg-[#00a400] hover:bg-[#6DA160] h-[36px] w-[194px] leading-[36px]">
-                  <input type="button" value="Đăng ký" class="cursor-pointer text-white text-[18px] font-bold" />
+                <div
+                  id="registerButton"
+                  class="inline-block cursor-pointer rounded-md bg-[#00a400] hover:bg-[#6DA160] h-[36px] w-[194px] leading-[36px]"
+                >
+                  <input
+                    type="button"
+                    value="Đăng ký"
+                    class="cursor-pointer text-white text-[18px] font-bold"
+                  />
                 </div>
               </div>
             </div>

@@ -7,7 +7,6 @@ import Game from '../views/Game.vue'
 import Group from '../views/Group.vue'
 import Profile from '../views/Profile.vue'
 
-
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -47,7 +46,7 @@ const router = createRouter({
       name: 'profile',
       component: Profile,
       meta: { layout: 'Empty' }
-    },
+    }
   ]
 })
 

@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="flex">
     <!-- left bar -->
-    <div class="relative w-80 hidden xl:block">
-      <div class="absolute">
-        <div class="fixed w-80">
+    <div class="w-80 hidden xl:block">
+      <div class="fixed">
+        <div class="w-80">
           <div class="h-screen px-2 py-4 flex-col justify-between hidden xl:flex overflow-scroll">
             <div id="left-bar-top" class="w-full">
               <ul>
@@ -72,43 +72,14 @@
                 </div>
               </ul>
               <!-- start -->
-              <ul v-if="leftBarMove == 1">
-                <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                  <MonitorPlay class=" rounded-full" />
-                  <span class="font-semibold text-tiny">Trang chủ</span>
-                </li>
-                <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                  <Video class=" rounded-full" />
-                  <span class="font-semibold text-tiny">Trực tiếp</span>
-                </li>
-                <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                  <Film class=" rounded-full" />
-                  <span class="font-semibold text-tiny">Reels</span>
-                </li>
-                <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                  <Clapperboard class=" rounded-full" />
-                  <span class="font-semibold text-tiny">Chương trình</span>
-                </li>
-                <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                  <Rocket class=" rounded-full" />
-                  <span class="font-semibold text-tiny">Khám phá</span>
-                </li>
-                <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                  <Save class=" rounded-full" />
-                  <span class="font-semibold text-tiny">Video đã lưu</span>
-                </li>
-              </ul>
-
-              <!-- end -->
-
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="flex-1">
-      <div class="bg-white h-auto desktop:w-180 la
-      ptop:w-160 lg:w-160 sm:w-140 w-full sm:m-auto p-1 text-xs font-semibold mobile-x:text-tiny mobile-x:p-8">
+    <div class="w-full">
+      <div
+        class="bg-white h-auto desktop:w-180 la ptop:w-160 lg:w-160 sm:w-140 w-full sm:m-auto p-1 text-xs font-semibold mobile-x:text-tiny mobile-x:p-8">
         <div class="flex flex-col gap-4 border-2 p-2">
           <div id="storie" class="rounded-lg">
             <div
@@ -266,11 +237,15 @@
         <!-- end -->
       </div>
     </div>
-    <div class=" w-80 hidden lg:block">
+    <div class="w-80 hidden lg:block">
       <div class="absolute">
         <RightBar class="fixed top-0 right-0" />
       </div>
     </div>
+  </div>
+  <div
+    class="p-4 flex items-center justify-center rounded-full bg-white border-2 text-black fixed right-5 bottom-5 cursor-pointer hover:bg-myGray-700 transition-colors duration-300">
+    <svg-new-message class="w-5" />
   </div>
 </template>
 <script>
@@ -287,7 +262,8 @@ import svgLike2 from '../components/svg/svgLike2.vue'
 import svgComment from '../components/svg/svgComment.vue'
 import svgMenu from '../components/svg/svgMenu.vue'
 import svgSeeMore from '../components/svg/svgSeeMore.vue'
-import { Forward } from 'lucide-vue-next';
+import { Forward } from 'lucide-vue-next'
+import svgNewMessage from '../components/svg/svgNewMessage.vue'
 export default {
   components: {
     RightBar,
@@ -302,7 +278,8 @@ export default {
     svgComment,
     svgMenu,
     svgSeeMore,
-    Forward
+    Forward,
+    svgNewMessage
   },
   data() {
     return {

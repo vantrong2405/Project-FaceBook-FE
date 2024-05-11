@@ -4,40 +4,49 @@
     <SearchBar class="z-20" />
     <div id="mid" class="h-full items-center justify-center gap-2 hidden md:flex">
       <router-link to="/">
-        <div id="svg-home-box" @click="handleChangeleftBarMove(0)"
-          class="lg:w-40 h-12 flex items-center justify-center cursor-pointer hover:bg-myGray-900 rounded-lg transition-colors duration-300">
-          <svg-home class="w-7" />
+        <div
+          id="svg-home-box"
+          class="product-items lg:w-40 h-12 flex items-center justify-center cursor-pointer hover:bg-myGray-900 rounded-lg transition-colors duration-300"
+        >
+          <svg-home class="w-7 icon" />
         </div>
       </router-link>
       <router-link to="/video">
-        <div id="svg-groups-box" @click="handleChangeleftBarMove(1)"
-          class="lg:w-40 h-12 flex items-center justify-center cursor-pointer hover:bg-myGray-900 rounded-lg transition-colors duration-300">
-          <svg-video class="w-7" />
+        <div
+          id="svg-groups-box"
+          class="product-items lg:w-40 h-12 flex items-center justify-center cursor-pointer hover:bg-myGray-900 rounded-lg transition-colors duration-300"
+        >
+          <svg-video class="w-7 icon" />
         </div>
       </router-link>
       <router-link to="/market">
-        <div id="svg-groups-box" @click="handleChangeleftBarMove(2)"
-          class="lg:w-40 h-12 flex items-center justify-center cursor-pointer hover:bg-myGray-900 rounded-lg transition-colors duration-300">
-          <svg-market class="w-7" />
+        <div
+          id="svg-groups-box"
+          class="product-items lg:w-40 h-12 flex items-center justify-center cursor-pointer hover:bg-myGray-900 rounded-lg transition-colors duration-300"
+        >
+          <svg-market class="w-7 icon" />
         </div>
       </router-link>
       <router-link to="/group">
-        <div id="svg-groups-box" @click="handleChangeleftBarMove(3)"
-          class="lg:w-40 h-12 flex items-center justify-center cursor-pointer hover:bg-myGray-900 rounded-lg transition-colors duration-300">
-          <svg-groups class="w-7" />
+        <div
+          id="svg-groups-box"
+          class="product-items lg:w-40 h-12 flex items-center justify-center cursor-pointer hover:bg-myGray-900 rounded-lg transition-colors duration-300"
+        >
+          <svg-groups class="w-7 icon" />
         </div>
       </router-link>
       <router-link to="/game">
-        <div id="svg-groups-box" @click="handleChangeleftBarMove(4)"
-          class="lg:w-40 h-12 flex items-center justify-center cursor-pointer hover:bg-myGray-900 rounded-lg transition-colors duration-300">
-          <svg-game class="w-7" />
+        <div
+          id="svg-groups-box"
+          class="product-items lg:w-40 h-12 flex items-center justify-center cursor-pointer hover:bg-myGray-900 rounded-lg transition-colors duration-300"
+        >
+          <svg-game class="w-7 icon" />
         </div>
       </router-link>
     </div>
     <RightMenu />
   </div>
 </template>
-
 
 <script>
 // SVG
@@ -65,14 +74,29 @@ export default {
     svgMarket,
     svgGame
   },
+  mounted() {
+    this.activeItems()
+  },
   data() {
     return {}
   },
   methods: {
-    handleChangeleftBarMove(data) {
-      this.$emit('handleChangeleftBarMoveEvent', data)
+    activeItems() {
+      const product_items = document.querySelectorAll('.product-items')
+      product_items.forEach((value, index) => {
+        value.addEventListener('click', () => {
+          product_items.forEach((item) => {
+            if (item !== value) {
+              item.classList.remove('active-icon')
+              item.classList.remove('active-tag')
+            }
+          })
+          value.classList.add('active-icon')
+          value.classList.add('active-tag')
+        })
+      })
     }
-  },
+  }
 }
 </script>
 <style>
@@ -83,3 +107,26 @@ export default {
   min-width: 56px;
 }
 </style>
+
+<!-- activeItems() {
+  const product_items = document.querySelectorAll('.product-items a')
+  product_items.forEach((value, index) => {
+    value.onclick = () => {
+      product_items.forEach((item) => {
+        if (item !== value) {
+          item.classList.remove('active-tag')
+          const icon = item.querySelector('i')
+          if (icon) {
+            icon.classList.remove('active-icon')
+          }
+        }
+      })
+      // Thêm class 'active' cho phần tử hiện tại
+      value.classList.add('active-tag')
+      const icon = value.querySelector('i')
+      if (icon) {
+        icon.classList.add('active-icon')
+      }
+    }
+  })
+}, -->

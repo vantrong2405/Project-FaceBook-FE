@@ -1,11 +1,7 @@
 <template>
-    <div>
-        Page Group
-    </div>
+  <div>Page Group</div>
 </template>
 <script>
-export default {
-
-}
+export default {}
 </script>
 <style></style>
