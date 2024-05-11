@@ -17,11 +17,7 @@
         y="-9.4%"
         filterUnits="objectBoundingBox"
       >
-        <feGaussianBlur
-          in="SourceAlpha"
-          result="shadowBlurInner1"
-          stdDeviation="1"
-        />
+        <feGaussianBlur in="SourceAlpha" result="shadowBlurInner1" stdDeviation="1" />
         <feOffset dy="-1" in="shadowBlurInner1" result="shadowOffsetInner1" />
         <feComposite
           in="shadowOffsetInner1"

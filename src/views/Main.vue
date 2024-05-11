@@ -1,5 +1,5 @@
 <template>
-  <div>Page market</div>
+  <div></div>
 </template>
 <script>
 export default {}

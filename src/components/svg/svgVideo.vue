@@ -1,4 +1,4 @@
-<template>
+<template lang="">
   <div>
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -10,14 +10,16 @@
       stroke-width="2"
       stroke-linecap="round"
       stroke-linejoin="round"
-      class="lucide lucide-home"
+      class="lucide lucide-youtube"
     >
-      <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-      <polyline points="9 22 9 12 15 12 15 22" />
+      <path
+        d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"
+      />
+      <path d="m10 15 5-3-5-3z" />
     </svg>
   </div>
 </template>
 <script>
 export default {}
 </script>
-<style></style>
+<style lang=""></style>

@@ -1,97 +1,104 @@
-<script>
-// SVG
-import svgHome from "../svg/svgHome.vue";
-import svgGroups from "../svg/svgGroups.vue";
-import svgMore from "../svg/svgMore.vue";
-
-import SearchBar from "./SearchBar.vue";
-import RightMenu from "./RightMenu.vue";
-export default {
-  components: {
-    svgHome,
-    svgGroups,
-    svgMore,
-    SearchBar,
-    RightMenu,
-  },
-  data() {
-    return {
-
-    }
-  },
-}
-</script>
-
+<!-- eslint-disable vue/no-unused-components -->
 <template>
-  <div class="
-  shadow-lg
-      w-full
-      h-14
-      grid grid-cols-2
-      md:grid-cols-3
-      items-center
-      z-50
-      bg-white
-    ">
+  <div class="shadow-lg w-full h-14 grid grid-cols-2 md:grid-cols-3 items-center z-50 bg-white">
     <SearchBar class="z-20" />
-    <div id="mid" class="
-        m-auto
-        h-full
-        items-center
-        justify-center
-        gap-2
-        hidden
-        md:flex
-        
-      ">
-      <div id="svg-home-box" class="
-      lg:w-40
-          h-12
-          flex
-          items-center
-          justify-center
-          cursor-pointer
-          hover:bg-myGray-900
-          rounded-lg
-          transition-colors
-          duration-300
-        ">
-        <svg-home class="w-7" />
-      </div>
-      <div id="svg-groups-box" class="
-          lg:w-40
-          h-12
-          flex
-          items-center
-          justify-center
-          cursor-pointer
-          hover:bg-myGray-900
-          rounded-lg
-          transition-colors
-          duration-300
-        ">
-        <svg-groups class="w-7" />
-      </div>
-      <div id="svg-more-box" class="
-          lg:w-40
-          h-12
-          flex
-          items-center
-          justify-center
-          cursor-pointer
-          hover:bg-myGray-700
-          rounded-lg
-          lg:hidden
-          transition-colors
-          duration-300
-        ">
-        <svg-more class="w-7" />
-      </div>
+    <div id="mid" class="h-full items-center justify-center gap-2 hidden md:flex">
+      <router-link to="/">
+        <div
+          id="svg-home-box"
+          class="product-items lg:w-40 h-12 flex items-center justify-center cursor-pointer hover:bg-myGray-900 rounded-lg transition-colors duration-300"
+        >
+          <svg-home class="w-7 icon" />
+        </div>
+      </router-link>
+      <router-link to="/video">
+        <div
+          id="svg-groups-box"
+          class="product-items lg:w-40 h-12 flex items-center justify-center cursor-pointer hover:bg-myGray-900 rounded-lg transition-colors duration-300"
+        >
+          <svg-video class="w-7 icon" />
+        </div>
+      </router-link>
+      <router-link to="/market">
+        <div
+          id="svg-groups-box"
+          class="product-items lg:w-40 h-12 flex items-center justify-center cursor-pointer hover:bg-myGray-900 rounded-lg transition-colors duration-300"
+        >
+          <svg-market class="w-7 icon" />
+        </div>
+      </router-link>
+      <router-link to="/group">
+        <div
+          id="svg-groups-box"
+          class="product-items lg:w-40 h-12 flex items-center justify-center cursor-pointer hover:bg-myGray-900 rounded-lg transition-colors duration-300"
+        >
+          <svg-groups class="w-7 icon" />
+        </div>
+      </router-link>
+      <router-link to="/game">
+        <div
+          id="svg-groups-box"
+          class="product-items lg:w-40 h-12 flex items-center justify-center cursor-pointer hover:bg-myGray-900 rounded-lg transition-colors duration-300"
+        >
+          <svg-game class="w-7 icon" />
+        </div>
+      </router-link>
     </div>
     <RightMenu />
   </div>
 </template>
 
+<script>
+// SVG
+import svgHome from '../svg/svgHome.vue'
+import svgGroups from '../svg/svgGroups.vue'
+import svgVideo from '../svg/svgVideo.vue'
+import svgMarket from '../svg/svgMarket.vue'
+import svgGame from '../svg/svgGame.vue'
+import SearchBar from './SearchBar.vue'
+import RightMenu from './RightMenu.vue'
+
+export default {
+  props: {
+    leftBarMove: {
+      type: Number,
+      default: 0
+    }
+  },
+  components: {
+    svgHome,
+    svgGroups,
+    SearchBar,
+    RightMenu,
+    svgVideo,
+    svgMarket,
+    svgGame
+  },
+  mounted() {
+    this.activeItems()
+  },
+  data() {
+    return {}
+  },
+  methods: {
+    activeItems() {
+      const product_items = document.querySelectorAll('.product-items')
+      product_items.forEach((value, index) => {
+        value.addEventListener('click', () => {
+          product_items.forEach((item) => {
+            if (item !== value) {
+              item.classList.remove('active-icon')
+              item.classList.remove('active-tag')
+            }
+          })
+          value.classList.add('active-icon')
+          value.classList.add('active-tag')
+        })
+      })
+    }
+  }
+}
+</script>
 <style>
 #svg-home-box,
 #svg-groups-box,
@@ -100,3 +107,26 @@ export default {
   min-width: 56px;
 }
 </style>
+
+<!-- activeItems() {
+  const product_items = document.querySelectorAll('.product-items a')
+  product_items.forEach((value, index) => {
+    value.onclick = () => {
+      product_items.forEach((item) => {
+        if (item !== value) {
+          item.classList.remove('active-tag')
+          const icon = item.querySelector('i')
+          if (icon) {
+            icon.classList.remove('active-icon')
+          }
+        }
+      })
+      // Thêm class 'active' cho phần tử hiện tại
+      value.classList.add('active-tag')
+      const icon = value.querySelector('i')
+      if (icon) {
+        icon.classList.add('active-icon')
+      }
+    }
+  })
+}, -->
