@@ -1,4 +1,3 @@
-<!-- eslint-disable vue/no-unused-components -->
 <template>
   <div class="flex bg-[#F0F2F5]">
     <div class="flex bg-white">
@@ -9,7 +8,7 @@
               <div id="left-bar-top" class="w-full">
                 <ul>
                   <li class="flex justify-between items-center">
-                    <h1 class="text-2xl font-bold">Marketplace</h1>
+                    <h1 class="text-2xl font-bold">Video</h1>
                     <Settings />
                   </li>
                   <li>
@@ -27,10 +26,8 @@
                     </div>
                   </li>
                   <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                    <div class="bg-red-500 rounded-full p-2">
-                      <Store class="rounded-full" />
-                    </div>
-                    <span class="font-semibold text-tiny">Lướt xem tất cả</span>
+                    <MonitorPlay class="rounded-full" />
+                    <span class="font-semibold text-tiny">Trang chủ</span>
                   </li>
 
                   <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
@@ -149,15 +146,14 @@ import { Ellipsis } from 'lucide-vue-next'
 import { Settings } from 'lucide-vue-next'
 import { AlarmClockCheck } from 'lucide-vue-next';// icon đồng hồ
 // video
-import svgSearch from '../components/svg/svgSearch.vue'
-import { Store } from 'lucide-vue-next';
-
+import svgSearch from '../../components/svg/svgSearch.vue'
 export default {
   data() {
     return {}
   },
   methods: {},
   components: {
+    MonitorPlay,
     Tv2,
     Film,
     Clapperboard,
@@ -166,7 +162,6 @@ export default {
     Ellipsis,
     Settings,
     svgSearch,
-    Store
   }
 }
 </script>

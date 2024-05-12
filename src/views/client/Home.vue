@@ -9,48 +9,48 @@
               <div id="left-bar-top" class="w-full">
                 <ul>
                   <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                    <img src="../assets/images    MonitorPlay,
+                    <img src="../../assets/images    MonitorPlay,
 /pp.jpg" class="rounded-full w-9" alt="" />
                     <span class="font-semibold text-tiny"> Văn trọng </span>
                   </li>
                   <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                    <img src="../assets/images/png/friends.png" class="rounded-full w-9" alt="Bạn bè" />
+                    <img src="../../assets/images/png/friends.png" class="rounded-full w-9" alt="Bạn bè" />
                     <span class="font-semibold text-tiny">Bạn bè</span>
                   </li>
                   <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                    <img src="../assets/images/png/groups.png" class="rounded-full w-9" alt="Nhóm" />
+                    <img src="../../assets/images/png/groups.png" class="rounded-full w-9" alt="Nhóm" />
                     <span class="font-semibold text-tiny">Nhóm</span>
                   </li>
                   <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                    <img src="../assets/images/png/marketplace.png" class="rounded-full w-9" alt="Marketplace" />
+                    <img src="../../assets/images/png/marketplace.png" class="rounded-full w-9" alt="Marketplace" />
                     <span class="font-semibold text-tiny">Marketplace</span>
                   </li>
                   <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                    <img src="../assets/images/png/watch.png" class="rounded-full w-9" alt="Video" />
+                    <img src="../../assets/images/png/watch.png" class="rounded-full w-9" alt="Video" />
                     <span class="font-semibold text-tiny">Video</span>
                   </li>
                   <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                    <img src="../assets/images/png/memories.png" class="rounded-full w-9" alt="Kỷ niệm" />
+                    <img src="../../assets/images/png/memories.png" class="rounded-full w-9" alt="Kỷ niệm" />
                     <span class="font-semibold text-tiny">Kỷ niệm</span>
                   </li>
                   <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                    <img src="../assets/images/png/saved.png" class="rounded-full w-9" alt="Đã lưu" />
+                    <img src="../../assets/images/png/saved.png" class="rounded-full w-9" alt="Đã lưu" />
                     <span class="font-semibold text-tiny">Đã lưu</span>
                   </li>
                   <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                    <img src="../assets/images/png/pages.png" class="rounded-full w-9" alt="Trang" />
+                    <img src="../../assets/images/png/pages.png" class="rounded-full w-9" alt="Trang" />
                     <span class="font-semibold text-tiny">Trang</span>
                   </li>
                   <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                    <img src="../assets/images/png/events.png" class="rounded-full w-9" alt="Sự kiện" />
+                    <img src="../../assets/images/png/events.png" class="rounded-full w-9" alt="Sự kiện" />
                     <span class="font-semibold text-tiny">Sự kiện</span>
                   </li>
                   <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                    <img src="../assets/images/png/jobs.png" class="rounded-full w-9" alt="Công việc" />
+                    <img src="../../assets/images/png/jobs.png" class="rounded-full w-9" alt="Công việc" />
                     <span class="font-semibold text-tiny">Công việc</span>
                   </li>
                   <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                    <img src="../assets/images/png/mostRecent.png" class="rounded-full w-9" alt="Gần đây" />
+                    <img src="../../assets/images/png/mostRecent.png" class="rounded-full w-9" alt="Gần đây" />
                     <span class="font-semibold text-tiny">Gần đây</span>
                   </li>
                   <div
@@ -100,7 +100,7 @@
           <div id="new-post" class="h-32 p-2 rounded-lg flex flex-col justify-between">
             <div id="new-post-top" class="p-1 flex gap-3 items-center">
               <div class="_pp_ cursor-pointer">
-                <img src="../assets/images/pp.jpg" class="w-10 rounded-full" alt="" />
+                <img src="../../assets/images/pp.jpg" class="w-10 rounded-full" alt="" />
               </div>
               <input
                 class="cursor-pointer w-full h-10 rounded-full outline-none text-tiny px-3 font-semibold transition-colors duration-300 mobile-x:text-base focus:outline-none focus:shadow-none focus:ring-transparent"
@@ -207,7 +207,7 @@
                   </div>
                 </div>
                 <div id="me" class="flex w-full gap-2">
-                  <img src="../assets/images/pp.jpg" class="w-9 h-9 rounded-full cursor-pointer" alt="" />
+                  <img src="../../assets/images/pp.jpg" class="w-9 h-9 rounded-full cursor-pointer" alt="" />
                   <div class="flex w-full flex-col">
                     <div id="me_comment"
                       class="flex w-full outline-none focus:outline-none ring-transparent rounded-2xl">
@@ -252,21 +252,21 @@
   </div>
 </template>
 <script>
-import RightBar from '../components/RightBar/index.vue'
-import svgCreate from '../components/svg/svgCreate.vue'
-import svgLiveVideo from '../components/svg/svgLiveVideo.vue'
-import svgPhoto from '../components/svg/svgPhoto.vue'
-import svgSmile from '../components/svg/svgSmile.vue'
+import RightBar from '../../components/RightBar/index.vue'
+import svgCreate from '../../components/svg/svgCreate.vue'
+import svgLiveVideo from '../../components/svg/svgLiveVideo.vue'
+import svgPhoto from '../../components/svg/svgPhoto.vue'
+import svgSmile from '../../components/svg/svgSmile.vue'
 // item
-import svgDots from '../components/svg/svgDots.vue'
-import svgWorld from '../components/svg/svgWorld.vue'
-import svgLike from '../components/svg/svgLike.vue'
-import svgLike2 from '../components/svg/svgLike2.vue'
-import svgComment from '../components/svg/svgComment.vue'
-import svgMenu from '../components/svg/svgMenu.vue'
-import svgSeeMore from '../components/svg/svgSeeMore.vue'
+import svgDots from '../../components/svg/svgDots.vue'
+import svgWorld from '../../components/svg/svgWorld.vue'
+import svgLike from '../../components/svg/svgLike.vue'
+import svgLike2 from '../../components/svg/svgLike2.vue'
+import svgComment from '../../components/svg/svgComment.vue'
+import svgMenu from '../../components/svg/svgMenu.vue'
+import svgSeeMore from '../../components/svg/svgSeeMore.vue'
 import { Forward } from 'lucide-vue-next'
-import svgNewMessage from '../components/svg/svgNewMessage.vue'
+import svgNewMessage from '../../components/svg/svgNewMessage.vue'
 export default {
   components: {
     RightBar,
