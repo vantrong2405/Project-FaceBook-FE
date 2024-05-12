@@ -9,18 +9,16 @@
     <div>
       <router-view></router-view>
     </div>
-
   </div>
 </template>
 <script>
 import Navbar from '../components/Navbar/index.vue'
 
-
 export default {
   components: {
-    Navbar,
+    Navbar
   },
-  mounted() { },
+  mounted() {},
   data() {
     return {}
   },
