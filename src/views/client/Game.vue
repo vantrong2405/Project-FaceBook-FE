@@ -7,9 +7,9 @@
             <div id="left-bar-top" class="w-full">
               <ul>
                 <li class="flex justify-between items-center">
-                  <h1 class="text-2xl font-bold">Video</h1>
-                  <Settings />
-                </li>
+                    <h1 class="text-2xl font-bold">Marketplace</h1>
+                    <Settings class="rounded-full bg-[#E4E6EB] p-1"/>
+                  </li>
                 <li>
                   <div class="w-72 h-14 py-2 flex items-center">
                     <div class="__logo"></div>
@@ -25,28 +25,170 @@
                   </div>
                 </li>
                 <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                  <MonitorPlay class="rounded-full" />
-                  <span class="font-semibold text-tiny">Trang chủ</span>
+                  <div class="bg-[#D8DADF] rounded-full p-1">
+                    <Gamepad2 class="rounded-full" />
+                  </div>
+                  <span class="font-semibold text-tiny">Chơi game</span>
                 </li>
                 <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                  <Tv2 class="rounded-full" />
-                  <span class="font-semibold text-tiny">Trực tiếp</span>
+                  <div class="bg-[#D8DADF] rounded-full p-1">
+                    <CircleUser class="rounded-full" />
+                  </div>
+                  <span class="font-semibold text-tiny">Hoạt động trong game</span>
                 </li>
                 <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                  <Film class="rounded-full" />
-                  <span class="font-semibold text-tiny">Reels</span>
+                  <div class="bg-[#D8DADF] rounded-full p-1">
+                    <Bell class="rounded-full" />
+                  </div>
+                  <span class="font-semibold text-tiny">Thông báo</span>
+                </li>
+                <hr class="mt-2 mb-4">
+                <li>
+                  <div class="flex items-center">
+                    <p class="font-semibold">Nhóm bạn đã tham gia</p>
+                    <p class="text-sm ml-auto text-[#0866FE]">Xem tất cả</p>
+                  </div>
+                  <p class="text-xs text-[#898A8D]">Hãy lưu game vào phần Game của bạn để tạo lối tắt</p>
+                </li>
+                <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900 mt-4">
+                  <div class="bg-[#D8DADF] rounded-full p-1">
+                    <Save class="rounded-full" />
+                  </div>
+                  <span class="font-semibold text-tiny">Lưu game</span>
+                </li>
+                <hr>
+                <p class="font-semibold">Hạng mục</p>
+                <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                  <div class="bg-[#D8DADF] rounded-full p-1">
+                    <Gamepad2 class="rounded-full" />
+                  </div>
+                  <span class="font-semibold text-tiny">Tất cả game</span>
                 </li>
                 <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                  <Clapperboard class="rounded-full" />
-                  <span class="font-semibold text-tiny">Chương trình</span>
+                  <div class="bg-[#D8DADF] rounded-full p-1">
+                    <TrainFront class="rounded-full" />
+                  </div>
+                  <span class="font-semibold text-tiny">Hành động</span>
                 </li>
                 <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                  <Rocket class="rounded-full" />
-                  <span class="font-semibold text-tiny">Khám phá</span>
+                  <div class="bg-[#D8DADF] rounded-full p-1">
+                    <Map class="rounded-full" />
+                  </div>
+                  <span class="font-semibold text-tiny">Phiêu lưu</span>
                 </li>
                 <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                  <Save class="rounded-full" />
-                  <span class="font-semibold text-tiny">Video đã lưu</span>
+                  <div class="bg-[#D8DADF] rounded-full p-1">
+                    <Computer class="rounded-full" />
+                  </div>
+                  <span class="font-semibold text-tiny">Arcade</span>
+                </li>
+                <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                  <div class="bg-[#D8DADF] rounded-full p-1">
+                    <Swords class="rounded-full" />
+                  </div>
+                  <span class="font-semibold text-tiny">Chiến đấu</span>
+                </li>
+                <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                  <div class="bg-[#D8DADF] rounded-full p-1">
+                    <Stamp class="rounded-full" />
+                  </div>
+                  <span class="font-semibold text-tiny">Dùng bàn</span>
+                </li>
+                <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                  <div class="bg-[#D8DADF] rounded-full p-1">
+                    <Castle class="rounded-full" />
+                  </div>
+                  <span class="font-semibold text-tiny">Xây dựng</span>
+                </li>
+                <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                  <div class="bg-[#D8DADF] rounded-full p-1">
+                    <Gamepad2 class="rounded-full" />
+                  </div>
+                  <span class="font-semibold text-tiny">Đánh bài</span>
+                </li>
+                <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                  <div class="bg-[#D8DADF] rounded-full p-1">
+                    <CircleDollarSign class="rounded-full" />
+                  </div>
+                  <span class="font-semibold text-tiny">Sòng bạc</span>
+                </li>
+                <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                  <div class="bg-[#D8DADF] rounded-full p-1">
+                    <DraftingCompass class="rounded-full" />
+                  </div>
+                  <span class="font-semibold text-tiny">Thiết kế</span>
+                </li>
+                <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                  <div class="bg-[#D8DADF] rounded-full p-1">
+                    <Puzzle class="rounded-full" />
+                  </div>
+                  <span class="font-semibold text-tiny">Xếp hình</span>
+                </li>
+                <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                  <div class="bg-[#D8DADF] rounded-full p-1">
+                    <Grid2X2 class="rounded-full" />
+                  </div>
+                  <span class="font-semibold text-tiny">Hợp nhất</span>
+                </li>
+                <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                  <div class="bg-[#D8DADF] rounded-full p-1">
+                    <Puzzle class="rounded-full" />
+                  </div>
+                  <span class="font-semibold text-tiny">Câu đố</span>
+                </li>
+                <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                  <div class="bg-[#D8DADF] rounded-full p-1">
+                    <Timer class="rounded-full" />
+                  </div>
+                  <span class="font-semibold text-tiny">Chơi nhanh</span>
+                </li>
+                <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                  <div class="bg-[#D8DADF] rounded-full p-1">
+                    <MessageCircleQuestion class="rounded-full" />
+                  </div>
+                  <span class="font-semibold text-tiny">Đố vui</span>
+                </li>
+                <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                  <div class="bg-[#D8DADF] rounded-full p-1">
+                    <Flag class="rounded-full" />
+                  </div>
+                  <span class="font-semibold text-tiny">Đua xe</span>
+                </li>
+                <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                  <div class="bg-[#D8DADF] rounded-full p-1">
+                    <PersonStanding class="rounded-full" />
+                  </div>
+                  <span class="font-semibold text-tiny">Nhập vai</span>
+                </li>
+                <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                  <div class="bg-[#D8DADF] rounded-full p-1">
+                    <Bike class="rounded-full" />
+                  </div>
+                  <span class="font-semibold text-tiny">Chạy thi</span>
+                </li>
+                <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                  <div class="bg-[#D8DADF] rounded-full p-1">
+                    <Codepen class="rounded-full" />
+                  </div>
+                  <span class="font-semibold text-tiny">Mô phỏng</span>
+                </li>
+                <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                  <div class="bg-[#D8DADF] rounded-full p-1">
+                    <Slack class="rounded-full" />
+                  </div>
+                  <span class="font-semibold text-tiny">Solitaire</span>
+                </li>
+                <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                  <div class="bg-[#D8DADF] rounded-full p-1">
+                    <MessageCircleQuestion class="rounded-full" />
+                  </div>
+                  <span class="font-semibold text-tiny">Thể thao</span>
+                </li>
+                <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                  <div class="bg-[#D8DADF] rounded-full p-1">
+                    <SquareLibrary class="rounded-full" />
+                  </div>
+                  <span class="font-semibold text-tiny">Từ vựng</span>
                 </li>
               </ul>
 
@@ -210,7 +352,7 @@
 <script>
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Settings } from 'lucide-vue-next';
+import { Bike, Settings } from 'lucide-vue-next';
 // Import Swiper styles
 import 'swiper/css'
 
@@ -220,29 +362,62 @@ import 'swiper/css/navigation'
 import '../../assets/css/input.css'
 import { Autoplay, Pagination, Navigation } from 'swiper/modules'
 import svgSearch from '../../components/svg/svgSearch.vue'
-import { MonitorPlay } from 'lucide-vue-next'
-import { Tv2 } from 'lucide-vue-next'
-import { Film } from 'lucide-vue-next'
-import { Clapperboard } from 'lucide-vue-next'
-import { Rocket } from 'lucide-vue-next'
 import { Save } from 'lucide-vue-next'
-import { Ellipsis } from 'lucide-vue-next'
+import { Gamepad2 } from 'lucide-vue-next'
+import { CircleUser } from 'lucide-vue-next'
+import { Bell } from 'lucide-vue-next'
+import { TrainFront } from 'lucide-vue-next'
+import { Map } from 'lucide-vue-next'
+import { Computer } from 'lucide-vue-next'
+import { Swords } from 'lucide-vue-next'
+import { Stamp } from 'lucide-vue-next'
+import { Castle } from 'lucide-vue-next'
+import { CircleDollarSign } from 'lucide-vue-next'
+import { DraftingCompass } from 'lucide-vue-next'
+import { Puzzle } from 'lucide-vue-next'
+import { Grid2X2 } from 'lucide-vue-next'
+import { Timer } from 'lucide-vue-next'
+import { MessageCircleQuestion } from 'lucide-vue-next'
+import { Flag } from 'lucide-vue-next'
+import { PersonStanding } from 'lucide-vue-next'
+import { Codepen } from 'lucide-vue-next'
+import { Slack } from 'lucide-vue-next'
+import { Dumbbell } from 'lucide-vue-next';
+import { SquareLibrary } from 'lucide-vue-next';
+
 export default {
   components: {
+    TrainFront,
     Swiper,
     SwiperSlide,
-    Settings,
+    Gamepad2,
     svgSearch,
-    MonitorPlay,
-    Tv2,
-    Film,
-    Clapperboard,
-    Rocket,
+    CircleUser,
+    Bell,
     Save,
+    Settings,
+    Map,
+    Computer,
+    Swords,
+    Stamp,
+    Castle,
+    CircleDollarSign,
+    DraftingCompass,
+    Puzzle,
+    Grid2X2,
+    Timer,
+    MessageCircleQuestion,
+    Flag,
+    PersonStanding,
+    Bike,
+    Codepen,
+    Slack,
+    Dumbbell,
+    SquareLibrary,
   },
   setup() {
     return {
-      modules: [Autoplay, Pagination, Navigation]
+      
     }
   }
 }
