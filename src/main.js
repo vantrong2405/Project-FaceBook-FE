@@ -4,9 +4,11 @@ import router from './router'
 import './assets/css/input.css'
 import Default from './layouts/Default.vue'
 import Empty from './layouts/Empty.vue'
+import AdminVue from './layouts/Admin.vue'
 
 const app = createApp(App)
 app.use(router)
 app.component('default-layout', Default)
 app.component('empty-layout', Empty)
+app.component('admin-layout', AdminVue)
 app.mount('#app')

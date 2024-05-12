@@ -5,12 +5,12 @@
       <div class="w-80 hidden xl:block">
         <div class="w-80">
           <div class="fixed">
-            <div class="h-screen px-2 py-4 flex-col justify-between hidden xl:flex overflow-scroll">
+            <div class="h-screen px-2 py-12 pt-4 flex-col justify-between hidden xl:flex overflow-scroll">
               <div id="left-bar-top" class="w-full">
                 <ul>
                   <li class="flex justify-between items-center">
                     <h1 class="text-2xl font-bold">Marketplace</h1>
-                    <Settings class="rounded-full bg-[#E4E6EB] p-1"/>
+                    <Settings class="rounded-full bg-[#E4E6EB] p-1" />
                   </li>
                   <li>
                     <div class="w-72 h-14 py-2 flex items-center">

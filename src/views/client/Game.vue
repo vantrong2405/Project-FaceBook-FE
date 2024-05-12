@@ -3,13 +3,13 @@
     <div class="w-80 hidden xl:block">
       <div class="w-80">
         <div class="fixed">
-          <div class="h-screen px-2 py-4 flex-col justify-between hidden xl:flex overflow-scroll">
+          <div class="h-screen px-2 pb-12 pt-4 flex-col justify-between hidden xl:flex overflow-scroll">
             <div id="left-bar-top" class="w-full">
               <ul>
                 <li class="flex justify-between items-center">
-                    <h1 class="text-2xl font-bold">Marketplace</h1>
-                    <Settings class="rounded-full bg-[#E4E6EB] p-1"/>
-                  </li>
+                  <h1 class="text-2xl font-bold">Marketplace</h1>
+                  <Settings class="rounded-full bg-[#E4E6EB] p-1" />
+                </li>
                 <li>
                   <div class="w-72 h-14 py-2 flex items-center">
                     <div class="__logo"></div>
@@ -44,9 +44,9 @@
                 </li>
                 <hr class="mt-2 mb-4">
                 <li>
-                  <div class="flex items-center">
+                  <div class="flex items-center justify-between">
                     <p class="font-semibold">Nhóm bạn đã tham gia</p>
-                    <p class="text-sm ml-auto text-[#0866FE]">Xem tất cả</p>
+                    <p class="text-sm  text-[#0866FE]">Xem tất cả</p>
                   </div>
                   <p class="text-xs text-[#898A8D]">Hãy lưu game vào phần Game của bạn để tạo lối tắt</p>
                 </li>
@@ -286,7 +286,7 @@
         <swiper :spaceBetween="10" :autoplay="{
           delay: 2500,
           disableOnInteraction: false
-        }" :modules="modules" :slidesPerView="6" class="mySwiper">
+        }" :slidesPerView="6" class="mySwiper">
           <swiper-slide v-for="index in 20" :key="index">
             <div class="dachoiganday container w-full h-[200px] relative hover:brightness-90 cursor-pointer">
               <div class="w-full h-full flex flex-col rounded-lg overflow-hidden">
@@ -318,7 +318,7 @@
         <swiper :spaceBetween="10" :autoplay="{
           delay: 2500,
           disableOnInteraction: false
-        }" :modules="modules" :slidesPerView="6" class="mySwiper">
+        }" :slidesPerView="6" class="mySwiper">
           <swiper-slide v-for="index in 20" :key="index">
             <div class="dachoiganday container w-full h-[200px] relative hover:brightness-90 cursor-pointer">
               <div class="w-full h-full flex flex-col rounded-lg overflow-hidden">
@@ -396,7 +396,6 @@ export default {
     Bell,
     Save,
     Settings,
-    Map,
     Computer,
     Swords,
     Stamp,
@@ -412,12 +411,13 @@ export default {
     Bike,
     Codepen,
     Slack,
-    Dumbbell,
     SquareLibrary,
+    // eslint-disable-next-line vue/no-reserved-component-names
+    Map
   },
   setup() {
     return {
-      
+
     }
   }
 }
