@@ -36,13 +36,10 @@ export default {
 <style>
 @import '../assets/admin/plugins/simplebar/css/simplebar.css';
 @import '../assets/admin/plugins/perfect-scrollbar/css/perfect-scrollbar.css';
-@import '../assets/admin/css/bootstrap.min.css';
-@import '../assets/admin/css/bootstrap-extended.css';
 @import '../assets/admin/css/app.css';
 @import '../assets/admin/css/icons.css';
 @import '../assets/admin/css/dark-theme.css';
 @import '../assets/admin/css/semi-dark.css';
 @import '../assets/admin/css/header-colors.css';
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css");
 </style>
