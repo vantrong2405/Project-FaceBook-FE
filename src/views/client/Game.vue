@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-parsing-error -->
 <template>
   <div class="flex">
     <div class="w-80 hidden xl:block">
@@ -288,7 +289,7 @@
           disableOnInteraction: false
         }" :slidesPerView="6" class="mySwiper">
           <swiper-slide v-for="index in 20" :key="index">
-            <div class="dachoiganday container w-full h-[200px] relative hover:brightness-90 cursor-pointer">
+            <div class="dachoiganday container w-full h-[200px] relative hover:brightness-90 cursor-pointer p-0">
               <div class="w-full h-full flex flex-col rounded-lg overflow-hidden">
                 <div class="w-full h-[62%]">
                   <img class="w-full h-full object-cover"
@@ -319,8 +320,8 @@
           delay: 2500,
           disableOnInteraction: false
         }" :slidesPerView="6" class="mySwiper">
-          <swiper-slide v-for="index in 20" :key="index">
-            <div class="dachoiganday container w-full h-[200px] relative hover:brightness-90 cursor-pointer">
+          <swiper-slide v-for="index in 20" :key="index" class="w-full">
+            <div class="dachoiganday container w-full h-[200px] relative hover:brightness-90 cursor-pointer p-0">
               <div class="w-full h-full flex flex-col rounded-lg overflow-hidden">
                 <div class="w-full h-[62%]">
                   <img class="w-full h-full object-cover"

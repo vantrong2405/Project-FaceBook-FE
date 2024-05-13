@@ -129,8 +129,8 @@
 
         <ul v-for="(user, index) in users" :key="index">
           <li class="w-full bg-[white] my-4 rounded-lg transition-colors duration-300 border-[1px] shadow-sm py-2">
-            <div id="post-top" class="w-full flex items-center justify-between p-4">
-              <div id="post-top_left" class="flex items-center gap-4">
+            <div id="post-top" class="w-full flex items-center justify-between p-4 py-2">
+              <div id="post-top_left" class="flex items-center gap-2">
                 <div id="post-top_left_pp"
                   class="ring-2 ring-blue-500 ring-opacity-70 border-2 border-black w-max rounded-full cursor-pointer">
                   <img :src="user.route" class="w-8 h-8 rounded-full" alt="" />
@@ -151,7 +151,7 @@
                 </div>
                 <div
                   class="w-[32px] h-[32px] rounded-full flex items-center justify-center hover:bg-gray-200 cursor-pointer duration-300">
-                  <X class="w-4 " />
+                  <X class="w-10 " />
                 </div>
               </div>
             </div>
@@ -190,7 +190,7 @@
                 </div>
               </div>
               <div id="post-bottom-comments ">
-                <div id="other" class="flex gap-2 my-4">
+                <div id="other" class="flex gap-2 my-2">
                   <div id="other_pp">
                     <img :src="user.post.comment.route" class="w-9 h-9 rounded-full cursor-pointer" alt="" />
                   </div>
@@ -272,6 +272,7 @@ import svgMenu from '../../components/svg/svgMenu.vue'
 import svgSeeMore from '../../components/svg/svgSeeMore.vue'
 import { Forward } from 'lucide-vue-next'
 import svgNewMessage from '../../components/svg/svgNewMessage.vue'
+import { X } from 'lucide-vue-next';
 export default {
   components: {
     RightBar,
@@ -287,7 +288,8 @@ export default {
     svgMenu,
     svgSeeMore,
     Forward,
-    svgNewMessage
+    svgNewMessage,
+    X
   },
   data() {
     return {
