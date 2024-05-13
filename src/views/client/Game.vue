@@ -8,7 +8,7 @@
             <div id="left-bar-top" class="w-full">
               <ul>
                 <li class="flex justify-between items-center">
-                  <h1 class="text-2xl font-bold">Marketplace</h1>
+                  <h1 class="text-2xl font-bold">Chơi game</h1>
                   <Settings class="rounded-full bg-[#E4E6EB] p-1" />
                 </li>
                 <li>
@@ -20,7 +20,7 @@
                     <div
                       class="w-10 flex items-center justify-center h-full bg-gray-100 rounded-full overflow-hidden cursor-pointer xl:flex-1 xl:px-4 xl:cursor-text ml-1 sm:m-0">
                       <svg-search class="w-5" fill="currentColor" />
-                      <input
+                      <input placeholder="Tìm kiếm trong phần chơi game "
                         class="w-full h-full bg-transparent text-sm px-2 border-none outline-none xl:block focus:outline-none focus:ring-transparent" />
                     </div>
                   </div>
@@ -43,13 +43,13 @@
                   </div>
                   <span class="font-semibold text-tiny">Thông báo</span>
                 </li>
-                <hr class="mt-2 mb-4">
+                <hr class="mt-2 mb-2">
                 <li>
                   <div class="flex items-center justify-between">
-                    <p class="font-semibold">Nhóm bạn đã tham gia</p>
-                    <p class="text-sm  text-[#0866FE]">Xem tất cả</p>
+                    <p class="font-semibold text-[18px]">Game của bạn</p>
+                    <p class="text-sm  text-[#0866FE] py-[5px] px-[8px] hover:bg-[#F2F2F2] cursor-pointer">Xem tất cả</p>
                   </div>
-                  <p class="text-xs text-[#898A8D]">Hãy lưu game vào phần Game của bạn để tạo lối tắt</p>
+                  <p class="text-xs text-[#898A8D] max-w-[300px] break-words">Hãy lưu game vào phần Game của bạn để tạo lối tắt tại đây</p>
                 </li>
                 <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900 mt-4">
                   <div class="bg-[#D8DADF] rounded-full p-1">
@@ -57,8 +57,8 @@
                   </div>
                   <span class="font-semibold text-tiny">Lưu game</span>
                 </li>
-                <hr>
-                <p class="font-semibold">Hạng mục</p>
+                <hr class="my-4">
+                <p class="font-semibold text-[18px]">Hạng mục</p>
                 <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
                   <div class="bg-[#D8DADF] rounded-full p-1">
                     <Gamepad2 class="rounded-full" />
@@ -200,7 +200,7 @@
       </div>
     </div>
     <div class="overflow-hidden bg-[#F0F2F5] px-8">
-      <p class="text-[24px] font-bold" hidden>Đã chơi gần đây</p>
+      <p class="text-[24px] font-bold pt-[10px]">Đã chơi gần đây</p>
       <div id="animation-carousel">
         <div class="py-[16px]">
           <div class="flex">
@@ -229,9 +229,9 @@
         <p class="text-[24px] font-bold">Game chúng tôi thích</p>
         <div id="animation-carousel" class="relative">
           <div class="py-[16px]">
-            <div class="flex flex-row h-full">
+            <div class="flex h-full">
               <div
-                class="dachoiganday container mr-[8px] w-[220px] h-[200px] min-w-[180px] max-w-[250px] relative hover:brightness-90 cursor-pointer">
+                class="dachoiganday ml-0 px-0 mr-[10px] container w-[200px] h-[200px] min-w-[180px] max-w-[250px] relative hover:brightness-90 cursor-pointer">
                 <div class="w-full h-full flex flex-col rounded-lg overflow-hidden">
                   <div class="w-full h-[62%]">
                     <img class="w-full h-full object-cover"
@@ -255,7 +255,7 @@
                 </div>
               </div>
               <div
-                class="dachoiganday container mr-[8px] w-[220px] h-[200px] min-w-[180px] max-w-[250px] relative hover:brightness-90 cursor-pointer">
+                class="dachoiganday ml-0 px-0 mr-[10px] container w-[200px] h-[200px] min-w-[180px] max-w-[250px] relative hover:brightness-90 cursor-pointer">
                 <div class="w-full h-full flex flex-col rounded-lg overflow-hidden">
                   <div class="w-full h-[62%]">
                     <img class="w-full h-full object-cover"
@@ -283,7 +283,7 @@
         </div>
       </div>
       <div class="sss w-full mb-2">
-        <div class="text-[24px] font-bold mb-4">Game chúng tôi thích</div>
+        <div class="text-[24px] font-bold mb-4 ">Lựa chọn hàng đầu dành cho bạn</div>
         <swiper :spaceBetween="10" :autoplay="{
           delay: 2500,
           disableOnInteraction: false
@@ -405,6 +405,7 @@ export default {
     DraftingCompass,
     Puzzle,
     Grid2X2,
+   
     Timer,
     MessageCircleQuestion,
     Flag,

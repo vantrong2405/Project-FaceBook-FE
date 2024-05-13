@@ -26,15 +26,15 @@
                       </div>
                     </div>
                   </li>
-                  <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                  <li class="flex items-center gap-2 px-3 py-[12px] w-full cursor-pointer rounded-lg hover:bg-myGray-900">
                     <Newspaper class="rounded-full" />
                     <span class="font-semibold text-tiny">Bảng feed của bạn</span>
                   </li>
-                  <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                  <li class="flex items-center gap-2 px-3 py-[12px] w-full cursor-pointer rounded-lg hover:bg-myGray-900">
                     <Compass class="rounded-full" />
                     <span class="font-semibold text-tiny">Khám phá</span>
                   </li>
-                  <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                  <li class="flex items-center gap-2 px-3 py-[12px] w-full cursor-pointer rounded-lg hover:bg-myGray-900">
                     <Users class="rounded-full" />
                     <span class="font-semibold text-tiny">Nhóm của bạn</span>
                   </li>
@@ -50,7 +50,7 @@
                   <p class=" rounded-md text-[15px] text-[#0064D1] py-[5px] px-[8px] cursor-pointer hover:bg-[#F2F2F2]">
                     Xem tất cả</p>
                 </div>
-                <ul v-for="(group, index) in group" :key="index">
+                <ul class="ml-[10px]" v-for="(group, index) in group" :key="index">
                   <li class="w-full hover:bg-[#F2F2F2] flex flex-row h-[55px] items-center cursor-pointer rounded-lg ">
                     <div class="h-full leading-[55px]">
                       <img :src="group.route" alt="" class="w-[40px] h-[40px] leading-[55px]">

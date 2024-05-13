@@ -1,5 +1,6 @@
 <template>
-  <div class="flex bg-[#F0F2F5]">
+  <div class="relative">
+    <div class="flex bg-[#F0F2F5]">
     <!-- left bar -->
     <div class="flex ">
       <div class="w-80 hidden xl:block ">
@@ -101,7 +102,7 @@
               <div class="_pp_ cursor-pointer">
                 <img src="../../assets/images/pp.jpg" class="w-10 rounded-full" alt="" />
               </div>
-              <input
+              <input @click="showModalCreatePost=true"
                 class="cursor-pointer w-full h-10 rounded-full border-[0px] bg-[#F0F2F5] hover:bg-[#E4E6E9] outline-none text-tiny px-3 font-semibold transition-colors  mobile-x:text-base focus:outline-none focus:shadow-none focus:ring-transparent"
                 type="text" name="" placeholder="What's on your mind, Elliot ?" />
             </div>
@@ -247,14 +248,82 @@
     </div>
     <div class="w-80 hidden lg:block">
       <div class="absolute">
-        <RightBar class="fixed top-0 right-0" />
+        <RightBar class="fixed top-0 right-0 mt-[20px]" />
       </div>
     </div>
   </div>
   <div
-    class="p-4 flex items-center justify-center rounded-full bg-white border-2 text-black fixed right-5 bottom-5 cursor-pointer hover:bg-myGray-700 transition-colors duration-300">
+    class="p-[14px] flex items-center justify-center rounded-full bg-white border-2 text-black fixed right-5 bottom-5 cursor-pointer hover:bg-myGray-700 transition-colors duration-300">
     <svg-new-message class="w-5" />
   </div>
+  <!-- Modal Create Post -->
+  <div v-if="showModalCreatePost" id="ModalCreatePost" class="absolute top-[-10%] right-0 bottom-0 left-0 bg-white bg-opacity-50 z-50">
+    <div class="w-[35%]  fixed top-[10%] left-[35%] ">
+      <div class="w-full h-full relative bg-white  shadow-lg rounded-lg">
+          <p class="text-center py-[14px] text-black text-[20px] font-bold border-b border-[rgba(0, 0, 0, 0.1)]">Tạo bài viết </p>
+          <div class="w-full mx-[16px] py-[16px] flex ">
+            <a class="w-[40px] h-[40px] hover:brightness-90" href="">
+              <img class="w-full h-full rounded-full" src="https://scontent.fdad3-6.fna.fbcdn.net/v/t39.30808-1/274456074_1361142244327596_3675729695510261208_n.jpg?stp=c0.2.200.200a_dst-jpg_p200x200&_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEu3DE5x6dR9PxFQ-LK28vEDbjtZrkb4vQNuO1muRvi9Ih5x7QFRzr-YV0Ly3szC91MQcW0YX-b2uUdFa-mQrif&_nc_ohc=Qt8QiDFGOAcQ7kNvgEg42rk&_nc_ht=scontent.fdad3-6.fna&oh=00_AYBFPsf8BS-VIw3-Z8E96YN00GSPXOvNyYMm5GvieB4ICA&oe=6647C7E6" alt="">
+            </a>
+            <div class="ml-[10px]">
+              <p class="text-[15px] font-medium text-black">Ân Nguyên</p>
+              <div class="w-full flex ">
+                  <div class="flex py-[2px] px-[5px] items-center cursor-pointer bg-[#E4E6EB] rounded-md">
+                    <i class="fa-solid fa-earth-americas text-[12px] pr-[4px]"></i>
+                    <p class="text-[13px] font-medium text-black  pr-[4px]">Công khai</p>
+                    <i class="fa-solid fa-caret-down text-[15px]"></i>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="w-full pb-[50px] px-[16px]">
+            <input class="w-full border-0 focus:outline-none focus:ring-0" type="text" placeholder="Ân ơi, bạn đang nghĩ gì thế?">
+          </div>
+          <div class="w-full flex items-center justify-between px-[16px]">
+            <img class="h-[38px] cursor-pointer w-[38px]" src="https://www.facebook.com/images/composer/SATP_Aa_square-2x.png" alt="">
+            <i class="fa-regular fa-face-smile cursor-pointer text-[26px] text-gray-500"></i>
+          </div>
+          <div class="w-full py-[15px] px-[16px] ">
+              <div class="mb-[15px] p-[8px] w-full flex items-center justify-between border-1 border-gray-300 rounded-lg">
+                <span class="text-black font-medium cursor-pointer">Thêm vào bài viết của bạn</span>
+                <div class="flex justify-around">
+                  <div class="w-[36px] h-[36px] flex items-center justify-center rounded-full hover:bg-[#F2F2F2]">
+                    <img class="cursor-pointer h-[24px] w-[24px]" src="https://static.xx.fbcdn.net/rsrc.php/v3/y7/r/Ivw7nhRtXyo.png?_nc_eui2=AeHqUBHb5H6DvGo3fHFIMnuhPL4YoeGsw5I8vhih4azDkvYK82Ph4rTMk09D3rFp2rwKaE5BuKt1RCFgJFAPRiON" alt="">
+                  </div>
+                  <div class="w-[36px] h-[36px] flex items-center justify-center rounded-full hover:bg-[#F2F2F2]">                   
+                    <img class="cursor-pointer h-[24px] w-[24px]" src="https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/b37mHA1PjfK.png?_nc_eui2=AeGuHbvZi5VThlabTWO4Jot1ohqwRjkkxMOiGrBGOSTEw013eQjAhLtPOW8G-i21QMySd7WPo7ORquKG89ZSVFi1" alt="">
+                  </div>
+                  <div class="w-[36px] h-[36px] flex items-center justify-center rounded-full hover:bg-[#F2F2F2]">
+                    <img class="cursor-pointer h-[24px] w-[24px]" src="https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Y4mYLVOhTwq.png?_nc_eui2=AeG3Yrx0YPc7BGvU6hgwmd1wvPIN-OmHLJy88g346YcsnPOTwiP9nl5vjkc3RY4qdb0hvpvvF96JXeJ4M26dypyH" alt="">
+                  </div>
+                  <div class="w-[36px] h-[36px] flex items-center justify-center rounded-full hover:bg-[#F2F2F2]">
+                    <img class="cursor-pointer h-[24px] w-[24px]" src="https://static.xx.fbcdn.net/rsrc.php/v3/y1/r/8zlaieBcZ72.png?_nc_eui2=AeGJZzAHVkPgsJxKvjTL4bu_88Ps36vvyGDzw-zfq-_IYIzspbLkXkbpS0cEn9JCveilbvBA3AJMRQWcGB70SX8N" alt="">
+                  </div>
+                  <div class="w-[36px] h-[36px] flex items-center justify-center rounded-full hover:bg-[#F2F2F2]">
+                    <img class="cursor-pointer h-[24px] w-[24px]" src="https://static.xx.fbcdn.net/rsrc.php/v3/yT/r/q7MiRkL7MLC.png?_nc_eui2=AeFPcLUl2wa_geZXrdq03zCoJTqz5hgP3TklOrPmGA_dOccT_16aJXX9MLVp335HzRu9AVI65L3H3CJ-kx3OOE5N" alt="">
+                  </div>
+                  <div class="cursor-pointer w-[36px] h-[36px] flex items-center justify-center rounded-full hover:bg-[#F2F2F2]" >
+                    <i class="fa-solid fa-ellipsis"></i>
+                  </div>
+                </div>
+              </div>
+              
+              <button class="w-full py-[10px] bg-[#0861F2] text-white font-medium rounded-lg">Đăng </button>
+              
+          </div>
+          <!-- Close Modal Create Post -->
+          <div @click="showModalCreatePost=false" class="absolute top-2 right-[12px]">
+            <div class="w-[36px] h-[36px] flex items-center justify-center rounded-full  cursor-pointer bg-[#E4E6EB] hover:bg-[#D8DADF]">
+              <i class="fa-solid fa-xmark text-[22px] text-gray-500"></i>
+            </div>
+          </div>
+          
+      </div>
+    </div>
+  </div>
+  </div>
+ 
+  
 </template>
 <script>
 import RightBar from '../../components/RightBar/index.vue'
@@ -293,6 +362,7 @@ export default {
   },
   data() {
     return {
+      showModalCreatePost:false,
       users: [
         {
           name: 'Angela Moss',
