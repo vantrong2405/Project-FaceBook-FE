@@ -75,7 +75,7 @@
             </div>
             <hr class="mb-[10px] pb-[20px] mt-[16px]" />
             <div class="text-center pb-[20px]">
-              <a id="creat-acc" href="#"
+              <a @click="showResgister=true" id="creat-acc" href="#"
                 class="rounded-md text-lg font-[650] bg-[#42b72a] hover:bg-[#36A420] text-[17px] text-white py-[13px] px-[18px]">Tạo
                 tài khoản mới
               </a>
@@ -187,11 +187,11 @@
       </div>
     </section>
     <!-- section Register -->
-    <section id="register" class="bg-[#FFF] bg-opacity-80 fixed bottom-0 z-50 top-0 left-0 right-0" hidden>
-      <div class="w-full text-center pt-[5%]">
-        <div class="inline-block text-left m-[20px] relative">
+    <section v-if="showResgister" id="register" class="bg-[#FFF] bg-opacity-80 fixed bottom-0 z-50 top-0 left-0 right-0" >
+      <div class="w-full text-center py-[3%] ">
+        <div class="inline-block text-left m-[20px] relative ">
           <div class="w-[430px] bg-white shadow-lg rounded-md">
-            <img id="cancel" class="w-[24px] h-[24px] absolute top-[10px] right-[12px]" src="./img/cancel.png" alt="" />
+            <i @click="showResgister=false" class="fa-solid fa-xmark absolute top-[10px] right-[12px] text-[23px] text-[gray]"></i>
             <div class="py-[10px] px-[16px]">
               <h1 class="text-[32px] leading-[38px] font-bold">Đăng ký</h1>
               <p class="text-[#606770] text-[15px] pt-[2px]">Nhanh chóng và dễ dàng.</p>
@@ -224,7 +224,7 @@
                   <div class="flex justify-between w-100%">
                     <span class="justify-start h-[36px] w-[31%]">
                       <select id="day" title="Ngày"
-                        class="border-[1px] text-[15px] border-[#ccd0d5] text-[#1c1e21] text-sm rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full py-[7px]">
+                        class="border-[1px] text-[15px] pl-[5px] border-[#ccd0d5] text-[#1c1e21] text-sm rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full py-[7px]">
                         <option value="1" selected>1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -243,7 +243,7 @@
                     </span>
                     <span class="h-[36px] w-[31%]">
                       <select id="Month " title="Tháng"
-                        class="border-[1px] text-[15px] border-[#ccd0d5] text-[#1c1e21] text-sm rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full py-[7px]">
+                        class="border-[1px] pl-[5px] text-[15px] border-[#ccd0d5] text-[#1c1e21] text-sm rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full py-[7px]">
                         <option value="1" selected>Tháng 1</option>
                         <option value="2">Tháng 2</option>
                         <option value="3">Tháng 3</option>
@@ -260,7 +260,7 @@
                     </span>
                     <span class="justify-end h-[36px] w-[31%]">
                       <select id="years " title="năm"
-                        class="border-[1px] text-[15px] border-[#ccd0d5] text-[#1c1e21] text-sm rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full py-[7px]">
+                        class="border-[1px] pl-[5px] text-[15px] border-[#ccd0d5] text-[#1c1e21] text-sm rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full py-[7px]">
                         <option value="2024" selected="1">2024</option>
                         <option value="2023">2023</option>
                         <option value="2022">2022</option>
@@ -288,20 +288,20 @@
                   </div>
                   <div class="text-[15px] flex justify-between w-100%">
                     <span
-                      class="h-[36px] input w-[28%] leading-[36px] relative rounded-[4px] border-[1px] border-[#ccd0d5]">
+                      @click="showCustomGender=false" class="h-[36px] input w-[28%] leading-[36px] relative rounded-[4px] border-[1px] border-[#ccd0d5]">
                       <label class="pr-[28px] pl-[10px]" for="female">Nữ</label>
-                      <input name="sex" id="female" class="absolute top-0 bottom-0 right-[10px]" type="radio" />
+                      <input name="sex" id="female" class="absolute top-[10px] bottom-0 right-[10px]" type="radio" />
                     </span>
-                    <span class="h-[36px] w-[28%] leading-[36px] relative rounded-[4px] border-[1px] border-[#ccd0d5]">
+                    <span  @click="showCustomGender=false" class="h-[36px] w-[28%] leading-[36px] relative rounded-[4px] border-[1px] border-[#ccd0d5]">
                       <label class="pr-[28px] pl-[10px]" for="male">Nam</label>
-                      <input name="sex" id="male" class="absolute top-0 bottom-0 right-[10px]" type="radio" />
+                      <input name="sex" id="male" class="absolute top-[10px] bottom-0 right-[10px]" type="radio" />
                     </span>
-                    <span class="h-[36px] w-[38%] leading-[36px] relative rounded-[4px] border-[1px] border-[#ccd0d5]">
+                    <span  @click="showCustomGender=true" class="h-[36px] w-[38%] leading-[36px] relative rounded-[4px] border-[1px] border-[#ccd0d5]">
                       <label class="pr-[28px] pl-[10px]" for="option">Tùy chỉnh</label>
-                      <input name="sex" id="option" class="absolute top-0 bottom-0 right-[10px]" type="radio" />
+                      <input name="sex" id="option" class="absolute top-[10px] bottom-0 right-[10px]" type="radio" />
                     </span>
                   </div>
-                  <div id="custom-gender" class="mt-[10px]">
+                  <div v-if="showCustomGender" id="custom-gender" class="mt-[10px]">
                     <div class="mb-[5px]">
                       <select aria-label="Chọn danh xưng"
                         class="border-[1px] text-[15px] border-[#ccd0d5] text-[#1c1e21] text-sm rounded-[4px] focus:ring-blue-500 focus:border-blue-500 block w-full py-[7px]">
@@ -425,6 +425,13 @@
   </div>
 </template>
 <script>
-export default {}
+export default {
+  data(){
+    return {
+      showCustomGender:false,
+      showResgister:false,
+    }
+  }
+}
 </script>
 <style></style>
