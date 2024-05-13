@@ -9,48 +9,48 @@
               <div id="left-bar-top" class="w-full">
                 <ul>
                   <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                    <img src="../assets/images    MonitorPlay,
+                    <img src="../../assets/images    MonitorPlay,
 /pp.jpg" class="rounded-full w-9" alt="" />
                     <span class="font-semibold text-tiny"> Văn trọng </span>
                   </li>
                   <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                    <img src="../assets/images/png/friends.png" class="rounded-full w-9" alt="Bạn bè" />
+                    <img src="../../assets/images/png/friends.png" class="rounded-full w-9" alt="Bạn bè" />
                     <span class="font-semibold text-tiny">Bạn bè</span>
                   </li>
                   <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                    <img src="../assets/images/png/groups.png" class="rounded-full w-9" alt="Nhóm" />
+                    <img src="../../assets/images/png/groups.png" class="rounded-full w-9" alt="Nhóm" />
                     <span class="font-semibold text-tiny">Nhóm</span>
                   </li>
                   <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                    <img src="../assets/images/png/marketplace.png" class="rounded-full w-9" alt="Marketplace" />
+                    <img src="../../assets/images/png/marketplace.png" class="rounded-full w-9" alt="Marketplace" />
                     <span class="font-semibold text-tiny">Marketplace</span>
                   </li>
                   <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                    <img src="../assets/images/png/watch.png" class="rounded-full w-9" alt="Video" />
+                    <img src="../../assets/images/png/watch.png" class="rounded-full w-9" alt="Video" />
                     <span class="font-semibold text-tiny">Video</span>
                   </li>
                   <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                    <img src="../assets/images/png/memories.png" class="rounded-full w-9" alt="Kỷ niệm" />
+                    <img src="../../assets/images/png/memories.png" class="rounded-full w-9" alt="Kỷ niệm" />
                     <span class="font-semibold text-tiny">Kỷ niệm</span>
                   </li>
                   <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                    <img src="../assets/images/png/saved.png" class="rounded-full w-9" alt="Đã lưu" />
+                    <img src="../../assets/images/png/saved.png" class="rounded-full w-9" alt="Đã lưu" />
                     <span class="font-semibold text-tiny">Đã lưu</span>
                   </li>
                   <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                    <img src="../assets/images/png/pages.png" class="rounded-full w-9" alt="Trang" />
+                    <img src="../../assets/images/png/pages.png" class="rounded-full w-9" alt="Trang" />
                     <span class="font-semibold text-tiny">Trang</span>
                   </li>
                   <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                    <img src="../assets/images/png/events.png" class="rounded-full w-9" alt="Sự kiện" />
+                    <img src="../../assets/images/png/events.png" class="rounded-full w-9" alt="Sự kiện" />
                     <span class="font-semibold text-tiny">Sự kiện</span>
                   </li>
                   <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                    <img src="../assets/images/png/jobs.png" class="rounded-full w-9" alt="Công việc" />
+                    <img src="../../assets/images/png/jobs.png" class="rounded-full w-9" alt="Công việc" />
                     <span class="font-semibold text-tiny">Công việc</span>
                   </li>
                   <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                    <img src="../assets/images/png/mostRecent.png" class="rounded-full w-9" alt="Gần đây" />
+                    <img src="../../assets/images/png/mostRecent.png" class="rounded-full w-9" alt="Gần đây" />
                     <span class="font-semibold text-tiny">Gần đây</span>
                   </li>
                   <div
@@ -82,8 +82,8 @@
     </div>
     <div class="w-full">
       <div
-        class=" h-auto desktop:w-180 la ptop:w-160 lg:w-160 sm:w-140 w-full sm:m-auto p-1 text-xs font-semibold mobile-x:text-tiny mobile-x:p-8">
-        <div class="bg-[white] flex flex-col gap-4 border-[1px] p-2 rounded-lg shadow-sm">
+        class="bg-white h-auto desktop:w-180 la ptop:w-160 lg:w-160 sm:w-140 w-full sm:m-auto p-1 text-xs font-semibold mobile-x:text-tiny mobile-x:p-8">
+        <div class="flex flex-col gap-4 border-2 p-2">
           <div id="storie" class="rounded-lg">
             <div
               class="w-full h-18 rounded-lg py-1 px-2 flex items-center gap-3 cursor-pointer hover:bg-myGray-900 transition-colors duration-300">
@@ -100,10 +100,10 @@
           <div id="new-post" class="h-32 p-2 rounded-lg flex flex-col justify-between">
             <div id="new-post-top" class="p-1 flex gap-3 items-center">
               <div class="_pp_ cursor-pointer">
-                <img src="../assets/images/pp.jpg" class="w-10 rounded-full" alt="" />
+                <img src="../../assets/images/pp.jpg" class="w-10 rounded-full" alt="" />
               </div>
               <input
-                class="cursor-pointer w-full h-10 rounded-full border-[0px] bg-[#F0F2F5] hover:bg-[#E4E6E9] outline-none text-tiny px-3 font-semibold transition-colors  mobile-x:text-base focus:outline-none focus:shadow-none focus:ring-transparent"
+                class="cursor-pointer w-full h-10 rounded-full outline-none text-tiny px-3 font-semibold transition-colors duration-300 mobile-x:text-base focus:outline-none focus:shadow-none focus:ring-transparent"
                 type="text" name="" placeholder="What's on your mind, Elliot ?" />
             </div>
             <hr class="mx-2" />
@@ -129,7 +129,7 @@
         <!-- start -->
 
         <ul v-for="(user, index) in users" :key="index">
-          <li class="w-full bg-[white] my-4 rounded-lg transition-colors duration-300 border-[1px] shadow-sm py-2">
+          <li class="w-full my-4 rounded-lg transition-colors duration-300 border-2 py-2">
             <div id="post-top" class="w-full flex items-center justify-between p-4">
               <div id="post-top_left" class="flex items-center gap-4">
                 <div id="post-top_left_pp"
@@ -145,13 +145,9 @@
                   </p>
                 </div>
               </div>
-              <div id="post-top_right" class="flex items-center">
-                <div class ="w-[32px] h-[32px] rounded-full flex items-center justify-center hover:bg-gray-200 cursor-pointer duration-300">
-                  <svg-dots class="w-4" />
-                </div>
-                <div class ="w-[32px] h-[32px] rounded-full flex items-center justify-center hover:bg-gray-200 cursor-pointer duration-300">
-                  <X class="w-4 " />
-                </div>
+              <div id="post-top_right"
+                class="p-2 rounded-full hover:bg-myGray-900 cursor-pointer transition-colors duration-300">
+                <svg-dots class="w-4" />
               </div>
             </div>
             <div id="post-middle">
@@ -193,8 +189,8 @@
                   <div id="other_pp">
                     <img :src="user.post.comment.route" class="w-9 h-9 rounded-full cursor-pointer" alt="" />
                   </div>
-                  <div id="other_comment" class="max-w-full rounded-lg pb-2">
-                    <div class="py-2 px-3 rounded-2xl bg-slate-100">
+                  <div id="other_comment" class="w-full rounded-lg pb-2">
+                    <div class="py-2 px-3 rounded-2xl bg-myGray-900">
                       <div id="commnet-name" class="cursor-pointer hover:underline font-bold text-xs">
                         {{ user.post.comment.name }}
                       </div>
@@ -211,12 +207,12 @@
                   </div>
                 </div>
                 <div id="me" class="flex w-full gap-2">
-                  <img src="../assets/images/pp.jpg" class="w-9 h-9 rounded-full cursor-pointer" alt="" />
+                  <img src="../../assets/images/pp.jpg" class="w-9 h-9 rounded-full cursor-pointer" alt="" />
                   <div class="flex w-full flex-col">
                     <div id="me_comment"
-                      class="flex w-full outline-none focus:outline-none ring-transparent bg-slate-100 rounded-2xl">
+                      class="flex w-full outline-none focus:outline-none ring-transparent rounded-2xl">
                       <input
-                        class="w-full bg-transparent px-3 outline-none border-0  rounded-2xl focus:outline-none focus:ring-transparent focus:border-black"
+                        class="w-full bg-transparent px-3 outline-none focus:outline-none focus:ring-transparent focus:border-black"
                         type="text" placeholder="Write a public comment..." />
                       <div id="me_comment_buttons" class="flex items-center">
                         <div class="p-2 rounded-full cursor-pointer transition-colors duration-300">
