@@ -21,7 +21,7 @@
                       <div
                         class="w-10 flex items-center justify-center h-full bg-gray-100 rounded-full overflow-hidden cursor-pointer xl:flex-1 xl:px-4 xl:cursor-text ml-1 sm:m-0">
                         <svg-search class="w-5" fill="currentColor" />
-                        <input
+                        <input placeholder="Tìm kiếm trên Marketplace"
                           class="w-full h-full bg-transparent text-sm px-2 border-none outline-none xl:block focus:outline-none focus:ring-transparent" />
                       </div>
                     </div>
@@ -51,8 +51,8 @@
                     <span class="font-semibold text-tiny">Đang mua</span>
                     <ChevronRight class="ml-auto text-[#A7AAAE]" />
                   </li>
-                  <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                    <div class="bg-[#D8DADF] rounded-full p-1">
+                  <li class="flex items-center gap-2 px-3 py-2 w-full mb-[10px] cursor-pointer rounded-lg hover:bg-myGray-900">
+                    <div class="bg-[#D8DADF] rounded-full p-1 ">
                       <Tag class="rounded-full" />
                     </div>
                     <span class="font-semibold text-tiny">Bán hàng</span>
@@ -67,7 +67,7 @@
                     </button>
                   </li>
                   <hr class="mt-2 mb-3">
-                  <p class="mb-2">Bộ lọc</p>
+                  <p class="mb-2 text-[18px] font-medium">Bộ lọc</p>
                   <div class="flex ml-auto text-[#0866FE] items-center text-sm font-semibold">
                     <span>Đà Nẵng</span>
                     <span class="translate-y-[-10%] ml-1.5 mr-1.5">.</span>
