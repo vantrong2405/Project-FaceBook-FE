@@ -1,9 +1,9 @@
 <template>
   <div class="flex items-center gap-1 sm:gap-2 justify-end px-4">
     <div id="menu-box"
-      class="p-3 rounded-full flex items-center justify-center cursor-pointer bg-myGray-900 hover:bg-myGray-700 transition-colors duration-300">
-      <svg-menu class="w-5 hidden lg:block" />
-      <svg-create class="w-5 block lg:hidden" />
+      class=" h-[40px] w-[40px] rounded-full flex items-center justify-center cursor-pointer bg-myGray-900 hover:bg-myGray-700 transition-colors duration-300">
+      <svg-menu class="w-[20px] hidden lg:block" />
+      <svg-create class="w-[20px] block lg:hidden" />
       <div class="max-w-xl top-full shadow-2xl border-solid border-2 border-spacing-0 rounded-xl hidden bg-gray-100 absolute mr-28 box-border">
         <header class="my-2
         mx-4 font-semibold px-2 text-2xl pt-1">MENU</header>
@@ -220,9 +220,8 @@
 
     </div>
     <div id="messenger-box"
-      class="p-3 rounded-full flex items-center justify-center cursor-pointer bg-myGray-900 hover:bg-myGray-700 transition-colors duration-300">
-      <svg-messenger class="w-5" />
-
+      class="h-[40px] w-[40px] mr-[5px] rounded-full flex items-center justify-center cursor-pointer bg-myGray-900 hover:bg-myGray-700 transition-colors duration-300">
+      <svg-messenger class="w-[20px]" />
       <div class="bg-white  w-80 box-border border-solid border-2 rounded-lg absolute hidden top-full  ">
         <div class="flex justify-between">
             <h3 class="mx-3 my-1 font-semiboldbold text-2xl"><b>Đoạn chat</b></h3>
@@ -369,10 +368,9 @@
      </div>
     </div>
 
-
     <div id="notifications-box"
-      class="p-3 rounded-full flex items-center justify-center cursor-pointer bg-myGray-900 hover:bg-myGray-700 transition-colors duration-300">
-      <svg-notifications class="w-5" />
+      class="h-[40px] w-[40px] mr-[5px] rounded-full flex items-center justify-center cursor-pointer bg-myGray-900 hover:bg-myGray-700 transition-colors duration-300">
+      <svg-notifications class="w-[20px]" />
 
       <div class="w-96 mr-32 font-semibold box-border shadow-2xl bg-white border-solid border-2 rounded-lg absolute hidden top-full ">
 
@@ -405,7 +403,7 @@
   </div>
 
   <div class=" ">
-      <a href="" class=" ">
+      <a href="" class=" ">o
           <div class="flex   hover:bg-gray-200 mx-1 p-2 rounded-xl">
               <div class="mr-2 ">
                   <img src="https://scontent.fsgn2-9.fna.fbcdn.net/v/t39.30808-1/300362956_379273724392258_4259585475714196784_n.jpg?stp=dst-jpg_p160x160&_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=ANUcRo9mmy0Q7kNvgGQJ9YF&_nc_ht=scontent.fsgn2-9.fna&oh=00_AYBwifq76_BJhOH-etGc1yStjZTx5sJwqJsp-VD5VN1Zhw&oe=66460A76" class=" w-12 h-12 rounded-full" alt="">
@@ -484,8 +482,7 @@
 </div>
     </div>
 
-
-    <div id="pp-info" class="rounded-full flex items-center justify-center cursor-pointer bg-myGray-900 hover:bg-myGray-700 transition-colors duration-300">
+    <div id="pp-info" class="h-[40px] w-[40px] mr-[5px] rounded-full flex items-center justify-center cursor-pointer bg-myGray-900 hover:bg-myGray-700 transition-colors duration-300">
         <div id="pp" class="rounded-full overflow-hidden w-10 relative border">
             <img src="../../assets/images/pp.jpg" alt="" width="100%" />
             <div class="image-avatar"></div>
@@ -493,8 +490,8 @@
         
     </div>
     <div id="account-box"
-      class="relative p-3 rounded-full flex items-center justify-center cursor-pointer bg-myGray-900 hover:bg-myGray-700 transition-colors duration-300">
-      <svg-account class="w-5" />
+      class="relative h-[40px] w-[40px] mr-[5px] rounded-full flex items-center justify-center cursor-pointer bg-myGray-900 hover:bg-myGray-700 transition-colors duration-300">
+      <svg-account class="w-[20px]" />
       <router-link to="/profile">
         <div class="bg-gray-50  mt-1 mr-96 box-border border-solid border-2 rounded-xl w-100 shadow-xl absolute hidden top-full">
         <div>

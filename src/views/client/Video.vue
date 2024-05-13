@@ -20,7 +20,7 @@
                       <div
                         class="w-10 flex items-center justify-center h-full bg-gray-100 rounded-full overflow-hidden cursor-pointer xl:flex-1 xl:px-4 xl:cursor-text ml-1 sm:m-0">
                         <svg-search class="w-5" fill="currentColor" />
-                        <input
+                        <input placeholder="Tìm kiếm video"
                           class="w-full h-full bg-transparent text-sm px-2 border-none outline-none xl:block focus:outline-none focus:ring-transparent" />
                       </div>
                     </div>
@@ -71,8 +71,8 @@
         </div>
       </div>
     </div>
-    <div class="  mx-auto">
-      <div class="flex justify-between items-center shadow-md rounded-lg mb-3 border bg-white">
+    <div class=" mx-auto">
+      <div class="flex justify-between items-center shadow-md rounded-lg mb-3 border bg-white mt-[15px]">
         <div class="p-3 mt-3">
           <h1 class="font-bold text-xl mb-3">Video mới dành cho bạn</h1>
           <div class="flex items-center mb-3">

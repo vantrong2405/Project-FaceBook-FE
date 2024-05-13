@@ -26,15 +26,15 @@
                       </div>
                     </div>
                   </li>
-                  <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                  <li class="flex items-center gap-2 px-3 py-[12px] w-full cursor-pointer rounded-lg hover:bg-myGray-900">
                     <Newspaper class="rounded-full" />
                     <span class="font-semibold text-tiny">Bảng feed của bạn</span>
                   </li>
-                  <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                  <li class="flex items-center gap-2 px-3 py-[12px] w-full cursor-pointer rounded-lg hover:bg-myGray-900">
                     <Compass class="rounded-full" />
                     <span class="font-semibold text-tiny">Khám phá</span>
                   </li>
-                  <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                  <li class="flex items-center gap-2 px-3 py-[12px] w-full cursor-pointer rounded-lg hover:bg-myGray-900 mb-[10px]">
                     <Users class="rounded-full" />
                     <span class="font-semibold text-tiny">Nhóm của bạn</span>
                   </li>
@@ -50,13 +50,13 @@
                   <p class=" rounded-md text-[15px] text-[#0064D1] py-[5px] px-[8px] cursor-pointer hover:bg-[#F2F2F2]">
                     Xem tất cả</p>
                 </div>
-                <ul v-for="(group, index) in group" :key="index">
+                <ul class="ml-[10px]" v-for="(group, index) in group" :key="index">
                   <li class="w-full hover:bg-[#F2F2F2] flex flex-row h-[55px] items-center cursor-pointer rounded-lg ">
-                    <div class="h-full leading-[55px]">
+                    <div class="h-full flex items-center">
                       <img :src="group.route" alt="" class="w-[40px] h-[40px] leading-[55px]">
                     </div>
-                    <div class="h-full ml-[10px]">
-                      <p class="text-[14px] font-medium">{{ group.name }}</p>
+                    <div class=" ml-[10px] ">
+                      <p class="text-[14px] font-medium mt-[2px]">{{ group.name }}</p>
                       <p class="text-[13px] text-[#65676B]">Lần hoạt động gần nhất: {{ group.time }}</p>
                     </div>
                   </li>
@@ -161,22 +161,22 @@ export default {
     return {
       group: [
         {
-          name: 'DTU - Đại Học Duy Tân Đà Nẵng',
+          name: 'DTU - Đại Học Duy Tân',
           route: 'src/assets/images/avatar.jpg',
           time: '5 giờ trước',
         },
         {
-          name: 'DTU - Đại Học Duy Tân Đà Nẵng',
+          name: 'DTU - Đại Học Duy Tân',
           route: 'src/assets/images/avatar.jpg',
           time: '5 giờ trước',
         },
         {
-          name: 'DTU - Đại Học Duy Tân Đà Nẵng',
+          name: 'DTU - Đại Học Duy Tân',
           route: 'src/assets/images/avatar.jpg',
           time: '5 giờ trước',
         },
         {
-          name: 'DTU - Đại Học Duy Tân Đà Nẵng',
+          name: 'DTU - Đại Học Duy Tân',
           route: 'src/assets/images/avatar.jpg',
           time: '5 giờ trước',
         }
