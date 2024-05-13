@@ -15,37 +15,31 @@
                     <div class="w-72 h-14 py-2 flex items-center">
                       <div class="__logo"></div>
                       <div
-                        class="h-9 flex items-center justify-center rounded-full cursor-pointer transition-opacity duration-500"
-                      ></div>
+                        class="h-9 flex items-center justify-center rounded-full cursor-pointer transition-opacity duration-500">
+                      </div>
                       <div
-                        class="w-10 flex items-center justify-center h-full bg-gray-100 rounded-full overflow-hidden cursor-pointer xl:flex-1 xl:px-4 xl:cursor-text ml-1 sm:m-0"
-                      >
+                        class="w-10 flex items-center justify-center h-full bg-gray-100 rounded-full overflow-hidden cursor-pointer xl:flex-1 xl:px-4 xl:cursor-text ml-1 sm:m-0">
                         <svg-search class="w-5" fill="currentColor" />
                         <input
-                          class="w-full h-full bg-transparent text-sm px-2 border-none outline-none xl:block  focus:outline-none focus:ring-transparent" placeholder="Tìm kiếm nhóm"
-                        />
+                          class="w-full h-full bg-transparent text-sm px-2 border-none outline-none xl:block  focus:outline-none focus:ring-transparent"
+                          placeholder="Tìm kiếm nhóm" />
                       </div>
                     </div>
                   </li>
-                  <li
-                    class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900"
-                  >
+                  <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
                     <Newspaper class="rounded-full" />
                     <span class="font-semibold text-tiny">Bảng feed của bạn</span>
                   </li>
-                  <li
-                    class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900"
-                  >
+                  <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
                     <Compass class="rounded-full" />
                     <span class="font-semibold text-tiny">Khám phá</span>
                   </li>
-                  <li
-                    class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900"
-                  >
+                  <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
                     <Users class="rounded-full" />
                     <span class="font-semibold text-tiny">Nhóm của bạn</span>
                   </li>
-                  <li class="flex items-center justify-center py-[6px] hover:bg-[#DFE9F2] rounded-lg cursor-pointer bg-[#EBF5FF]">
+                  <li
+                    class="flex items-center justify-center py-[6px] hover:bg-[#DFE9F2] rounded-lg cursor-pointer bg-[#EBF5FF]">
                     <Plus class="text-[#0064D1]"></Plus>
                     <span class="text-[#0064D1] font-medium text-[15px]">Tạo nhóm mới</span>
                   </li>
@@ -53,19 +47,20 @@
                 <hr class="mt-[15px]">
                 <div class="flex flex-row items-center justify-between my-[12px]">
                   <p class="text-[15px] font-medium">Nhóm bạn đã tham gia</p>
-                  <p class=" rounded-md text-[15px] text-[#0064D1] py-[5px] px-[8px] cursor-pointer hover:bg-[#F2F2F2]">Xem tất cả</p>
+                  <p class=" rounded-md text-[15px] text-[#0064D1] py-[5px] px-[8px] cursor-pointer hover:bg-[#F2F2F2]">
+                    Xem tất cả</p>
                 </div>
-               <ul v-for="(group, index) in group" :key="index">
+                <ul v-for="(group, index) in group" :key="index">
                   <li class="w-full hover:bg-[#F2F2F2] flex flex-row h-[55px] items-center cursor-pointer rounded-lg ">
-                      <div class="h-full leading-[55px]">
-                        <img :src="group.route" alt="" class="w-[40px] h-[40px] leading-[55px]">
-                      </div>
-                      <div class="h-full ml-[10px]">
-                        <p class="text-[14px] font-medium">{{ group.name }}</p>
-                        <p class="text-[13px] text-[#65676B]">Lần hoạt động gần nhất: {{  group.time }}</p>
-                      </div>
+                    <div class="h-full leading-[55px]">
+                      <img :src="group.route" alt="" class="w-[40px] h-[40px] leading-[55px]">
+                    </div>
+                    <div class="h-full ml-[10px]">
+                      <p class="text-[14px] font-medium">{{ group.name }}</p>
+                      <p class="text-[13px] text-[#65676B]">Lần hoạt động gần nhất: {{ group.time }}</p>
+                    </div>
                   </li>
-               </ul>
+                </ul>
                 <!-- end -->
               </div>
             </div>
@@ -84,7 +79,8 @@
             <div>
               <div>
                 <div class="flex items-center">
-                  <p class="text-[15px] font-medium mr-2 hover:underline cursor-pointer">DTU - Đại Học Duy Tân Đà Nẵng 2024</p>
+                  <p class="text-[15px] font-medium mr-2 hover:underline cursor-pointer">DTU - Đại Học Duy Tân Đà Nẵng
+                    2024</p>
                 </div>
                 <p class="text-xs text-gray-500">2 tháng 2 lúc 22:31</p>
               </div>
@@ -120,48 +116,48 @@
   </div>
 </template>
 <script>
- import { Newspaper, Settings } from 'lucide-vue-next';
- import { Compass } from 'lucide-vue-next';
- import { Users } from 'lucide-vue-next';
-//  import svgSearch from '../components/svg/svgSearch.vue';
- import { Plus } from 'lucide-vue-next';
+import { Newspaper, Settings } from 'lucide-vue-next';
+import { Compass } from 'lucide-vue-next';
+import { Users } from 'lucide-vue-next';
+import svgSearch from '../../components/svg/svgSearch.vue';
+import { Plus } from 'lucide-vue-next';
 export default {
   data() {
     return {
       group: [
         {
-          name:'DTU - Đại Học Duy Tân Đà Nẵng',
-          route:'src/assets/images/avatar.jpg',
-          time:'5 giờ trước',
+          name: 'DTU - Đại Học Duy Tân Đà Nẵng',
+          route: 'src/assets/images/avatar.jpg',
+          time: '5 giờ trước',
         },
         {
-          name:'DTU - Đại Học Duy Tân Đà Nẵng',
-          route:'src/assets/images/avatar.jpg',
-          time:'5 giờ trước',
+          name: 'DTU - Đại Học Duy Tân Đà Nẵng',
+          route: 'src/assets/images/avatar.jpg',
+          time: '5 giờ trước',
         },
         {
-          name:'DTU - Đại Học Duy Tân Đà Nẵng',
-          route:'src/assets/images/avatar.jpg',
-          time:'5 giờ trước',
+          name: 'DTU - Đại Học Duy Tân Đà Nẵng',
+          route: 'src/assets/images/avatar.jpg',
+          time: '5 giờ trước',
         },
         {
-          name:'DTU - Đại Học Duy Tân Đà Nẵng',
-          route:'src/assets/images/avatar.jpg',
-          time:'5 giờ trước',
+          name: 'DTU - Đại Học Duy Tân Đà Nẵng',
+          route: 'src/assets/images/avatar.jpg',
+          time: '5 giờ trước',
         }
       ]
     }
   },
-  method:{},
+  method: {},
   components: {
     Newspaper,
     Compass,
     Users,
     Settings,
-    // svgSearch,
+    svgSearch,
     Plus,
   },
-  
+
 }
 </script>
 <style></style>
