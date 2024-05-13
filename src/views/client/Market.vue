@@ -5,12 +5,14 @@
       <div class="w-80 hidden xl:block">
         <div class="w-80">
           <div class="fixed">
-            <div class="h-screen px-2 py-12 pt-4 flex-col justify-between hidden xl:flex overflow-scroll">
+            <div class="h-screen ml-[5px]  px-2 py-12 pt-4 flex-col justify-between hidden xl:flex overflow-scroll">
               <div id="left-bar-top" class="w-full">
                 <ul>
                   <li class="flex justify-between items-center">
                     <h1 class="text-2xl font-bold">Marketplace</h1>
-                    <Settings class="rounded-full bg-[#E4E6EB] p-1" />
+                    <div class="h-[36px] w-[36px] rounded-full cursor-pointer flex items-center justify-center bg-[#E4E6EB] hover:bg-gray-300">
+                      <Settings />
+                    </div>
                   </li>
                   <li>
                     <div class="w-72 h-14 py-2 flex items-center">
@@ -68,13 +70,13 @@
                   </li>
                   <hr class="mt-2 mb-3">
                   <p class="mb-2 text-[18px] font-medium">Bộ lọc</p>
-                  <div class="flex ml-auto text-[#0866FE] items-center text-sm font-semibold">
+                  <div class="flex ml-auto text-[#0866FE] items-center text-sm font-semibold cursor-pointer">
                     <span>Đà Nẵng</span>
                     <span class="translate-y-[-10%] ml-1.5 mr-1.5">.</span>
                     <span>Trong vòng 65 km</span>
                   </div>
                   <hr class="mt-3">
-                  <p>Hạng mục</p>
+                  <p class="text-[18px] font-medium">Hạng mục</p>
                   <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
                     <div class="bg-[#D8DADF] rounded-full p-1">
                       <CarFront class="rounded-full" />
@@ -198,15 +200,15 @@
         </div>
       </div>
     </div>
-    <div class="w-full px-8">
-      <div class="flex justify-between">
+    <div class="w-full px-8 ml-[20px]">
+      <div class="flex justify-between mt-[20px]">
         <div class="text-xl font-bold">Lựa chọn hôm nay</div>
-        <div class="flex items-center hover:text-blue-400 cursor-pointer">
+        <div class="flex items-center hover:text-blue-600 cursor-pointer hover:underline">
           <MapPin class="mr-2" />
           <span class>Quận hải châu- 65km</span>
         </div>
       </div>
-      <div className="mt-5 grid">
+      <div className="mt-4 grid">
         <div className="grid  grid-cols-4 justify-around">
           <div className="w-[93%] h-[94%] mb-[18px] rounded-md hover:scale-105 hover:delay-250 duration-300 border"
             v-for="index in 10 " :key="index">
