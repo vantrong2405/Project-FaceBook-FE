@@ -18,5 +18,14 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     }
+  },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:4000', // URL của máy chủ Node.js
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '') // Bỏ '/api' khỏi URL
+      }
+    }
   }
 })

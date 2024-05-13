@@ -7,7 +7,7 @@ import Game from '../views/client/Game.vue'
 import Group from '../views/client/Group.vue'
 import Profile from '../views/client/Profile.vue'
 import PostVue from '../views/admin/Post.vue'
-
+import ManagerUserVue from '@/views/admin/ManagerUser.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -55,6 +55,12 @@ const router = createRouter({
       path: '/admin/post',
       name: 'post',
       component: PostVue,
+      meta: { layout: 'admin' }
+    },
+    {
+      path: '/admin/user',
+      name: 'user',
+      component: ManagerUserVue,
       meta: { layout: 'admin' }
     }
   ]
