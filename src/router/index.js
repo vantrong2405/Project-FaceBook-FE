@@ -56,7 +56,7 @@ const router = createRouter({
       // , beforeEnter: checkLogin
     },
 
-    // admin 
+    // admin
 
     {
       path: '/admin/post',

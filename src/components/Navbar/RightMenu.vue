@@ -219,8 +219,8 @@
       class="p-2 rounded-full flex items-center justify-center cursor-pointer bg-myGray-900 hover:bg-myGray-700 transition-colors duration-300"
       @click="
         isShowMessager = !isShowMessager;
-      isShowMenu = isShowMore = isShowNotice = false;
-      ">
+      isShowMenu = isShowMore = isShowNotice = false
+        ">
       <svg-messenger class="w-5" />
       <!--Messenger-->
 
@@ -253,88 +253,88 @@
                 <div class="flex items-center hover:bg-gray-100 rounded-xl m-3">
                   <div>
                     <img class="w-14 mx-2 my-2 rounded-full"
-                      src="https://scontent.fsgn2-9.fna.fbcdn.net/v/t39.30808-6/300362956_379273724392258_4259585475714196784_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=ANUcRo9mmy0Q7kNvgGQJ9YF&_nc_ht=scontent.fsgn2-9.fna&oh=00_AYDDjlm8t13v5aaTOXmDv5EyYM1mQ13y21yGbPq5XJrOkA&oe=66462334"
+                      src="https://web.hn.ss.bfcplatform.vn/muadienmay/content/article2/0878913035-1620532649.jpg"
                       alt="" />
                   </div>
                   <div>
                     <div>
-                        <p class="font-semibold">Thiện Ân</p>
-                      </div>
-                      <div class="flex">
-                        <p>Hello my fen</p>
-                        <p class="mx-1">.</p>
-                        <p>1 giờ</p>
-                      </div>
+                      <p class="font-semibold">Thiện Ân</p>
+                    </div>
+                    <div class="flex">
+                      <p>Hello my fen</p>
+                      <p class="mx-1">.</p>
+                      <p>1 giờ</p>
+                    </div>
                   </div>
                 </div>
 
                 <div class="flex items-center hover:bg-gray-100 rounded-xl m-3">
                   <div>
                     <img class="w-14 mx-2 my-2 rounded-full"
-                      src="https://scontent.fsgn2-9.fna.fbcdn.net/v/t39.30808-6/300362956_379273724392258_4259585475714196784_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=ANUcRo9mmy0Q7kNvgGQJ9YF&_nc_ht=scontent.fsgn2-9.fna&oh=00_AYDDjlm8t13v5aaTOXmDv5EyYM1mQ13y21yGbPq5XJrOkA&oe=66462334"
+                      src="https://web.hn.ss.bfcplatform.vn/muadienmay/content/article2/0878913035-1620532649.jpg"
                       alt="" />
                   </div>
                   <div>
                     <div>
-                        <p class="font-semibold">Thiện Ân</p>
-                      </div>
-                      <div class="flex">
-                        <p>Hello my fen</p>
-                        <p class="mx-1">.</p>
-                        <p>1 giờ</p>
-                      </div>
+                      <p class="font-semibold">Thiện Ân</p>
+                    </div>
+                    <div class="flex">
+                      <p>Hello my fen</p>
+                      <p class="mx-1">.</p>
+                      <p>1 giờ</p>
+                    </div>
                   </div>
                 </div>
 
                 <div class="flex items-center hover:bg-gray-100 rounded-xl m-3">
                   <div>
                     <img class="w-14 mx-2 my-2 rounded-full"
-                      src="https://scontent.fsgn2-9.fna.fbcdn.net/v/t39.30808-6/300362956_379273724392258_4259585475714196784_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=ANUcRo9mmy0Q7kNvgGQJ9YF&_nc_ht=scontent.fsgn2-9.fna&oh=00_AYDDjlm8t13v5aaTOXmDv5EyYM1mQ13y21yGbPq5XJrOkA&oe=66462334"
+                      src="https://web.hn.ss.bfcplatform.vn/muadienmay/content/article2/0878913035-1620532649.jpg"
                       alt="" />
                   </div>
                   <div class="">
                     <div>
-                        <p class="font-semibold">Thiện Ân</p>
-                      </div>
-                      <div class="flex">
-                        <p>Hello my fen</p>
-                        <p class="mx-1">.</p>
-                        <p>1 giờ</p>
-                      </div>
+                      <p class="font-semibold">Thiện Ân</p>
+                    </div>
+                    <div class="flex">
+                      <p>Hello my fen</p>
+                      <p class="mx-1">.</p>
+                      <p>1 giờ</p>
+                    </div>
                   </div>
                 </div>
                 <div class="flex items-center hover:bg-gray-100 rounded-xl m-3">
                   <div>
                     <img class="w-14 mx-2 my-2 rounded-full"
-                      src="https://scontent.fsgn2-9.fna.fbcdn.net/v/t39.30808-6/300362956_379273724392258_4259585475714196784_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=ANUcRo9mmy0Q7kNvgGQJ9YF&_nc_ht=scontent.fsgn2-9.fna&oh=00_AYDDjlm8t13v5aaTOXmDv5EyYM1mQ13y21yGbPq5XJrOkA&oe=66462334"
+                      src="https://web.hn.ss.bfcplatform.vn/muadienmay/content/article2/0878913035-1620532649.jpg"
                       alt="" />
                   </div>
                   <div class="">
                     <div>
-                        <p class="font-semibold">Thiện Ân</p>
-                      </div>
-                      <div class="flex">
-                        <p>Hello my fen</p>
-                        <p class="mx-1">.</p>
-                        <p>1 giờ</p>
-                      </div>
+                      <p class="font-semibold">Thiện Ân</p>
+                    </div>
+                    <div class="flex">
+                      <p>Hello my fen</p>
+                      <p class="mx-1">.</p>
+                      <p>1 giờ</p>
+                    </div>
                   </div>
                 </div>
                 <div class="flex items-center hover:bg-gray-100 rounded-xl m-3">
                   <div>
                     <img class="w-14 mx-2 my-2 rounded-full"
-                      src="https://scontent.fsgn2-9.fna.fbcdn.net/v/t39.30808-6/300362956_379273724392258_4259585475714196784_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=ANUcRo9mmy0Q7kNvgGQJ9YF&_nc_ht=scontent.fsgn2-9.fna&oh=00_AYDDjlm8t13v5aaTOXmDv5EyYM1mQ13y21yGbPq5XJrOkA&oe=66462334"
+                      src="https://web.hn.ss.bfcplatform.vn/muadienmay/content/article2/0878913035-1620532649.jpg"
                       alt="" />
                   </div>
                   <div class="">
                     <div>
-                        <p class="font-semibold">Thiện Ân</p>
-                      </div>
-                      <div class="flex">
-                        <p>Hello my fen</p>
-                        <p class="mx-1">.</p>
-                        <p>1 giờ</p>
-                      </div>
+                      <p class="font-semibold">Thiện Ân</p>
+                    </div>
+                    <div class="flex">
+                      <p>Hello my fen</p>
+                      <p class="mx-1">.</p>
+                      <p>1 giờ</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -345,7 +345,6 @@
     </div>
 
     <!-- end mes -->
-
 
     <div v-if="isShowNotice == true">
       <div
@@ -621,8 +620,6 @@
       "
       class="p-2 rounded-full flex items-center justify-center cursor-pointer bg-myGray-900 hover:bg-myGray-700 transition-colors duration-300">
       <svg-notifications class="w-5" />
-
-
     </div>
 
     <div id="pp-info"
@@ -636,8 +633,8 @@
       isShowMore = !isShowMore;
     isShowMenu = false;
     isShowMessager = false;
-    isShowNotice = false
-      "
+    isShowNotice = false;
+    "
       class="relative p-2.5 rounded-full flex items-center justify-center cursor-pointer bg-myGray-900 hover:bg-myGray-700 transition-colors duration-300">
       <svg-account class="w-5 relative" />
       <!--Account2-->
@@ -645,14 +642,14 @@
         <!--ACCOUNT-->
 
         <div
-          class="bg-gray-50 mt-1 box-content border-solid border-2 rounded-xl  shadow-xl absolute w-[390px] top-full right-0">
+          class="bg-gray-50 mt-1 box-content border-solid border-2 rounded-xl shadow-xl absolute w-[390px] top-full right-0">
           <div>
             <div class="bg-white m-3 p-1 box-border border-solid border-2 rounded-xl shadow-sm">
               <div class="mx-1 my-1 hover:bg-gray-100 rounded-xl">
                 <a href="" class="flex">
                   <div>
                     <img class="w-10 h-10 mx-1 rounded-full my-2"
-                      src="https://scontent.fsgn2-9.fna.fbcdn.net/v/t39.30808-6/300362956_379273724392258_4259585475714196784_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=ANUcRo9mmy0Q7kNvgGQJ9YF&_nc_ht=scontent.fsgn2-9.fna&oh=00_AYDDjlm8t13v5aaTOXmDv5EyYM1mQ13y21yGbPq5XJrOkA&oe=66462334"
+                      src="https://web.hn.ss.bfcplatform.vn/muadienmay/content/article2/0878913035-1620532649.jpg"
                       alt="" />
                   </div>
                   <div>
@@ -667,7 +664,7 @@
                 <a href="" class="flex">
                   <div>
                     <img class="w-10 h-10 mx-1 rounded-full my-2"
-                      src="https://scontent.fsgn2-9.fna.fbcdn.net/v/t39.30808-6/300362956_379273724392258_4259585475714196784_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=ANUcRo9mmy0Q7kNvgGQJ9YF&_nc_ht=scontent.fsgn2-9.fna&oh=00_AYDDjlm8t13v5aaTOXmDv5EyYM1mQ13y21yGbPq5XJrOkA&oe=66462334"
+                      src="https://web.hn.ss.bfcplatform.vn/muadienmay/content/article2/0878913035-1620532649.jpg"
                       alt="" />
                   </div>
                   <div>
@@ -684,7 +681,7 @@
                   <div class="mr-4">
                     <Repeat class="my-1 w-4" />
                   </div>
-                  <p class="font-semibold text-base bg-red " target="_blank">
+                  <p class="font-semibold text-base bg-red" target="_blank">
                     Xem tất cả trang cá nhân
                   </p>
                 </div>
@@ -733,7 +730,6 @@
           </div>
         </div>
         <!--endACCOUNT-->
-
       </div>
       <!--endAccount2-->
     </div>
