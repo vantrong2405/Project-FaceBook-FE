@@ -2,12 +2,14 @@ import axios from "axios";
 import { useToast } from 'vue-toast-notification';
 import 'vue-toast-notification/dist/theme-sugar.css';
 import baseRequest from "@/baseAPI/baseRequest";
+
 export default async function (to, from, next) {
     const toast = useToast();
-    const check = localStorage.getItem('access_token')
-    if (check && localStorage.getItem('profile')) {
-        next()
-        return
+    const check = localStorage.getItem('access_token');
+    const profile = localStorage.getItem('profile');
+    if (check && profile !== 'undefined' && profile) {
+        next();
+        return;
     }
     try {
         const res = await axios.get('http://localhost:4000/users/me', {
