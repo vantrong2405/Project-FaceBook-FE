@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <div class="bg-[#F0F2F5]">
     <div class="flex">
-      <div class="w-80 hidden xl:block">
+      <div class="w-80 hidden xl:block bg-white">
         <div class="w-80">
           <div class="fixed">
-            <div class="h-screen px-2 pb-12 pt-4 flex-col justify-between hidden xl:flex overflow-scroll">
+            <div class="h-screen px-2 pb-12 pt-4 flex-col justify-between hidden xl:flex overflow-scroll w-80">
               <div id="left-bar-top" class="w-full">
                 <ul>
                   <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
@@ -60,7 +60,7 @@
                   </div>
 
                   <div id="privacy" class="w-full">
-                    <div class="text-myGray-700 text-xs pl-1 mb-14">
+                    <div class="text-myGray-700 text-xs pl-1 ">
                       <a class="hover:underline cursor-pointer">Privacy</a>·
                       <a class="hover:underline cursor-pointer">Terms</a>·
                       <a class="hover:underline cursor-pointer">Adversiting</a>·
@@ -246,7 +246,7 @@
         </div>
       </div>
       <!-- start -->
-      <div class="w-80 hidden xl:block">
+      <div class="w-80 hidden xl:block ">
         <div class="w-80">
           <div class="fixed w-full">
             <div class="h-screen px-2 pb-12 pt-4 flex-col justify-between hidden xl:flex overflow-auto w-80">
