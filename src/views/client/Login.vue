@@ -5,9 +5,7 @@
     <div id="Login" class="bg-[#F0F2F5] h-screen">
       <div class="container max-w-[1100px] mx-auto flex justify-between px-[3%] py-[8%]">
         <div id="Login-L2" class="w-[55%]">
-          <p
-            class="text-[#0866FF] text-[62px] font-bold cursor-default leading-[50px] pt-[17%] pb-[3%]"
-          >
+          <p class="text-[#0866FF] text-[62px] font-bold cursor-default leading-[50px] pt-[17%] pb-[3%]">
             facebook
           </p>
           <h2 class="text-[28px] text-black">
@@ -18,18 +16,10 @@
         <div class="w-[40%] pt-[30px]">
           <div class="shadow-lg bg-white px-[15px] p-[15px] rounded-[10px]">
             <form class="h-2/4">
-              <input
-                type="text"
-                class="block w-full py-[12px] px-[16px] text-[16px] rounded-md mb-[10px]"
-                placeholder="Email or hoặc số điện thoại"
-                v-model="account"
-              />
-              <input
-                type="text"
-                class="block w-full py-[12px] px-[16px] text-[16px] rounded-md mt-[10px] mb-[20px]"
-                placeholder="Mật khẩu"
-                v-model="pass"
-              />
+              <input type="text" class="block w-full py-[12px] px-[16px] text-[16px] rounded-md mb-[10px]"
+                placeholder="Email or hoặc số điện thoại" v-model="account" />
+              <input type="text" class="block w-full py-[12px] px-[16px] text-[16px] rounded-md mt-[10px] mb-[20px]"
+                placeholder="Mật khẩu" v-model="pass" />
 
               <div class="btn btn-primary w-full" @click="login()">Đăng nhập</div>
             </form>
@@ -38,12 +28,9 @@
             </div>
             <hr class="mb-[10px] pb-[20px] mt-[16px]" />
             <div class="text-center pb-[20px]">
-              <a
-                @click="showResgister = true"
-                id="creat-acc"
-                href="#"
-                class="rounded-md text-lg font-[650] bg-[#42b72a] hover:bg-[#36A420] text-[17px] text-white py-[13px] px-[18px]"
-                >Tạo tài khoản mới
+              <a @click="showResgister = true" id="creat-acc" href="#"
+                class="rounded-md text-lg font-[650] bg-[#42b72a] hover:bg-[#36A420] text-[17px] text-white py-[13px] px-[18px]">Tạo
+                tài khoản mới
               </a>
             </div>
           </div>
@@ -57,18 +44,13 @@
       </div>
     </div>
     <!-- section Register -->
-    <section
-      v-if="showResgister"
-      id="register"
-      class="bg-[#FFF] bg-opacity-80 fixed bottom-0 z-50 top-0 left-0 right-0"
-    >
+    <section v-if="showResgister" id="register"
+      class="bg-[#FFF] bg-opacity-80 fixed bottom-0 z-50 top-0 left-0 right-0">
       <div class="w-full text-center py-[3%]">
         <div class="inline-block text-left m-[20px] relative">
           <div class="w-[430px] bg-white shadow-lg rounded-md">
-            <i
-              @click="showResgister = false"
-              class="fa-solid fa-xmark absolute top-[10px] right-[12px] text-[23px] text-[gray]"
-            ></i>
+            <i @click="showResgister = false"
+              class="fa-solid fa-xmark absolute top-[10px] right-[12px] text-[23px] text-[gray]"></i>
             <div class="py-[10px] px-[16px]">
               <h1 class="text-[32px] leading-[38px] font-bold">Đăng ký</h1>
               <p class="text-[#606770] text-[15px] pt-[2px]">Nhanh chóng và dễ dàng.</p>
@@ -77,51 +59,29 @@
               <!-- form register -->
               <form class="w-full">
                 <div class="flex justify-between gap-2 mb-[10px]">
-                  <input
-                    type="text"
-                    class="form-control input border-[1px] border-[#ccd0d5]"
-                    placeholder="Họ"
-                    v-model="firstName"
-                  />
-                  <input
-                    type="text"
-                    class="form-control input border-[1px] border-[#ccd0d5]"
-                    placeholder="Tên "
-                    v-model="lastName"
-                  />
+                  <input type="text" class="form-control input border-[1px] border-[#ccd0d5]" placeholder="Họ"
+                    v-model="firstName" />
+                  <input type="text" class="form-control input border-[1px] border-[#ccd0d5]" placeholder="Tên "
+                    v-model="lastName" />
                 </div>
                 <div class="mb-[10px]">
-                  <input
-                    type="text"
-                    class="form-control input w-full border-[1px] border-[#ccd0d5]"
-                    placeholder="Số di động hoặc email"
-                    v-model="email"
-                  />
+                  <input type="text" class="form-control input w-full border-[1px] border-[#ccd0d5]"
+                    placeholder="Số di động hoặc email" v-model="email" />
                 </div>
                 <div class="mb-[15px]">
-                  <input
-                    type="text"
-                    class="form-control input w-full border-[1px] border-[#ccd0d5]"
-                    placeholder="Mật khẩu"
-                    v-model="password"
-                  />
+                  <input type="text" class="form-control input w-full border-[1px] border-[#ccd0d5]"
+                    placeholder="Mật khẩu" v-model="password" />
                 </div>
                 <div class="mb-[15px]">
-                  <input
-                    type="text"
-                    class="form-control input w-full border-[1px] border-[#ccd0d5]"
-                    placeholder="Nhập lại mật khẩu "
-                    v-model="comfirm_password"
-                  />
+                  <input type="text" class="form-control input w-full border-[1px] border-[#ccd0d5]"
+                    placeholder="Nhập lại mật khẩu " v-model="comfirm_password" />
                 </div>
                 <!-- ngày sinh -->
                 <div class="mb-[15px]">
                   <div class="flex text-[#606770]">
                     <p class="text-[12px] pr-[2px]">Ngày sinh</p>
-                    <a
-                      class="h-[12px] w-[12px] bg-[#606770] flex items-center justify-center rounded-full mt-[4px]"
-                      href=""
-                    >
+                    <a class="h-[12px] w-[12px] bg-[#606770] flex items-center justify-center rounded-full mt-[4px]"
+                      href="">
                       <i class="fa-solid fa-question text-[8px] text-white"></i>
                     </a>
                   </div>
@@ -135,36 +95,26 @@
                 <p class="my-[11px] text-[#777] text-[11px]">
                   Những người dùng dịch vụ của chúng tôi có thể đã tải thông tin liên hệ của bạn lên
                   Facebook.
-                  <a class="text-[#385898] cursor-pointer hover:underline" href="#"
-                    >Tìm hiểu thêm.</a
-                  >
+                  <a class="text-[#385898] cursor-pointer hover:underline" href="#">Tìm hiểu thêm.</a>
                 </p>
               </div>
               <div>
                 <p class="my-[11px] text-[#777] text-[11px]">
                   Bằng cách nhấp vào Đăng ký, bạn đồng ý với
                   <a class="text-[#385898] cursor-pointer hover:underline" href="#">Điều khoản</a>,
-                  <a class="text-[#385898] cursor-pointer hover:underline" href="#"
-                    >Chính sách quyền riêng tư
+                  <a class="text-[#385898] cursor-pointer hover:underline" href="#">Chính sách quyền riêng tư
                   </a>
                   và
-                  <a class="text-[#385898] cursor-pointer hover:underline" href=""
-                    >Chính sách cookie </a
-                  >của chúng tôi. Bạn có thể nhận được thông báo của chúng tôi qua SMS và hủy nhận
+                  <a class="text-[#385898] cursor-pointer hover:underline" href="">Chính sách cookie </a>của chúng tôi.
+                  Bạn có thể nhận được thông báo của chúng tôi qua SMS và hủy nhận
                   bất kỳ lúc nào.
                 </p>
               </div>
               <div class="w-full text-center py-[10px]">
-                <div
-                  id="registerButton"
+                <div id="registerButton"
                   class="inline-block cursor-pointer rounded-md bg-[#00a400] hover:bg-[#6DA160] h-[36px] w-[194px] leading-[36px]"
-                  @click="register()"
-                >
-                  <input
-                    type="button"
-                    value="Đăng ký"
-                    class="cursor-pointer text-white text-[18px] font-bold"
-                  />
+                  @click="register()">
+                  <input type="button" value="Đăng ký" class="cursor-pointer text-white text-[18px] font-bold" />
                 </div>
               </div>
             </div>
@@ -244,6 +194,9 @@ import axios from 'axios'
 import { useToast } from 'vue-toast-notification'
 import 'vue-toast-notification/dist/theme-sugar.css'
 export default {
+  mounted() {
+    this.checkToken()
+  },
   data() {
     return {
       showCustomGender: false,
@@ -255,7 +208,6 @@ export default {
       date_of_birth: '',
       firstName: '',
       lastName: '',
-      // login
       account: '',
       pass: ''
     }
@@ -295,20 +247,21 @@ export default {
             position: 'bottom-right'
           })
           localStorage.setItem('access_token', res.data.result.access_token)
+          this.$router.push('/home')
         })
-        .then(() => {
-          axios
-            .get('http://localhost:4000/users/me', {
-              headers: {
-                Authorization: `Bearer ${localStorage.getItem('access_token')}`
-              }
-            })
-            .then((res) => {
-              localStorage.setItem('profile', JSON.stringify(res.data.result))
-              console.log(localStorage.getItem('profile'))
-              this.$router.push('/')
-            })
-        })
+        // .then(() => {
+        //   axios
+        //     .get('http://localhost:4000/users/me', {
+        //       headers: {
+        //         Authorization: `Bearer ${localStorage.getItem('access_token')}`
+        //       }
+        //     })
+        //     .then((res) => {
+        //       localStorage.setItem('profile', JSON.stringify(res.data.result))
+        //       console.log(localStorage.getItem('profile'))
+        //       this.$router.push('/')
+        //     })
+        // })
         .catch((errors) => {
           this.$toast.error(errors.response.data.message, {
             position: 'bottom-right'
@@ -318,6 +271,20 @@ export default {
       // start
 
       // end
+    },
+    checkToken() {
+      axios
+        .get('http://localhost:4000/users/me', {
+          headers: {
+            Authorization: 'Bearer ' + localStorage.getItem('access_token')
+          }
+        }
+        ).then((res) => {
+          if (res.status === 200) {
+            this.$router.push('/home');
+          }
+        })
+
     }
   }
 }

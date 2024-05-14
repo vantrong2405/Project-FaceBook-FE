@@ -622,22 +622,17 @@
       <svg-notifications class="w-5" />
     </div>
 
-    <div id="pp-info"
-      class="rounded-full flex items-center justify-center cursor-pointer bg-myGray-900 hover:bg-myGray-700 transition-colors duration-300">
-      <div id="pp" class="rounded-full overflow-hidden w-9 relative border">
-        <img src="../../assets/images/pp.jpg" alt="" width="100%" />
-        <div class="image-avatar"></div>
-      </div>
-    </div>
-    <div id="account-box" @click="
+    <div id="pp-info" @click="
       isShowMore = !isShowMore;
     isShowMenu = false;
     isShowMessager = false;
     isShowNotice = false;
     "
-      class="relative p-2.5 rounded-full flex items-center justify-center cursor-pointer bg-myGray-900 hover:bg-myGray-700 transition-colors duration-300">
-      <svg-account class="w-5 relative" />
-      <!--Account2-->
+      class="rounded-full flex items-center justify-center cursor-pointer bg-myGray-900 hover:bg-myGray-700 transition-colors duration-300">
+      <div id="pp" class="rounded-full overflow-hidden w-9 relative border">
+        <img :src="userCurrent.avatar ? userCurrent.avatar : avatar" alt="" width="100%" />
+        <div class="image-avatar"></div>
+      </div>
       <div v-if="isShowMore == true">
         <!--ACCOUNT-->
 
@@ -731,8 +726,8 @@
         </div>
         <!--endACCOUNT-->
       </div>
-      <!--endAccount2-->
     </div>
+
   </div>
 </template>
 
@@ -775,11 +770,16 @@ import { Group } from 'lucide-vue-next'
 import { MonitorPlay } from 'lucide-vue-next'
 import { Newspaper } from 'lucide-vue-next'
 export default {
+  props: {
+    userCurrent: {
+      Type: Object,
+      default: {}
+    }
+  },
   components: {
     svgMenu,
     svgMessenger,
     svgNotifications,
-    svgAccount,
     svgCreate,
     BookOpen,
     CalendarDays,
@@ -806,7 +806,8 @@ export default {
       isShowMenu: false,
       isShowMessager: false, // khai báo 1 biến isSHow = false
       isShowNotice: false,
-      isShowMore: false
+      isShowMore: false,
+      avatar: 'https://cellphones.com.vn/sforum/wp-content/uploads/2023/10/avatar-trang-4.jpg',
     }
   },
   methods: {}

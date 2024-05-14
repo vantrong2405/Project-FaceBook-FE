@@ -8,8 +8,8 @@
               <div id="left-bar-top" class="w-full">
                 <ul>
                   <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                    <img src="http://localhost:5173/src/assets/images/pp.jpg" class="rounded-full w-9" alt="" />
-                    <span class="font-semibold text-tiny"> Văn trọng </span>
+                    <img :src="userCurrent.avatar ? userCurrent.avatar : avatar" class="rounded-full w-9" alt="" />
+                    <span class="font-semibold text-tiny">{{ userCurrent.name }}</span>
                   </li>
                   <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
                     <img src="../../assets/images/png/friends.png" class="rounded-full w-9" alt="Bạn bè" />
@@ -133,7 +133,7 @@
                     <img :src="user.route" class="w-8 h-8 rounded-full" alt="" />
                   </div>
                   <div id="post-top_left_title">
-                    <p class="hover:underline cursor-pointer">{{ user.name }}</p>
+                    <p class="hover:underline cursor-pointer">vt</p>
                     <p class="flex text-xs mt-1 items-center">
                       <span class="hover:underline cursor-pointer">3d</span>
                       <span class="mx-1">·</span>
@@ -638,6 +638,14 @@ import { Users, Ellipsis, Repeat, X } from 'lucide-vue-next'
 import svgNewRoom from '../../components/svg/svgNewRoom.vue'
 import svgSearch from '../../components/svg/svgSearch.vue'
 export default {
+  props: {
+    userCurrent: {
+      Type: Object,
+      default: {}
+    }
+  },
+  mounted() {
+  },
   components: {
     svgCreate,
     svgLiveVideo,
@@ -725,7 +733,8 @@ export default {
           }
         }
       ],
-      pageMove: 1
+      pageMove: 1,
+      avatar: 'https://cellphones.com.vn/sforum/wp-content/uploads/2023/10/avatar-trang-4.jpg'
     }
   }
 }

@@ -135,6 +135,7 @@
 import { Newspaper, Settings } from 'lucide-vue-next'
 import { Compass } from 'lucide-vue-next'
 import { Users } from 'lucide-vue-next'
+import { Ellipsis } from 'lucide-vue-next'
 import svgSearch from '../../components/svg/svgSearch.vue'
 import { Plus } from 'lucide-vue-next'
 export default {
@@ -171,7 +172,8 @@ export default {
     Users,
     Settings,
     svgSearch,
-    Plus
+    Plus,
+    Ellipsis
   }
 }
 </script>
