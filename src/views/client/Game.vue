@@ -9,7 +9,9 @@
               <ul>
                 <li class="flex justify-between items-center">
                   <h1 class="text-2xl font-bold">Chơi game</h1>
-                  <Settings class="rounded-full bg-[#E4E6EB] p-1" />
+                  <div class="h-[36px] w-[36px] rounded-full cursor-pointer flex items-center justify-center bg-[#E4E6EB] hover:bg-gray-300">
+                      <Settings />
+                    </div>
                 </li>
                 <li>
                   <div class="w-72 h-14 py-2 flex items-center">

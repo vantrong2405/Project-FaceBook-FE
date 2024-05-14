@@ -343,12 +343,12 @@
       </div>
     </div>
     <!-- Modal Share -->
-    <div v-if="showModalShare" class="absolute top-[-10%] right-0 bottom-0 left-0 bg-white bg-opacity-50 z-50">
-      <div class="w-[35%]  fixed top-[10%] left-[35%] ">
+    <div v-if="showModalShare" class="absolute  top-[-10%] right-0 bottom-0 left-0 bg-white bg-opacity-50 z-50">
+      <div class="w-[35%]  fixed top-[10%] bottom-[30px] left-[35%] ">
         <div class="w-full h-full relative bg-white  shadow-lg rounded-lg">
           <p class="text-center py-[14px] text-black text-[20px] font-bold border-b border-[rgba(0, 0, 0, 0.1)]">Chia sẻ
           </p>
-          <div class="w-full mx-[16px] py-[16px] flex ">
+          <div class="w-full px-[16px] pt-[16px] flex ">
             <a class="w-[40px] h-[40px] hover:brightness-90" href="">
               <img class="w-full h-full rounded-full"
                 src="https://scontent.fdad3-6.fna.fbcdn.net/v/t39.30808-1/274456074_1361142244327596_3675729695510261208_n.jpg?stp=c0.2.200.200a_dst-jpg_p200x200&_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEu3DE5x6dR9PxFQ-LK28vEDbjtZrkb4vQNuO1muRvi9Ih5x7QFRzr-YV0Ly3szC91MQcW0YX-b2uUdFa-mQrif&_nc_ohc=Qt8QiDFGOAcQ7kNvgEg42rk&_nc_ht=scontent.fdad3-6.fna&oh=00_AYBFPsf8BS-VIw3-Z8E96YN00GSPXOvNyYMm5GvieB4ICA&oe=6647C7E6"
@@ -363,8 +363,8 @@
                 <span class="bg-[#E4E6EB] rounded-md flex items-center justify-center cursor-pointer">
                   <!-- <i class="fa-solid fa-earth-americas text-[12px] ml-[5px]"></i>
                   <i v-if="showPrivate" class="fa-solid fa-caret-down text-[15px]"></i> -->
-                    <select class="border-0 focus:ring-0 ml-[5px]  bg-[#E4E6EB] rounded-md cursor-pointer" name="" id="">
-                      <option @click="showPrivate=false" class="" value="1" selected>
+                    <select class="border-0 focus:ring-0 ml-[5px] text-[15px] font-medium bg-[#E4E6EB] rounded-md cursor-pointer" name="" id="">
+                      <option @click="showPrivate=false"  value="1" selected>
                         Công khai
                       </option>
                       <option @click="showPrivate=true" value="2">Chỉ mình tôi</option>
@@ -375,8 +375,6 @@
                       <i class="fa-solid fa-caret-down text-[15px]"></i>
                     </div> -->
                 </span>
-                
-
               </div>
             </div>
           </div>
@@ -392,48 +390,47 @@
               sẻ ngay </button>
           </div>
           <hr class="bg-gray-500 ">
-          <p class="text-[17px] text-black font-medium px-[16px] py-[12px]">Gửi bằng Messenger</p>
+          <p class="text-[17px] text-black font-medium px-[16px] py-[8px]">Gửi bằng Messenger</p>
           <div class="w-full flex pl-[10px]">
             <div class="py-[8px] px-[12px] hover:bg-[#F2F2F2] rounded-lg cursor-pointer">
-              <img class="h-[60px] w-[60px] rounded-full "
+              <img class="h-[60px] w-[60px] rounded-full mb-[5px]"
                 src="https://scontent.fdad3-6.fna.fbcdn.net/v/t39.30808-1/274456074_1361142244327596_3675729695510261208_n.jpg?stp=cp0_dst-jpg_p40x40&_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEu3DE5x6dR9PxFQ-LK28vEDbjtZrkb4vQNuO1muRvi9Ih5x7QFRzr-YV0Ly3szC91MQcW0YX-b2uUdFa-mQrif&_nc_ohc=Qt8QiDFGOAcQ7kNvgEg42rk&_nc_ht=scontent.fdad3-6.fna&oh=00_AYCitaCAQew6JR7FAxGejNlqj2pfKasvFlbcgyCuRtm7wg&oe=6647C7E6"
                 alt="">
               <p class="text-[13px] text-black max-w-[60px] break-words text-center">Ân Nguyên</p>
             </div>
             <div class="py-[8px] px-[12px] hover:bg-[#F2F2F2] rounded-lg cursor-pointer">
-              <img class="h-[60px] w-[60px] rounded-full "
+              <img class="h-[60px] w-[60px] rounded-full mb-[5px]"
                 src="https://scontent.fdad3-6.fna.fbcdn.net/v/t39.30808-1/274456074_1361142244327596_3675729695510261208_n.jpg?stp=cp0_dst-jpg_p40x40&_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEu3DE5x6dR9PxFQ-LK28vEDbjtZrkb4vQNuO1muRvi9Ih5x7QFRzr-YV0Ly3szC91MQcW0YX-b2uUdFa-mQrif&_nc_ohc=Qt8QiDFGOAcQ7kNvgEg42rk&_nc_ht=scontent.fdad3-6.fna&oh=00_AYCitaCAQew6JR7FAxGejNlqj2pfKasvFlbcgyCuRtm7wg&oe=6647C7E6"
                 alt="">
               <p class="text-[13px] text-black max-w-[60px] break-words text-center">Ân Nguyên</p>
             </div>
             <div class="py-[8px] px-[12px] hover:bg-[#F2F2F2] rounded-lg cursor-pointer">
-              <img class="h-[60px] w-[60px] rounded-full "
+              <img class="h-[60px] w-[60px] rounded-full mb-[5px]"
                 src="https://scontent.fdad3-6.fna.fbcdn.net/v/t39.30808-1/274456074_1361142244327596_3675729695510261208_n.jpg?stp=cp0_dst-jpg_p40x40&_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEu3DE5x6dR9PxFQ-LK28vEDbjtZrkb4vQNuO1muRvi9Ih5x7QFRzr-YV0Ly3szC91MQcW0YX-b2uUdFa-mQrif&_nc_ohc=Qt8QiDFGOAcQ7kNvgEg42rk&_nc_ht=scontent.fdad3-6.fna&oh=00_AYCitaCAQew6JR7FAxGejNlqj2pfKasvFlbcgyCuRtm7wg&oe=6647C7E6"
                 alt="">
               <p class="text-[13px] text-black max-w-[60px] break-words text-center">Ân Nguyên</p>
             </div>
             <div class="py-[8px] px-[12px] hover:bg-[#F2F2F2] rounded-lg cursor-pointer">
-              <img class="h-[60px] w-[60px] rounded-full "
+              <img class="h-[60px] w-[60px] rounded-full mb-[5px]"
                 src="https://scontent.fdad3-6.fna.fbcdn.net/v/t39.30808-1/274456074_1361142244327596_3675729695510261208_n.jpg?stp=cp0_dst-jpg_p40x40&_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEu3DE5x6dR9PxFQ-LK28vEDbjtZrkb4vQNuO1muRvi9Ih5x7QFRzr-YV0Ly3szC91MQcW0YX-b2uUdFa-mQrif&_nc_ohc=Qt8QiDFGOAcQ7kNvgEg42rk&_nc_ht=scontent.fdad3-6.fna&oh=00_AYCitaCAQew6JR7FAxGejNlqj2pfKasvFlbcgyCuRtm7wg&oe=6647C7E6"
                 alt="">
               <p class="text-[13px] text-black max-w-[60px] break-words text-center">Ân Nguyên</p>
             </div>
             <div class="py-[8px] px-[12px] hover:bg-[#F2F2F2] rounded-lg cursor-pointer">
-              <img class="h-[60px] w-[60px] rounded-full "
+              <img class="h-[60px] w-[60px] rounded-full mb-[5px]"
                 src="https://scontent.fdad3-6.fna.fbcdn.net/v/t39.30808-1/274456074_1361142244327596_3675729695510261208_n.jpg?stp=cp0_dst-jpg_p40x40&_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEu3DE5x6dR9PxFQ-LK28vEDbjtZrkb4vQNuO1muRvi9Ih5x7QFRzr-YV0Ly3szC91MQcW0YX-b2uUdFa-mQrif&_nc_ohc=Qt8QiDFGOAcQ7kNvgEg42rk&_nc_ht=scontent.fdad3-6.fna&oh=00_AYCitaCAQew6JR7FAxGejNlqj2pfKasvFlbcgyCuRtm7wg&oe=6647C7E6"
                 alt="">
               <p class="text-[13px] text-black max-w-[60px] break-words text-center">Ân Nguyên</p>
             </div>
             <div class="py-[8px] px-[12px] hover:bg-[#F2F2F2] rounded-lg cursor-pointer">
-              <img class="h-[60px] w-[60px] rounded-full "
+              <img class="h-[60px] w-[60px] rounded-full mb-[5px]"
                 src="https://scontent.fdad3-6.fna.fbcdn.net/v/t39.30808-1/274456074_1361142244327596_3675729695510261208_n.jpg?stp=cp0_dst-jpg_p40x40&_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEu3DE5x6dR9PxFQ-LK28vEDbjtZrkb4vQNuO1muRvi9Ih5x7QFRzr-YV0Ly3szC91MQcW0YX-b2uUdFa-mQrif&_nc_ohc=Qt8QiDFGOAcQ7kNvgEg42rk&_nc_ht=scontent.fdad3-6.fna&oh=00_AYCitaCAQew6JR7FAxGejNlqj2pfKasvFlbcgyCuRtm7wg&oe=6647C7E6"
                 alt="">
               <p class="text-[13px] text-black max-w-[60px] break-words text-center">Ân Nguyên</p>
             </div>
           </div>
-
-          <p class="text-[17px] text-black font-medium px-[16px] py-[12px]">Chia sẻ lên</p>
-          <div class="w-full flex pl-[10px] mb-[10px]">
+          <p class="text-[17px] text-black font-medium px-[16px] py-[8px]">Chia sẻ lên</p>
+          <div class="w-full flex pl-[10px] ">
             <div class="py-[8px] pb-[10px] w-[18%] hover:bg-[#F2F2F2] rounded-lg cursor-pointer">
               <div
                 class="h-[60px] w-[60px] mb-[10px] mx-auto flex items-center justify-center rounded-full bg-[#D8DADF]">
