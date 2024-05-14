@@ -1,6 +1,6 @@
 <script>
 
-import { Users, Ellipsis,Repeat  } from 'lucide-vue-next'
+import { Users, Ellipsis, Repeat } from 'lucide-vue-next'
 import svgNewRoom from '../svg/svgNewRoom.vue'
 import svgSearch from '../svg/svgSearch.vue'
 import svgDots from '../svg/svgDots.vue'
@@ -91,140 +91,109 @@ export default {
     <!--Trang và trang cá nhân-->
     <div class="">
       <div class="flex justify-between">
-        <p class="text-base mx-1">Quản lý trang và trang cá nhân của bạn</p>
+        <p class="text-sm mx-1">Quản lý trang và trang cá nhân của bạn</p>
         <ellipsis class="p-1 hover:bg-gray-300 rounded-lg cursor-pointer" />
       </div>
 
-      <div class="flex p-1 my-1 hover:bg-gray-200 rounded-lg cursor-pointer">
-        <img
-          class="w-12 h-12 mx-2 rounded-full"
-          src="https://scontent.fsgn2-9.fna.fbcdn.net/v/t39.30808-6/300362956_379273724392258_4259585475714196784_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=ANUcRo9mmy0Q7kNvgGQJ9YF&_nc_ht=scontent.fsgn2-9.fna&oh=00_AYDJyMjAwWlS1Oaeza_FSFCwcodQUuTB7w9_WXRymb04Ww&oe=66481D74"
-          alt=""
-        />
-        <p class="mt-2 text-xl font-semibold text-gray-600 ">Đây là page nè</p>
-      </div>
+      <div>
+        <div class="hover:bg-gray-200 rounded-lg">
+          <div class="flex p-1 my-1 cursor-pointer">
+            <img class="w-10 h-10 mx-2 rounded-full"
+              src="https://scontent.fsgn2-9.fna.fbcdn.net/v/t39.30808-6/300362956_379273724392258_4259585475714196784_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=ANUcRo9mmy0Q7kNvgGQJ9YF&_nc_ht=scontent.fsgn2-9.fna&oh=00_AYDJyMjAwWlS1Oaeza_FSFCwcodQUuTB7w9_WXRymb04Ww&oe=66481D74"
+              alt="" />
+            <p class="mt-2 text-base font-semibold text-gray-600">Đây là page nè</p>
+          </div>
+        </div>
 
-      <div class="flex mx-6 hover:bg-gray-200 rounded-lg cursor-pointer my-2 p-1">
-        <Repeat class="mx-2"/>
-        <p class="ml-2">Chuyển sang page</p>
+        <div class="hover:bg-gray-200 p-1 rounded-lg" >
+          <div class="mx-6 cursor-pointer my-2 p-1 flex items-center">
+            <Repeat class="w-4 h-4"/>
+            <p class="ml-2">Chuyển sang page</p>
+          </div>
+        </div>
       </div>
-
-      
     </div>
     <hr />
     <!--Lời mời kết bạn-->
-    <div>
-      <div class="">
+    <div class="mb-3">
+      <div>
         <div class="flex justify-between box-border my-1">
-          <p class="font-semibold text-gray-600 text-l p-2">Lời mời kết bạn</p>
+          <p class="font-semibold text-gray-600 text-base p-2">Lời mời kết bạn</p>
           <p class="text-blue-600 hover:bg-gray-200 cursor-pointer box-border p-2 rounded-md">
             Xem tất cả
           </p>
         </div>
 
-        <div class="flex hover:bg-gray-200 rounded-lg cursor-pointer">
+        <div class="flex hover:bg-gray-200 rounded-lg cursor-pointer mb-2">
           <div>
-            <img
-              class="w-[80px] h-[80px] m-2 rounded-full"
+            <img class="w-10 h-10 m-2 rounded-full"
               src="https://scontent.fsgn2-9.fna.fbcdn.net/v/t39.30808-6/300362956_379273724392258_4259585475714196784_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=ANUcRo9mmy0Q7kNvgGQJ9YF&_nc_ht=scontent.fsgn2-9.fna&oh=00_AYDJyMjAwWlS1Oaeza_FSFCwcodQUuTB7w9_WXRymb04Ww&oe=66481D74"
-              alt=""
-            />
+              alt="" />
           </div>
-          <div class="mt-3">
-            <div class="justify-between mx-2  flex w-[155px]">
-              <p class="font-semibold ">Văn Trọng</p>
-              <p class="justify-end">7 ngày</p>
-            </div>
-            
-              <div class=" mt-2 flex w-[180px]">
-                <button class="bg-blue-500 p-2 rounded-xl mx-1 text-white">Xác nhận</button>
-                <button class="bg-gray-200 px-7 rounded-xl mx-1 hover:bg-slate-300">Xóa</button>
-              </div>
-            
-          </div>
-
-          
-          
-        
-      
-    </div>
-    <div class="flex hover:bg-gray-200 rounded-lg cursor-pointer">
           <div>
-            <img
-              class="w-[80px] h-[80px] m-2 rounded-full"
-              src="https://scontent.fsgn2-9.fna.fbcdn.net/v/t39.30808-6/300362956_379273724392258_4259585475714196784_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=ANUcRo9mmy0Q7kNvgGQJ9YF&_nc_ht=scontent.fsgn2-9.fna&oh=00_AYDJyMjAwWlS1Oaeza_FSFCwcodQUuTB7w9_WXRymb04Ww&oe=66481D74"
-              alt=""
-            />
-          </div>
-          <div class="mt-3">
-            <div class="justify-between mx-2  flex w-[155px]">
-              <p class="font-semibold ">Văn Trọng</p>
-              <p class="justify-end">7 ngày</p>
-            </div>
-            
-              <div class=" mt-2 flex w-[180px]">
-                <button class="bg-blue-500 p-2 rounded-xl mx-1 text-white">Xác nhận</button>
-                <button class="bg-gray-200 px-7 rounded-xl mx-1 hover:bg-slate-300">Xóa</button>
+            <div class="justify-between mx-2 flex w-[155px] mt-2">
+              <div class="items-center flex">
+                <p class="font-semibold ">Văn Trọng</p>
+                <p class="text-xs ml-5">7 ngày</p>
               </div>
-            
+            </div>
+            <div class=" mt-2 flex w-[180px]">
+              <button class="bg-blue-500 rounded-lg mx-1.5 py-1.5 px-1 text-white">Xác nhận</button>
+              <button class="bg-gray-200 rounded-lg mx-1.5 py-1.5 px-3 hover:bg-slate-300">Xóa</button>
+            </div>
           </div>
-
-          
-          
-        
-      
-    </div>
-
-    <div class="flex hover:bg-gray-200 rounded-lg cursor-pointer">
+        </div>
+        <div class="flex hover:bg-gray-200 rounded-lg cursor-pointer mb-2">
           <div>
-            <img
-              class="w-[80px] h-[80px] m-2 rounded-full"
+            <img class="w-10 h-10 m-2 rounded-full"
               src="https://scontent.fsgn2-9.fna.fbcdn.net/v/t39.30808-6/300362956_379273724392258_4259585475714196784_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=ANUcRo9mmy0Q7kNvgGQJ9YF&_nc_ht=scontent.fsgn2-9.fna&oh=00_AYDJyMjAwWlS1Oaeza_FSFCwcodQUuTB7w9_WXRymb04Ww&oe=66481D74"
-              alt=""
-            />
+              alt="" />
           </div>
-          <div class="mt-3">
-            <div class="justify-between mx-2  flex w-[155px]">
-              <p class="font-semibold ">Văn Trọng</p>
-              <p class="justify-end">7 ngày</p>
-            </div>
-            
-              <div class=" mt-2 flex w-[180px]">
-                <button class="bg-blue-500 p-2 rounded-xl mx-1 text-white">Xác nhận</button>
-                <button class="bg-gray-200 px-7 rounded-xl mx-1 hover:bg-slate-300">Xóa</button>
+          <div class="mb-">
+            <div class="justify-between mx-2 flex w-[155px] mt-2">
+              <div class="items-center flex">
+                <p class="font-semibold ">Văn Trọng</p>
+                <p class="text-xs ml-5">7 ngày</p>
               </div>
-            
+            </div>
+            <div class=" mt-2 flex w-[180px]">
+              <button class="bg-blue-500 rounded-lg mx-1.5 py-1.5 px-1 text-white">Xác nhận</button>
+              <button class="bg-gray-200 rounded-lg mx-1.5 py-1.5 px-3 hover:bg-slate-300">Xóa</button>
+            </div>
           </div>
-
-          
-          
-        
-      
-    </div>
-        
-        
-        
+        </div>
+        <div class="flex hover:bg-gray-200 rounded-lg cursor-pointer mb-2">
+          <div>
+            <img class="w-10 h-10 m-2 rounded-full"
+              src="https://scontent.fsgn2-9.fna.fbcdn.net/v/t39.30808-6/300362956_379273724392258_4259585475714196784_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=ANUcRo9mmy0Q7kNvgGQJ9YF&_nc_ht=scontent.fsgn2-9.fna&oh=00_AYDJyMjAwWlS1Oaeza_FSFCwcodQUuTB7w9_WXRymb04Ww&oe=66481D74"
+              alt="" />
+          </div>
+          <div class="mb-">
+            <div class="justify-between mx-2 flex w-[155px] mt-2">
+              <div class="items-center flex">
+                <p class="font-semibold ">Văn Trọng</p>
+                <p class="text-xs ml-5">7 ngày</p>
+              </div>
+            </div>
+            <div class=" mt-2 flex w-[180px]">
+              <button class="bg-blue-500 rounded-lg mx-1.5 py-1.5 px-1 text-white">Xác nhận</button>
+              <button class="bg-gray-200 rounded-lg mx-1.5 py-1.5 px-3 hover:bg-slate-300">Xóa</button>
+            </div>
+          </div>
+        </div>
       </div>
-
     </div>
-
-    <hr class="my-2 " />
+    <hr class="my-2 mt-2" />
     <div id="contacts" class="w-full flex items-center justfiy-between">
       <span class="flex-1 bg-red font-semibold text-base pl-5">Liên hệ</span>
       <div id="contact-buttons" class="flex gap-1">
-        <div
-          class="p-2 rounded-full bg-myGray-900 hover:bg-myGray-700 cursor-pointer transition-colors duration-300"
-        >
+        <div class="p-2 rounded-full bg-myGray-900 hover:bg-myGray-700 cursor-pointer transition-colors duration-300">
           <svg-new-room class="w-4" />
         </div>
-        <div
-          class="p-2 rounded-full bg-myGray-900 hover:bg-myGray-700 cursor-pointer transition-colors duration-300"
-        >
+        <div class="p-2 rounded-full bg-myGray-900 hover:bg-myGray-700 cursor-pointer transition-colors duration-300">
           <svg-search class="w-4" />
         </div>
-        <div
-          class="p-2 rounded-full bg-myGray-900 hover:bg-myGray-700 cursor-pointer transition-colors duration-300"
-        >
+        <div class="p-2 rounded-full bg-myGray-900 hover:bg-myGray-700 cursor-pointer transition-colors duration-300">
           <svg-dots class="w-4" />
         </div>
       </div>
@@ -232,8 +201,7 @@ export default {
     <div id="firends" class="border-b border-myGray-250">
       <ul v-for="(user, index) in users" :key="index">
         <li
-          class="flex items-center gap-3 font-semibold text-tiny cursor-pointer hover:bg-myGray-900 rounded-lg my-2 px-3 py-2 transition-colors duration-300"
-        >
+          class="flex items-center gap-3 font-semibold text-tiny cursor-pointer hover:bg-myGray-900 rounded-lg my-2 px-3 py-2 transition-colors duration-300">
           <img :src="user.route" class="w-10 h-10 rounded-full" alt="" />
           <span> {{ user.name }} </span>
         </li>
@@ -242,24 +210,15 @@ export default {
 
     <div id="group-conversation" class="mt-2">
       <div class="my-4 font-semibold text-base px-3">Cuộc trò chuyện nhóm</div>
-
       <div class="flex p-1 my-1 hover:bg-gray-200 rounded-lg cursor-pointer">
-        <img
-          class="w-12 h-12 mx-3 rounded-full"
+        <img class="w-10 h-10 mx-3 rounded-full"
           src="https://scontent.fsgn2-9.fna.fbcdn.net/v/t39.30808-6/300362956_379273724392258_4259585475714196784_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=ANUcRo9mmy0Q7kNvgGQJ9YF&_nc_ht=scontent.fsgn2-9.fna&oh=00_AYDJyMjAwWlS1Oaeza_FSFCwcodQUuTB7w9_WXRymb04Ww&oe=66481D74"
-          alt=""
-        />
-        <p class="mt-2 text-lg font-semibold  text-gray-600 ">Những chú báo nhỏ</p>
+          alt="" />
+        <p class="mt-2 text-sm font-semibold  text-gray-600 ">Những chú báo nhỏ</p>
       </div>
-
-      <div
-        class="flex items-center gap-3 w-full cursor-pointer hover:bg-myGray-900 p-3 rounded-lg transition-colors duration-300"
-      >
-      
-        <div id="svg-box" class="p-2 rounded-full bg-myGray-900">
+      <div class="flex items-center gap-3 w-full cursor-pointer hover:bg-myGray-900 p-3 rounded-lg transition-colors duration-300 mx-2.5">
+        <div id="svg-box" class=" rounded-full bg-myGray-900">
           <svg-create class="w-5" />
-
-
         </div>
         <span class="font-semibold text-tiny">Tạo nhóm mới</span>
       </div>
