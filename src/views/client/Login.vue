@@ -1,3 +1,4 @@
+<!-- eslint-disable no-dupe-keys -->
 <!-- eslint-disable no-undef -->
 <template>
   <div>
@@ -188,6 +189,8 @@
 </template>
 <script>
 import axios from 'axios';
+import { useToast } from 'vue-toast-notification';
+import 'vue-toast-notification/dist/theme-sugar.css';
 export default {
   data() {
     return {
@@ -207,46 +210,64 @@ export default {
   },
   methods: {
     register() {
-      console.log('Thông tin người dùng');
-      console.log('email : ' + this.email);
-      console.log('password : ' + this.password);
-      console.log('comfirm_password : ' + this.comfirm_password);
-      console.log('date_of_birth : ' + this.date_of_birth);
-      console.log('fullName : ' + this.firstName + "" + this.lastName);
       const objRegister = {
         email: this.email,
         password: this.password,
         comfirm_password: this.comfirm_password,
         date_of_birth: this.date_of_birth,
-        name: this.firstName + "" + this.lastName
+        name: this.firstName + " " + this.lastName
       }
       axios.post('http://localhost:4000/users/register', objRegister)
         .then((res) => {
-          alert('Thành công')
-          console.log(res.data.message);
+          this.$toast.success(res.data.message, {
+            position: 'bottom-right'
+          });
         })
         .catch((errors) => {
-          alert(errors)
+          this.$toast.error(errors.response.data.message, {
+            position: 'bottom-right'
+          });
         })
     },
-    login() {
+    async login() {
       const objectLogin = {
         email: this.account,
         password: this.pass
       }
 
-      axios.post('http://localhost:4000/users/login', objectLogin)
+      await axios.post('http://localhost:4000/users/login', objectLogin)
         .then((res) => {
-          alert('Login thành công')
-          console.log(res);
-          localStorage.setItem('token', res.data.result.access_token)
+          this.$toast.success(res.data.message, {
+            position: 'bottom-right'
+          });
+          localStorage.setItem('access_token', res.data.result.access_token)
+        })
+        .then(() => {
+          axios
+            .get("http://localhost:4000/users/me", {
+              headers: {
+                Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+              },
+            })
+            .then((res) => {
+              localStorage.setItem("profile", JSON.stringify(res.data.result));
+              console.log(localStorage.getItem('profile'));
+              this.$router.push('/');
+            });
         })
         .catch((errors) => {
-          alert('Lỗi')
+          this.$toast.error(errors.response.data.message, {
+            position: 'bottom-right'
+          });
         })
 
+      // start
 
+
+      // end
     }
+
+
   }
 }
 </script>

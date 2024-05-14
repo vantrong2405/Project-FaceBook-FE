@@ -8,6 +8,7 @@ import Group from '../views/client/Group.vue'
 import Profile from '../views/client/Profile.vue'
 import PostVue from '../views/admin/Post.vue'
 import ManagerUserVue from '@/views/admin/ManagerUser.vue'
+// import checkLogin from './checkLogin'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -21,32 +22,38 @@ const router = createRouter({
       path: '/',
       name: 'main',
       component: Home
+      // , beforeEnter: checkLogin
     },
     {
       path: '/video',
       name: 'video',
       component: Video
+      // , beforeEnter: checkLogin
     },
     {
       path: '/market',
       name: 'market',
       component: Market
+      // , beforeEnter: checkLogin
     },
     {
       path: '/group',
       name: 'group',
       component: Group
+      // , beforeEnter: checkLogin
     },
     {
       path: '/game',
       name: 'game',
       component: Game
+      // , beforeEnter: checkLogin
     },
     {
       path: '/profile',
       name: 'profile',
       component: Profile,
       meta: { layout: 'Empty' }
+      // , beforeEnter: checkLogin
     },
 
     // admin 
@@ -56,6 +63,7 @@ const router = createRouter({
       name: 'post',
       component: PostVue,
       meta: { layout: 'admin' }
+      // , beforeEnter: checkLogin
     },
     {
       path: '/admin/user',
