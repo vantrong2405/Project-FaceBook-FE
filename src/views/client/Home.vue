@@ -1,88 +1,85 @@
 <template>
-  <div class="relative">
-    <div class="flex bg-[#F0F2F5]">
-      <!-- left bar -->
-      <div class="flex">
-        <div class="w-80 hidden xl:block">
-          <div class="w-80 bg-white">
-            <div class="fixed">
-              <div class="h-screen px-2 py-4 flex-col justify-between hidden xl:flex overflow-scroll">
-                <div id="left-bar-top" class="w-full">
-                  <ul>
-                    <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                      <img src="http://localhost:5173/src/assets/images/pp.jpg" class="rounded-full w-9" alt="" />
-                      <span class="font-semibold text-tiny"> Văn trọng </span>
-                    </li>
-                    <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                      <img src="../../assets/images/png/friends.png" class="rounded-full w-9" alt="Bạn bè" />
-                      <span class="font-semibold text-tiny">Bạn bè</span>
-                    </li>
-                    <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                      <img src="../../assets/images/png/groups.png" class="rounded-full w-9" alt="Nhóm" />
-                      <span class="font-semibold text-tiny">Nhóm</span>
-                    </li>
-                    <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                      <img src="../../assets/images/png/marketplace.png" class="rounded-full w-9" alt="Marketplace" />
-                      <span class="font-semibold text-tiny">Marketplace</span>
-                    </li>
-                    <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                      <img src="../../assets/images/png/watch.png" class="rounded-full w-9" alt="Video" />
-                      <span class="font-semibold text-tiny">Video</span>
-                    </li>
-                    <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                      <img src="../../assets/images/png/memories.png" class="rounded-full w-9" alt="Kỷ niệm" />
-                      <span class="font-semibold text-tiny">Kỷ niệm</span>
-                    </li>
-                    <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                      <img src="../../assets/images/png/saved.png" class="rounded-full w-9" alt="Đã lưu" />
-                      <span class="font-semibold text-tiny">Đã lưu</span>
-                    </li>
-                    <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                      <img src="../../assets/images/png/pages.png" class="rounded-full w-9" alt="Trang" />
-                      <span class="font-semibold text-tiny">Trang</span>
-                    </li>
-                    <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                      <img src="../../assets/images/png/events.png" class="rounded-full w-9" alt="Sự kiện" />
-                      <span class="font-semibold text-tiny">Sự kiện</span>
-                    </li>
-                    <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                      <img src="../../assets/images/png/jobs.png" class="rounded-full w-9" alt="Công việc" />
-                      <span class="font-semibold text-tiny">Công việc</span>
-                    </li>
-                    <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                      <img src="../../assets/images/png/mostRecent.png" class="rounded-full w-9" alt="Gần đây" />
-                      <span class="font-semibold text-tiny">Gần đây</span>
-                    </li>
-                    <div
-                      class="flex items-center gap-2 p-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900 transition-color duration-300">
-                      <div id="svg-see-more-box" class="p-2 rounded-full flex items-center justify-center">
-                        <svg-see-more class="w-5" />
-                      </div>
-                      <span class="font-semibold text-base"> Xem thêm</span>
+  <div>
+    <div class="flex">
+      <div class="w-80 hidden xl:block">
+        <div class="w-80">
+          <div class="fixed">
+            <div class="h-screen px-2 pb-12 pt-4 flex-col justify-between hidden xl:flex overflow-scroll">
+              <div id="left-bar-top" class="w-full">
+                <ul>
+                  <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                    <img src="http://localhost:5173/src/assets/images/pp.jpg" class="rounded-full w-9" alt="" />
+                    <span class="font-semibold text-tiny"> Văn trọng </span>
+                  </li>
+                  <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                    <img src="../../assets/images/png/friends.png" class="rounded-full w-9" alt="Bạn bè" />
+                    <span class="font-semibold text-tiny">Bạn bè</span>
+                  </li>
+                  <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                    <img src="../../assets/images/png/groups.png" class="rounded-full w-9" alt="Nhóm" />
+                    <span class="font-semibold text-tiny">Nhóm</span>
+                  </li>
+                  <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                    <img src="../../assets/images/png/marketplace.png" class="rounded-full w-9" alt="Marketplace" />
+                    <span class="font-semibold text-tiny">Marketplace</span>
+                  </li>
+                  <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                    <img src="../../assets/images/png/watch.png" class="rounded-full w-9" alt="Video" />
+                    <span class="font-semibold text-tiny">Video</span>
+                  </li>
+                  <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                    <img src="../../assets/images/png/memories.png" class="rounded-full w-9" alt="Kỷ niệm" />
+                    <span class="font-semibold text-tiny">Kỷ niệm</span>
+                  </li>
+                  <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                    <img src="../../assets/images/png/saved.png" class="rounded-full w-9" alt="Đã lưu" />
+                    <span class="font-semibold text-tiny">Đã lưu</span>
+                  </li>
+                  <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                    <img src="../../assets/images/png/pages.png" class="rounded-full w-9" alt="Trang" />
+                    <span class="font-semibold text-tiny">Trang</span>
+                  </li>
+                  <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                    <img src="../../assets/images/png/events.png" class="rounded-full w-9" alt="Sự kiện" />
+                    <span class="font-semibold text-tiny">Sự kiện</span>
+                  </li>
+                  <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                    <img src="../../assets/images/png/jobs.png" class="rounded-full w-9" alt="Công việc" />
+                    <span class="font-semibold text-tiny">Công việc</span>
+                  </li>
+                  <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                    <img src="../../assets/images/png/mostRecent.png" class="rounded-full w-9" alt="Gần đây" />
+                    <span class="font-semibold text-tiny">Gần đây</span>
+                  </li>
+                  <div
+                    class="flex items-center gap-2 p-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900 transition-color duration-300">
+                    <div id="svg-see-more-box" class="p-2 rounded-full flex items-center justify-center">
+                      <svg-see-more class="w-5" />
                     </div>
+                    <span class="font-semibold text-base"> Xem thêm</span>
+                  </div>
 
-                    <div id="privacy" class="w-full">
-                      <div class="text-myGray-700 text-xs pl-1 mb-14">
-                        <a class="hover:underline cursor-pointer">Privacy</a>·
-                        <a class="hover:underline cursor-pointer">Terms</a>·
-                        <a class="hover:underline cursor-pointer">Adversiting</a>·
-                        <a class="hover:underline cursor-pointer">Ad Choices</a>·
-                        <a class="hover:underline cursor-pointer">Cookies</a>·<br />
-                        <a class="cursor-pointer">More</a>·
-                        <a>Burkay © 2021</a>
-                      </div>
+                  <div id="privacy" class="w-full">
+                    <div class="text-myGray-700 text-xs pl-1 mb-14">
+                      <a class="hover:underline cursor-pointer">Privacy</a>·
+                      <a class="hover:underline cursor-pointer">Terms</a>·
+                      <a class="hover:underline cursor-pointer">Adversiting</a>·
+                      <a class="hover:underline cursor-pointer">Ad Choices</a>·
+                      <a class="hover:underline cursor-pointer">Cookies</a>·<br />
+                      <a class="cursor-pointer">More</a>·
+                      <a>Burkay © 2021</a>
                     </div>
-                  </ul>
-                  <!-- start -->
-                </div>
+                  </div>
+                </ul>
+
+                <!-- end -->
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="w-full mt-[10px]">
-        <div
-          class="h-auto desktop:w-180 la ptop:w-160 lg:w-160 sm:w-140 w-full sm:m-auto p-1 text-xs font-semibold mobile-x:text-tiny mobile-x:p-8">
+      <div class="w-full mt-7 mx-32">
+        <div class="">
           <div class="bg-[white] flex flex-col gap-4 border-[1px] p-2 rounded-lg shadow-sm">
             <div id="storie" class="rounded-lg">
               <div
@@ -96,13 +93,12 @@
                 </div>
               </div>
             </div>
-
             <div id="new-post" class="h-32 p-2 rounded-lg flex flex-col justify-between">
               <div id="new-post-top" class="p-1 flex gap-3 items-center">
                 <div class="_pp_ cursor-pointer">
                   <img src="../../assets/images/pp.jpg" class="w-10 rounded-full" alt="" />
                 </div>
-                <input @click="showModalCreatePost = true"
+                <input data-bs-toggle="modal" data-bs-target="#create_posts"
                   class="cursor-pointer w-full h-10 rounded-full border-[0px] bg-[#F0F2F5] hover:bg-[#E4E6E9] outline-none text-tiny px-3 font-semibold transition-colors mobile-x:text-base focus:outline-none focus:shadow-none focus:ring-transparent"
                   type="text" name="" placeholder="What's on your mind, Elliot ?" />
               </div>
@@ -184,7 +180,7 @@
                     <svg-comment class="w-5" />
                     <span>Comment</span>
                   </div>
-                  <div @click="showModalShare = true"
+                  <div data-bs-toggle="modal" data-bs-target="#share_posts"
                     class="flex gap-2 w-full items-center justify-center p-2 hover:bg-myGray-900 cursor-pointer rounded-lg my-1 transition-colors duration-300">
                     <Forward class="w-5" />
                     <span>Share</span>
@@ -249,9 +245,116 @@
           <!-- end -->
         </div>
       </div>
-      <div class="w-80 hidden lg:block">
-        <div class="absolute">
-          <RightBar class="fixed top-0 right-0 mt-[20px]" />
+      <!-- start -->
+      <div class="w-80 hidden xl:block">
+        <div class="w-80">
+          <div class="fixed w-full">
+            <div class="h-screen px-2 pb-12 pt-4 flex-col justify-between hidden xl:flex overflow-auto w-80">
+              <div>
+                <div class="flex justify-between items-center">
+                  <p class="font-semibold text-lg">Quản lý </p>
+                  <ellipsis class="p-1 hover:bg-gray-300 rounded-lg cursor-pointer" />
+                </div>
+
+                <div>
+                  <div class="hover:bg-gray-200 rounded-lg">
+                    <div class="flex p-1 my-1 cursor-pointer items-center">
+                      <img class="w-10 h-10 mr-2 rounded-full"
+                        src="https://web.hn.ss.bfcplatform.vn/muadienmay/content/article2/0878913035-1620532649.jpg"
+                        alt="" />
+                      <p class="text-base font-semibold text-gray-600">Đây là page nè</p>
+                    </div>
+                  </div>
+
+                  <div class="hover:bg-gray-200 py-3 rounded-lg">
+                    <div class="cursor-pointer flex items-center">
+                      <Repeat class="w-4 h-4" />
+                      <p class="ml-2">Chuyển sang page</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr class="my-2" />
+              <!--Lời mời kết bạn-->
+              <div class="mb-3">
+                <div>
+                  <div class="flex justify-between box-border my-1">
+                    <p class="font-semibold text-gray-600 text-base p-2">Lời mời kết bạn</p>
+                    <p class="text-blue-600 hover:bg-gray-200 cursor-pointer box-border p-2 rounded-md">
+                      Xem tất cả
+                    </p>
+                  </div>
+                  <!-- start -->
+                  <div class="flex hover:bg-gray-200 rounded-lg cursor-pointer mb-2 p-1 py-2" v-for="index in 10"
+                    :key="index">
+                    <img class="w-10 h-10 mr-2 rounded-full"
+                      src="https://web.hn.ss.bfcplatform.vn/muadienmay/content/article2/0878913035-1620532649.jpg"
+                      alt="" />
+                    <div>
+                      <div class="justify-between flex w-[155px]">
+                        <div class="items-center flex">
+                          <p class="font-bold mr-2">Văn Trọng</p>
+                          <p class="font-normal">7 ngày</p>
+                        </div>
+                      </div>
+                      <div class="mt-2 flex gap-2">
+                        <button class="btn btn-primary btn-sm w-20">Xác nhận</button>
+                        <button class="btn btn-danger btn-sm w-20">Xóa</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr class="my-2 mt-2" />
+              <div id="contacts" class="w-full flex items-center justfiy-between">
+                <span class="flex-1 bg-red font-semibold text-base pl-5">Liên hệ</span>
+                <div id="contact-buttons" class="flex gap-1">
+                  <div
+                    class="p-2 rounded-full bg-myGray-900 hover:bg-myGray-700 cursor-pointer transition-colors duration-300">
+                    <svg-new-room class="w-4" />
+                  </div>
+                  <div
+                    class="p-2 rounded-full bg-myGray-900 hover:bg-myGray-700 cursor-pointer transition-colors duration-300">
+                    <svg-search class="w-4" />
+                  </div>
+                  <div
+                    class="p-2 rounded-full bg-myGray-900 hover:bg-myGray-700 cursor-pointer transition-colors duration-300">
+                    <svg-dots class="w-4" />
+                  </div>
+                </div>
+              </div>
+              <div id="firends" class="border-b border-myGray-250">
+                <ul v-for="(user, index) in users" :key="index">
+                  <li
+                    class="flex items-center gap-3 font-semibold text-tiny cursor-pointer hover:bg-myGray-900 rounded-lg my-2 px-3 py-2 transition-colors duration-300">
+                    <img :src="user.route" class="w-10 h-10 rounded-full" alt="" />
+                    <span> {{ user.name }} </span>
+                  </li>
+                </ul>
+              </div>
+
+              <div id="group-conversation" class="mt-2">
+                <div class="my-4 font-semibold text-base px-3">Cuộc trò chuyện nhóm</div>
+                <div
+                  class="flex items-center gap-3 font-semibold text-tiny cursor-pointer hover:bg-myGray-900 rounded-lg my-2 px-3 py-2 transition-colors duration-300">
+                  <img src="https://web.hn.ss.bfcplatform.vn/muadienmay/content/article2/0878913035-1620532649.jpg"
+                    class="w-10 h-10 rounded-full" alt="" />
+                  <span class="line-clamp-2"> Này eos, quo fugit enim facilis.eos, quo fugit enim facilis.eos, quo fugit
+                    enim facilis.eos,
+                    quo fugit enim facilis.eos, quo fugit enim facilis.
+                    Ipsa.</span>
+                </div>
+                <div
+                  class="flex items-center gap-3 w-full cursor-pointer hover:bg-myGray-900 p-3 rounded-lg transition-colors duration-300 mx-2.5">
+                  <div id="svg-box" class="rounded-full bg-myGray-900">
+                    <svg-create class="w-5" />
+                  </div>
+                  <span class="font-semibold text-tiny">Tạo nhóm mới</span>
+                </div>
+              </div>
+              <!-- end -->
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -259,9 +362,51 @@
       class="p-[14px] flex items-center justify-center rounded-full bg-white border-2 text-black fixed right-5 bottom-5 cursor-pointer hover:bg-myGray-700 transition-colors duration-300">
       <svg-new-message class="w-5" />
     </div>
+
+
+    <!-- modal create -->
+    <div class="modal fade" id="create_posts" tabindex="-1" aria-labelledby="create_post" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="create_post">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- end modal create -->
+
+
+    <!-- modal share -->
+    <div class="modal fade" id="share_posts" tabindex="-1" aria-labelledby="create_post" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="share_posts">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end modal share -->
     <!-- Modal Create Post -->
-    <div v-if="showModalCreatePost" id="ModalCreatePost"
-      class="absolute top-[-10%] right-0 bottom-0 left-0 bg-white bg-opacity-50 z-50">
+    <div id="ModalCreatePost" class="absolute top-[-10%] right-0 bottom-0 left-0 bg-white bg-opacity-50 z-50" hidden>
       <div class="w-[35%] fixed top-[10%] left-[35%]">
         <div class="w-full h-full relative bg-white shadow-lg rounded-lg">
           <p class="text-center py-[14px] text-black text-[20px] font-bold border-b border-[rgba(0, 0, 0, 0.1)]">
@@ -344,7 +489,7 @@
       </div>
     </div>
     <!-- Modal Share -->
-    <div v-if="showModalShare" class="absolute top-[-10%] right-0 bottom-0 left-0 bg-white bg-opacity-50 z-50">
+    <div class="absolute top-[-10%] right-0 bottom-0 left-0 bg-white bg-opacity-50 z-50" hidden>
       <div class="w-[35%] fixed top-[10%] bottom-[30px] left-[35%]">
         <div class="w-full h-full relative bg-white shadow-lg rounded-lg">
           <p class="text-center py-[14px] text-black text-[20px] font-bold border-b border-[rgba(0, 0, 0, 0.1)]">
@@ -364,19 +509,12 @@
                   Bảng feed
                 </p>
                 <span class="bg-[#E4E6EB] rounded-md flex items-center justify-center cursor-pointer">
-                  <!-- <i class="fa-solid fa-earth-americas text-[12px] ml-[5px]"></i>
-                  <i v-if="showPrivate" class="fa-solid fa-caret-down text-[15px]"></i> -->
                   <select
                     class="border-0 focus:ring-0 ml-[5px] text-[15px] font-medium bg-[#E4E6EB] rounded-md cursor-pointer"
                     name="" id="">
                     <option @click="showPrivate = false" value="1" selected>Công khai</option>
                     <option @click="showPrivate = true" value="2">Chỉ mình tôi</option>
                   </select>
-                  <!-- <div class="flex py-[2px] px-[5px] items-center cursor-pointer bg-[#E4E6EB] rounded-md">
-                      <i class="fa-solid fa-earth-americas text-[12px] pr-[4px]"></i>
-                      <p class="text-[13px] font-medium text-black  pr-[4px]">Công khai</p>
-                      <i class="fa-solid fa-caret-down text-[15px]"></i>
-                    </div> -->
                 </span>
               </div>
             </div>
@@ -396,12 +534,6 @@
           <hr class="bg-gray-500" />
           <p class="text-[17px] text-black font-medium px-[16px] py-[8px]">Gửi bằng Messenger</p>
           <div class="w-full flex pl-[10px]">
-            <div class="py-[8px] px-[12px] hover:bg-[#F2F2F2] rounded-lg cursor-pointer">
-              <img class="h-[60px] w-[60px] rounded-full mb-[5px]"
-                src="https://scontent.fdad3-6.fna.fbcdn.net/v/t39.30808-1/274456074_1361142244327596_3675729695510261208_n.jpg?stp=cp0_dst-jpg_p40x40&_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEu3DE5x6dR9PxFQ-LK28vEDbjtZrkb4vQNuO1muRvi9Ih5x7QFRzr-YV0Ly3szC91MQcW0YX-b2uUdFa-mQrif&_nc_ohc=Qt8QiDFGOAcQ7kNvgEg42rk&_nc_ht=scontent.fdad3-6.fna&oh=00_AYCitaCAQew6JR7FAxGejNlqj2pfKasvFlbcgyCuRtm7wg&oe=6647C7E6"
-                alt="" />
-              <p class="text-[13px] text-black max-w-[60px] break-words text-center">Ân Nguyên</p>
-            </div>
             <div class="py-[8px] px-[12px] hover:bg-[#F2F2F2] rounded-lg cursor-pointer">
               <img class="h-[60px] w-[60px] rounded-full mb-[5px]"
                 src="https://scontent.fdad3-6.fna.fbcdn.net/v/t39.30808-1/274456074_1361142244327596_3675729695510261208_n.jpg?stp=cp0_dst-jpg_p40x40&_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEu3DE5x6dR9PxFQ-LK28vEDbjtZrkb4vQNuO1muRvi9Ih5x7QFRzr-YV0Ly3szC91MQcW0YX-b2uUdFa-mQrif&_nc_ohc=Qt8QiDFGOAcQ7kNvgEg42rk&_nc_ht=scontent.fdad3-6.fna&oh=00_AYCitaCAQew6JR7FAxGejNlqj2pfKasvFlbcgyCuRtm7wg&oe=6647C7E6"
@@ -484,6 +616,7 @@
       </div>
     </div>
   </div>
+
 </template>
 <script>
 import RightBar from '../../components/RightBar/index.vue'
@@ -501,10 +634,11 @@ import svgMenu from '../../components/svg/svgMenu.vue'
 import svgSeeMore from '../../components/svg/svgSeeMore.vue'
 import { Forward } from 'lucide-vue-next'
 import svgNewMessage from '../../components/svg/svgNewMessage.vue'
-import { X } from 'lucide-vue-next'
+import { Users, Ellipsis, Repeat, X } from 'lucide-vue-next'
+import svgNewRoom from '../../components/svg/svgNewRoom.vue'
+import svgSearch from '../../components/svg/svgSearch.vue'
 export default {
   components: {
-    RightBar,
     svgCreate,
     svgLiveVideo,
     svgPhoto,
@@ -518,7 +652,11 @@ export default {
     svgSeeMore,
     Forward,
     svgNewMessage,
-    X
+    X,
+    svgNewRoom,
+    svgSearch,
+    Ellipsis,
+    Repeat
   },
   data() {
     return {

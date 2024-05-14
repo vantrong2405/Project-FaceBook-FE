@@ -89,7 +89,7 @@ export default {
     <!--Trang và trang cá nhân-->
     <div class="">
       <div class="flex justify-between">
-        <p class="mx-1  mt-[10px] font-semibold text-md">Quản lý trang và trang cá nhân của bạn</p>
+        <p class=" font-semibold text-md">Quản lý trang và trang cá nhân của bạn</p>
         <ellipsis class="p-1 hover:bg-gray-300 rounded-lg cursor-pointer" />
       </div>
 

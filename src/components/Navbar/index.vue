@@ -1,45 +1,35 @@
 <!-- eslint-disable vue/no-unused-components -->
 <template>
-  <div class="shadow-lg w-full h-14 grid grid-cols-2 md:grid-cols-3 items-center z-50 bg-white">
+  <div class="shadow-sm w-full h-14 grid grid-cols-2 md:grid-cols-3 items-center z-50 bg-white">
     <SearchBar class="z-20" />
     <div id="mid" class="h-full items-center justify-center gap-2 hidden md:flex">
       <router-link to="/">
-        <div
-          id="svg-home-box"
-          class="product-items lg:w-40 h-12 flex items-center justify-center cursor-pointer hover:bg-myGray-900 rounded-lg transition-colors duration-300"
-        >
+        <div id="svg-home-box"
+          class="product-items lg:w-40 h-12 flex items-center justify-center cursor-pointer hover:bg-myGray-900 rounded-lg transition-colors duration-300">
           <svg-home class="w-7 icon" />
         </div>
       </router-link>
       <router-link to="/video">
-        <div
-          id="svg-groups-box"
-          class="product-items lg:w-40 h-12 flex items-center justify-center cursor-pointer hover:bg-myGray-900 rounded-lg transition-colors duration-300"
-        >
+        <div id="svg-groups-box"
+          class="product-items lg:w-40 h-12 flex items-center justify-center cursor-pointer hover:bg-myGray-900 rounded-lg transition-colors duration-300">
           <svg-video class="w-7 icon" />
         </div>
       </router-link>
       <router-link to="/market">
-        <div
-          id="svg-groups-box"
-          class="product-items lg:w-40 h-12 flex items-center justify-center cursor-pointer hover:bg-myGray-900 rounded-lg transition-colors duration-300"
-        >
+        <div id="svg-groups-box"
+          class="product-items lg:w-40 h-12 flex items-center justify-center cursor-pointer hover:bg-myGray-900 rounded-lg transition-colors duration-300">
           <svg-market class="w-7 icon" />
         </div>
       </router-link>
       <router-link to="/group">
-        <div
-          id="svg-groups-box"
-          class="product-items lg:w-40 h-12 flex items-center justify-center cursor-pointer hover:bg-myGray-900 rounded-lg transition-colors duration-300"
-        >
+        <div id="svg-groups-box"
+          class="product-items lg:w-40 h-12 flex items-center justify-center cursor-pointer hover:bg-myGray-900 rounded-lg transition-colors duration-300">
           <svg-groups class="w-7 icon" />
         </div>
       </router-link>
       <router-link to="/game">
-        <div
-          id="svg-groups-box"
-          class="product-items lg:w-40 h-12 flex items-center justify-center cursor-pointer hover:bg-myGray-900 rounded-lg transition-colors duration-300"
-        >
+        <div id="svg-groups-box"
+          class="product-items lg:w-40 h-12 flex items-center justify-center cursor-pointer hover:bg-myGray-900 rounded-lg transition-colors duration-300">
           <svg-game class="w-7 icon" />
         </div>
       </router-link>
