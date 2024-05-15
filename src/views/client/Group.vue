@@ -1,10 +1,11 @@
 <template>
-  <div class="flex">
-    <div class="flex">
-      <div class="w-80 hidden xl:block">
-        <div class="w-80">
-          <div class="fixed">
-            <div class="h-screen ml-[5px] px-2 py-4 flex-col justify-between hidden xl:flex overflow-auto">
+  <div class="flex w-screen">
+   <div class="w-[340px]"></div>
+    <div class=" w-[340px] fixed">
+      <div class="w-full flex xl:block">
+        <div class="w-full ">
+          <div class="">
+            <div class="h-screen w-full ml-[5px] px-2 py-4 flex-col justify-between hidden xl:flex overflow-y-auto">
               <div id="left-bar-top" class="w-full">
                 <ul>
                   <li class="flex justify-between items-center">
@@ -78,6 +79,7 @@
         </div>
       </div>
     </div>
+   
     <div class="mx-auto">
       <p class="text-[15px] font-medium mt-[20px] mb-[-15px]">Hoạt động gần đây</p>
       <div class="shadow-md my-4 rounded-lg border bg-white" v-for="index in 10" :key="index">
@@ -142,6 +144,26 @@ export default {
   data() {
     return {
       group: [
+      {
+          name: 'DTU - Đại Học Duy Tân',
+          route: 'src/assets/images/avatar.jpg',
+          time: '5 giờ trước'
+        },
+        {
+          name: 'DTU - Đại Học Duy Tân',
+          route: 'src/assets/images/avatar.jpg',
+          time: '5 giờ trước'
+        },
+        {
+          name: 'DTU - Đại Học Duy Tân',
+          route: 'src/assets/images/avatar.jpg',
+          time: '5 giờ trước'
+        },
+        {
+          name: 'DTU - Đại Học Duy Tân',
+          route: 'src/assets/images/avatar.jpg',
+          time: '5 giờ trước'
+        },
         {
           name: 'DTU - Đại Học Duy Tân',
           route: 'src/assets/images/avatar.jpg',
