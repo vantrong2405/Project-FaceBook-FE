@@ -1,11 +1,12 @@
 <template>
   <div class="bg-[#F0F2F5]">
     <div class="flex">
-      <div class="w-80 hidden xl:block bg-white">
+      <div class="w-80 hidden xl:block bg-white shadow-sm">
         <div class="w-80">
           <div class="fixed">
-            <div class="h-screen px-2 pb-12 pt-4 flex-col justify-between hidden xl:flex overflow-scroll w-80">
-              <div id="left-bar-top" class="w-full">
+            <div class="h-screen px-2 pb-12 pt-4 flex-col justify-between hidden xl:flex scroll-container w-80">
+              <div class="visible">
+                <div id="left-bar-top" class="w-full">
                 <ul>
                   <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
                     <img :src="userCurrent.avatar ? userCurrent.avatar : avatar" class="rounded-full w-9" alt="" />
@@ -71,9 +72,11 @@
                     </div>
                   </div>
                 </ul>
-
                 <!-- end -->
               </div>
+              </div>
+
+              
             </div>
           </div>
         </div>
@@ -249,7 +252,8 @@
       <div class="w-80 hidden xl:block ">
         <div class="w-80">
           <div class="fixed w-full">
-            <div class="h-screen px-2 pb-12 pt-4 flex-col justify-between hidden xl:flex overflow-auto w-80">
+            <div class="h-screen px-2 pb-12 pt-4 flex-col justify-between hidden xl:flex scroll-container w-80">
+              <div class="visible">
               <div>
                 <div class="flex justify-between items-center">
                   <p class="font-semibold text-lg">Quản lý </p>
@@ -353,6 +357,7 @@
                 </div>
               </div>
               <!-- end -->
+            </div>
             </div>
           </div>
         </div>

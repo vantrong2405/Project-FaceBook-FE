@@ -64,3 +64,23 @@
 #pp:hover .image-avatar {
   display: block;
 }
+.scroll-container {
+  overflow: auto;
+     visibility: hidden;
+  }
+  .scroll-container:hover {
+     visibility: visible;
+  }
+  ::-webkit-scrollbar {
+      width: 8px;
+     
+      opacity: 0; /* Ẩn thanh cuộn */
+      transition: opacity 0.3s; /* Transition cho hiệu ứng fade */
+  }
+  .scroll-container:hover ::-webkit-scrollbar {
+      opacity: 1; /* Hiển thị thanh cuộn khi hover */
+  }
+  ::-webkit-scrollbar-thumb {
+      background: #BCC0C4;
+      border-radius: 10px;
+  }
