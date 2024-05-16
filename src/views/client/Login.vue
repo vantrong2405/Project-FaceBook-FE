@@ -16,9 +16,9 @@
         <div class="w-[40%] pt-[30px]">
           <div class="shadow-lg bg-white px-[15px] p-[15px] rounded-[10px]">
             <form class="h-2/4">
-              <input type="text" class="block w-full py-[12px] px-[16px] text-[16px] rounded-md mb-[10px]"
+              <input type="text" class="block w-full py-[12px] px-[16px] text-[16px] rounded-md mb-[10px] font-medium"
                 placeholder="Email or hoặc số điện thoại" v-model="account" />
-              <input type="text" class="block w-full py-[12px] px-[16px] text-[16px] rounded-md mt-[10px] mb-[20px]"
+              <input type="password" class="block w-full py-[12px] px-[16px] text-[16px] rounded-md mt-[10px] mb-[20px]"
                 placeholder="Mật khẩu" v-model="pass" />
 
               <div class="btn btn-primary w-full" @click="login()">Đăng nhập</div>
@@ -219,7 +219,8 @@ export default {
         password: this.password,
         comfirm_password: this.comfirm_password,
         date_of_birth: this.date_of_birth,
-        name: this.firstName + ' ' + this.lastName
+        name: this.firstName + ' ' + this.lastName,
+        role: 0
       }
       axios
         .post('http://localhost:4000/users/register', objRegister)
@@ -229,9 +230,19 @@ export default {
           })
         })
         .catch((errors) => {
-          this.$toast.error(errors.response.data.message, {
-            position: 'bottom-right'
-          })
+          const errorObject = errors.response.data.errors;
+          for (const fieldName in errorObject) {
+            if (Object.prototype.hasOwnProperty.call(errorObject, fieldName)) {
+              const errorMessage = errorObject[fieldName].msg;
+              if (errorMessage) {
+                console.log(errorMessage);
+                this.$toast.error(errorMessage, {
+                  position: 'bottom-right'
+                })
+                return
+              }
+            }
+          }
         })
     },
     async login() {
@@ -247,30 +258,14 @@ export default {
             position: 'bottom-right'
           })
           localStorage.setItem('access_token', res.data.result.access_token)
+          localStorage.setItem('refresh_token', res.data.result.refresh_token)
           this.$router.push('/home')
         })
-        // .then(() => {
-        //   axios
-        //     .get('http://localhost:4000/users/me', {
-        //       headers: {
-        //         Authorization: `Bearer ${localStorage.getItem('access_token')}`
-        //       }
-        //     })
-        //     .then((res) => {
-        //       localStorage.setItem('profile', JSON.stringify(res.data.result))
-        //       console.log(localStorage.getItem('profile'))
-        //       this.$router.push('/')
-        //     })
-        // })
         .catch((errors) => {
-          this.$toast.error(errors.response.data.message, {
+          this.$toast.error('Đăng nhập không thành công', {
             position: 'bottom-right'
           })
         })
-
-      // start
-
-      // end
     },
     checkToken() {
       axios
@@ -281,6 +276,8 @@ export default {
         }
         ).then((res) => {
           if (res.status === 200) {
+            console.log('check token');
+            console.log(res);
             this.$router.push('/home');
           }
         })

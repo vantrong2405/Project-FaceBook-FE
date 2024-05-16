@@ -17,7 +17,6 @@ import Navbar from '../components/Navbar/index.vue'
 export default {
   mounted() {
     this.userCurrent = JSON.parse(localStorage.getItem('profile'))
-    console.log(this.userCurrent);
   },
   components: {
     Navbar

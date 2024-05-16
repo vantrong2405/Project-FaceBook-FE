@@ -712,14 +712,26 @@
                 </a>
               </div>
               <div class="mx-3 my-2">
-                <a href="" class="flex justify-between hover:bg-gray-200 py-1 px-1 rounded-xl">
+                <router-link to="/reset-password">
+                  <div class="flex justify-between hover:bg-gray-200 py-1 px-1 rounded-xl">
+                    <div class="flex">
+                      <div class="bg-gray-300 rounded-full py-1">
+                        <LogOut class="mx-1.5 my-0.5 p-1" />
+                      </div>
+                      <div class="py-1 mx-2 font-semibold text-base">Đổi mật khẩu</div>
+                    </div>
+                  </div>
+                </router-link>
+              </div>
+              <div class="mx-3 my-2">
+                <div class="flex justify-between hover:bg-gray-200 py-1 px-1 rounded-xl" @click="logOut()">
                   <div class="flex">
                     <div class="bg-gray-300 rounded-full py-1">
                       <LogOut class="mx-1.5 my-0.5 p-1" />
                     </div>
                     <div class="py-1 mx-2 font-semibold text-base">Đăng xuất</div>
                   </div>
-                </a>
+                </div>
               </div>
             </div>
           </div>
@@ -769,6 +781,9 @@ import { Users } from 'lucide-vue-next'
 import { Group } from 'lucide-vue-next'
 import { MonitorPlay } from 'lucide-vue-next'
 import { Newspaper } from 'lucide-vue-next'
+import baseRequest from '@/baseAPI/baseRequest'
+import { useToast } from 'vue-toast-notification'
+import 'vue-toast-notification/dist/theme-sugar.css'
 export default {
   props: {
     userCurrent: {
@@ -810,6 +825,23 @@ export default {
       avatar: 'https://cellphones.com.vn/sforum/wp-content/uploads/2023/10/avatar-trang-4.jpg',
     }
   },
-  methods: {}
+  methods: {
+    logOut() {
+      try {
+        localStorage.removeItem('access_token')
+        localStorage.removeItem('refresh_token')
+        localStorage.removeItem('profile')
+        this.$router.push('/')
+        this.$toast.success('Đăng xuất thành công', {
+          position: 'bottom-right'
+        })
+      } catch (error) {
+        this.$toast.error('Đăng xuất không thành công', {
+          position: 'bottom-right'
+        })
+      }
+
+    }
+  }
 }
 </script>
