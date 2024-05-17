@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen bg-white shadow-md w-[22%] fixed top-[55px] left-0 px-[5px] pt-[5px]">
+  <div class="h-screen bg-white shadow-md w-[22%] fixed top-[55px] left-0 pl-[5px] pt-[5px]">
     <div id="left-bar-top" class="p-[10px]">
       <ul>
         <li class="flex justify-between items-center">
@@ -27,7 +27,7 @@
       </ul>
     </div>
     <div class="h-screen px-[10px] scroll-container">
-      <div class="visible h-[2000px]">
+      <div class="visible ">
         <ul>
           <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
             <div class="rounded-full bg-[#E4E6EB] p-1">

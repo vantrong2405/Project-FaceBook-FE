@@ -7,6 +7,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Segoe UI', Arial, sans-serif;
+  
 }
 
 .active-icon {
@@ -65,7 +66,8 @@
   display: block;
 }
 .scroll-container {
-  overflow: auto;
+
+  overflow-y: auto;
      visibility: hidden;
   }
   .scroll-container:hover {
