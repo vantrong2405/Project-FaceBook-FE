@@ -1,87 +1,80 @@
-<template>
-  <div class="flex w-screen">
-   <div class="w-[340px]"></div>
-    <div class=" w-[340px] fixed">
-      <div class="w-full flex xl:block">
-        <div class="w-full ">
-          <div class="">
-            <div class="h-screen w-full ml-[5px] px-2 py-4 flex-col justify-between hidden xl:flex overflow-y-auto">
-              <div id="left-bar-top" class="w-full">
-                <ul>
-                  <li class="flex justify-between items-center">
-                    <h1 class="text-2xl font-bold">Nhóm</h1>
-                    <div
-                      class="h-[36px] w-[36px] rounded-full cursor-pointer flex items-center justify-center bg-[#E4E6EB] hover:bg-gray-300">
-                      <Settings />
-                    </div>
-                  </li>
-                  <li>
-                    <div class="w-72 h-14 py-2 flex items-center">
-                      <div class="__logo"></div>
-                      <div
-                        class="h-9 flex items-center justify-center rounded-full cursor-pointer transition-opacity duration-500">
-                      </div>
-                      <div
-                        class="w-10 flex items-center justify-center h-full bg-gray-100 rounded-full overflow-hidden cursor-pointer xl:flex-1 xl:px-4 xl:cursor-text ml-1 sm:m-0">
-                        <svg-search class="w-5" fill="currentColor" />
-                        <input
-                          class="w-full h-full bg-transparent text-sm px-2 border-none outline-none xl:block focus:outline-none focus:ring-transparent"
-                          placeholder="Tìm kiếm nhóm" />
-                      </div>
-                    </div>
-                  </li>
-                  <li
-                    class="flex items-center gap-2 px-3 py-[12px] w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                    <Newspaper class="rounded-full" />
-                    <span class="font-semibold text-tiny">Bảng feed của bạn</span>
-                  </li>
-                  <li
-                    class="flex items-center gap-2 px-3 py-[12px] w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                    <Compass class="rounded-full" />
-                    <span class="font-semibold text-tiny">Khám phá</span>
-                  </li>
-                  <li
-                    class="flex items-center gap-2 px-3 py-[12px] w-full cursor-pointer rounded-lg hover:bg-myGray-900 mb-[10px]">
-                    <Users class="rounded-full" />
-                    <span class="font-semibold text-tiny">Nhóm của bạn</span>
-                  </li>
-                  <li
-                    class="flex items-center justify-center py-[6px] hover:bg-[#DFE9F2] rounded-lg cursor-pointer bg-[#EBF5FF]">
-                    <Plus class="text-[#0064D1]"></Plus>
-                    <span class="text-[#0064D1] font-medium text-[15px]">Tạo nhóm mới</span>
-                  </li>
-                </ul>
-                <hr class="mt-[15px]" />
-                <div class="flex flex-row items-center justify-between my-[12px]">
-                  <p class="text-[15px] font-medium">Nhóm bạn đã tham gia</p>
-                  <p class="rounded-md text-[15px] text-[#0064D1] py-[5px] px-[8px] cursor-pointer hover:bg-[#F2F2F2]">
-                    Xem tất cả
-                  </p>
-                </div>
-                <ul class="" v-for="(group, index) in group" :key="index">
-                  <li
-                    class="w-full px-[8px] hover:bg-[#F2F2F2] flex flex-row h-[55px] items-center cursor-pointer rounded-lg">
-                    <div class="h-full flex items-center">
-                      <img :src="group.route" alt="" class="w-[40px] h-[40px] leading-[55px]" />
-                    </div>
-                    <div class="ml-[10px]">
-                      <p class="text-[14px] font-medium mt-[2px]">{{ group.name }}</p>
-                      <p class="text-[13px] text-[#65676B]">
-                        Lần hoạt động gần nhất: {{ group.time }}
-                      </p>
-                    </div>
-                  </li>
-                </ul>
-                <!-- end -->
-              </div>
+<template clas="">
+  <div class="h-screen bg-white shadow-md w-[22%] fixed top-[55px] left-0 px-[5px] pt-[5px]">
+    <div id="left-bar-top" class="p-[10px]">
+      <ul>
+        <li class="flex justify-between items-center">
+          <h1 class="text-2xl font-bold">Nhóm</h1>
+          <div
+            class="h-[36px] w-[36px] rounded-full cursor-pointer flex items-center justify-center bg-[#E4E6EB] hover:bg-gray-300">
+            <Settings />
+          </div>
+        </li>
+        <li>
+          <div class="w-full h-14 py-2 flex items-center">
+            <div class="__logo"></div>
+            <div
+              class="h-9 flex items-center justify-center rounded-full cursor-pointer transition-opacity duration-500">
+            </div>
+            <div
+              class="w-10 flex items-center justify-center h-full bg-gray-100 rounded-full overflow-hidden cursor-pointer xl:flex-1 xl:px-4 xl:cursor-text ml-1 sm:m-0">
+              <svg-search class="w-5" fill="currentColor" />
+              <input
+                class="w-full h-full bg-transparent text-sm px-2 border-none outline-none xl:block focus:outline-none focus:ring-transparent"
+                placeholder="Tìm kiếm nhóm" />
             </div>
           </div>
+        </li>
+      </ul>
+    </div>
+    <div class="h-screen px-[10px] scroll-container">
+      <div class="visible">
+        <ul>
+          <li class="flex items-center gap-2 px-3 py-[12px] w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+            <Newspaper class="rounded-full" />
+            <span class="font-semibold text-tiny">Bảng feed của bạn</span>
+          </li>
+          <li class="flex items-center gap-2 px-3 py-[12px] w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+            <Compass class="rounded-full" />
+            <span class="font-semibold text-tiny">Khám phá</span>
+          </li>
+          <li
+            class="flex items-center gap-2 px-3 py-[12px] w-full cursor-pointer rounded-lg hover:bg-myGray-900 mb-[10px]">
+            <Users class="rounded-full" />
+            <span class="font-semibold text-tiny">Nhóm của bạn</span>
+          </li>
+          <li
+            class="flex items-center justify-center py-[6px] hover:bg-[#DFE9F2] rounded-lg cursor-pointer bg-[#EBF5FF]">
+            <Plus class="text-[#0064D1]"></Plus>
+            <span class="text-[#0064D1] font-medium text-[15px]">Tạo nhóm mới</span>
+          </li>
+        </ul>
+        <hr class="mt-[15px]" />
+        <div class="flex flex-row items-center justify-between my-[12px]">
+          <p class="text-[15px] font-medium">Nhóm bạn đã tham gia</p>
+          <p class="rounded-md text-[15px] text-[#0064D1] py-[5px] px-[8px] cursor-pointer hover:bg-[#F2F2F2]">
+            Xem tất cả
+          </p>
         </div>
+        <ul class="" v-for="(group, index) in group" :key="index">
+          <li class="w-full px-[8px] hover:bg-[#F2F2F2] flex flex-row h-[55px] items-center cursor-pointer rounded-lg">
+            <div class="h-full flex items-center">
+              <img :src="group.route" alt="" class="w-[40px] h-[40px] leading-[55px]" />
+            </div>
+            <div class="ml-[10px]">
+              <p class="text-[14px] font-medium mt-[2px]">{{ group.name }}</p>
+              <p class="text-[13px] text-[#65676B]">
+                Lần hoạt động gần nhất: {{ group.time }}
+              </p>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
-   
-    <div class="mx-auto">
-      <p class="text-[15px] font-medium mt-[20px] mb-[-15px]">Hoạt động gần đây</p>
+  </div>
+  <div class="bg-[#F0F2F5] float-right w-[calc(100%-22%)]">
+    <div class="w-full h-full">
+      <div class="mx-auto w-[58%]">
+      <p class="text-[15px] font-medium pt-[20px] mb-[-15px]">Hoạt động gần đây</p>
       <div class="shadow-md my-4 rounded-lg border bg-white" v-for="index in 10" :key="index">
         <div class="flex mb-3 justify-between m-[10px]">
           <div class="flex">
@@ -131,6 +124,8 @@
         </div>
       </div>
     </div>
+    </div>
+    
   </div>
 </template>
 <script>
@@ -144,7 +139,22 @@ export default {
   data() {
     return {
       group: [
-      {
+        {
+          name: 'DTU - Đại Học Duy Tân',
+          route: 'src/assets/images/avatar.jpg',
+          time: '5 giờ trước'
+        },
+        {
+          name: 'DTU - Đại Học Duy Tân',
+          route: 'src/assets/images/avatar.jpg',
+          time: '5 giờ trước'
+        },
+        {
+          name: 'DTU - Đại Học Duy Tân',
+          route: 'src/assets/images/avatar.jpg',
+          time: '5 giờ trước'
+        },
+        {
           name: 'DTU - Đại Học Duy Tân',
           route: 'src/assets/images/avatar.jpg',
           time: '5 giờ trước'
