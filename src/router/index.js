@@ -15,6 +15,9 @@ import ManagerUserVue from '@/views/admin/ManagerUser.vue'
 import Admin_Login from '@/views/admin/Admin_Login.vue'
 import checkLoginAdmin from './checkLoginAdmin'
 
+// verify
+import VerifyEmail from '../views/client/VerifyEmail.vue'
+import ForgotPassword from '../views/client/ForgotPassword.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -89,6 +92,18 @@ const router = createRouter({
       component: ManagerUserVue,
       meta: { layout: 'admin' },
       beforeEnter: checkLoginAdmin
+    },
+    {
+      path: '/verify-email',
+      name: 'VerifyEmail',
+      component: VerifyEmail,
+      meta: { layout: 'Empty' }
+    },
+    {
+      path: '/forgot-password',
+      name: 'ForgotPassword?',
+      component: ForgotPassword,
+      meta: { layout: 'Empty' }
     },
   ]
 })

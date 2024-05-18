@@ -23,9 +23,31 @@
 
               <div class="btn btn-primary w-full" @click="login()">Đăng nhập</div>
             </form>
-            <div class="text-center pt-[10px]">
+            <div class="text-center pt-[10px]" data-bs-toggle="modal" data-bs-target="#forgot-password">
               <a href="#" class="text-[#0866ff] text-[14px] hover:underline">Quên mật khẩu?</a>
             </div>
+            <!-- start -->
+            <!-- Modal -->
+            <div class="modal fade" id="forgot-password" tabindex="-1" aria-labelledby="forgot-passwordLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="forgot-passwordLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    email : <input type="text" name="" id="" class="form-control" v-model="email_forgot_password">
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" v-on:click="forgotPassword()">Gửi lại mật
+                      khẩu</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end -->
             <hr class="mb-[10px] pb-[20px] mt-[16px]" />
             <div class="text-center pb-[20px]">
               <a @click="showResgister = true" id="creat-acc" href="#"
@@ -193,6 +215,7 @@
 import axios from 'axios'
 import { useToast } from 'vue-toast-notification'
 import 'vue-toast-notification/dist/theme-sugar.css'
+import baseRequest from '@/baseAPI/baseRequest'
 export default {
   mounted() {
     this.checkToken()
@@ -209,7 +232,8 @@ export default {
       firstName: '',
       lastName: '',
       account: '',
-      pass: ''
+      pass: '',
+      email_forgot_password: ''
     }
   },
   methods: {
@@ -282,6 +306,18 @@ export default {
           }
         })
 
+    },
+    forgotPassword() {
+      const obj = {
+        email: this.email_forgot_password
+      }
+      baseRequest.post('/users/forgot-password', obj)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((errors) => {
+          console.log(errors);
+        })
     }
   }
 }
