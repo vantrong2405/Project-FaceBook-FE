@@ -1,5 +1,5 @@
 <template clas="">
-  <div class="h-screen bg-white shadow-md w-[22%] fixed top-[55px] left-0 px-[5px] pt-[5px]">
+  <div class="h-screen bg-white shadow-md w-[22%] fixed top-[55px] left-0 pl-[5px] pt-[5px]">
     <div id="left-bar-top" class="p-[10px]">
       <ul>
         <li class="flex justify-between items-center">

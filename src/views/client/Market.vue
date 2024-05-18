@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen bg-white shadow-md w-[22%] fixed top-[55px] left-0 px-[5px] pt-[5px]">
+  <div class="h-screen bg-white shadow-md w-[22%] fixed top-[55px] left-0 pl-[5px] pt-[5px]">
     <div id="left-bar-top" class="p-[10px]">
       <ul>
         <li class="flex justify-between items-center">
@@ -197,9 +197,9 @@
       <!-- end -->
     </div>
   </div>
-  <div class="bg-[#F0F2F5] float-right w-[calc(100%-22%)]">
-    <div class="w-full px-2 ml-[20px]">
-      <div class="flex justify-between mt-[20px]">
+  <div class="bg-[#F0F2F5] float-right w-[calc(100%-22%)] ">
+    <div class="w-[98%] px-2 ml-[20px]">
+      <div class="flex justify-between pr-[25px] mt-[20px]">
         <div class="text-xl font-bold">Lựa chọn hôm nay</div>
         <div class="flex items-center hover:text-blue-600 cursor-pointer hover:underline">
           <MapPin class="mr-2" />
