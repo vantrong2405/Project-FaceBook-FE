@@ -1,4 +1,11 @@
+<!-- eslint-disable vue/valid-v-model -->
 <template>
+  <!-- start -->
+
+  <input type="file" hidden name="file" ref="fileInput" id="file" @change="handleFileUpload">
+  <!-- <button class="btn btn-primary" @click="upFile">Đưa ảnh lên</button> -->
+
+  <!-- end -->
   <div class="bg-[#F0F2F5]">
     <div class="flex">
       <div class="w-80 hidden xl:block bg-white shadow-sm">
@@ -7,76 +14,76 @@
             <div class="h-screen px-2 pb-12 pt-4 flex-col justify-between hidden xl:flex scroll-container w-80">
               <div class="visible">
                 <div id="left-bar-top" class="w-full">
-                <ul>
-                  <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                    <img :src="userCurrent.avatar ? userCurrent.avatar : avatar" class="rounded-full w-9" alt="" />
-                    <span class="font-semibold text-tiny">{{ userCurrent.name }}</span>
-                  </li>
-                  <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                    <img src="../../assets/images/png/friends.png" class="rounded-full w-9" alt="Bạn bè" />
-                    <span class="font-semibold text-tiny">Bạn bè</span>
-                  </li>
-                  <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                    <img src="../../assets/images/png/groups.png" class="rounded-full w-9" alt="Nhóm" />
-                    <span class="font-semibold text-tiny">Nhóm</span>
-                  </li>
-                  <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                    <img src="../../assets/images/png/marketplace.png" class="rounded-full w-9" alt="Marketplace" />
-                    <span class="font-semibold text-tiny">Marketplace</span>
-                  </li>
-                  <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                    <img src="../../assets/images/png/watch.png" class="rounded-full w-9" alt="Video" />
-                    <span class="font-semibold text-tiny">Video</span>
-                  </li>
-                  <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                    <img src="../../assets/images/png/memories.png" class="rounded-full w-9" alt="Kỷ niệm" />
-                    <span class="font-semibold text-tiny">Kỷ niệm</span>
-                  </li>
-                  <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                    <img src="../../assets/images/png/saved.png" class="rounded-full w-9" alt="Đã lưu" />
-                    <span class="font-semibold text-tiny">Đã lưu</span>
-                  </li>
-                  <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                    <img src="../../assets/images/png/pages.png" class="rounded-full w-9" alt="Trang" />
-                    <span class="font-semibold text-tiny">Trang</span>
-                  </li>
-                  <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                    <img src="../../assets/images/png/events.png" class="rounded-full w-9" alt="Sự kiện" />
-                    <span class="font-semibold text-tiny">Sự kiện</span>
-                  </li>
-                  <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                    <img src="../../assets/images/png/jobs.png" class="rounded-full w-9" alt="Công việc" />
-                    <span class="font-semibold text-tiny">Công việc</span>
-                  </li>
-                  <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                    <img src="../../assets/images/png/mostRecent.png" class="rounded-full w-9" alt="Gần đây" />
-                    <span class="font-semibold text-tiny">Gần đây</span>
-                  </li>
-                  <div
-                    class="flex items-center gap-2 p-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900 transition-color duration-300">
-                    <div id="svg-see-more-box" class="p-2 rounded-full flex items-center justify-center">
-                      <svg-see-more class="w-5" />
+                  <ul>
+                    <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                      <img :src="userCurrent.avatar ? userCurrent.avatar : avatar" class="rounded-full w-9" alt="" />
+                      <span class="font-semibold text-tiny">{{ userCurrent.name }}</span>
+                    </li>
+                    <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                      <img src="../../assets/images/png/friends.png" class="rounded-full w-9" alt="Bạn bè" />
+                      <span class="font-semibold text-tiny">Bạn bè</span>
+                    </li>
+                    <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                      <img src="../../assets/images/png/groups.png" class="rounded-full w-9" alt="Nhóm" />
+                      <span class="font-semibold text-tiny">Nhóm</span>
+                    </li>
+                    <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                      <img src="../../assets/images/png/marketplace.png" class="rounded-full w-9" alt="Marketplace" />
+                      <span class="font-semibold text-tiny">Marketplace</span>
+                    </li>
+                    <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                      <img src="../../assets/images/png/watch.png" class="rounded-full w-9" alt="Video" />
+                      <span class="font-semibold text-tiny">Video</span>
+                    </li>
+                    <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                      <img src="../../assets/images/png/memories.png" class="rounded-full w-9" alt="Kỷ niệm" />
+                      <span class="font-semibold text-tiny">Kỷ niệm</span>
+                    </li>
+                    <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                      <img src="../../assets/images/png/saved.png" class="rounded-full w-9" alt="Đã lưu" />
+                      <span class="font-semibold text-tiny">Đã lưu</span>
+                    </li>
+                    <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                      <img src="../../assets/images/png/pages.png" class="rounded-full w-9" alt="Trang" />
+                      <span class="font-semibold text-tiny">Trang</span>
+                    </li>
+                    <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                      <img src="../../assets/images/png/events.png" class="rounded-full w-9" alt="Sự kiện" />
+                      <span class="font-semibold text-tiny">Sự kiện</span>
+                    </li>
+                    <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                      <img src="../../assets/images/png/jobs.png" class="rounded-full w-9" alt="Công việc" />
+                      <span class="font-semibold text-tiny">Công việc</span>
+                    </li>
+                    <li class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
+                      <img src="../../assets/images/png/mostRecent.png" class="rounded-full w-9" alt="Gần đây" />
+                      <span class="font-semibold text-tiny">Gần đây</span>
+                    </li>
+                    <div
+                      class="flex items-center gap-2 p-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900 transition-color duration-300">
+                      <div id="svg-see-more-box" class="p-2 rounded-full flex items-center justify-center">
+                        <svg-see-more class="w-5" />
+                      </div>
+                      <span class="font-semibold text-base"> Xem thêm</span>
                     </div>
-                    <span class="font-semibold text-base"> Xem thêm</span>
-                  </div>
 
-                  <div id="privacy" class="w-full">
-                    <div class="text-myGray-700 text-xs pl-1 ">
-                      <a class="hover:underline cursor-pointer">Privacy</a>·
-                      <a class="hover:underline cursor-pointer">Terms</a>·
-                      <a class="hover:underline cursor-pointer">Adversiting</a>·
-                      <a class="hover:underline cursor-pointer">Ad Choices</a>·
-                      <a class="hover:underline cursor-pointer">Cookies</a>·<br />
-                      <a class="cursor-pointer">More</a>·
-                      <a>Burkay © 2021</a>
+                    <div id="privacy" class="w-full">
+                      <div class="text-myGray-700 text-xs pl-1 ">
+                        <a class="hover:underline cursor-pointer">Privacy</a>·
+                        <a class="hover:underline cursor-pointer">Terms</a>·
+                        <a class="hover:underline cursor-pointer">Adversiting</a>·
+                        <a class="hover:underline cursor-pointer">Ad Choices</a>·
+                        <a class="hover:underline cursor-pointer">Cookies</a>·<br />
+                        <a class="cursor-pointer">More</a>·
+                        <a>Burkay © 2021</a>
+                      </div>
                     </div>
-                  </div>
-                </ul>
-                <!-- end -->
-              </div>
+                  </ul>
+                  <!-- end -->
+                </div>
               </div>
 
-              
+
             </div>
           </div>
         </div>
@@ -254,110 +261,111 @@
           <div class="fixed w-full">
             <div class="h-screen px-2 pb-12 pt-4 flex-col justify-between hidden xl:flex scroll-container w-80">
               <div class="visible">
-              <div>
-                <div class="flex justify-between items-center">
-                  <p class="font-semibold text-lg">Quản lý </p>
-                  <ellipsis class="p-1 hover:bg-gray-300 rounded-lg cursor-pointer" />
-                </div>
-
                 <div>
-                  <div class="hover:bg-gray-200 rounded-lg">
-                    <div class="flex p-1 my-1 cursor-pointer items-center">
+                  <div class="flex justify-between items-center">
+                    <p class="font-semibold text-lg">Quản lý </p>
+                    <ellipsis class="p-1 hover:bg-gray-300 rounded-lg cursor-pointer" />
+                  </div>
+
+                  <div>
+                    <div class="hover:bg-gray-200 rounded-lg">
+                      <div class="flex p-1 my-1 cursor-pointer items-center">
+                        <img class="w-10 h-10 mr-2 rounded-full"
+                          src="https://web.hn.ss.bfcplatform.vn/muadienmay/content/article2/0878913035-1620532649.jpg"
+                          alt="" />
+                        <p class="text-base font-semibold text-gray-600">Đây là page nè</p>
+                      </div>
+                    </div>
+
+                    <div class="hover:bg-gray-200 py-3 rounded-lg">
+                      <div class="cursor-pointer flex items-center">
+                        <Repeat class="w-4 h-4" />
+                        <p class="ml-2">Chuyển sang page</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr class="my-2" />
+                <!--Lời mời kết bạn-->
+                <div class="mb-3">
+                  <div>
+                    <div class="flex justify-between box-border my-1">
+                      <p class="font-semibold text-gray-600 text-base p-2">Lời mời kết bạn</p>
+                      <p class="text-blue-600 hover:bg-gray-200 cursor-pointer box-border p-2 rounded-md">
+                        Xem tất cả
+                      </p>
+                    </div>
+                    <!-- start -->
+                    <div class="flex hover:bg-gray-200 rounded-lg cursor-pointer mb-2 p-1 py-2" v-for="index in 10"
+                      :key="index">
                       <img class="w-10 h-10 mr-2 rounded-full"
                         src="https://web.hn.ss.bfcplatform.vn/muadienmay/content/article2/0878913035-1620532649.jpg"
                         alt="" />
-                      <p class="text-base font-semibold text-gray-600">Đây là page nè</p>
-                    </div>
-                  </div>
-
-                  <div class="hover:bg-gray-200 py-3 rounded-lg">
-                    <div class="cursor-pointer flex items-center">
-                      <Repeat class="w-4 h-4" />
-                      <p class="ml-2">Chuyển sang page</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <hr class="my-2" />
-              <!--Lời mời kết bạn-->
-              <div class="mb-3">
-                <div>
-                  <div class="flex justify-between box-border my-1">
-                    <p class="font-semibold text-gray-600 text-base p-2">Lời mời kết bạn</p>
-                    <p class="text-blue-600 hover:bg-gray-200 cursor-pointer box-border p-2 rounded-md">
-                      Xem tất cả
-                    </p>
-                  </div>
-                  <!-- start -->
-                  <div class="flex hover:bg-gray-200 rounded-lg cursor-pointer mb-2 p-1 py-2" v-for="index in 10"
-                    :key="index">
-                    <img class="w-10 h-10 mr-2 rounded-full"
-                      src="https://web.hn.ss.bfcplatform.vn/muadienmay/content/article2/0878913035-1620532649.jpg"
-                      alt="" />
-                    <div>
-                      <div class="justify-between flex w-[155px]">
-                        <div class="items-center flex">
-                          <p class="font-bold mr-2">Văn Trọng</p>
-                          <p class="font-normal">7 ngày</p>
+                      <div>
+                        <div class="justify-between flex w-[155px]">
+                          <div class="items-center flex">
+                            <p class="font-bold mr-2">Văn Trọng</p>
+                            <p class="font-normal">7 ngày</p>
+                          </div>
+                        </div>
+                        <div class="mt-2 flex gap-2">
+                          <button class="btn btn-primary btn-sm w-20">Xác nhận</button>
+                          <button class="btn btn-danger btn-sm w-20">Xóa</button>
                         </div>
                       </div>
-                      <div class="mt-2 flex gap-2">
-                        <button class="btn btn-primary btn-sm w-20">Xác nhận</button>
-                        <button class="btn btn-danger btn-sm w-20">Xóa</button>
-                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <hr class="my-2 mt-2" />
-              <div id="contacts" class="w-full flex items-center justfiy-between">
-                <span class="flex-1 bg-red font-semibold text-base pl-5">Liên hệ</span>
-                <div id="contact-buttons" class="flex gap-1">
-                  <div
-                    class="p-2 rounded-full bg-myGray-900 hover:bg-myGray-700 cursor-pointer transition-colors duration-300">
-                    <svg-new-room class="w-4" />
-                  </div>
-                  <div
-                    class="p-2 rounded-full bg-myGray-900 hover:bg-myGray-700 cursor-pointer transition-colors duration-300">
-                    <svg-search class="w-4" />
-                  </div>
-                  <div
-                    class="p-2 rounded-full bg-myGray-900 hover:bg-myGray-700 cursor-pointer transition-colors duration-300">
-                    <svg-dots class="w-4" />
+                <hr class="my-2 mt-2" />
+                <div id="contacts" class="w-full flex items-center justfiy-between">
+                  <span class="flex-1 bg-red font-semibold text-base pl-5">Liên hệ</span>
+                  <div id="contact-buttons" class="flex gap-1">
+                    <div
+                      class="p-2 rounded-full bg-myGray-900 hover:bg-myGray-700 cursor-pointer transition-colors duration-300">
+                      <svg-new-room class="w-4" />
+                    </div>
+                    <div
+                      class="p-2 rounded-full bg-myGray-900 hover:bg-myGray-700 cursor-pointer transition-colors duration-300">
+                      <svg-search class="w-4" />
+                    </div>
+                    <div
+                      class="p-2 rounded-full bg-myGray-900 hover:bg-myGray-700 cursor-pointer transition-colors duration-300">
+                      <svg-dots class="w-4" />
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div id="firends" class="border-b border-myGray-250">
-                <ul v-for="(user, index) in users" :key="index">
-                  <li
-                    class="flex items-center gap-3 font-semibold text-tiny cursor-pointer hover:bg-myGray-900 rounded-lg my-2 px-3 py-2 transition-colors duration-300">
-                    <img :src="user.route" class="w-10 h-10 rounded-full" alt="" />
-                    <span> {{ user.name }} </span>
-                  </li>
-                </ul>
-              </div>
+                <div id="firends" class="border-b border-myGray-250">
+                  <ul v-for="(user, index) in users" :key="index">
+                    <li
+                      class="flex items-center gap-3 font-semibold text-tiny cursor-pointer hover:bg-myGray-900 rounded-lg my-2 px-3 py-2 transition-colors duration-300">
+                      <img :src="user.route" class="w-10 h-10 rounded-full" alt="" />
+                      <span> {{ user.name }} </span>
+                    </li>
+                  </ul>
+                </div>
 
-              <div id="group-conversation" class="mt-2">
-                <div class="my-4 font-semibold text-base px-3">Cuộc trò chuyện nhóm</div>
-                <div
-                  class="flex items-center gap-3 font-semibold text-tiny cursor-pointer hover:bg-myGray-900 rounded-lg my-2 px-3 py-2 transition-colors duration-300">
-                  <img src="https://web.hn.ss.bfcplatform.vn/muadienmay/content/article2/0878913035-1620532649.jpg"
-                    class="w-10 h-10 rounded-full" alt="" />
-                  <span class="line-clamp-2"> Này eos, quo fugit enim facilis.eos, quo fugit enim facilis.eos, quo fugit
-                    enim facilis.eos,
-                    quo fugit enim facilis.eos, quo fugit enim facilis.
-                    Ipsa.</span>
-                </div>
-                <div
-                  class="flex items-center gap-3 w-full cursor-pointer hover:bg-myGray-900 p-3 rounded-lg transition-colors duration-300 mx-2.5">
-                  <div id="svg-box" class="rounded-full bg-myGray-900">
-                    <svg-create class="w-5" />
+                <div id="group-conversation" class="mt-2">
+                  <div class="my-4 font-semibold text-base px-3">Cuộc trò chuyện nhóm</div>
+                  <div
+                    class="flex items-center gap-3 font-semibold text-tiny cursor-pointer hover:bg-myGray-900 rounded-lg my-2 px-3 py-2 transition-colors duration-300">
+                    <img src="https://web.hn.ss.bfcplatform.vn/muadienmay/content/article2/0878913035-1620532649.jpg"
+                      class="w-10 h-10 rounded-full" alt="" />
+                    <span class="line-clamp-2"> Này eos, quo fugit enim facilis.eos, quo fugit enim facilis.eos, quo
+                      fugit
+                      enim facilis.eos,
+                      quo fugit enim facilis.eos, quo fugit enim facilis.
+                      Ipsa.</span>
                   </div>
-                  <span class="font-semibold text-tiny">Tạo nhóm mới</span>
+                  <div
+                    class="flex items-center gap-3 w-full cursor-pointer hover:bg-myGray-900 p-3 rounded-lg transition-colors duration-300 mx-2.5">
+                    <div id="svg-box" class="rounded-full bg-myGray-900">
+                      <svg-create class="w-5" />
+                    </div>
+                    <span class="font-semibold text-tiny">Tạo nhóm mới</span>
+                  </div>
                 </div>
+                <!-- end -->
               </div>
-              <!-- end -->
-            </div>
             </div>
           </div>
         </div>
@@ -373,11 +381,11 @@
     <div class="modal fade" id="create_posts" tabindex="-1" aria-labelledby="create_post" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
-          <p class="text-center py-[14px] text-black text-[20px] font-bold border-b border-[rgba(0, 0, 0, 0.1)]">
-            Tạo bài viết
-          </p>
-          <button type="button" class="btn-close absolute top-[5%] right-[3%] " data-bs-dismiss="modal"
-            aria-label="Close"></button>
+          <div class="modal-header">
+            <h3 class="modal-title flex justify-center text-2xl font-bold text-blue-500" id="exampleModalLabel">Tạo bài
+              viết</h3>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
 
           <div class="modal-body">
             <div class="w-full  flex">
@@ -397,9 +405,16 @@
                 </div>
               </div>
             </div>
-            <div class="w-full pb-[50px]">
-              <input class="w-full border-0 focus:outline-none focus:ring-0 px-0" type="text"
-                placeholder="Ân ơi, bạn đang nghĩ gì thế?" />
+            <div class="w-full pb-[50px] mt-3">
+              <textarea
+                class="w-full border-0 focus:outline-none focus:ring-0 px-0 whitespace-pre-wrap break-words resize-none"
+                placeholder="Ân ơi, bạn đang nghĩ gì thế?" rows=3 v-model="content"></textarea>
+
+              <div v-for="(value, index) in media" :key="index" class="my-3">
+                <img v-if="value.url" :src="value.url" alt="" class="w-full h-[300px] object-cover border">
+              </div>
+
+              <!-- up file image -->
             </div>
             <div class="w-full flex items-center justify-between ">
               <img class="h-[38px] cursor-pointer w-[38px]"
@@ -411,7 +426,8 @@
                 class="mb-[15px] p-[8px] w-full flex items-center justify-between border-1 border-gray-300 rounded-lg">
                 <span class="text-black font-medium cursor-pointer">Thêm vào bài viết của bạn</span>
                 <div class="flex justify-around">
-                  <div class="w-[36px] h-[36px] flex items-center justify-center rounded-full hover:bg-[#F2F2F2]">
+                  <div class="w-[36px] h-[36px] flex items-center justify-center rounded-full hover:bg-[#F2F2F2]"
+                    @click="openFileInput">
                     <img class="cursor-pointer h-[24px] w-[24px]"
                       src="https://static.xx.fbcdn.net/rsrc.php/v3/y7/r/Ivw7nhRtXyo.png?_nc_eui2=AeHqUBHb5H6DvGo3fHFIMnuhPL4YoeGsw5I8vhih4azDkvYK82Ph4rTMk09D3rFp2rwKaE5BuKt1RCFgJFAPRiON"
                       alt="" />
@@ -443,7 +459,8 @@
                 </div>
               </div>
 
-              <button class="w-full py-[10px] bg-[#0861F2] text-white font-medium rounded-lg">
+              <button class="w-full py-[10px] bg-[#0861F2] text-white font-medium rounded-lg" data-bs-dismiss="modal"
+                aria-label="Close" v-on:click="postArticle">
                 Đăng
               </button>
             </div>
@@ -481,15 +498,15 @@
                   </p>
                   <div class="flex justify-center items-center">
                     <span class="bg-[#E4E6EB] rounded-md flex items-center justify-center cursor-pointer ">
-                    <select
-                      class="border-0 focus:ring-0 ml-[5px]  text-[15px] font-medium bg-[#E4E6EB] rounded-md cursor-pointer"
-                      name="" id="">
-                      <option @click="showPrivate = false" value="1" selected>Công khai</option>
-                      <option @click="showPrivate = true" value="2">Chỉ mình tôi</option>
-                    </select>
-                  </span>
+                      <select
+                        class="border-0 focus:ring-0 ml-[5px]  text-[15px] font-medium bg-[#E4E6EB] rounded-md cursor-pointer"
+                        name="" id="">
+                        <option @click="showPrivate = false" value="1" selected>Công khai</option>
+                        <option @click="showPrivate = true" value="2">Chỉ mình tôi</option>
+                      </select>
+                    </span>
                   </div>
-                 
+
                 </div>
               </div>
             </div>
@@ -542,259 +559,51 @@
             </div>
             <p class="text-[17px] text-black font-medium">Chia sẻ lên</p>
             <div class="w-full flex ml-[-5px]">
-            <div class="py-[8px] pb-[10px] w-[17%] hover:bg-[#F2F2F2] rounded-lg cursor-pointer">
-              <div
-                class="h-[60px] w-[60px] mb-[10px] mx-auto flex items-center justify-center rounded-full bg-[#D8DADF]">
-                <i class="fa-brands fa-facebook-messenger text-[32px]"></i>
+              <div class="py-[8px] pb-[10px] w-[17%] hover:bg-[#F2F2F2] rounded-lg cursor-pointer">
+                <div
+                  class="h-[60px] w-[60px] mb-[10px] mx-auto flex items-center justify-center rounded-full bg-[#D8DADF]">
+                  <i class="fa-brands fa-facebook-messenger text-[32px]"></i>
+                </div>
+                <p class="text-[13px] text-black max-w-full text-center break-words">Messenger</p>
               </div>
-              <p class="text-[13px] text-black max-w-full text-center break-words">Messenger</p>
-            </div>
-            <div class="py-[8px] pb-[10px] w-[17%] hover:bg-[#F2F2F2] rounded-lg cursor-pointer">
-              <div
-                class="h-[60px] w-[60px] mb-[10px] mx-auto flex items-center justify-center rounded-full bg-[#D8DADF]">
-                <i class="fa-brands fa-whatsapp text-[32px]"></i>
+              <div class="py-[8px] pb-[10px] w-[17%] hover:bg-[#F2F2F2] rounded-lg cursor-pointer">
+                <div
+                  class="h-[60px] w-[60px] mb-[10px] mx-auto flex items-center justify-center rounded-full bg-[#D8DADF]">
+                  <i class="fa-brands fa-whatsapp text-[32px]"></i>
+                </div>
+                <p class="text-[13px] text-black max-w-full text-center break-words">Whatsapp</p>
               </div>
-              <p class="text-[13px] text-black max-w-full text-center break-words">Whatsapp</p>
-            </div>
-            <div class="py-[8px] pb-[10px] w-[17%] hover:bg-[#F2F2F2] rounded-lg cursor-pointer">
-              <div
-                class="h-[60px] w-[60px] mb-[10px] mx-auto flex items-center justify-center rounded-full bg-[#D8DADF]">
-                <i class="fa-solid fa-book-open text-[24px]"></i>
+              <div class="py-[8px] pb-[10px] w-[17%] hover:bg-[#F2F2F2] rounded-lg cursor-pointer">
+                <div
+                  class="h-[60px] w-[60px] mb-[10px] mx-auto flex items-center justify-center rounded-full bg-[#D8DADF]">
+                  <i class="fa-solid fa-book-open text-[24px]"></i>
+                </div>
+                <p class="text-[13px] text-black max-w-full text-center break-words">Tin của bạn</p>
               </div>
-              <p class="text-[13px] text-black max-w-full text-center break-words">Tin của bạn</p>
-            </div>
-            <div class="py-[8px] pb-[10px] w-[17%] hover:bg-[#F2F2F2] rounded-lg cursor-pointer">
-              <div
-                class="h-[60px] w-[60px] mb-[10px] mx-auto flex items-center justify-center rounded-full bg-[#D8DADF]">
-                <i class="fa-solid fa-link text-[24px]"></i>
+              <div class="py-[8px] pb-[10px] w-[17%] hover:bg-[#F2F2F2] rounded-lg cursor-pointer">
+                <div
+                  class="h-[60px] w-[60px] mb-[10px] mx-auto flex items-center justify-center rounded-full bg-[#D8DADF]">
+                  <i class="fa-solid fa-link text-[24px]"></i>
+                </div>
+                <p class="text-[13px] text-black max-w-full text-center break-words">
+                  Sao chép liên kết
+                </p>
               </div>
-              <p class="text-[13px] text-black max-w-full text-center break-words">
-                Sao chép liên kết
-              </p>
-            </div>
-            <div class="py-[8px] pb-[10px] w-[17%] hover:bg-[#F2F2F2] rounded-lg cursor-pointer">
-              <div
-                class="h-[60px] w-[60px] mb-[10px] mx-auto flex items-center justify-center rounded-full bg-[#D8DADF]">
-                <i class="fa-solid fa-people-group text-[24px]"></i>
+              <div class="py-[8px] pb-[10px] w-[17%] hover:bg-[#F2F2F2] rounded-lg cursor-pointer">
+                <div
+                  class="h-[60px] w-[60px] mb-[10px] mx-auto flex items-center justify-center rounded-full bg-[#D8DADF]">
+                  <i class="fa-solid fa-people-group text-[24px]"></i>
+                </div>
+                <p class="text-[13px] text-black max-w-full text-center break-words">Nhóm</p>
               </div>
-              <p class="text-[13px] text-black max-w-full text-center break-words">Nhóm</p>
             </div>
-          </div>
           </div>
         </div>
       </div>
     </div>
     <!-- end modal share -->
     <!-- Modal Create Post -->
-    <div id="ModalCreatePost" class="absolute top-[-10%] right-0 bottom-0 left-0 bg-white bg-opacity-50 z-50" hidden>
-      <div class="w-[35%] fixed top-[10%] left-[35%]">
-        <div class="w-full h-full relative bg-white shadow-lg rounded-lg">
-          <p class="text-center py-[14px] text-black text-[20px] font-bold border-b border-[rgba(0, 0, 0, 0.1)]">
-            Tạo bài viết
-          </p>
-          <div class="w-full mx-[16px] py-[16px] flex">
-            <a class="w-[40px] h-[40px] hover:brightness-90" href="">
-              <img class="w-full h-full rounded-full"
-                src="https://scontent.fdad3-6.fna.fbcdn.net/v/t39.30808-1/274456074_1361142244327596_3675729695510261208_n.jpg?stp=c0.2.200.200a_dst-jpg_p200x200&_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEu3DE5x6dR9PxFQ-LK28vEDbjtZrkb4vQNuO1muRvi9Ih5x7QFRzr-YV0Ly3szC91MQcW0YX-b2uUdFa-mQrif&_nc_ohc=Qt8QiDFGOAcQ7kNvgEg42rk&_nc_ht=scontent.fdad3-6.fna&oh=00_AYBFPsf8BS-VIw3-Z8E96YN00GSPXOvNyYMm5GvieB4ICA&oe=6647C7E6"
-                alt="" />
-            </a>
-            <div class="ml-[10px]">
-              <p class="text-[15px] font-medium text-black">Ân Nguyên</p>
-              <div class="w-full flex">
-                <div class="flex py-[2px] px-[5px] items-center cursor-pointer bg-[#E4E6EB] rounded-md">
-                  <i class="fa-solid fa-earth-americas text-[12px] pr-[4px]"></i>
-                  <p class="text-[13px] font-medium text-black pr-[4px]">Công khai</p>
-                  <i class="fa-solid fa-caret-down text-[15px]"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="w-full pb-[50px] px-[16px]">
-            <input class="w-full border-0 focus:outline-none focus:ring-0" type="text"
-              placeholder="Ân ơi, bạn đang nghĩ gì thế?" />
-          </div>
-          <div class="w-full flex items-center justify-between px-[16px]">
-            <img class="h-[38px] cursor-pointer w-[38px]"
-              src="https://www.facebook.com/images/composer/SATP_Aa_square-2x.png" alt="" />
-            <i class="fa-regular fa-face-smile cursor-pointer text-[26px] text-gray-500"></i>
-          </div>
-          <div class="w-full py-[15px] px-[16px]">
-            <div class="mb-[15px] p-[8px] w-full flex items-center justify-between border-1 border-gray-300 rounded-lg">
-              <span class="text-black font-medium cursor-pointer">Thêm vào bài viết của bạn</span>
-              <div class="flex justify-around">
-                <div class="w-[36px] h-[36px] flex items-center justify-center rounded-full hover:bg-[#F2F2F2]">
-                  <img class="cursor-pointer h-[24px] w-[24px]"
-                    src="https://static.xx.fbcdn.net/rsrc.php/v3/y7/r/Ivw7nhRtXyo.png?_nc_eui2=AeHqUBHb5H6DvGo3fHFIMnuhPL4YoeGsw5I8vhih4azDkvYK82Ph4rTMk09D3rFp2rwKaE5BuKt1RCFgJFAPRiON"
-                    alt="" />
-                </div>
-                <div class="w-[36px] h-[36px] flex items-center justify-center rounded-full hover:bg-[#F2F2F2]">
-                  <img class="cursor-pointer h-[24px] w-[24px]"
-                    src="https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/b37mHA1PjfK.png?_nc_eui2=AeGuHbvZi5VThlabTWO4Jot1ohqwRjkkxMOiGrBGOSTEw013eQjAhLtPOW8G-i21QMySd7WPo7ORquKG89ZSVFi1"
-                    alt="" />
-                </div>
-                <div class="w-[36px] h-[36px] flex items-center justify-center rounded-full hover:bg-[#F2F2F2]">
-                  <img class="cursor-pointer h-[24px] w-[24px]"
-                    src="https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Y4mYLVOhTwq.png?_nc_eui2=AeG3Yrx0YPc7BGvU6hgwmd1wvPIN-OmHLJy88g346YcsnPOTwiP9nl5vjkc3RY4qdb0hvpvvF96JXeJ4M26dypyH"
-                    alt="" />
-                </div>
-                <div class="w-[36px] h-[36px] flex items-center justify-center rounded-full hover:bg-[#F2F2F2]">
-                  <img class="cursor-pointer h-[24px] w-[24px]"
-                    src="https://static.xx.fbcdn.net/rsrc.php/v3/y1/r/8zlaieBcZ72.png?_nc_eui2=AeGJZzAHVkPgsJxKvjTL4bu_88Ps36vvyGDzw-zfq-_IYIzspbLkXkbpS0cEn9JCveilbvBA3AJMRQWcGB70SX8N"
-                    alt="" />
-                </div>
-                <div class="w-[36px] h-[36px] flex items-center justify-center rounded-full hover:bg-[#F2F2F2]">
-                  <img class="cursor-pointer h-[24px] w-[24px]"
-                    src="https://static.xx.fbcdn.net/rsrc.php/v3/yT/r/q7MiRkL7MLC.png?_nc_eui2=AeFPcLUl2wa_geZXrdq03zCoJTqz5hgP3TklOrPmGA_dOccT_16aJXX9MLVp335HzRu9AVI65L3H3CJ-kx3OOE5N"
-                    alt="" />
-                </div>
-                <div
-                  class="cursor-pointer w-[36px] h-[36px] flex items-center justify-center rounded-full hover:bg-[#F2F2F2]">
-                  <i class="fa-solid fa-ellipsis"></i>
-                </div>
-              </div>
-            </div>
 
-            <button class="w-full py-[10px] bg-[#0861F2] text-white font-medium rounded-lg">
-              Đăng
-            </button>
-          </div>
-          <!-- Close Modal Create Post -->
-          <div @click="showModalCreatePost = false" class="absolute top-2 right-[12px]">
-            <div
-              class="w-[36px] h-[36px] flex items-center justify-center rounded-full cursor-pointer bg-[#E4E6EB] hover:bg-[#D8DADF]">
-              <i class="fa-solid fa-xmark text-[22px] text-gray-500"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Modal Share -->
-    <div class="absolute top-[-10%] right-0 bottom-0 left-0 bg-white bg-opacity-50 z-50" hidden>
-      <div class="w-[35%] fixed top-[10%] bottom-[30px] left-[35%]">
-        <div class="w-full h-full relative bg-white shadow-lg rounded-lg">
-          <p class="text-center py-[14px] text-black text-[20px] font-bold border-b border-[rgba(0, 0, 0, 0.1)]">
-            Chia sẻ
-          </p>
-          <div class="w-full px-[16px] pt-[16px] flex">
-            <a class="w-[40px] h-[40px] hover:brightness-90" href="">
-              <img class="w-full h-full rounded-full"
-                src="https://scontent.fdad3-6.fna.fbcdn.net/v/t39.30808-1/274456074_1361142244327596_3675729695510261208_n.jpg?stp=c0.2.200.200a_dst-jpg_p200x200&_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEu3DE5x6dR9PxFQ-LK28vEDbjtZrkb4vQNuO1muRvi9Ih5x7QFRzr-YV0Ly3szC91MQcW0YX-b2uUdFa-mQrif&_nc_ohc=Qt8QiDFGOAcQ7kNvgEg42rk&_nc_ht=scontent.fdad3-6.fna&oh=00_AYBFPsf8BS-VIw3-Z8E96YN00GSPXOvNyYMm5GvieB4ICA&oe=6647C7E6"
-                alt="" />
-            </a>
-            <div class="ml-[10px]">
-              <p class="text-[15px] font-medium text-black">Ân Nguyên</p>
-              <div class="w-full flex">
-                <p
-                  class="text-[13px] text-black font-medium py-[4px] px-[7px] cursor-pointer rounded-md bg-[#E4E6EB] mr-[5px]">
-                  Bảng feed
-                </p>
-                <span class="bg-[#E4E6EB] rounded-md flex items-center justify-center cursor-pointer">
-                  <select
-                    class="border-0 focus:ring-0 ml-[5px] text-[15px] font-medium bg-[#E4E6EB] rounded-md cursor-pointer"
-                    name="" id="">
-                    <option @click="showPrivate = false" value="1" selected>Công khai</option>
-                    <option @click="showPrivate = true" value="2">Chỉ mình tôi</option>
-                  </select>
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class="w-full px-[16px]">
-            <input class="w-full border-0 focus:outline-none focus:ring-0" type="text"
-              placeholder="Hãy nói gì đó về nội dung này..." />
-          </div>
-          <div class="w-full flex items-center justify-end px-[16px]">
-            <i class="fa-regular fa-face-smile cursor-pointer text-[26px] text-gray-500"></i>
-          </div>
-          <div class="w-full flex items-center justify-end px-[16px] py-[16px]">
-            <button class="py-[8px] px-[40px] bg-[#0866FF] hover:bg-[#0861F2] text-white font-medium rounded-md">
-              Chia sẻ ngay
-            </button>
-          </div>
-          <hr class="bg-gray-500" />
-          <p class="text-[17px] text-black font-medium px-[16px] py-[8px]">Gửi bằng Messenger</p>
-          <div class="w-full flex pl-[10px]">
-            <div class="py-[8px] px-[12px] hover:bg-[#F2F2F2] rounded-lg cursor-pointer">
-              <img class="h-[60px] w-[60px] rounded-full mb-[5px]"
-                src="https://scontent.fdad3-6.fna.fbcdn.net/v/t39.30808-1/274456074_1361142244327596_3675729695510261208_n.jpg?stp=cp0_dst-jpg_p40x40&_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEu3DE5x6dR9PxFQ-LK28vEDbjtZrkb4vQNuO1muRvi9Ih5x7QFRzr-YV0Ly3szC91MQcW0YX-b2uUdFa-mQrif&_nc_ohc=Qt8QiDFGOAcQ7kNvgEg42rk&_nc_ht=scontent.fdad3-6.fna&oh=00_AYCitaCAQew6JR7FAxGejNlqj2pfKasvFlbcgyCuRtm7wg&oe=6647C7E6"
-                alt="" />
-              <p class="text-[13px] text-black max-w-[60px] break-words text-center">Ân Nguyên</p>
-            </div>
-            <div class="py-[8px] px-[12px] hover:bg-[#F2F2F2] rounded-lg cursor-pointer">
-              <img class="h-[60px] w-[60px] rounded-full mb-[5px]"
-                src="https://scontent.fdad3-6.fna.fbcdn.net/v/t39.30808-1/274456074_1361142244327596_3675729695510261208_n.jpg?stp=cp0_dst-jpg_p40x40&_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEu3DE5x6dR9PxFQ-LK28vEDbjtZrkb4vQNuO1muRvi9Ih5x7QFRzr-YV0Ly3szC91MQcW0YX-b2uUdFa-mQrif&_nc_ohc=Qt8QiDFGOAcQ7kNvgEg42rk&_nc_ht=scontent.fdad3-6.fna&oh=00_AYCitaCAQew6JR7FAxGejNlqj2pfKasvFlbcgyCuRtm7wg&oe=6647C7E6"
-                alt="" />
-              <p class="text-[13px] text-black max-w-[60px] break-words text-center">Ân Nguyên</p>
-            </div>
-            <div class="py-[8px] px-[12px] hover:bg-[#F2F2F2] rounded-lg cursor-pointer">
-              <img class="h-[60px] w-[60px] rounded-full mb-[5px]"
-                src="https://scontent.fdad3-6.fna.fbcdn.net/v/t39.30808-1/274456074_1361142244327596_3675729695510261208_n.jpg?stp=cp0_dst-jpg_p40x40&_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEu3DE5x6dR9PxFQ-LK28vEDbjtZrkb4vQNuO1muRvi9Ih5x7QFRzr-YV0Ly3szC91MQcW0YX-b2uUdFa-mQrif&_nc_ohc=Qt8QiDFGOAcQ7kNvgEg42rk&_nc_ht=scontent.fdad3-6.fna&oh=00_AYCitaCAQew6JR7FAxGejNlqj2pfKasvFlbcgyCuRtm7wg&oe=6647C7E6"
-                alt="" />
-              <p class="text-[13px] text-black max-w-[60px] break-words text-center">Ân Nguyên</p>
-            </div>
-            <div class="py-[8px] px-[12px] hover:bg-[#F2F2F2] rounded-lg cursor-pointer">
-              <img class="h-[60px] w-[60px] rounded-full mb-[5px]"
-                src="https://scontent.fdad3-6.fna.fbcdn.net/v/t39.30808-1/274456074_1361142244327596_3675729695510261208_n.jpg?stp=cp0_dst-jpg_p40x40&_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEu3DE5x6dR9PxFQ-LK28vEDbjtZrkb4vQNuO1muRvi9Ih5x7QFRzr-YV0Ly3szC91MQcW0YX-b2uUdFa-mQrif&_nc_ohc=Qt8QiDFGOAcQ7kNvgEg42rk&_nc_ht=scontent.fdad3-6.fna&oh=00_AYCitaCAQew6JR7FAxGejNlqj2pfKasvFlbcgyCuRtm7wg&oe=6647C7E6"
-                alt="" />
-              <p class="text-[13px] text-black max-w-[60px] break-words text-center">Ân Nguyên</p>
-            </div>
-            <div class="py-[8px] px-[12px] hover:bg-[#F2F2F2] rounded-lg cursor-pointer">
-              <img class="h-[60px] w-[60px] rounded-full mb-[5px]"
-                src="https://scontent.fdad3-6.fna.fbcdn.net/v/t39.30808-1/274456074_1361142244327596_3675729695510261208_n.jpg?stp=cp0_dst-jpg_p40x40&_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEu3DE5x6dR9PxFQ-LK28vEDbjtZrkb4vQNuO1muRvi9Ih5x7QFRzr-YV0Ly3szC91MQcW0YX-b2uUdFa-mQrif&_nc_ohc=Qt8QiDFGOAcQ7kNvgEg42rk&_nc_ht=scontent.fdad3-6.fna&oh=00_AYCitaCAQew6JR7FAxGejNlqj2pfKasvFlbcgyCuRtm7wg&oe=6647C7E6"
-                alt="" />
-              <p class="text-[13px] text-black max-w-[60px] break-words text-center">Ân Nguyên</p>
-            </div>
-          </div>
-          <p class="text-[17px] text-black font-medium px-[16px] py-[8px]">Chia sẻ lên</p>
-          <div class="w-full flex pl-[10px]">
-            <div class="py-[8px] pb-[10px] w-[18%] hover:bg-[#F2F2F2] rounded-lg cursor-pointer">
-              <div
-                class="h-[60px] w-[60px] mb-[10px] mx-auto flex items-center justify-center rounded-full bg-[#D8DADF]">
-                <i class="fa-brands fa-facebook-messenger text-[32px]"></i>
-              </div>
-              <p class="text-[13px] text-black max-w-full text-center break-words">Messenger</p>
-            </div>
-            <div class="py-[8px] pb-[10px] w-[18%] hover:bg-[#F2F2F2] rounded-lg cursor-pointer">
-              <div
-                class="h-[60px] w-[60px] mb-[10px] mx-auto flex items-center justify-center rounded-full bg-[#D8DADF]">
-                <i class="fa-brands fa-whatsapp text-[32px]"></i>
-              </div>
-              <p class="text-[13px] text-black max-w-full text-center break-words">Whatsapp</p>
-            </div>
-            <div class="py-[8px] pb-[10px] w-[18%] hover:bg-[#F2F2F2] rounded-lg cursor-pointer">
-              <div
-                class="h-[60px] w-[60px] mb-[10px] mx-auto flex items-center justify-center rounded-full bg-[#D8DADF]">
-                <i class="fa-solid fa-book-open text-[24px]"></i>
-              </div>
-              <p class="text-[13px] text-black max-w-full text-center break-words">Tin của bạn</p>
-            </div>
-            <div class="py-[8px] pb-[10px] w-[18%] hover:bg-[#F2F2F2] rounded-lg cursor-pointer">
-              <div
-                class="h-[60px] w-[60px] mb-[10px] mx-auto flex items-center justify-center rounded-full bg-[#D8DADF]">
-                <i class="fa-solid fa-link text-[24px]"></i>
-              </div>
-              <p class="text-[13px] text-black max-w-full text-center break-words">
-                Sao chép liên kết
-              </p>
-            </div>
-            <div class="py-[8px] pb-[10px] w-[18%] hover:bg-[#F2F2F2] rounded-lg cursor-pointer">
-              <div
-                class="h-[60px] w-[60px] mb-[10px] mx-auto flex items-center justify-center rounded-full bg-[#D8DADF]">
-                <i class="fa-solid fa-people-group text-[24px]"></i>
-              </div>
-              <p class="text-[13px] text-black max-w-full text-center break-words">Nhóm</p>
-            </div>
-          </div>
-
-          <div @click="showModalShare = false" class="absolute top-2 right-[12px]">
-            <div
-              class="w-[36px] h-[36px] flex items-center justify-center rounded-full cursor-pointer bg-[#E4E6EB] hover:bg-[#D8DADF]">
-              <i class="fa-solid fa-xmark text-[22px] text-gray-500"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 
 </template>
@@ -817,6 +626,9 @@ import svgNewMessage from '../../components/svg/svgNewMessage.vue'
 import { Users, Ellipsis, Repeat, X } from 'lucide-vue-next'
 import svgNewRoom from '../../components/svg/svgNewRoom.vue'
 import svgSearch from '../../components/svg/svgSearch.vue'
+import baseRequest from '@/baseAPI/baseRequest'
+import axios from 'axios'
+import { useToast } from 'vue-toast-notification'
 export default {
   props: {
     userCurrent: {
@@ -825,6 +637,7 @@ export default {
     }
   },
   mounted() {
+    this.getDataNewFeed()
   },
   components: {
     svgCreate,
@@ -850,6 +663,7 @@ export default {
     return {
       showModalCreatePost: false,
       showModalShare: false,
+      media: [],
       showPrivate: false,
       users: [
         {
@@ -914,9 +728,110 @@ export default {
         }
       ],
       pageMove: 1,
-      avatar: 'https://cellphones.com.vn/sforum/wp-content/uploads/2023/10/avatar-trang-4.jpg'
+      avatar: 'https://cellphones.com.vn/sforum/wp-content/uploads/2023/10/avatar-trang-4.jpg',
+      fileup: null,
+      imageUpload: '',
+      typeUpload: '',
+      visibility: '',
+      content: '',
+      mentions: '',
+      medias: '',
+      allNewFeed: []
     }
-  }
+  },
+  methods: {
+    handleFileUpload(event) {
+      this.fileup = event.target.files[0];
+      this.upFile()
+    },
+    upFile() {
+      if (!this.fileup) {
+        console.error('Chưa chọn file.');
+        return;
+      }
+      const formData = new FormData();
+      formData.append('image', this.fileup);
+
+      axios.post('http://localhost:4000/medias/upload-image', formData, {
+        headers: {
+          Authorization: 'Bearer ' + localStorage.getItem('access_token'),
+          'Content-Type': 'multipart/form-data'
+        }
+      })
+        .then((res) => {
+          // Kiểm tra trạng thái của phản hồi
+          if (res.status >= 200 && res.status < 300) {
+            console.log(res);
+            this.media.push({
+              url: res.data.result[0].url,
+              type: res.data.result[0].type
+            })
+            console.log(this.media);
+            console.log(this.media[0]);
+
+            this.$toast.success('Upload file thành công', {
+              position: 'bottom-right'
+            });
+          } else {
+            console.error('Lỗi:', res.status);
+            console.log(res);
+          }
+        })
+        .catch((error) => {
+          console.error('Lỗi khi gửi yêu cầu:', error);
+          this.$toast.error('Upload file không thành công', {
+            position: 'bottom-right'
+          });
+        });
+    },
+    openFileInput() {
+      this.$refs.fileInput.click();
+    },
+    postArticle() {
+      const obj = {
+        visibility: 1,
+        content: this.content,
+        mentions: [],
+        medias: this.media
+      }
+
+      baseRequest.post1('/posts', obj, {
+        headers: {
+          Authorization: 'Bearer ' + localStorage.getItem('access_token'),
+        }
+      }).then((res) => {
+        console.log(res);
+        this.$toast.success('Tạo bài viết thành công', {
+          position: 'bottom-right'
+        });
+      }).catch((errors) => {
+        console.log(errors);
+        this.$toast.error('Lỗi khi tạo bài viết', {
+          position: 'bottom-right'
+        });
+      })
+    },
+    getDataNewFeed() {
+      axios.get('http://localhost:4000/posts', {
+        headers: {
+          Authorization: 'Bearer ' + localStorage.getItem('access_token'),
+          params: {
+            limit: 5,
+            page: 1
+          },
+        }
+      })
+        .then((res) => {
+          this.allNewFeed = res.data
+          // console.log(this.allNewFeed);
+          console.log(res);
+
+        }).catch((errors) => {
+          console.log(errors);
+        })
+    }
+  },
+
 }
 </script>
 <style></style>

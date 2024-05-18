@@ -8,6 +8,9 @@ export default {
     post(url, data) {
         return axios.post(apiUrl + url, data);
     },
+    post1(url, data, auth) {
+        return axios.post(apiUrl + url, data, auth);
+    },
     delete(url) {
         return axios.delete(apiUrl + url);
     },
