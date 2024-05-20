@@ -145,18 +145,18 @@
           </div>
           <!-- start -->
 
-          <ul v-for="(user, index) in users" :key="index">
+          <ul v-for="(value, index) in allNewFeed" :key="index">
             <li class="w-full bg-[white] my-4 rounded-lg transition-colors duration-300 border-[1px] shadow-sm py-2">
               <div id="post-top" class="w-full flex items-center justify-between p-4 py-2">
                 <div id="post-top_left" class="flex items-center gap-2">
                   <div id="post-top_left_pp"
                     class="ring-2 ring-blue-500 ring-opacity-70 border-2 border-black w-max rounded-full cursor-pointer">
-                    <img :src="user.route" class="w-8 h-8 rounded-full" alt="" />
+                    <img :src="value.user.avatar" class="w-8 h-8 rounded-full" alt="" />
                   </div>
                   <div id="post-top_left_title">
-                    <p class="hover:underline cursor-pointer">vt</p>
+                    <p class="hover:underline cursor-pointer font-bold capitalize">{{ value.user.name }}</p>
                     <p class="flex text-xs mt-1 items-center">
-                      <span class="hover:underline cursor-pointer">3d</span>
+                      <span class="hover:underline cursor-pointer">{{ dinhDangNgay(value.user.create_at) }}</span>
                       <span class="mx-1">·</span>
                       <svg-world class="w-3" />
                     </p>
@@ -174,25 +174,106 @@
                 </div>
               </div>
               <div id="post-middle">
-                <p class="px-3 font-normal leading-5 text-sm">
-                  {{ user.post.title }}
-                </p>
-                <img :src="user.post.pictures" class="w-full my-2" alt="" />
+                <div class="font-normal leading-5 text-sm p-4 py-2">
+                  {{ value.content }}
+                  <!-- Các trường hợp khác có thể tiếp tục ở đây -->
+                </div>
+                <div>
+                  <div v-if="value.medias.length === 1">
+                    <img :src="value.medias[0].url" alt=""
+                      class="w-full h-[280px] object-cover border-2 cursor-pointer">
+                  </div>
+                  <div class="grid grid-cols-2 gap-1" v-if="value.medias.length === 2">
+                    <img :src="value.medias[0].url" alt=""
+                      class="w-full h-[280px] object-cover border-2 cursor-pointer">
+                    <img :src="value.medias[1].url" alt=""
+                      class="w-full h-[280px] object-cover border-2 cursor-pointer">
+                  </div>
+                  <div class="grid grid-cols-3 gap-1" v-if="value.medias.length === 3">
+                    <img :src="value.medias[0].url" alt="" class="col-span-2 w-full">
+                    <div>
+                      <img :src="value.medias[1].url" alt=""
+                        class="w-full h-[140px] object-cover border-2 cursor-pointer">
+                      <img :src="value.medias[2].url" alt=""
+                        class="w-full h-[140px] object-cover border-2 cursor-pointer">
+                    </div>
+                  </div>
+                  <div class="grid grid-cols-2 gap-1" v-if="value.medias.length === 4">
+                    <img :src="value.medias[0].url" alt=""
+                      class="w-full h-[280px] object-cover border-2 cursor-pointer">
+                    <img :src="value.medias[1].url" alt=""
+                      class="w-full h-[280px] object-cover border-2 cursor-pointer">
+                    <img :src="value.medias[2].url" alt=""
+                      class="w-full h-[280px] object-cover border-2 cursor-pointer">
+                    <img :src="value.medias[3].url" alt=""
+                      class="w-full h-[280px] object-cover border-2 cursor-pointer">
+                  </div>
+                  <div class="grid grid-cols-6 gap-1" v-if="value.medias.length === 5">
+                    <div class="col-span-3">
+                      <img :src="value.medias[0].url" alt=""
+                        class="w-full h-[280px] object-cover border-2 cursor-pointer">
+                    </div>
+                    <div class="col-span-3">
+                      <img :src="value.medias[1].url" alt=""
+                        class="w-full h-[280px] object-cover border-2 cursor-pointer">
+                    </div>
+                    <div class="col-span-2">
+                      <img :src="value.medias[2].url" alt=""
+                        class="w-full h-[280px] object-cover border-2 cursor-pointer">
+                    </div>
+                    <div class="col-span-2">
+                      <img :src="value.medias[3].url" alt=""
+                        class="w-full h-[280px] object-cover border-2 cursor-pointer">
+                    </div>
+                    <div class="col-span-2">
+                      <img :src="value.medias[4].url" alt=""
+                        class="w-full h-[280px] object-cover border-2 cursor-pointer">
+                    </div>
+                  </div>
+                  <div class="grid grid-cols-6 gap-1" v-if="value.medias.length === 6">
+                    <div class="col-span-3">
+                      <img :src="value.medias[0].url" alt=""
+                        class="w-full h-[280px] object-cover border-2 cursor-pointer">
+                    </div>
+                    <div class="col-span-3">
+                      <img :src="value.medias[1].url" alt=""
+                        class="w-full h-[280px] object-cover border-2 cursor-pointer">
+                    </div>
+                    <div class="col-span-2">
+                      <img :src="value.medias[2].url" alt=""
+                        class="w-full h-[280px] object-cover border-2 cursor-pointer">
+                    </div>
+                    <div class="col-span-2">
+                      <img :src="value.medias[3].url" alt=""
+                        class="w-full h-[280px] object-cover border-2 cursor-pointer">
+                    </div>
+                    <div class="col-span-2 relative main">
+                      <div class="w-full h-full -z-10">
+                        <img :src="value.medias[4].url" alt=""
+                          class="w-full h-[280px] object-cover border-2 cursor-pointer">
+                      </div>
+                      <div class="activeFull z-30 text-white text-lg "></div>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div id="post-bottom" class="px-4 py-2 text-sm font-normal">
                 <div id="post-bottom_info" class="flex items-center justify-between">
                   <div id="info_left" class="flex gap-2 cursor-pointer">
                     <svg-like class="w-5" />
-                    <span class="hover:underline"> {{ user.post.like }} </span>
+                    <span class="hover:underline"> {{ value.likes }}</span>
                   </div>
                   <div id="info_right">
-                    <span class="hover:underline cursor-pointer">1 Comment</span>
+                    <span class="hover:underline cursor-pointer mr-3">{{ value.comments }} Comment</span>
+                    <span class="hover:underline cursor-pointer">{{ value.shares }} Share</span>
                   </div>
+
                 </div>
                 <div id="post-bottom_buttons"
                   class="font-normal text-sm sm:text-tiny flex items-center my-2 border-b border-t border-myGray-900">
                   <div
-                    class="flex gap-2 w-full items-center justify-center p-2 hover:bg-myGray-900 cursor-pointer rounded-lg my-1 transition-colors duration-300">
+                    class="flex gap-2 w-full items-center justify-center p-2 hover:bg-myGray-900 cursor-pointer rounded-lg my-1 transition-colors duration-300"
+                    @click="likePost(index)">
                     <svg-like2 class="w-5" />
                     <span>Like</span>
                   </div>
@@ -210,15 +291,15 @@
                 <div id="post-bottom-comments ">
                   <div id="other" class="flex gap-2 my-2">
                     <div id="other_pp">
-                      <img :src="user.post.comment.route" class="w-9 h-9 rounded-full cursor-pointer" alt="" />
+                      <img src="" class="w-9 h-9 rounded-full cursor-pointer" alt="" />
                     </div>
                     <div id="other_comment" class="max-w-full rounded-lg pb-2">
                       <div class="py-2 px-3 rounded-2xl bg-slate-100">
                         <div id="commnet-name" class="cursor-pointer hover:underline font-bold text-xs">
-                          {{ user.post.comment.name }}
+
                         </div>
                         <div id="comment-title">
-                          {{ user.post.comment.text }}
+
                         </div>
                       </div>
                       <div class="px-3 text-xs mt-1">
@@ -236,7 +317,8 @@
                         class="flex w-full outline-none focus:outline-none ring-transparent bg-slate-100 rounded-2xl">
                         <input
                           class="w-full bg-transparent px-3 outline-none border-0 rounded-2xl focus:outline-none focus:ring-transparent focus:border-black"
-                          type="text" placeholder="Write a public comment..." />
+                          type="text" placeholder="Write a public comment..." v-model="content_comment"
+                          v-on:keyup.enter="conmentPost(index)" />
                         <div id="me_comment_buttons" class="flex items-center">
                           <div class="p-2 rounded-full cursor-pointer transition-colors duration-300">
                             <svg-smile class="w-4 text-myGray-600" />
@@ -346,11 +428,14 @@
                   </div>
                 </div>
                 <div id="firends" class="border-b border-myGray-250">
-                  <ul v-for="(user, index) in users" :key="index">
+                  <!-- start render -->
+                  <ul v-for="index in 10" :key="index">
                     <li
                       class="flex items-center gap-3 font-semibold text-tiny cursor-pointer hover:bg-myGray-900 rounded-lg my-2 px-3 py-2 transition-colors duration-300">
-                      <img :src="user.route" class="w-10 h-10 rounded-full" alt="" />
-                      <span> {{ user.name }} </span>
+                      <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQG3UevoghwbQpQTS1AlMgdGKIdr0YNyOnAZIJLtXZqYw&s"
+                        class="w-10 h-10 rounded-full" alt="" />
+                      <span> Nguyễn Minh</span>
                     </li>
                   </ul>
                 </div>
@@ -387,7 +472,6 @@
       <svg-new-message class="w-5" />
     </div>
 
-
     <!-- modal create -->
     <div class="modal fade" id="create_posts" tabindex="-1" aria-labelledby="create_post" aria-hidden="true">
       <div class="modal-dialog">
@@ -422,7 +506,7 @@
                 placeholder="Ân ơi, bạn đang nghĩ gì thế?" rows=3 v-model="content"></textarea>
 
               <div v-for="(value, index) in media" :key="index" class="my-3">
-                <img v-if="value.url" :src="value.url" alt="" class="w-full h-[300px] object-cover border">
+                <img v-if="value.url" :src="value.url" alt="" class="w-full h-[280px] object-cover border">
               </div>
 
               <!-- up file image -->
@@ -676,68 +760,6 @@ export default {
       showModalShare: false,
       media: [],
       showPrivate: false,
-      users: [
-        {
-          name: 'Angela Moss',
-          route: 'src/assets/images/angela-pp.jpg',
-          post: {
-            title:
-              'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae inventore assumenda nulla temporibus ea ',
-            pictures: 'https://picsum.photos/300/',
-            like: '128',
-            comment: {
-              name: 'Tyrell Wellick',
-              route: 'src/assets/images/tyrell-pp.jpg',
-              text: 'Lorem ipsum dolor.'
-            }
-          }
-        },
-        {
-          name: 'Tyrell Wellick',
-          route: 'src/assets/images/tyrell-pp.jpg',
-          post: {
-            title:
-              'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae inventore assumenda nulla temporibus ea tempore nihil praesentium necessitatibus vel quia!',
-            pictures: 'https://picsum.photos/200',
-            like: '63',
-            comment: {
-              name: 'Angela Moss',
-              route: 'src/assets/images/angela-pp.jpg',
-              text: 'Lorem ipsum dolor sit amet consectetur.'
-            }
-          }
-        },
-        {
-          name: 'Darlene Alderson',
-          route: 'src/assets/images/darlene-pp.jpg',
-          post: {
-            title:
-              'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae inventore assumenda nulla temporibus ea tempore nihil praesentium necessitatibus vel quia!',
-            pictures: 'https://picsum.photos/250',
-            like: '99',
-            comment: {
-              name: 'DiPierro',
-              route: 'src/assets/images/dominique-pp.jpg',
-              text: 'Lorem ipsum dolor sit amet.'
-            }
-          }
-        },
-        {
-          name: 'Dominique DiPierro',
-          route: 'src/assets/images/dominique-pp.jpg',
-          post: {
-            title:
-              'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae inventore assumenda nulla temporibus ea tempore nihil praesentium necessitatibus vel quia!',
-            pictures: 'https://picsum.photos/350',
-            like: '135',
-            comment: {
-              name: 'Darlene Alderson',
-              route: 'src/assets/images/darlene-pp.jpg',
-              text: 'Lorem ipsum.'
-            }
-          }
-        }
-      ],
       pageMove: 1,
       avatar: 'https://cellphones.com.vn/sforum/wp-content/uploads/2023/10/avatar-trang-4.jpg',
       fileup: null,
@@ -747,7 +769,10 @@ export default {
       content: '',
       mentions: '',
       medias: '',
-      allNewFeed: []
+      allNewFeed: [],
+      like: '',
+      statusLike: false,
+      content_comment: '',
     }
   },
   methods: {
@@ -806,15 +831,13 @@ export default {
         medias: this.media
       }
 
-      baseRequest.post1('/posts', obj, {
-        headers: {
-          Authorization: 'Bearer ' + localStorage.getItem('access_token'),
-        }
-      }).then((res) => {
-        console.log(res);
+      baseRequest.post('/posts', obj).then((res) => {
         this.$toast.success('Tạo bài viết thành công', {
           position: 'bottom-right'
         });
+        this.getDataNewFeed()
+        this.content = ''
+        this.media = []
       }).catch((errors) => {
         console.log(errors);
         this.$toast.error('Lỗi khi tạo bài viết', {
@@ -833,16 +856,98 @@ export default {
         }
       })
         .then((res) => {
-          this.allNewFeed = res.data
-          // console.log(this.allNewFeed);
-          console.log(res);
+          this.allNewFeed = res.data.result
+          console.log(res.data.result);
 
         }).catch((errors) => {
           console.log(errors);
         })
+    },
+    chuyenDoiChuoiNgay(chuoiNgay) {
+      return new Date(chuoiNgay);
+    },
+    dinhDangNgay(chuoiNgay) {
+      var ngayHienTai = new Date();
+      var ngayGoc = this.chuyenDoiChuoiNgay(chuoiNgay);
+      var khoangCach = Math.abs(ngayHienTai - ngayGoc);
+
+      var phut = Math.floor(khoangCach / 60000);
+
+      if (phut < 60) {
+        return phut + " phút trước";
+      } else {
+        var gio = Math.floor(phut / 60);
+
+        if (gio < 24) {
+          return gio + " giờ trước";
+        } else {
+          var ngay = Math.floor(gio / 24);
+          return ngay + " ngày trước";
+        }
+      }
+    },
+    likePost(index) {
+      const post_id = this.allNewFeed[index]._id;
+
+      if (!this.statusLike) {
+        const payload = {
+          post_id: post_id
+        };
+
+        baseRequest.post('/likes', payload)
+          .then((res) => {
+            this.$toast.success('Like thành công', {
+              position: 'bottom-right'
+            });
+            console.log(res);
+            this.getDataNewFeed();
+            this.statusLike = !this.statusLike
+          })
+          .catch((errors) => {
+            console.log(errors);
+          });
+      } else {
+        // Nếu đã like, thực hiện yêu cầu DELETE
+        baseRequest.delete(`/likes/post/${post_id}`)
+          .then((res) => {
+            console.log(res.data);
+            this.$toast.error('Hủy like thành công', {
+              position: 'bottom-right'
+            });
+            this.getDataNewFeed();
+            this.statusLike = !this.statusLike
+          })
+          .catch((errors) => {
+            console.log(errors);
+          });
+      }
+    },
+    conmentPost(index) {
+      const payload = {
+        "post_id": this.allNewFeed[index]._id,
+        "content": this.content_comment
+      }
+      console.log(payload);
+      if (this.content_comment.trim() != '') {
+        baseRequest.post('/comments', payload)
+          .then((res) => {
+            this.allNewFeed = res.data.result
+            console.log(res.data.result);
+            this.content_comment = ''
+            this.$toast.success('Comment thành công', {
+              position: 'bottom-right'
+            });
+            this.getDataNewFeed()
+
+          }).catch((errors) => {
+            console.log(errors);
+          })
+      }
     }
+
   },
+
 
 }
 </script>
-<style></style>
+<style></style>import baseRequest from '@/baseAPI/baseRequest'

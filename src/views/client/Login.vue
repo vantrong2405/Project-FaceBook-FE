@@ -292,13 +292,8 @@ export default {
         })
     },
     checkToken() {
-      axios
-        .get('http://localhost:4000/users/me', {
-          headers: {
-            Authorization: 'Bearer ' + localStorage.getItem('access_token')
-          }
-        }
-        ).then((res) => {
+      baseRequest
+        .get('/users/me').then((res) => {
           if (res.status === 200) {
             console.log('check token');
             console.log(res);
