@@ -1,7 +1,7 @@
 <template>
   <div class="flex items-center gap-1 sm:gap-2 justify-end px-4">
     <div id="menu-box"
-      class="p-2 text-lg rounded-full flex items-center justify-center cursor-pointer bg-myGray-900 hover:bg-myGray-700 transition-colors duration-300"
+      class="p-[10px] text-black mr-[2px] text-lg rounded-full flex items-center justify-center cursor-pointer bg-[#e4e6eb] hover:bg-[#D8DADF] transition-colors duration-300"
       @click="
         isShowMenu = !isShowMenu;
       isShowMore = false;
@@ -216,12 +216,12 @@
 
     <!--Mess-->
     <div id="messenger-box"
-      class="p-2 rounded-full flex items-center justify-center cursor-pointer bg-myGray-900 hover:bg-myGray-700 transition-colors duration-300"
+      class="p-[10px] text-black mr-[2px] rounded-full flex items-center justify-center cursor-pointer bg-[#e4e6eb] hover:bg-[#D8DADF] transition-colors duration-300"
       @click="
         isShowMessager = !isShowMessager;
       isShowMenu = isShowMore = isShowNotice = false
         ">
-      <svg-messenger class="w-5" />
+      <svg-messenger class="w-[22px]" />
       <!--Messenger-->
 
       <div v-if="isShowMessager == true">
@@ -381,7 +381,7 @@
 
           <div class=" ">
             <a href="" class=" ">
-              <div class="flex hover:bg-gray-200 mx-1 p-2 rounded-xl">
+              <div class="flex hover:bg-gray-200 mx-1 p-[10px] text-black mr-[2px] rounded-xl">
                 <div class="mr-2">
                   <img
                     src="https://scontent.fsgn2-9.fna.fbcdn.net/v/t39.30808-1/300362956_379273724392258_4259585475714196784_n.jpg?stp=dst-jpg_p160x160&_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=ANUcRo9mmy0Q7kNvgGQJ9YF&_nc_ht=scontent.fsgn2-9.fna&oh=00_AYBwifq76_BJhOH-etGc1yStjZTx5sJwqJsp-VD5VN1Zhw&oe=66460A76"
@@ -618,8 +618,8 @@
     isShowMessager = false;
     isShowNotice = !isShowNotice
       "
-      class="p-2 rounded-full flex items-center justify-center cursor-pointer bg-myGray-900 hover:bg-myGray-700 transition-colors duration-300">
-      <svg-notifications class="w-5" />
+      class="p-[10px] text-black mr-[2px] rounded-full flex items-center justify-center cursor-pointer bg-[#e4e6eb] hover:bg-[#D8DADF] transition-colors duration-300">
+      <svg-notifications class="w-[22px]" />
     </div>
 
     <div id="pp-info" @click="
@@ -628,8 +628,8 @@
     isShowMessager = false;
     isShowNotice = false;
     "
-      class="rounded-full flex items-center justify-center cursor-pointer bg-myGray-900 hover:bg-myGray-700 transition-colors duration-300">
-      <div id="pp" class="rounded-full overflow-hidden w-9 relative border">
+      class="rounded-full flex items-center justify-center cursor-pointer bg-myGray-900 hover:brightness-125 transition-colors duration-300">
+      <div id="pp" class="rounded-full overflow-hidden w-[40px] relative border">
         <img :src="userCurrent.avatar ? userCurrent.avatar : avatar" alt="" width="100%" />
         <div class="image-avatar"></div>
       </div>
