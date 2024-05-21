@@ -4,10 +4,10 @@
       <nav class="navbar navbar-expand">
         <div class="topbar-logo-header">
           <div class="">
-            <img src="../../assets/admin/images/logo-icon.png" class="logo-icon" alt="logo icon" />
+            <img src="/Thiết kế chưa có tên (1).png" class="logo-icon" alt="logo icon" />
           </div>
           <div class="">
-            <h4 class="logo-text">Rocker</h4>
+            <h4 class="logo-text">WE</h4>
           </div>
         </div>
         <div class="mobile-toggle-menu"><i class="bx bx-menu"></i></div>

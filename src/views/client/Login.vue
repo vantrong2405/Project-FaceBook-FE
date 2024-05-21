@@ -6,7 +6,7 @@
       <div class="container max-w-[1100px] mx-auto flex justify-between px-[3%] py-[8%]">
         <div id="Login-L2" class="w-[55%]">
           <p class="text-[#0866FF] text-[62px] font-bold cursor-default leading-[50px] pt-[17%] pb-[3%]">
-            facebook
+            WE
           </p>
           <h2 class="text-[28px] text-black">
             Facebook giúp bạn kết nối và chia sẻ với mọi người trong cuộc sống của bạn.

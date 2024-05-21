@@ -1,7 +1,8 @@
-<template>
+<template >
+ 
   <div class="flex items-center gap-1 sm:gap-2 justify-end px-4">
     <div id="menu-box"
-      class="p-[10px] text-black mr-[2px] text-lg rounded-full flex items-center justify-center cursor-pointer bg-[#e4e6eb] hover:bg-[#D8DADF] transition-colors duration-300"
+      class="p-2 text-lg rounded-full flex items-center justify-center cursor-pointer bg-myGray-900 hover:bg-myGray-700 transition-colors duration-300"
       @click="
         isShowMenu = !isShowMenu;
       isShowMore = false;
@@ -12,6 +13,55 @@
 
       <svg-create class="w-5 block lg:hidden" />
 
+      
+    </div>
+
+    <!--Mess-->
+    <div id="messenger-box"
+      class="p-2 rounded-full flex items-center justify-center cursor-pointer bg-myGray-900 hover:bg-myGray-700 transition-colors duration-300"
+      @click="
+        isShowMessager = !isShowMessager;
+      isShowMenu = isShowMore = isShowNotice = false
+        ">
+      <svg-messenger class="w-5" />
+      <!--Messenger-->
+
+      
+    </div>
+
+    <!-- end mes -->
+
+   
+    <div id="notifications-box" @click="
+      isShowMenu = false;
+    isShowMore = false;
+    isShowMessager = false;
+    isShowNotice = !isShowNotice
+    AnimationEvent;
+      "
+      class="p-2 rounded-full flex items-center justify-center cursor-pointer bg-myGray-900 hover:bg-myGray-700 transition-colors duration-300">
+      <svg-notifications class="w-5" />
+    </div>
+
+    <div id="pp-info" @click="
+      isShowMore = !isShowMore;
+    isShowMenu = false;
+    isShowMessager = false;
+    isShowNotice = false;
+    
+    "
+      class="rounded-full flex items-center justify-center cursor-pointer bg-myGray-900 hover:bg-myGray-700 transition-colors duration-300 ">
+      <div id="pp" class="rounded-full overflow-hidden w-9 relative border">
+        <img :src="userCurrent.avatar ? userCurrent.avatar : avatar" alt="" width="100%" />
+        <div class="image-avatar"></div>
+      </div>
+      
+    </div>
+
+  </div>
+
+
+  <!--Menu-->
       <div v-if="isShowMenu == true">
         <div
           class="max-w-xl top-full shadow-2xl border-solid border-2 border-spacing-0 rounded-xl bg-gray-100 absolute box-border right-0">
@@ -124,7 +174,7 @@
               </div>
             </div>
 
-            <div class="w-52 my-2 bg-white mr-2 rounded-xl">
+            <div class="w-52 my-2 bg-white mr-2 rounded-xl h-[450px]">
               <div>
                 <h1 class="m-2 mx-4 font-semibold box-border text-xl">Tạo</h1>
               </div>
@@ -140,7 +190,7 @@
                   </a>
                 </div>
 
-                <div class="hover:bg-gray-100 bg-white rounded-xl box-border mx-2 my-3 py-1">
+                <div class="hover:bg-gray-100 rounded-xl box-border mx-2 my-3 py-1">
                   <a href="" class="flex">
                     <div class="mx-2 w-8 h-8 bg-gray-200 rounded-xl">
                       <BookOpen class="m-1" />
@@ -151,7 +201,7 @@
                   </a>
                 </div>
 
-                <div class="hover:bg-gray-100 bg-white rounded-xl box-border mx-2 my-3 py-1">
+                <div class="hover:bg-gray-100  rounded-xl box-border mx-2 my-3 py-1">
                   <a href="" class="flex">
                     <div class="mx-2 w-8 h-8 bg-gray-200 rounded-xl">
                       <Videotape class="m-1" />
@@ -162,7 +212,7 @@
                   </a>
                 </div>
 
-                <div class="hover:bg-gray-100 bg-white rounded-xl box-border mx-2 my-3 py-1">
+                <div class="hover:bg-gray-100  rounded-xl box-border mx-2 my-3 py-1">
                   <a href="" class="flex">
                     <div class="mx-2 w-8 h-8 bg-gray-200 rounded-xl">
                       <Sparkle class="m-1" />
@@ -175,7 +225,7 @@
 
                 <hr class="mx-4 my-2" />
 
-                <div class="hover:bg-gray-100 bg-white rounded-xl box-border mx-2 my-3 py-1">
+                <div class="hover:bg-gray-100 rounded-xl box-border mx-2 my-3 py-1">
                   <a href="" class="flex">
                     <div class="mx-2 w-8 h-8 bg-gray-200 rounded-xl">
                       <PanelsTopLeft class="m-1" />
@@ -186,7 +236,7 @@
                   </a>
                 </div>
 
-                <div class="hover:bg-gray-100 bg-white rounded-xl box-border mx-2 my-3 py-1">
+                <div class="hover:bg-gray-100  rounded-xl box-border mx-2 my-3 py-1">
                   <a href="" class="flex">
                     <div class="mx-2 w-8 h-8 bg-gray-200 rounded-xl">
                       <Megaphone class="m-1" />
@@ -197,7 +247,7 @@
                   </a>
                 </div>
 
-                <div class="hover:bg-gray-100 bg-white rounded-xl box-border mx-2 my-3 py-1">
+                <div class="hover:bg-gray-100  rounded-xl box-border mx-2 my-3 py-1">
                   <a href="" class="flex">
                     <div class="mx-2 w-8 h-8 bg-gray-200 rounded-xl">
                       <Group class="m-1" />
@@ -212,19 +262,10 @@
           </div>
         </div>
       </div>
-    </div>
+  <!--EndMenu-->
 
-    <!--Mess-->
-    <div id="messenger-box"
-      class="p-[10px] text-black mr-[2px] rounded-full flex items-center justify-center cursor-pointer bg-[#e4e6eb] hover:bg-[#D8DADF] transition-colors duration-300"
-      @click="
-        isShowMessager = !isShowMessager;
-      isShowMenu = isShowMore = isShowNotice = false
-        ">
-      <svg-messenger class="w-[22px]" />
-      <!--Messenger-->
-
-      <div v-if="isShowMessager == true">
+  <!--Mess-->
+  <div v-if="isShowMessager == true">
         <div class="bg-white w-[350px] box-border border-solid border-2 rounded-lg absolute top-full right-0">
           <div class="flex justify-between">
             <h3 class="mx-3 my-1 font-semiboldbold text-2xl"><b>Đoạn chat</b></h3>
@@ -250,9 +291,60 @@
           <div>
             <div>
               <div>
-                <div class="flex items-center hover:bg-gray-100 rounded-xl m-3">
+                <div class="flex items-center hover:bg-gray-100 rounded-xl m-3 cursor-pointer">
                   <div>
-                    <img class="w-14 mx-2 my-2 rounded-full"
+                    <img class="w-14 h-14 mx-2 my-2 rounded-full"
+                      src="https://web.hn.ss.bfcplatform.vn/muadienmay/content/article2/0878913035-1620532649.jpg"
+                      alt="" />
+                  </div>
+                  <div>
+                    <div>
+                      <p class="font-semibold">Thiện Ân</p>
+                    </div>
+                    <div class="flex">
+                      <p>Hello my fen</p>
+                      <p class="mx-1">.</p>
+                      <p>1 giờ</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center hover:bg-gray-100 rounded-xl m-3 cursor-pointer">
+                  <div>
+                    <img class="w-14 h-14 mx-2 my-2 rounded-full"
+                      src="https://web.hn.ss.bfcplatform.vn/muadienmay/content/article2/0878913035-1620532649.jpg"
+                      alt="" />
+                  </div>
+                  <div>
+                    <div>
+                      <p class="font-semibold">Thiện Ân</p>
+                    </div>
+                    <div class="flex">
+                      <p>Hello my fen</p>
+                      <p class="mx-1">.</p>
+                      <p>1 giờ</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center hover:bg-gray-100 rounded-xl m-3 cursor-pointer">
+                  <div>
+                    <img class="w-14 h-14 mx-2 my-2 rounded-full"
+                      src="https://web.hn.ss.bfcplatform.vn/muadienmay/content/article2/0878913035-1620532649.jpg"
+                      alt="" />
+                  </div>
+                  <div>
+                    <div>
+                      <p class="font-semibold">Thiện Ân</p>
+                    </div>
+                    <div class="flex">
+                      <p>Hello my fen</p>
+                      <p class="mx-1">.</p>
+                      <p>1 giờ</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center hover:bg-gray-100 rounded-xl m-3 cursor-pointer">
+                  <div>
+                    <img class="w-14 h-14 mx-2 my-2 rounded-full"
                       src="https://web.hn.ss.bfcplatform.vn/muadienmay/content/article2/0878913035-1620532649.jpg"
                       alt="" />
                   </div>
@@ -268,85 +360,16 @@
                   </div>
                 </div>
 
-                <div class="flex items-center hover:bg-gray-100 rounded-xl m-3">
-                  <div>
-                    <img class="w-14 mx-2 my-2 rounded-full"
-                      src="https://web.hn.ss.bfcplatform.vn/muadienmay/content/article2/0878913035-1620532649.jpg"
-                      alt="" />
-                  </div>
-                  <div>
-                    <div>
-                      <p class="font-semibold">Thiện Ân</p>
-                    </div>
-                    <div class="flex">
-                      <p>Hello my fen</p>
-                      <p class="mx-1">.</p>
-                      <p>1 giờ</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="flex items-center hover:bg-gray-100 rounded-xl m-3">
-                  <div>
-                    <img class="w-14 mx-2 my-2 rounded-full"
-                      src="https://web.hn.ss.bfcplatform.vn/muadienmay/content/article2/0878913035-1620532649.jpg"
-                      alt="" />
-                  </div>
-                  <div class="">
-                    <div>
-                      <p class="font-semibold">Thiện Ân</p>
-                    </div>
-                    <div class="flex">
-                      <p>Hello my fen</p>
-                      <p class="mx-1">.</p>
-                      <p>1 giờ</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="flex items-center hover:bg-gray-100 rounded-xl m-3">
-                  <div>
-                    <img class="w-14 mx-2 my-2 rounded-full"
-                      src="https://web.hn.ss.bfcplatform.vn/muadienmay/content/article2/0878913035-1620532649.jpg"
-                      alt="" />
-                  </div>
-                  <div class="">
-                    <div>
-                      <p class="font-semibold">Thiện Ân</p>
-                    </div>
-                    <div class="flex">
-                      <p>Hello my fen</p>
-                      <p class="mx-1">.</p>
-                      <p>1 giờ</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="flex items-center hover:bg-gray-100 rounded-xl m-3">
-                  <div>
-                    <img class="w-14 mx-2 my-2 rounded-full"
-                      src="https://web.hn.ss.bfcplatform.vn/muadienmay/content/article2/0878913035-1620532649.jpg"
-                      alt="" />
-                  </div>
-                  <div class="">
-                    <div>
-                      <p class="font-semibold">Thiện Ân</p>
-                    </div>
-                    <div class="flex">
-                      <p>Hello my fen</p>
-                      <p class="mx-1">.</p>
-                      <p>1 giờ</p>
-                    </div>
-                  </div>
-                </div>
+                
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+  <!--EndMess-->
 
-    <!-- end mes -->
-
-    <div v-if="isShowNotice == true">
+  <!--Notice-->
+  <div v-if="isShowNotice == true">
       <div
         class="w-96 font-semibold box-border shadow-2xl pb-20 bg-white border-solid border-2 rounded-lg right-0 absolute h-[92vh] overflow-auto top-full">
         <div class="m-2">
@@ -381,7 +404,7 @@
 
           <div class=" ">
             <a href="" class=" ">
-              <div class="flex hover:bg-gray-200 mx-1 p-[10px] text-black mr-[2px] rounded-xl">
+              <div class="flex hover:bg-gray-200 mx-1 p-2 rounded-xl">
                 <div class="mr-2">
                   <img
                     src="https://scontent.fsgn2-9.fna.fbcdn.net/v/t39.30808-1/300362956_379273724392258_4259585475714196784_n.jpg?stp=dst-jpg_p160x160&_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=ANUcRo9mmy0Q7kNvgGQJ9YF&_nc_ht=scontent.fsgn2-9.fna&oh=00_AYBwifq76_BJhOH-etGc1yStjZTx5sJwqJsp-VD5VN1Zhw&oe=66460A76"
@@ -612,28 +635,10 @@
         </div>
       </div>
     </div>
-    <div id="notifications-box" @click="
-      isShowMenu = false;
-    isShowMore = false;
-    isShowMessager = false;
-    isShowNotice = !isShowNotice
-      "
-      class="p-[10px] text-black mr-[2px] rounded-full flex items-center justify-center cursor-pointer bg-[#e4e6eb] hover:bg-[#D8DADF] transition-colors duration-300">
-      <svg-notifications class="w-[22px]" />
-    </div>
+  <!--EndNotice-->
 
-    <div id="pp-info" @click="
-      isShowMore = !isShowMore;
-    isShowMenu = false;
-    isShowMessager = false;
-    isShowNotice = false;
-    "
-      class="rounded-full flex items-center justify-center cursor-pointer bg-myGray-900 hover:brightness-125 transition-colors duration-300">
-      <div id="pp" class="rounded-full overflow-hidden w-[40px] relative border">
-        <img :src="userCurrent.avatar ? userCurrent.avatar : avatar" alt="" width="100%" />
-        <div class="image-avatar"></div>
-      </div>
-      <div v-if="isShowMore == true">
+  <!--AccountBox-->
+  <div v-if="isShowMore == true">
         <!--ACCOUNT-->
 
         <div
@@ -738,9 +743,7 @@
         </div>
         <!--endACCOUNT-->
       </div>
-    </div>
-
-  </div>
+  <!--EndAccountBox-->
 </template>
 
 <script>
