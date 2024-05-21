@@ -1,6 +1,14 @@
 <template>
     <div>
-        Đã xác thực thành công
+        <div class="col-lg-8 mx-auto mt-5">
+            <div class="card">
+                <div class="p-7 text-center">
+                    <p class="text-3xl ml-3 font-semibold text-nowrap mb-3">Xác thực email thành công!</p>
+                    <img src="https://www.kontentino.com/blog/wp-content/uploads/2022/05/Kontentino-blog_How-to-get-verified-on-facebook.png"
+                        class="rounded-lg" alt="...">
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 <script>
@@ -26,9 +34,9 @@ export default {
             baseRequest.post('/users/verify-email', obj)
                 .then((res) => {
                     console.log(res);
-                    setTimeout(() => {
-                        this.$router.push('/')
-                    }, 2000)
+                    // setTimeout(() => {
+                    //     this.$router.push('/')
+                    // }, 2000)
                 })
                 .catch((errors) => {
                     console.log(errors);
@@ -37,6 +45,4 @@ export default {
     }
 }
 </script>
-<style>
-
-</style>
+<style></style>
