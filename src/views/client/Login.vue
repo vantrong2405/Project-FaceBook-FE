@@ -9,7 +9,7 @@
             WE
           </p>
           <h2 class="text-[28px] text-black">
-            Facebook giúp bạn kết nối và chia sẻ với mọi người trong cuộc sống của bạn.
+            WE giúp bạn kết nối và chia sẻ với mọi người trong cuộc sống của bạn.
           </h2>
         </div>
         <!-- form login -->
@@ -116,7 +116,7 @@
               <div>
                 <p class="my-[11px] text-[#777] text-[11px]">
                   Những người dùng dịch vụ của chúng tôi có thể đã tải thông tin liên hệ của bạn lên
-                  Facebook.
+                  WE.
                   <a class="text-[#385898] cursor-pointer hover:underline" href="#">Tìm hiểu thêm.</a>
                 </p>
               </div>
@@ -165,7 +165,7 @@
             <li><a class="text-[12px] hover:underline" href="#">Đăng ký</a></li>
             <li><a class="text-[12px] hover:underline" href="#">Đăng nhập</a></li>
             <li><a class="text-[12px] hover:underline" href="#">Messenger</a></li>
-            <li><a class="text-[12px] hover:underline" href="#">Facebook</a></li>
+            <li><a class="text-[12px] hover:underline" href="#">WE</a></li>
             <li><a class="text-[12px] hover:underline" href="#">LiteVideo</a></li>
             <li><a class="text-[12px] hover:underline" href="#">Địa điểm</a></li>
             <li><a class="text-[12px] hover:underline" href="#">Trò chơi</a></li>
@@ -180,7 +180,7 @@
             <li><a class="text-[12px] hover:underline" href="#">Đăng ký</a></li>
             <li><a class="text-[12px] hover:underline" href="#">Đăng nhập</a></li>
             <li><a class="text-[12px] hover:underline" href="#">Messenger</a></li>
-            <li><a class="text-[12px] hover:underline" href="#">Facebook</a></li>
+            <li><a class="text-[12px] hover:underline" href="#">WE</a></li>
             <li><a class="text-[12px] hover:underline" href="#">LiteVideo</a></li>
             <li><a class="text-[12px] hover:underline" href="#">Địa điểm</a></li>
             <li><a class="text-[12px] hover:underline" href="#">Trò chơi</a></li>
@@ -195,7 +195,7 @@
             <li><a class="text-[12px] hover:underline" href="#">Đăng ký</a></li>
             <li><a class="text-[12px] hover:underline" href="#">Đăng nhập</a></li>
             <li><a class="text-[12px] hover:underline" href="#">Messenger</a></li>
-            <li><a class="text-[12px] hover:underline" href="#">Facebook</a></li>
+            <li><a class="text-[12px] hover:underline" href="#">WE</a></li>
             <li><a class="text-[12px] hover:underline" href="#">LiteVideo</a></li>
             <li><a class="text-[12px] hover:underline" href="#">Địa điểm</a></li>
             <li><a class="text-[12px] hover:underline" href="#">Trò chơi</a></li>

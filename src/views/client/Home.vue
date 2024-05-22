@@ -117,7 +117,8 @@
             <div id="new-post" class="h-32 p-2 rounded-lg flex flex-col justify-between">
               <div id="new-post-top" class="p-1 flex gap-3 items-center">
                 <div class="_pp_ cursor-pointer">
-                  <img src="../../assets/images/pp.jpg" class="w-10 rounded-full" alt="" />
+                  <img src="https://cellphones.com.vn/sforum/wp-content/uploads/2023/10/avatar-trang-4.jpg"
+                    class="w-10 rounded-full" alt="" />
                 </div>
                 <input data-bs-toggle="modal" data-bs-target="#create_posts"
                   class="cursor-pointer w-full h-10 rounded-full border-[0px] bg-[#F0F2F5] hover:bg-[#E4E6E9] outline-none text-tiny px-3 font-semibold transition-colors mobile-x:text-base focus:outline-none focus:shadow-none focus:ring-transparent"
@@ -151,7 +152,8 @@
                 <div id="post-top_left" class="flex items-center gap-2">
                   <div id="post-top_left_pp"
                     class="ring-2 ring-blue-500 ring-opacity-70 border-2 border-black w-max rounded-full cursor-pointer">
-                    <img :src="value.user.avatar" class="w-8 h-8 rounded-full" alt="" />
+                    <img src="https://cellphones.com.vn/sforum/wp-content/uploads/2023/10/avatar-trang-4.jpg"
+                      class="w-8 h-8 rounded-full" alt="" />
                   </div>
                   <div id="post-top_left_title">
                     <p class="hover:underline cursor-pointer font-bold capitalize">{{ value.user.name }}</p>
@@ -291,15 +293,16 @@
                 <div id="post-bottom-comments ">
                   <div id="other" class="flex gap-2 my-2">
                     <div id="other_pp">
-                      <img src="" class="w-9 h-9 rounded-full cursor-pointer" alt="" />
+                      <img src="https://cellphones.com.vn/sforum/wp-content/uploads/2023/10/avatar-trang-4.jpg"
+                        class="w-9 h-9 rounded-full cursor-pointer" alt="" />
                     </div>
                     <div id="other_comment" class="max-w-full rounded-lg pb-2">
                       <div class="py-2 px-3 rounded-2xl bg-slate-100">
                         <div id="commnet-name" class="cursor-pointer hover:underline font-bold text-xs">
-
+                          {{ value.user.name }}
                         </div>
                         <div id="comment-title">
-
+                          Hay lắm bắn ơi :V
                         </div>
                       </div>
                       <div class="px-3 text-xs mt-1">
@@ -486,11 +489,10 @@
             <div class="w-full  flex">
               <a class="w-[40px] h-[40px] hover:brightness-90" href="">
                 <img class="w-full h-full rounded-full"
-                  src="https://scontent.fdad3-6.fna.fbcdn.net/v/t39.30808-1/274456074_1361142244327596_3675729695510261208_n.jpg?stp=c0.2.200.200a_dst-jpg_p200x200&_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEu3DE5x6dR9PxFQ-LK28vEDbjtZrkb4vQNuO1muRvi9Ih5x7QFRzr-YV0Ly3szC91MQcW0YX-b2uUdFa-mQrif&_nc_ohc=Qt8QiDFGOAcQ7kNvgEg42rk&_nc_ht=scontent.fdad3-6.fna&oh=00_AYBFPsf8BS-VIw3-Z8E96YN00GSPXOvNyYMm5GvieB4ICA&oe=6647C7E6"
-                  alt="" />
+                  src="https://cellphones.com.vn/sforum/wp-content/uploads/2023/10/avatar-trang-4.jpg" alt="" />
               </a>
               <div class="ml-[10px]">
-                <p class="text-[15px] font-medium text-black">Ân Nguyên</p>
+                <p class="text-[15px] font-medium text-black">{{ userCurrent.name }}</p>
                 <div class="w-full flex">
                   <div class="flex py-[2px] px-[5px] items-center cursor-pointer bg-[#E4E6EB] rounded-md">
                     <i class="fa-solid fa-earth-americas text-[12px] pr-[4px]"></i>
@@ -503,7 +505,7 @@
             <div class="w-full pb-[50px] mt-3">
               <textarea
                 class="w-full border-0 focus:outline-none focus:ring-0 px-0 whitespace-pre-wrap break-words resize-none"
-                placeholder="Ân ơi, bạn đang nghĩ gì thế?" rows=3 v-model="content"></textarea>
+                placeholder="Bạn ơi, bạn đang nghĩ gì thế?" rows=3 v-model="content"></textarea>
 
               <div v-for="(value, index) in media" :key="index" class="my-3">
                 <img v-if="value.url" :src="value.url" alt="" class="w-full h-[280px] object-cover border">
@@ -901,7 +903,7 @@ export default {
             });
             console.log(res);
             this.getDataNewFeed();
-            this.statusLike = !this.statusLike
+            this.statusLike = true
           })
           .catch((errors) => {
             console.log(errors);
@@ -915,7 +917,7 @@ export default {
               position: 'bottom-right'
             });
             this.getDataNewFeed();
-            this.statusLike = !this.statusLike
+            this.statusLike = false
           })
           .catch((errors) => {
             console.log(errors);
