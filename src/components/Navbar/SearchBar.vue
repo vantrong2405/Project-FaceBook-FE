@@ -6,7 +6,7 @@ import svgLeft from '../svg/svgLeft.vue'
 export default {
   components: {
     svgSearch,
-    
+
     svgLeft
   },
   data() {
@@ -21,8 +21,9 @@ export default {
   <div class="w-72 h-14 py-2 flex items-center gap-1 sm:gap-2" :class="isFocus ? ' w-screen pr-4 sm:w-72' : ''">
     <router-link to="/">
       <div class="__logo">
-        
-          <img src="/Thiết kế chưa có tên (1).png" alt="" class="text-face-blue w-10 cursor-pointer ml-4 transition-opacity duration-500"
+
+        <img src="/src/assets/images/logo.png" alt=""
+          class="text-face-blue w-10 cursor-pointer ml-4 transition-opacity duration-500"
           :class="isFocus ? 'absolute transform -translate-x-96 opacity-0' : 'opacity-100'">
       </div>
     </router-link>

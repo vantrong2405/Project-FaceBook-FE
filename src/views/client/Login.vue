@@ -19,7 +19,7 @@
               <input type="text" class="block w-full py-[12px] px-[16px] text-[16px] rounded-md mb-[10px] font-medium"
                 placeholder="Email or hoặc số điện thoại" v-model="account" />
               <input type="password" class="block w-full py-[12px] px-[16px] text-[16px] rounded-md mt-[10px] mb-[20px]"
-                placeholder="Mật khẩu" v-model="pass" />
+                placeholder="Mật khẩu" v-model="pass" v-on:keyup.enter="account && pass && login()" />
 
               <div class="btn btn-primary w-full" @click="login()">Đăng nhập</div>
             </form>
@@ -32,17 +32,30 @@
               aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="forgot-passwordLabel">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    email : <input type="text" name="" id="" class="form-control" v-model="email_forgot_password">
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" v-on:click="forgotPassword()">Gửi lại mật
-                      khẩu</button>
+                  <div class="modal-body bg-white px-5">
+                    <div class="flex justify-center w-full items-center my-6 mb-12">
+                      <!-- <img src="/src/assets/images/logo.png" width="30%" alt="" class="text-center"> -->
+                      <p class="text-[#0866FF] font-bold cursor-default leading-[50px] text-6xl ">
+                        WE
+                      </p>
+                    </div>
+                    <div
+                      class="text-justify bg-white p-2 border-blue-400 border-l-8 mb-4 border-r-2 border-t-2 border-b-2 ">
+                      Vui lòng diền vào username hoặc email của bạn . Bạn sẽ nhận được
+                      một email với hướng dẫn khôi phục mật khẩu.
+                    </div>
+                    <div
+                      class="text-justify bg-white p-2 border-blue-400 border-l-8 mb-4 border-r-2 border-t-2 border-b-2 ">
+                      <label for="" class="mb-2">Tên người dùng hoặc địa chỉ email</label>
+                      <input type="text" name="" id=""
+                        class="form-control border-1 border-black outline-none shadow-none"
+                        placeholder="Nhập tên người dùng hoặc địa chỉ email" v-model="email_forgot_password">
+                    </div>
+                    <div class="text-end">
+                      <button type="button" class="btn btn-primary" v-on:click="forgotPassword()">Gửi lại mật
+                        khẩu mới
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -100,13 +113,6 @@
                 </div>
                 <!-- ngày sinh -->
                 <div class="mb-[15px]">
-                  <div class="flex text-[#606770]">
-                    <p class="text-[12px] pr-[2px]">Ngày sinh</p>
-                    <a class="h-[12px] w-[12px] bg-[#606770] flex items-center justify-center rounded-full mt-[4px]"
-                      href="">
-                      <i class="fa-solid fa-question text-[8px] text-white"></i>
-                    </a>
-                  </div>
                   <div class="w-100%">
                     <input type="date" name="" id="" class="form-control" v-model="date_of_birth" />
                   </div>
@@ -252,6 +258,7 @@ export default {
           this.$toast.success(res.data.message, {
             position: 'bottom-right'
           })
+          this.showResgister = false
         })
         .catch((errors) => {
           const errorObject = errors.response.data.errors;

@@ -6,9 +6,9 @@
   <!-- <button class="btn btn-primary" @click="upFile">Đưa ảnh lên</button> -->
 
   <!-- end -->
-  <div class="bg-[#F0F2F5]">
+  <div class="bg-[#F0F2F5] w-full h-screen">
     <div class="flex">
-      <div class="w-80 hidden xl:block bg-white shadow-sm">
+      <div class="w-80 hidden xl:block bg-white shadow-sm min-h-screen">
         <div class="w-80">
           <div class="fixed">
             <div class="h-screen px-2 pb-12 pt-4 flex  flex-col justify-between xl:flex scroll-container w-80">
@@ -505,13 +505,16 @@
             <div class="w-full pb-[50px] mt-3">
               <textarea
                 class="w-full border-0 focus:outline-none focus:ring-0 px-0 whitespace-pre-wrap break-words resize-none"
-                placeholder="Bạn ơi, bạn đang nghĩ gì thế?" rows=3 v-model="content"></textarea>
+                placeholder="Bạn ơi, bạn đang nghĩ gì thế?" rows=3 v-model="content" @paste="handlePaste"></textarea>
 
-              <div v-for="(value, index) in media" :key="index" class="my-3">
-                <img v-if="value.url" :src="value.url" alt="" class="w-full h-[280px] object-cover border">
+              <div class=" h-[200px] overflow-auto" v-if="media[0]">
+                <div v-for="(value, index) in media" :key="index" class="my-3 relative">
+                  <img v-if="value.url" :src="value.url" alt="" class="w-full h-[280px] object-cover border">
+                  <X class="absolute top-1 right-1 text-4xl hover:text-gray-500 cursor-pointer"
+                    @click="handleDeleteMedia(index)" />
+                </div>
               </div>
 
-              <!-- up file image -->
             </div>
             <div class="w-full flex items-center justify-between ">
               <img class="h-[38px] cursor-pointer w-[38px]"
@@ -568,8 +571,6 @@
     </div>
 
     <!-- end modal create -->
-
-
     <!-- modal share -->
     <div class="modal fade" id="share_posts" tabindex="-1" aria-labelledby="create_post" aria-hidden="true">
       <div class="modal-dialog ">
@@ -804,9 +805,6 @@ export default {
               url: res.data.result[0].url,
               type: res.data.result[0].type
             })
-            console.log(this.media);
-            console.log(this.media[0]);
-
             this.$toast.success('Upload file thành công', {
               position: 'bottom-right'
             });
@@ -832,6 +830,7 @@ export default {
         mentions: [],
         medias: this.media
       }
+      console.log('>>>>>>>>>>>', obj);
 
       baseRequest.post('/posts', obj).then((res) => {
         this.$toast.success('Tạo bài viết thành công', {
@@ -859,6 +858,7 @@ export default {
       })
         .then((res) => {
           this.allNewFeed = res.data.result
+          this.allNewFeed.reverse();
           console.log(res.data.result);
 
         }).catch((errors) => {
@@ -945,11 +945,41 @@ export default {
             console.log(errors);
           })
       }
-    }
+    },
+    handlePaste(event) {
+      const clipboardData = event.clipboardData || window.clipboardData;
+      const items = clipboardData.items;
+      for (let i = 0; i < items.length; i++) {
+        const item = items[i];
+        if (item.type.indexOf('image') !== -1) {
+          const blob = item.getAsFile();
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            this.media.push({ url: e.target.result, type: 0 });
+          };
+          reader.readAsDataURL(blob);
 
+        } else if (item.type === 'text/plain') {
+          item.getAsString((url) => {
+            if (this.isImageUrl(url)) {
+              this.media.push({ url: url, type: 0 });
+            }
+          });
+        }
+      }
+      event.preventDefault(); // Ngăn chặn hành động mặc định của clipboard
+      console.log(this.media);
+    },
+    isImageUrl(url) {
+      return /\.(jpeg|jpg|gif|png|webp)$/.test(url);
+    },
+    handleDeleteMedia(index) {
+      if (index >= 0)
+        this.media.splice(index, 1);
+    }
   },
 
 
 }
 </script>
-<style></style>import baseRequest from '@/baseAPI/baseRequest'
+<style></style>
