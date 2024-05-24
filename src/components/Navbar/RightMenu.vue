@@ -1,5 +1,4 @@
 <template>
-
   <div class="flex items-center gap-1 sm:gap-2 justify-end px-4">
     <div id="menu-box"
       class="p-2 text-lg rounded-full flex items-center justify-center cursor-pointer bg-myGray-900 hover:bg-myGray-700 transition-colors duration-300"
@@ -12,33 +11,28 @@
       <svg-menu class="w-5 hidden lg:block" />
 
       <svg-create class="w-5 block lg:hidden" />
-
-
     </div>
 
     <!--Mess-->
     <div id="messenger-box"
       class="p-2 rounded-full flex items-center justify-center cursor-pointer bg-myGray-900 hover:bg-myGray-700 transition-colors duration-300"
       @click="
-        isShowMessager = !isShowMessager;
-      isShowMenu = isShowMore = isShowNotice = false
-        ">
+        isShowMessager = !isShowMessagerl;
+      isShowMenu = isShowMore = isShowNotice = falsel;
+      ">
       <svg-messenger class="w-5" />
       <!--Messenger-->
-
-
     </div>
 
     <!-- end mes -->
-
 
     <div id="notifications-box" @click="
       isShowMenu = false;
     isShowMore = false;
     isShowMessager = false;
-    isShowNotice = !isShowNotice
-    AnimationEvent;
-    "
+    isShowNotice = !isShowNotice;
+    AnimationEvent
+      "
       class="p-2 rounded-full flex items-center justify-center cursor-pointer bg-myGray-900 hover:bg-myGray-700 transition-colors duration-300">
       <svg-notifications class="w-5" />
     </div>
@@ -48,18 +42,14 @@
     isShowMenu = false;
     isShowMessager = false;
     isShowNotice = false;
-
     "
-      class="rounded-full flex items-center justify-center cursor-pointer bg-myGray-900 hover:bg-myGray-700 transition-colors duration-300 ">
+      class="rounded-full flex items-center justify-center cursor-pointer bg-myGray-900 hover:bg-myGray-700 transition-colors duration-300">
       <div id="pp" class="rounded-full overflow-hidden w-9 relative border">
         <img :src="userCurrent.avatar ? userCurrent.avatar : avatar" alt="" width="100%" />
         <div class="image-avatar"></div>
       </div>
-
     </div>
-
   </div>
-
 
   <!--Menu-->
   <div v-if="isShowMenu == true">
@@ -115,9 +105,7 @@
 
                 <div class="m-1">
                   <p class="font-semibold">Nhóm</p>
-                  <p class="text-gray-400 text-xs">
-                    Kết nối với những người cùng chung sở thích.
-                  </p>
+                  <p class="text-gray-400 text-xs">Kết nối với những người cùng chung sở thích.</p>
                 </div>
               </a>
             </div>
@@ -201,7 +189,7 @@
               </a>
             </div>
 
-            <div class="hover:bg-gray-100  rounded-xl box-border mx-2 my-3 py-1">
+            <div class="hover:bg-gray-100 rounded-xl box-border mx-2 my-3 py-1">
               <a href="" class="flex">
                 <div class="mx-2 w-8 h-8 bg-gray-200 rounded-xl">
                   <Videotape class="m-1" />
@@ -212,7 +200,7 @@
               </a>
             </div>
 
-            <div class="hover:bg-gray-100  rounded-xl box-border mx-2 my-3 py-1">
+            <div class="hover:bg-gray-100 rounded-xl box-border mx-2 my-3 py-1">
               <a href="" class="flex">
                 <div class="mx-2 w-8 h-8 bg-gray-200 rounded-xl">
                   <Sparkle class="m-1" />
@@ -236,7 +224,7 @@
               </a>
             </div>
 
-            <div class="hover:bg-gray-100  rounded-xl box-border mx-2 my-3 py-1">
+            <div class="hover:bg-gray-100 rounded-xl box-border mx-2 my-3 py-1">
               <a href="" class="flex">
                 <div class="mx-2 w-8 h-8 bg-gray-200 rounded-xl">
                   <Megaphone class="m-1" />
@@ -247,7 +235,7 @@
               </a>
             </div>
 
-            <div class="hover:bg-gray-100  rounded-xl box-border mx-2 my-3 py-1">
+            <div class="hover:bg-gray-100 rounded-xl box-border mx-2 my-3 py-1">
               <a href="" class="flex">
                 <div class="mx-2 w-8 h-8 bg-gray-200 rounded-xl">
                   <Group class="m-1" />
@@ -355,8 +343,6 @@
                 </div>
               </div>
             </div>
-
-
           </div>
         </div>
       </div>
@@ -675,9 +661,7 @@
               <div class="mr-4">
                 <Repeat class="my-1 w-4" />
               </div>
-              <p class="font-semibold text-base bg-red" target="_blank">
-                Xem tất cả trang cá nhân
-              </p>
+              <p class="font-semibold text-base bg-red" target="_blank">Xem tất cả trang cá nhân</p>
             </div>
           </a>
         </div>
@@ -819,7 +803,7 @@ export default {
       isShowMessager: false, // khai báo 1 biến isSHow = false
       isShowNotice: false,
       isShowMore: false,
-      avatar: 'https://cellphones.com.vn/sforum/wp-content/uploads/2023/10/avatar-trang-4.jpg',
+      avatar: 'https://cellphones.com.vn/sforum/wp-content/uploads/2023/10/avatar-trang-4.jpg'
     }
   },
   methods: {
@@ -837,7 +821,6 @@ export default {
           position: 'bottom-right'
         })
       }
-
     }
   }
 }

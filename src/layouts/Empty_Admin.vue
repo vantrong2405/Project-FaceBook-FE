@@ -1,8 +1,7 @@
 <template>
-    <router-view></router-view>
+  <router-view></router-view>
 </template>
 <script>
-
 import '../assets/admin/js/bootstrap.bundle.min.js'
 import '../assets/admin/js/jquery.min.js'
 import '../assets/admin/plugins/simplebar/js/simplebar.min.js'
@@ -11,10 +10,8 @@ import '../assets/admin/plugins/perfect-scrollbar/js/perfect-scrollbar.js'
 import '../assets/admin/js/index.js'
 import '../assets/admin/js/app.js'
 export default {
-    name: 'app',
-    components: {
-
-    }
+  name: 'app',
+  components: {}
 }
 </script>
 <style>

@@ -7,7 +7,6 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Segoe UI', Arial, sans-serif;
-
 }
 
 .active-icon {
@@ -85,13 +84,11 @@
   display: block;
 }
 
-
 #pp:hover .image-avatar {
   display: block;
 }
 
 .scroll-container {
-
   overflow-y: auto;
   visibility: hidden;
 }
@@ -115,6 +112,6 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #BCC0C4;
+  background: #bcc0c4;
   border-radius: 10px;
 }

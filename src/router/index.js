@@ -30,46 +30,46 @@ const router = createRouter({
     {
       path: '/home',
       name: 'main',
-      component: Home
-      , beforeEnter: checkLogin
+      component: Home,
+      beforeEnter: checkLogin
     },
     {
       path: '/video',
       name: 'video',
-      component: Video
-      , beforeEnter: checkLogin
+      component: Video,
+      beforeEnter: checkLogin
     },
     {
       path: '/market',
       name: 'market',
-      component: Market
-      , beforeEnter: checkLogin
+      component: Market,
+      beforeEnter: checkLogin
     },
     {
       path: '/group',
       name: 'group',
-      component: Group
-      , beforeEnter: checkLogin
+      component: Group,
+      beforeEnter: checkLogin
     },
     {
       path: '/game',
       name: 'game',
-      component: Game
-      , beforeEnter: checkLogin
+      component: Game,
+      beforeEnter: checkLogin
     },
     {
       path: '/profile',
       name: 'profile',
       component: Profile,
-      meta: { layout: 'Empty' }
-      , beforeEnter: checkLogin
+      meta: { layout: 'Empty' },
+      beforeEnter: checkLogin
     },
     {
       path: '/reset-password',
       name: 'reset-password',
       component: ResetPassWord,
-      meta: { layout: 'Empty' }
-      , beforeEnter: checkLogin
+      meta: { layout: 'Empty' },
+      beforeEnter: checkLogin
     },
 
     // admin
@@ -77,7 +77,7 @@ const router = createRouter({
       path: '/admin/login',
       name: 'admin_Login',
       component: Admin_Login,
-      meta: { layout: 'empty_admin' },
+      meta: { layout: 'empty_admin' }
     },
     {
       path: '/admin/post',
@@ -104,7 +104,7 @@ const router = createRouter({
       name: 'ForgotPassword?',
       component: ForgotPassword,
       meta: { layout: 'Empty' }
-    },
+    }
   ]
 })
 

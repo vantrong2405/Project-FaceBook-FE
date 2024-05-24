@@ -7,7 +7,7 @@
       </div>
     </div>
     <div>
-      <router-view :userCurrent='userCurrent'></router-view>
+      <router-view :userCurrent="userCurrent"></router-view>
     </div>
   </div>
 </template>

@@ -35,25 +35,27 @@
                   <div class="modal-body bg-white px-5">
                     <div class="flex justify-center w-full items-center my-6 mb-12">
                       <!-- <img src="/src/assets/images/logo.png" width="30%" alt="" class="text-center"> -->
-                      <p class="text-[#0866FF] font-bold cursor-default leading-[50px] text-6xl ">
+                      <p class="text-[#0866FF] font-bold cursor-default leading-[50px] text-6xl">
                         WE
                       </p>
                     </div>
                     <div
-                      class="text-justify bg-white p-2 border-blue-400 border-l-8 mb-4 border-r-2 border-t-2 border-b-2 ">
-                      Vui lòng diền vào username hoặc email của bạn . Bạn sẽ nhận được
-                      một email với hướng dẫn khôi phục mật khẩu.
+                      class="text-justify bg-white p-2 border-blue-400 border-l-8 mb-4 border-r-2 border-t-2 border-b-2">
+                      Vui lòng diền vào username hoặc email của bạn . Bạn sẽ nhận được một email với
+                      hướng dẫn khôi phục mật khẩu.
                     </div>
                     <div
-                      class="text-justify bg-white p-2 border-blue-400 border-l-8 mb-4 border-r-2 border-t-2 border-b-2 ">
+                      class="text-justify bg-white p-2 border-blue-400 border-l-8 mb-4 border-r-2 border-t-2 border-b-2">
                       <label for="" class="mb-2">Tên người dùng hoặc địa chỉ email</label>
                       <input type="text" name="" id=""
                         class="form-control border-1 border-black outline-none shadow-none"
-                        placeholder="Nhập tên người dùng hoặc địa chỉ email" v-model="email_forgot_password">
+                        placeholder="Nhập tên người dùng hoặc địa chỉ email" v-model="email_forgot_password"
+                        v-on:keyup.enter="forgotPassword()" />
                     </div>
                     <div class="text-end">
-                      <button type="button" class="btn btn-primary" v-on:click="forgotPassword()">Gửi lại mật
-                        khẩu mới
+                      <button type="button" class="btn btn-primary" v-on:click="forgotPassword()"
+                        data-bs-dismiss="modal" aria-label="Close">
+                        Gửi lại mật khẩu mới
                       </button>
                     </div>
                   </div>
@@ -85,7 +87,7 @@
         <div class="inline-block text-left m-[20px] relative">
           <div class="w-[430px] bg-white shadow-lg rounded-md">
             <i @click="showResgister = false"
-              class="fa-solid fa-xmark absolute top-[10px] right-[12px] text-[23px] text-[gray]"></i>
+              class="fa-solid fa-xmark absolute top-[10px] right-[12px] text-[23px] text-[gray] cursor-pointer hover:text-[#535252]"></i>
             <div class="py-[10px] px-[16px]">
               <h1 class="text-[32px] leading-[38px] font-bold">Đăng ký</h1>
               <p class="text-[#606770] text-[15px] pt-[2px]">Nhanh chóng và dễ dàng.</p>
@@ -261,12 +263,12 @@ export default {
           this.showResgister = false
         })
         .catch((errors) => {
-          const errorObject = errors.response.data.errors;
+          const errorObject = errors.response.data.errors
           for (const fieldName in errorObject) {
             if (Object.prototype.hasOwnProperty.call(errorObject, fieldName)) {
-              const errorMessage = errorObject[fieldName].msg;
+              const errorMessage = errorObject[fieldName].msg
               if (errorMessage) {
-                console.log(errorMessage);
+                console.log(errorMessage)
                 this.$toast.error(errorMessage, {
                   position: 'bottom-right'
                 })
@@ -299,27 +301,29 @@ export default {
         })
     },
     checkToken() {
-      baseRequest
-        .get('/users/me').then((res) => {
-          if (res.status === 200) {
-            console.log('check token');
-            console.log(res);
-            this.$router.push('/home');
-          }
-        })
-
+      baseRequest.get('/users/me').then((res) => {
+        if (res.status === 200) {
+          console.log('check token')
+          console.log(res)
+          this.$router.push('/home')
+        }
+      })
     },
     forgotPassword() {
-      const obj = {
-        email: this.email_forgot_password
+      if (this.email_forgot_password) {
+        const obj = {
+          email: this.email_forgot_password
+        }
+        baseRequest
+          .post('/users/forgot-password', obj)
+          .then((res) => {
+            console.log(res)
+          })
+          .catch((errors) => {
+            console.log(errors)
+          })
+        this.email_forgot_password = ''
       }
-      baseRequest.post('/users/forgot-password', obj)
-        .then((res) => {
-          console.log(res);
-        })
-        .catch((errors) => {
-          console.log(errors);
-        })
     }
   }
 }

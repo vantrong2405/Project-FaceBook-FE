@@ -29636,7 +29636,6 @@
       }
     }
   }).call(undefined)
-
   ;(function () {
     SVG.extend(SVG.PathArray, {
       morph: function (array) {
@@ -30327,7 +30326,6 @@
       }
     })
   }).call(undefined)
-
   ;(function () {
     function SelectHandler(el) {
       this.el = el
@@ -30727,7 +30725,6 @@
       pointType: 'circle' // Point type: circle or rect, default circle
     }
   })()
-
   ;(function () {
     ;(function () {
       function ResizeHandler(el) {
@@ -31312,7 +31309,6 @@
    *
    * version: 0.5.3
    **/
-
   ;(function () {
     function resetTriggers(element) {
       var triggers = element.__resizeTriggers__,

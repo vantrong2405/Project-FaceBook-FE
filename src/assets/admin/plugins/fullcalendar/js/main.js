@@ -584,7 +584,6 @@ var FullCalendar = (function (exports) {
       'function' == typeof Promise ? Promise.prototype.then.bind(Promise.resolve()) : setTimeout),
     (o = e),
     (f = 0)
-
   ;(typeof globalThis !== 'undefined' ? globalThis : window).FullCalendarVDom = {
     Component: m,
     createElement: h,
@@ -1667,7 +1666,8 @@ var FullCalendar = (function (exports) {
       return currentRes
     }
   }
-  function memoizeArraylike(workerFunc, resEquality, teardownFunc) { // used at all?
+  function memoizeArraylike(workerFunc, resEquality, teardownFunc) {
+    // used at all?
     var currentArgSets = []
     var currentResults = []
     return function (newArgSets) {
