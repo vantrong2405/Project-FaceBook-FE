@@ -3,11 +3,11 @@
   <div class="w-full h-full font-face z-20 bg-white">
     <div class="relative w-full h-14 bg-white z-20">
       <div class="absolute top-0 w-full h-full z-10">
-        <Navbar class="fixed" />
+        <Navbar class="fixed"  />
       </div>
     </div>
     <div>
-      <router-view :userCurrent="userCurrent"></router-view>
+      <router-view ></router-view>
     </div>
   </div>
 </template>

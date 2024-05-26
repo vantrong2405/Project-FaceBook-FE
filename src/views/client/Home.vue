@@ -123,7 +123,7 @@
                 </div>
                 <input data-bs-toggle="modal" data-bs-target="#create_posts"
                   class="cursor-pointer w-full h-10 rounded-full border-[0px] bg-[#F0F2F5] hover:bg-[#E4E6E9] outline-none text-tiny px-3 font-semibold transition-colors mobile-x:text-base focus:outline-none focus:shadow-none focus:ring-transparent"
-                  type="text" name="" :placeholder="placeholder" />
+                  type="text" name="" :placeholder="placeholderPre" />
               </div>
               <hr class="mx-2" />
               <div id="new-post-bottom" class="flex items-center justify-around px-2">
@@ -163,7 +163,7 @@
                     <p class="flex text-xs mt-1 items-center">
                       <span class="hover:underline cursor-pointer">{{
                         dinhDangNgay(value.user.create_at)
-                        }}</span>
+                      }}</span>
                       <span class="mx-1">·</span>
                       <svg-world class="w-3" />
                     </p>
@@ -188,76 +188,76 @@
                 <div>
                   <div v-if="value.medias.length === 1">
                     <img :src="value.medias[0].url" alt=""
-                      class="w-full h-[280px] object-cover border-2 cursor-pointer" />
+                      class="w-full h-[280px] object-content border-2 cursor-pointer" />
                   </div>
                   <div class="grid grid-cols-2 gap-1" v-if="value.medias.length === 2">
                     <img :src="value.medias[0].url" alt=""
-                      class="w-full h-[280px] object-cover border-2 cursor-pointer" />
+                      class="w-full h-[280px] object-content border-2 cursor-pointer" />
                     <img :src="value.medias[1].url" alt=""
-                      class="w-full h-[280px] object-cover border-2 cursor-pointer" />
+                      class="w-full h-[280px] object-content border-2 cursor-pointer" />
                   </div>
                   <div class="grid grid-cols-3 gap-1" v-if="value.medias.length === 3">
-                    <img :src="value.medias[0].url" alt="" class="col-span-2 w-full" />
+                    <img :src="value.medias[0].url" alt="" class="col-span-2 w-full cursor-pointer h-full" />
                     <div>
                       <img :src="value.medias[1].url" alt=""
-                        class="w-full h-[140px] object-cover border-2 cursor-pointer" />
+                        class="w-full h-[140px] object-content border-2 cursor-pointer" />
                       <img :src="value.medias[2].url" alt=""
-                        class="w-full h-[140px] object-cover border-2 cursor-pointer" />
+                        class="w-full h-[140px] object-content border-2 cursor-pointer" />
                     </div>
                   </div>
                   <div class="grid grid-cols-2 gap-1" v-if="value.medias.length === 4">
                     <img :src="value.medias[0].url" alt=""
-                      class="w-full h-[280px] object-cover border-2 cursor-pointer" />
+                      class="w-full h-[280px] object-content border-2 cursor-pointer" />
                     <img :src="value.medias[1].url" alt=""
-                      class="w-full h-[280px] object-cover border-2 cursor-pointer" />
+                      class="w-full h-[280px] object-content border-2 cursor-pointer" />
                     <img :src="value.medias[2].url" alt=""
-                      class="w-full h-[280px] object-cover border-2 cursor-pointer" />
+                      class="w-full h-[280px] object-content border-2 cursor-pointer" />
                     <img :src="value.medias[3].url" alt=""
-                      class="w-full h-[280px] object-cover border-2 cursor-pointer" />
+                      class="w-full h-[280px] object-content border-2 cursor-pointer" />
                   </div>
                   <div class="grid grid-cols-6 gap-1" v-if="value.medias.length === 5">
                     <div class="col-span-3">
                       <img :src="value.medias[0].url" alt=""
-                        class="w-full h-[280px] object-cover border-2 cursor-pointer" />
+                        class="w-full h-[280px] object-content border-2 cursor-pointer" />
                     </div>
                     <div class="col-span-3">
                       <img :src="value.medias[1].url" alt=""
-                        class="w-full h-[280px] object-cover border-2 cursor-pointer" />
+                        class="w-full h-[280px] object-content border-2 cursor-pointer" />
                     </div>
                     <div class="col-span-2">
                       <img :src="value.medias[2].url" alt=""
-                        class="w-full h-[280px] object-cover border-2 cursor-pointer" />
+                        class="w-full h-[280px] object-content border-2 cursor-pointer" />
                     </div>
                     <div class="col-span-2">
                       <img :src="value.medias[3].url" alt=""
-                        class="w-full h-[280px] object-cover border-2 cursor-pointer" />
+                        class="w-full h-[280px] object-content border-2 cursor-pointer" />
                     </div>
                     <div class="col-span-2">
                       <img :src="value.medias[4].url" alt=""
-                        class="w-full h-[280px] object-cover border-2 cursor-pointer" />
+                        class="w-full h-[280px] object-content border-2 cursor-pointer" />
                     </div>
                   </div>
                   <div class="grid grid-cols-6 gap-1" v-if="value.medias.length === 6">
                     <div class="col-span-3">
                       <img :src="value.medias[0].url" alt=""
-                        class="w-full h-[280px] object-cover border-2 cursor-pointer" />
+                        class="w-full h-[280px] object-content border-2 cursor-pointer" />
                     </div>
                     <div class="col-span-3">
                       <img :src="value.medias[1].url" alt=""
-                        class="w-full h-[280px] object-cover border-2 cursor-pointer" />
+                        class="w-full h-[280px] object-content border-2 cursor-pointer" />
                     </div>
                     <div class="col-span-2">
                       <img :src="value.medias[2].url" alt=""
-                        class="w-full h-[280px] object-cover border-2 cursor-pointer" />
+                        class="w-full h-[280px] object-content border-2 cursor-pointer" />
                     </div>
                     <div class="col-span-2">
                       <img :src="value.medias[3].url" alt=""
-                        class="w-full h-[280px] object-cover border-2 cursor-pointer" />
+                        class="w-full h-[280px] object-content border-2 cursor-pointer" />
                     </div>
                     <div class="col-span-2 relative main">
                       <div class="w-full h-full -z-10">
                         <img :src="value.medias[4].url" alt=""
-                          class="w-full h-[280px] object-cover border-2 cursor-pointer" />
+                          class="w-full h-[280px] object-content border-2 cursor-pointer" />
                       </div>
                       <div class="activeFull z-30 text-white text-lg"></div>
                     </div>
@@ -286,15 +286,9 @@
                   <div
                     class="flex gap-2 w-full items-center justify-center p-2 hover:bg-myGray-900 cursor-pointer rounded-lg my-1 transition-colors duration-300"
                     data-bs-toggle="modal" data-bs-target="#modalComment"
-                    @click="indexModalComment = index; console.log(allNewFeed[indexModalComment])">
+                    @click="handleDetailPost(index); contentComment = ''">
                     <svg-comment class="w-5" />
                     <span>Comment</span>
-
-
-
-
-
-
                   </div>
                   <div data-bs-toggle="modal" data-bs-target="#share_posts"
                     class="flex gap-2 w-full items-center justify-center p-2 hover:bg-myGray-900 cursor-pointer rounded-lg my-1 transition-colors duration-300">
@@ -330,9 +324,8 @@
                         class="flex w-full outline-none focus:outline-none ring-transparent bg-slate-100 rounded-2xl">
                         <input
                           class="w-full bg-transparent px-3 outline-none border-0 rounded-2xl focus:outline-none focus:ring-transparent focus:border-black cursor-pointer"
-                          type="text" placeholder="Write a public comment..." v-model="content_comment"
-                          data-bs-toggle="modal" data-bs-target="#modalComment"
-                          @click="indexModalComment = index; console.log(allNewFeed[indexModalComment])"
+                          type="text" placeholder="Write a public comment..." data-bs-toggle="modal"
+                          data-bs-target="#modalComment" @click=" handleDetailPost(index); contentComment = ''"
                           v-on:keyup.enter="conmentPost(index)" />
                         <div id="me_comment_buttons" class="flex items-center">
                           <div class="p-2 rounded-full cursor-pointer transition-colors duration-300">
@@ -362,11 +355,11 @@
             <!-- modal comment -->
             <div class="modal fade" id="modalComment" tabindex="-1" aria-labelledby="modalCommentLabel"
               aria-hidden="true">
-              <div class="modal-dialog modal-lg">
+              <div class="modal-dialog modal-dialog-scrollable modal-lg">
                 <div class="modal-content">
                   <div class="modal-header">
                     <h1 class="modal-title fs-5 text-2xl font-bold" id="modalCommentLabel">Bài viết của {{
-                      allNewFeed[indexModalComment] ? allNewFeed[indexModalComment].user.name : '' }}</h1>
+                      valueDetailPost && valueDetailPost.user ? valueDetailPost.user.name : '' }}</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
@@ -376,111 +369,102 @@
                           <div id="post-top_left_pp"
                             class="ring-2 ring-blue-500 ring-opacity-70 border-2 border-black w-max rounded-full cursor-pointer">
                             <img
-                              :src="allNewFeed[indexModalComment] ? allNewFeed[indexModalComment].user.avatar : avatar"
+                              :src="valueDetailPost && valueDetailPost.user && valueDetailPost.user.avatar ? valueDetailPost.user.avatar : avatar"
                               class="w-8 h-8 rounded-full" alt="" />
                           </div>
                           <div id="post-top_left_title">
                             <p class="hover:underline cursor-pointer font-bold capitalize">
-                              {{ value.user.name }}
+                              {{ valueDetailPost && valueDetailPost.user ? valueDetailPost.user.name : '' }}
                             </p>
                             <p class="flex text-xs mt-1 items-center">
                               <span class="hover:underline cursor-pointer">{{
-                                dinhDangNgay(value.user.create_at)
+                                dinhDangNgay(valueDetailPost && valueDetailPost.user ? valueDetailPost.user.create_at :
+                                  '')
                               }}</span>
                               <span class="mx-1">·</span>
                               <svg-world class="w-3" />
                             </p>
                           </div>
                         </div>
-                        <div id="post-top_right" class="flex items-center">
-                          <div
-                            class="w-[32px] h-[32px] rounded-full flex items-center justify-center hover:bg-gray-200 cursor-pointer duration-300">
-                            <svg-dots class="w-4" />
-                          </div>
-                          <div
-                            class="w-[32px] h-[32px] rounded-full flex items-center justify-center hover:bg-gray-200 cursor-pointer duration-300">
-                            <X class="w-10" />
-                          </div>
-                        </div>
                       </div>
                       <div id="post-middle">
                         <div class="font-normal leading-5 text-sm p-4 py-2">
-                          {{ value.content }}
+                          {{ valueDetailPost ? valueDetailPost.content : '' }}
                           <!-- Các trường hợp khác có thể tiếp tục ở đây -->
                         </div>
                         <div>
-                          <div v-if="value.medias.length === 1">
-                            <img :src="value.medias[0].url" alt=""
-                              class="w-full h-[280px] object-cover border-2 cursor-pointer" />
+                          <div v-if="valueDetailPost?.medias?.length === 1">
+                            <img :src="valueDetailPost.medias[0].url" alt=""
+                              class="w-full h-[280px] object-content border-2 cursor-pointer" />
                           </div>
-                          <div class="grid grid-cols-2 gap-1" v-if="value.medias.length === 2">
-                            <img :src="value.medias[0].url" alt=""
-                              class="w-full h-[280px] object-cover border-2 cursor-pointer" />
-                            <img :src="value.medias[1].url" alt=""
-                              class="w-full h-[280px] object-cover border-2 cursor-pointer" />
+                          <div class="grid grid-cols-2 gap-1" v-if="valueDetailPost?.medias?.length === 2">
+                            <img :src="valueDetailPost.medias[0].url" alt=""
+                              class="w-full h-[280px] object-content border-2 cursor-pointer" />
+                            <img :src="valueDetailPost.medias[1].url" alt=""
+                              class="w-full h-[280px] object-content border-2 cursor-pointer" />
                           </div>
-                          <div class="grid grid-cols-3 gap-1" v-if="value.medias.length === 3">
-                            <img :src="value.medias[0].url" alt="" class="col-span-2 w-full" />
+                          <div class="grid grid-cols-3 gap-1" v-if="valueDetailPost?.medias?.length === 3">
+                            <img :src="valueDetailPost.medias[0].url" alt="" class="col-span-2 w-full" />
                             <div>
-                              <img :src="value.medias[1].url" alt=""
-                                class="w-full h-[140px] object-cover border-2 cursor-pointer" />
-                              <img :src="value.medias[2].url" alt=""
-                                class="w-full h-[140px] object-cover border-2 cursor-pointer" />
+                              <img :src="valueDetailPost.medias[1].url" alt=""
+                                class="w-full h-[140px] object-content border-2 cursor-pointer" />
+                              <img :src="valueDetailPost.medias[2].url" alt=""
+                                class="w-full h-[140px] object-content border-2 cursor-pointer" />
                             </div>
                           </div>
-                          <div class="grid grid-cols-2 gap-1" v-if="value.medias.length === 4">
-                            <img :src="value.medias[0].url" alt=""
-                              class="w-full h-[280px] object-cover border-2 cursor-pointer" />
-                            <img :src="value.medias[1].url" alt=""
-                              class="w-full h-[280px] object-cover border-2 cursor-pointer" />
-                            <img :src="value.medias[2].url" alt=""
-                              class="w-full h-[280px] object-cover border-2 cursor-pointer" />
-                            <img :src="value.medias[3].url" alt=""
-                              class="w-full h-[280px] object-cover border-2 cursor-pointer" />
+                          <div class="grid grid-cols-2 gap-1" v-if="valueDetailPost?.medias?.length === 4">
+                            <img :src="valueDetailPost.medias[0].url" alt=""
+                              class="w-full h-[280px] object-content border-2 cursor-pointer" />
+                            <img :src="valueDetailPost.medias[1].url" alt=""
+                              class="w-full h-[280px] object-content border-2 cursor-pointer" />
+                            <img :src="valueDetailPost.medias[2].url" alt=""
+                              class="w-full h-[280px] object-content border-2 cursor-pointer" />
+                            <img :src="valueDetailPost.medias[3].url" alt=""
+                              class="w-full h-[280px] object-content border-2 cursor-pointer" />
                           </div>
-                          <div class="grid grid-cols-6 gap-1" v-if="value.medias.length === 5">
+                          <div class="grid grid-cols-6 gap-1" v-if="valueDetailPost?.medias?.length === 5">
                             <div class="col-span-3">
-                              <img :src="value.medias[0].url" alt=""
-                                class="w-full h-[280px] object-cover border-2 cursor-pointer" />
+                              <img :src="valueDetailPost.medias[0].url" alt=""
+                                class="w-full h-[280px] object-content border-2 cursor-pointer" />
                             </div>
                             <div class="col-span-3">
-                              <img :src="value.medias[1].url" alt=""
-                                class="w-full h-[280px] object-cover border-2 cursor-pointer" />
+                              <img :src="valueDetailPost.medias[1].url" alt=""
+                                class="w-full h-[280px] object-content border-2 cursor-pointer" />
                             </div>
                             <div class="col-span-2">
-                              <img :src="value.medias[2].url" alt=""
-                                class="w-full h-[280px] object-cover border-2 cursor-pointer" />
+                              <img :src="valueDetailPost.medias[2].url" alt=""
+                                class="w-full h-[280px] object-content border-2 cursor-pointer" />
                             </div>
                             <div class="col-span-2">
-                              <img :src="value.medias[3].url" alt=""
-                                class="w-full h-[280px] object-cover border-2 cursor-pointer" />
+                              <img :src="valueDetailPost.medias[3].url" alt=""
+                                class="w-full h-[280px] object-content border-2 cursor-pointer" />
                             </div>
                             <div class="col-span-2">
-                              <img :src="value.medias[4].url" alt=""
-                                class="w-full h-[280px] object-cover border-2 cursor-pointer" />
+                              <img :src="valueDetailPost.medias[4].url" alt=""
+                                class="w-full h-[280px] object-content border-2 cursor-pointer" />
                             </div>
                           </div>
-                          <div class="grid grid-cols-6 gap-1" v-if="value.medias.length === 6">
+                          <div class="grid grid-cols-6 gap-1" v-if="valueDetailPost?.medias?.length === 6">
                             <div class="col-span-3">
-                              <img :src="value.medias[0].url" alt=""
-                                class="w-full h-[280px] object-cover border-2 cursor-pointer" />
+                              <img :src="valueDetailPost.medias[0].url" alt=""
+                                class="w-full h-[280px] object-content border-2 cursor-pointer" />
                             </div>
                             <div class="col-span-3">
-                              <img :src="value.medias[1].url" alt=""
-                                class="w-full h-[280px] object-cover border-2 cursor-pointer" />
+                              <img :src="valueDetailPost.medias[1].url" alt=""
+                                class="w-full h-[280px] object-content border-2 cursor-pointer" />
                             </div>
                             <div class="col-span-2">
-                              <img :src="value.medias[2].url" alt=""
-                                class="w-full h-[280px] object-cover border-2 cursor-pointer" />
+                              <img :src="valueDetailPost.medias[2].url" alt=""
+                                class="w-full h-[280px] object-content border-2 cursor-pointer" />
                             </div>
                             <div class="col-span-2">
-                              <img :src="value.medias[3].url" alt=""
-                                class="w-full h-[280px] object-cover border-2 cursor-pointer" />
+                              <img :src="valueDetailPost.medias[3].url" alt=""
+                                class="w-full h-[280px] object-content border-2 cursor-pointer" />
                             </div>
                             <div class="col-span-2 relative main">
                               <div class="w-full h-full -z-10">
-                                <img :src="value.medias[4].url" alt=""
-                                  class="w-full h-[280px] object-cover border-2 cursor-pointer" />
+                                <img :src="valueDetailPost.medias[4].url" alt=""
+                                  class="w-full h-[280px] object-content border-2 cursor-pointer" />
                               </div>
                               <div class="activeFull z-30 text-white text-lg"></div>
                             </div>
@@ -507,16 +491,9 @@
                             <span>Like</span>
                           </div>
                           <div
-                            class="flex gap-2 w-full items-center justify-center p-2 hover:bg-myGray-900 cursor-pointer rounded-lg my-1 transition-colors duration-300"
-                            data-bs-toggle="modal" data-bs-target="#modalComment">
+                            class="flex gap-2 w-full items-center justify-center p-2 hover:bg-myGray-900 cursor-pointer rounded-lg my-1 transition-colors duration-300">
                             <svg-comment class="w-5" />
                             <span>Comment</span>
-
-
-
-
-
-
                           </div>
                           <div data-bs-toggle="modal" data-bs-target="#share_posts"
                             class="flex gap-2 w-full items-center justify-center p-2 hover:bg-myGray-900 cursor-pointer rounded-lg my-1 transition-colors duration-300">
@@ -550,11 +527,11 @@
                             <div class="flex w-full flex-col">
                               <div id="me_comment"
                                 class="flex w-full outline-none focus:outline-none ring-transparent bg-slate-100 rounded-2xl">
+                                <!-- input Comment -->
                                 <input
-                                  class="w-full bg-transparent px-3 outline-none border-0 rounded-2xl focus:outline-none focus:ring-transparent focus:border-black cursor-pointer"
-                                  type="text" placeholder="Write a public comment..." v-model="content_comment"
-                                  data-bs-toggle="modal" data-bs-target="#modalComment"
-                                  v-on:keyup.enter="conmentPost(index)" />
+                                  class="w-full bg-transparent px-3 outline-none border-0 rounded-2xl focus:outline-none focus:ring-transparent focus:border-black"
+                                  type="text" placeholder="Write a public comment..." v-model="contentComment"
+                                  v-on:keyup.enter="commentPost(valueDetailPost._id)" />
                                 <div id="me_comment_buttons" class="flex items-center">
                                   <div class="p-2 rounded-full cursor-pointer transition-colors duration-300">
                                     <svg-smile class="w-4 text-myGray-600" />
@@ -715,7 +692,7 @@
 
     <!-- modal create -->
     <div class="modal fade" id="create_posts" tabindex="-1" aria-labelledby="create_post" aria-hidden="true">
-      <div class="modal-dialog">
+      <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
           <div class="modal-header">
             <h3 class="modal-title flex justify-center text-2xl font-bold text-blue-500" id="exampleModalLabel">
@@ -748,7 +725,7 @@
 
               <div class="h-[200px] overflow-auto" v-if="media[0]">
                 <div v-for="(value, index) in media" :key="index" class="my-3 relative">
-                  <img v-if="value.url" :src="value.url" alt="" class="w-full h-[280px] object-cover border" />
+                  <img v-if="value.url" :src="value.url" alt="" class="w-full h-[280px] object-content border" />
                   <X class="absolute top-1 right-1 text-4xl hover:text-gray-500 cursor-pointer"
                     @click="handleDeleteMedia(index)" />
                 </div>
@@ -963,15 +940,6 @@ import baseRequest from '@/baseAPI/baseRequest'
 import axios from 'axios'
 import { useToast } from 'vue-toast-notification'
 export default {
-  props: {
-    userCurrent: {
-      Type: Object,
-      default: {}
-    }
-  },
-  mounted() {
-    this.getDataNewFeed()
-  },
   components: {
     svgCreate,
     svgLiveVideo,
@@ -991,6 +959,18 @@ export default {
     Ellipsis,
     Repeat
   },
+  mounted() {
+    this.getDataNewFeed()
+    this.userCurrent = JSON.parse(localStorage.getItem('profile'))
+    if (this.userCurrent && this.userCurrent.name) {
+      this.placeholder = `${this.userCurrent.name} ơi, bạn đang nghĩ gì thế?`;
+      this.placeholderPre = `${this.userCurrent.name} ơi, bạn đang nghĩ gì thế?`;
+    }
+    else {
+      this.placeholder = 'Bạn đang nghĩ gì thế?';
+      this.placeholderPre = 'Bạn đang nghĩ gì thế?';
+    }
+  },
   data() {
     return {
       showModalCreatePost: false,
@@ -1009,17 +989,21 @@ export default {
       allNewFeed: [],
       like: '',
       statusLike: false,
-      content_comment: '',
+      userCurrent: {},
       indexModalComment: -1,
-      placeholder: this.userCurrent.name + ' ơi , bạn đang nghĩ gì thế?'
+      placeholder: '',
+      valueDetailPost: -1,
+      contentComment: '',
+      placeholderPre: ''
     }
   },
   methods: {
     handleFileUpload(event) {
       this.fileup = event.target.files[0]
       this.upFile()
+      this.$refs.fileInput.value = '';
     },
-    upFile() {
+    async upFile() {
       if (!this.fileup) {
         console.error('Chưa chọn file.')
         return
@@ -1027,7 +1011,7 @@ export default {
       const formData = new FormData()
       formData.append('image', this.fileup)
 
-      axios
+      await axios
         .post('http://localhost:4000/medias/upload-image', formData, {
           headers: {
             Authorization: 'Bearer ' + localStorage.getItem('access_token'),
@@ -1035,7 +1019,6 @@ export default {
           }
         })
         .then((res) => {
-          // Kiểm tra trạng thái của phản hồi
           if (res.status >= 200 && res.status < 300) {
             console.log(res)
             this.media.push({
@@ -1045,6 +1028,7 @@ export default {
             this.$toast.success('Upload file thành công', {
               position: 'bottom-right'
             })
+            this.fileup = ''
           } else {
             console.error('Lỗi:', res.status)
             console.log(res)
@@ -1129,7 +1113,7 @@ export default {
         }
       }
     },
-    likePost(index) {
+    async likePost(index) {
       const post_id = this.allNewFeed[index]._id
       console.log('>>>>', post_id);
 
@@ -1138,7 +1122,7 @@ export default {
           post_id: post_id
         }
 
-        baseRequest
+        await baseRequest
           .post('/likes', payload)
           .then((res) => {
             this.$toast.success('Like thành công', {
@@ -1152,7 +1136,7 @@ export default {
           })
       } else {
         // Nếu đã like, thực hiện yêu cầu DELETE
-        baseRequest
+        await baseRequest
           .delete(`/likes/post/${post_id}`)
           .then((res) => {
             console.log(res.data)
@@ -1167,29 +1151,7 @@ export default {
           })
       }
     },
-    conmentPost(index) {
-      const payload = {
-        post_id: this.allNewFeed[index]._id,
-        content: this.content_comment
-      }
-      console.log(payload)
-      if (this.content_comment.trim() != '') {
-        baseRequest
-          .post('/comments', payload)
-          .then((res) => {
-            this.allNewFeed = res.data.result
-            console.log(res.data.result)
-            this.content_comment = ''
-            this.$toast.success('Comment thành công', {
-              position: 'bottom-right'
-            })
-            this.getDataNewFeed()
-          })
-          .catch((errors) => {
-            console.log(errors)
-          })
-      }
-    },
+
     handlePaste(event) {
       const clipboardData = event.clipboardData || window.clipboardData
       const items = clipboardData.items
@@ -1205,12 +1167,13 @@ export default {
         } else if (item.type === 'text/plain') {
           item.getAsString((url) => {
             if (this.isImageUrl(url)) {
+              
               this.media.push({ url: url, type: 0 })
             }
           })
         }
       }
-      event.preventDefault() // Ngăn chặn hành động mặc định của clipboard
+      event.preventDefault()
       console.log(this.media)
     },
     isImageUrl(url) {
@@ -1218,7 +1181,36 @@ export default {
     },
     handleDeleteMedia(index) {
       if (index >= 0) this.media.splice(index, 1)
-    }
+    },
+    handleDetailPost(index) {
+      this.valueDetailPost = this.allNewFeed[index]
+      console.log('>>>>>>', this.valueDetailPost);
+    },
+    async commentPost(id) {
+      const payload = {
+        post_id: id,
+        content: this.contentComment
+      }
+      console.log(payload)
+      if (this.contentComment.trim() != '') {
+        await baseRequest
+          .post('/comments', payload)
+          .then((res) => {
+            console.log(res.data);
+            this.contentComment = ''
+            this.$toast.success('Comment thành công', {
+              position: 'bottom-right'
+            })
+            this.getDataNewFeed()
+          })
+          .catch((errors) => {
+            console.log(errors)
+          })
+      }
+    },
+  },
+  computed: {
+
   }
 }
 </script>

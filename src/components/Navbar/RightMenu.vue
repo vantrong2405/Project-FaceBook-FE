@@ -1,3 +1,4 @@
+<!-- eslint-disable no-undef -->
 <template>
   <div class="flex items-center gap-1 sm:gap-2 justify-end px-4">
     <div id="menu-box"
@@ -771,6 +772,10 @@ export default {
       Type: Object,
       default: {}
     }
+  },
+  mounted() {
+    // eslint-disable-next-line no-undef
+    console.log(this.userCurrent);
   },
   components: {
     svgMenu,
