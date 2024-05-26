@@ -629,33 +629,18 @@
       <div>
         <div class="bg-white m-3 p-1 box-border border-solid border-2 rounded-xl shadow-sm">
           <div class="mx-1 my-1 hover:bg-gray-100 rounded-xl">
-            <a href="" class="flex">
+            <router-link to="/profile" class="flex">
               <div>
                 <img class="w-10 h-10 mx-1 rounded-full my-2"
                   src="https://web.hn.ss.bfcplatform.vn/muadienmay/content/article2/0878913035-1620532649.jpg" alt="" />
               </div>
               <div>
-                <p class="font-semibold my-1 mt-3 mx-2 text-base">Thiện Ân</p>
+                <p class="font-semibold my-1 mt-3 mx-2 text-base">{{ userCurrent.name }}</p>
               </div>
-            </a>
+            </router-link>
           </div>
 
-          <hr class="mx-2 my-1" />
-
-          <div class="mx-1 my-1 hover:bg-gray-100 rounded-xl">
-            <a href="" class="flex">
-              <div>
-                <img class="w-10 h-10 mx-1 rounded-full my-2"
-                  src="https://web.hn.ss.bfcplatform.vn/muadienmay/content/article2/0878913035-1620532649.jpg" alt="" />
-              </div>
-              <div>
-                <p class="font-semibold my-1 mt-3 mx-2 text-base">Page chưa đặt tên</p>
-              </div>
-            </a>
-          </div>
-
-          <hr class="mx-2 mb-2" />
-
+          <hr class="mx-2 my-2" />
           <a href="https://www.facebook.com/notifications"
             class="bg-gray-200 hover:bg-gray-400 py-2 mx-2 mb-3 flex rounded-lg focus:hidden">
             <div class="mx-auto flex items-center">
@@ -767,14 +752,10 @@ import baseRequest from '@/baseAPI/baseRequest'
 import { useToast } from 'vue-toast-notification'
 import 'vue-toast-notification/dist/theme-sugar.css'
 export default {
-  props: {
-    userCurrent: {
-      Type: Object,
-      default: {}
-    }
-  },
+
   mounted() {
     // eslint-disable-next-line no-undef
+    this.userCurrent = JSON.parse(localStorage.getItem('profile'))
     console.log(this.userCurrent);
   },
   components: {
@@ -808,7 +789,8 @@ export default {
       isShowMessager: false, // khai báo 1 biến isSHow = false
       isShowNotice: false,
       isShowMore: false,
-      avatar: 'https://cellphones.com.vn/sforum/wp-content/uploads/2023/10/avatar-trang-4.jpg'
+      avatar: 'https://cellphones.com.vn/sforum/wp-content/uploads/2023/10/avatar-trang-4.jpg',
+      userCurrent: {}
     }
   },
   methods: {

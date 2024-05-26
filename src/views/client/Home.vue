@@ -297,7 +297,7 @@
                   </div>
                 </div>
                 <div id="post-bottom-comments ">
-                  <div id="other" class="flex gap-2 my-2">
+                  <div id="other" class="flex gap-2 my-2" v-for="index in 3" :key="index">
                     <div id="other_pp">
                       <img src="https://cellphones.com.vn/sforum/wp-content/uploads/2023/10/avatar-trang-4.jpg"
                         class="w-9 h-9 rounded-full cursor-pointer" alt="" />
@@ -502,7 +502,7 @@
                           </div>
                         </div>
                         <div id="post-bottom-comments ">
-                          <div id="other" class="flex gap-2 my-2">
+                          <div id="other" class="flex gap-2 my-2" v-for="index in 10" :key="index">
                             <div id="other_pp">
                               <img src="https://cellphones.com.vn/sforum/wp-content/uploads/2023/10/avatar-trang-4.jpg"
                                 class="w-9 h-9 rounded-full cursor-pointer" alt="" />
@@ -1167,7 +1167,7 @@ export default {
         } else if (item.type === 'text/plain') {
           item.getAsString((url) => {
             if (this.isImageUrl(url)) {
-              
+
               this.media.push({ url: url, type: 0 })
             }
           })
