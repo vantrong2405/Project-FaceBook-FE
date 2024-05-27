@@ -1,11 +1,7 @@
 <!-- eslint-disable vue/valid-v-model -->
 <template>
-  <!-- start -->
-
   <input type="file" hidden name="file" ref="fileInput" id="file" @change="handleFileUpload" />
   <!-- <button class="btn btn-primary" @click="upFile">Đưa ảnh lên</button> -->
-
-  <!-- end -->
   <div class="bg-[#F0F2F5] w-full min-h-screen">
     <div class="flex">
       <div class="w-80 hidden xl:block bg-white shadow-sm min-h-screen">
@@ -162,7 +158,7 @@
                     </p>
                     <p class="flex text-xs mt-1 items-center">
                       <span class="hover:underline cursor-pointer">{{
-                        dinhDangNgay(value.user.create_at)
+                        dinhDangNgay(value?.created_at ?? '')
                       }}</span>
                       <span class="mx-1">·</span>
                       <svg-world class="w-3" />
@@ -279,7 +275,7 @@
                   class="font-normal text-sm sm:text-tiny flex items-center my-2 border-b border-t border-myGray-900">
                   <div
                     class="flex gap-2 w-full items-center justify-center p-2 hover:bg-myGray-900 cursor-pointer rounded-lg my-1 transition-colors duration-300 "
-                    :class="{ 'text-[#0861f2]': value.likes == 1 }" @click="likePost(index)">
+                    :class="{ 'text-[#0861f2]': value.likes == 1 }" @click="likePost(index, 'newFeed')">
                     <i class="fa-solid fa-thumbs-up text-2xl"></i>
                     <span>Like</span>
                   </div>
@@ -378,8 +374,7 @@
                             </p>
                             <p class="flex text-xs mt-1 items-center">
                               <span class="hover:underline cursor-pointer">{{
-                                dinhDangNgay(valueDetailPost && valueDetailPost.user ? valueDetailPost.user.create_at :
-                                  '')
+                                dinhDangNgay(valueDetailPost ? valueDetailPost.created_at : '')
                               }}</span>
                               <span class="mx-1">·</span>
                               <svg-world class="w-3" />
@@ -486,7 +481,8 @@
                           class="font-normal text-sm sm:text-tiny flex items-center my-2 border-b border-t border-myGray-900">
                           <div
                             class="flex gap-2 w-full items-center justify-center p-2 hover:bg-myGray-900 cursor-pointer rounded-lg my-1 transition-colors duration-300 "
-                            :class="{ 'text-[#0861f2]': value.likes == 1 }" @click="likePost(index)">
+                            :class="{ 'text-[#0861f2]': value.likes == 1 }"
+                            @click="likePost(valueDetailPost._id, 'detail');">
                             <i class="fa-solid fa-thumbs-up text-2xl"></i>
                             <span>Like</span>
                           </div>
@@ -1045,30 +1041,36 @@ export default {
       this.$refs.fileInput.click()
     },
     postArticle() {
-      const obj = {
-        visibility: 1,
-        content: this.content,
-        mentions: [],
-        medias: this.media
-      }
-      console.log('>>>>>>>>>>>', obj)
+      if (this.content.trim() != '' || this.media.length > 0) {
+        const obj = {
+          visibility: 1,
+          content: this.content,
+          mentions: [],
+          medias: this.media
+        }
+        console.log('>>>>>>>>>>>', obj)
 
-      baseRequest
-        .post('/posts', obj)
-        .then((res) => {
-          this.$toast.success('Tạo bài viết thành công', {
-            position: 'bottom-right'
+        baseRequest
+          .post('/posts', obj)
+          .then((res) => {
+            this.$toast.success('Tạo bài viết thành công', {
+              position: 'bottom-right'
+            })
+            this.getDataNewFeed()
+            this.content = ''
+            this.media = []
           })
-          this.getDataNewFeed()
-          this.content = ''
-          this.media = []
-        })
-        .catch((errors) => {
-          console.log(errors)
-          this.$toast.error('Lỗi khi tạo bài viết', {
-            position: 'bottom-right'
+          .catch((errors) => {
+            console.log(errors)
+            this.$toast.error('Lỗi khi tạo bài viết', {
+              position: 'bottom-right'
+            })
           })
+      } else {
+        this.$toast.error('Bài viết chưa có nội dung', {
+          position: 'bottom-right'
         })
+      }
     },
     getDataNewFeed() {
       axios
@@ -1091,37 +1093,51 @@ export default {
         })
     },
     chuyenDoiChuoiNgay(chuoiNgay) {
-      return new Date(chuoiNgay)
+      return new Date(chuoiNgay);
     },
     dinhDangNgay(chuoiNgay) {
-      var ngayHienTai = new Date()
-      var ngayGoc = this.chuyenDoiChuoiNgay(chuoiNgay)
-      var khoangCach = Math.abs(ngayHienTai - ngayGoc)
+      const ngayHienTai = new Date();
+      const ngayGoc = this.chuyenDoiChuoiNgay(chuoiNgay);
 
-      var phut = Math.floor(khoangCach / 60000)
+      if (isNaN(ngayGoc.getTime())) {
+        return 'Ngày không hợp lệ';
+      }
+      const khoangCach = ngayHienTai - ngayGoc;
+      const giay = Math.floor(khoangCach / 1000);
+      const phut = Math.floor(giay / 60);
+      const gio = Math.floor(phut / 60);
+      const ngay = Math.floor(gio / 24);
+      const thang = Math.floor(ngay / 30);
+      const nam = Math.floor(thang / 12);
 
       if (phut < 60) {
-        return phut + ' phút trước'
+        return `${phut} phút trước`;
+      } else if (gio < 24) {
+        return `${gio} giờ trước`;
+      } else if (ngay < 30) {
+        return `${ngay} ngày trước`;
+      } else if (thang < 12) {
+        return `${thang} tháng trước`;
       } else {
-        var gio = Math.floor(phut / 60)
-
-        if (gio < 24) {
-          return gio + ' giờ trước'
-        } else {
-          var ngay = Math.floor(gio / 24)
-          return ngay + ' ngày trước'
-        }
+        return `${nam} năm trước`;
       }
-    },
-    async likePost(index) {
-      const post_id = this.allNewFeed[index]._id
+    }
+    ,
+    async likePost(index, type) {
+      var payload = {}
+      console.log('>>>>>>.', index);
+      const post_id = this.allNewFeed?.[index]?._id ?? ''
       console.log('>>>>', post_id);
-
-      if (!this.statusLike) {
-        const payload = {
+      if (type == 'newFeed') {
+        payload = {
           post_id: post_id
         }
-
+      } else {
+        payload = {
+          post_id: index
+        }
+      }
+      if (!this.statusLike) {
         await baseRequest
           .post('/likes', payload)
           .then((res) => {
@@ -1137,7 +1153,7 @@ export default {
       } else {
         // Nếu đã like, thực hiện yêu cầu DELETE
         await baseRequest
-          .delete(`/likes/post/${post_id}`)
+          .delete(`/likes/post/${payload.post_id}`)
           .then((res) => {
             console.log(res.data)
             this.$toast.error('Hủy like thành công', {
@@ -1167,14 +1183,12 @@ export default {
         } else if (item.type === 'text/plain') {
           item.getAsString((url) => {
             if (this.isImageUrl(url)) {
-
               this.media.push({ url: url, type: 0 })
             }
           })
         }
       }
       event.preventDefault()
-      console.log(this.media)
     },
     isImageUrl(url) {
       return /\.(jpeg|jpg|gif|png|webp)$/.test(url)
@@ -1184,7 +1198,6 @@ export default {
     },
     handleDetailPost(index) {
       this.valueDetailPost = this.allNewFeed[index]
-      console.log('>>>>>>', this.valueDetailPost);
     },
     async commentPost(id) {
       const payload = {
