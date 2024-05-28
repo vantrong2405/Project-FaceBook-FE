@@ -1072,26 +1072,26 @@ export default {
         })
       }
     },
-    getDataNewFeed() {
-      axios
-        .get('http://localhost:4000/posts', {
-          headers: {
-            Authorization: 'Bearer ' + localStorage.getItem('access_token'),
-            params: {
-              limit: 5,
-              page: 1
+      getDataNewFeed() {
+        axios
+          .get('http://localhost:4000/posts', {
+            headers: {
+              Authorization: 'Bearer ' + localStorage.getItem('access_token'),
+              params: {
+                limit: 5,
+                page: 1
+              }
             }
-          }
-        })
-        .then((res) => {
-          this.allNewFeed = res.data.result
-          this.allNewFeed.reverse()
-          console.log(res.data.result)
-        })
-        .catch((errors) => {
-          console.log(errors)
-        })
-    },
+          })
+          .then((res) => {
+            this.allNewFeed = res.data.result
+            this.allNewFeed.reverse()
+            console.log(res.data.result)
+          })
+          .catch((errors) => {
+            console.log(errors)
+          })
+      },
     chuyenDoiChuoiNgay(chuoiNgay) {
       return new Date(chuoiNgay);
     },
