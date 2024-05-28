@@ -756,7 +756,6 @@ export default {
   mounted() {
     // eslint-disable-next-line no-undef
     this.userCurrent = JSON.parse(localStorage.getItem('profile'))
-    console.log(this.userCurrent);
   },
   components: {
     svgMenu,

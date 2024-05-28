@@ -24,8 +24,7 @@
             <div id="new-post" class="h-32 p-2 rounded-lg flex flex-col justify-between">
               <div id="new-post-top" class="p-1 flex gap-3 items-center">
                 <div class="_pp_ cursor-pointer">
-                  <img src="https://cellphones.com.vn/sforum/wp-content/uploads/2023/10/avatar-trang-4.jpg"
-                    class="w-10 rounded-full" alt="" />
+                  <img :src="userCurrent.avatar ? userCurrent.avatar : avatar" class="w-10 rounded-full" alt="" />
                 </div>
                 <input data-bs-toggle="modal" data-bs-target="#create_posts"
                   class="cursor-pointer w-full h-10 rounded-full border-[0px] bg-[#F0F2F5] hover:bg-[#E4E6E9] outline-none text-tiny px-3 font-semibold transition-colors mobile-x:text-base focus:outline-none focus:shadow-none focus:ring-transparent"
@@ -57,8 +56,7 @@
                 <div id="post-top_left" class="flex items-center gap-2">
                   <div id="post-top_left_pp"
                     class="ring-2 ring-blue-500 ring-opacity-70 border-2 border-black w-max rounded-full cursor-pointer">
-                    <img src="https://cellphones.com.vn/sforum/wp-content/uploads/2023/10/avatar-trang-4.jpg"
-                      class="w-8 h-8 rounded-full" alt="" />
+                    <img :src="value.user.avatar ? value.user.avatar : avatar" class="w-8 h-8 rounded-full" alt="" />
                   </div>
                   <div id="post-top_left_title">
                     <p class="hover:underline cursor-pointer font-bold capitalize">
@@ -85,9 +83,8 @@
                 </div>
               </div>
               <div id="post-middle">
-                <div class="font-normal leading-5 text-sm p-4 py-2">
+                <div class="font-normal leading-5 text-sm p-4 py-2 whitespace-pre-wrap">
                   {{ value.content }}
-                  <!-- Các trường hợp khác có thể tiếp tục ở đây -->
                 </div>
                 <div>
                   <div v-if="value.medias.length === 1">
@@ -222,7 +219,8 @@
                     </div>
                   </div>
                   <div id="me" class="flex w-full gap-2">
-                    <img src="../../../assets/images/pp.jpg" class="w-9 h-9 rounded-full cursor-pointer" alt="" />
+                    <img :src="userCurrent.avatar ? userCurrent.avatar : avatar" class=" w-9 h-9 rounded-full
+                      cursor-pointer" alt="" />
                     <div class="flex w-full flex-col">
                       <div id="me_comment"
                         class="flex w-full outline-none focus:outline-none ring-transparent bg-slate-100 rounded-2xl">
@@ -406,7 +404,8 @@
                           </div>
                         </div>
                         <div id="post-bottom-comments ">
-                          <div id="other" class="flex gap-2 my-2" v-for="(commentDetail, key) in valueDetailPost.postComment " :key="key">
+                          <div id="other" class="flex gap-2 my-2"
+                            v-for="(commentDetail, key) in valueDetailPost.postComment " :key="key">
                             <div id="other_pp">
                               <img src="https://cellphones.com.vn/sforum/wp-content/uploads/2023/10/avatar-trang-4.jpg"
                                 class="w-9 h-9 rounded-full cursor-pointer" alt="" />
@@ -414,7 +413,7 @@
                             <div id="other_comment" class="max-w-full rounded-lg pb-2">
                               <div class="py-2 px-3 rounded-2xl bg-slate-100">
                                 <div id="commnet-name" class="cursor-pointer hover:underline font-bold text-xs">
-                                  {{ value.user.name }}
+                                  {{ commentDetail.user[0].name }}
                                 </div>
                                 <div id="comment-title">{{ commentDetail.content }}</div>
                               </div>
@@ -427,8 +426,8 @@
                             </div>
                           </div>
                           <div id="me" class="flex w-full gap-2">
-                            <img src="../../../assets/images/pp.jpg" class="w-9 h-9 rounded-full cursor-pointer"
-                              alt="" />
+                            <img :src="userCurrent.avatar ? userCurrent.avatar : avatar" class="
+                              w-9 h-9 rounded-full cursor-pointer" alt="" />
                             <div class="flex w-full flex-col">
                               <div id="me_comment"
                                 class="flex w-full outline-none focus:outline-none ring-transparent bg-slate-100 rounded-2xl">
@@ -504,10 +503,9 @@
               </div>
             </div>
             <div class="w-full pb-[50px] mt-3">
-              <textarea
-                class="w-full border-0 focus:outline-none focus:ring-0 px-0 whitespace-pre-wrap break-words resize-none"
-                :placeholder="placeholder" rows="3" v-model="content" @paste="handlePaste"></textarea>
-
+              <textarea class="w-full border-0 focus:outline-none focus:ring-0 px-0 break-words resize-none"
+                :placeholder="placeholder" rows="3" v-model="content" @paste="handlePaste">
+              </textarea>
               <div class="h-[200px] overflow-auto" v-if="media[0]">
                 <div v-for="(value, index) in media" :key="index" class="my-3 relative">
                   <img v-if="value.url" :src="value.url" alt="" class="w-full h-[280px] object-content border" />
@@ -568,7 +566,7 @@
         </div>
       </div>
     </div>
-   <modal-share/>
+    <modal-share />
   </div>
 </template>
 <script>
@@ -622,6 +620,8 @@ export default {
       this.placeholder = 'Bạn đang nghĩ gì thế?';
       this.placeholderPre = 'Bạn đang nghĩ gì thế?';
     }
+
+    console.log(this.userCurrent);
   },
   data() {
     return {
@@ -733,10 +733,10 @@ export default {
         .get('http://localhost:4000/posts', {
           headers: {
             Authorization: 'Bearer ' + localStorage.getItem('access_token'),
-            params: {
-              limit: 5,
-              page: 1
-            }
+          },
+          params: {
+            limit: 5,
+            page: 1
           }
         })
         .then((res) => {
@@ -793,15 +793,16 @@ export default {
           post_id: index
         }
       }
-      if (!this.statusLike) {
+      if (this.statusLike == false) {
         await baseRequest
           .post('/likes', payload)
           .then((res) => {
+            console.log(res.data);
             this.$toast.success('Like thành công', {
               position: 'bottom-right'
             })
-            this.getDataNewFeed()
             this.statusLike = true
+            this.getDataNewFeed()
           })
           .catch((errors) => {
             console.log(errors)
@@ -815,8 +816,8 @@ export default {
             this.$toast.error('Hủy like thành công', {
               position: 'bottom-right'
             })
-            this.getDataNewFeed()
             this.statusLike = false
+            this.getDataNewFeed()
           })
           .catch((errors) => {
             console.log(errors)
@@ -852,28 +853,30 @@ export default {
     handleDeleteMedia(index) {
       if (index >= 0) this.media.splice(index, 1)
     },
+    getCommentDetailPost() {
+      axios
+        .get(`http://localhost:4000/comments/${this.valueDetailPost._id}/post`, {
+          headers: {
+            Authorization: 'Bearer ' + localStorage.getItem('access_token')
+          },
+          params: {
+            limit: 5,
+            page: 1
+          }
+        })
+        .then((res) => {
+          this.valueDetailPost.postComment = res.data.result.postComment
+          console.log(this.valueDetailPost);
+        })
+        .catch((errors) => {
+          console.log(errors);
+        });
+    },
     handleDetailPost(index) {
       this.valueDetailPost = this.allNewFeed[index]
       console.log(this.valueDetailPost._id);
       if (this.valueDetailPost._id) {
-        axios
-          .get(`http://localhost:4000/comments/${this.valueDetailPost._id}/post`, {
-            headers: {
-              Authorization: 'Bearer ' + localStorage.getItem('access_token')
-            },
-            params: {
-              limit: 5,
-              page: 1
-            }
-          })
-          .then((res) => {
-            this.valueDetailPost.postComment = res.data.result.postComment
-            console.log(this.valueDetailPost);
-          })
-          .catch((errors) => {
-            console.log(errors);
-          });
-
+        this.getCommentDetailPost()
       }
     },
     async commentPost(id) {
@@ -890,7 +893,7 @@ export default {
             this.$toast.success('Comment thành công', {
               position: 'bottom-right'
             })
-            this.getDataNewFeed()
+            this.getCommentDetailPost()
           })
           .catch((errors) => {
             console.log(errors)
