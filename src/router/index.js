@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 // client
-import Home from '../views/client/Home.vue'
+import Home from '../views/client/Home/index.vue'
 import Video from '../views/client/Video.vue'
 import Market from '../views/client/Market.vue'
 import Login from '../views/client/Login.vue'
