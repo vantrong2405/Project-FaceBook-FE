@@ -51,8 +51,6 @@
               </div>
             </div>
           </div>
-          <!-- start -->
-
           <ul v-for="(value, index) in allNewFeed" :key="index">
             <li class="w-full bg-[white] my-4 rounded-lg transition-colors duration-300 border-[1px] shadow-sm py-2">
               <div id="post-top" class="w-full flex items-center justify-between p-4 py-2">
@@ -258,7 +256,7 @@
               </div>
             </li>
 
-            <!-- modal comment -->
+            <!-- modal comment ne -->
             <div class="modal fade" id="modalComment" tabindex="-1" aria-labelledby="modalCommentLabel"
               aria-hidden="true">
               <div class="modal-dialog modal-dialog-scrollable modal-lg">
@@ -408,7 +406,7 @@
                           </div>
                         </div>
                         <div id="post-bottom-comments ">
-                          <div id="other" class="flex gap-2 my-2" v-for="index in 10" :key="index">
+                          <div id="other" class="flex gap-2 my-2" v-for="(commentDetail, key) in valueDetailPost.postComment " :key="key">
                             <div id="other_pp">
                               <img src="https://cellphones.com.vn/sforum/wp-content/uploads/2023/10/avatar-trang-4.jpg"
                                 class="w-9 h-9 rounded-full cursor-pointer" alt="" />
@@ -418,7 +416,7 @@
                                 <div id="commnet-name" class="cursor-pointer hover:underline font-bold text-xs">
                                   {{ value.user.name }}
                                 </div>
-                                <div id="comment-title">Hay lắm bắn ơi :V</div>
+                                <div id="comment-title">{{ commentDetail.content }}</div>
                               </div>
                               <div class="px-3 text-xs mt-1">
                                 <span class="cursor-pointer hover:underline">Like</span> ·
@@ -468,20 +466,16 @@
                 </div>
               </div>
             </div>
-            <!-- end -->
           </ul>
-
-          <!-- end -->
         </div>
       </div>
-      <!-- start -->
       <right-bar-home />
     </div>
     <div
       class="p-[14px] flex items-center justify-center rounded-full bg-white border-2 text-black fixed right-5 bottom-5 cursor-pointer hover:bg-myGray-700 transition-colors duration-300">
       <svg-new-message class="w-5" />
     </div>
-    <!-- modal create -->
+    <!-- modal create ne-->
     <div class="modal fade" id="create_posts" tabindex="-1" aria-labelledby="create_post" aria-hidden="true">
       <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
@@ -860,6 +854,27 @@ export default {
     },
     handleDetailPost(index) {
       this.valueDetailPost = this.allNewFeed[index]
+      console.log(this.valueDetailPost._id);
+      if (this.valueDetailPost._id) {
+        axios
+          .get(`http://localhost:4000/comments/${this.valueDetailPost._id}/post`, {
+            headers: {
+              Authorization: 'Bearer ' + localStorage.getItem('access_token')
+            },
+            params: {
+              limit: 5,
+              page: 1
+            }
+          })
+          .then((res) => {
+            this.valueDetailPost.postComment = res.data.result.postComment
+            console.log(this.valueDetailPost);
+          })
+          .catch((errors) => {
+            console.log(errors);
+          });
+
+      }
     },
     async commentPost(id) {
       const payload = {
@@ -871,7 +886,6 @@ export default {
         await baseRequest
           .post('/comments', payload)
           .then((res) => {
-            console.log(res.data);
             this.contentComment = ''
             this.$toast.success('Comment thành công', {
               position: 'bottom-right'

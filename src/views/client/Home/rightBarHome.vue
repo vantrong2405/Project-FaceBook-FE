@@ -29,7 +29,6 @@
                   </div>
                 </div>
                 <hr class="my-2" />
-                <!--Lời mời kết bạn-->
                 <div class="mb-3">
                   <div>
                     <div class="flex justify-between box-border my-1">
@@ -38,7 +37,6 @@
                         Xem tất cả
                       </p>
                     </div>
-                    <!-- start -->
                     <div class="flex hover:bg-gray-200 rounded-lg cursor-pointer mb-2 p-1 py-2" v-for="index in 10"
                       :key="index">
                       <img class="w-10 h-10 mr-2 rounded-full"
@@ -78,7 +76,6 @@
                   </div>
                 </div>
                 <div id="firends" class="border-b border-myGray-250">
-                  <!-- start render -->
                   <ul v-for="index in 10" :key="index">
                     <li
                       class="flex items-center gap-3 font-semibold text-tiny cursor-pointer hover:bg-myGray-900 rounded-lg my-2 px-3 py-2 transition-colors duration-300">
@@ -123,14 +120,14 @@ import { Ellipsis, Repeat } from 'lucide-vue-next'
 import svgDots from '@/components/svg/svgDots.vue'
 import svgCreate from '@/components/svg/svgCreate.vue'
 export default {
-    components: {
-        svgNewRoom,
-        svgSearch,
-        Ellipsis,
-        Repeat,
-        svgDots,
-        svgCreate
-    }
+  components: {
+    svgNewRoom,
+    svgSearch,
+    Ellipsis,
+    Repeat,
+    svgDots,
+    svgCreate
+  }
 }
 </script>
 <style>
