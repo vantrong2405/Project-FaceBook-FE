@@ -629,7 +629,7 @@
       <div>
         <div class="bg-white m-3 p-1 box-border border-solid border-2 rounded-xl shadow-sm">
           <div class="mx-1 my-1 hover:bg-gray-100 rounded-xl">
-            <router-link to="/profile" class="flex">
+            <router-link :to="`/profile/${userCurrent.username}`" class="flex">
               <div>
                 <img class="w-10 h-10 mx-1 rounded-full my-2"
                   src="https://web.hn.ss.bfcplatform.vn/muadienmay/content/article2/0878913035-1620532649.jpg" alt="" />

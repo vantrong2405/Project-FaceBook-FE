@@ -662,6 +662,8 @@ export default {
       }
     },
     async handleDeleteComment(value) {
+      console.log('id comment:', value._id);
+      console.log('id post:', value.post_id);
       const payload = {
         post_id: value.post_id
       };
