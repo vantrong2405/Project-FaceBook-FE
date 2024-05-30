@@ -121,7 +121,6 @@
 
               </div>
             </li>
-
             <!-- modal comment ne -->
             <div class="modal fade" id="modalComment" tabindex="-1" aria-labelledby="modalCommentLabel"
               aria-hidden="true">
@@ -132,7 +131,7 @@
                       value && value.user ? value.user.name : '' }}</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
-                  <div class="modal-body">
+                  <div class="modal-body pb-0">
                     <li>
                       <div id="post-top" class="w-full flex items-center justify-between p-4 py-2">
                         <div id="post-top_left" class="flex items-center gap-2">
@@ -200,12 +199,12 @@
                               <img src="https://cellphones.com.vn/sforum/wp-content/uploads/2023/10/avatar-trang-4.jpg"
                                 class="w-9 h-9 rounded-full cursor-pointer" alt="" />
                             </div>
-                            <div id="other_comment" class="max-w-full rounded-lg pb-2">
+                            <div id="other_comment" class=" rounded-lg pb-2 max-w-[80%]">
                               <div class="py-2 px-3 rounded-2xl bg-slate-100">
                                 <div id="commnet-name" class="cursor-pointer hover:underline font-bold text-xs">
                                   {{ commentDetail.user[0].name }}
                                 </div>
-                                <div id="comment-title">{{ commentDetail.content }}</div>
+                                <div class="max-w-full break-words" id="comment-title">{{ commentDetail.content }}</div>
                               </div>
                               <div class="px-3 text-xs mt-1">
                                 <span class="cursor-pointer hover:underline">Like</span> ·
@@ -214,46 +213,49 @@
                                 <span class="cursor-pointer hover:underline">2d</span>
                               </div>
                             </div>
-
-                            <Trash2 class="cursor-pointer hover:text-black" @click="handleDeleteComment(commentDetail);"
-                              v-if="userCurrent._id == commentDetail.user_id" />
-                          </div>
-                          <div id="me" class="flex w-full gap-2">
-                            <img :src="userCurrent.avatar ? userCurrent.avatar : avatar" class="
-                              w-9 h-9 rounded-full cursor-pointer" alt="" />
-                            <div class="flex w-full flex-col">
-                              <div id="me_comment"
-                                class="flex w-full outline-none focus:outline-none ring-transparent bg-slate-100 rounded-2xl">
-                                <!-- input Comment -->
-                                <input
-                                  class="w-full bg-transparent px-3 outline-none border-0 rounded-2xl focus:outline-none focus:ring-transparent focus:border-black"
-                                  type="text" placeholder="Viết câu trả lời..." v-model="contentComment"
-                                  v-on:keyup.enter="commentPost(valueDetailPost._id)" />
-                                <div id="me_comment_buttons" class="flex items-center">
-                                  <div class="p-2 rounded-full cursor-pointer transition-colors duration-300">
-                                    <svg-smile class="w-4 text-myGray-600" />
-                                  </div>
-                                  <div
-                                    class="p-2 hover:bg-myGray-900 rounded-full cursor-pointer transition-colors duration-300">
-                                    <svg-live-video class="w-4 text-myGray-600" />
-                                  </div>
-                                  <div
-                                    class="p-2 hover:bg-myGray-900 rounded-full cursor-pointer transition-colors duration-300">
-                                    <svg-menu class="w-4 text-myGray-600" />
-                                  </div>
-                                  <div
-                                    class="p-2 hover:bg-myGray-900 rounded-full cursor-pointer transition-colors duration-300">
-                                    <svg-photo class="w-4 text-myGray-600" />
-                                  </div>
-                                </div>
-                              </div>
+                            <div class="mt-[3%]">
+                              <Trash2 class="cursor-pointer  hover:text-black" data-bs-toggle="modal"
+                                data-bs-target="#modalDeleteCommment" />
+                              <!-- @click="handleDeleteComment(commentDetail);" v-if="userCurrent._id == commentDetail.user_id" -->
                             </div>
                           </div>
                         </div>
                       </div>
                     </li>
                   </div>
-
+                  <div class="modal-footer">
+                    <div id="me" class="flex w-full gap-2 px-[15px]">
+                      <img :src="userCurrent.avatar ? userCurrent.avatar : avatar" class="
+                              w-9 h-9 rounded-full cursor-pointer" alt="" />
+                      <div class="flex w-full flex-col">
+                        <div id="me_comment"
+                          class="flex w-full outline-none focus:outline-none ring-transparent bg-slate-100 rounded-2xl">
+                          <!-- input Comment -->
+                          <input
+                            class="w-full bg-transparent px-3 outline-none border-0 rounded-2xl focus:outline-none focus:ring-transparent focus:border-black"
+                            type="text" placeholder="Viết câu trả lời..." v-model="contentComment"
+                            v-on:keyup.enter="commentPost(valueDetailPost._id)" />
+                          <div id="me_comment_buttons" class="flex items-center">
+                            <div class="p-2 rounded-full cursor-pointer transition-colors duration-300">
+                              <svg-smile class="w-4 text-myGray-600" />
+                            </div>
+                            <div
+                              class="p-2 hover:bg-myGray-900 rounded-full cursor-pointer transition-colors duration-300">
+                              <svg-live-video class="w-4 text-myGray-600" />
+                            </div>
+                            <div
+                              class="p-2 hover:bg-myGray-900 rounded-full cursor-pointer transition-colors duration-300">
+                              <svg-menu class="w-4 text-myGray-600" />
+                            </div>
+                            <div
+                              class="p-2 hover:bg-myGray-900 rounded-full cursor-pointer transition-colors duration-300">
+                              <svg-photo class="w-4 text-myGray-600" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -285,12 +287,16 @@
               </a>
               <div class="ml-[10px]">
                 <p class="text-[15px] font-medium text-black">{{ userCurrent.name }}</p>
-                <div class="w-full flex">
-                  <div class="flex py-[2px] px-[5px] items-center cursor-pointer bg-[#E4E6EB] rounded-md">
-                    <i class="fa-solid fa-earth-americas text-[12px] pr-[4px]"></i>
-                    <p class="text-[13px] font-medium text-black pr-[4px]">Công khai</p>
-                    <i class="fa-solid fa-caret-down text-[15px]"></i>
-                  </div>
+                <div class="w-full">
+                  <select
+                    class="border-0 focus:ring-0  text-[15px] w-full px-[5px] font-medium bg-[#E4E6EB] rounded-md cursor-pointer"
+                    name="" id="">
+                    <option value="1" selected>Công khai</option>
+                    <option value="2">Bạn bè</option>
+                    <option value="3">Bạn bè cụ thể</option>
+                    <option value="4">Bạn bè ngoại trừ</option>
+                    <option value="5">Chỉ mình tôi</option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -354,6 +360,36 @@
                 Đăng
               </button>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- modal delete-comment -->
+    <div class="modal fade" id="modalDeleteCommment" tabindex="-1" aria-labelledby="modalCommentLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable ">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5 text-2xl font-bold" id="modalCommentLabel">Xóa bình luận</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="flex items-center bg-yellow-500 h-[100px] rounded-md">
+              <div class="w-[10%]  text-center">
+                <div class="ml-[10px] h-[32px] w-[32px] flex items-center justify-center border-[3px] border-black rounded-full">
+                  <i class="fa-solid fa-exclamation text-black text-[20px] "></i>
+                </div>
+              </div>
+              <div class="ml-[10px]">
+                <p class="text-red-500 text-[15px] font-medium">Warning</p>
+                <p class="text-[15px] text-black">Bạn có muốn xóa bình luận này không ?</p>
+                <p class="text-[15px] text-black"><span class="text-[15px] text-black font-semibold">Lưu ý: </span>Điều này không thể hoàn tác!</p>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="bg-gray-600 hover:bg-black text-white p-[8px] rounded-md">Thoát</button> 
+            <button class="bg-red-600 hover:bg-red-700 text-white p-[8px] rounded-md">Xóa</button>
           </div>
         </div>
       </div>

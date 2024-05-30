@@ -61,7 +61,7 @@ const router = createRouter({
       path: '/profile/:id',
       name: 'profile',
       component: Profile,
-      meta: { layout: 'Empty' },
+      
       beforeEnter: checkLogin
     },
     {
