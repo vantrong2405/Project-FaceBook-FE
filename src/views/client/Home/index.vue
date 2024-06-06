@@ -52,22 +52,26 @@
             <li class="w-full bg-[white] my-4 rounded-lg transition-colors duration-300 border-[1px] shadow-sm py-2">
               <div id="post-top" class="w-full flex items-center justify-between p-4 py-2">
                 <div id="post-top_left" class="flex items-center gap-2">
-                  <div id="post-top_left_pp"
-                    class="ring-2 ring-blue-500 ring-opacity-70 border-2 border-black w-max rounded-full cursor-pointer">
-                    <img :src="value.user.avatar ? value.user.avatar : avatar" class="w-8 h-8 rounded-full" alt="" />
-                  </div>
-                  <div id="post-top_left_title">
-                    <p class="hover:underline cursor-pointer font-bold capitalize">
-                      {{ value.user.name }}
-                    </p>
-                    <p class="flex text-xs mt-1 items-center">
-                      <span class="hover:underline cursor-pointer">{{
-                        dinhDangNgay(value?.created_at ?? '')
-                      }}</span>
-                      <span class="mx-1">·</span>
-                      <svg-world class="w-3" />
-                    </p>
-                  </div>
+                  <router-link :to="`/profile/${value.user.username}`">
+                    <div id="post-top_left_pp"
+                      class="ring-2 ring-blue-500 ring-opacity-70 border-2 border-black w-max rounded-full cursor-pointer">
+                      <img :src="value.user.avatar ? value.user.avatar : avatar" class="w-8 h-8 rounded-full" alt="" />
+                    </div>
+                  </router-link>
+                  <router-link :to="`/profile/${value.user.username}`">
+                    <div id="post-top_left_title">
+                      <p class="hover:underline cursor-pointer font-bold capitalize">
+                        {{ value.user.name }}
+                      </p>
+                      <p class="flex text-xs mt-1 items-center">
+                        <span class="hover:underline cursor-pointer">{{
+                          dinhDangNgay(value?.created_at ?? '')
+                        }}</span>
+                        <span class="mx-1">·</span>
+                        <svg-world class="w-3" />
+                      </p>
+                    </div>
+                  </router-link>
                 </div>
                 <div id="post-top_right" class="flex items-center">
                   <div
@@ -215,8 +219,8 @@
                             </div>
                             <div class="mt-[3%]">
                               <Trash2 class="cursor-pointer  hover:text-black" data-bs-toggle="modal"
-                                data-bs-target="#modalDeleteCommment" />
-                              <!-- @click="handleDeleteComment(commentDetail);" v-if="userCurrent._id == commentDetail.user_id" -->
+                                data-bs-target="#modalDeleteCommment" v-if="userCurrent._id == commentDetail.user_id"
+                                @click="valueCommentDetail = commentDetail; console.log(commentDetail)" />
                             </div>
                           </div>
                         </div>
@@ -370,26 +374,31 @@
       <div class="modal-dialog modal-dialog-scrollable ">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5 text-2xl font-bold" id="modalCommentLabel">Xóa bình luận</h1>
+            <h1 class="modal-title fs-5 text-2xl font-bold" id="modalCommentLabel">Xóa bình luận
+              {{ valueCommentDetail?.user?.[0]?.name ?? '' }} </h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <div class="flex items-center bg-yellow-500 h-[100px] rounded-md">
               <div class="w-[10%]  text-center">
-                <div class="ml-[10px] h-[32px] w-[32px] flex items-center justify-center border-[3px] border-black rounded-full">
+                <div
+                  class="ml-[10px] h-[32px] w-[32px] flex items-center justify-center border-[3px] border-black rounded-full">
                   <i class="fa-solid fa-exclamation text-black text-[20px] "></i>
                 </div>
               </div>
               <div class="ml-[10px]">
                 <p class="text-red-500 text-[15px] font-medium">Warning</p>
-                <p class="text-[15px] text-black">Bạn có muốn xóa bình luận này không ?</p>
-                <p class="text-[15px] text-black"><span class="text-[15px] text-black font-semibold">Lưu ý: </span>Điều này không thể hoàn tác!</p>
+                <p class="text-[15px] text-black">Bạn có muốn xóa bình luận <b>{{ valueCommentDetail ?
+                  valueCommentDetail.content : '' }}</b> này không ?</p>
+                <p class="text-[15px] text-black"><span class="text-[15px] text-black font-semibold">Lưu ý: </span>Điều
+                  này không thể hoàn tác!</p>
               </div>
             </div>
           </div>
           <div class="modal-footer">
-            <button class="bg-gray-600 hover:bg-black text-white p-[8px] rounded-md">Thoát</button> 
-            <button class="bg-red-600 hover:bg-red-700 text-white p-[8px] rounded-md">Xóa</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+              @click='handleDeleteComment(valueCommentDetail)'>Xóa ngay</button>
           </div>
         </div>
       </div>
@@ -477,7 +486,8 @@ export default {
       valueDetailPost: {},
       contentComment: '',
       placeholderPre: '',
-      liked: false
+      liked: false,
+      valueCommentDetail: ''
     }
   },
   methods: {
@@ -568,7 +578,7 @@ export default {
         })
         .then((res) => {
           this.allNewFeed = res.data.result
-          this.allNewFeed.reverse()
+          // this.allNewFeed.reverse()
           console.log(res.data.result);
         })
         .catch((errors) => {
@@ -712,9 +722,11 @@ export default {
             },
             data: payload
           });
-          console.log('Thành công: ', res.data);
           await this.getCommentDetailPost();
           await this.getDataNewFeed();
+          this.$toast.success('Xóa comment thành công', {
+            position: 'bottom-right'
+          })
         } catch (errors) {
           console.log('Lỗi: ', errors.response ? errors.response.data : errors.message);
         }
@@ -727,4 +739,4 @@ export default {
   }
 }
 </script>
-<style></style>
+<style></style>import b from '@/assets/admin/plugins/highcharts/js/cylinder'

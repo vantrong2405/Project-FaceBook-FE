@@ -7,6 +7,7 @@ import Login from '../views/client/Login.vue'
 import Game from '../views/client/Game.vue'
 import Group from '../views/client/Group.vue'
 import Profile from '../views/client/Profile.vue'
+import Search from '../views/client/Search.vue'
 import ResetPassWord from '../views/client/ResetPassword.vue'
 import checkLogin from './checkLoginClient'
 // admin
@@ -61,7 +62,14 @@ const router = createRouter({
       path: '/profile/:id',
       name: 'profile',
       component: Profile,
-      
+
+      beforeEnter: checkLogin
+    },
+    {
+      path: '/search/:id',
+      name: 'search',
+      component: Search,
+
       beforeEnter: checkLogin
     },
     {

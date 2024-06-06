@@ -20,5 +20,8 @@ export default {
   },
   put(url, data) {
     return axios.put(apiUrl + url, data, { headers: this.getHeader() })
-  }
+  },
+  patch(url, data) {
+    return axios.patch(apiUrl + url, data, { headers: this.getHeader() })
+  },
 }
