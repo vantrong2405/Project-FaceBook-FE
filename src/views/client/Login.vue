@@ -223,7 +223,7 @@
 import axios from 'axios'
 import { useToast } from 'vue-toast-notification'
 import 'vue-toast-notification/dist/theme-sugar.css'
-import baseRequest from '@/baseAPI/baseRequest'
+import http from '@/baseAPI/http'
 export default {
   mounted() {
     this.checkToken()
@@ -301,7 +301,7 @@ export default {
         })
     },
     checkToken() {
-      baseRequest.get('/users/me').then((res) => {
+      http.get('/users/me').then((res) => {
         if (res.status === 200) {
           console.log('check token')
           console.log(res)
@@ -314,7 +314,7 @@ export default {
         const obj = {
           email: this.email_forgot_password
         }
-        baseRequest
+        http
           .post('/users/forgot-password', obj)
           .then((res) => {
             console.log(res)

@@ -13,29 +13,18 @@
                 </p>
                 <div class="mb-3 mt-3">
                   <label class="form-label">Mật khẩu mới</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Nhập mật khẩu mới"
-                    v-model="password"
-                  />
+                  <input type="text" class="form-control" placeholder="Nhập mật khẩu mới" v-model="password" />
                 </div>
                 <div class="mb-3">
                   <label class="form-label">Xác nhận mật khẩu</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Xác nhận mật khẩu"
-                    v-model="retype_password"
-                  />
+                  <input type="text" class="form-control" placeholder="Xác nhận mật khẩu" v-model="retype_password" />
                 </div>
                 <div class="d-grid gap-2">
                   <button type="button" class="btn btn-primary" @click="changePassword()">
                     Thay đổi mật khẩu
                   </button>
-                  <a href="authentication-login.html" class="btn btn-light"
-                    ><i class="bx bx-arrow-back mr-1"></i>Đăng nhập</a
-                  >
+                  <a href="authentication-login.html" class="btn btn-light"><i class="bx bx-arrow-back mr-1"></i>Đăng
+                    nhập</a>
                 </div>
               </div>
             </div>
@@ -43,9 +32,7 @@
           <div class="col-lg-7 w-50">
             <img
               src="https://media.istockphoto.com/id/1306827906/vector/man-forgot-the-password-concept-of-forgotten-password-key-account-access-blocked-access.jpg?s=612x612&w=0&k=20&c=67nYr3ztbOn5uO6-mWBNCSw9mcHD9Z5M-QER-azGQ5w="
-              class=""
-              alt="..."
-            />
+              class="" alt="..." />
           </div>
         </div>
       </div>
@@ -53,7 +40,7 @@
   </div>
 </template>
 <script>
-import baseRequest from '@/baseAPI/baseRequest'
+import http from '@/baseAPI/http'
 import axios from 'axios'
 import { useToast } from 'vue-toast-notification'
 import 'vue-toast-notification/dist/theme-sugar.css'
@@ -76,7 +63,7 @@ export default {
         forgot_password_token: this.token
       }
 
-      baseRequest
+      http
         .post('/users/reset-password', obj)
         .then((res) => {
           console.log(res)

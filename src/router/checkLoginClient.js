@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { useToast } from 'vue-toast-notification'
 import 'vue-toast-notification/dist/theme-sugar.css'
-import baseRequest from '@/baseAPI/baseRequest'
+import http from '@/baseAPI/http'
 
 export default async function (to, from, next) {
   const toast = useToast()

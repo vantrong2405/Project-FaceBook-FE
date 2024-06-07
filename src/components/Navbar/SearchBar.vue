@@ -26,7 +26,11 @@ export default {
       setTimeout(() => {
         this.isShowAll = true;
       }, 1000);
+    },
+    async searchInfoUser() {
+
     }
+
   },
 
 }
@@ -55,7 +59,7 @@ export default {
       <input
         class="w-full h-full bg-transparent text-sm px-2 border-none outline-none text-myGray-250 font-normal xl:block focus:outline-none focus:ring-transparent"
         :class="isFocus ? 'block' : 'hidden'" type="text" placeholder="Search Facebook" @focus="isFocus = true"
-        @blur="isFocus = false" v-model="textSearch" @input="handleChangeIsShowAll()" />
+        @blur="isFocus = false" v-model="textSearch" @input="handleChangeIsShowAll()" onchange="searchInfoUser()" />
 
     </div>
     <ul class="absolute top-[57px] left-[5px] w-[105%] bg-white py-[5px] cursor-pointer shadow-xl rounded-lg z-50"

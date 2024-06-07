@@ -105,7 +105,7 @@
                   class="font-normal text-sm sm:text-tiny flex items-center my-2 border-b border-t border-myGray-900">
                   <div
                     class="flex gap-2 w-full items-center justify-center p-2 hover:bg-myGray-900 cursor-pointer rounded-lg my-1 transition-colors duration-300 "
-                    :class="{ 'text-[#0861f2]': value?.user_liked?.liked == true }" @click="likePost(value, index)">
+                    :class="{ 'text-[#0861f2]': value.user_liked.liked }" @click="likePost(value, index)">
                     <i class="fa-solid fa-thumbs-up text-2xl"></i>
                     <span>Like</span>
                   </div>
@@ -132,7 +132,7 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <h1 class="modal-title fs-5 text-2xl font-bold" id="modalCommentLabel">Bài viết của {{
-                      value && value.user ? value.user.name : '' }}</h1>
+                      valueDetailPost?.user?.name ?? '' }}</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body pb-0">
@@ -141,16 +141,17 @@
                         <div id="post-top_left" class="flex items-center gap-2">
                           <div id="post-top_left_pp"
                             class="ring-2 ring-blue-500 ring-opacity-70 border-2 border-black w-max rounded-full cursor-pointer">
-                            <img :src="value && value.user && value.user.avatar ? value.user.avatar : avatar"
+                            <img
+                              :src="valueDetailPost && valueDetailPost.user && valueDetailPost.user.avatar ? valueDetailPost.user.avatar : avatar"
                               class="w-8 h-8 rounded-full" alt="" />
                           </div>
                           <div id="post-top_left_title">
                             <p class="hover:underline cursor-pointer font-bold capitalize">
-                              {{ value && value.user ? value.user.name : '' }}
+                              {{ valueDetailPost?.user?.name ?? '' }}
                             </p>
                             <p class="flex text-xs mt-1 items-center">
                               <span class="hover:underline cursor-pointer">{{
-                                dinhDangNgay(value ? value.created_at : '')
+                                dinhDangNgay(valueDetailPost ? valueDetailPost.created_at : '')
                               }}</span>
                               <span class="mx-1">·</span>
                               <svg-world class="w-3" />
@@ -161,7 +162,6 @@
                       <div id="post-middle">
                         <div class="font-normal leading-5 text-sm p-4 py-2">
                           {{ valueDetailPost ? valueDetailPost.content : '' }}
-                          <!-- Các trường hợp khác có thể tiếp tục ở đây -->
                         </div>
                         <render-image :allNewFeedDetail="valueDetailPost" />
                       </div>
@@ -172,7 +172,8 @@
                             <span class="hover:underline"> {{ value.likes }}</span>
                           </div>
                           <div id="info_right">
-                            <span class="hover:underline cursor-pointer mr-3">{{ value.comments }} Comment</span>
+                            <span class="hover:underline cursor-pointer mr-3">{{ value.comments }}
+                              Comment</span>
                             <span class="hover:underline cursor-pointer">{{ value.shares }} Share</span>
                           </div>
                         </div>
@@ -180,8 +181,7 @@
                           class="font-normal text-sm sm:text-tiny flex items-center my-2 border-b border-t border-myGray-900">
                           <div
                             class="flex gap-2 w-full items-center justify-center p-2 hover:bg-myGray-900 cursor-pointer rounded-lg my-1 transition-colors duration-300 "
-                            :class="{ 'text-[#0861f2]': value?.user_liked?.liked == true }"
-                            @click="likePost(value, index);">
+                            :class="{ 'text-[#0861f2]': value.user_liked.liked }" @click="likePost(value, index);">
                             <i class="fa-solid fa-thumbs-up text-2xl"></i>
                             <span>Like</span>
                           </div>
@@ -422,7 +422,7 @@ import { Forward } from 'lucide-vue-next'
 import svgNewMessage from '@/components/svg/svgNewMessage.vue'
 import { Users, Ellipsis, Repeat, X, Trash2 } from 'lucide-vue-next'
 
-import baseRequest from '@/baseAPI/baseRequest'
+import http from '@/baseAPI/http'
 import axios from 'axios'
 import { useToast } from 'vue-toast-notification'
 import LeftBarHome from './leftBarHome.vue'
@@ -542,7 +542,7 @@ export default {
           mentions: [],
           medias: this.media
         }
-        baseRequest
+        http
           .post('/posts', obj)
           .then((res) => {
             this.$toast.success('Tạo bài viết thành công', {
@@ -578,8 +578,11 @@ export default {
         })
         .then((res) => {
           this.allNewFeed = res.data.result
-          // this.allNewFeed.reverse()
-          console.log(res.data.result);
+          this.allNewFeed.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+          console.log(this.allNewFeed);
+          // this.allNewFeed = this.allNewFeed.filter((value, index) => {
+          //   return value.user.username !== this.userCurrent.username
+          // })
         })
         .catch((errors) => {
           console.log(errors)
@@ -622,16 +625,17 @@ export default {
       };
       if (value?.user_liked?.liked) {
         try {
-          const res = await baseRequest.delete(`/likes/post/${payload.post_id}`);
+          const res = await http.delete(`/likes/post/${payload.post_id}`);
           this.getDataNewFeed();
-          this.valueDetailPost = this.allNewFeed[index]
         } catch (errors) {
           console.log(errors);
         }
       } else {
         try {
-          const res = await baseRequest.post('/likes', payload);
+          const res = await http.post('/likes', payload);
           this.getDataNewFeed();
+          this.liked = this.allNewFeed[index].user_liked.liked
+          this.liked = [...this.allNewFeed]
 
         } catch (errors) {
           console.log(errors);
@@ -685,7 +689,9 @@ export default {
         });
     },
     handleDetailPost(index) {
+      console.log('>>>>', index);
       this.valueDetailPost = this.allNewFeed[index]
+      console.log(this.valueDetailPost);
       if (this.valueDetailPost._id) {
         this.getCommentDetailPost()
       }
@@ -698,7 +704,7 @@ export default {
 
       if (this.contentComment.trim() !== '') {
         try {
-          const response = await baseRequest.post('/comments', payload);
+          const response = await http.post('/comments', payload);
           this.contentComment = '';
           await this.getCommentDetailPost();
           await this.getDataNewFeed();
@@ -739,4 +745,4 @@ export default {
   }
 }
 </script>
-<style></style>import b from '@/assets/admin/plugins/highcharts/js/cylinder'
+<style></style>
