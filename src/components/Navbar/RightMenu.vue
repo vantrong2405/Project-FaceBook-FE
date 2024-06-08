@@ -748,7 +748,7 @@ import { Users } from 'lucide-vue-next'
 import { Group } from 'lucide-vue-next'
 import { MonitorPlay } from 'lucide-vue-next'
 import { Newspaper } from 'lucide-vue-next'
-import baseRequest from '@/baseAPI/baseRequest'
+import http from '@/baseAPI/http'
 import { useToast } from 'vue-toast-notification'
 import 'vue-toast-notification/dist/theme-sugar.css'
 export default {

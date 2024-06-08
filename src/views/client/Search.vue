@@ -20,7 +20,8 @@
                             <svg-search class="w-5" fill="currentColor" />
                             <input
                                 class="w-full h-full bg-transparent text-sm px-2 border-none outline-none xl:block focus:outline-none focus:ring-transparent"
-                                placeholder="Tìm kiếm nhóm" />
+                                placeholder="Tìm kiếm nhóm" v-model="textSearch" v-on:input="handleSearchUser"
+                                v-on:keyup.enter="handleSearchUser" />
                         </div>
                     </div>
                 </li>
@@ -71,62 +72,109 @@
             <!-- end -->
         </div>
     </div>
-    <div class="bg-[#F0F2F5] float-right w-[calc(100%-22%)]">
+    <div class="bg-[#F0F2F5] min-h-dvh float-right w-[calc(100%-22%)]" v-if="listUserSearch.length > 0">
         <div class="w-full h-full">
             <div class="mx-auto w-[60%]">
                 <div class="shadow-md my-4 rounded-lg border bg-white">
-                    <div class="flex mb-3 justify-between m-4 items-center" v-for="index in 10" :key="index">
-                        <div class="flex">
-                            <img src="https://fileinfo.com/img/ss/xl/jpg_44-2.jpg" class="w-12 h-12 rounded-full mr-3"
-                                alt="" />
-                            <div>
-                                <div>
-                                    <div class="flex justify-between items-center">
-                                        <div class="flex items-center">
-                                            <p class="font-semibold mr-2">Nhật Dương</p>
-                                            <p class="text-[#0866FD]">Theo dõi</p>
-                                        </div>
+                    <template v-for="(value, key) in listUserSearch" :key="key">
+                        <div class="flex mb-3 justify-between m-4 items-center">
+                            <router-link :to="`/profile/${value.username}`">
+                                <div class="">
+                                    <div class="flex">
+                                        <img :src="value.avatar ? value.avatar : avatar"
+                                            class="w-12 h-12 rounded-full mr-3" alt="" />
+                                        <div>
+                                            <div>
+                                                <div class="flex justify-between items-center">
+                                                    <div class="flex items-center">
+                                                        <p class="font-semibold mr-2">{{ value ? value.name : '' }}</p>
+                                                        <p class="text-[#0866FD]">Theo dõi</p>
+                                                    </div>
 
+                                                </div>
+                                                <p class="text-xs text-gray-500">Bạn bè</p>
+                                                <p class="text-xs text-gray-500">Sống tại bình dương</p>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <p class="text-xs text-gray-500">Bạn bè</p>
-                                    <p class="text-xs text-gray-500">Sống tại bình dương</p>
+
                                 </div>
-                            </div>
+                            </router-link>
+                            <div class="btn btn-primary" v-if="value.isFriend == false">Thêm bạn bè</div>
+                            <!-- <div class="btn btn-danger">Hủy lời mời</div> -->
+                            <div class="btn btn-success" v-if="value.isFriend == true">Bạn bè</div>
                         </div>
-                        <div class="btn btn-primary">Thêm bạn bè</div>
-                    </div>
+
+                    </template>
+
+
 
 
                 </div>
             </div>
         </div>
     </div>
+    <div class="bg-[#F0F2F5] min-h-dvh float-right w-[calc(100%-22%)] text-center text-xl my-2"
+        v-if="listUserSearch.length == 0">
+        Không có kết quả nào
+    </div>
 
 </template>
 <script>
 import svgSeeMore from '@/components/svg/svgSeeMore.vue'
+import svgSearch from '@/components/svg/svgSearch.vue'
+import http from '@/baseAPI/http'
+import { Rocket, Clapperboard, Save, Tv2, Film, Settings, MonitorPlay } from 'lucide-vue-next'
 export default {
     components: {
-        // svgSeeMore
+        svgSearch,
+        Rocket,
+        Clapperboard,
+        Save,
+        Tv2,
+        Film,
+        Settings,
+        MonitorPlay
     },
     watch: {
         '$route.params.id': 'updateSearch'
     },
-    mounted() {
+    async mounted() {
         this.updateSearch()
         this.userCurrent = JSON.parse(localStorage.getItem('profile'))
+        await this.getAllUser()
     },
     data() {
         return {
             textSearch: "",
             userCurrent: {},
             avatar: 'https://cellphones.com.vn/sforum/wp-content/uploads/2023/10/avatar-trang-4.jpg',
+            listUserSearch: [],
+            listUserSearchClone: []
         }
     },
     methods: {
         updateSearch() {
             this.textSearch = this.$route.params.id;
-            console.log(this.textSearch);
+        },
+        async getAllUser() {
+            try {
+                const res = await http.get('/users/all-user');
+                this.listUserSearch = res.data.result;
+                this.listUserSearchClone = [...this.listUserSearch];
+                await this.handleSearchUser();
+            } catch (errors) {
+                console.log(errors);
+            }
+        },
+        handleSearchUser() {
+            this.listUserSearch = [...this.listUserSearchClone]
+            var text = this.textSearch.toLowerCase();
+            this.listUserSearch = this.listUserSearch.filter((items) => {
+                return items.name.toLowerCase().includes(text);
+            });
+
+            console.log('>>>>>', this.listUserSearch);
         }
     },
     computed: {

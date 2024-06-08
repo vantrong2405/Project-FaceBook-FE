@@ -14,16 +14,14 @@
           </div>
           <img
             src="https://www.kontentino.com/blog/wp-content/uploads/2022/05/Kontentino-blog_How-to-get-verified-on-facebook.png"
-            class="rounded-lg"
-            alt="..."
-          />
+            class="rounded-lg" alt="..." />
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
-import baseRequest from '@/baseAPI/baseRequest'
+import http from '@/baseAPI/http'
 import axios from 'axios'
 import { useToast } from 'vue-toast-notification'
 import 'vue-toast-notification/dist/theme-sugar.css'
@@ -46,7 +44,7 @@ export default {
       const obj = {
         email_verify_token: this.token
       }
-      baseRequest
+      http
         .post('/users/verify-email', obj)
         .then((res) => {
           console.log(res)

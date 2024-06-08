@@ -67,7 +67,7 @@
 <script>
 import axios from 'axios'
 import 'vue-toast-notification/dist/theme-sugar.css'
-import baseRequest from '@/baseAPI/baseRequest'
+import http from '@/baseAPI/http'
 import { LogOut, Home, LockKeyhole } from 'lucide-vue-next';
 export default {
   components: {

@@ -14,7 +14,7 @@
           <div
             class="absolute left-[15px] top-[-30px] h-[176px] w-[176px] rounded-full bg-white flex justify-center items-center cursor-pointer">
             <img class="h-[168px] w-[168px] rounded-[168px] hover:brightness-90"
-              src="https://fileinfo.com/img/ss/xl/jpg_44-2.jpg" alt="" />
+              :src="profileInFor.avatar ? profileInFor.avatar : avatar" alt="" />
             <div class="absolute bottom-[10px] right-[20px]">
               <div
                 class="h-[36px] w-[36px] rounded-full bg-[#E4E6EB] hover:bg-[#D8DADF] flex justify-center items-center">
@@ -26,7 +26,7 @@
             <div class="w-full h-full flex flex-grow px-[15px] py-[15px]">
               <div class="w-[50%]">
                 <p class="text-[32px] font-bold text-[#050505] leading-[32px] pt-[8px]">
-                  {{ userCurrent ? userCurrent.name : '' }}
+                  {{ profileInFor ? profileInFor.name : '' }}
                 </p>
                 <p class="py-[8px] text-[15px] text-[#65676B] font-medium cursor-pointer hover:underline">
                   747 bạn bè
@@ -61,7 +61,7 @@
                   <div
                     class="flex flex-row mr-[8px] justify-center items-center bg-[#0866ff] hover:bg-[#0861F2] px-[12px] rounded-md cursor-pointer">
                     <i class="fa-solid fa-plus text-blue-200 text-[12px] pl-[5px] mr-[8px]"></i>
-                    <p class="text-white text-[15px] font-medium">Thêm bạn bè</p>
+                    <p class="text-white text-[15px] font-medium" @click='sendFriendRequest()'>Thêm bạn bè</p>
                   </div>
                   <div
                     class="flex flex-row justify-center items-center bg-[#E4E6EB] rounded-md px-[9px] py-[6px] hover:bg-[#D8DADF] cursor-pointer">
@@ -141,12 +141,15 @@
                     <a class="hover:bg-[#F2F2F2] text-[#0064d1] text-[17px] px-[12px] py-[6px] rounded-md mr-[-10px]"
                       href="">Xem tất cả ảnh</a>
                   </div>
-                  <div class="w-full h-[400px]">
+                  <div class="w-full ">
                     <div class="w-full h-full grid grid-cols-3 grid-r gap-1">
-                      <a class="col-span-1 h-full block" href="" v-for="index in 10" :key='index'>
-                        <img class="w-full h-full object-cover rounded-tl-lg"
-                          src="https://fileinfo.com/img/ss/xl/jpg_44-2.jpg" alt="" />
-                      </a>
+                      <template v-for="(value, index) in allNewFeed" :key='index'>
+                        <a class="col-span-1 h-full block" href="" v-for="(value1, index1) in value.medias"
+                          :key="index1">
+                          <img class="w-full h-full object-cover rounded-tl-lg" :src="value1.url" alt="" />
+                        </a>
+                      </template>
+
                     </div>
                   </div>
                 </div>
@@ -156,7 +159,8 @@
                   <div class="w-full flex flex-row justify-between items-center pt-[8px] mb-[-2px]">
                     <a class="text-[20px] text-[#050505] font-bold hover:underline" href="">Bạn bè</a>
                     <a class="hover:bg-[#F2F2F2] text-[#0064d1] text-[17px] px-[12px] py-[6px] rounded-md mr-[-10px]"
-                      href="">Xem tất bạn bè</a>
+                      href="">Xem tất
+                      bạn bè</a>
                   </div>
                   <p class="text-[#65676b] text-[17px] font-normal mb-[15px]">747 người bạn</p>
                   <div class="w-full h-[450px]">
@@ -177,19 +181,7 @@
           </div>
           <!-- RIGHT-PROFILE -->
           <div class="w-[560px]">
-            <div class="bg-[white] w-full flex flex-col gap-4 border-[1px] p-2 rounded-lg shadow-sm">
-              <!-- <div id="storie" class="rounded-lg">
-                <div
-                  class="w-full h-18 rounded-lg py-1 px-2 flex items-center gap-3 cursor-pointer hover:bg-myGray-900 transition-colors duration-300">
-                  <div id="post-svg-plus" class="p-2.5 bg-face-blue-light rounded-full cursor-pointer">
-                    <svg-create class="w-5 text-face-blue" />
-                  </div>
-                  <div id="title" class="flex flex-col">
-                    <span class="mobile-x:text-lg text-tiny">Create Story</span>
-                    <span class="mobile-x:text-tiny text-xs text-myGray-600">Share a photo or write something.</span>
-                  </div>
-                </div>
-              </div> -->
+            <div class="bg-[white] w-full flex flex-col gap-4 border-[1px] p-2 rounded-lg shadow-sm" v-if='isOwner'>
               <div id="new-post" class="h-32 p-2 rounded-lg flex flex-col justify-between">
                 <div id="new-post-top" class="p-1 flex gap-3 items-center">
                   <div class="_pp_ cursor-pointer">
@@ -307,7 +299,7 @@
                     class="font-normal text-sm sm:text-tiny flex items-center my-2 border-b border-t border-myGray-900">
                     <div
                       class="flex gap-2 w-full items-center justify-center p-2 hover:bg-myGray-900 cursor-pointer rounded-lg my-1 transition-colors duration-300 "
-                      :class="{ 'text-[#0861f2]': value?.user_liked?.liked == true }" @click="likePost(value, index)">
+                      :class="{ 'text-[#0861f2]': value.user_liked.liked }" @click="likePost(value, index)">
                       <i class="fa-solid fa-thumbs-up text-2xl"></i>
                       <span>Like</span>
                     </div>
@@ -334,7 +326,7 @@
                   <div class="modal-content">
                     <div class="modal-header">
                       <h1 class="modal-title fs-5 text-2xl font-bold" id="modalCommentLabel">Bài viết của {{
-                        value && value.user ? value.user.name : '' }}</h1>
+                        valueDetailPost?.user?.name ?? '' }}</h1>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body pb-0">
@@ -343,16 +335,17 @@
                           <div id="post-top_left" class="flex items-center gap-2">
                             <div id="post-top_left_pp"
                               class="ring-2 ring-blue-500 ring-opacity-70 border-2 border-black w-max rounded-full cursor-pointer">
-                              <img :src="value && value.user && value.user.avatar ? value.user.avatar : avatar"
+                              <img
+                                :src="valueDetailPost && valueDetailPost.user && valueDetailPost.user.avatar ? valueDetailPost.user.avatar : avatar"
                                 class="w-8 h-8 rounded-full" alt="" />
                             </div>
                             <div id="post-top_left_title">
                               <p class="hover:underline cursor-pointer font-bold capitalize">
-                                {{ value && value.user ? value.user.name : '' }}
+                                {{ valueDetailPost?.user?.name ?? '' }}
                               </p>
                               <p class="flex text-xs mt-1 items-center">
                                 <span class="hover:underline cursor-pointer">{{
-                                  dinhDangNgay(value ? value.created_at : '')
+                                  dinhDangNgay(valueDetailPost ? valueDetailPost.created_at : '')
                                 }}</span>
                                 <span class="mx-1">·</span>
                                 <svg-world class="w-3" />
@@ -363,7 +356,6 @@
                         <div id="post-middle">
                           <div class="font-normal leading-5 text-sm p-4 py-2">
                             {{ valueDetailPost ? valueDetailPost.content : '' }}
-                            <!-- Các trường hợp khác có thể tiếp tục ở đây -->
                           </div>
                           <render-image :allNewFeedDetail="valueDetailPost" />
                         </div>
@@ -374,7 +366,8 @@
                               <span class="hover:underline"> {{ value.likes }}</span>
                             </div>
                             <div id="info_right">
-                              <span class="hover:underline cursor-pointer mr-3">{{ value.comments }} Comment</span>
+                              <span class="hover:underline cursor-pointer mr-3">{{ value.comments }}
+                                Comment</span>
                               <span class="hover:underline cursor-pointer">{{ value.shares }} Share</span>
                             </div>
                           </div>
@@ -382,8 +375,7 @@
                             class="font-normal text-sm sm:text-tiny flex items-center my-2 border-b border-t border-myGray-900">
                             <div
                               class="flex gap-2 w-full items-center justify-center p-2 hover:bg-myGray-900 cursor-pointer rounded-lg my-1 transition-colors duration-300 "
-                              :class="{ 'text-[#0861f2]': value?.user_liked?.liked == true }"
-                              @click="likePost(value, index);">
+                              :class="{ 'text-[#0861f2]': value.user_liked.liked }" @click="likePost(value, index);">
                               <i class="fa-solid fa-thumbs-up text-2xl"></i>
                               <span>Like</span>
                             </div>
@@ -425,7 +417,6 @@
                                 <Trash2 class="cursor-pointer  hover:text-black" data-bs-toggle="modal"
                                   data-bs-target="#modalDeleteCommment" v-if="userCurrent._id == commentDetail.user_id"
                                   @click="valueCommentDetail = commentDetail; console.log(commentDetail)" />
-                                <!-- @click="handleDeleteComment(commentDetail);" v-if="userCurrent._id == commentDetail.user_id" -->
                               </div>
                             </div>
                           </div>
@@ -595,7 +586,7 @@
           <div class="w-full pb-[50px] mt-3">
             <textarea class="w-full border-0 focus:outline-none focus:ring-0 px-0 break-words resize-none"
               :placeholder="placeholder" rows="3" v-model="content" @paste="handlePaste">
-              </textarea>
+          </textarea>
             <div class="h-[200px] overflow-auto" v-if="media[0]">
               <div v-for="(value, index) in media" :key="index" class="my-3 relative">
                 <img v-if="value.url" :src="value.url" alt="" class="w-full h-[280px] object-content border" />
@@ -773,7 +764,7 @@ import { Forward } from 'lucide-vue-next'
 import svgNewMessage from '@/components/svg/svgNewMessage.vue'
 import { Users, Ellipsis, Repeat, X, Trash2 } from 'lucide-vue-next'
 // item
-import baseRequest from '@/baseAPI/baseRequest'
+import http from '@/baseAPI/http'
 import axios from 'axios'
 import { useToast } from 'vue-toast-notification'
 import modalShare from './Home/modalShare.vue'
@@ -851,14 +842,38 @@ export default {
 
   methods: {
     getProfile() {
-      baseRequest.get(`/users/profile//${this.userName}`
+      http.get(`/users/profile/${this.userName}`
       ).then((res) => {
-        this.profileInFor = res
-        console.log('>>>>', res);
+        this.profileInFor = res.data.result
+        console.log('>>>>', this.profileInFor);
       }).catch((errors) => {
         console.log('>>>>>>>>>', errors);
       })
 
+    },
+    ChangeInformation() {
+      const date = this.convertToISODateString(this.date_of_birth)
+      const payload = {
+        name: this.name,
+        date_of_birth: date,
+      }
+      console.log(payload);
+      http.patch('/users/update-me', payload)
+        .then((res) => {
+          this.$toast.success('Cập nhật thông tin thành công', {
+            position: 'bottom-right'
+          })
+        }).catch((errors) => {
+          console.log(errors);
+          this.$toast.error('Cập nhật thông tin thất bại', {
+            position: 'bottom-right'
+          })
+        })
+    },
+    convertToISODateString(dateString) {
+      let [year, month, day] = dateString.split('-');
+      let date = new Date(year, month - 1, day);
+      return date.toISOString();
     },
     handleFileUpload(event) {
       this.fileup = event.target.files[0]
@@ -911,7 +926,7 @@ export default {
           mentions: [],
           medias: this.media
         }
-        baseRequest
+        http
           .post('/posts', obj)
           .then((res) => {
             this.$toast.success('Tạo bài viết thành công', {
@@ -947,8 +962,12 @@ export default {
         })
         .then((res) => {
           this.allNewFeed = res.data.result
-          this.allNewFeed.reverse()
-          console.log(res.data.result);
+          this.allNewFeed.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+
+          this.allNewFeed = this.allNewFeed.filter((value, index) => {
+            return value.user.username == this.userName
+          })
+          console.log(this.allNewFeed);
         })
         .catch((errors) => {
           console.log(errors)
@@ -991,16 +1010,17 @@ export default {
       };
       if (value?.user_liked?.liked) {
         try {
-          const res = await baseRequest.delete(`/likes/post/${payload.post_id}`);
+          const res = await http.delete(`/likes/post/${payload.post_id}`);
           this.getDataNewFeed();
-          this.valueDetailPost = this.allNewFeed[index]
         } catch (errors) {
           console.log(errors);
         }
       } else {
         try {
-          const res = await baseRequest.post('/likes', payload);
+          const res = await http.post('/likes', payload);
           this.getDataNewFeed();
+          this.liked = this.allNewFeed[index].user_liked.liked
+          this.liked = [...this.allNewFeed]
 
         } catch (errors) {
           console.log(errors);
@@ -1054,7 +1074,9 @@ export default {
         });
     },
     handleDetailPost(index) {
+      console.log('>>>>', index);
       this.valueDetailPost = this.allNewFeed[index]
+      console.log(this.valueDetailPost);
       if (this.valueDetailPost._id) {
         this.getCommentDetailPost()
       }
@@ -1067,7 +1089,7 @@ export default {
 
       if (this.contentComment.trim() !== '') {
         try {
-          const response = await baseRequest.post('/comments', payload);
+          const response = await http.post('/comments', payload);
           this.contentComment = '';
           await this.getCommentDetailPost();
           await this.getDataNewFeed();
@@ -1101,29 +1123,16 @@ export default {
         }
       }
     },
-    ChangeInformation() {
-      const date = this.convertToISODateString(this.date_of_birth)
+    async sendFriendRequest() {
       const payload = {
-        name: this.name,
-        date_of_birth: date,
+        friend_user_id: this.profileInFor._id
       }
-      console.log(payload);
-      baseRequest.patch('/users/update-me', payload)
+      http.post('/users/send-friend-requests', payload)
         .then((res) => {
-          this.$toast.success('Cập nhật thông tin thành công', {
-            position: 'bottom-right'
-          })
+          console.log(res);
         }).catch((errors) => {
           console.log(errors);
-          this.$toast.error('Cập nhật thông tin thất bại', {
-            position: 'bottom-right'
-          })
         })
-    },
-    convertToISODateString(dateString) {
-      let [year, month, day] = dateString.split('-');
-      let date = new Date(year, month - 1, day);
-      return date.toISOString();
     }
   },
 
