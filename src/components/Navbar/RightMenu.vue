@@ -45,9 +45,9 @@
     isShowNotice = false;
     "
       class="rounded-full flex items-center justify-center cursor-pointer bg-myGray-900 hover:bg-myGray-700 transition-colors duration-300">
-      <div id="pp" class="rounded-full overflow-hidden w-9 relative border">
-        <img :src="userCurrent.avatar ? userCurrent.avatar : avatar" alt="" width="100%" />
-        <div class="image-avatar"></div>
+      <div id="pp" class="rounded-full overflow-hidden w-9 h-9 relative border naybanoiw">
+        <img :src="profileInFor.avatar ? profileInFor.avatar : avatar" alt="" width="100%" style="height: 100%;" />
+
       </div>
     </div>
   </div>
@@ -631,8 +631,8 @@
           <div class="mx-1 my-1 hover:bg-gray-100 rounded-xl">
             <router-link :to="`/profile/${userCurrent.username}`" @click="handleDeleteActive" class="flex">
               <div>
-                <img class="w-10 h-10 mx-1 rounded-full my-2"
-                  src="https://web.hn.ss.bfcplatform.vn/muadienmay/content/article2/0878913035-1620532649.jpg" alt="" />
+                <img class="w-10 h-10 mx-1 rounded-full my-2" :src="profileInFor.avatar ? profileInFor.avatar : avatar"
+                  alt="" />
               </div>
               <div>
                 <p class="font-semibold my-1 mt-3 mx-2 text-base">{{ userCurrent.name }}</p>
@@ -756,6 +756,8 @@ export default {
   mounted() {
     // eslint-disable-next-line no-undef
     this.userCurrent = JSON.parse(localStorage.getItem('profile'))
+    console.log(this.userCurrent);
+    this.getProfile()
   },
   components: {
     svgMenu,
@@ -789,10 +791,20 @@ export default {
       isShowNotice: false,
       isShowMore: false,
       avatar: 'https://cellphones.com.vn/sforum/wp-content/uploads/2023/10/avatar-trang-4.jpg',
-      userCurrent: {}
+      userCurrent: {},
+      profileInFor: {}
     }
   },
   methods: {
+    getProfile() {
+      http.get(`/users/profile/${this.userCurrent.username}`
+      ).then((res) => {
+        this.profileInFor = res.data.result
+        console.log('>>>>', this.profileInFor);
+      }).catch((errors) => {
+        console.log('>>>>>>>>>', errors);
+      })
+    },
     logOut() {
       try {
         localStorage.removeItem('access_token')

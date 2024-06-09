@@ -3,7 +3,7 @@
     <div id="left-bar-top" class="p-[10px]">
       <ul>
         <li class="flex justify-between items-center">
-          <h1 class="text-2xl font-bold">Nhóm</h1>
+          <h1 class="text-2xl font-bold">Video</h1>
           <div
             class="h-[36px] w-[36px] rounded-full cursor-pointer flex items-center justify-center bg-[#E4E6EB] hover:bg-gray-300">
             <Settings />

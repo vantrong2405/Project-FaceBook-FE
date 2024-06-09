@@ -22,7 +22,7 @@
             <div id="new-post" class="h-32 p-2 rounded-lg flex flex-col justify-between">
               <div id="new-post-top" class="p-1 flex gap-3 items-center">
                 <div class="_pp_ cursor-pointer">
-                  <img :src="userCurrent.avatar ? userCurrent.avatar : avatar" class="w-10 rounded-full" alt="" />
+                  <img :src="userCurrent.avatar ? userCurrent.avatar : avatar" class="w-10 rounded-full h-9" alt="" />
                 </div>
                 <input data-bs-toggle="modal" data-bs-target="#create_posts"
                   class="cursor-pointer w-full h-10 rounded-full border-[0px] bg-[#F0F2F5] hover:bg-[#E4E6E9] outline-none text-tiny px-3 font-semibold transition-colors mobile-x:text-base focus:outline-none focus:shadow-none focus:ring-transparent"
@@ -53,8 +53,7 @@
               <div id="post-top" class="w-full flex items-center justify-between p-4 py-2">
                 <div id="post-top_left" class="flex items-center gap-2">
                   <router-link :to="`/profile/${value.user.username}`">
-                    <div id="post-top_left_pp"
-                      class="ring-2 ring-blue-500 ring-opacity-70 border-2 border-black w-max rounded-full cursor-pointer">
+                    <div id="post-top_left_pp" class=" ring-opacity-70 border-2  w-max rounded-full cursor-pointer">
                       <img :src="value.user.avatar ? value.user.avatar : avatar" class="w-8 h-8 rounded-full" alt="" />
                     </div>
                   </router-link>
@@ -200,7 +199,7 @@
                           <div id="other" class="flex gap-2 my-2"
                             v-for="(commentDetail, key) in valueDetailPost.postComment " :key="key">
                             <div id="other_pp">
-                              <img src="https://cellphones.com.vn/sforum/wp-content/uploads/2023/10/avatar-trang-4.jpg"
+                              <img :src="userCurrent.avatar ? userCurrent.avatar : avatar"
                                 class="w-9 h-9 rounded-full cursor-pointer" alt="" />
                             </div>
                             <div id="other_comment" class=" rounded-lg pb-2 max-w-[80%]">
@@ -286,20 +285,18 @@
           <div class="modal-body">
             <div class="w-full flex">
               <a class="w-[40px] h-[40px] hover:brightness-90" href="">
-                <img class="w-full h-full rounded-full"
-                  src="https://cellphones.com.vn/sforum/wp-content/uploads/2023/10/avatar-trang-4.jpg" alt="" />
+                <img class="w-full h-full rounded-full" :src="userCurrent.avatar ? userCurrent.avatar : avatar"
+                  alt="" />
               </a>
               <div class="ml-[10px]">
                 <p class="text-[15px] font-medium text-black">{{ userCurrent.name }}</p>
-                <div class="w-full">
-                  <select
-                    class="border-0 focus:ring-0  text-[15px] w-full px-[5px] font-medium bg-[#E4E6EB] rounded-md cursor-pointer"
-                    name="" id="">
-                    <option value="1" selected>Công khai</option>
-                    <option value="2">Bạn bè</option>
-                    <option value="3">Bạn bè cụ thể</option>
-                    <option value="4">Bạn bè ngoại trừ</option>
-                    <option value="5">Chỉ mình tôi</option>
+                <div class="w-32">
+                  <select class="form-select outline-none shadow-none py-1 border-black"
+                    aria-label="Default select example">
+                    <option class="truncate" value="1" selected>Công khai</option>
+                    <option class="truncate" value="2">Bạn bè</option>
+                    <option class="truncate" value="3">Bạn bè cụ thể</option>
+                    <option class="truncate" value="4">Chỉ mình tôi</option>
                   </select>
                 </div>
               </div>

@@ -1,5 +1,6 @@
 <template>
   <input type="file" hidden name="file" ref="fileInput" id="file" @change="handleFileUpload" />
+  <input type="file" hidden name="file" ref="fileInputAvatar" id="file" @change="handleFileUploadAvatar" />
   <div class="w-full bg-[#F0F2F5]">
     <!-- Header-profile -->
     <div id="header-profile" class="w-full bg-white shadow-md">
@@ -58,10 +59,23 @@
               </div>
               <div class="w-[50%]" v-if='isOwner == false'>
                 <div class="flex flex-row justify-end mt-[30px]">
-                  <div
+                  <div v-if='statusFriend == 0'
                     class="flex flex-row mr-[8px] justify-center items-center bg-[#0866ff] hover:bg-[#0861F2] px-[12px] rounded-md cursor-pointer">
                     <i class="fa-solid fa-plus text-blue-200 text-[12px] pl-[5px] mr-[8px]"></i>
-                    <p class="text-white text-[15px] font-medium" @click='sendFriendRequest()'>Thêm bạn bè</p>
+                    <p class="text-white text-[15px] font-medium" @click='sendFriendRequest()'>
+                      Thêm bạn bè</p>
+                  </div>
+                  <div v-if='statusFriend == 1'
+                    class="flex flex-row mr-[8px] justify-center items-center bg-[#0866ff] hover:bg-[#0861F2] px-[12px] rounded-md cursor-pointer">
+                    <i class="fa-solid fa-plus text-blue-200 text-[12px] pl-[5px] mr-[8px]"></i>
+                    <p class="text-white text-[15px] font-medium">
+                      Hủy yêu cầu</p>
+                  </div>
+                  <div v-if='statusFriend == 2'
+                    class="flex flex-row mr-[8px] justify-center items-center bg-[#0866ff] hover:bg-[#0861F2] px-[12px] rounded-md cursor-pointer">
+                    <i class="fa-solid fa-plus text-blue-200 text-[12px] pl-[5px] mr-[8px]"></i>
+                    <p class="text-white text-[15px] font-medium">
+                      Bạn bè</p>
                   </div>
                   <div
                     class="flex flex-row justify-center items-center bg-[#E4E6EB] rounded-md px-[9px] py-[6px] hover:bg-[#D8DADF] cursor-pointer">
@@ -144,10 +158,10 @@
                   <div class="w-full ">
                     <div class="w-full h-full grid grid-cols-3 grid-r gap-1">
                       <template v-for="(value, index) in allNewFeed" :key='index'>
-                        <a class="col-span-1 h-full block" href="" v-for="(value1, index1) in value.medias"
-                          :key="index1">
-                          <img class="w-full h-full object-cover rounded-tl-lg" :src="value1.url" alt="" />
-                        </a>
+                        <div class="col-span-1 h-full block" v-for="(value1, index1) in value.medias" :key="index1">
+                          <img class="w-[300px] h-[150px] overflow-hidden object-cover rounded-tl-lg" :src="value1.url"
+                            alt="" />
+                        </div>
                       </template>
 
                     </div>
@@ -165,7 +179,7 @@
                   <p class="text-[#65676b] text-[17px] font-normal mb-[15px]">747 người bạn</p>
                   <div class="w-full h-[450px]">
                     <div class="w-full h-full grid grid-cols-3 gap-x-2 gap-y-5">
-                      <a class="col-span h-full block" href="">
+                      <a class="col-span h-full block" href="" v-for='index in 9' :key="index">
                         <img class="w-full h-[90%] rounded-lg" src="https://fileinfo.com/img/ss/xl/jpg_44-2.jpg"
                           alt="" />
                         <p
@@ -185,7 +199,8 @@
               <div id="new-post" class="h-32 p-2 rounded-lg flex flex-col justify-between">
                 <div id="new-post-top" class="p-1 flex gap-3 items-center">
                   <div class="_pp_ cursor-pointer">
-                    <img :src="userCurrent.avatar ? userCurrent.avatar : avatar" class="w-10 rounded-full" alt="" />
+                    <img :src="profileInFor.avatar ? profileInFor.avatar : avatar" class="w-10 rounded-full h-9"
+                      alt="" />
                   </div>
                   <input data-bs-toggle="modal" data-bs-target="#create_posts"
                     class="cursor-pointer w-full h-10 rounded-full border-[0px] bg-[#F0F2F5] hover:bg-[#E4E6E9] outline-none text-tiny px-3 font-semibold transition-colors mobile-x:text-base focus:outline-none focus:shadow-none focus:ring-transparent"
@@ -658,18 +673,16 @@
         </div>
         <div class="modal-body">
           <!-- Thay ava -->
-          <div class="w-full mb-[15px]">
+          <div class="w-full h-full mb-[15px]">
             <div class="w-full flex justify-between items-center mb-[10px]">
               <p class="text-[20px] font-bold text-black">Ảnh đại diện</p>
-              <span
+              <span @click="openFileInputAvatar"
                 class="cursor-pointer text-[#0064d1] text-[17px] px-[8px] py-[4px] hover:bg-[#F2F2F2] rounded-md">Chỉnh
                 sửa</span>
             </div>
             <div class="w-full  flex justify-center">
               <div class="object-cover">
-                <img
-                  src="https://scontent.fdad3-6.fna.fbcdn.net/v/t39.30808-1/274456074_1361142244327596_3675729695510261208_n.jpg?stp=c0.2.200.200a_dst-jpg_p200x200&_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=KkigPWugazcQ7kNvgGRiDW7&_nc_ht=scontent.fdad3-6.fna&oh=00_AYBlXbbO_2_NXWdbuwLbKwutKQiiOslRkF6nTmt4Uth68Q&oe=665CDFE6"
-                  alt="" class="w-[168px] h-[168px] rounded-full">
+                <img :src="avatarUpLoad" alt="" class="w-[168px] h-[168px] rounded-full">
               </div>
             </div>
           </div>
@@ -683,14 +696,6 @@
             </div>
           </div>
           <!-- ngày sinh -->
-          <div class="w-full mb-[10px]">
-            <p class="text-[20px] font-bold text-black mb-[5px]">Ngày sinh</p>
-            <div class="w-100%">
-              <input type="date" name="" id=""
-                class="form-control outline-none shadow-none border-gray-400 focus:border-gray-500"
-                v-model="date_of_birth" />
-            </div>
-          </div>
           <!-- giới tính -->
           <div class="w-full mb-[10px]">
             <p class="text-[20px] font-bold text-black mb-[5px]">Giới tính</p>
@@ -789,6 +794,7 @@ export default {
   mounted() {
     this.userName = this.$route.params.id;
     this.getDataNewFeed()
+    this.checkStatusFriend()
     this.userCurrent = JSON.parse(localStorage.getItem('profile'))
     if (this.userCurrent && this.userCurrent.name) {
       this.placeholder = `${this.userCurrent.name} ơi, bạn đang nghĩ gì thế?`;
@@ -802,6 +808,9 @@ export default {
     console.log(this.userCurrent);
     if (this.userName) {
       this.getProfile()
+      this.name = this.userCurrent.name
+      this.avatarUpLoad = this.userCurrent.avatar ? this.userCurrent.avatar : this.avatar
+      console.log(this.userCurrent);
     }
   },
   data() {
@@ -834,13 +843,21 @@ export default {
       userName: '',
       profile: '',
       name: '',
-      gender: '',
+      gender: 'nam',
       date_of_birth: '',
-      profileInFor: {}
+      profileInFor: {},
+      statusFriend: 0,
+      avatarUpLoad: ''
     }
   },
 
   methods: {
+    checkStatusFriend() {
+      http.get(`/users/check-friend/${this.userName}`)
+        .then((res) => {
+          this.statusFriend = res.data.status
+        })
+    },
     getProfile() {
       http.get(`/users/profile/${this.userName}`
       ).then((res) => {
@@ -849,26 +866,34 @@ export default {
       }).catch((errors) => {
         console.log('>>>>>>>>>', errors);
       })
-
     },
     ChangeInformation() {
-      const date = this.convertToISODateString(this.date_of_birth)
       const payload = {
         name: this.name,
-        date_of_birth: date,
-      }
+        gender: this.gender,
+        avatar: this.avatarUpLoad
+      };
       console.log(payload);
       http.patch('/users/update-me', payload)
         .then((res) => {
+          // Nếu cập nhật thành công
           this.$toast.success('Cập nhật thông tin thành công', {
             position: 'bottom-right'
-          })
-        }).catch((errors) => {
-          console.log(errors);
+          });
+          const profile = JSON.parse(localStorage.getItem('profile'));
+          profile.name = this.name;
+          profile.avatar = this.avatar;
+          profile.gender = this.gender;
+          localStorage.setItem('profile', JSON.stringify(profile));
+          this.getProfile()
+          window.location.reload();
+        })
+        .catch((error) => {
+          console.error(error);
           this.$toast.error('Cập nhật thông tin thất bại', {
             position: 'bottom-right'
-          })
-        })
+          });
+        });
     },
     convertToISODateString(dateString) {
       let [year, month, day] = dateString.split('-');
@@ -879,6 +904,44 @@ export default {
       this.fileup = event.target.files[0]
       this.upFile()
       this.$refs.fileInput.value = '';
+    },
+    handleFileUploadAvatar(event) {
+      this.fileup = event.target.files[0]
+      this.upFileAvatar()
+      this.$refs.fileInput.value = '';
+    },
+    async upFileAvatar() {
+      if (!this.fileup) {
+        console.error('Chưa chọn file.')
+        return
+      }
+      const formData = new FormData()
+      formData.append('image', this.fileup)
+
+      await axios
+        .post('http://localhost:4000/medias/upload-image', formData, {
+          headers: {
+            Authorization: 'Bearer ' + localStorage.getItem('access_token'),
+            'Content-Type': 'multipart/form-data'
+          }
+        })
+        .then((res) => {
+          if (res.status >= 200 && res.status < 300) {
+            console.log(res)
+            this.avatarUpLoad = res.data.result[0].url
+            console.log(this.avatarUpLoad);
+            this.fileup = ''
+          } else {
+            console.error('Lỗi:', res.status)
+            console.log(res)
+          }
+        })
+        .catch((error) => {
+          console.error('Lỗi khi gửi yêu cầu:', error)
+          this.$toast.error('Upload file không thành công', {
+            position: 'bottom-right'
+          })
+        })
     },
     async upFile() {
       if (!this.fileup) {
@@ -917,6 +980,9 @@ export default {
     },
     openFileInput() {
       this.$refs.fileInput.click()
+    },
+    openFileInputAvatar() {
+      this.$refs.fileInputAvatar.click()
     },
     postArticle() {
       if (this.content.trim() != '' || this.media.length > 0) {
@@ -1130,9 +1196,18 @@ export default {
       http.post('/users/send-friend-requests', payload)
         .then((res) => {
           console.log(res);
+          this.checkStatusFriend()
         }).catch((errors) => {
           console.log(errors);
         })
+    },
+    async deleteFriendRequest() {
+      console.log(this.profileInFor._id);
+      http.delete(`/users/delete-friend-requests/${this.profileInFor._id}`)
+        .then((res) => {
+          console.log(res);
+          this.checkStatusFriend()
+        }).catch(errors => console.log(errors))
     }
   },
 

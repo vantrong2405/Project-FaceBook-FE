@@ -9,7 +9,7 @@
                     <ul>
                       <li
                         class="flex items-center gap-2 px-3 py-2 w-full cursor-pointer rounded-lg hover:bg-myGray-900">
-                        <img :src="userCurrent.avatar ? userCurrent.avatar : avatar" class="rounded-full w-9" alt="" />
+                        <img :src="userCurrent.avatar ? userCurrent.avatar : avatar" class="rounded-full w-9 h-9 " alt="" />
                         <span class="font-semibold text-tiny">{{ userCurrent.name }}</span>
                       </li>
                       <li
@@ -96,6 +96,7 @@
 import svgSeeMore from '@/components/svg/svgSeeMore.vue'
 
 export default {
+
   props: {
     userCurrent: {
       type: Object,
@@ -108,7 +109,10 @@ export default {
   },
   components: {
     svgSeeMore
-  }
+  },
+  created() {
+    console.log(this.userCurrent);
+  },
 }
 </script>
 <style lang="">

@@ -3,7 +3,7 @@
         <div id="left-bar-top" class="p-[10px]">
             <ul>
                 <li class="flex justify-between items-center">
-                    <h1 class="text-2xl font-bold">Nhóm</h1>
+                    <h1 class="text-2xl font-bold">Tìm kiếm</h1>
                     <div
                         class="h-[36px] w-[36px] rounded-full cursor-pointer flex items-center justify-center bg-[#E4E6EB] hover:bg-gray-300">
                         <Settings />
@@ -100,16 +100,11 @@
 
                                 </div>
                             </router-link>
-                            <div class="btn btn-primary" v-if="value.isFriend == false">Thêm bạn bè</div>
-                            <!-- <div class="btn btn-danger">Hủy lời mời</div> -->
-                            <div class="btn btn-success" v-if="value.isFriend == true">Bạn bè</div>
+                            <router-link :to="`/profile/${value.username}`">
+                                <div class="btn btn-primary">Xem chi tiết </div>
+                            </router-link>
                         </div>
-
                     </template>
-
-
-
-
                 </div>
             </div>
         </div>
