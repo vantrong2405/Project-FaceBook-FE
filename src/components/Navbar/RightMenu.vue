@@ -18,8 +18,10 @@
     <div id="messenger-box"
       class="p-2 rounded-full flex items-center justify-center cursor-pointer bg-myGray-900 hover:bg-myGray-700 transition-colors duration-300"
       @click="
-        isShowMessager = !isShowMessagerl;
-      isShowMenu = isShowMore = isShowNotice = falsel;
+      isShowMenu = false;
+      isShowMore = false;
+      isShowMessager = !isShowMessager;
+      isShowNotice = false;
       ">
       <svg-messenger class="w-5" />
       <!--Messenger-->

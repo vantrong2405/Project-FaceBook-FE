@@ -21,12 +21,12 @@
           <svg-market class="w-7 icon" />
         </div>
       </router-link>
-      <router-link to="/group">
+      <!-- <router-link to="/group">
         <div id="svg-groups-box"
           class="product-items lg:w-40 h-12 flex items-center justify-center cursor-pointer hover:bg-myGray-900 rounded-lg transition-colors duration-300">
           <svg-groups class="w-7 icon" />
         </div>
-      </router-link>
+      </router-link> -->
       <router-link to="/game">
         <div id="svg-groups-box"
           class="product-items lg:w-40 h-12 flex items-center justify-center cursor-pointer hover:bg-myGray-900 rounded-lg transition-colors duration-300">
@@ -57,7 +57,7 @@ export default {
   },
   components: {
     svgHome,
-    svgGroups,
+   // svgGroups,
     SearchBar,
     RightMenu,
     svgVideo,
