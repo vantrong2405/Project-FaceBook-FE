@@ -8,15 +8,15 @@
  License: www.highcharts.com/license
 */
 ;(function (c) {
-  'object' === typeof module && module.exports
-    ? ((c['default'] = c), (module.exports = c))
-    : 'function' === typeof define && define.amd
-      ? define('highcharts/modules/exporting', ['highcharts'], function (p) {
+  "object" === typeof module && module.exports
+    ? ((c["default"] = c), (module.exports = c))
+    : "function" === typeof define && define.amd
+      ? define("highcharts/modules/exporting", ["highcharts"], function (p) {
           c(p)
           c.Highcharts = p
           return c
         })
-      : c('undefined' !== typeof Highcharts ? Highcharts : void 0)
+      : c("undefined" !== typeof Highcharts ? Highcharts : void 0)
 })(function (c) {
   function p(c, l, h, k) {
     c.hasOwnProperty(l) || (c[l] = k.apply(null, h))
@@ -24,8 +24,8 @@
   c = c ? c._modules : {}
   p(
     c,
-    'Extensions/FullScreen.js',
-    [c['Core/Chart/Chart.js'], c['Core/Globals.js'], c['Core/Utilities.js']],
+    "Extensions/FullScreen.js",
+    [c["Core/Chart/Chart.js"], c["Core/Globals.js"], c["Core/Utilities.js"]],
     function (c, l, h) {
       var k = h.addEvent
       h = (function () {
@@ -34,29 +34,29 @@
           this.isOpen = !1
           e = e.renderTo
           this.browserProps ||
-            ('function' === typeof e.requestFullscreen
+            ("function" === typeof e.requestFullscreen
               ? (this.browserProps = {
-                  fullscreenChange: 'fullscreenchange',
-                  requestFullscreen: 'requestFullscreen',
-                  exitFullscreen: 'exitFullscreen'
+                  fullscreenChange: "fullscreenchange",
+                  requestFullscreen: "requestFullscreen",
+                  exitFullscreen: "exitFullscreen"
                 })
               : e.mozRequestFullScreen
                 ? (this.browserProps = {
-                    fullscreenChange: 'mozfullscreenchange',
-                    requestFullscreen: 'mozRequestFullScreen',
-                    exitFullscreen: 'mozCancelFullScreen'
+                    fullscreenChange: "mozfullscreenchange",
+                    requestFullscreen: "mozRequestFullScreen",
+                    exitFullscreen: "mozCancelFullScreen"
                   })
                 : e.webkitRequestFullScreen
                   ? (this.browserProps = {
-                      fullscreenChange: 'webkitfullscreenchange',
-                      requestFullscreen: 'webkitRequestFullScreen',
-                      exitFullscreen: 'webkitExitFullscreen'
+                      fullscreenChange: "webkitfullscreenchange",
+                      requestFullscreen: "webkitRequestFullScreen",
+                      exitFullscreen: "webkitExitFullscreen"
                     })
                   : e.msRequestFullscreen &&
                     (this.browserProps = {
-                      fullscreenChange: 'MSFullscreenChange',
-                      requestFullscreen: 'msRequestFullscreen',
-                      exitFullscreen: 'msExitFullscreen'
+                      fullscreenChange: "MSFullscreenChange",
+                      requestFullscreen: "msRequestFullscreen",
+                      exitFullscreen: "msExitFullscreen"
                     }))
         }
         c.prototype.close = function () {
@@ -71,19 +71,15 @@
           var e = this,
             c = e.chart
           if (e.browserProps) {
-            e.unbindFullscreenEvent = k(
-              c.container.ownerDocument,
-              e.browserProps.fullscreenChange,
-              function () {
-                e.isOpen ? ((e.isOpen = !1), e.close()) : ((e.isOpen = !0), e.setButtonText())
-              }
-            )
+            e.unbindFullscreenEvent = k(c.container.ownerDocument, e.browserProps.fullscreenChange, function () {
+              e.isOpen ? ((e.isOpen = !1), e.close()) : ((e.isOpen = !0), e.setButtonText())
+            })
             var h = c.renderTo[e.browserProps.requestFullscreen]()
             if (h)
-              h['catch'](function () {
-                alert('Full screen is not supported inside a frame.')
+              h["catch"](function () {
+                alert("Full screen is not supported inside a frame.")
               })
-            k(c, 'destroy', e.unbindFullscreenEvent)
+            k(c, "destroy", e.unbindFullscreenEvent)
           }
         }
         c.prototype.setButtonText = function () {
@@ -102,7 +98,7 @@
             l &&
             h &&
             h.length &&
-            (h[l.indexOf('viewFullscreen')].innerHTML = this.isOpen
+            (h[l.indexOf("viewFullscreen")].innerHTML = this.isOpen
               ? e.exitFullscreen
               : k.menuItemDefinitions.viewFullscreen.text || e.viewFullscreen)
         }
@@ -112,13 +108,13 @@
         return c
       })()
       l.Fullscreen = h
-      k(c, 'beforeRender', function () {
+      k(c, "beforeRender", function () {
         this.fullscreen = new l.Fullscreen(this)
       })
       return l.Fullscreen
     }
   )
-  p(c, 'Mixins/Navigation.js', [], function () {
+  p(c, "Mixins/Navigation.js", [], function () {
     return {
       initUpdate: function (c) {
         c.navigation ||
@@ -139,14 +135,14 @@
   })
   p(
     c,
-    'Extensions/Exporting.js',
+    "Extensions/Exporting.js",
     [
-      c['Core/Chart/Chart.js'],
-      c['Mixins/Navigation.js'],
-      c['Core/Globals.js'],
-      c['Core/Options.js'],
-      c['Core/Renderer/SVG/SVGRenderer.js'],
-      c['Core/Utilities.js']
+      c["Core/Chart/Chart.js"],
+      c["Mixins/Navigation.js"],
+      c["Core/Globals.js"],
+      c["Core/Options.js"],
+      c["Core/Renderer/SVG/SVGRenderer.js"],
+      c["Core/Utilities.js"]
     ],
     function (c, l, h, k, p, e) {
       var x = h.doc,
@@ -171,14 +167,14 @@
         M = /Edge\/|Trident\/|MSIE /.test(F),
         N = /firefox/i.test(F)
       w(k.lang, {
-        viewFullscreen: 'View in full screen',
-        exitFullscreen: 'Exit from full screen',
-        printChart: 'Print chart',
-        downloadPNG: 'Download PNG image',
-        downloadJPEG: 'Download JPEG image',
-        downloadPDF: 'Download PDF document',
-        downloadSVG: 'Download SVG vector image',
-        contextButtonTitle: 'Chart context menu'
+        viewFullscreen: "View in full screen",
+        exitFullscreen: "Exit from full screen",
+        printChart: "Print chart",
+        downloadPNG: "Download PNG image",
+        downloadJPEG: "Download JPEG image",
+        downloadPDF: "Download PDF document",
+        downloadSVG: "Download SVG vector image",
+        contextButtonTitle: "Chart context menu"
       })
       k.navigation || (k.navigation = {})
       n(!0, k.navigation, {
@@ -187,108 +183,104 @@
           symbolSize: 14,
           symbolX: 12.5,
           symbolY: 10.5,
-          align: 'right',
+          align: "right",
           buttonSpacing: 3,
           height: 22,
-          verticalAlign: 'top',
+          verticalAlign: "top",
           width: 24
         }
       })
       n(!0, k.navigation, {
-        menuStyle: { border: '1px solid #999999', background: '#ffffff', padding: '5px 0' },
+        menuStyle: { border: "1px solid #999999", background: "#ffffff", padding: "5px 0" },
         menuItemStyle: {
-          padding: '0.5em 1em',
-          color: '#333333',
-          background: 'none',
-          fontSize: H ? '14px' : '11px',
-          transition: 'background 250ms, color 250ms'
+          padding: "0.5em 1em",
+          color: "#333333",
+          background: "none",
+          fontSize: H ? "14px" : "11px",
+          transition: "background 250ms, color 250ms"
         },
-        menuItemHoverStyle: { background: '#335cad', color: '#ffffff' },
+        menuItemHoverStyle: { background: "#335cad", color: "#ffffff" },
         buttonOptions: {
-          symbolFill: '#666666',
-          symbolStroke: '#666666',
+          symbolFill: "#666666",
+          symbolStroke: "#666666",
           symbolStrokeWidth: 3,
           theme: { padding: 5 }
         }
       })
       k.exporting = {
-        type: 'image/png',
-        url: 'https://export.highcharts.com/',
+        type: "image/png",
+        url: "https://export.highcharts.com/",
         printMaxWidth: 780,
         scale: 2,
         buttons: {
           contextButton: {
-            className: 'highcharts-contextbutton',
-            menuClassName: 'highcharts-contextmenu',
-            symbol: 'menu',
-            titleKey: 'contextButtonTitle',
-            menuItems:
-              'viewFullscreen printChart separator downloadPNG downloadJPEG downloadPDF downloadSVG'.split(
-                ' '
-              )
+            className: "highcharts-contextbutton",
+            menuClassName: "highcharts-contextmenu",
+            symbol: "menu",
+            titleKey: "contextButtonTitle",
+            menuItems: "viewFullscreen printChart separator downloadPNG downloadJPEG downloadPDF downloadSVG".split(" ")
           }
         },
         menuItemDefinitions: {
           viewFullscreen: {
-            textKey: 'viewFullscreen',
+            textKey: "viewFullscreen",
             onclick: function () {
               this.fullscreen.toggle()
             }
           },
           printChart: {
-            textKey: 'printChart',
+            textKey: "printChart",
             onclick: function () {
               this.print()
             }
           },
           separator: { separator: !0 },
           downloadPNG: {
-            textKey: 'downloadPNG',
+            textKey: "downloadPNG",
             onclick: function () {
               this.exportChart()
             }
           },
           downloadJPEG: {
-            textKey: 'downloadJPEG',
+            textKey: "downloadJPEG",
             onclick: function () {
-              this.exportChart({ type: 'image/jpeg' })
+              this.exportChart({ type: "image/jpeg" })
             }
           },
           downloadPDF: {
-            textKey: 'downloadPDF',
+            textKey: "downloadPDF",
             onclick: function () {
-              this.exportChart({ type: 'application/pdf' })
+              this.exportChart({ type: "application/pdf" })
             }
           },
           downloadSVG: {
-            textKey: 'downloadSVG',
+            textKey: "downloadSVG",
             onclick: function () {
-              this.exportChart({ type: 'image/svg+xml' })
+              this.exportChart({ type: "image/svg+xml" })
             }
           }
         }
       }
       h.post = function (a, b, f) {
         var d = y(
-          'form',
-          n({ method: 'post', action: a, enctype: 'multipart/form-data' }, f),
-          { display: 'none' },
+          "form",
+          n({ method: "post", action: a, enctype: "multipart/form-data" }, f),
+          { display: "none" },
           x.body
         )
         E(b, function (a, b) {
-          y('input', { type: 'hidden', name: b, value: a }, null, d)
+          y("input", { type: "hidden", name: b, value: a }, null, d)
         })
         d.submit()
         D(d)
       }
       h.isSafari &&
-        h.win.matchMedia('print').addListener(function (a) {
-          h.printingChart &&
-            (a.matches ? h.printingChart.beforePrint() : h.printingChart.afterPrint())
+        h.win.matchMedia("print").addListener(function (a) {
+          h.printingChart && (a.matches ? h.printingChart.beforePrint() : h.printingChart.afterPrint())
         })
       w(c.prototype, {
         sanitizeSVG: function (a, b) {
-          var f = a.indexOf('</svg>') + 6,
+          var f = a.indexOf("</svg>") + 6,
             d = a.substr(f)
           a = a.substr(0, f)
           b &&
@@ -301,24 +293,21 @@
               '" height="' +
               b.chart.height +
               '"><body xmlns="http://www.w3.org/1999/xhtml">' +
-              d.replace(/(<(?:img|br).*?(?=>))>/g, '$1 />') +
-              '</body></foreignObject>'),
-            (a = a.replace('</svg>', d + '</svg>')))
+              d.replace(/(<(?:img|br).*?(?=>))>/g, "$1 />") +
+              "</body></foreignObject>"),
+            (a = a.replace("</svg>", d + "</svg>")))
           a = a
-            .replace(/zIndex="[^"]+"/g, '')
-            .replace(/symbolName="[^"]+"/g, '')
-            .replace(/jQuery[0-9]+="[^"]+"/g, '')
-            .replace(/url\(("|&quot;)(.*?)("|&quot;);?\)/g, 'url($2)')
-            .replace(/url\([^#]+#/g, 'url(#')
+            .replace(/zIndex="[^"]+"/g, "")
+            .replace(/symbolName="[^"]+"/g, "")
+            .replace(/jQuery[0-9]+="[^"]+"/g, "")
+            .replace(/url\(("|&quot;)(.*?)("|&quot;);?\)/g, "url($2)")
+            .replace(/url\([^#]+#/g, "url(#")
             .replace(/<svg /, '<svg xmlns:xlink="http://www.w3.org/1999/xlink" ')
-            .replace(/ (|NS[0-9]+:)href=/g, ' xlink:href=')
-            .replace(/\n/, ' ')
-            .replace(
-              /(fill|stroke)="rgba\(([ 0-9]+,[ 0-9]+,[ 0-9]+),([ 0-9\.]+)\)"/g,
-              '$1="rgb($2)" $1-opacity="$3"'
-            )
-            .replace(/&nbsp;/g, '\u00a0')
-            .replace(/&shy;/g, '\u00ad')
+            .replace(/ (|NS[0-9]+:)href=/g, " xlink:href=")
+            .replace(/\n/, " ")
+            .replace(/(fill|stroke)="rgba\(([ 0-9]+,[ 0-9]+,[ 0-9]+),([ 0-9\.]+)\)"/g, '$1="rgb($2)" $1-opacity="$3"')
+            .replace(/&nbsp;/g, "\u00a0")
+            .replace(/&shy;/g, "\u00ad")
           this.ieSanitizeSVG && (a = this.ieSanitizeSVG(a))
           return a
         },
@@ -332,30 +321,25 @@
           f.plotOptions = n(this.userOptions.plotOptions, a && a.plotOptions)
           f.time = n(this.userOptions.time, a && a.time)
           var d = y(
-            'div',
+            "div",
             null,
             {
-              position: 'absolute',
-              top: '-9999em',
-              width: this.chartWidth + 'px',
-              height: this.chartHeight + 'px'
+              position: "absolute",
+              top: "-9999em",
+              width: this.chartWidth + "px",
+              height: this.chartHeight + "px"
             },
             x.body
           )
           var c = this.renderTo.style.width
           var e = this.renderTo.style.height
-          c =
-            f.exporting.sourceWidth ||
-            f.chart.width ||
-            (/px$/.test(c) && parseInt(c, 10)) ||
-            (f.isGantt ? 800 : 600)
-          e =
-            f.exporting.sourceHeight || f.chart.height || (/px$/.test(e) && parseInt(e, 10)) || 400
+          c = f.exporting.sourceWidth || f.chart.width || (/px$/.test(c) && parseInt(c, 10)) || (f.isGantt ? 800 : 600)
+          e = f.exporting.sourceHeight || f.chart.height || (/px$/.test(e) && parseInt(e, 10)) || 400
           w(f.chart, {
             animation: !1,
             renderTo: d,
             forExport: !0,
-            renderer: 'SVGRenderer',
+            renderer: "SVGRenderer",
             width: c,
             height: e
           })
@@ -376,7 +360,7 @@
           })
           var k = new h.Chart(f, this.callback)
           a &&
-            ['xAxis', 'yAxis', 'series'].forEach(function (b) {
+            ["xAxis", "yAxis", "series"].forEach(function (b) {
               var d = {}
               a[b] && ((d[b] = a[b]), k.update(d))
             })
@@ -388,12 +372,11 @@
               f = d.userMin
             d = d.userMax
             b &&
-              (('undefined' !== typeof f && f !== b.min) ||
-                ('undefined' !== typeof d && d !== b.max)) &&
+              (("undefined" !== typeof f && f !== b.min) || ("undefined" !== typeof d && d !== b.max)) &&
               b.setExtremes(f, d, !0, !1)
           })
           c = k.getChartHTML()
-          B(this, 'getSVG', { chartCopy: k })
+          B(this, "getSVG", { chartCopy: k })
           c = this.sanitizeSVG(c, f)
           f = null
           k.destroy()
@@ -414,18 +397,18 @@
         getFilename: function () {
           var a = this.userOptions.title && this.userOptions.title.text,
             b = this.options.exporting.filename
-          if (b) return b.replace(/\//g, '-')
-          'string' === typeof a &&
+          if (b) return b.replace(/\//g, "-")
+          "string" === typeof a &&
             (b = a
               .toLowerCase()
-              .replace(/<\/?[^>]+(>|$)/g, '')
-              .replace(/[\s_]+/g, '-')
-              .replace(/[^a-z0-9\-]/g, '')
-              .replace(/^[\-]+/g, '')
-              .replace(/[\-]+/g, '-')
+              .replace(/<\/?[^>]+(>|$)/g, "")
+              .replace(/[\s_]+/g, "-")
+              .replace(/[^a-z0-9\-]/g, "")
+              .replace(/^[\-]+/g, "")
+              .replace(/[\-]+/g, "-")
               .substr(0, 24)
-              .replace(/[\-]+$/g, ''))
-          if (!b || 5 > b.length) b = 'chart'
+              .replace(/[\-]+$/g, ""))
+          if (!b || 5 > b.length) b = "chart"
           return b
         },
         exportChart: function (a, b) {
@@ -434,7 +417,7 @@
           h.post(
             a.url,
             {
-              filename: a.filename ? a.filename.replace(/\//g, '-') : this.getFilename(),
+              filename: a.filename ? a.filename.replace(/\//g, "-") : this.getFilename(),
               type: a.type,
               width: a.width || 0,
               scale: a.scale,
@@ -444,11 +427,9 @@
           )
         },
         moveContainers: function (a) {
-          ;(this.fixedDiv ? [this.fixedDiv, this.scrollingContainer] : [this.container]).forEach(
-            function (b) {
-              a.appendChild(b)
-            }
-          )
+          ;(this.fixedDiv ? [this.fixedDiv, this.scrollingContainer] : [this.container]).forEach(function (b) {
+            a.appendChild(b)
+          })
         },
         beforePrint: function () {
           var a = x.body,
@@ -456,12 +437,12 @@
             f = { childNodes: a.childNodes, origDisplay: [], resetParams: void 0 }
           this.isPrinting = !0
           this.pointer.reset(null, 0)
-          B(this, 'beforePrint')
+          B(this, "beforePrint")
           b &&
             this.chartWidth > b &&
             ((f.resetParams = [this.options.chart.width, void 0, !1]), this.setSize(b, void 0, !1))
           ;[].forEach.call(f.childNodes, function (a, b) {
-            1 === a.nodeType && ((f.origDisplay[b] = a.style.display), (a.style.display = 'none'))
+            1 === a.nodeType && ((f.origDisplay[b] = a.style.display), (a.style.display = "none"))
           })
           this.moveContainers(a)
           this.printReverseInfo = f
@@ -473,13 +454,13 @@
               f = this.printReverseInfo.resetParams
             this.moveContainers(this.renderTo)
             ;[].forEach.call(a, function (a, f) {
-              1 === a.nodeType && (a.style.display = b[f] || '')
+              1 === a.nodeType && (a.style.display = b[f] || "")
             })
             this.isPrinting = !1
             f && this.setSize.apply(this, f)
             delete this.printReverseInfo
             delete h.printingChart
-            B(this, 'afterPrint')
+            B(this, "afterPrint")
           }
         },
         print: function () {
@@ -501,7 +482,7 @@
             C = g.options.navigation,
             l = g.chartWidth,
             A = g.chartHeight,
-            r = 'cache-' + a,
+            r = "cache-" + a,
             m = g[r],
             v = Math.max(c, h)
           if (!m) {
@@ -509,60 +490,55 @@
               g[r] =
               m =
                 y(
-                  'div',
+                  "div",
                   { className: a },
-                  { position: 'absolute', zIndex: 1e3, padding: v + 'px', pointerEvents: 'auto' },
+                  { position: "absolute", zIndex: 1e3, padding: v + "px", pointerEvents: "auto" },
                   g.fixedDiv || g.container
                 )
-            var n = y(
-              'ul',
-              { className: 'highcharts-menu' },
-              { listStyle: 'none', margin: 0, padding: 0 },
-              m
-            )
+            var n = y("ul", { className: "highcharts-menu" }, { listStyle: "none", margin: 0, padding: 0 }, m)
             g.styledMode ||
               u(
                 n,
                 w(
                   {
-                    MozBoxShadow: '3px 3px 10px #888',
-                    WebkitBoxShadow: '3px 3px 10px #888',
-                    boxShadow: '3px 3px 10px #888'
+                    MozBoxShadow: "3px 3px 10px #888",
+                    WebkitBoxShadow: "3px 3px 10px #888",
+                    boxShadow: "3px 3px 10px #888"
                   },
                   C.menuStyle
                 )
               )
             m.hideMenu = function () {
-              u(m, { display: 'none' })
+              u(m, { display: "none" })
               k && k.setState(0)
               g.openMenu = !1
-              u(g.renderTo, { overflow: 'hidden' })
+              u(g.renderTo, { overflow: "hidden" })
               e.clearTimeout(m.hideTimer)
-              B(g, 'exportMenuHidden')
+              B(g, "exportMenuHidden")
             }
             g.exportEvents.push(
-              t(m, 'mouseleave', function () {
+              t(m, "mouseleave", function () {
                 m.hideTimer = z.setTimeout(m.hideMenu, 500)
               }),
-              t(m, 'mouseenter', function () {
+              t(m, "mouseenter", function () {
                 e.clearTimeout(m.hideTimer)
               }),
-              t(x, 'mouseup', function (b) {
+              t(x, "mouseup", function (b) {
                 g.pointer.inClass(b.target, a) || m.hideMenu()
               }),
-              t(m, 'click', function () {
+              t(m, "click", function () {
                 g.openMenu && m.hideMenu()
               })
             )
             b.forEach(function (a) {
-              'string' === typeof a && (a = g.options.exporting.menuItemDefinitions[a])
+              "string" === typeof a && (a = g.options.exporting.menuItemDefinitions[a])
               if (J(a, !0)) {
-                if (a.separator) var b = y('hr', null, null, n)
+                if (a.separator) var b = y("hr", null, null, n)
                 else
                   (b = y(
-                    'li',
+                    "li",
                     {
-                      className: 'highcharts-menu-item',
+                      className: "highcharts-menu-item",
                       onclick: function (b) {
                         b && b.stopPropagation()
                         m.hideMenu()
@@ -580,7 +556,7 @@
                       (b.onmouseout = function () {
                         u(this, C.menuItemStyle)
                       }),
-                      u(b, w({ cursor: 'pointer' }, C.menuItemStyle)))
+                      u(b, w({ cursor: "pointer" }, C.menuItemStyle)))
                 g.exportDivElements.push(b)
               }
             })
@@ -588,15 +564,15 @@
             g.exportMenuWidth = m.offsetWidth
             g.exportMenuHeight = m.offsetHeight
           }
-          b = { display: 'block' }
-          f + g.exportMenuWidth > l ? (b.right = l - f - c - v + 'px') : (b.left = f - v + 'px')
-          d + h + g.exportMenuHeight > A && 'top' !== k.alignOptions.verticalAlign
-            ? (b.bottom = A - d - v + 'px')
-            : (b.top = d + h - v + 'px')
+          b = { display: "block" }
+          f + g.exportMenuWidth > l ? (b.right = l - f - c - v + "px") : (b.left = f - v + "px")
+          d + h + g.exportMenuHeight > A && "top" !== k.alignOptions.verticalAlign
+            ? (b.bottom = A - d - v + "px")
+            : (b.top = d + h - v + "px")
           u(m, b)
-          u(g.renderTo, { overflow: '' })
+          u(g.renderTo, { overflow: "" })
           g.openMenu = !0
-          B(g, 'exportMenuShown')
+          B(g, "exportMenuShown")
         },
         addButton: function (a) {
           var b = this,
@@ -613,7 +589,7 @@
               l = k && k.hover
             k = k && k.select
             var A
-            b.styledMode || ((g.fill = q(g.fill, '#ffffff')), (g.stroke = q(g.stroke, 'none')))
+            b.styledMode || ((g.fill = q(g.fill, "#ffffff")), (g.stroke = q(g.stroke, "none")))
             delete g.states
             c
               ? (A = function (a) {
@@ -623,51 +599,37 @@
               : e &&
                 (A = function (a) {
                   a && a.stopPropagation()
-                  b.contextMenu(
-                    r.menuClassName,
-                    e,
-                    r.translateX,
-                    r.translateY,
-                    r.width,
-                    r.height,
-                    r
-                  )
+                  b.contextMenu(r.menuClassName, e, r.translateX, r.translateY, r.width, r.height, r)
                   r.setState(2)
                 })
             d.text && d.symbol
               ? (g.paddingLeft = q(g.paddingLeft, 25))
               : d.text || w(g, { width: d.width, height: d.height, padding: 0 })
             b.styledMode ||
-              ((g['stroke-linecap'] = 'round'),
-              (g.fill = q(g.fill, '#ffffff')),
-              (g.stroke = q(g.stroke, 'none')))
+              ((g["stroke-linecap"] = "round"), (g.fill = q(g.fill, "#ffffff")), (g.stroke = q(g.stroke, "none")))
             var r = f
               .button(d.text, 0, 0, A, g, l, k)
               .addClass(a.className)
-              .attr({ title: q(b.options.lang[d._titleKey || d.titleKey], '') })
-            r.menuClassName = a.menuClassName || 'highcharts-menu-' + b.btnCount++
+              .attr({ title: q(b.options.lang[d._titleKey || d.titleKey], "") })
+            r.menuClassName = a.menuClassName || "highcharts-menu-" + b.btnCount++
             if (d.symbol) {
               var m = f
                 .symbol(d.symbol, d.symbolX - h / 2, d.symbolY - h / 2, h, h, {
                   width: h,
                   height: h
                 })
-                .addClass('highcharts-button-symbol')
+                .addClass("highcharts-button-symbol")
                 .attr({ zIndex: 1 })
                 .add(r)
               b.styledMode ||
                 m.attr({
                   stroke: d.symbolStroke,
                   fill: d.symbolFill,
-                  'stroke-width': d.symbolStrokeWidth || 1
+                  "stroke-width": d.symbolStrokeWidth || 1
                 })
             }
-            r.add(b.exportingGroup).align(
-              w(d, { width: r.width, x: q(d.x, b.buttonOffset) }),
-              !0,
-              'spacingBox'
-            )
-            b.buttonOffset += (r.width + d.buttonSpacing) * ('right' === d.align ? -1 : 1)
+            r.add(b.exportingGroup).align(w(d, { width: r.width, x: q(d.x, b.buttonOffset) }), !0, "spacingBox")
+            b.buttonOffset += (r.width + d.buttonSpacing) * ("right" === d.align ? -1 : 1)
             b.exportSVGElements.push(r, m)
           }
         },
@@ -681,7 +643,7 @@
             (a.forEach(function (a, d) {
               a &&
                 ((a.onclick = a.ontouchstart = null),
-                (c = 'cache-' + a.menuClassName),
+                (c = "cache-" + a.menuClassName),
                 b[c] && delete b[c],
                 (b.exportSVGElements[d] = a.destroy()))
             }),
@@ -690,13 +652,8 @@
           f &&
             (f.forEach(function (a, d) {
               e.clearTimeout(a.hideTimer)
-              K(a, 'mouseleave')
-              b.exportDivElements[d] =
-                a.onmouseout =
-                a.onmouseover =
-                a.ontouchstart =
-                a.onclick =
-                  null
+              K(a, "mouseleave")
+              b.exportDivElements[d] = a.onmouseout = a.onmouseover = a.ontouchstart = a.onclick = null
               D(a)
             }),
             (f.length = 0))
@@ -707,8 +664,7 @@
             (d.length = 0))
         }
       })
-      p.prototype.inlineToAttributes =
-        'fill stroke strokeLinecap strokeLinejoin strokeWidth textAnchor x y'.split(' ')
+      p.prototype.inlineToAttributes = "fill stroke strokeLinecap strokeLinejoin strokeWidth textAnchor x y".split(" ")
       p.prototype.inlineBlacklist = [
         /-/,
         /^(clipPath|cssText|d|height|width)$/,
@@ -719,11 +675,11 @@
         /^transition/,
         /^length$/
       ]
-      p.prototype.unstyledElements = ['clipPath', 'defs', 'desc']
+      p.prototype.unstyledElements = ["clipPath", "defs", "desc"]
       c.prototype.inlineStyles = function () {
         function a(a) {
           return a.replace(/([A-Z])/g, function (a, b) {
-            return '-' + b.toLowerCase()
+            return "-" + b.toLowerCase()
           })
         }
         function b(c) {
@@ -733,35 +689,33 @@
               for (q = h.length; q-- && !u; ) u = h[q].test(f)
               v = !u
             }
-            'transform' === f && 'none' === b && (v = !0)
-            for (q = e.length; q-- && !v; ) v = e[q].test(f) || 'function' === typeof b
+            "transform" === f && "none" === b && (v = !0)
+            for (q = e.length; q-- && !v; ) v = e[q].test(f) || "function" === typeof b
             v ||
-              (y[f] === b && 'svg' !== c.nodeName) ||
+              (y[f] === b && "svg" !== c.nodeName) ||
               g[c.nodeName][f] === b ||
-              (d && -1 === d.indexOf(f)
-                ? (m += a(f) + ':' + b + ';')
-                : b && c.setAttribute(a(f), b))
+              (d && -1 === d.indexOf(f) ? (m += a(f) + ":" + b + ";") : b && c.setAttribute(a(f), b))
           }
-          var m = '',
+          var m = "",
             v,
             u,
             q
           if (1 === c.nodeType && -1 === k.indexOf(c.nodeName)) {
             var t = z.getComputedStyle(c, null)
-            var y = 'svg' === c.nodeName ? {} : z.getComputedStyle(c.parentNode, null)
+            var y = "svg" === c.nodeName ? {} : z.getComputedStyle(c.parentNode, null)
             if (!g[c.nodeName]) {
-              l = p.getElementsByTagName('svg')[0]
+              l = p.getElementsByTagName("svg")[0]
               var w = p.createElementNS(c.namespaceURI, c.nodeName)
               l.appendChild(w)
               g[c.nodeName] = n(z.getComputedStyle(w, null))
-              'text' === c.nodeName && delete g.text.fill
+              "text" === c.nodeName && delete g.text.fill
               l.removeChild(w)
             }
             if (N || M) for (var x in t) f(t[x], x)
             else E(t, f)
-            m && ((t = c.getAttribute('style')), c.setAttribute('style', (t ? t + ';' : '') + m))
-            'svg' === c.nodeName && c.setAttribute('stroke-width', '1px')
-            'text' !== c.nodeName && [].forEach.call(c.children || c.childNodes, b)
+            m && ((t = c.getAttribute("style")), c.setAttribute("style", (t ? t + ";" : "") + m))
+            "svg" === c.nodeName && c.setAttribute("stroke-width", "1px")
+            "text" !== c.nodeName && [].forEach.call(c.children || c.childNodes, b)
           }
         }
         var c = this.renderer,
@@ -771,24 +725,24 @@
           k = c.unstyledElements,
           g = {},
           l
-        c = x.createElement('iframe')
-        u(c, { width: '1px', height: '1px', visibility: 'hidden' })
+        c = x.createElement("iframe")
+        u(c, { width: "1px", height: "1px", visibility: "hidden" })
         x.body.appendChild(c)
         var p = c.contentWindow.document
         p.open()
         p.write('<svg xmlns="http://www.w3.org/2000/svg"></svg>')
         p.close()
-        b(this.container.querySelector('svg'))
+        b(this.container.querySelector("svg"))
         l.parentNode.removeChild(l)
       }
       G.menu = function (a, b, c, d) {
         return [
-          ['M', a, b + 2.5],
-          ['L', a + c, b + 2.5],
-          ['M', a, b + d / 2 + 0.5],
-          ['L', a + c, b + d / 2 + 0.5],
-          ['M', a, b + d - 1.5],
-          ['L', a + c, b + d - 1.5]
+          ["M", a, b + 2.5],
+          ["L", a + c, b + 2.5],
+          ["M", a, b + d / 2 + 0.5],
+          ["L", a + c, b + d / 2 + 0.5],
+          ["M", a, b + d - 1.5],
+          ["L", a + c, b + d - 1.5]
         ]
       }
       G.menuball = function (a, b, c, d) {
@@ -810,15 +764,14 @@
         d &&
           !1 !== b.enabled &&
           ((a.exportEvents = []),
-          (a.exportingGroup =
-            a.exportingGroup || a.renderer.g('exporting-group').attr({ zIndex: 3 }).add()),
+          (a.exportingGroup = a.exportingGroup || a.renderer.g("exporting-group").attr({ zIndex: 3 }).add()),
           E(c, function (b) {
             a.addButton(b)
           }),
           (a.isDirtyExporting = !1))
-        t(a, 'destroy', a.destroyExport)
+        t(a, "destroy", a.destroyExport)
       }
-      t(c, 'init', function () {
+      t(c, "init", function () {
         var a = this
         a.exporting = {
           update: function (b, c) {
@@ -835,10 +788,10 @@
       })
       c.prototype.callbacks.push(function (a) {
         a.renderExporting()
-        t(a, 'redraw', a.renderExporting)
+        t(a, "redraw", a.renderExporting)
       })
     }
   )
-  p(c, 'masters/modules/exporting.src.js', [], function () {})
+  p(c, "masters/modules/exporting.src.js", [], function () {})
 })
 //# sourceMappingURL=exporting.js.map

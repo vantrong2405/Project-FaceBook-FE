@@ -1,4 +1,4 @@
-@import 'https://fonts.googleapis.com/css?family=Signika:400,700';
+@import "https://fonts.googleapis.com/css?family=Signika:400,700";
 .highcharts-container {
   background: url(https://www.highcharts.com/samples/graphics/sand.png);
 }
@@ -40,7 +40,7 @@
   z-index: 0;
   /* #1072 */
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  font-family: 'Signika', Arial, Helvetica, sans-serif;
+  font-family: "Signika", Arial, Helvetica, sans-serif;
   font-size: 12px;
 }
 

@@ -98,7 +98,7 @@
   user-select: none;
 }
 .sw.sw-loading::after {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   opacity: 1;
@@ -112,7 +112,7 @@
   transition: all 0.2s ease;
 }
 .sw.sw-loading::before {
-  content: '';
+  content: "";
   display: inline-block;
   position: absolute;
   top: 45%;
@@ -169,7 +169,7 @@
   min-height: 100%;
 }
 .sw-theme-default > .nav .nav-link::after {
-  content: '';
+  content: "";
   position: absolute;
   height: 2px;
   width: 100%;
@@ -251,7 +251,7 @@
   }
 }
 .sw-theme-arrows > .nav .nav-link::after {
-  content: '';
+  content: "";
   position: absolute;
   display: block;
   width: 0;
@@ -265,7 +265,7 @@
   z-index: 2;
 }
 .sw-theme-arrows > .nav .nav-link::before {
-  content: ' ';
+  content: " ";
   position: absolute;
   display: block;
   width: 0;
@@ -337,7 +337,7 @@
   margin-bottom: 10px;
 }
 .sw-theme-dots > .nav::before {
-  content: ' ';
+  content: " ";
   position: absolute;
   top: 18px;
   left: 0;
@@ -352,7 +352,7 @@
   margin-top: 40px;
 }
 .sw-theme-dots > .nav .nav-link::before {
-  content: ' ';
+  content: " ";
   position: absolute;
   display: block;
   top: -36px;
@@ -370,7 +370,7 @@
   z-index: 98;
 }
 .sw-theme-dots > .nav .nav-link::after {
-  content: ' ';
+  content: " ";
   position: absolute;
   display: block;
   top: -28px;
@@ -444,7 +444,7 @@
   min-height: 100%;
 }
 .sw-theme-dark > .nav .nav-link::after {
-  content: '';
+  content: "";
   position: absolute;
   height: 2px;
   width: 100%;

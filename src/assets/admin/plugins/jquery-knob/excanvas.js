@@ -31,7 +31,7 @@
 // * Optimize. There is always room for speed improvements.
 
 // Only add this code if we do not already have a canvas implementation
-if (!document.createElement('canvas').getContext) {
+if (!document.createElement("canvas").getContext) {
   ;(function () {
     // alias some functions to make (compiled) code shorter
     var m = Math
@@ -85,34 +85,34 @@ if (!document.createElement('canvas').getContext) {
           var doc = opt_doc || document
           // Create a dummy element so that IE will allow canvas elements to be
           // recognized.
-          doc.createElement('canvas')
-          doc.attachEvent('onreadystatechange', bind(this.init_, this, doc))
+          doc.createElement("canvas")
+          doc.attachEvent("onreadystatechange", bind(this.init_, this, doc))
         }
       },
 
       init_: function (doc) {
         // create xmlns
-        if (!doc.namespaces['g_vml_']) {
-          doc.namespaces.add('g_vml_', 'urn:schemas-microsoft-com:vml', '#default#VML')
+        if (!doc.namespaces["g_vml_"]) {
+          doc.namespaces.add("g_vml_", "urn:schemas-microsoft-com:vml", "#default#VML")
         }
-        if (!doc.namespaces['g_o_']) {
-          doc.namespaces.add('g_o_', 'urn:schemas-microsoft-com:office:office', '#default#VML')
+        if (!doc.namespaces["g_o_"]) {
+          doc.namespaces.add("g_o_", "urn:schemas-microsoft-com:office:office", "#default#VML")
         }
 
         // Setup default CSS.  Only add one style sheet per document
-        if (!doc.styleSheets['ex_canvas_']) {
+        if (!doc.styleSheets["ex_canvas_"]) {
           var ss = doc.createStyleSheet()
-          ss.owningElement.id = 'ex_canvas_'
+          ss.owningElement.id = "ex_canvas_"
           ss.cssText =
-            'canvas{display:inline-block;overflow:hidden;' +
+            "canvas{display:inline-block;overflow:hidden;" +
             // default size is 300x150 in Gecko and Opera
-            'text-align:left;width:300px;height:150px}' +
-            'g_vml_\\:*{behavior:url(#default#VML)}' +
-            'g_o_\\:*{behavior:url(#default#VML)}'
+            "text-align:left;width:300px;height:150px}" +
+            "g_vml_\\:*{behavior:url(#default#VML)}" +
+            "g_o_\\:*{behavior:url(#default#VML)}"
         }
 
         // find all canvas elements
-        var els = doc.getElementsByTagName('canvas')
+        var els = doc.getElementsByTagName("canvas")
         for (var i = 0; i < els.length; i++) {
           this.initElement(els[i])
         }
@@ -133,24 +133,24 @@ if (!document.createElement('canvas').getContext) {
           // Remove fallback content. There is no way to hide text nodes so we
           // just remove all childNodes. We could hide all elements and remove
           // text nodes but who really cares about the fallback content.
-          el.innerHTML = ''
+          el.innerHTML = ""
 
           // do not use inline function because that will leak memory
-          el.attachEvent('onpropertychange', onPropertyChange)
-          el.attachEvent('onresize', onResize)
+          el.attachEvent("onpropertychange", onPropertyChange)
+          el.attachEvent("onresize", onResize)
 
           var attrs = el.attributes
           if (attrs.width && attrs.width.specified) {
             // TODO: use runtimeStyle and coordsize
             // el.getContext().setWidth_(attrs.width.nodeValue);
-            el.style.width = attrs.width.nodeValue + 'px'
+            el.style.width = attrs.width.nodeValue + "px"
           } else {
             el.width = el.clientWidth
           }
           if (attrs.height && attrs.height.specified) {
             // TODO: use runtimeStyle and coordsize
             // el.getContext().setHeight_(attrs.height.nodeValue);
-            el.style.height = attrs.height.nodeValue + 'px'
+            el.style.height = attrs.height.nodeValue + "px"
           } else {
             el.height = el.clientHeight
           }
@@ -164,12 +164,12 @@ if (!document.createElement('canvas').getContext) {
       var el = e.srcElement
 
       switch (e.propertyName) {
-        case 'width':
-          el.style.width = el.attributes.width.nodeValue + 'px'
+        case "width":
+          el.style.width = el.attributes.width.nodeValue + "px"
           el.getContext().clearRect()
           break
-        case 'height':
-          el.style.height = el.attributes.height.nodeValue + 'px'
+        case "height":
+          el.style.height = el.attributes.height.nodeValue + "px"
           el.getContext().clearRect()
           break
       }
@@ -178,8 +178,8 @@ if (!document.createElement('canvas').getContext) {
     function onResize(e) {
       var el = e.srcElement
       if (el.firstChild) {
-        el.firstChild.style.width = el.clientWidth + 'px'
-        el.firstChild.style.height = el.clientHeight + 'px'
+        el.firstChild.style.width = el.clientWidth + "px"
+        el.firstChild.style.height = el.clientHeight + "px"
       }
     }
 
@@ -240,17 +240,17 @@ if (!document.createElement('canvas').getContext) {
         alpha = 1
 
       styleString = String(styleString)
-      if (styleString.substring(0, 3) == 'rgb') {
-        var start = styleString.indexOf('(', 3)
-        var end = styleString.indexOf(')', start + 1)
-        var guts = styleString.substring(start + 1, end).split(',')
+      if (styleString.substring(0, 3) == "rgb") {
+        var start = styleString.indexOf("(", 3)
+        var end = styleString.indexOf(")", start + 1)
+        var guts = styleString.substring(start + 1, end).split(",")
 
-        str = '#'
+        str = "#"
         for (var i = 0; i < 3; i++) {
           str += dec2hex[Number(guts[i])]
         }
 
-        if (guts.length == 4 && styleString.substr(3, 1) == 'a') {
+        if (guts.length == 4 && styleString.substr(3, 1) == "a") {
           alpha = guts[3]
         }
       } else {
@@ -262,13 +262,13 @@ if (!document.createElement('canvas').getContext) {
 
     function processLineCap(lineCap) {
       switch (lineCap) {
-        case 'butt':
-          return 'flat'
-        case 'round':
-          return 'round'
-        case 'square':
+        case "butt":
+          return "flat"
+        case "round":
+          return "round"
+        case "square":
         default:
-          return 'square'
+          return "square"
       }
     }
 
@@ -286,21 +286,21 @@ if (!document.createElement('canvas').getContext) {
       this.currentPath_ = []
 
       // Canvas context properties
-      this.strokeStyle = '#000'
-      this.fillStyle = '#000'
+      this.strokeStyle = "#000"
+      this.fillStyle = "#000"
 
       this.lineWidth = 1
-      this.lineJoin = 'miter'
-      this.lineCap = 'butt'
+      this.lineJoin = "miter"
+      this.lineCap = "butt"
       this.miterLimit = Z * 1
       this.globalAlpha = 1
       this.canvas = surfaceElement
 
-      var el = surfaceElement.ownerDocument.createElement('div')
-      el.style.width = surfaceElement.clientWidth + 'px'
-      el.style.height = surfaceElement.clientHeight + 'px'
-      el.style.overflow = 'hidden'
-      el.style.position = 'absolute'
+      var el = surfaceElement.ownerDocument.createElement("div")
+      el.style.width = surfaceElement.clientWidth + "px"
+      el.style.height = surfaceElement.clientHeight + "px"
+      el.style.overflow = "hidden"
+      el.style.position = "absolute"
       surfaceElement.appendChild(el)
 
       this.element_ = el
@@ -311,7 +311,7 @@ if (!document.createElement('canvas').getContext) {
 
     var contextPrototype = CanvasRenderingContext2D_.prototype
     contextPrototype.clearRect = function () {
-      this.element_.innerHTML = ''
+      this.element_.innerHTML = ""
     }
 
     contextPrototype.beginPath = function () {
@@ -322,14 +322,14 @@ if (!document.createElement('canvas').getContext) {
 
     contextPrototype.moveTo = function (aX, aY) {
       var p = this.getCoords_(aX, aY)
-      this.currentPath_.push({ type: 'moveTo', x: p.x, y: p.y })
+      this.currentPath_.push({ type: "moveTo", x: p.x, y: p.y })
       this.currentX_ = p.x
       this.currentY_ = p.y
     }
 
     contextPrototype.lineTo = function (aX, aY) {
       var p = this.getCoords_(aX, aY)
-      this.currentPath_.push({ type: 'lineTo', x: p.x, y: p.y })
+      this.currentPath_.push({ type: "lineTo", x: p.x, y: p.y })
 
       this.currentX_ = p.x
       this.currentY_ = p.y
@@ -345,7 +345,7 @@ if (!document.createElement('canvas').getContext) {
     // Helper function that takes the already fixed cordinates.
     function bezierCurveTo(self, cp1, cp2, p) {
       self.currentPath_.push({
-        type: 'bezierCurveTo',
+        type: "bezierCurveTo",
         cp1x: cp1.x,
         cp1y: cp1.y,
         cp2x: cp2.x,
@@ -378,7 +378,7 @@ if (!document.createElement('canvas').getContext) {
 
     contextPrototype.arc = function (aX, aY, aRadius, aStartAngle, aEndAngle, aClockwise) {
       aRadius *= Z
-      var arcType = aClockwise ? 'at' : 'wa'
+      var arcType = aClockwise ? "at" : "wa"
 
       var xStart = aX + mc(aStartAngle) * aRadius - Z2
       var yStart = aY + ms(aStartAngle) * aRadius - Z2
@@ -445,7 +445,7 @@ if (!document.createElement('canvas').getContext) {
     }
 
     contextPrototype.createLinearGradient = function (aX0, aY0, aX1, aY1) {
-      var gradient = new CanvasGradient_('gradient')
+      var gradient = new CanvasGradient_("gradient")
       gradient.x0_ = aX0
       gradient.y0_ = aY0
       gradient.x1_ = aX1
@@ -454,7 +454,7 @@ if (!document.createElement('canvas').getContext) {
     }
 
     contextPrototype.createRadialGradient = function (aX0, aY0, aR0, aX1, aY1, aR1) {
-      var gradient = new CanvasGradient_('gradientradial')
+      var gradient = new CanvasGradient_("gradientradial")
       gradient.x0_ = aX0
       gradient.y0_ = aY0
       gradient.r0_ = aR0
@@ -470,8 +470,8 @@ if (!document.createElement('canvas').getContext) {
       // to find the original width we overide the width and height
       var oldRuntimeWidth = image.runtimeStyle.width
       var oldRuntimeHeight = image.runtimeStyle.height
-      image.runtimeStyle.width = 'auto'
-      image.runtimeStyle.height = 'auto'
+      image.runtimeStyle.width = "auto"
+      image.runtimeStyle.height = "auto"
 
       // get the original size
       var w = image.width
@@ -505,7 +505,7 @@ if (!document.createElement('canvas').getContext) {
         dw = arguments[7]
         dh = arguments[8]
       } else {
-        throw Error('Invalid number of arguments')
+        throw Error("Invalid number of arguments")
       }
 
       var d = this.getCoords_(dx, dy)
@@ -520,18 +520,18 @@ if (!document.createElement('canvas').getContext) {
 
       // For some reason that I've now forgotten, using divs didn't work
       vmlStr.push(
-        ' <g_vml_:group',
+        " <g_vml_:group",
         ' coordsize="',
         Z * W,
-        ',',
+        ",",
         Z * H,
         '"',
         ' coordorigin="0,0"',
         ' style="width:',
         W,
-        'px;height:',
+        "px;height:",
         H,
-        'px;position:absolute;'
+        "px;position:absolute;"
       )
 
       // If filters are necessary (rotation exists), create them
@@ -544,24 +544,24 @@ if (!document.createElement('canvas').getContext) {
 
         // Note the 12/21 reversal
         filter.push(
-          'M11=',
+          "M11=",
           this.m_[0][0],
-          ',',
-          'M12=',
+          ",",
+          "M12=",
           this.m_[1][0],
-          ',',
-          'M21=',
+          ",",
+          "M21=",
           this.m_[0][1],
-          ',',
-          'M22=',
+          ",",
+          "M22=",
           this.m_[1][1],
-          ',',
-          'Dx=',
+          ",",
+          "Dx=",
           mr(d.x / Z),
-          ',',
-          'Dy=',
+          ",",
+          "Dy=",
           mr(d.y / Z),
-          ''
+          ""
         )
 
         // Bounding box calculation (need to minimize displayed area so that
@@ -575,16 +575,16 @@ if (!document.createElement('canvas').getContext) {
         max.y = m.max(max.y, c2.y, c3.y, c4.y)
 
         vmlStr.push(
-          'padding:0 ',
+          "padding:0 ",
           mr(max.x / Z),
-          'px ',
+          "px ",
           mr(max.y / Z),
-          'px 0;filter:progid:DXImageTransform.Microsoft.Matrix(',
-          filter.join(''),
+          "px 0;filter:progid:DXImageTransform.Microsoft.Matrix(",
+          filter.join(""),
           ", sizingmethod='clip');"
         )
       } else {
-        vmlStr.push('top:', mr(d.y / Z), 'px;left:', mr(d.x / Z), 'px;')
+        vmlStr.push("top:", mr(d.y / Z), "px;left:", mr(d.x / Z), "px;")
       }
 
       vmlStr.push(
@@ -594,8 +594,8 @@ if (!document.createElement('canvas').getContext) {
         '"',
         ' style="width:',
         Z * dw,
-        'px;',
-        ' height:',
+        "px;",
+        " height:",
         Z * dh,
         'px;"',
         ' cropleft="',
@@ -610,11 +610,11 @@ if (!document.createElement('canvas').getContext) {
         ' cropbottom="',
         (h - sy - sh) / h,
         '"',
-        ' />',
-        '</g_vml_:group>'
+        " />",
+        "</g_vml_:group>"
       )
 
-      this.element_.insertAdjacentHTML('BeforeEnd', vmlStr.join(''))
+      this.element_.insertAdjacentHTML("BeforeEnd", vmlStr.join(""))
     }
 
     contextPrototype.stroke = function (aFill) {
@@ -628,18 +628,18 @@ if (!document.createElement('canvas').getContext) {
       var H = 10
 
       lineStr.push(
-        '<g_vml_:shape',
+        "<g_vml_:shape",
         ' filled="',
         !!aFill,
         '"',
         ' style="position:absolute;width:',
         W,
-        'px;height:',
+        "px;height:",
         H,
         'px;"',
         ' coordorigin="0 0" coordsize="',
         Z * W,
-        ' ',
+        " ",
         Z * H,
         '"',
         ' stroked="',
@@ -657,53 +657,53 @@ if (!document.createElement('canvas').getContext) {
         var c
 
         switch (p.type) {
-          case 'moveTo':
+          case "moveTo":
             c = p
-            lineStr.push(' m ', mr(p.x), ',', mr(p.y))
+            lineStr.push(" m ", mr(p.x), ",", mr(p.y))
             break
-          case 'lineTo':
-            lineStr.push(' l ', mr(p.x), ',', mr(p.y))
+          case "lineTo":
+            lineStr.push(" l ", mr(p.x), ",", mr(p.y))
             break
-          case 'close':
-            lineStr.push(' x ')
+          case "close":
+            lineStr.push(" x ")
             p = null
             break
-          case 'bezierCurveTo':
+          case "bezierCurveTo":
             lineStr.push(
-              ' c ',
+              " c ",
               mr(p.cp1x),
-              ',',
+              ",",
               mr(p.cp1y),
-              ',',
+              ",",
               mr(p.cp2x),
-              ',',
+              ",",
               mr(p.cp2y),
-              ',',
+              ",",
               mr(p.x),
-              ',',
+              ",",
               mr(p.y)
             )
             break
-          case 'at':
-          case 'wa':
+          case "at":
+          case "wa":
             lineStr.push(
-              ' ',
+              " ",
               p.type,
-              ' ',
+              " ",
               mr(p.x - this.arcScaleX_ * p.radius),
-              ',',
+              ",",
               mr(p.y - this.arcScaleY_ * p.radius),
-              ' ',
+              " ",
               mr(p.x + this.arcScaleX_ * p.radius),
-              ',',
+              ",",
               mr(p.y + this.arcScaleY_ * p.radius),
-              ' ',
+              " ",
               mr(p.xStart),
-              ',',
+              ",",
               mr(p.yStart),
-              ' ',
+              " ",
               mr(p.xEnd),
-              ',',
+              ",",
               mr(p.yEnd)
             )
             break
@@ -741,7 +741,7 @@ if (!document.createElement('canvas').getContext) {
         }
 
         lineStr.push(
-          '<g_vml_:stroke',
+          "<g_vml_:stroke",
           ' opacity="',
           opacity,
           '"',
@@ -761,7 +761,7 @@ if (!document.createElement('canvas').getContext) {
           color,
           '" />'
         )
-      } else if (typeof this.fillStyle == 'object') {
+      } else if (typeof this.fillStyle == "object") {
         var fillStyle = this.fillStyle
         var angle = 0
         var focus = { x: 0, y: 0 }
@@ -771,7 +771,7 @@ if (!document.createElement('canvas').getContext) {
         // scale factor for offset
         var expansion = 1
 
-        if (fillStyle.type_ == 'gradient') {
+        if (fillStyle.type_ == "gradient") {
           var x0 = fillStyle.x0_ / this.arcScaleX_
           var y0 = fillStyle.y0_ / this.arcScaleY_
           var x1 = fillStyle.x1_ / this.arcScaleX_
@@ -824,7 +824,7 @@ if (!document.createElement('canvas').getContext) {
         var colors = []
         for (var i = 0; i < length; i++) {
           var stop = stops[i]
-          colors.push(stop.offset * expansion + shift + ' ' + stop.color)
+          colors.push(stop.offset * expansion + shift + " " + stop.color)
         }
 
         // When colors attribute is used, the meanings of opacity and o:opacity2
@@ -841,7 +841,7 @@ if (!document.createElement('canvas').getContext) {
           color2,
           '"',
           ' colors="',
-          colors.join(','),
+          colors.join(","),
           '"',
           ' opacity="',
           opacity2,
@@ -854,7 +854,7 @@ if (!document.createElement('canvas').getContext) {
           '"',
           ' focusposition="',
           focus.x,
-          ',',
+          ",",
           focus.y,
           '" />'
         )
@@ -862,9 +862,9 @@ if (!document.createElement('canvas').getContext) {
         lineStr.push('<g_vml_:fill color="', color, '" opacity="', opacity, '" />')
       }
 
-      lineStr.push('</g_vml_:shape>')
+      lineStr.push("</g_vml_:shape>")
 
-      this.element_.insertAdjacentHTML('beforeEnd', lineStr.join(''))
+      this.element_.insertAdjacentHTML("beforeEnd", lineStr.join(""))
     }
 
     contextPrototype.fill = function () {
@@ -872,7 +872,7 @@ if (!document.createElement('canvas').getContext) {
     }
 
     contextPrototype.closePath = function () {
-      this.currentPath_.push({ type: 'close' })
+      this.currentPath_.push({ type: "close" })
     }
 
     /**

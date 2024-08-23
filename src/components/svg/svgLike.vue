@@ -1,22 +1,11 @@
 <template>
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
-    viewBox="0 0 16 16"
-  >
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16">
     <defs>
       <linearGradient id="a" x1="50%" x2="50%" y1="0%" y2="100%">
         <stop offset="0%" stop-color="#18AFFF" />
         <stop offset="100%" stop-color="#0062DF" />
       </linearGradient>
-      <filter
-        id="c"
-        width="118.8%"
-        height="118.8%"
-        x="-9.4%"
-        y="-9.4%"
-        filterUnits="objectBoundingBox"
-      >
+      <filter id="c" width="118.8%" height="118.8%" x="-9.4%" y="-9.4%" filterUnits="objectBoundingBox">
         <feGaussianBlur in="SourceAlpha" result="shadowBlurInner1" stdDeviation="1" />
         <feOffset dy="-1" in="shadowBlurInner1" result="shadowOffsetInner1" />
         <feComposite

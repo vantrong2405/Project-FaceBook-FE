@@ -36,7 +36,7 @@ body {
 
   background-color: #f7f7ff;
 
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 a {
@@ -359,9 +359,9 @@ a {
 
   color: #6c757d;
 
-  font-family: 'LineIcons';
+  font-family: "LineIcons";
 
-  content: '\ea5c';
+  content: "\ea5c";
 }
 
 .icon-badge {
@@ -939,7 +939,7 @@ a {
   z-index: 2;
 }
 .w_percent:after {
-  content: '%';
+  content: "%";
   margin-left: 0.1em;
   font-size: 0.8em;
 }
@@ -1318,7 +1318,7 @@ a {
 }
 
 .chat-sidebar-header .chat-user-online:before {
-  content: '';
+  content: "";
 
   position: absolute;
 
@@ -1338,7 +1338,7 @@ a {
 }
 
 .chat-list .chat-user-online:before {
-  content: '';
+  content: "";
 
   position: absolute;
 
@@ -1747,7 +1747,7 @@ a {
 }
 
 .email-hangout .chat-user-online:before {
-  content: '';
+  content: "";
 
   position: absolute;
 
@@ -1924,7 +1924,7 @@ a {
   color: #fff;
 }
 
-.nav-search button[type='submit'] {
+.nav-search button[type="submit"] {
   background-color: rgb(255 255 255 / 20%);
 
   border: 1px solid rgb(255 255 255 / 32%);
@@ -2049,12 +2049,7 @@ a {
 }
 
 .bg-gradient-moonlit {
-  background: linear-gradient(
-    to right,
-    rgb(15, 32, 39),
-    rgb(32, 58, 67),
-    rgb(44, 83, 100)
-  ) !important;
+  background: linear-gradient(to right, rgb(15, 32, 39), rgb(32, 58, 67), rgb(44, 83, 100)) !important;
 }
 
 .split-bg-primary {
@@ -2608,7 +2603,7 @@ input::placeholder {
 }
 
 .topbar .navbar .dropdown-large .dropdown-menu::after {
-  content: '';
+  content: "";
 
   width: 13px;
 
@@ -2630,7 +2625,7 @@ input::placeholder {
 }
 
 .topbar .navbar .dropdown-menu::after {
-  content: '';
+  content: "";
 
   width: 13px;
 
@@ -2744,7 +2739,7 @@ input::placeholder {
 }
 
 .dropdown-large .user-online:after {
-  content: '';
+  content: "";
 
   position: absolute;
 

@@ -5,10 +5,9 @@
 
 ;(function (factory) {
   // AMD.
-  if (typeof define == 'function' && define.amd) define(['./picker', 'jquery'], factory)
+  if (typeof define == "function" && define.amd) define(["./picker", "jquery"], factory)
   // Node.js/browserify.
-  else if (typeof exports == 'object')
-    module.exports = factory(require('./picker.js'), require('jquery'))
+  else if (typeof exports == "object") module.exports = factory(require("./picker.js"), require("jquery"))
   // Browser globals.
   else factory(Picker, jQuery)
 })(function (Picker, $) {
@@ -27,7 +26,7 @@
   function TimePicker(picker, settings) {
     var clock = this,
       elementValue = picker.$node[0].value,
-      elementDataValue = picker.$node.data('value'),
+      elementDataValue = picker.$node.data("value"),
       valueString = elementDataValue || elementValue,
       formatString = elementDataValue ? settings.formatSubmit : settings.format
 
@@ -36,15 +35,15 @@
 
     // The queue of methods that will be used to build item objects.
     clock.queue = {
-      interval: 'i',
-      min: 'measure create',
-      max: 'measure create',
-      now: 'now create',
-      select: 'parse create validate',
-      highlight: 'parse create validate',
-      view: 'parse create validate',
-      disable: 'deactivate',
-      enable: 'activate'
+      interval: "i",
+      min: "measure create",
+      max: "measure create",
+      now: "now create",
+      select: "parse create validate",
+      highlight: "parse create validate",
+      view: "parse create validate",
+      disable: "deactivate",
+      enable: "activate"
     }
 
     // The component's item object.
@@ -57,19 +56,19 @@
       return collectionDisabled[0] === true ? collectionDisabled.shift() : -1
     })(clock.item.disable)
 
-    clock.set('min', settings.min).set('max', settings.max).set('now')
+    clock.set("min", settings.min).set("max", settings.max).set("now")
 
     // When there’s a value, set the `select`, which in turn
     // also sets the `highlight` and `view`.
     if (valueString) {
-      clock.set('select', valueString, {
+      clock.set("select", valueString, {
         format: formatString
       })
     }
 
     // If there’s no value, default to highlighting “today”.
     else {
-      clock.set('select', null).set('highlight', clock.item.now)
+      clock.set("select", null).set("highlight", clock.item.now)
     }
 
     // The keycode to movement mapping.
@@ -79,7 +78,7 @@
       39: 1, // Right
       37: -1, // Left
       go: function (timeChange) {
-        clock.set('highlight', clock.item.highlight.pick + timeChange * clock.item.interval, {
+        clock.set("highlight", clock.item.highlight.pick + timeChange * clock.item.interval, {
           interval: timeChange * clock.item.interval
         })
         this.render()
@@ -89,42 +88,42 @@
     // Bind some picker events.
     picker
       .on(
-        'render',
+        "render",
         function () {
           var $pickerHolder = picker.$root.children(),
-            $viewset = $pickerHolder.find('.' + settings.klass.viewset),
+            $viewset = $pickerHolder.find("." + settings.klass.viewset),
             vendors = function (prop) {
-              return ['webkit', 'moz', 'ms', 'o', ''].map(function (vendor) {
-                return (vendor ? '-' + vendor + '-' : '') + prop
+              return ["webkit", "moz", "ms", "o", ""].map(function (vendor) {
+                return (vendor ? "-" + vendor + "-" : "") + prop
               })
             },
             animations = function ($el, state) {
-              vendors('transform').map(function (prop) {
+              vendors("transform").map(function (prop) {
                 $el.css(prop, state)
               })
-              vendors('transition').map(function (prop) {
+              vendors("transition").map(function (prop) {
                 $el.css(prop, state)
               })
             }
           if ($viewset.length) {
-            animations($pickerHolder, 'none')
+            animations($pickerHolder, "none")
             $pickerHolder[0].scrollTop = ~~$viewset.position().top - $viewset[0].clientHeight * 2
-            animations($pickerHolder, '')
+            animations($pickerHolder, "")
           }
         },
         1
       )
       .on(
-        'open',
+        "open",
         function () {
-          picker.$root.find('button').attr('disabled', false)
+          picker.$root.find("button").attr("disabled", false)
         },
         1
       )
       .on(
-        'close',
+        "close",
         function () {
-          picker.$root.find('button').attr('disabled', true)
+          picker.$root.find("button").attr("disabled", true)
         },
         1
       )
@@ -139,7 +138,7 @@
 
     // If the value is `null` just set it immediately.
     if (value === null) {
-      if (type == 'clear') type = 'select'
+      if (type == "clear") type = "select"
       clockItem[type] = value
       return clock
     }
@@ -148,8 +147,8 @@
     // Update this as the time unit, and set the final value as this item.
     // * In the case of `enable`, keep the queue but set `disable` instead.
     //   And in the case of `flip`, keep the queue but set `enable` instead.
-    clockItem[type == 'enable' ? 'disable' : type == 'flip' ? 'enable' : type] = clock.queue[type]
-      .split(' ')
+    clockItem[type == "enable" ? "disable" : type == "flip" ? "enable" : type] = clock.queue[type]
+      .split(" ")
       .map(function (method) {
         value = clock[method](type, value, options)
         return value
@@ -157,21 +156,21 @@
       .pop()
 
     // Check if we need to cascade through more updates.
-    if (type == 'select') {
-      clock.set('highlight', clockItem.select, options)
-    } else if (type == 'highlight') {
-      clock.set('view', clockItem.highlight, options)
-    } else if (type == 'interval') {
-      clock.set('min', clockItem.min, options).set('max', clockItem.max, options)
+    if (type == "select") {
+      clock.set("highlight", clockItem.select, options)
+    } else if (type == "highlight") {
+      clock.set("view", clockItem.highlight, options)
+    } else if (type == "interval") {
+      clock.set("min", clockItem.min, options).set("max", clockItem.max, options)
     } else if (type.match(/^(flip|min|max|disable|enable)$/)) {
       if (clockItem.select && clock.disabled(clockItem.select)) {
-        clock.set('select', value, options)
+        clock.set("select", value, options)
       }
       if (clockItem.highlight && clock.disabled(clockItem.highlight)) {
-        clock.set('highlight', value, options)
+        clock.set("highlight", value, options)
       }
-      if (type == 'min') {
-        clock.set('max', clockItem.max, options)
+      if (type == "min") {
+        clock.set("max", clockItem.max, options)
       }
     }
 
@@ -215,17 +214,13 @@
     }
 
     // If we’re setting the max, make sure it’s greater than the min.
-    if (type == 'max' && value < clock.item.min.pick) {
+    if (type == "max" && value < clock.item.min.pick) {
       value += MINUTES_IN_DAY
     }
 
     // If the value doesn’t fall directly on the interval,
     // add one interval to indicate it as “passed”.
-    if (
-      type != 'min' &&
-      type != 'max' &&
-      (value - clock.item.min.pick) % clock.item.interval !== 0
-    ) {
+    if (type != "min" && type != "max" && (value - clock.item.min.pick) % clock.item.interval !== 0) {
       value += clock.item.interval
     }
 
@@ -325,11 +320,11 @@
     isBelowInterval = value < 0 && interval * value + nowMinutes <= -interval
 
     // Add an interval because the time has “passed”.
-    nowMinutes += type == 'min' && isBelowInterval ? 0 : interval
+    nowMinutes += type == "min" && isBelowInterval ? 0 : interval
 
     // If the value is a number, adjust by that many intervals.
     if (isValueInteger) {
-      nowMinutes += interval * (isBelowInterval && type != 'max' ? value + 1 : value)
+      nowMinutes += interval * (isBelowInterval && type != "max" ? value + 1 : value)
     }
 
     // Return the final calculation.
@@ -346,7 +341,7 @@
     // If setting min time, don’t shift anything.
     // Otherwise get the value and min difference and then
     // normalize the difference with the interval.
-    value -= type == 'min' ? 0 : (value - minTime) % interval
+    value -= type == "min" ? 0 : (value - minTime) % interval
 
     // Return the adjusted value.
     return value
@@ -360,11 +355,11 @@
 
     // If it’s anything false-y, set it to the default.
     if (!value) {
-      value = type == 'min' ? [0, 0] : [HOURS_IN_DAY - 1, MINUTES_IN_HOUR - 1]
+      value = type == "min" ? [0, 0] : [HOURS_IN_DAY - 1, MINUTES_IN_HOUR - 1]
     }
 
     // If it’s a string, parse it.
-    if (typeof value == 'string') {
+    if (typeof value == "string") {
       value = clock.parse(type, value)
     }
 
@@ -435,7 +430,7 @@
       isDisabledMatch.length &&
       !isDisabledMatch.filter(function (timeToDisable) {
         return (
-          ($.isArray(timeToDisable) && timeToDisable[2] == 'inverted') ||
+          ($.isArray(timeToDisable) && timeToDisable[2] == "inverted") ||
           ($.isPlainObject(timeToDisable) && timeToDisable.inverted)
         )
       }).length
@@ -443,9 +438,7 @@
     // If the clock is "enabled" flag is flipped, flip the condition.
     return clock.item.enable === -1
       ? !isDisabledMatch
-      : isDisabledMatch ||
-          timeToVerify.pick < clock.item.min.pick ||
-          timeToVerify.pick > clock.item.max.pick
+      : isDisabledMatch || timeToVerify.pick < clock.item.min.pick || timeToVerify.pick > clock.item.max.pick
   } //TimePicker.prototype.disabled
 
   /**
@@ -485,9 +478,7 @@
   TimePicker.prototype.scope = function (timeObject) {
     var minLimit = this.item.min.pick,
       maxLimit = this.item.max.pick
-    return this.create(
-      timeObject.pick > maxLimit ? maxLimit : timeObject.pick < minLimit ? minLimit : timeObject
-    )
+    return this.create(timeObject.pick > maxLimit ? maxLimit : timeObject.pick < minLimit ? minLimit : timeObject)
   } //TimePicker.prototype.scope
 
   /**
@@ -503,7 +494,7 @@
       parsingObject = {}
 
     // If it’s already parsed, we’re good.
-    if (!value || typeof value != 'string') {
+    if (!value || typeof value != "string") {
       return value
     }
 
@@ -522,7 +513,7 @@
         // label length without the escaping exclamation (!) mark.
         formatLength = formattingLabel
           ? _.trigger(formattingLabel, clock, [value, parsingObject])
-          : label.replace(/^!/, '').length
+          : label.replace(/^!/, "").length
 
       // If there's a format label, split the value up to the format length.
       // Then add it to the parsing object with appropriate label.
@@ -541,17 +532,13 @@
       if (_.isInteger(parseValue)) {
         if (item.match(/^(h|hh)$/i)) {
           hour = parseValue
-          if (item == 'h' || item == 'hh') {
+          if (item == "h" || item == "hh") {
             hour %= 12
           }
-        } else if (item == 'i') {
+        } else if (item == "i") {
           minutes = parseValue
         }
-      } else if (
-        item.match(/^a$/i) &&
-        parseValue.match(/^p/i) &&
-        ('h' in parsingObject || 'hh' in parsingObject)
-      ) {
+      } else if (item.match(/^a$/i) && parseValue.match(/^p/i) && ("h" in parsingObject || "hh" in parsingObject)) {
         isPM = true
       }
     }
@@ -577,7 +564,7 @@
     H: function (string, timeObject) {
       // If there's string, then get the digits length.
       // Otherwise return the selected hour in "military" format as a string.
-      return string ? _.digits(string) : '' + (timeObject.hour % 24)
+      return string ? _.digits(string) : "" + (timeObject.hour % 24)
     },
     HH: function (string, timeObject) {
       // If there's string, then get the digits length.
@@ -592,12 +579,12 @@
     a: function (string, timeObject) {
       // If there's a string, then the length is always 4.
       // Otherwise check if it's more than "noon" and return either am/pm.
-      return string ? 4 : MINUTES_IN_DAY / 2 > timeObject.time % MINUTES_IN_DAY ? 'a.m.' : 'p.m.'
+      return string ? 4 : MINUTES_IN_DAY / 2 > timeObject.time % MINUTES_IN_DAY ? "a.m." : "p.m."
     },
     A: function (string, timeObject) {
       // If there's a string, then the length is always 2.
       // Otherwise check if it's more than "noon" and return either am/pm.
-      return string ? 2 : MINUTES_IN_DAY / 2 > timeObject.time % MINUTES_IN_DAY ? 'AM' : 'PM'
+      return string ? 2 : MINUTES_IN_DAY / 2 > timeObject.time % MINUTES_IN_DAY ? "AM" : "PM"
     },
 
     // Create an array by splitting the formatting string passed.
@@ -611,9 +598,9 @@
       return clock.formats
         .toArray(formatString)
         .map(function (label) {
-          return _.trigger(clock.formats[label], clock, [0, itemObject]) || label.replace(/^!/, '')
+          return _.trigger(clock.formats[label], clock, [0, itemObject]) || label.replace(/^!/, "")
         })
-        .join('')
+        .join("")
     }
   } //TimePicker.prototype.formats
 
@@ -624,10 +611,7 @@
     var clock = this
 
     // When we’re working with minutes, do a direct comparison.
-    if (
-      (_.isInteger(one) && _.isInteger(two)) ||
-      (typeof one == 'boolean' && typeof two == 'boolean')
-    ) {
+    if ((_.isInteger(one) && _.isInteger(two)) || (typeof one == "boolean" && typeof two == "boolean")) {
       return one === two
     }
 
@@ -682,7 +666,7 @@
       disabledItems = clock.item.disable.slice(0)
 
     // If we’re flipping, that’s all we need to do.
-    if (timesToDisable == 'flip') {
+    if (timesToDisable == "flip") {
       clock.flipEnable()
     } else if (timesToDisable === false) {
       clock.flipEnable(1)
@@ -733,7 +717,7 @@
       disabledItemsCount = disabledItems.length
 
     // If we’re flipping, that’s all we need to do.
-    if (timesToEnable == 'flip') {
+    if (timesToEnable == "flip") {
       clock.flipEnable()
     } else if (timesToEnable === true) {
       clock.flipEnable(1)
@@ -766,14 +750,9 @@
               matchFound = unitToEnable
             } else if ($.isArray(unitToEnable)) {
               matchFound = unitToEnable
-              if (!matchFound[2]) matchFound.push('inverted')
+              if (!matchFound[2]) matchFound.push("inverted")
             } else if (_.isDate(unitToEnable)) {
-              matchFound = [
-                unitToEnable.getFullYear(),
-                unitToEnable.getMonth(),
-                unitToEnable.getDate(),
-                'inverted'
-              ]
+              matchFound = [unitToEnable.getFullYear(), unitToEnable.getMonth(), unitToEnable.getDate(), "inverted"]
             }
             break
           }
@@ -830,12 +809,12 @@
       disabledCollection = clock.item.disable
 
     return _.node(
-      'ul',
+      "ul",
       _.group({
         min: clock.item.min.pick,
         max: clock.item.max.pick,
         i: clock.item.interval,
-        node: 'li',
+        node: "li",
         item: function (loopedTime) {
           loopedTime = clock.create(loopedTime)
           var timeMinutes = loopedTime.pick,
@@ -865,13 +844,13 @@
                 klasses.push(settings.klass.disabled)
               }
 
-              return klasses.join(' ')
+              return klasses.join(" ")
             })([settings.klass.listItem]),
-            'data-pick=' +
+            "data-pick=" +
               loopedTime.pick +
-              ' ' +
+              " " +
               _.ariaAttr({
-                role: 'option',
+                role: "option",
                 label: formattedTime,
                 selected: isSelected && clock.$node.val() === formattedTime ? true : null,
                 activedescendant: isHighlighted ? true : null,
@@ -882,21 +861,18 @@
       }) +
         // * For Firefox forms to submit, make sure to set the button’s `type` attribute as “button”.
         _.node(
-          'li',
+          "li",
           _.node(
-            'button',
+            "button",
             settings.clear,
             settings.klass.buttonClear,
-            'type=button data-clear=1' +
-              (isOpen ? '' : ' disabled') +
-              ' ' +
-              _.ariaAttr({ controls: clock.$node[0].id })
+            "type=button data-clear=1" + (isOpen ? "" : " disabled") + " " + _.ariaAttr({ controls: clock.$node[0].id })
           ),
-          '',
-          _.ariaAttr({ role: 'presentation' })
+          "",
+          _.ariaAttr({ role: "presentation" })
         ),
       settings.klass.list,
-      _.ariaAttr({ role: 'listbox', controls: clock.$node[0].id })
+      _.ariaAttr({ role: "listbox", controls: clock.$node[0].id })
     )
   } //TimePicker.prototype.nodes
 
@@ -906,10 +882,10 @@
   TimePicker.defaults = (function (prefix) {
     return {
       // Clear
-      clear: 'Clear',
+      clear: "Clear",
 
       // The format to show on the `input` element
-      format: 'h:i A',
+      format: "h:i A",
 
       // The interval between each time
       interval: 30,
@@ -923,19 +899,19 @@
 
       // Classes
       klass: {
-        picker: prefix + ' ' + prefix + '--time',
-        holder: prefix + '__holder',
+        picker: prefix + " " + prefix + "--time",
+        holder: prefix + "__holder",
 
-        list: prefix + '__list',
-        listItem: prefix + '__list-item',
+        list: prefix + "__list",
+        listItem: prefix + "__list-item",
 
-        disabled: prefix + '__list-item--disabled',
-        selected: prefix + '__list-item--selected',
-        highlighted: prefix + '__list-item--highlighted',
-        viewset: prefix + '__list-item--viewset',
-        now: prefix + '__list-item--now',
+        disabled: prefix + "__list-item--disabled",
+        selected: prefix + "__list-item--selected",
+        highlighted: prefix + "__list-item--highlighted",
+        viewset: prefix + "__list-item--viewset",
+        now: prefix + "__list-item--now",
 
-        buttonClear: prefix + '__button--clear'
+        buttonClear: prefix + "__button--clear"
       }
     }
   })(Picker.klasses().picker)
@@ -943,5 +919,5 @@
   /**
    * Extend the picker to add the time picker.
    */
-  Picker.extend('pickatime', TimePicker)
+  Picker.extend("pickatime", TimePicker)
 })

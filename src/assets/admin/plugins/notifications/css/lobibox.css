@@ -272,7 +272,7 @@ body.lobibox-open {
 .lobibox {
   position: fixed;
   z-index: 4001;
-  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
   -webkit-box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.5);
   box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.5);
 }
@@ -470,7 +470,7 @@ body.lobibox-open {
 .lobibox.lobibox-progress .lobibox-body .lobibox-progress-outer .progress-bar {
   transition: none;
 }
-.lobibox.lobibox-progress .lobibox-body .lobibox-progress-outer [data-role='progress-text'] {
+.lobibox.lobibox-progress .lobibox-body .lobibox-progress-outer [data-role="progress-text"] {
   font-weight: bold;
   color: rgba(0, 0, 0, 0.7);
 }
@@ -868,7 +868,7 @@ fieldset[disabled] .lobibox .lobibox-btn.lobibox-btn-default.active {
   opacity: 1;
 }
 .lobibox-notify-wrapper-large .lb-notify-tabs:after {
-  content: '';
+  content: "";
   display: block;
   clear: both;
 }
@@ -889,12 +889,7 @@ fieldset[disabled] .lobibox .lobibox-btn.lobibox-btn-default.active {
 .lobibox-notify-wrapper-large .lb-notify-wrapper .lobibox-notify .lobibox-notify-icon-wrapper {
   width: 100px;
 }
-.lobibox-notify-wrapper-large
-  .lb-notify-wrapper
-  .lobibox-notify
-  .lobibox-notify-icon
-  > div
-  .icon-el {
+.lobibox-notify-wrapper-large .lb-notify-wrapper .lobibox-notify .lobibox-notify-icon > div .icon-el {
   font-size: 78px;
 }
 .lobibox-notify-wrapper-large .lb-notify-wrapper .lobibox-notify .lobibox-notify-body {
@@ -904,7 +899,7 @@ fieldset[disabled] .lobibox .lobibox-btn.lobibox-btn-default.active {
 .lobibox-notify {
   position: relative;
   min-height: 85px;
-  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
   font-size: 14px;
   margin: 7px 0;
   border-radius: 0;

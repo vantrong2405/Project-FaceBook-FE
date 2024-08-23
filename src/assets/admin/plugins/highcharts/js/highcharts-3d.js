@@ -6,21 +6,21 @@
  License: www.highcharts.com/license
 */
 ;(function (a) {
-  'object' === typeof module && module.exports
-    ? ((a['default'] = a), (module.exports = a))
-    : 'function' === typeof define && define.amd
-      ? define('highcharts/highcharts-3d', ['highcharts'], function (B) {
+  "object" === typeof module && module.exports
+    ? ((a["default"] = a), (module.exports = a))
+    : "function" === typeof define && define.amd
+      ? define("highcharts/highcharts-3d", ["highcharts"], function (B) {
           a(B)
           a.Highcharts = B
           return a
         })
-      : a('undefined' !== typeof Highcharts ? Highcharts : void 0)
+      : a("undefined" !== typeof Highcharts ? Highcharts : void 0)
 })(function (a) {
   function B(a, l, u, d) {
     a.hasOwnProperty(l) || (a[l] = d.apply(null, u))
   }
   a = a ? a._modules : {}
-  B(a, 'Extensions/Math3D.js', [a['Core/Globals.js'], a['Core/Utilities.js']], function (a, l) {
+  B(a, "Extensions/Math3D.js", [a["Core/Globals.js"], a["Core/Utilities.js"]], function (a, l) {
     var u = l.pick,
       d = a.deg2rad,
       m = (a.perspective3D = function (d, k, h) {
@@ -66,9 +66,7 @@
       k = k.plotHeight / 2
       h = u(h.depth, 1) * u(h.viewDistance, 0) + h.depth
       return Math.sqrt(
-        Math.pow(a - u(d.plotX, d.x), 2) +
-          Math.pow(k - u(d.plotY, d.y), 2) +
-          Math.pow(h - u(d.plotZ, d.z), 2)
+        Math.pow(a - u(d.plotX, d.x), 2) + Math.pow(k - u(d.plotY, d.y), 2) + Math.pow(h - u(d.plotZ, d.z), 2)
       )
     }
     var k = (a.shapeArea = function (d) {
@@ -93,14 +91,14 @@
   })
   B(
     a,
-    'Core/Renderer/SVG/SVGRenderer3D.js',
+    "Core/Renderer/SVG/SVGRenderer3D.js",
     [
-      a['Core/Color.js'],
-      a['Core/Globals.js'],
-      a['Extensions/Math3D.js'],
-      a['Core/Renderer/SVG/SVGElement.js'],
-      a['Core/Renderer/SVG/SVGRenderer.js'],
-      a['Core/Utilities.js']
+      a["Core/Color.js"],
+      a["Core/Globals.js"],
+      a["Extensions/Math3D.js"],
+      a["Core/Renderer/SVG/SVGElement.js"],
+      a["Core/Renderer/SVG/SVGRenderer.js"],
+      a["Core/Utilities.js"]
     ],
     function (a, l, u, d, m, w) {
       function k(c, e, f, d, b, x, D, E) {
@@ -114,7 +112,7 @@
               (g = g.concat(k(c, e, f, d, b - Math.PI / 2, x, D, E))))
             : [
                 [
-                  'C',
+                  "C",
                   c + f * Math.cos(b) - f * F * t * Math.sin(b) + D,
                   e + d * Math.sin(b) + d * F * t * Math.cos(b) + E,
                   c + f * Math.cos(x) + f * F * t * Math.sin(x) + D,
@@ -142,28 +140,28 @@
       m.prototype.toLinePath = function (c, d) {
         var f = []
         c.forEach(function (c) {
-          f.push(['L', c.x, c.y])
+          f.push(["L", c.x, c.y])
         })
-        c.length && ((f[0][0] = 'M'), d && f.push(['Z']))
+        c.length && ((f[0][0] = "M"), d && f.push(["Z"]))
         return f
       }
       m.prototype.toLineSegments = function (c) {
         var g = [],
           f = !0
         c.forEach(function (c) {
-          g.push(f ? ['M', c.x, c.y] : ['L', c.x, c.y])
+          g.push(f ? ["M", c.x, c.y] : ["L", c.x, c.y])
           f = !f
         })
         return g
       }
       m.prototype.face3d = function (g) {
         var e = this,
-          f = this.createElement('path')
+          f = this.createElement("path")
         f.vertexes = []
         f.insidePlotArea = !1
         f.enabled = !0
         f.attr = function (f) {
-          if ('object' === typeof f && (b(f.enabled) || b(f.vertexes) || b(f.insidePlotArea))) {
+          if ("object" === typeof f && (b(f.enabled) || b(f.vertexes) || b(f.insidePlotArea))) {
             this.enabled = c(f.enabled, this.enabled)
             this.vertexes = c(f.vertexes, this.vertexes)
             this.insidePlotArea = c(f.insidePlotArea, this.insidePlotArea)
@@ -173,14 +171,14 @@
             var g = p(this.vertexes, C[e.chartIndex], this.insidePlotArea),
               x = e.toLinePath(g, !0)
             g = h(g)
-            g = this.enabled && 0 < g ? 'visible' : 'hidden'
+            g = this.enabled && 0 < g ? "visible" : "hidden"
             f.d = x
             f.visibility = g
           }
           return d.prototype.attr.apply(this, arguments)
         }
         f.animate = function (f) {
-          if ('object' === typeof f && (b(f.enabled) || b(f.vertexes) || b(f.insidePlotArea))) {
+          if ("object" === typeof f && (b(f.enabled) || b(f.vertexes) || b(f.insidePlotArea))) {
             this.enabled = c(f.enabled, this.enabled)
             this.vertexes = c(f.vertexes, this.vertexes)
             this.insidePlotArea = c(f.insidePlotArea, this.insidePlotArea)
@@ -190,9 +188,9 @@
             var g = p(this.vertexes, C[e.chartIndex], this.insidePlotArea),
               x = e.toLinePath(g, !0)
             g = h(g)
-            g = this.enabled && 0 < g ? 'visible' : 'hidden'
+            g = this.enabled && 0 < g ? "visible" : "hidden"
             f.d = x
-            this.attr('visibility', g)
+            this.attr("visibility", g)
           }
           return d.prototype.animate.apply(this, arguments)
         }
@@ -202,14 +200,14 @@
         var g = this,
           f = this.g(),
           e = f.destroy
-        this.styledMode || f.attr({ 'stroke-linejoin': 'round' })
+        this.styledMode || f.attr({ "stroke-linejoin": "round" })
         f.faces = []
         f.destroy = function () {
           for (var c = 0; c < f.faces.length; c++) f.faces[c].destroy()
           return e.call(this)
         }
         f.attr = function (c, e, D, E) {
-          if ('object' === typeof c && b(c.faces)) {
+          if ("object" === typeof c && b(c.faces)) {
             for (; f.faces.length > c.faces.length; ) f.faces.pop().destroy()
             for (; f.faces.length < c.faces.length; ) f.faces.push(g.face3d().add(f))
             for (var x = 0; x < c.faces.length; x++)
@@ -233,22 +231,22 @@
         initArgs: function (c) {
           var g = this,
             f = g.renderer,
-            e = f[g.pathType + 'Path'](c),
+            e = f[g.pathType + "Path"](c),
             d = e.zIndexes
           g.parts.forEach(function (c) {
             g[c] = f
               .path(e[c])
-              .attr({ class: 'highcharts-3d-' + c, zIndex: d[c] || 0 })
+              .attr({ class: "highcharts-3d-" + c, zIndex: d[c] || 0 })
               .add(g)
           })
-          g.attr({ 'stroke-linejoin': 'round', zIndex: d.group })
+          g.attr({ "stroke-linejoin": "round", zIndex: d.group })
           g.originalDestroy = g.destroy
           g.destroy = g.destroyParts
           g.forcedSides = e.forcedSides
         },
         singleSetterForParts: function (c, e, f, d, b, x) {
           var g = {}
-          d = [null, null, d || 'attr', b, x]
+          d = [null, null, d || "attr", b, x]
           var E = f && f.zIndexes
           f
             ? (E && E.group && this.attr({ zIndex: E.group }),
@@ -270,32 +268,28 @@
           return x
         },
         destroyParts: function () {
-          this.processParts(null, null, 'destroy')
+          this.processParts(null, null, "destroy")
           return this.originalDestroy()
         }
       }
       var N = n(a, {
-        parts: ['front', 'top', 'side'],
-        pathType: 'cuboid',
+        parts: ["front", "top", "side"],
+        pathType: "cuboid",
         attr: function (c, e, f, h) {
-          if ('string' === typeof c && 'undefined' !== typeof e) {
+          if ("string" === typeof c && "undefined" !== typeof e) {
             var g = c
             c = {}
             c[g] = e
           }
           return c.shapeArgs || b(c.x)
-            ? this.singleSetterForParts(
-                'd',
-                null,
-                this.renderer[this.pathType + 'Path'](c.shapeArgs || c)
-              )
+            ? this.singleSetterForParts("d", null, this.renderer[this.pathType + "Path"](c.shapeArgs || c))
             : d.prototype.attr.call(this, c, void 0, f, h)
         },
         animate: function (c, e, f) {
           if (b(c.x) && b(c.y)) {
-            c = this.renderer[this.pathType + 'Path'](c)
+            c = this.renderer[this.pathType + "Path"](c)
             var g = c.forcedSides
-            this.singleSetterForParts('d', null, c, 'animate', e, f)
+            this.singleSetterForParts("d", null, c, "animate", e, f)
             this.attr({ zIndex: c.zIndexes.group })
             g !== this.forcedSides && ((this.forcedSides = g), N.fillSetter.call(this, this.fill))
           } else d.prototype.animate.call(this, c, e, f)
@@ -303,13 +297,13 @@
         },
         fillSetter: function (c) {
           this.forcedSides = this.forcedSides || []
-          this.singleSetterForParts('fill', null, {
+          this.singleSetterForParts("fill", null, {
             front: c,
             top: G(c)
-              .brighten(0 <= this.forcedSides.indexOf('top') ? 0 : 0.1)
+              .brighten(0 <= this.forcedSides.indexOf("top") ? 0 : 0.1)
               .get(),
             side: G(c)
-              .brighten(0 <= this.forcedSides.indexOf('side') ? 0 : -0.1)
+              .brighten(0 <= this.forcedSides.indexOf("side") ? 0 : -0.1)
               .get()
           })
           this.color = this.fill = c
@@ -324,7 +318,7 @@
         return f
       }
       m.prototype.cuboid = function (c) {
-        return this.element3d('cuboid', c)
+        return this.element3d("cuboid", c)
       }
       m.prototype.cuboidPath = function (c) {
         function e(c) {
@@ -373,13 +367,13 @@
               : g && (q.push(g), (d = 0 > h(c) ? [b, 0] : 0 > h(t) ? [y, 1] : [b, 0]))
           return d
         }
-        var k = z([3, 2, 1, 0], [7, 6, 5, 4], 'front')
+        var k = z([3, 2, 1, 0], [7, 6, 5, 4], "front")
         c = k[0]
         var n = k[1]
-        k = z([1, 6, 7, 0], [4, 5, 2, 3], 'top')
+        k = z([1, 6, 7, 0], [4, 5, 2, 3], "top")
         E = k[0]
         var r = k[1]
-        k = z([1, 2, 5, 6], [0, 7, 4, 3], 'side')
+        k = z([1, 2, 5, 6], [0, 7, 4, 3], "side")
         z = k[0]
         k = k[1]
         1 === k ? (A += 1e6 * (t.plotWidth - g)) : k || (A += 1e6 * g)
@@ -406,7 +400,7 @@
         }
         var f = this.g(),
           g = f.renderer,
-          a = 'x y r innerR start end depth'.split(' ')
+          a = "x y r innerR start end depth".split(" ")
         e = n(e)
         e.alpha = (e.alpha || 0) * M
         e.beta = (e.beta || 0) * M
@@ -417,16 +411,16 @@
         f.out = g.path()
         f.onAdd = function () {
           var c = f.parentGroup,
-            e = f.attr('class')
+            e = f.attr("class")
           f.top.add(f)
-          ;['out', 'inn', 'side1', 'side2'].forEach(function (d) {
-            f[d].attr({ class: e + ' highcharts-3d-side' }).add(c)
+          ;["out", "inn", "side1", "side2"].forEach(function (d) {
+            f[d].attr({ class: e + " highcharts-3d-side" }).add(c)
           })
         }
-        ;['addClass', 'removeClass'].forEach(function (c) {
+        ;["addClass", "removeClass"].forEach(function (c) {
           f[c] = function () {
             var e = arguments
-            ;['top', 'out', 'inn', 'side1', 'side2'].forEach(function (d) {
+            ;["top", "out", "inn", "side1", "side2"].forEach(function (d) {
               f[d][c].apply(f[d], e)
             })
           }
@@ -455,17 +449,17 @@
           this.top.attr({ fill: c })
           return this
         }
-        ;['opacity', 'translateX', 'translateY', 'visibility'].forEach(function (c) {
-          f[c + 'Setter'] = function (c, e) {
+        ;["opacity", "translateX", "translateY", "visibility"].forEach(function (c) {
+          f[c + "Setter"] = function (c, e) {
             f[e] = c
-            ;['out', 'inn', 'side1', 'side2', 'top'].forEach(function (d) {
+            ;["out", "inn", "side1", "side2", "top"].forEach(function (d) {
               f[d].attr(e, c)
             })
           }
         })
         f.attr = function (c) {
           var e
-          if ('object' === typeof c && (e = b(c))) {
+          if ("object" === typeof c && (e = b(c))) {
             var g = e[0]
             arguments[0] = e[1]
             L(f.attribs, g)
@@ -475,7 +469,7 @@
         }
         f.animate = function (e, g, a) {
           var v = this.attribs,
-            t = 'data-' + Math.random().toString(26).substring(2, 9)
+            t = "data-" + Math.random().toString(26).substring(2, 9)
           delete e.center
           delete e.z
           delete e.alpha
@@ -485,7 +479,7 @@
             g = b(e)
             f[t] = 0
             e[t] = 1
-            f[t + 'Setter'] = l.noop
+            f[t + "Setter"] = l.noop
             if (g) {
               var k = g[0]
               y.step = function (e, f) {
@@ -495,13 +489,13 @@
                 f.prop === t &&
                   f.elem.setPaths(
                     n(v, {
-                      x: d('x'),
-                      y: d('y'),
-                      r: d('r'),
-                      innerR: d('innerR'),
-                      start: d('start'),
-                      end: d('end'),
-                      depth: d('depth')
+                      x: d("x"),
+                      y: d("y"),
+                      r: d("r"),
+                      innerR: d("innerR"),
+                      start: d("start"),
+                      end: d("end"),
+                      depth: d("depth")
                     })
                   )
               }
@@ -559,54 +553,54 @@
           C = q * Math.cos(t)
         q = n * Math.sin(y)
         var r = n * Math.sin(t)
-        n = [['M', f + z * J, b + h * K]]
+        n = [["M", f + z * J, b + h * K]]
         n = n.concat(k(f, b, z, h, g, a, 0, 0))
-        n.push(['L', f + H * c, b + C * I])
+        n.push(["L", f + H * c, b + C * I])
         n = n.concat(k(f, b, H, C, a, g, 0, 0))
-        n.push(['Z'])
+        n.push(["Z"])
         var m = 0 < y ? Math.PI / 2 : 0
         y = 0 < t ? 0 : Math.PI / 2
         m = g > -m ? g : a > -m ? -m : g
         var p = a < v - y ? a : g < v - y ? v - y : a,
           F = 2 * v - y
-        t = [['M', f + z * A(m), b + h * e(m)]]
+        t = [["M", f + z * A(m), b + h * e(m)]]
         t = t.concat(k(f, b, z, h, m, p, 0, 0))
         a > F && g < F
-          ? (t.push(['L', f + z * A(p) + q, b + h * e(p) + r]),
+          ? (t.push(["L", f + z * A(p) + q, b + h * e(p) + r]),
             (t = t.concat(k(f, b, z, h, p, F, q, r))),
-            t.push(['L', f + z * A(F), b + h * e(F)]),
+            t.push(["L", f + z * A(F), b + h * e(F)]),
             (t = t.concat(k(f, b, z, h, F, a, 0, 0))),
-            t.push(['L', f + z * A(a) + q, b + h * e(a) + r]),
+            t.push(["L", f + z * A(a) + q, b + h * e(a) + r]),
             (t = t.concat(k(f, b, z, h, a, F, q, r))),
-            t.push(['L', f + z * A(F), b + h * e(F)]),
+            t.push(["L", f + z * A(F), b + h * e(F)]),
             (t = t.concat(k(f, b, z, h, F, p, 0, 0))))
           : a > v - y &&
             g < v - y &&
-            (t.push(['L', f + z * Math.cos(p) + q, b + h * Math.sin(p) + r]),
+            (t.push(["L", f + z * Math.cos(p) + q, b + h * Math.sin(p) + r]),
             (t = t.concat(k(f, b, z, h, p, a, q, r))),
-            t.push(['L', f + z * Math.cos(a), b + h * Math.sin(a)]),
+            t.push(["L", f + z * Math.cos(a), b + h * Math.sin(a)]),
             (t = t.concat(k(f, b, z, h, a, p, 0, 0))))
-        t.push(['L', f + z * Math.cos(p) + q, b + h * Math.sin(p) + r])
+        t.push(["L", f + z * Math.cos(p) + q, b + h * Math.sin(p) + r])
         t = t.concat(k(f, b, z, h, p, m, q, r))
-        t.push(['Z'])
-        y = [['M', f + H * J, b + C * K]]
+        t.push(["Z"])
+        y = [["M", f + H * J, b + C * K]]
         y = y.concat(k(f, b, H, C, g, a, 0, 0))
-        y.push(['L', f + H * Math.cos(a) + q, b + C * Math.sin(a) + r])
+        y.push(["L", f + H * Math.cos(a) + q, b + C * Math.sin(a) + r])
         y = y.concat(k(f, b, H, C, a, g, q, r))
-        y.push(['Z'])
+        y.push(["Z"])
         J = [
-          ['M', f + z * J, b + h * K],
-          ['L', f + z * J + q, b + h * K + r],
-          ['L', f + H * J + q, b + C * K + r],
-          ['L', f + H * J, b + C * K],
-          ['Z']
+          ["M", f + z * J, b + h * K],
+          ["L", f + z * J + q, b + h * K + r],
+          ["L", f + H * J + q, b + C * K + r],
+          ["L", f + H * J, b + C * K],
+          ["Z"]
         ]
         f = [
-          ['M', f + z * c, b + h * I],
-          ['L', f + z * c + q, b + h * I + r],
-          ['L', f + H * c + q, b + C * I + r],
-          ['L', f + H * c, b + C * I],
-          ['Z']
+          ["M", f + z * c, b + h * I],
+          ["L", f + z * c + q, b + h * I + r],
+          ["L", f + H * c + q, b + C * I + r],
+          ["L", f + H * c, b + C * I],
+          ["Z"]
         ]
         I = Math.atan2(r, -q)
         b = Math.abs(a + I)
@@ -633,15 +627,15 @@
       }
     }
   )
-  B(a, 'Core/Axis/Tick3D.js', [a['Core/Utilities.js']], function (a) {
+  B(a, "Core/Axis/Tick3D.js", [a["Core/Utilities.js"]], function (a) {
     var l = a.addEvent,
       u = a.extend,
       d = a.wrap
     return (function () {
       function a() {}
       a.compose = function (m) {
-        l(m, 'afterGetLabelPosition', a.onAfterGetLabelPosition)
-        d(m.prototype, 'getMarkPath', a.wrapGetMarkPath)
+        l(m, "afterGetLabelPosition", a.onAfterGetLabelPosition)
+        d(m.prototype, "getMarkPath", a.wrapGetMarkPath)
       }
       a.onAfterGetLabelPosition = function (d) {
         var a = this.axis.axis3D
@@ -653,12 +647,9 @@
         if (a) {
           var p = m[0],
             h = m[1]
-          if ('M' === p[0] && 'L' === h[0])
+          if ("M" === p[0] && "L" === h[0])
             return (
-              (a = [
-                a.fix3dPosition({ x: p[1], y: p[2], z: 0 }),
-                a.fix3dPosition({ x: h[1], y: h[2], z: 0 })
-              ]),
+              (a = [a.fix3dPosition({ x: p[1], y: p[2], z: 0 }), a.fix3dPosition({ x: h[1], y: h[2], z: 0 })]),
               this.axis.chart.renderer.toLineSegments(a)
             )
         }
@@ -669,13 +660,13 @@
   })
   B(
     a,
-    'Core/Axis/Axis3D.js',
+    "Core/Axis/Axis3D.js",
     [
-      a['Core/Globals.js'],
-      a['Extensions/Math3D.js'],
-      a['Core/Axis/Tick.js'],
-      a['Core/Axis/Tick3D.js'],
-      a['Core/Utilities.js']
+      a["Core/Globals.js"],
+      a["Extensions/Math3D.js"],
+      a["Core/Axis/Tick.js"],
+      a["Core/Axis/Tick3D.js"],
+      a["Core/Utilities.js"]
     ],
     function (a, l, u, d, m) {
       var w = l.perspective,
@@ -693,7 +684,7 @@
           b.prototype.fix3dPosition = function (c, b) {
             var d = this.axis,
               e = d.chart
-            if ('colorAxis' === d.coll || !e.chart3d || !e.is3d()) return c
+            if ("colorAxis" === d.coll || !e.chart3d || !e.is3d()) return c
             var a = L * e.options.chart.options3d.alpha,
               h = L * e.options.chart.options3d.beta,
               q = r(b && d.options.title.position3d, d.options.labels.position3d)
@@ -754,8 +745,8 @@
               c.z = k.axes.y.left.z
               g = k.axes.y.left.xDir
             }
-            'chart' !== q &&
-              ('flap' === q
+            "chart" !== q &&
+              ("flap" === q
                 ? d.horiz
                   ? ((h = Math.sin(a)),
                     (a = Math.cos(a)),
@@ -763,7 +754,7 @@
                     e && (h = -h),
                     (l = { x: g.z * h, y: a, z: -g.x * h }))
                   : (g = { x: Math.cos(h), y: 0, z: Math.sin(h) })
-                : 'ortho' === q
+                : "ortho" === q
                   ? d.horiz
                     ? ((l = Math.cos(a)),
                       (q = Math.sin(h) * l),
@@ -789,11 +780,7 @@
               (0 >
                 G(
                   w(
-                    [
-                      c,
-                      { x: c.x + g.x, y: c.y + g.y, z: c.z + g.z },
-                      { x: c.x + l.x, y: c.y + l.y, z: c.z + l.z }
-                    ],
+                    [c, { x: c.x + g.x, y: c.y + g.y, z: c.z + g.z }, { x: c.x + l.x, y: c.y + l.y, z: c.z + l.z }],
                     d.chart
                   )
                 ) && (g = { x: -g.x, y: -g.y, z: -g.z }),
@@ -805,23 +792,14 @@
                 ],
                 d.chart
               )),
-              (e.matrix = [
-                c[1].x - c[0].x,
-                c[1].y - c[0].y,
-                c[2].x - c[0].x,
-                c[2].y - c[0].y,
-                e.x,
-                e.y
-              ]),
+              (e.matrix = [c[1].x - c[0].x, c[1].y - c[0].y, c[2].x - c[0].x, c[2].y - c[0].y, e.x, e.y]),
               (e.matrix[4] -= e.x * e.matrix[0] + e.y * e.matrix[2]),
               (e.matrix[5] -= e.x * e.matrix[1] + e.y * e.matrix[3]))
             return e
           }
           b.prototype.swapZ = function (c, d) {
             var b = this.axis
-            return b.isZAxis
-              ? ((d = d ? 0 : b.chart.plotLeft), { x: d + c.z, y: c.y, z: c.x - d })
-              : c
+            return b.isZAxis ? ((d = d ? 0 : b.chart.plotLeft), { x: d + c.z, y: c.y, z: c.x - d }) : c
           }
           return b
         })()
@@ -829,17 +807,17 @@
         function a() {}
         a.compose = function (c) {
           h(!0, c.defaultOptions, a.defaultOptions)
-          c.keepProps.push('axis3D')
-          p(c, 'init', a.onInit)
-          p(c, 'afterSetOptions', a.onAfterSetOptions)
-          p(c, 'drawCrosshair', a.onDrawCrosshair)
-          p(c, 'destroy', a.onDestroy)
+          c.keepProps.push("axis3D")
+          p(c, "init", a.onInit)
+          p(c, "afterSetOptions", a.onAfterSetOptions)
+          p(c, "drawCrosshair", a.onDrawCrosshair)
+          p(c, "destroy", a.onDestroy)
           c = c.prototype
-          b(c, 'getLinePath', a.wrapGetLinePath)
-          b(c, 'getPlotBandPath', a.wrapGetPlotBandPath)
-          b(c, 'getPlotLinePath', a.wrapGetPlotLinePath)
-          b(c, 'getSlotWidth', a.wrapGetSlotWidth)
-          b(c, 'getTitlePosition', a.wrapGetTitlePosition)
+          b(c, "getLinePath", a.wrapGetLinePath)
+          b(c, "getPlotBandPath", a.wrapGetPlotBandPath)
+          b(c, "getPlotLinePath", a.wrapGetPlotLinePath)
+          b(c, "getSlotWidth", a.wrapGetSlotWidth)
+          b(c, "getTitlePosition", a.wrapGetTitlePosition)
           d.compose(u)
         }
         a.onAfterSetOptions = function () {
@@ -847,17 +825,17 @@
             d = this.options
           c.is3d &&
             c.is3d() &&
-            'colorAxis' !== this.coll &&
+            "colorAxis" !== this.coll &&
             ((d.tickWidth = r(d.tickWidth, 0)), (d.gridLineWidth = r(d.gridLineWidth, 1)))
         }
         a.onDestroy = function () {
-          ;['backFrame', 'bottomFrame', 'sideFrame'].forEach(function (c) {
+          ;["backFrame", "bottomFrame", "sideFrame"].forEach(function (c) {
             this[c] && (this[c] = this[c].destroy())
           }, this)
         }
         a.onDrawCrosshair = function (c) {
           this.chart.is3d() &&
-            'colorAxis' !== this.coll &&
+            "colorAxis" !== this.coll &&
             c.point &&
             (c.point.crosshairPos = this.isXAxis ? c.point.axisXpos : this.len - c.point.axisYpos)
         }
@@ -865,13 +843,10 @@
           this.axis3D || (this.axis3D = new n(this))
         }
         a.wrapGetLinePath = function (c) {
-          return this.chart.is3d() && 'colorAxis' !== this.coll
-            ? []
-            : c.apply(this, [].slice.call(arguments, 1))
+          return this.chart.is3d() && "colorAxis" !== this.coll ? [] : c.apply(this, [].slice.call(arguments, 1))
         }
         a.wrapGetPlotBandPath = function (c) {
-          if (!this.chart.is3d() || 'colorAxis' === this.coll)
-            return c.apply(this, [].slice.call(arguments, 1))
+          if (!this.chart.is3d() || "colorAxis" === this.coll) return c.apply(this, [].slice.call(arguments, 1))
           var d = arguments,
             a = d[2],
             e = []
@@ -883,11 +858,7 @@
                 k = d[b + 1],
                 n = a[b],
                 g = a[b + 1]
-              'M' === h[0] &&
-                'L' === k[0] &&
-                'M' === n[0] &&
-                'L' === g[0] &&
-                e.push(h, k, g, ['L', n[1], n[2]], ['Z'])
+              "M" === h[0] && "L" === k[0] && "M" === n[0] && "L" === g[0] && e.push(h, k, g, ["L", n[1], n[2]], ["Z"])
             }
           return e
         }
@@ -895,15 +866,15 @@
           var d = this.axis3D,
             a = this.chart,
             e = c.apply(this, [].slice.call(arguments, 1))
-          if ('colorAxis' === this.coll || !a.chart3d || !a.is3d() || null === e) return e
+          if ("colorAxis" === this.coll || !a.chart3d || !a.is3d() || null === e) return e
           var b = a.options.chart.options3d,
             h = this.isZAxis ? a.plotWidth : b.depth
           b = a.chart3d.frame3d
           var k = e[0],
             n = e[1]
           e = []
-          'M' === k[0] &&
-            'L' === n[0] &&
+          "M" === k[0] &&
+            "L" === n[0] &&
             ((d = [
               d.swapZ({ x: k[1], y: k[2], z: 0 }),
               d.swapZ({ x: k[1], y: k[2], z: h }),
@@ -941,10 +912,7 @@
             q = d.pos
             var m = a[q - 1]
             a = a[q + 1]
-            0 !== q &&
-              m &&
-              m.label.xy &&
-              (p = k({ x: m.label.xy.x, y: m.label.xy.y, z: null }, b, b.vd))
+            0 !== q && m && m.label.xy && (p = k({ x: m.label.xy.x, y: m.label.xy.y, z: null }, b, b.vd))
             a && a.label.xy && (g = k({ x: a.label.xy.x, y: a.label.xy.y, z: null }, b, b.vd))
             a = { x: d.label.xy.x, y: d.label.xy.y, z: null }
             a = k(a, b, b.vd)
@@ -957,14 +925,14 @@
           return this.axis3D ? this.axis3D.fix3dPosition(d, !0) : d
         }
         a.defaultOptions = {
-          labels: { position3d: 'offset', skew3d: !1 },
+          labels: { position3d: "offset", skew3d: !1 },
           title: { position3d: null, skew3d: null }
         }
         return a
       })()
     }
   )
-  B(a, 'Core/Axis/ZAxis.js', [a['Core/Axis/Axis.js'], a['Core/Utilities.js']], function (a, l) {
+  B(a, "Core/Axis/ZAxis.js", [a["Core/Axis/Axis.js"], a["Core/Utilities.js"]], function (a, l) {
     var u =
         (this && this.__extends) ||
         (function () {
@@ -995,11 +963,11 @@
       G = (function () {
         function a() {}
         a.compose = function (h) {
-          d(h, 'afterGetAxes', a.onAfterGetAxes)
+          d(h, "afterGetAxes", a.onAfterGetAxes)
           h = h.prototype
           h.addZAxis = a.wrapAddZAxis
           h.collectionsWithInit.zAxis = [h.addZAxis]
-          h.collectionsWithUpdate.push('zAxis')
+          h.collectionsWithUpdate.push("zAxis")
         }
         a.onAfterGetAxes = function () {
           var d = this,
@@ -1043,14 +1011,13 @@
         a.prototype.setAxisSize = function () {
           var a = this.chart
           d.prototype.setAxisSize.call(this)
-          this.width = this.len =
-            (a.options.chart && a.options.chart.options3d && a.options.chart.options3d.depth) || 0
+          this.width = this.len = (a.options.chart && a.options.chart.options3d && a.options.chart.options3d.depth) || 0
           this.right = a.chartWidth - this.width - this.left
         }
         a.prototype.setOptions = function (a) {
           a = m({ offset: 0, lineWidth: 0 }, a)
           d.prototype.setOptions.call(this, a)
-          this.coll = 'zAxis'
+          this.coll = "zAxis"
         }
         a.ZChartComposition = G
         return a
@@ -1059,16 +1026,16 @@
   })
   B(
     a,
-    'Core/Chart/Chart3D.js',
+    "Core/Chart/Chart3D.js",
     [
-      a['Core/Axis/Axis.js'],
-      a['Core/Axis/Axis3D.js'],
-      a['Core/Chart/Chart.js'],
-      a['Core/Globals.js'],
-      a['Extensions/Math3D.js'],
-      a['Core/Options.js'],
-      a['Core/Utilities.js'],
-      a['Core/Axis/ZAxis.js']
+      a["Core/Axis/Axis.js"],
+      a["Core/Axis/Axis3D.js"],
+      a["Core/Chart/Chart.js"],
+      a["Core/Globals.js"],
+      a["Extensions/Math3D.js"],
+      a["Core/Options.js"],
+      a["Core/Utilities.js"],
+      a["Core/Axis/ZAxis.js"]
     ],
     function (a, l, u, d, m, w, k, G) {
       var p = m.perspective,
@@ -1083,7 +1050,7 @@
         A
       ;(function (a) {
         function e(c) {
-          this.is3d() && 'scatter' === c.options.type && (c.options.type = 'scatter3d')
+          this.is3d() && "scatter" === c.options.type && (c.options.type = "scatter3d")
         }
         function k() {
           if (this.chart3d && this.is3d()) {
@@ -1101,7 +1068,7 @@
               m = h + (b.bottom.visible ? b.bottom.size : 0),
               p = 0 - (b.front.visible ? b.front.size : 0),
               l = a + (b.back.visible ? b.back.size : 0),
-              v = this.hasRendered ? 'animate' : 'attr'
+              v = this.hasRendered ? "animate" : "attr"
             this.chart3d.frame3d = b
             this.frameShapes ||
               (this.frameShapes = {
@@ -1113,7 +1080,7 @@
                 front: c.polyhedron().add()
               })
             this.frameShapes.bottom[v]({
-              class: 'highcharts-3d-frame highcharts-3d-frame-bottom',
+              class: "highcharts-3d-frame highcharts-3d-frame-bottom",
               zIndex: b.bottom.frontFacing ? -1e3 : 1e3,
               faces: [
                 {
@@ -1179,7 +1146,7 @@
               ]
             })
             this.frameShapes.top[v]({
-              class: 'highcharts-3d-frame highcharts-3d-frame-top',
+              class: "highcharts-3d-frame highcharts-3d-frame-top",
               zIndex: b.top.frontFacing ? -1e3 : 1e3,
               faces: [
                 {
@@ -1245,7 +1212,7 @@
               ]
             })
             this.frameShapes.left[v]({
-              class: 'highcharts-3d-frame highcharts-3d-frame-left',
+              class: "highcharts-3d-frame highcharts-3d-frame-left",
               zIndex: b.left.frontFacing ? -1e3 : 1e3,
               faces: [
                 {
@@ -1311,7 +1278,7 @@
               ]
             })
             this.frameShapes.right[v]({
-              class: 'highcharts-3d-frame highcharts-3d-frame-right',
+              class: "highcharts-3d-frame highcharts-3d-frame-right",
               zIndex: b.right.frontFacing ? -1e3 : 1e3,
               faces: [
                 {
@@ -1377,7 +1344,7 @@
               ]
             })
             this.frameShapes.back[v]({
-              class: 'highcharts-3d-frame highcharts-3d-frame-back',
+              class: "highcharts-3d-frame highcharts-3d-frame-back",
               zIndex: b.back.frontFacing ? -1e3 : 1e3,
               faces: [
                 {
@@ -1443,7 +1410,7 @@
               ]
             })
             this.frameShapes.front[v]({
-              class: 'highcharts-3d-frame highcharts-3d-frame-front',
+              class: "highcharts-3d-frame highcharts-3d-frame-front",
               zIndex: b.front.frontFacing ? -1e3 : 1e3,
               faces: [
                 {
@@ -1513,24 +1480,24 @@
         function m() {
           this.styledMode &&
             (this.renderer.definition({
-              tagName: 'style',
+              tagName: "style",
               textContent:
-                '.highcharts-3d-top{filter: url(#highcharts-brighter)}\n.highcharts-3d-side{filter: url(#highcharts-darker)}\n'
+                ".highcharts-3d-top{filter: url(#highcharts-brighter)}\n.highcharts-3d-side{filter: url(#highcharts-darker)}\n"
             }),
             [
-              { name: 'darker', slope: 0.6 },
-              { name: 'brighter', slope: 1.4 }
+              { name: "darker", slope: 0.6 },
+              { name: "brighter", slope: 1.4 }
             ].forEach(function (c) {
               this.renderer.definition({
-                tagName: 'filter',
-                id: 'highcharts-' + c.name,
+                tagName: "filter",
+                id: "highcharts-" + c.name,
                 children: [
                   {
-                    tagName: 'feComponentTransfer',
+                    tagName: "feComponentTransfer",
                     children: [
-                      { tagName: 'feFuncR', type: 'linear', slope: c.slope },
-                      { tagName: 'feFuncG', type: 'linear', slope: c.slope },
-                      { tagName: 'feFuncB', type: 'linear', slope: c.slope }
+                      { tagName: "feFuncR", type: "linear", slope: c.slope },
+                      { tagName: "feFuncG", type: "linear", slope: c.slope },
+                      { tagName: "feFuncB", type: "linear", slope: c.slope }
                     ]
                   }
                 ]
@@ -1541,8 +1508,7 @@
           var c = this.options
           this.is3d() &&
             (c.series || []).forEach(function (b) {
-              'scatter' === (b.type || c.chart.type || c.chart.defaultSeriesType) &&
-                (b.type = 'scatter3d')
+              "scatter" === (b.type || c.chart.type || c.chart.defaultSeriesType) && (b.type = "scatter3d")
             })
         }
         function v() {
@@ -1554,10 +1520,10 @@
             var b = this.inverted,
               a = this.clipBox,
               d = this.margin
-            a[b ? 'y' : 'x'] = -(d[3] || 0)
-            a[b ? 'x' : 'y'] = -(d[0] || 0)
-            a[b ? 'height' : 'width'] = this.chartWidth + (d[3] || 0) + (d[1] || 0)
-            a[b ? 'width' : 'height'] = this.chartHeight + (d[0] || 0) + (d[2] || 0)
+            a[b ? "y" : "x"] = -(d[3] || 0)
+            a[b ? "x" : "y"] = -(d[0] || 0)
+            a[b ? "height" : "width"] = this.chartWidth + (d[3] || 0) + (d[1] || 0)
+            a[b ? "width" : "height"] = this.chartHeight + (d[0] || 0) + (d[2] || 0)
             this.scale3d = 1
             !0 === c.fitToPlot && (this.scale3d = this.chart3d.getScale(c.depth))
             this.chart3d.frame3d = this.chart3d.get3dFrame()
@@ -1582,7 +1548,7 @@
         }
         function G(c) {
           c.apply(this, [].slice.call(arguments, 1))
-          this.is3d() && (this.container.className += ' highcharts-3d-chart')
+          this.is3d() && (this.container.className += " highcharts-3d-chart")
         }
         var D = (function () {
           function c(c) {
@@ -1646,22 +1612,20 @@
               c && (c.horiz ? (c.opposite ? (F = !0) : (u = !0)) : c.opposite ? (G = !0) : (w = !0))
             })
             var C = function (c, a, b) {
-              for (var d = ['size', 'color', 'visible'], e = {}, f = 0; f < d.length; f++)
+              for (var d = ["size", "color", "visible"], e = {}, f = 0; f < d.length; f++)
                 for (var g = d[f], h = 0; h < c.length; h++)
-                  if ('object' === typeof c[h]) {
+                  if ("object" === typeof c[h]) {
                     var k = c[h][g]
-                    if ('undefined' !== typeof k && null !== k) {
+                    if ("undefined" !== typeof k && null !== k) {
                       e[g] = k
                       break
                     }
                   }
               c = b
-              !0 === e.visible || !1 === e.visible
-                ? (c = e.visible)
-                : 'auto' === e.visible && (c = 0 < a)
+              !0 === e.visible || !1 === e.visible ? (c = e.visible) : "auto" === e.visible && (c = 0 < a)
               return {
                 size: q(e.size, 1),
-                color: q(e.color, 'none'),
+                color: q(e.color, "none"),
                 frontFacing: 0 < a,
                 visible: c
               }
@@ -1675,55 +1639,38 @@
               back: C([a.back, a.front, a], n, !0),
               front: C([a.front, a.back, a], A, !1)
             }
-            'auto' === b.axisLabelPosition
+            "auto" === b.axisLabelPosition
               ? ((r = function (c, a) {
-                  return (
-                    c.visible !== a.visible ||
-                    (c.visible && a.visible && c.frontFacing !== a.frontFacing)
-                  )
+                  return c.visible !== a.visible || (c.visible && a.visible && c.frontFacing !== a.frontFacing)
                 }),
                 (b = []),
-                r(a.left, a.front) &&
-                  b.push({ y: (f + g) / 2, x: d, z: 0, xDir: { x: 1, y: 0, z: 0 } }),
-                r(a.left, a.back) &&
-                  b.push({ y: (f + g) / 2, x: d, z: k, xDir: { x: 0, y: 0, z: -1 } }),
-                r(a.right, a.front) &&
-                  b.push({ y: (f + g) / 2, x: e, z: 0, xDir: { x: 0, y: 0, z: 1 } }),
-                r(a.right, a.back) &&
-                  b.push({ y: (f + g) / 2, x: e, z: k, xDir: { x: -1, y: 0, z: 0 } }),
+                r(a.left, a.front) && b.push({ y: (f + g) / 2, x: d, z: 0, xDir: { x: 1, y: 0, z: 0 } }),
+                r(a.left, a.back) && b.push({ y: (f + g) / 2, x: d, z: k, xDir: { x: 0, y: 0, z: -1 } }),
+                r(a.right, a.front) && b.push({ y: (f + g) / 2, x: e, z: 0, xDir: { x: 0, y: 0, z: 1 } }),
+                r(a.right, a.back) && b.push({ y: (f + g) / 2, x: e, z: k, xDir: { x: -1, y: 0, z: 0 } }),
                 (m = []),
-                r(a.bottom, a.front) &&
-                  m.push({ x: (d + e) / 2, y: g, z: 0, xDir: { x: 1, y: 0, z: 0 } }),
-                r(a.bottom, a.back) &&
-                  m.push({ x: (d + e) / 2, y: g, z: k, xDir: { x: -1, y: 0, z: 0 } }),
+                r(a.bottom, a.front) && m.push({ x: (d + e) / 2, y: g, z: 0, xDir: { x: 1, y: 0, z: 0 } }),
+                r(a.bottom, a.back) && m.push({ x: (d + e) / 2, y: g, z: k, xDir: { x: -1, y: 0, z: 0 } }),
                 (l = []),
-                r(a.top, a.front) &&
-                  l.push({ x: (d + e) / 2, y: f, z: 0, xDir: { x: 1, y: 0, z: 0 } }),
-                r(a.top, a.back) &&
-                  l.push({ x: (d + e) / 2, y: f, z: k, xDir: { x: -1, y: 0, z: 0 } }),
+                r(a.top, a.front) && l.push({ x: (d + e) / 2, y: f, z: 0, xDir: { x: 1, y: 0, z: 0 } }),
+                r(a.top, a.back) && l.push({ x: (d + e) / 2, y: f, z: k, xDir: { x: -1, y: 0, z: 0 } }),
                 (v = []),
-                r(a.bottom, a.left) &&
-                  v.push({ z: (0 + k) / 2, y: g, x: d, xDir: { x: 0, y: 0, z: -1 } }),
-                r(a.bottom, a.right) &&
-                  v.push({ z: (0 + k) / 2, y: g, x: e, xDir: { x: 0, y: 0, z: 1 } }),
+                r(a.bottom, a.left) && v.push({ z: (0 + k) / 2, y: g, x: d, xDir: { x: 0, y: 0, z: -1 } }),
+                r(a.bottom, a.right) && v.push({ z: (0 + k) / 2, y: g, x: e, xDir: { x: 0, y: 0, z: 1 } }),
                 (g = []),
-                r(a.top, a.left) &&
-                  g.push({ z: (0 + k) / 2, y: f, x: d, xDir: { x: 0, y: 0, z: -1 } }),
-                r(a.top, a.right) &&
-                  g.push({ z: (0 + k) / 2, y: f, x: e, xDir: { x: 0, y: 0, z: 1 } }),
+                r(a.top, a.left) && g.push({ z: (0 + k) / 2, y: f, x: d, xDir: { x: 0, y: 0, z: -1 } }),
+                r(a.top, a.right) && g.push({ z: (0 + k) / 2, y: f, x: e, xDir: { x: 0, y: 0, z: 1 } }),
                 (d = function (a, b, d) {
                   if (0 === a.length) return null
                   if (1 === a.length) return a[0]
                   for (var e = 0, f = p(a, c, !1), g = 1; g < f.length; g++)
-                    d * f[g][b] > d * f[e][b]
-                      ? (e = g)
-                      : d * f[g][b] === d * f[e][b] && f[g].z < f[e].z && (e = g)
+                    d * f[g][b] > d * f[e][b] ? (e = g) : d * f[g][b] === d * f[e][b] && f[g].z < f[e].z && (e = g)
                   return a[e]
                 }),
                 (a.axes = {
-                  y: { left: d(b, 'x', -1), right: d(b, 'x', 1) },
-                  x: { top: d(l, 'y', -1), bottom: d(m, 'y', 1) },
-                  z: { top: d(g, 'y', -1), bottom: d(v, 'y', 1) }
+                  y: { left: d(b, "x", -1), right: d(b, "x", 1) },
+                  x: { top: d(l, "y", -1), bottom: d(m, "y", 1) },
+                  z: { top: d(g, "y", -1), bottom: d(v, "y", 1) }
                 }))
               : (a.axes = {
                   y: {
@@ -1781,11 +1728,7 @@
             })
             b > k && (l = Math.min(l, 1 - (Math.abs((b + g) / (k + g)) % 1)))
             d < n && (l = Math.min(l, (d - g) / (n - g)))
-            e > q &&
-              (l =
-                0 > q
-                  ? Math.min(l, (e + h) / (-q + e + h))
-                  : Math.min(l, 1 - (((e + h) / (q + h)) % 1)))
+            e > q && (l = 0 > q ? Math.min(l, (e + h) / (-q + e + h)) : Math.min(l, 1 - (((e + h) / (q + h)) % 1)))
             f < m && (l = Math.min(l, Math.abs((f - h) / (m - h))))
             return l
           }
@@ -1803,7 +1746,7 @@
               viewDistance: 25,
               axisLabelPosition: null,
               frame: {
-                visible: 'default',
+                visible: "default",
                 size: 1,
                 bottom: {},
                 top: {},
@@ -1821,8 +1764,8 @@
           p.is3d = function () {
             return this.options.chart.options3d && this.options.chart.options3d.enabled
           }
-          p.propsRequireDirtyBox.push('chart.options3d')
-          p.propsRequireUpdateSeries.push('chart.options3d')
+          p.propsRequireDirtyBox.push("chart.options3d")
+          p.propsRequireUpdateSeries.push("chart.options3d")
           q.matrixSetter = function () {
             if (1 > this.pos && (B(this.start) || B(this.end))) {
               var c = this.start || [1, 0, 0, 1, 0, 0],
@@ -1833,35 +1776,35 @@
             this.elem.attr(this.prop, b, null, !0)
           }
           n(!0, r, a.defaultOptions)
-          b(h, 'init', f)
-          b(h, 'addSeries', e)
-          b(h, 'afterDrawChartBox', k)
-          b(h, 'afterGetContainer', m)
-          b(h, 'afterInit', l)
-          b(h, 'afterSetChartSize', v)
-          b(h, 'beforeRedraw', g)
-          b(h, 'beforeRender', A)
-          c(d.Chart.prototype, 'isInsidePlot', u)
-          c(h, 'renderSeries', w)
-          c(h, 'setClassName', G)
+          b(h, "init", f)
+          b(h, "addSeries", e)
+          b(h, "afterDrawChartBox", k)
+          b(h, "afterGetContainer", m)
+          b(h, "afterInit", l)
+          b(h, "afterSetChartSize", v)
+          b(h, "beforeRedraw", g)
+          b(h, "beforeRender", A)
+          c(d.Chart.prototype, "isInsidePlot", u)
+          c(h, "renderSeries", w)
+          c(h, "setClassName", G)
         }
       })(A || (A = {}))
       A.compose(u, m)
       G.ZChartComposition.compose(u)
       l.compose(a)
-      ;('')
+      ;("")
       return A
     }
   )
   B(
     a,
-    'Core/Series/Series3D.js',
-    [a['Core/Globals.js'], a['Extensions/Math3D.js'], a['Core/Utilities.js']],
+    "Core/Series/Series3D.js",
+    [a["Core/Globals.js"], a["Extensions/Math3D.js"], a["Core/Utilities.js"]],
     function (a, l, u) {
       var d = l.perspective
       l = u.addEvent
       var m = u.pick
-      l(a.Series, 'afterTranslate', function () {
+      l(a.Series, "afterTranslate", function () {
         this.chart.is3d() && this.translate3dPoints()
       })
       a.Series.prototype.translate3dPoints = function () {
@@ -1889,13 +1832,8 @@
   )
   B(
     a,
-    'Series/Column3DSeries.js',
-    [
-      a['Core/Globals.js'],
-      a['Extensions/Math3D.js'],
-      a['Extensions/Stacking.js'],
-      a['Core/Utilities.js']
-    ],
+    "Series/Column3DSeries.js",
+    [a["Core/Globals.js"], a["Extensions/Math3D.js"], a["Extensions/Stacking.js"], a["Core/Utilities.js"]],
     function (a, l, u, d) {
       function m(a, b) {
         var c = a.series,
@@ -1913,8 +1851,7 @@
         var b = a.apply(this, [].slice.call(arguments, 1))
         this.chart.is3d &&
           this.chart.is3d() &&
-          ((b.stroke = this.options.edgeColor || b.fill),
-          (b['stroke-width'] = h(this.options.edgeWidth, 1)))
+          ((b.stroke = this.options.edgeColor || b.fill), (b["stroke-width"] = h(this.options.edgeWidth, 1)))
         return b
       }
       function k(a, b, c) {
@@ -1925,9 +1862,7 @@
       }
       function G(a) {
         for (var b = [], c = 1; c < arguments.length; c++) b[c - 1] = arguments[c]
-        return this.series.chart.is3d()
-          ? this.graphic && 'g' !== this.graphic.element.nodeName
-          : a.apply(this, b)
+        return this.series.chart.is3d() ? this.graphic && "g" !== this.graphic.element.nodeName : a.apply(this, b)
       }
       var p = l.perspective
       l = d.addEvent
@@ -1936,11 +1871,11 @@
       var r = a.Series,
         b = a.seriesTypes,
         B = a.svg
-      d(b.column.prototype, 'translate', function (a) {
+      d(b.column.prototype, "translate", function (a) {
         a.apply(this, [].slice.call(arguments, 1))
         this.chart.is3d() && this.translate3dShapes()
       })
-      d(r.prototype, 'justifyDataLabel', function (a) {
+      d(r.prototype, "justifyDataLabel", function (a) {
         return arguments[2].outside3dPlot ? !1 : a.apply(this, [].slice.call(arguments, 1))
       })
       b.column.prototype.translate3dPoints = function () {}
@@ -1962,20 +1897,18 @@
               m = c.tooltipPos,
               g
             ;[
-              ['x', 'width'],
-              ['y', 'height']
+              ["x", "width"],
+              ["y", "height"]
             ].forEach(function (b) {
               g = l[b[0]] - e
               0 > g && ((l[b[1]] += l[b[0]] + e), (l[b[0]] = -e), (g = 0))
-              g + l[b[1]] > a[b[0] + 'Axis'].len &&
-                0 !== l[b[1]] &&
-                (l[b[1]] = a[b[0] + 'Axis'].len - l[b[0]])
-              if (0 !== l[b[1]] && (l[b[0]] >= a[b[0] + 'Axis'].len || l[b[0]] + l[b[1]] <= e)) {
+              g + l[b[1]] > a[b[0] + "Axis"].len && 0 !== l[b[1]] && (l[b[1]] = a[b[0] + "Axis"].len - l[b[0]])
+              if (0 !== l[b[1]] && (l[b[0]] >= a[b[0] + "Axis"].len || l[b[0]] + l[b[1]] <= e)) {
                 for (var d in l) l[d] = 0
                 c.outside3dPlot = !0
               }
             })
-            'rect' === c.shapeType && (c.shapeType = 'cuboid')
+            "rect" === c.shapeType && (c.shapeType = "cuboid")
             l.z = h
             l.depth = d
             l.insidePlotArea = !0
@@ -1988,7 +1921,7 @@
         })
         a.z = h
       }
-      d(b.column.prototype, 'animate', function (a) {
+      d(b.column.prototype, "animate", function (a) {
         if (this.chart.is3d()) {
           var b = arguments[1],
             c = this.yAxis,
@@ -2015,45 +1948,41 @@
                 this.drawDataLabels()))
         } else a.apply(this, [].slice.call(arguments, 1))
       })
-      d(b.column.prototype, 'plotGroup', function (a, b, c, d, h, e) {
-        'dataLabelsGroup' !== b &&
+      d(b.column.prototype, "plotGroup", function (a, b, c, d, h, e) {
+        "dataLabelsGroup" !== b &&
           this.chart.is3d() &&
           (this[b] && delete this[b],
           e &&
-            (this.chart.columnGroup ||
-              (this.chart.columnGroup = this.chart.renderer.g('columnGroup').add(e)),
+            (this.chart.columnGroup || (this.chart.columnGroup = this.chart.renderer.g("columnGroup").add(e)),
             (this[b] = this.chart.columnGroup),
             this.chart.columnGroup.attr(this.getPlotBox()),
             (this[b].survive = !0),
-            'group' === b || 'markerGroup' === b)) &&
-          (arguments[3] = 'visible')
+            "group" === b || "markerGroup" === b)) &&
+          (arguments[3] = "visible")
         return a.apply(this, Array.prototype.slice.call(arguments, 1))
       })
-      d(b.column.prototype, 'setVisible', function (a, b) {
+      d(b.column.prototype, "setVisible", function (a, b) {
         var c = this,
           d
         c.chart.is3d() &&
           c.data.forEach(function (a) {
-            d = (a.visible =
-              a.options.visible =
-              b =
-                'undefined' === typeof b ? !h(c.visible, a.visible) : b)
-              ? 'visible'
-              : 'hidden'
+            d = (a.visible = a.options.visible = b = "undefined" === typeof b ? !h(c.visible, a.visible) : b)
+              ? "visible"
+              : "hidden"
             c.options.data[c.data.indexOf(a)] = a.options
             a.graphic && a.graphic.attr({ visibility: d })
           })
         a.apply(this, Array.prototype.slice.call(arguments, 1))
       })
       b.column.prototype.handle3dGrouping = !0
-      l(r, 'afterInit', function () {
+      l(r, "afterInit", function () {
         if (this.chart.is3d() && this.handle3dGrouping) {
           var a = this.options,
             b = a.grouping,
             c = a.stacking,
             d = h(this.yAxis.options.reversedStacks, !0),
             k = 0
-          if ('undefined' === typeof b || b) {
+          if ("undefined" === typeof b || b) {
             b = m(this.chart, c)
             k = a.stack || 0
             for (c = 0; c < b[k].series.length && b[k].series[c] !== this; c++);
@@ -2065,19 +1994,19 @@
           a.zIndex = k
         }
       })
-      d(b.column.prototype, 'pointAttribs', w)
-      d(b.column.prototype, 'setState', k)
-      d(b.column.prototype.pointClass.prototype, 'hasNewShapeType', G)
+      d(b.column.prototype, "pointAttribs", w)
+      d(b.column.prototype, "setState", k)
+      d(b.column.prototype.pointClass.prototype, "hasNewShapeType", G)
       b.columnrange &&
-        (d(b.columnrange.prototype, 'pointAttribs', w),
-        d(b.columnrange.prototype, 'setState', k),
-        d(b.columnrange.prototype.pointClass.prototype, 'hasNewShapeType', G),
+        (d(b.columnrange.prototype, "pointAttribs", w),
+        d(b.columnrange.prototype, "setState", k),
+        d(b.columnrange.prototype.pointClass.prototype, "hasNewShapeType", G),
         (b.columnrange.prototype.plotGroup = b.column.prototype.plotGroup),
         (b.columnrange.prototype.setVisible = b.column.prototype.setVisible))
-      d(r.prototype, 'alignDataLabel', function (a, b, c, d, k) {
+      d(r.prototype, "alignDataLabel", function (a, b, c, d, k) {
         var e = this.chart
         d.outside3dPlot = b.outside3dPlot
-        if (e.is3d() && this.is('column')) {
+        if (e.is3d() && this.is("column")) {
           var l = this.options,
             m = h(d.inside, !!this.options.stacking),
             n = e.options.chart.options3d,
@@ -2092,10 +2021,10 @@
         }
         a.apply(this, [].slice.call(arguments, 1))
       })
-      d(u.prototype, 'getStackBox', function (a, d, c, h, k, e, l, m) {
+      d(u.prototype, "getStackBox", function (a, d, c, h, k, e, l, m) {
         var n = a.apply(this, [].slice.call(arguments, 1))
         if (d.is3d() && c.base) {
-          var q = +c.base.split(',')[0],
+          var q = +c.base.split(",")[0],
             g = d.series[q]
           q = d.options.chart.options3d
           g &&
@@ -2110,13 +2039,13 @@
       })
     }
   )
-  B(a, 'Series/Pie3DSeries.js', [a['Core/Globals.js'], a['Core/Utilities.js']], function (a, l) {
+  B(a, "Series/Pie3DSeries.js", [a["Core/Globals.js"], a["Core/Utilities.js"]], function (a, l) {
     var u = l.pick
     l = l.wrap
     var d = a.deg2rad,
       m = a.seriesTypes,
       w = a.svg
-    l(m.pie.prototype, 'translate', function (a) {
+    l(m.pie.prototype, "translate", function (a) {
       a.apply(this, [].slice.call(arguments, 1))
       if (this.chart.is3d()) {
         var k = this,
@@ -2130,7 +2059,7 @@
         !1 !== l.grouping && (n = 0)
         k.data.forEach(function (a) {
           var c = a.shapeArgs
-          a.shapeType = 'arc3d'
+          a.shapeType = "arc3d"
           c.z = n
           c.depth = 0.75 * h
           c.alpha = b
@@ -2144,19 +2073,19 @@
         })
       }
     })
-    l(m.pie.prototype.pointClass.prototype, 'haloPath', function (a) {
+    l(m.pie.prototype.pointClass.prototype, "haloPath", function (a) {
       var d = arguments
       return this.series.chart.is3d() ? [] : a.call(this, d[1])
     })
-    l(m.pie.prototype, 'pointAttribs', function (a, d, l) {
+    l(m.pie.prototype, "pointAttribs", function (a, d, l) {
       a = a.call(this, d, l)
       l = this.options
       this.chart.is3d() &&
         !this.chart.styledMode &&
-        ((a.stroke = l.edgeColor || d.color || this.color), (a['stroke-width'] = u(l.edgeWidth, 1)))
+        ((a.stroke = l.edgeColor || d.color || this.color), (a["stroke-width"] = u(l.edgeWidth, 1)))
       return a
     })
-    l(m.pie.prototype, 'drawDataLabels', function (a) {
+    l(m.pie.prototype, "drawDataLabels", function (a) {
       if (this.chart.is3d()) {
         var k = this.chart.options.chart.options3d
         this.data.forEach(function (a) {
@@ -2175,11 +2104,11 @@
       }
       a.apply(this, [].slice.call(arguments, 1))
     })
-    l(m.pie.prototype, 'addPoint', function (a) {
+    l(m.pie.prototype, "addPoint", function (a) {
       a.apply(this, [].slice.call(arguments, 1))
       this.chart.is3d() && this.update(this.userOptions, !0)
     })
-    l(m.pie.prototype, 'animate', function (a) {
+    l(m.pie.prototype, "animate", function (a) {
       if (this.chart.is3d()) {
         var d = arguments[1],
           k = this.options.animation,
@@ -2207,23 +2136,18 @@
   })
   B(
     a,
-    'Series/Scatter3DSeries.js',
-    [
-      a['Core/Globals.js'],
-      a['Extensions/Math3D.js'],
-      a['Core/Series/Point.js'],
-      a['Core/Utilities.js']
-    ],
+    "Series/Scatter3DSeries.js",
+    [a["Core/Globals.js"], a["Extensions/Math3D.js"], a["Core/Series/Point.js"], a["Core/Utilities.js"]],
     function (a, l, u, d) {
       var m = l.pointCameraDistance
       l = d.seriesType
       var w = a.seriesTypes
       l(
-        'scatter3d',
-        'scatter',
+        "scatter3d",
+        "scatter",
         {
           tooltip: {
-            pointFormat: 'x: <b>{point.x}</b><br/>y: <b>{point.y}</b><br/>z: <b>{point.z}</b><br/>'
+            pointFormat: "x: <b>{point.x}</b><br/>y: <b>{point.y}</b><br/>z: <b>{point.z}</b><br/>"
           }
         },
         {
@@ -2232,23 +2156,23 @@
             this.chart.is3d() && a && (d.zIndex = m(a, this.chart))
             return d
           },
-          axisTypes: ['xAxis', 'yAxis', 'zAxis'],
-          pointArrayMap: ['x', 'y', 'z'],
-          parallelArrays: ['x', 'y', 'z'],
+          axisTypes: ["xAxis", "yAxis", "zAxis"],
+          pointArrayMap: ["x", "y", "z"],
+          parallelArrays: ["x", "y", "z"],
           directTouch: !0
         },
         {
           applyOptions: function () {
             u.prototype.applyOptions.apply(this, arguments)
-            'undefined' === typeof this.z && (this.z = 0)
+            "undefined" === typeof this.z && (this.z = 0)
             return this
           }
         }
       )
-      ;('')
+      ;("")
     }
   )
-  B(a, 'Core/Axis/VMLAxis3D.js', [a['Core/Utilities.js']], function (a) {
+  B(a, "Core/Axis/VMLAxis3D.js", [a["Core/Utilities.js"]], function (a) {
     var l = a.addEvent,
       u = (function () {
         return function (a) {
@@ -2258,35 +2182,31 @@
     return (function () {
       function a() {}
       a.compose = function (d) {
-        d.keepProps.push('vml')
-        l(d, 'init', a.onInit)
-        l(d, 'render', a.onRender)
+        d.keepProps.push("vml")
+        l(d, "init", a.onInit)
+        l(d, "render", a.onRender)
       }
       a.onInit = function () {
         this.vml || (this.vml = new u(this))
       }
       a.onRender = function () {
         var a = this.vml
-        a.sideFrame &&
-          (a.sideFrame.css({ zIndex: 0 }), a.sideFrame.front.attr({ fill: a.sideFrame.color }))
-        a.bottomFrame &&
-          (a.bottomFrame.css({ zIndex: 1 }),
-          a.bottomFrame.front.attr({ fill: a.bottomFrame.color }))
-        a.backFrame &&
-          (a.backFrame.css({ zIndex: 0 }), a.backFrame.front.attr({ fill: a.backFrame.color }))
+        a.sideFrame && (a.sideFrame.css({ zIndex: 0 }), a.sideFrame.front.attr({ fill: a.sideFrame.color }))
+        a.bottomFrame && (a.bottomFrame.css({ zIndex: 1 }), a.bottomFrame.front.attr({ fill: a.bottomFrame.color }))
+        a.backFrame && (a.backFrame.css({ zIndex: 0 }), a.backFrame.front.attr({ fill: a.backFrame.color }))
       }
       return a
     })()
   })
   B(
     a,
-    'Core/Renderer/VML/VMLRenderer3D.js',
+    "Core/Renderer/VML/VMLRenderer3D.js",
     [
-      a['Core/Axis/Axis.js'],
-      a['Core/Globals.js'],
-      a['Core/Renderer/SVG/SVGRenderer.js'],
-      a['Core/Utilities.js'],
-      a['Core/Axis/VMLAxis3D.js']
+      a["Core/Axis/Axis.js"],
+      a["Core/Globals.js"],
+      a["Core/Renderer/SVG/SVGRenderer.js"],
+      a["Core/Utilities.js"],
+      a["Core/Axis/VMLAxis3D.js"]
     ],
     function (a, l, u, d, m) {
       d = d.setOptions
@@ -2310,6 +2230,6 @@
         m.compose(a))
     }
   )
-  B(a, 'masters/highcharts-3d.src.js', [], function () {})
+  B(a, "masters/highcharts-3d.src.js", [], function () {})
 })
 //# sourceMappingURL=highcharts-3d.js.map

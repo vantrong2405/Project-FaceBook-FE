@@ -8,19 +8,15 @@
  License: www.highcharts.com/license
 */
 ;(function (b) {
-  'object' === typeof module && module.exports
-    ? ((b['default'] = b), (module.exports = b))
-    : 'function' === typeof define && define.amd
-      ? define(
-          'highcharts/modules/cylinder',
-          ['highcharts', 'highcharts/highcharts-3d'],
-          function (g) {
-            b(g)
-            b.Highcharts = g
-            return b
-          }
-        )
-      : b('undefined' !== typeof Highcharts ? Highcharts : void 0)
+  "object" === typeof module && module.exports
+    ? ((b["default"] = b), (module.exports = b))
+    : "function" === typeof define && define.amd
+      ? define("highcharts/modules/cylinder", ["highcharts", "highcharts/highcharts-3d"], function (g) {
+          b(g)
+          b.Highcharts = g
+          return b
+        })
+      : b("undefined" !== typeof Highcharts ? Highcharts : void 0)
 })(function (b) {
   function g(b, h, g, f) {
     b.hasOwnProperty(h) || (b[h] = f.apply(null, g))
@@ -28,8 +24,8 @@
   b = b ? b._modules : {}
   g(
     b,
-    'Series/CylinderSeries.js',
-    [b['Core/Globals.js'], b['Core/Color.js'], b['Extensions/Math3D.js'], b['Core/Utilities.js']],
+    "Series/CylinderSeries.js",
+    [b["Core/Globals.js"], b["Core/Color.js"], b["Extensions/Math3D.js"], b["Core/Utilities.js"]],
     function (b, g, l, f) {
       var h = g.parse,
         r = l.perspective
@@ -42,24 +38,24 @@
       var w = f.cuboidPath,
         k = function (a) {
           return !a.some(function (a) {
-            return 'C' === a[0]
+            return "C" === a[0]
           })
         }
       l(
-        'cylinder',
-        'column',
+        "cylinder",
+        "column",
         {},
         {},
         {
-          shapeType: 'cylinder',
+          shapeType: "cylinder",
           hasNewShapeType: b.seriesTypes.column.prototype.pointClass.prototype.hasNewShapeType
         }
       )
       b = g(f.elements3d.cuboid, {
-        parts: ['top', 'bottom', 'front', 'back'],
-        pathType: 'cylinder',
+        parts: ["top", "bottom", "front", "back"],
+        pathType: "cylinder",
         fillSetter: function (a) {
-          this.singleSetterForParts('fill', null, {
+          this.singleSetterForParts("fill", null, {
             front: a,
             back: a,
             top: h(a).brighten(0.1).get(),
@@ -71,7 +67,7 @@
       })
       f.elements3d.cylinder = b
       f.cylinder = function (a) {
-        return this.element3d('cylinder', a)
+        return this.element3d("cylinder", a)
       }
       f.cylinderPath = function (a) {
         var c = u[this.chartIndex],
@@ -98,19 +94,19 @@
         a = a.slice(0, 3)
         if (k(c)) {
           var d = c[0]
-          'M' === d[0] && (a.push(c[2]), a.push(c[1]), a.push(['L', d[1], d[2]]))
+          "M" === d[0] && (a.push(c[2]), a.push(c[1]), a.push(["L", d[1], d[2]]))
         } else {
           d = c[0]
           var e = c[1]
           c = c[2]
-          'M' === d[0] &&
-            'C' === e[0] &&
-            'C' === c[0] &&
-            (a.push(['L', c[5], c[6]]),
-            a.push(['C', c[3], c[4], c[1], c[2], e[5], e[6]]),
-            a.push(['C', e[3], e[4], e[1], e[2], d[1], d[2]]))
+          "M" === d[0] &&
+            "C" === e[0] &&
+            "C" === c[0] &&
+            (a.push(["L", c[5], c[6]]),
+            a.push(["C", c[3], c[4], c[1], c[2], e[5], e[6]]),
+            a.push(["C", e[3], e[4], e[1], e[2], d[1], d[2]]))
         }
-        a.push(['Z'])
+        a.push(["Z"])
         return a
       }
       f.getCylinderBack = function (a, c) {
@@ -118,22 +114,20 @@
         if (k(a)) {
           var e = a[0],
             b = a[2]
-          'M' === e[0] &&
-            'L' === b[0] &&
-            (d.push(['M', b[1], b[2]]), d.push(a[3]), d.push(['L', e[1], e[2]]))
-        } else 'C' === a[2][0] && d.push(['M', a[2][5], a[2][6]]), d.push(a[3], a[4])
+          "M" === e[0] && "L" === b[0] && (d.push(["M", b[1], b[2]]), d.push(a[3]), d.push(["L", e[1], e[2]]))
+        } else "C" === a[2][0] && d.push(["M", a[2][5], a[2][6]]), d.push(a[3], a[4])
         k(c)
-          ? ((e = c[0]), 'M' === e[0] && (d.push(['L', e[1], e[2]]), d.push(c[3]), d.push(c[2])))
+          ? ((e = c[0]), "M" === e[0] && (d.push(["L", e[1], e[2]]), d.push(c[3]), d.push(c[2])))
           : ((a = c[2]),
             (e = c[3]),
             (c = c[4]),
-            'C' === a[0] &&
-              'C' === e[0] &&
-              'C' === c[0] &&
-              (d.push(['L', c[5], c[6]]),
-              d.push(['C', c[3], c[4], c[1], c[2], e[5], e[6]]),
-              d.push(['C', e[3], e[4], e[1], e[2], a[5], a[6]])))
-        d.push(['Z'])
+            "C" === a[0] &&
+              "C" === e[0] &&
+              "C" === c[0] &&
+              (d.push(["L", c[5], c[6]]),
+              d.push(["C", c[3], c[4], c[1], c[2], e[5], e[6]]),
+              d.push(["C", e[3], e[4], e[1], e[2], a[5], a[6]])))
+        d.push(["Z"])
         return d
       }
       f.getCylinderEnd = function (a, c, d) {
@@ -175,15 +169,14 @@
           : this.getCurvedPath(a)
       }
       f.getCurvedPath = function (a) {
-        var b = [['M', a[0].x, a[0].y]],
+        var b = [["M", a[0].x, a[0].y]],
           d = a.length - 2,
           e
-        for (e = 1; e < d; e += 3)
-          b.push(['C', a[e].x, a[e].y, a[e + 1].x, a[e + 1].y, a[e + 2].x, a[e + 2].y])
+        for (e = 1; e < d; e += 3) b.push(["C", a[e].x, a[e].y, a[e + 1].x, a[e + 1].y, a[e + 2].x, a[e + 2].y])
         return b
       }
     }
   )
-  g(b, 'masters/modules/cylinder.src.js', [], function () {})
+  g(b, "masters/modules/cylinder.src.js", [], function () {})
 })
 //# sourceMappingURL=cylinder.js.map

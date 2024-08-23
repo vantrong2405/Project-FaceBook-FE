@@ -12,29 +12,19 @@
     <nav class="navbar navbar-expand-xl w-100">
       <ul class="navbar-nav justify-content-start flex-grow-1 gap-1">
         <li class="nav-item dropdown">
-          <a
-            href="javascript:;"
-            class="nav-link dropdown-toggle dropdown-toggle-nocaret"
-            data-bs-toggle="dropdown"
-          >
+          <a href="javascript:;" class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-bs-toggle="dropdown">
             <div class="parent-icon"><i class="bx bx-home-circle"></i></div>
             <div class="menu-title">Dashboard</div>
           </a>
           <ul class="dropdown-menu">
             <li>
-              <a class="dropdown-item" href="index.html"
-                ><i class="bx bx-right-arrow-alt"></i>Default</a
-              >
+              <a class="dropdown-item" href="index.html"><i class="bx bx-right-arrow-alt"></i>Default</a>
             </li>
             <li>
-              <a class="dropdown-item" href="index2.html"
-                ><i class="bx bx-right-arrow-alt"></i>Alternate</a
-              >
+              <a class="dropdown-item" href="index2.html"><i class="bx bx-right-arrow-alt"></i>Alternate</a>
             </li>
             <li>
-              <a class="dropdown-item" href="index3.html"
-                ><i class="bx bx-right-arrow-alt"></i>Graphical</a
-              >
+              <a class="dropdown-item" href="index3.html"><i class="bx bx-right-arrow-alt"></i>Graphical</a>
             </li>
           </ul>
         </li>

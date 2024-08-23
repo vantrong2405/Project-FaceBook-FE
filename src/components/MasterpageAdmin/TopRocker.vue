@@ -13,17 +13,9 @@
         <div class="mobile-toggle-menu"><i class="bx bx-menu"></i></div>
         <div class="search-bar flex-grow-1">
           <div class="position-relative search-bar-box">
-            <input
-              type="text"
-              class="form-control search-control"
-              placeholder="Type to search..."
-            />
-            <span class="position-absolute top-50 search-show translate-middle-y"
-              ><i class="bx bx-search"></i
-            ></span>
-            <span class="position-absolute top-50 search-close translate-middle-y"
-              ><i class="bx bx-x"></i
-            ></span>
+            <input type="text" class="form-control search-control" placeholder="Type to search..." />
+            <span class="position-absolute top-50 search-show translate-middle-y"><i class="bx bx-search"></i></span>
+            <span class="position-absolute top-50 search-close translate-middle-y"><i class="bx bx-x"></i></span>
           </div>
         </div>
         <div class="top-menu ms-auto">
@@ -44,7 +36,7 @@
               <div class="dropdown-menu dropdown-menu-end">
                 <div class="row row-cols-3 g-3 p-3">
                   <div class="col text-center">
-                    <div class="app-box mx-auto bg-gradient-cosmic text-white">
+                    <div class="app-box bg-gradient-cosmic mx-auto text-white">
                       <i class="bx bx-group"></i>
                     </div>
                     <div class="app-title">Teams</div>
@@ -77,16 +69,14 @@
                         <i class="bx bx-group"></i>
                       </div>
                       <div class="flex-grow-1">
-                        <h6 class="msg-name">
-                          New Customers<span class="msg-time float-end">14 Sec ago</span>
-                        </h6>
+                        <h6 class="msg-name">New Customers<span class="msg-time float-end">14 Sec ago</span></h6>
                         <p class="msg-info">5 new user registered</p>
                       </div>
                     </div>
                   </a>
                 </div>
                 <a href="javascript:;">
-                  <div class="text-center msg-footer">View All Notifications</div>
+                  <div class="msg-footer text-center">View All Notifications</div>
                 </a>
               </div>
             </li>
@@ -119,16 +109,14 @@
                         />
                       </div>
                       <div class="flex-grow-1">
-                        <h6 class="msg-name">
-                          Daisy Anderson <span class="msg-time float-end">5 sec ago</span>
-                        </h6>
+                        <h6 class="msg-name">Daisy Anderson <span class="msg-time float-end">5 sec ago</span></h6>
                         <p class="msg-info">The standard chunk of lorem</p>
                       </div>
                     </div>
                   </a>
                 </div>
                 <a href="javascript:;">
-                  <div class="text-center msg-footer">View All Messages</div>
+                  <div class="msg-footer text-center">View All Messages</div>
                 </a>
               </div>
             </li>
@@ -142,11 +130,7 @@
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            <img
-              src="../../assets/admin/images/avatars/avatar-2.png"
-              class="user-img"
-              alt="user avatar"
-            />
+            <img src="../../assets/admin/images/avatars/avatar-2.png" class="user-img" alt="user avatar" />
             <div class="user-info ps-3">
               <p class="user-name mb-0">{{ ten_hien_thi }}</p>
               <p class="designattion mb-0">Web Designer</p>
@@ -160,8 +144,7 @@
             </li>
             <li>
               <a v-on:click="logOutAll()" class="dropdown-item" href="javascript:;"
-                ><i class="fa-solid fa-right-from-bracket"></i>
-                <span>Đăng Xuất Tất Cả Thiết Bị</span></a
+                ><i class="fa-solid fa-right-from-bracket"></i> <span>Đăng Xuất Tất Cả Thiết Bị</span></a
               >
             </li>
           </ul>
@@ -174,25 +157,25 @@
 export default {
   data() {
     return {
-      ten_hien_thi: 'Chưa đăng nhập'
+      ten_hien_thi: "Chưa đăng nhập"
     }
   },
   mounted() {
-    this.ten_hien_thi = localStorage.getItem('ho_ten')
+    this.ten_hien_thi = localStorage.getItem("ho_ten")
   },
   methods: {
     logOut() {
       try {
-        localStorage.removeItem('access_token')
-        localStorage.removeItem('refresh_token')
-        localStorage.removeItem('profile')
-        this.$toast.success('Đăng xuất thành công', {
-          position: 'bottom-right'
+        localStorage.removeItem("access_token")
+        localStorage.removeItem("refresh_token")
+        localStorage.removeItem("profile")
+        this.$toast.success("Đăng xuất thành công", {
+          position: "bottom-right"
         })
-        this.$router.push('/admin/login')
+        this.$router.push("/admin/login")
       } catch (errors) {
-        this.$toast.error('Đăng xuất không thành công', {
-          position: 'bottom-right'
+        this.$toast.error("Đăng xuất không thành công", {
+          position: "bottom-right"
         })
       }
     },

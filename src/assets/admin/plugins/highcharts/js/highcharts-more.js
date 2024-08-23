@@ -6,15 +6,15 @@
  License: www.highcharts.com/license
 */
 ;(function (d) {
-  'object' === typeof module && module.exports
-    ? ((d['default'] = d), (module.exports = d))
-    : 'function' === typeof define && define.amd
-      ? define('highcharts/highcharts-more', ['highcharts'], function (C) {
+  "object" === typeof module && module.exports
+    ? ((d["default"] = d), (module.exports = d))
+    : "function" === typeof define && define.amd
+      ? define("highcharts/highcharts-more", ["highcharts"], function (C) {
           d(C)
           d.Highcharts = C
           return d
         })
-      : d('undefined' !== typeof Highcharts ? Highcharts : void 0)
+      : d("undefined" !== typeof Highcharts ? Highcharts : void 0)
 })(function (d) {
   function C(d, a, g, h) {
     d.hasOwnProperty(a) || (d[a] = h.apply(null, g))
@@ -22,13 +22,13 @@
   d = d ? d._modules : {}
   C(
     d,
-    'Extensions/Pane.js',
+    "Extensions/Pane.js",
     [
-      d['Core/Chart/Chart.js'],
-      d['Core/Globals.js'],
-      d['Core/Pointer.js'],
-      d['Core/Utilities.js'],
-      d['Mixins/CenteredSeries.js']
+      d["Core/Chart/Chart.js"],
+      d["Core/Globals.js"],
+      d["Core/Pointer.js"],
+      d["Core/Utilities.js"],
+      d["Mixins/CenteredSeries.js"]
     ],
     function (d, a, g, h, b) {
       function r(m, l, e) {
@@ -39,32 +39,32 @@
         B = h.merge,
         z = h.pick,
         l = h.splat
-      d.prototype.collectionsWithUpdate.push('pane')
+      d.prototype.collectionsWithUpdate.push("pane")
       h = (function () {
         function m(m, l) {
           this.options = this.chart = this.center = this.background = void 0
-          this.coll = 'pane'
+          this.coll = "pane"
           this.defaultOptions = {
-            center: ['50%', '50%'],
-            size: '85%',
-            innerSize: '0%',
+            center: ["50%", "50%"],
+            size: "85%",
+            innerSize: "0%",
             startAngle: 0
           }
           this.defaultBackgroundOptions = {
-            shape: 'circle',
+            shape: "circle",
             borderWidth: 1,
-            borderColor: '#cccccc',
+            borderColor: "#cccccc",
             backgroundColor: {
               linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
               stops: [
-                [0, '#ffffff'],
-                [1, '#e6e6e6']
+                [0, "#ffffff"],
+                [1, "#e6e6e6"]
               ]
             },
             from: -Number.MAX_VALUE,
             innerRadius: 0,
             to: Number.MAX_VALUE,
-            outerRadius: '105%'
+            outerRadius: "105%"
           }
           this.init(m, l)
         }
@@ -83,7 +83,7 @@
             a = this.chart.renderer
           this.group ||
             (this.group = a
-              .g('pane-group')
+              .g("pane-group")
               .attr({ zIndex: m.zIndex || 0 })
               .add())
           this.updateCenter()
@@ -92,16 +92,14 @@
               e[a] && this.axis
                 ? this.renderBackground(B(this.defaultBackgroundOptions, e[a]), a)
                 : this.background[a] &&
-                  ((this.background[a] = this.background[a].destroy()),
-                  this.background.splice(a, 1))
+                  ((this.background[a] = this.background[a].destroy()), this.background.splice(a, 1))
         }
         m.prototype.renderBackground = function (m, l) {
-          var e = 'animate',
-            a = { class: 'highcharts-pane ' + (m.className || '') }
+          var e = "animate",
+            a = { class: "highcharts-pane " + (m.className || "") }
           this.chart.styledMode ||
-            x(a, { fill: m.backgroundColor, stroke: m.borderColor, 'stroke-width': m.borderWidth })
-          this.background[l] ||
-            ((this.background[l] = this.chart.renderer.path().add(this.group)), (e = 'attr'))
+            x(a, { fill: m.backgroundColor, stroke: m.borderColor, "stroke-width": m.borderWidth })
+          this.background[l] || ((this.background[l] = this.chart.renderer.path().add(this.group)), (e = "attr"))
           this.background[l][e]({ d: this.axis.getPlotBandPath(m.from, m.to, m) }).attr(a)
         }
         m.prototype.updateCenter = function (m) {
@@ -129,13 +127,13 @@
           })
         return a
       }
-      t(d, 'afterIsInsidePlot', function (m) {
+      t(d, "afterIsInsidePlot", function (m) {
         this.polar &&
           (m.isInsidePlot = this.pane.some(function (l) {
             return r(m.x, m.y, l.center)
           }))
       })
-      t(g, 'beforeGetHoverData', function (m) {
+      t(g, "beforeGetHoverData", function (m) {
         var l = this.chart
         l.polar &&
           ((l.hoverPane = l.getHoverPane(m)),
@@ -148,7 +146,7 @@
             )
           }))
       })
-      t(g, 'afterGetHoverData', function (m) {
+      t(g, "afterGetHoverData", function (m) {
         var l = this.chart
         m.hoverPoint &&
           m.hoverPoint.plotX &&
@@ -161,7 +159,7 @@
       return a.Pane
     }
   )
-  C(d, 'Core/Axis/HiddenAxis.js', [], function () {
+  C(d, "Core/Axis/HiddenAxis.js", [], function () {
     return (function () {
       function d() {}
       d.init = function (a) {
@@ -185,13 +183,8 @@
   })
   C(
     d,
-    'Core/Axis/RadialAxis.js',
-    [
-      d['Core/Axis/Axis.js'],
-      d['Core/Axis/Tick.js'],
-      d['Core/Axis/HiddenAxis.js'],
-      d['Core/Utilities.js']
-    ],
+    "Core/Axis/RadialAxis.js",
+    [d["Core/Axis/Axis.js"], d["Core/Axis/Tick.js"], d["Core/Axis/HiddenAxis.js"], d["Core/Utilities.js"]],
     function (d, a, g, h) {
       var b = h.addEvent,
         r = h.correctFloat,
@@ -209,7 +202,7 @@
           a.setOptions = function (k) {
             k = this.options = z(a.constructor.defaultOptions, this.defaultPolarOptions, k)
             k.plotBands || (k.plotBands = [])
-            B(this, 'afterSetOptions')
+            B(this, "afterSetOptions")
           }
           a.getOffset = function () {
             b.getOffset.call(this)
@@ -219,9 +212,9 @@
             k = this.pane.center
             var f = this.chart,
               n = l(p, k[2] / 2 - this.offset)
-            'undefined' === typeof c && (c = this.horiz ? 0 : this.center && -this.center[3] / 2)
+            "undefined" === typeof c && (c = this.horiz ? 0 : this.center && -this.center[3] / 2)
             c && (n += c)
-            this.isCircular || 'undefined' !== typeof p
+            this.isCircular || "undefined" !== typeof p
               ? ((p = this.chart.renderer.symbols.arc(this.left + k[0], this.top + k[1], n, n, {
                   start: this.startAngleRad,
                   end: this.endAngleRad,
@@ -232,8 +225,8 @@
                 (p.yBounds = [this.top + k[1] - n]))
               : ((p = this.postTranslate(this.angleRad, n)),
                 (p = [
-                  ['M', this.center[0] + f.plotLeft, this.center[1] + f.plotTop],
-                  ['L', p.x, p.y]
+                  ["M", this.center[0] + f.plotLeft, this.center[1] + f.plotTop],
+                  ["L", p.x, p.y]
                 ]))
             return p
           }
@@ -248,11 +241,10 @@
           a.beforeSetTickPositions = function () {
             this.autoConnect =
               this.isCircular &&
-              'undefined' === typeof l(this.userMax, this.options.max) &&
+              "undefined" === typeof l(this.userMax, this.options.max) &&
               r(this.endAngleRad - this.startAngleRad) === r(2 * Math.PI)
             !this.isCircular && this.chart.inverted && this.max++
-            this.autoConnect &&
-              (this.max += (this.categories && 1) || this.pointRange || this.closestPointRange || 0)
+            this.autoConnect && (this.max += (this.categories && 1) || this.pointRange || this.closestPointRange || 0)
           }
           a.setAxisSize = function () {
             b.setAxisSize.call(this)
@@ -283,7 +275,7 @@
           }
           a.getPlotBandPath = function (k, p, c) {
             var f = function (c) {
-                if ('string' === typeof c) {
+                if ("string" === typeof c) {
                   var f = parseInt(c, 10)
                   D.test(c) && (f = (f * A) / 100)
                   return f
@@ -299,17 +291,15 @@
             var a = l(f(c.outerRadius), A),
               b = f(c.innerRadius)
             f = l(f(c.thickness), 10)
-            if ('polygon' === this.options.gridLineInterpolation)
-              q = this.getPlotLinePath({ value: k }).concat(
-                this.getPlotLinePath({ value: p, reverse: !0 })
-              )
+            if ("polygon" === this.options.gridLineInterpolation)
+              q = this.getPlotLinePath({ value: k }).concat(this.getPlotLinePath({ value: p, reverse: !0 }))
             else {
               k = Math.max(k, this.min)
               p = Math.min(p, this.max)
               k = this.translate(k)
               p = this.translate(p)
               m || ((a = k || 0), (b = p || 0))
-              if ('circle' !== c.shape && m) (c = u + (k || 0)), (u += p || 0)
+              if ("circle" !== c.shape && m) (c = u + (k || 0)), (u += p || 0)
               else {
                 c = -Math.PI / 2
                 u = 1.5 * Math.PI
@@ -325,8 +315,7 @@
               m &&
                 ((m = (u + c) / 2),
                 (e = this.left + n[0] + (n[2] / 2) * Math.cos(m)),
-                (q.xBounds =
-                  m > -Math.PI / 2 && m < Math.PI / 2 ? [e, this.chart.plotWidth] : [0, e]),
+                (q.xBounds = m > -Math.PI / 2 && m < Math.PI / 2 ? [e, this.chart.plotWidth] : [0, e]),
                 (q.yBounds = [this.top + n[1] + (n[2] / 2) * Math.sin(m)]),
                 (q.yBounds[0] += (m > -Math.PI && 0 > m) || m > Math.PI ? -10 : 10))
             }
@@ -339,8 +328,7 @@
               if (t(f))
                 k.point &&
                   ((u = k.point.shapeArgs || {}),
-                  u.start &&
-                    (f = this.chart.inverted ? this.translate(k.point.rectPlotY, !0) : k.point.x))
+                  u.start && (f = this.chart.inverted ? this.translate(k.point.rectPlotY, !0) : k.point.x))
               else {
                 var u = k.chartX || 0
                 var A = k.chartY || 0
@@ -355,8 +343,7 @@
                   t(A) &&
                   ((c = n[1] + this.chart.plotTop),
                   (f = this.translate(
-                    Math.min(Math.sqrt(Math.pow(u - p, 2) + Math.pow(A - c, 2)), n[2] / 2) -
-                      n[3] / 2,
+                    Math.min(Math.sqrt(Math.pow(u - p, 2) + Math.pow(A - c, 2)), n[2] / 2) - n[3] / 2,
                     !0
                   )))
             return [f, u || 0, A || 0]
@@ -369,11 +356,9 @@
               u = k.value,
               A = k.reverse,
               q = p.getPosition(u),
-              D = p.pane.options.background
-                ? p.pane.options.background[0] || p.pane.options.background
-                : {},
-              l = D.innerRadius || '0%',
-              a = D.outerRadius || '100%'
+              D = p.pane.options.background ? p.pane.options.background[0] || p.pane.options.background : {},
+              l = D.innerRadius || "0%",
+              a = D.outerRadius || "100%"
             D = c[0] + f.plotLeft
             var b = c[1] + f.plotTop,
               e = q.x,
@@ -381,25 +366,23 @@
               g = p.height
             q = c[3] / 2
             var v
-            k.isCrosshair &&
-              ((h = this.getCrosshairPosition(k, D, b)), (u = h[0]), (e = h[1]), (h = h[2]))
+            k.isCrosshair && ((h = this.getCrosshairPosition(k, D, b)), (u = h[0]), (e = h[1]), (h = h[2]))
             if (p.isCircular)
               (u = Math.sqrt(Math.pow(e - D, 2) + Math.pow(h - b, 2))),
-                (A = 'string' === typeof l ? m(l, 1) : l / u),
-                (f = 'string' === typeof a ? m(a, 1) : a / u),
+                (A = "string" === typeof l ? m(l, 1) : l / u),
+                (f = "string" === typeof a ? m(a, 1) : a / u),
                 c && q && ((u = q / u), A < u && (A = u), f < u && (f = u)),
                 (c = [
-                  ['M', D + A * (e - D), b - A * (b - h)],
-                  ['L', e - (1 - f) * (e - D), h + (1 - f) * (b - h)]
+                  ["M", D + A * (e - D), b - A * (b - h)],
+                  ["L", e - (1 - f) * (e - D), h + (1 - f) * (b - h)]
                 ])
             else if (
-              ((u = p.translate(u)) && (0 > u || u > g) && (u = 0),
-              'circle' === p.options.gridLineInterpolation)
+              ((u = p.translate(u)) && (0 > u || u > g) && (u = 0), "circle" === p.options.gridLineInterpolation)
             )
               c = p.getLinePath(0, u, q)
             else if (
               ((c = []),
-              f[n ? 'yAxis' : 'xAxis'].forEach(function (c) {
+              f[n ? "yAxis" : "xAxis"].forEach(function (c) {
                 c.pane === p.pane && (v = c)
               }),
               v)
@@ -413,7 +396,7 @@
                 e < D.length;
                 e++
               )
-                (b = v.getPosition(D[e], u)), c.push(e ? ['L', b.x, b.y] : ['M', b.x, b.y])
+                (b = v.getPosition(D[e], u)), c.push(e ? ["L", b.x, b.y] : ["M", b.x, b.y])
             return c
           }
           a.getTitlePosition = function () {
@@ -440,7 +423,7 @@
           }
         }
         a.compose = function (e, h) {
-          b(e, 'init', function (k) {
+          b(e, "init", function (k) {
             var p = this.chart,
               c = p.inverted,
               f = p.angular,
@@ -452,23 +435,17 @@
               l = p.options
             k = k.userOptions.pane || 0
             k = this.pane = p.pane && p.pane[k]
-            if ('colorAxis' === A) this.isRadial = !1
+            if ("colorAxis" === A) this.isRadial = !1
             else {
               if (f) {
-                if ((q ? g.init(this) : a.init(this), (m = !u)))
-                  this.defaultPolarOptions = a.defaultRadialGaugeOptions
+                if ((q ? g.init(this) : a.init(this), (m = !u))) this.defaultPolarOptions = a.defaultRadialGaugeOptions
               } else
                 n &&
                   (a.init(this),
                   (this.defaultPolarOptions = (m = this.horiz)
                     ? a.defaultCircularOptions
-                    : z(
-                        'xAxis' === A ? e.defaultOptions : e.defaultYAxisOptions,
-                        a.defaultRadialOptions
-                      )),
-                  c &&
-                    'yAxis' === A &&
-                    (this.defaultPolarOptions.stackLabels = e.defaultYAxisOptions.stackLabels))
+                    : z("xAxis" === A ? e.defaultOptions : e.defaultYAxisOptions, a.defaultRadialOptions)),
+                  c && "yAxis" === A && (this.defaultPolarOptions.stackLabels = e.defaultYAxisOptions.stackLabels))
               f || n
                 ? ((this.isRadial = !0),
                   (l.chart.zoomType = null),
@@ -479,7 +456,7 @@
               this.isCircular = m
             }
           })
-          b(e, 'afterInit', function () {
+          b(e, "afterInit", function () {
             var k = this.chart,
               p = this.options,
               c = this.pane,
@@ -492,24 +469,22 @@
               (this.endAngleRad = ((l(f.endAngle, f.startAngle + 360) - 90) * Math.PI) / 180),
               (this.offset = p.offset || 0))
           })
-          b(e, 'autoLabelAlign', function (k) {
+          b(e, "autoLabelAlign", function (k) {
             this.isRadial && ((k.align = void 0), k.preventDefault())
           })
-          b(e, 'destroy', function () {
+          b(e, "destroy", function () {
             if (this.chart && this.chart.labelCollectors) {
-              var k = this.labelCollector
-                ? this.chart.labelCollectors.indexOf(this.labelCollector)
-                : -1
+              var k = this.labelCollector ? this.chart.labelCollectors.indexOf(this.labelCollector) : -1
               0 <= k && this.chart.labelCollectors.splice(k, 1)
             }
           })
-          b(e, 'initialAxisTranslation', function () {
+          b(e, "initialAxisTranslation", function () {
             this.isRadial && this.beforeSetTickPositions()
           })
-          b(h, 'afterGetPosition', function (k) {
+          b(h, "afterGetPosition", function (k) {
             this.axis.getPosition && x(k.pos, this.axis.getPosition(this.pos))
           })
-          b(h, 'afterGetLabelPosition', function (k) {
+          b(h, "afterGetLabelPosition", function (k) {
             var p = this.axis,
               c = this.label
             if (c) {
@@ -518,10 +493,9 @@
                 u = n.y,
                 A = 20,
                 q = n.align,
-                a =
-                  (((p.translate(this.pos) + p.startAngleRad + Math.PI / 2) / Math.PI) * 180) % 360,
+                a = (((p.translate(this.pos) + p.startAngleRad + Math.PI / 2) / Math.PI) * 180) % 360,
                 e = Math.round(a),
-                b = 'end',
+                b = "end",
                 h = 0 > e ? e + 360 : e,
                 g = h,
                 v = 0,
@@ -532,23 +506,16 @@
                   this.pos,
                   p.center[2] / 2 + m(l(n.distance, -25), p.center[2] / 2, -p.center[2] / 2)
                 )
-                'auto' === n.rotation
+                "auto" === n.rotation
                   ? c.attr({ rotation: a })
-                  : null === u &&
-                    (u =
-                      p.chart.renderer.fontMetrics(c.styles && c.styles.fontSize).b - f.height / 2)
+                  : null === u && (u = p.chart.renderer.fontMetrics(c.styles && c.styles.fontSize).b - f.height / 2)
                 null === q &&
                   (p.isCircular
                     ? (f.width > (p.len * p.tickInterval) / (p.max - p.min) && (A = 0),
-                      (q =
-                        a > A && a < 180 - A
-                          ? 'left'
-                          : a > 180 + A && a < 360 - A
-                            ? 'right'
-                            : 'center'))
-                    : (q = 'center'),
+                      (q = a > A && a < 180 - A ? "left" : a > 180 + A && a < 360 - A ? "right" : "center"))
+                    : (q = "center"),
                   c.attr({ align: q }))
-                if ('auto' === q && 2 === p.tickPositions.length && p.isCircular) {
+                if ("auto" === q && 2 === p.tickPositions.length && p.isCircular) {
                   90 < h && 180 > h ? (h = 180 - h) : 270 < h && 360 >= h && (h = 540 - h)
                   180 < g && 360 >= g && (g = 360 - g)
                   if (
@@ -556,30 +523,28 @@
                     p.pane.options.startAngle === e + 360 ||
                     p.pane.options.startAngle === e - 360
                   )
-                    b = 'start'
+                    b = "start"
                   q =
                     (-90 <= e && 90 >= e) || (-360 <= e && -270 >= e) || (270 <= e && 360 >= e)
-                      ? 'start' === b
-                        ? 'right'
-                        : 'left'
-                      : 'start' === b
-                        ? 'left'
-                        : 'right'
-                  70 < g && 110 > g && (q = 'center')
+                      ? "start" === b
+                        ? "right"
+                        : "left"
+                      : "start" === b
+                        ? "left"
+                        : "right"
+                  70 < g && 110 > g && (q = "center")
                   15 > h || (180 <= h && 195 > h)
                     ? (v = 0.3 * f.height)
                     : 15 <= h && 35 >= h
-                      ? (v = 'start' === b ? 0 : 0.75 * f.height)
+                      ? (v = "start" === b ? 0 : 0.75 * f.height)
                       : 195 <= h && 215 >= h
-                        ? (v = 'start' === b ? 0.75 * f.height : 0)
+                        ? (v = "start" === b ? 0.75 * f.height : 0)
                         : 35 < h && 90 >= h
-                          ? (v = 'start' === b ? 0.25 * -f.height : f.height)
-                          : 215 < h && 270 >= h && (v = 'start' === b ? f.height : 0.25 * -f.height)
+                          ? (v = "start" === b ? 0.25 * -f.height : f.height)
+                          : 215 < h && 270 >= h && (v = "start" === b ? f.height : 0.25 * -f.height)
                   15 > g
-                    ? (r = 'start' === b ? 0.15 * -f.height : 0.15 * f.height)
-                    : 165 < g &&
-                      180 >= g &&
-                      (r = 'start' === b ? 0.15 * f.height : 0.15 * -f.height)
+                    ? (r = "start" === b ? 0.15 * -f.height : 0.15 * f.height)
+                    : 165 < g && 180 >= g && (r = "start" === b ? 0.15 * f.height : 0.15 * -f.height)
                   c.attr({ align: q })
                   c.translate(r, v + w)
                 }
@@ -588,40 +553,39 @@
               }
             }
           })
-          v(h.prototype, 'getMarkPath', function (k, p, c, f, n, u, A) {
+          v(h.prototype, "getMarkPath", function (k, p, c, f, n, u, A) {
             var q = this.axis
             q.isRadial
-              ? ((k = q.getPosition(this.pos, q.center[2] / 2 + f)),
-                (p = ['M', p, c, 'L', k.x, k.y]))
+              ? ((k = q.getPosition(this.pos, q.center[2] / 2 + f)), (p = ["M", p, c, "L", k.x, k.y]))
               : (p = k.call(this, p, c, f, n, u, A))
             return p
           })
         }
         a.defaultCircularOptions = {
           gridLineWidth: 1,
-          labels: { align: null, distance: 15, x: 0, y: null, style: { textOverflow: 'none' } },
+          labels: { align: null, distance: 15, x: 0, y: null, style: { textOverflow: "none" } },
           maxPadding: 0,
           minPadding: 0,
           showLastLabel: !1,
           tickLength: 0
         }
         a.defaultRadialGaugeOptions = {
-          labels: { align: 'center', x: 0, y: null },
+          labels: { align: "center", x: 0, y: null },
           minorGridLineWidth: 0,
-          minorTickInterval: 'auto',
+          minorTickInterval: "auto",
           minorTickLength: 10,
-          minorTickPosition: 'inside',
+          minorTickPosition: "inside",
           minorTickWidth: 1,
           tickLength: 10,
-          tickPosition: 'inside',
+          tickPosition: "inside",
           tickWidth: 2,
           title: { rotation: 0 },
           zIndex: 2
         }
         a.defaultRadialOptions = {
-          gridLineInterpolation: 'circle',
+          gridLineInterpolation: "circle",
           gridLineWidth: 1,
-          labels: { align: 'right', x: -3, y: -2 },
+          labels: { align: "right", x: -3, y: -2 },
           showLastLabel: !1,
           title: { x: 4, text: null, rotation: 90 }
         }
@@ -633,8 +597,8 @@
   )
   C(
     d,
-    'Series/AreaRangeSeries.js',
-    [d['Core/Globals.js'], d['Core/Series/Point.js'], d['Core/Utilities.js']],
+    "Series/AreaRangeSeries.js",
+    [d["Core/Globals.js"], d["Core/Series/Point.js"], d["Core/Utilities.js"]],
     function (d, a, g) {
       var h = g.defined,
         b = g.extend,
@@ -646,8 +610,8 @@
         z = d.Series.prototype,
         l = a.prototype
       g(
-        'arearange',
-        'area',
+        "arearange",
+        "area",
         {
           lineWidth: 1,
           threshold: null,
@@ -659,8 +623,8 @@
           dataLabels: { align: void 0, verticalAlign: void 0, xLow: 0, xHigh: 0, yLow: 0, yHigh: 0 }
         },
         {
-          pointArrayMap: ['low', 'high'],
-          pointValKey: 'low',
+          pointArrayMap: ["low", "high"],
+          pointValKey: "low",
           deferTranslatePolar: !0,
           toYData: function (m) {
             return [m.low, m.high]
@@ -722,14 +686,12 @@
               u.isNull || c || f || (a[b - 1] && !a[b - 1].isNull) || m.push(A)
             }
             a = h.call(this, a)
-            n &&
-              (!0 === n && (n = 'left'),
-              (k.step = { left: 'right', center: 'center', right: 'left' }[n]))
+            n && (!0 === n && (n = "left"), (k.step = { left: "right", center: "center", right: "left" }[n]))
             l = h.call(this, l)
             m = h.call(this, m)
             k.step = n
             k = [].concat(a, l)
-            !this.chart.polar && m[0] && 'M' === m[0][0] && (m[0] = ['L', m[0][1], m[0][2]])
+            !this.chart.polar && m[0] && "M" === m[0][0] && (m[0] = ["L", m[0][1], m[0][2]])
             this.graphPath = k
             this.areaPath = a.concat(m)
             k.isArea = !0
@@ -750,13 +712,7 @@
                 var c = g[0]
                 var f = g[1]
               } else (c = g[0]), (f = { enabled: !1 })
-            else
-              (c = b({}, g)),
-                (c.x = g.xHigh),
-                (c.y = g.yHigh),
-                (f = b({}, g)),
-                (f.x = g.xLow),
-                (f.y = g.yLow)
+            else (c = b({}, g)), (c.x = g.xHigh), (c.y = g.yHigh), (f = b({}, g)), (f.x = g.xLow), (f.y = g.yLow)
             if (c.enabled || this._hasPointLabels) {
               for (e = l; e--; )
                 if ((k = a[e])) {
@@ -768,8 +724,8 @@
                   k.dataLabel = k.dataLabelUpper
                   k.below = n
                   p
-                    ? c.align || (c.align = n ? 'right' : 'left')
-                    : c.verticalAlign || (c.verticalAlign = n ? 'top' : 'bottom')
+                    ? c.align || (c.align = n ? "right" : "left")
+                    : c.verticalAlign || (c.verticalAlign = n ? "top" : "bottom")
                 }
               this.options.dataLabels = c
               z.drawDataLabels && z.drawDataLabels.apply(this, arguments)
@@ -787,8 +743,8 @@
                   (n = f.inside ? k.plotHigh < k.plotLow : k.plotHigh > k.plotLow),
                     (k.below = !n),
                     p
-                      ? f.align || (f.align = n ? 'left' : 'right')
-                      : f.verticalAlign || (f.verticalAlign = n ? 'bottom' : 'top')
+                      ? f.align || (f.align = n ? "left" : "right")
+                      : f.verticalAlign || (f.verticalAlign = n ? "bottom" : "top")
               this.options.dataLabels = f
               z.drawDataLabels && z.drawDataLabels.apply(this, arguments)
             }
@@ -826,7 +782,7 @@
               e.zone = this.zones.length && e.getZone()
               this.chart.polar ||
                 (e.isInside = e.isTopInside =
-                  'undefined' !== typeof e.plotY &&
+                  "undefined" !== typeof e.plotY &&
                   0 <= e.plotY &&
                   e.plotY <= this.yAxis.len &&
                   0 <= e.plotX &&
@@ -852,8 +808,7 @@
             h(this.plotHigh) || (this.plotHigh = b.yAxis.toPixels(this.high, !0))
             h(this.plotLow) || (this.plotLow = this.plotY = b.yAxis.toPixels(this.low, !0))
             b.stateMarkerGraphic &&
-              ((b.lowerStateMarkerGraphic = b.stateMarkerGraphic),
-              (b.stateMarkerGraphic = b.upperStateMarkerGraphic))
+              ((b.lowerStateMarkerGraphic = b.stateMarkerGraphic), (b.stateMarkerGraphic = b.upperStateMarkerGraphic))
             this.graphic = this.upperGraphic
             this.plotY = this.plotHigh
             e && (this.plotX = this.plotHighX)
@@ -880,7 +835,7 @@
             return b
           },
           destroyElements: function () {
-            ;['lowerGraphic', 'upperGraphic'].forEach(function (a) {
+            ;["lowerGraphic", "upperGraphic"].forEach(function (a) {
               this[a] && (this[a] = this[a].destroy())
             }, this)
             this.graphic = null
@@ -891,25 +846,20 @@
           }
         }
       )
-      ;('')
+      ;("")
     }
   )
+  C(d, "Series/AreaSplineRangeSeries.js", [d["Core/Globals.js"], d["Core/Utilities.js"]], function (d, a) {
+    a = a.seriesType
+    a("areasplinerange", "arearange", null, {
+      getPointSpline: d.seriesTypes.spline.prototype.getPointSpline
+    })
+    ;("")
+  })
   C(
     d,
-    'Series/AreaSplineRangeSeries.js',
-    [d['Core/Globals.js'], d['Core/Utilities.js']],
-    function (d, a) {
-      a = a.seriesType
-      a('areasplinerange', 'arearange', null, {
-        getPointSpline: d.seriesTypes.spline.prototype.getPointSpline
-      })
-      ;('')
-    }
-  )
-  C(
-    d,
-    'Series/ColumnRangeSeries.js',
-    [d['Core/Globals.js'], d['Core/Options.js'], d['Core/Utilities.js']],
+    "Series/ColumnRangeSeries.js",
+    [d["Core/Globals.js"], d["Core/Options.js"], d["Core/Utilities.js"]],
     function (d, a, g) {
       a = a.defaultOptions
       var h = g.clamp,
@@ -919,8 +869,8 @@
       var t = d.noop,
         x = d.seriesTypes.column.prototype
       g(
-        'columnrange',
-        'arearange',
+        "columnrange",
+        "arearange",
         b(a.plotOptions.column, a.plotOptions.arearange, {
           pointRange: null,
           marker: null,
@@ -947,22 +897,16 @@
               var u = r(p.rectPlotY, p.plotY) - k
               Math.abs(u) < f ? ((f -= u), (u += f), (n -= f / 2)) : 0 > u && ((u *= -1), (n -= u))
               d
-                ? ((g = p.barX + m),
-                  (p.shapeType = 'arc'),
-                  (p.shapeArgs = a.polarArc(n + u, n, g, g + p.pointWidth)))
+                ? ((g = p.barX + m), (p.shapeType = "arc"), (p.shapeArgs = a.polarArc(n + u, n, g, g + p.pointWidth)))
                 : ((c.height = u),
                   (c.y = n),
                   (p.tooltipPos = e.inverted
-                    ? [
-                        b.len + b.pos - e.plotLeft - n - u / 2,
-                        l.len + l.pos - e.plotTop - c.x - c.width / 2,
-                        u
-                      ]
+                    ? [b.len + b.pos - e.plotLeft - n - u / 2, l.len + l.pos - e.plotTop - c.x - c.width / 2, u]
                     : [l.left - e.plotLeft + c.x + c.width / 2, b.pos - e.plotTop + n + u / 2, u]))
             })
           },
           directTouch: !0,
-          trackerGroups: ['group', 'dataLabelsGroup'],
+          trackerGroups: ["group", "dataLabelsGroup"],
           drawGraph: t,
           getSymbol: t,
           crispCol: function () {
@@ -995,94 +939,89 @@
         },
         { setState: x.pointClass.prototype.setState }
       )
-      ;('')
+      ;("")
     }
   )
-  C(
-    d,
-    'Series/ColumnPyramidSeries.js',
-    [d['Core/Globals.js'], d['Core/Utilities.js']],
-    function (d, a) {
-      var g = a.clamp,
-        h = a.pick
-      a = a.seriesType
-      var b = d.seriesTypes.column.prototype
-      a(
-        'columnpyramid',
-        'column',
-        {},
-        {
-          translate: function () {
-            var a = this,
-              d = a.chart,
-              x = a.options,
-              B = (a.dense = 2 > a.closestPointRange * a.xAxis.transA)
-            B = a.borderWidth = h(x.borderWidth, B ? 0 : 1)
-            var z = a.yAxis,
-              l = x.threshold,
-              m = (a.translatedThreshold = z.getThreshold(l)),
-              v = h(x.minPointLength, 5),
-              e = a.getColumnMetrics(),
-              y = e.width,
-              w = (a.barW = Math.max(y, 1 + 2 * B)),
-              k = (a.pointXOffset = e.offset)
-            d.inverted && (m -= 0.5)
-            x.pointPadding && (w = Math.ceil(w))
-            b.translate.apply(a)
-            a.points.forEach(function (p) {
-              var c = h(p.yBottom, m),
-                f = 999 + Math.abs(c),
-                n = g(p.plotY, -f, z.len + f)
-              f = p.plotX + k
-              var u = w / 2,
-                A = Math.min(n, c)
-              c = Math.max(n, c) - A
-              var q
-              p.barX = f
-              p.pointWidth = y
-              p.tooltipPos = d.inverted
-                ? [z.len + z.pos - d.plotLeft - n, a.xAxis.len - f - u, c]
-                : [f + u, n + z.pos - d.plotTop, c]
-              n = l + (p.total || p.y)
-              'percent' === x.stacking && (n = l + (0 > p.y) ? -100 : 100)
-              n = z.toPixels(n, !0)
-              var b = (q = d.plotHeight - n - (d.plotHeight - m)) ? (u * (A - n)) / q : 0
-              var e = q ? (u * (A + c - n)) / q : 0
-              q = f - b + u
-              b = f + b + u
-              var r = f + e + u
-              e = f - e + u
-              var t = A - v
-              var E = A + c
-              0 > p.y && ((t = A), (E = A + c + v))
-              d.inverted &&
-                ((r = d.plotWidth - A),
-                (q = n - (d.plotWidth - m)),
-                (b = (u * (n - r)) / q),
-                (e = (u * (n - (r - c))) / q),
-                (q = f + u + b),
-                (b = q - 2 * b),
-                (r = f - e + u),
-                (e = f + e + u),
-                (t = A),
-                (E = A + c - v),
-                0 > p.y && (E = A + c + v))
-              p.shapeType = 'path'
-              p.shapeArgs = {
-                x: q,
-                y: t,
-                width: b - q,
-                height: c,
-                d: [['M', q, t], ['L', b, t], ['L', r, E], ['L', e, E], ['Z']]
-              }
-            })
-          }
+  C(d, "Series/ColumnPyramidSeries.js", [d["Core/Globals.js"], d["Core/Utilities.js"]], function (d, a) {
+    var g = a.clamp,
+      h = a.pick
+    a = a.seriesType
+    var b = d.seriesTypes.column.prototype
+    a(
+      "columnpyramid",
+      "column",
+      {},
+      {
+        translate: function () {
+          var a = this,
+            d = a.chart,
+            x = a.options,
+            B = (a.dense = 2 > a.closestPointRange * a.xAxis.transA)
+          B = a.borderWidth = h(x.borderWidth, B ? 0 : 1)
+          var z = a.yAxis,
+            l = x.threshold,
+            m = (a.translatedThreshold = z.getThreshold(l)),
+            v = h(x.minPointLength, 5),
+            e = a.getColumnMetrics(),
+            y = e.width,
+            w = (a.barW = Math.max(y, 1 + 2 * B)),
+            k = (a.pointXOffset = e.offset)
+          d.inverted && (m -= 0.5)
+          x.pointPadding && (w = Math.ceil(w))
+          b.translate.apply(a)
+          a.points.forEach(function (p) {
+            var c = h(p.yBottom, m),
+              f = 999 + Math.abs(c),
+              n = g(p.plotY, -f, z.len + f)
+            f = p.plotX + k
+            var u = w / 2,
+              A = Math.min(n, c)
+            c = Math.max(n, c) - A
+            var q
+            p.barX = f
+            p.pointWidth = y
+            p.tooltipPos = d.inverted
+              ? [z.len + z.pos - d.plotLeft - n, a.xAxis.len - f - u, c]
+              : [f + u, n + z.pos - d.plotTop, c]
+            n = l + (p.total || p.y)
+            "percent" === x.stacking && (n = l + (0 > p.y) ? -100 : 100)
+            n = z.toPixels(n, !0)
+            var b = (q = d.plotHeight - n - (d.plotHeight - m)) ? (u * (A - n)) / q : 0
+            var e = q ? (u * (A + c - n)) / q : 0
+            q = f - b + u
+            b = f + b + u
+            var r = f + e + u
+            e = f - e + u
+            var t = A - v
+            var E = A + c
+            0 > p.y && ((t = A), (E = A + c + v))
+            d.inverted &&
+              ((r = d.plotWidth - A),
+              (q = n - (d.plotWidth - m)),
+              (b = (u * (n - r)) / q),
+              (e = (u * (n - (r - c))) / q),
+              (q = f + u + b),
+              (b = q - 2 * b),
+              (r = f - e + u),
+              (e = f + e + u),
+              (t = A),
+              (E = A + c - v),
+              0 > p.y && (E = A + c + v))
+            p.shapeType = "path"
+            p.shapeArgs = {
+              x: q,
+              y: t,
+              width: b - q,
+              height: c,
+              d: [["M", q, t], ["L", b, t], ["L", r, E], ["L", e, E], ["Z"]]
+            }
+          })
         }
-      )
-      ;('')
-    }
-  )
-  C(d, 'Series/GaugeSeries.js', [d['Core/Globals.js'], d['Core/Utilities.js']], function (d, a) {
+      }
+    )
+    ;("")
+  })
+  C(d, "Series/GaugeSeries.js", [d["Core/Globals.js"], d["Core/Utilities.js"]], function (d, a) {
     var g = a.clamp,
       h = a.isNumber,
       b = a.merge,
@@ -1092,23 +1031,23 @@
     var x = d.Series,
       B = d.TrackerMixin
     a(
-      'gauge',
-      'line',
+      "gauge",
+      "line",
       {
         dataLabels: {
-          borderColor: '#cccccc',
+          borderColor: "#cccccc",
           borderRadius: 3,
           borderWidth: 1,
           crop: !1,
           defer: !1,
           enabled: !0,
-          verticalAlign: 'top',
+          verticalAlign: "top",
           y: 15,
           zIndex: 2
         },
         dial: {},
         pivot: {},
-        tooltip: { headerFormat: '' },
+        tooltip: { headerFormat: "" },
         showInLegend: !1
       },
       {
@@ -1118,7 +1057,7 @@
         fixedBox: !0,
         forceDL: !0,
         noSharedTooltip: !0,
-        trackerGroups: ['group', 'dataLabelsGroup'],
+        trackerGroups: ["group", "dataLabelsGroup"],
         translate: function () {
           var a = this.yAxis,
             l = this.options,
@@ -1126,27 +1065,26 @@
           this.generatePoints()
           this.points.forEach(function (d) {
             var e = b(l.dial, d.dial),
-              v = (t(r(e.radius, '80%')) * m[2]) / 200,
-              w = (t(r(e.baseLength, '70%')) * v) / 100,
-              k = (t(r(e.rearLength, '10%')) * v) / 100,
+              v = (t(r(e.radius, "80%")) * m[2]) / 200,
+              w = (t(r(e.baseLength, "70%")) * v) / 100,
+              k = (t(r(e.rearLength, "10%")) * v) / 100,
               p = e.baseWidth || 3,
               c = e.topWidth || 1,
               f = l.overshoot,
               n = a.startAngleRad + a.translate(d.y, null, null, null, !0)
             if (h(f) || !1 === l.wrap)
-              (f = h(f) ? (f / 180) * Math.PI : 0),
-                (n = g(n, a.startAngleRad - f, a.endAngleRad + f))
+              (f = h(f) ? (f / 180) * Math.PI : 0), (n = g(n, a.startAngleRad - f, a.endAngleRad + f))
             n = (180 * n) / Math.PI
-            d.shapeType = 'path'
+            d.shapeType = "path"
             d.shapeArgs = {
               d: e.path || [
-                ['M', -k, -p / 2],
-                ['L', w, -p / 2],
-                ['L', v, -c / 2],
-                ['L', v, c / 2],
-                ['L', w, p / 2],
-                ['L', -k, p / 2],
-                ['Z']
+                ["M", -k, -p / 2],
+                ["L", w, -p / 2],
+                ["L", v, -c / 2],
+                ["L", v, c / 2],
+                ["L", w, p / 2],
+                ["L", -k, p / 2],
+                ["Z"]
               ],
               translateX: m[0],
               translateY: m[1],
@@ -1173,13 +1111,13 @@
               ? (p.animate(c), (c.d = f))
               : (k.graphic = d[k.shapeType](c)
                   .attr({ rotation: c.rotation, zIndex: 1 })
-                  .addClass('highcharts-dial')
+                  .addClass("highcharts-dial")
                   .add(a.group))
             if (!l.styledMode)
-              k.graphic[p ? 'animate' : 'attr']({
-                stroke: n.borderColor || 'none',
-                'stroke-width': n.borderWidth || 0,
-                fill: n.backgroundColor || '#000000'
+              k.graphic[p ? "animate" : "attr"]({
+                stroke: n.borderColor || "none",
+                "stroke-width": n.borderWidth || 0,
+                fill: n.backgroundColor || "#000000"
               })
           })
           h
@@ -1187,14 +1125,14 @@
             : ((a.pivot = d
                 .circle(0, 0, r(g.radius, 5))
                 .attr({ zIndex: 2 })
-                .addClass('highcharts-pivot')
+                .addClass("highcharts-pivot")
                 .translate(m[0], m[1])
                 .add(a.group)),
               l.styledMode ||
                 a.pivot.attr({
-                  'stroke-width': g.borderWidth || 0,
-                  stroke: g.borderColor || '#cccccc',
-                  fill: g.backgroundColor || '#000000'
+                  "stroke-width": g.borderWidth || 0,
+                  stroke: g.borderColor || "#cccccc",
+                  fill: g.backgroundColor || "#000000"
                 }))
         },
         animate: function (a) {
@@ -1209,9 +1147,9 @@
         },
         render: function () {
           this.group = this.plotGroup(
-            'group',
-            'series',
-            this.visible ? 'visible' : 'hidden',
+            "group",
+            "series",
+            this.visible ? "visible" : "hidden",
             this.options.zIndex,
             this.chart.seriesGroup
           )
@@ -1235,34 +1173,34 @@
         }
       }
     )
-    ;('')
+    ;("")
   })
-  C(d, 'Series/BoxPlotSeries.js', [d['Core/Globals.js'], d['Core/Utilities.js']], function (d, a) {
+  C(d, "Series/BoxPlotSeries.js", [d["Core/Globals.js"], d["Core/Utilities.js"]], function (d, a) {
     var g = a.pick
     a = a.seriesType
     var h = d.noop,
       b = d.seriesTypes
     a(
-      'boxplot',
-      'column',
+      "boxplot",
+      "column",
       {
         threshold: null,
         tooltip: {
           pointFormat:
             '<span style="color:{point.color}">\u25cf</span> <b> {series.name}</b><br/>Maximum: {point.high}<br/>Upper quartile: {point.q3}<br/>Median: {point.median}<br/>Lower quartile: {point.q1}<br/>Minimum: {point.low}<br/>'
         },
-        whiskerLength: '50%',
-        fillColor: '#ffffff',
+        whiskerLength: "50%",
+        fillColor: "#ffffff",
         lineWidth: 1,
         medianWidth: 2,
         whiskerWidth: 2
       },
       {
-        pointArrayMap: ['low', 'q1', 'median', 'q3', 'high'],
+        pointArrayMap: ["low", "q1", "median", "q3", "high"],
         toYData: function (a) {
           return [a.low, a.q1, a.median, a.q3, a.high]
         },
-        pointValKey: 'high',
+        pointValKey: "high",
         pointAttribs: function () {
           return {}
         },
@@ -1273,7 +1211,7 @@
           b.column.prototype.translate.apply(this)
           this.points.forEach(function (b) {
             h.forEach(function (h) {
-              null !== b[h] && (b[h + 'Plot'] = a.translate(b[h], 0, 1, 0, 1))
+              null !== b[h] && (b[h + "Plot"] = a.translate(b[h], 0, 1, 0, 1))
             })
             b.plotHigh = b.highPlot
           })
@@ -1299,14 +1237,14 @@
             A = a.options.whiskerLength
           a.points.forEach(function (q) {
             var D = q.graphic,
-              I = D ? 'animate' : 'attr',
+              I = D ? "animate" : "attr",
               r = q.shapeArgs,
               G = {},
               E = {},
               F = {},
               H = {},
               t = q.color || a.color
-            'undefined' !== typeof q.plotY &&
+            "undefined" !== typeof q.plotY &&
               ((k = Math.round(r.width)),
               (p = Math.floor(r.x)),
               (c = p + k),
@@ -1316,45 +1254,45 @@
               (m = Math.floor(q.highPlot)),
               (v = Math.floor(q.lowPlot)),
               D ||
-                ((q.graphic = D = d.g('point').add(a.group)),
-                (q.stem = d.path().addClass('highcharts-boxplot-stem').add(D)),
-                A && (q.whiskers = d.path().addClass('highcharts-boxplot-whisker').add(D)),
+                ((q.graphic = D = d.g("point").add(a.group)),
+                (q.stem = d.path().addClass("highcharts-boxplot-stem").add(D)),
+                A && (q.whiskers = d.path().addClass("highcharts-boxplot-whisker").add(D)),
                 n &&
                   (q.box = d
                     .path(void 0)
-                    .addClass('highcharts-boxplot-box')
+                    .addClass("highcharts-boxplot-box")
                     .add(D)),
                 (q.medianShape = d
                   .path(void 0)
-                  .addClass('highcharts-boxplot-median')
+                  .addClass("highcharts-boxplot-median")
                   .add(D))),
               h.styledMode ||
                 ((E.stroke = q.stemColor || b.stemColor || t),
-                (E['stroke-width'] = g(q.stemWidth, b.stemWidth, b.lineWidth)),
+                (E["stroke-width"] = g(q.stemWidth, b.stemWidth, b.lineWidth)),
                 (E.dashstyle = q.stemDashStyle || b.stemDashStyle || b.dashStyle),
                 q.stem.attr(E),
                 A &&
                   ((F.stroke = q.whiskerColor || b.whiskerColor || t),
-                  (F['stroke-width'] = g(q.whiskerWidth, b.whiskerWidth, b.lineWidth)),
+                  (F["stroke-width"] = g(q.whiskerWidth, b.whiskerWidth, b.lineWidth)),
                   (F.dashstyle = q.whiskerDashStyle || b.whiskerDashStyle || b.dashStyle),
                   q.whiskers.attr(F)),
                 n &&
                   ((G.fill = q.fillColor || b.fillColor || t),
                   (G.stroke = b.lineColor || t),
-                  (G['stroke-width'] = b.lineWidth || 0),
+                  (G["stroke-width"] = b.lineWidth || 0),
                   (G.dashstyle = q.boxDashStyle || b.boxDashStyle || b.dashStyle),
                   q.box.attr(G)),
                 (H.stroke = q.medianColor || b.medianColor || t),
-                (H['stroke-width'] = g(q.medianWidth, b.medianWidth, b.lineWidth)),
+                (H["stroke-width"] = g(q.medianWidth, b.medianWidth, b.lineWidth)),
                 (H.dashstyle = q.medianDashStyle || b.medianDashStyle || b.dashStyle),
                 q.medianShape.attr(H)),
               (y = (q.stem.strokeWidth() % 2) / 2),
               (w = p + f + y),
               (D = [
-                ['M', w, l],
-                ['L', w, m],
-                ['M', w, z],
-                ['L', w, v]
+                ["M", w, l],
+                ["L", w, m],
+                ["M", w, z],
+                ["L", w, v]
               ]),
               q.stem[I]({ d: D }),
               n &&
@@ -1363,7 +1301,7 @@
                 (l = Math.floor(l) + y),
                 (p += y),
                 (c += y),
-                (D = [['M', p, l], ['L', p, z], ['L', c, z], ['L', c, l], ['L', p, l], ['Z']]),
+                (D = [["M", p, l], ["L", p, z], ["L", c, z], ["L", c, l], ["L", p, l], ["Z"]]),
                 q.box[I]({ d: D })),
               A &&
                 ((y = (q.whiskers.strokeWidth() % 2) / 2),
@@ -1371,18 +1309,18 @@
                 (v += y),
                 (u = /%$/.test(A) ? (f * parseFloat(A)) / 100 : A / 2),
                 (D = [
-                  ['M', w - u, m],
-                  ['L', w + u, m],
-                  ['M', w - u, v],
-                  ['L', w + u, v]
+                  ["M", w - u, m],
+                  ["L", w + u, m],
+                  ["M", w - u, v],
+                  ["L", w + u, v]
                 ]),
                 q.whiskers[I]({ d: D })),
               (e = Math.round(q.medianPlot)),
               (y = (q.medianShape.strokeWidth() % 2) / 2),
               (e += y),
               (D = [
-                ['M', p, e],
-                ['L', c, e]
+                ["M", p, e],
+                ["L", c, e]
               ]),
               q.medianShape[I]({ d: D }))
           })
@@ -1390,19 +1328,19 @@
         setStackedPoints: h
       }
     )
-    ;('')
+    ;("")
   })
-  C(d, 'Series/ErrorBarSeries.js', [d['Core/Globals.js'], d['Core/Utilities.js']], function (d, a) {
+  C(d, "Series/ErrorBarSeries.js", [d["Core/Globals.js"], d["Core/Utilities.js"]], function (d, a) {
     a = a.seriesType
     var g = d.noop,
       h = d.seriesTypes
     a(
-      'errorbar',
-      'boxplot',
+      "errorbar",
+      "boxplot",
       {
-        color: '#000000',
+        color: "#000000",
         grouping: !1,
-        linkedTo: ':previous',
+        linkedTo: ":previous",
         tooltip: {
           pointFormat:
             '<span style="color:{point.color}">\u25cf</span> {series.name}: <b>{point.low}</b> - <b>{point.high}</b><br/>'
@@ -1410,12 +1348,12 @@
         whiskerWidth: null
       },
       {
-        type: 'errorbar',
-        pointArrayMap: ['low', 'high'],
+        type: "errorbar",
+        pointArrayMap: ["low", "high"],
         toYData: function (a) {
           return [a.low, a.high]
         },
-        pointValKey: 'high',
+        pointValKey: "high",
         doQuartiles: !1,
         drawDataLabels: h.arearange
           ? function () {
@@ -1428,24 +1366,23 @@
           : g,
         getColumnMetrics: function () {
           return (
-            (this.linkedParent && this.linkedParent.columnMetrics) ||
-            h.column.prototype.getColumnMetrics.call(this)
+            (this.linkedParent && this.linkedParent.columnMetrics) || h.column.prototype.getColumnMetrics.call(this)
           )
         }
       }
     )
-    ;('')
+    ;("")
   })
   C(
     d,
-    'Series/WaterfallSeries.js',
+    "Series/WaterfallSeries.js",
     [
-      d['Core/Axis/Axis.js'],
-      d['Core/Chart/Chart.js'],
-      d['Core/Globals.js'],
-      d['Core/Series/Point.js'],
-      d['Extensions/Stacking.js'],
-      d['Core/Utilities.js']
+      d["Core/Axis/Axis.js"],
+      d["Core/Chart/Chart.js"],
+      d["Core/Globals.js"],
+      d["Core/Series/Point.js"],
+      d["Extensions/Stacking.js"],
+      d["Core/Utilities.js"]
     ],
     function (d, a, g, h, b, r) {
       var t = r.addEvent,
@@ -1505,25 +1442,25 @@
         })()
         a.Composition = u
         a.compose = function (a, q) {
-          t(a, 'init', n)
-          t(a, 'afterBuildStacks', p)
-          t(a, 'afterRender', c)
-          t(q, 'beforeRedraw', f)
+          t(a, "init", n)
+          t(a, "afterBuildStacks", p)
+          t(a, "afterRender", c)
+          t(q, "beforeRedraw", f)
         }
       })(w || (w = {}))
       r(
-        'waterfall',
-        'column',
+        "waterfall",
+        "column",
         {
           dataLabels: { inside: !0 },
           lineWidth: 1,
-          lineColor: '#333333',
-          dashStyle: 'Dot',
-          borderColor: '#333333',
+          lineColor: "#333333",
+          dashStyle: "Dot",
+          borderColor: "#333333",
           states: { hover: { lineWidthPlus: 0 } }
         },
         {
-          pointValKey: 'y',
+          pointValKey: "y",
           showLine: !0,
           generatePoints: function () {
             var a
@@ -1557,20 +1494,20 @@
               if (A) {
                 if (q) {
                   r = q[h]
-                  if ('overlap' === A) {
+                  if ("overlap" === A) {
                     var w = r.stackState[r.stateIndex--]
                     w = 0 <= t ? w : w - t
-                    Object.hasOwnProperty.call(r, 'absolutePos') && delete r.absolutePos
-                    Object.hasOwnProperty.call(r, 'absoluteNeg') && delete r.absoluteNeg
+                    Object.hasOwnProperty.call(r, "absolutePos") && delete r.absolutePos
+                    Object.hasOwnProperty.call(r, "absoluteNeg") && delete r.absoluteNeg
                   } else
                     0 <= t
                       ? ((w = r.threshold + r.posTotal), (r.posTotal -= t))
                       : ((w = r.threshold + r.negTotal), (r.negTotal -= t), (w -= t)),
                       !r.posTotal &&
-                        Object.hasOwnProperty.call(r, 'absolutePos') &&
+                        Object.hasOwnProperty.call(r, "absolutePos") &&
                         ((r.posTotal = r.absolutePos), delete r.absolutePos),
                       !r.negTotal &&
-                        Object.hasOwnProperty.call(r, 'absoluteNeg') &&
+                        Object.hasOwnProperty.call(r, "absoluteNeg") &&
                         ((r.negTotal = r.absoluteNeg), delete r.absoluteNeg)
                   e.isSum || (r.connectorThreshold = r.threshold + r.stackTotal)
                   b.reversed ? ((g = 0 <= t ? w - t : w + t), (t = w)) : ((g = w), (t = w - t))
@@ -1581,12 +1518,7 @@
                 if ((t = b.waterfall.dummyStackItem))
                   (t.x = h),
                     (t.label = q[h].label),
-                    t.setOffset(
-                      this.pointXOffset || 0,
-                      this.barW || 0,
-                      this.stackedYNeg[h],
-                      this.stackedYPos[h]
-                    )
+                    t.setOffset(this.pointXOffset || 0, this.barW || 0, this.stackedYNeg[h], this.stackedYPos[h])
               } else
                 (w = Math.max(l, l + t) + r[0]),
                   (d.y = b.translate(w, 0, 1, 0, 1)),
@@ -1610,10 +1542,7 @@
               d.height = Math.max(Math.round(d.height), 0.001)
               e.yBottom = d.y + d.height
               d.height <= f && !e.isNull
-                ? ((d.height = f),
-                  (d.y -= n),
-                  (e.plotY = d.y),
-                  (e.minPointLengthOffset = 0 > e.y ? -n : n))
+                ? ((d.height = f), (d.y -= n), (e.plotY = d.y), (e.minPointLengthOffset = 0 > e.y ? -n : n))
                 : (e.isNull && (d.width = 0), (e.minPointLengthOffset = 0))
               d = e.plotY + (e.negative ? d.height : 0)
               this.chart.inverted ? (e.tooltipPos[0] = b.len - d) : (e.tooltipPos[1] = d)
@@ -1633,9 +1562,9 @@
             for (m = q = A = l = k = 0; m < n; m++) {
               var h = c[m]
               var g = f && f[m] ? f[m] : {}
-              'sum' === h || g.isSum
+              "sum" === h || g.isSum
                 ? (c[m] = z(q))
-                : 'intermediateSum' === h || g.isIntermediateSum
+                : "intermediateSum" === h || g.isIntermediateSum
                   ? ((c[m] = z(A)), (A = 0))
                   : ((q += h), (A += h))
               l = Math.min(q, l)
@@ -1645,11 +1574,11 @@
             b.stacking || ((this.dataMin = l + u), (this.dataMax = k))
           },
           toYData: function (a) {
-            return a.isSum ? 'sum' : a.isIntermediateSum ? 'intermediateSum' : a.y
+            return a.isSum ? "sum" : a.isIntermediateSum ? "intermediateSum" : a.y
           },
           updateParallelArrays: function (a, b) {
             e.prototype.updateParallelArrays.call(this, a, b)
-            if ('sum' === this.yData[0] || 'intermediateSum' === this.yData[0]) this.yData[0] = null
+            if ("sum" === this.yData[0] || "intermediateSum" === this.yData[0]) this.yData[0] = null
           },
           pointAttribs: function (a, b) {
             var c = this.options.upColor
@@ -1659,7 +1588,7 @@
             return a
           },
           getGraphPath: function () {
-            return [['M', 0, 0]]
+            return [["M", 0, 0]]
           },
           getCrispPath: function () {
             var a = this.data,
@@ -1683,13 +1612,9 @@
                 h &&
                 ((r = r[e - 1]),
                 q
-                  ? ((r = r.connectorThreshold),
-                    (t = Math.round(b.translate(r, 0, 1, 0, 1) + (l ? t : 0)) - f))
+                  ? ((r = r.connectorThreshold), (t = Math.round(b.translate(r, 0, 1, 0, 1) + (l ? t : 0)) - f))
                   : (t = d.y + g.minPointLengthOffset + n - f),
-                m.push(
-                  ['M', (d.x || 0) + (u ? 0 : d.width || 0), t],
-                  ['L', (h.x || 0) + (u ? h.width || 0 : 0), t]
-                ))
+                m.push(["M", (d.x || 0) + (u ? 0 : d.width || 0), t], ["L", (h.x || 0) + (u ? h.width || 0 : 0), t]))
               !q &&
                 m.length &&
                 d &&
@@ -1767,7 +1692,7 @@
               b = b.waterfall.stacks
               var c = (this.stackedYNeg = [])
               var f = (this.stackedYPos = [])
-              'overlap' === a
+              "overlap" === a
                 ? m(b[this.stackKey], function (n) {
                     c.push(B(n.stackState))
                     f.push(x(n.stackState))
@@ -1784,9 +1709,7 @@
         {
           getClassName: function () {
             var a = h.prototype.getClassName.call(this)
-            this.isSum
-              ? (a += ' highcharts-sum')
-              : this.isIntermediateSum && (a += ' highcharts-intermediate-sum')
+            this.isSum ? (a += " highcharts-sum") : this.isIntermediateSum && (a += " highcharts-intermediate-sum")
             return a
           },
           isValid: function () {
@@ -1794,33 +1717,33 @@
           }
         }
       )
-      ;('')
+      ;("")
       w.compose(d, a)
       return w
     }
   )
   C(
     d,
-    'Series/PolygonSeries.js',
-    [d['Core/Globals.js'], d['Mixins/LegendSymbol.js'], d['Core/Utilities.js']],
+    "Series/PolygonSeries.js",
+    [d["Core/Globals.js"], d["Mixins/LegendSymbol.js"], d["Core/Utilities.js"]],
     function (d, a, g) {
       g = g.seriesType
       var h = d.Series,
         b = d.seriesTypes
       g(
-        'polygon',
-        'scatter',
+        "polygon",
+        "scatter",
         {
           marker: { enabled: !1, states: { hover: { enabled: !1 } } },
           stickyTracking: !1,
-          tooltip: { followPointer: !0, pointFormat: '' },
+          tooltip: { followPointer: !0, pointFormat: "" },
           trackByArea: !0
         },
         {
-          type: 'polygon',
+          type: "polygon",
           getGraphPath: function () {
             for (var a = h.prototype.getGraphPath.call(this), b = a.length + 1; b--; )
-              (b === a.length || 'M' === a[b][0]) && 0 < b && a.splice(b, 0, ['Z'])
+              (b === a.length || "M" === a[b][0]) && 0 < b && a.splice(b, 0, ["Z"])
             return (this.areaPath = a)
           },
           drawGraph: function () {
@@ -1832,19 +1755,13 @@
           setStackedPoints: d.noop
         }
       )
-      ;('')
+      ;("")
     }
   )
   C(
     d,
-    'Series/Bubble/BubbleLegend.js',
-    [
-      d['Core/Chart/Chart.js'],
-      d['Core/Color.js'],
-      d['Core/Globals.js'],
-      d['Core/Legend.js'],
-      d['Core/Utilities.js']
-    ],
+    "Series/Bubble/BubbleLegend.js",
+    [d["Core/Chart/Chart.js"], d["Core/Color.js"], d["Core/Globals.js"], d["Core/Legend.js"], d["Core/Utilities.js"]],
     function (d, a, g, h, b) {
       var r = a.parse
       a = b.addEvent
@@ -1857,7 +1774,7 @@
         v = b.setOptions,
         e = b.stableSort,
         y = b.wrap
-      ;('')
+      ;("")
       var w = g.Series,
         k = g.noop
       v({
@@ -1875,9 +1792,9 @@
             labels: {
               className: void 0,
               allowOverlap: !1,
-              format: '',
+              format: "",
               formatter: void 0,
-              align: 'right',
+              align: "right",
               style: { fontSize: 10, color: void 0 },
               x: 0,
               y: 0
@@ -1886,7 +1803,7 @@
             minSize: 10,
             legendIndex: 0,
             ranges: { value: void 0, borderColor: void 0, color: void 0, connectorColor: void 0 },
-            sizeBy: 'area',
+            sizeBy: "area",
             sizeByAbsoluteValue: !1,
             zIndex: 1,
             zThreshold: 0
@@ -1928,7 +1845,7 @@
             b = m(c.options.itemDistance, 20),
             l = a.ranges
           var q = a.connectorDistance
-          this.fontMetrics = f.renderer.fontMetrics(a.labels.style.fontSize.toString() + 'px')
+          this.fontMetrics = f.renderer.fontMetrics(a.labels.style.fontSize.toString() + "px")
           l && l.length && B(l[0].value)
             ? (e(l, function (c, f) {
                 return f.value - c.value
@@ -1942,7 +1859,7 @@
               (q = q - l + f.width),
               (q = 0 < q ? q : 0),
               (this.maxLabel = f),
-              (this.movementX = 'left' === a.labels.align ? q : 0),
+              (this.movementX = "left" === a.labels.align ? q : 0),
               (this.legendItemWidth = c + q + b),
               (this.legendItemHeight = c + this.fontMetrics.h / 2))
             : (c.options.bubbleLegend.autoRanges = !0)
@@ -1952,19 +1869,15 @@
             f = this.options,
             a = this.chart.series[f.seriesIndex],
             b = this.legend.baseline,
-            l = { 'z-index': f.zIndex, 'stroke-width': f.borderWidth },
-            q = { 'z-index': f.zIndex, 'stroke-width': f.connectorWidth },
+            l = { "z-index": f.zIndex, "stroke-width": f.borderWidth },
+            q = { "z-index": f.zIndex, "stroke-width": f.connectorWidth },
             e = this.getLabelStyles(),
             h = a.options.marker.fillOpacity,
             g = this.chart.styledMode
           c.forEach(function (n, u) {
             g ||
               ((l.stroke = m(n.borderColor, f.borderColor, a.color)),
-              (l.fill = m(
-                n.color,
-                f.color,
-                1 !== h ? r(a.color).setOpacity(h).get('rgba') : a.color
-              )),
+              (l.fill = m(n.color, f.color, 1 !== h ? r(a.color).setOpacity(h).get("rgba") : a.color)),
               (q.stroke = m(n.connectorColor, f.connectorColor, a.color)))
             c[u].radius = this.getRangeRadius(n.value)
             c[u] = z(c[u], { center: c[0].radius - c[u].radius + b })
@@ -1974,16 +1887,16 @@
         a.prototype.getLabelStyles = function () {
           var c = this.options,
             f = {},
-            a = 'left' === c.labels.align,
+            a = "left" === c.labels.align,
             b = this.legend.options.rtl
           l(c.labels.style, function (c, a) {
-            'color' !== a && 'fontSize' !== a && 'z-index' !== a && (f[a] = c)
+            "color" !== a && "fontSize" !== a && "z-index" !== a && (f[a] = c)
           })
           return z(!1, f, {
-            'font-size': c.labels.style.fontSize,
-            fill: m(c.labels.style.color, '#000000'),
-            'z-index': c.zIndex,
-            align: b || a ? 'right' : 'left'
+            "font-size": c.labels.style.fontSize,
+            fill: m(c.labels.style.color, "#000000"),
+            "z-index": c.zIndex,
+            align: b || a ? "right" : "left"
           })
         }
         a.prototype.getRangeRadius = function (c) {
@@ -2001,8 +1914,8 @@
           var c = this.chart.renderer,
             f = this.options.zThreshold
           this.symbols || (this.symbols = { connectors: [], bubbleItems: [], labels: [] })
-          this.legendSymbol = c.g('bubble-legend')
-          this.legendItem = c.g('bubble-legend-item')
+          this.legendSymbol = c.g("bubble-legend")
+          this.legendItem = c.g("bubble-legend-item")
           this.legendSymbol.translateX = 0
           this.legendSymbol.translateY = 0
           this.ranges.forEach(function (c) {
@@ -2023,13 +1936,13 @@
             h = f.connectorDistance || 0,
             g = a.align,
             k = a.style.fontSize
-          h = this.legend.options.rtl || 'left' === g ? -h : h
+          h = this.legend.options.rtl || "left" === g ? -h : h
           a = f.connectorWidth
           var d = this.ranges[0].radius || 0,
             p = m - e - f.borderWidth / 2 + a / 2
           k = k / 2 - (this.fontMetrics.h - k) / 2
           var r = b.styledMode
-          'center' === g && ((h = 0), (f.connectorDistance = 0), (c.labelStyle.align = 'center'))
+          "center" === g && ((h = 0), (f.connectorDistance = 0), (c.labelStyle.align = "center"))
           g = p + f.labels.y
           var t = d + h + f.labels.x
           l.bubbleItems.push(
@@ -2037,9 +1950,9 @@
               .circle(d, m + ((p % 1 ? 1 : 0.5) - (a % 2 ? 0 : 0.5)), e)
               .attr(r ? {} : c.bubbleStyle)
               .addClass(
-                (r ? 'highcharts-color-' + this.options.seriesIndex + ' ' : '') +
-                  'highcharts-bubble-legend-symbol ' +
-                  (f.className || '')
+                (r ? "highcharts-color-" + this.options.seriesIndex + " " : "") +
+                  "highcharts-bubble-legend-symbol " +
+                  (f.className || "")
               )
               .add(this.legendSymbol)
           )
@@ -2048,24 +1961,24 @@
               .path(
                 b.crispLine(
                   [
-                    ['M', d, p],
-                    ['L', d + h, p]
+                    ["M", d, p],
+                    ["L", d + h, p]
                   ],
                   f.connectorWidth
                 )
               )
               .attr(r ? {} : c.connectorStyle)
               .addClass(
-                (r ? 'highcharts-color-' + this.options.seriesIndex + ' ' : '') +
-                  'highcharts-bubble-legend-connectors ' +
-                  (f.connectorClassName || '')
+                (r ? "highcharts-color-" + this.options.seriesIndex + " " : "") +
+                  "highcharts-bubble-legend-connectors " +
+                  (f.connectorClassName || "")
               )
               .add(this.legendSymbol)
           )
           c = b
             .text(this.formatLabel(c), t, g + k)
             .attr(r ? {} : c.labelStyle)
-            .addClass('highcharts-bubble-legend-labels ' + (f.labels.className || ''))
+            .addClass("highcharts-bubble-legend-labels " + (f.labels.className || ""))
             .add(this.legendSymbol)
           q.push(c)
           c.placed = !0
@@ -2093,9 +2006,7 @@
             f &&
             (c.hideOverlappingLabels(f.labels),
             f.labels.forEach(function (c, a) {
-              c.newOpacity
-                ? c.newOpacity !== c.oldOpacity && f.connectors[a].show()
-                : f.connectors[a].hide()
+              c.newOpacity ? c.newOpacity !== c.oldOpacity && f.connectors[a].show() : f.connectors[a].hide()
             }))
         }
         a.prototype.getRanges = function () {
@@ -2113,18 +2024,12 @@
                   c.options.zMin,
                   Math.min(
                     b,
-                    Math.max(
-                      x(a),
-                      !1 === c.options.displayNegative ? c.options.zThreshold : -Number.MAX_VALUE
-                    )
+                    Math.max(x(a), !1 === c.options.displayNegative ? c.options.zThreshold : -Number.MAX_VALUE)
                   )
                 )),
                 (l = m(c.options.zMax, Math.max(l, t(a))))))
           })
-          var q =
-            b === l
-              ? [{ value: l }]
-              : [{ value: b }, { value: (b + l) / 2 }, { value: l, autoRanges: !0 }]
+          var q = b === l ? [{ value: l }] : [{ value: b }, { value: (b + l) / 2 }, { value: l, autoRanges: !0 }]
           f.length && f[0].radius && q.reverse()
           q.forEach(function (c, a) {
             f && f[a] && (q[a] = z(!1, f[a], c))
@@ -2135,7 +2040,7 @@
           var c = this.chart,
             f = this.fontMetrics,
             a = c.legend.options,
-            b = 'horizontal' === a.layout,
+            b = "horizontal" === a.layout,
             l = b ? c.legend.lastLineHeight : 0,
             q = c.plotSizeX,
             m = c.plotSizeY,
@@ -2167,7 +2072,7 @@
         }
         return a
       })()
-      a(h, 'afterGetAllItems', function (a) {
+      a(h, "afterGetAllItems", function (a) {
         var c = this.bubbleLegend,
           f = this.options,
           n = f.bubbleLegend,
@@ -2199,8 +2104,7 @@
         for (n = 0; n < f; n++)
           if (
             (a[n].legendItemHeight && (a[n].itemHeight = a[n].legendItemHeight),
-            a[n] === a[f - 1] ||
-              (a[n + 1] && a[n]._legendItemPos[1] !== a[n + 1]._legendItemPos[1]))
+            a[n] === a[f - 1] || (a[n + 1] && a[n]._legendItemPos[1] !== a[n + 1]._legendItemPos[1]))
           ) {
             c.push({ height: 0 })
             var l = c[c.length - 1]
@@ -2225,7 +2129,7 @@
           q._legendItemPos[1] = f + a[l].height / 2
         })
       }
-      a(w, 'legendItemClick', function () {
+      a(w, "legendItemClick", function () {
         var a = this.chart,
           c = this.visible,
           f = this.chart.legend
@@ -2234,11 +2138,10 @@
           ((this.visible = !c),
           (this.ignoreSeries = c),
           (a = 0 <= a.getVisibleBubbleSeriesIndex()),
-          f.bubbleLegend.visible !== a &&
-            (f.update({ bubbleLegend: { enabled: a } }), (f.bubbleLegend.visible = a)),
+          f.bubbleLegend.visible !== a && (f.update({ bubbleLegend: { enabled: a } }), (f.bubbleLegend.visible = a)),
           (this.visible = c))
       })
-      y(d.prototype, 'drawChartBox', function (a, c, f) {
+      y(d.prototype, "drawChartBox", function (a, c, f) {
         var n = this.legend,
           b = 0 <= this.getVisibleBubbleSeriesIndex()
         if (n && n.options.enabled && n.bubbleLegend && n.options.bubbleLegend.autoRanges && b) {
@@ -2269,10 +2172,7 @@
           n.retranslateItems(n.getLinesHeights())
         } else
           a.call(this, c, f),
-            n &&
-              n.options.enabled &&
-              n.bubbleLegend &&
-              (n.render(), n.retranslateItems(n.getLinesHeights()))
+            n && n.options.enabled && n.bubbleLegend && (n.render(), n.retranslateItems(n.getLinesHeights()))
       })
       g.BubbleLegend = v
       return g.BubbleLegend
@@ -2280,8 +2180,8 @@
   )
   C(
     d,
-    'Series/Bubble/BubbleSeries.js',
-    [d['Core/Globals.js'], d['Core/Color.js'], d['Core/Series/Point.js'], d['Core/Utilities.js']],
+    "Series/Bubble/BubbleSeries.js",
+    [d["Core/Globals.js"], d["Core/Color.js"], d["Core/Series/Point.js"], d["Core/Utilities.js"]],
     function (d, a, g, h) {
       var b = a.parse,
         r = h.arrayMax,
@@ -2297,15 +2197,15 @@
         e = d.Series,
         y = d.seriesTypes
       a(
-        'bubble',
-        'scatter',
+        "bubble",
+        "scatter",
         {
           dataLabels: {
             formatter: function () {
               return this.point.z
             },
             inside: !0,
-            verticalAlign: 'middle'
+            verticalAlign: "middle"
           },
           animationLimit: 250,
           marker: {
@@ -2314,30 +2214,30 @@
             fillOpacity: 0.5,
             radius: null,
             states: { hover: { radiusPlus: 0 } },
-            symbol: 'circle'
+            symbol: "circle"
           },
           minSize: 8,
-          maxSize: '20%',
+          maxSize: "20%",
           softThreshold: !1,
           states: { hover: { halo: { size: 5 } } },
-          tooltip: { pointFormat: '({point.x}, {point.y}), Size: {point.z}' },
+          tooltip: { pointFormat: "({point.x}, {point.y}), Size: {point.z}" },
           turboThreshold: 0,
           zThreshold: 0,
-          zoneAxis: 'z'
+          zoneAxis: "z"
         },
         {
-          pointArrayMap: ['y', 'z'],
-          parallelArrays: ['x', 'y', 'z'],
-          trackerGroups: ['group', 'dataLabelsGroup'],
-          specialGroup: 'group',
+          pointArrayMap: ["y", "z"],
+          parallelArrays: ["x", "y", "z"],
+          trackerGroups: ["group", "dataLabelsGroup"],
+          specialGroup: "group",
           bubblePadding: !0,
-          zoneAxis: 'z',
+          zoneAxis: "z",
           directTouch: !0,
           isBubble: !0,
           pointAttribs: function (a, l) {
             var m = this.options.marker.fillOpacity
             a = e.prototype.pointAttribs.call(this, a, l)
-            1 !== m && (a.fill = b(a.fill).setOpacity(m).get('rgba'))
+            1 !== m && (a.fill = b(a.fill).setOpacity(m).get("rgba"))
             return a
           },
           getRadii: function (a, b, l) {
@@ -2355,14 +2255,13 @@
           },
           getRadius: function (a, b, l, c, f, n) {
             var e = this.options,
-              m = 'width' !== e.sizeBy,
+              m = "width" !== e.sizeBy,
               q = e.zThreshold,
               h = b - a,
               g = 0.5
             if (null === n || null === f) return null
             if (z(f)) {
-              e.sizeByAbsoluteValue &&
-                ((f = Math.abs(f - q)), (h = Math.max(b - q, Math.abs(a - q))), (a = 0))
+              e.sizeByAbsoluteValue && ((f = Math.abs(f - q)), (h = Math.max(b - q, Math.abs(a - q))), (a = 0))
               if (f < a) return l / 2 - 1
               0 < h && (g = (f - a) / h)
             }
@@ -2403,10 +2302,7 @@
         },
         {
           haloPath: function (a) {
-            return g.prototype.haloPath.call(
-              this,
-              0 === a ? 0 : (this.marker ? this.marker.radius || 0 : 0) + a
-            )
+            return g.prototype.haloPath.call(this, 0 === a ? 0 : (this.marker ? this.marker.radius || 0 : 0) + a)
           },
           ttBelow: !1
         }
@@ -2418,7 +2314,7 @@
           c = 0,
           f = b,
           n = this.isXAxis,
-          u = n ? 'xData' : 'yData',
+          u = n ? "xData" : "yData",
           h = this.min,
           q = {},
           g = Math.min(e.plotWidth, e.plotHeight),
@@ -2434,7 +2330,7 @@
             ((a.allowZoomOutside = !0),
             F.push(c),
             n &&
-              (['minSize', 'maxSize'].forEach(function (c) {
+              (["minSize", "maxSize"].forEach(function (c) {
                 var a = f[c],
                   n = /%$/.test(a)
                 a = m(a)
@@ -2444,10 +2340,7 @@
               (c.maxPxSize = Math.max(q.maxSize, q.minSize)),
               (c = c.zData.filter(z)),
               c.length &&
-                ((d = l(
-                  f.zMin,
-                  x(t(c), !1 === f.displayNegative ? f.zThreshold : -Number.MAX_VALUE, d)
-                )),
+                ((d = l(f.zMin, x(t(c), !1 === f.displayNegative ? f.zThreshold : -Number.MAX_VALUE, d))),
                 (v = l(f.zMax, Math.max(v, r(c)))))))
         })
         F.forEach(function (b) {
@@ -2468,19 +2361,19 @@
           ((f -= b),
           (B *= (b + Math.max(0, c) - Math.min(f, b)) / b),
           [
-            ['min', 'userMin', c],
-            ['max', 'userMax', f]
+            ["min", "userMin", c],
+            ["max", "userMax", f]
           ].forEach(function (c) {
-            'undefined' === typeof l(a.options[c[0]], a[c[1]]) && (a[c[0]] += c[2] / B)
+            "undefined" === typeof l(a.options[c[0]], a[c[1]]) && (a[c[0]] += c[2] / B)
           }))
       }
-      ;('')
+      ;("")
     }
   )
   C(
     d,
-    'Series/Networkgraph/DraggableNodes.js',
-    [d['Core/Chart/Chart.js'], d['Core/Globals.js'], d['Core/Utilities.js']],
+    "Series/Networkgraph/DraggableNodes.js",
+    [d["Core/Chart/Chart.js"], d["Core/Globals.js"], d["Core/Utilities.js"]],
     function (d, a, g) {
       var h = g.addEvent
       a.dragNodesMixin = {
@@ -2520,35 +2413,35 @@
           a && this.halo && this.halo.attr({ d: a.haloPath(this.options.states.hover.halo.size) })
         }
       }
-      h(d, 'load', function () {
+      h(d, "load", function () {
         var a = this,
           g,
           d,
           x
         a.container &&
-          (g = h(a.container, 'mousedown', function (b) {
+          (g = h(a.container, "mousedown", function (b) {
             var g = a.hoverPoint
             g &&
               g.series &&
               g.series.hasDraggableNodes &&
               g.series.options.draggable &&
               (g.series.onMouseDown(g, b),
-              (d = h(a.container, 'mousemove', function (a) {
+              (d = h(a.container, "mousemove", function (a) {
                 return g && g.series && g.series.onMouseMove(g, a)
               })),
-              (x = h(a.container.ownerDocument, 'mouseup', function (a) {
+              (x = h(a.container.ownerDocument, "mouseup", function (a) {
                 d()
                 x()
                 return g && g.series && g.series.onMouseUp(g, a)
               })))
           }))
-        h(a, 'destroy', function () {
+        h(a, "destroy", function () {
           g()
         })
       })
     }
   )
-  C(d, 'Series/Networkgraph/Integrations.js', [d['Core/Globals.js']], function (d) {
+  C(d, "Series/Networkgraph/Integrations.js", [d["Core/Globals.js"]], function (d) {
     d.networkgraphIntegrations = {
       verlet: {
         attractiveForceFunction: function (a, g) {
@@ -2564,8 +2457,7 @@
           g = (g - (this.box.left + this.box.width) / 2) * a
           h = (h - (this.box.top + this.box.height) / 2) * a
           this.nodes.forEach(function (a) {
-            a.fixedPosition ||
-              ((a.plotX -= g / a.mass / a.degree), (a.plotY -= h / a.mass / a.degree))
+            a.fixedPosition || ((a.plotX -= g / a.mass / a.degree), (a.plotY -= h / a.mass / a.degree))
           })
         },
         repulsive: function (a, g, h) {
@@ -2580,8 +2472,7 @@
             ((a.fromNode.plotX -= (d * b.fromNode) / a.fromNode.degree),
             (a.fromNode.plotY -= (g * b.fromNode) / a.fromNode.degree))
           a.toNode.fixedPosition ||
-            ((a.toNode.plotX += (d * b.toNode) / a.toNode.degree),
-            (a.toNode.plotY += (g * b.toNode) / a.toNode.degree))
+            ((a.toNode.plotX += (d * b.toNode) / a.toNode.degree), (a.toNode.plotY += (g * b.toNode) / a.toNode.degree))
         },
         integrate: function (a, g) {
           var h = -a.options.friction,
@@ -2635,8 +2526,7 @@
             ((a.fromNode.dispX -= (t * d.fromNode) / a.fromNode.degree),
             (a.fromNode.dispY -= (g * d.fromNode) / a.fromNode.degree))
           a.toNode.fixedPosition ||
-            ((a.toNode.dispX += (t * d.toNode) / a.toNode.degree),
-            (a.toNode.dispY += (g * d.toNode) / a.toNode.degree))
+            ((a.toNode.dispX += (t * d.toNode) / a.toNode.degree), (a.toNode.dispY += (g * d.toNode) / a.toNode.degree))
         },
         integrate: function (a, d) {
           d.dispX += d.dispX * a.options.friction
@@ -2652,112 +2542,106 @@
       }
     }
   })
-  C(
-    d,
-    'Series/Networkgraph/QuadTree.js',
-    [d['Core/Globals.js'], d['Core/Utilities.js']],
-    function (d, a) {
-      a = a.extend
-      var g = (d.QuadTreeNode = function (a) {
-        this.box = a
-        this.boxSize = Math.min(a.width, a.height)
-        this.nodes = []
-        this.body = this.isInternal = !1
-        this.isEmpty = !0
-      })
-      a(g.prototype, {
-        insert: function (a, b) {
-          this.isInternal
-            ? this.nodes[this.getBoxPosition(a)].insert(a, b - 1)
-            : ((this.isEmpty = !1),
-              this.body
-                ? b
-                  ? ((this.isInternal = !0),
-                    this.divideBox(),
-                    !0 !== this.body &&
-                      (this.nodes[this.getBoxPosition(this.body)].insert(this.body, b - 1),
-                      (this.body = !0)),
-                    this.nodes[this.getBoxPosition(a)].insert(a, b - 1))
-                  : ((b = new g({ top: a.plotX, left: a.plotY, width: 0.1, height: 0.1 })),
-                    (b.body = a),
-                    (b.isInternal = !1),
-                    this.nodes.push(b))
-                : ((this.isInternal = !1), (this.body = a)))
-        },
-        updateMassAndCenter: function () {
-          var a = 0,
-            b = 0,
-            d = 0
-          this.isInternal
-            ? (this.nodes.forEach(function (h) {
-                h.isEmpty || ((a += h.mass), (b += h.plotX * h.mass), (d += h.plotY * h.mass))
-              }),
-              (b /= a),
-              (d /= a))
-            : this.body && ((a = this.body.mass), (b = this.body.plotX), (d = this.body.plotY))
-          this.mass = a
-          this.plotX = b
-          this.plotY = d
-        },
-        divideBox: function () {
-          var a = this.box.width / 2,
-            b = this.box.height / 2
-          this.nodes[0] = new g({ left: this.box.left, top: this.box.top, width: a, height: b })
-          this.nodes[1] = new g({ left: this.box.left + a, top: this.box.top, width: a, height: b })
-          this.nodes[2] = new g({
-            left: this.box.left + a,
-            top: this.box.top + b,
-            width: a,
-            height: b
-          })
-          this.nodes[3] = new g({ left: this.box.left, top: this.box.top + b, width: a, height: b })
-        },
-        getBoxPosition: function (a) {
-          var b = a.plotY < this.box.top + this.box.height / 2
-          return a.plotX < this.box.left + this.box.width / 2 ? (b ? 0 : 3) : b ? 1 : 2
-        }
-      })
-      d = d.QuadTree = function (a, b, d, t) {
-        this.box = { left: a, top: b, width: d, height: t }
-        this.maxDepth = 25
-        this.root = new g(this.box, '0')
-        this.root.isInternal = !0
-        this.root.isRoot = !0
-        this.root.divideBox()
+  C(d, "Series/Networkgraph/QuadTree.js", [d["Core/Globals.js"], d["Core/Utilities.js"]], function (d, a) {
+    a = a.extend
+    var g = (d.QuadTreeNode = function (a) {
+      this.box = a
+      this.boxSize = Math.min(a.width, a.height)
+      this.nodes = []
+      this.body = this.isInternal = !1
+      this.isEmpty = !0
+    })
+    a(g.prototype, {
+      insert: function (a, b) {
+        this.isInternal
+          ? this.nodes[this.getBoxPosition(a)].insert(a, b - 1)
+          : ((this.isEmpty = !1),
+            this.body
+              ? b
+                ? ((this.isInternal = !0),
+                  this.divideBox(),
+                  !0 !== this.body &&
+                    (this.nodes[this.getBoxPosition(this.body)].insert(this.body, b - 1), (this.body = !0)),
+                  this.nodes[this.getBoxPosition(a)].insert(a, b - 1))
+                : ((b = new g({ top: a.plotX, left: a.plotY, width: 0.1, height: 0.1 })),
+                  (b.body = a),
+                  (b.isInternal = !1),
+                  this.nodes.push(b))
+              : ((this.isInternal = !1), (this.body = a)))
+      },
+      updateMassAndCenter: function () {
+        var a = 0,
+          b = 0,
+          d = 0
+        this.isInternal
+          ? (this.nodes.forEach(function (h) {
+              h.isEmpty || ((a += h.mass), (b += h.plotX * h.mass), (d += h.plotY * h.mass))
+            }),
+            (b /= a),
+            (d /= a))
+          : this.body && ((a = this.body.mass), (b = this.body.plotX), (d = this.body.plotY))
+        this.mass = a
+        this.plotX = b
+        this.plotY = d
+      },
+      divideBox: function () {
+        var a = this.box.width / 2,
+          b = this.box.height / 2
+        this.nodes[0] = new g({ left: this.box.left, top: this.box.top, width: a, height: b })
+        this.nodes[1] = new g({ left: this.box.left + a, top: this.box.top, width: a, height: b })
+        this.nodes[2] = new g({
+          left: this.box.left + a,
+          top: this.box.top + b,
+          width: a,
+          height: b
+        })
+        this.nodes[3] = new g({ left: this.box.left, top: this.box.top + b, width: a, height: b })
+      },
+      getBoxPosition: function (a) {
+        var b = a.plotY < this.box.top + this.box.height / 2
+        return a.plotX < this.box.left + this.box.width / 2 ? (b ? 0 : 3) : b ? 1 : 2
       }
-      a(d.prototype, {
-        insertNodes: function (a) {
-          a.forEach(function (a) {
-            this.root.insert(a, this.maxDepth)
-          }, this)
-        },
-        visitNodeRecursive: function (a, b, d) {
-          var g
-          a || (a = this.root)
-          a === this.root && b && (g = b(a))
-          !1 !== g &&
-            (a.nodes.forEach(function (a) {
-              if (a.isInternal) {
-                b && (g = b(a))
-                if (!1 === g) return
-                this.visitNodeRecursive(a, b, d)
-              } else a.body && b && b(a.body)
-              d && d(a)
-            }, this),
-            a === this.root && d && d(a))
-        },
-        calculateMassAndCenter: function () {
-          this.visitNodeRecursive(null, null, function (a) {
-            a.updateMassAndCenter()
-          })
-        }
-      })
+    })
+    d = d.QuadTree = function (a, b, d, t) {
+      this.box = { left: a, top: b, width: d, height: t }
+      this.maxDepth = 25
+      this.root = new g(this.box, "0")
+      this.root.isInternal = !0
+      this.root.isRoot = !0
+      this.root.divideBox()
     }
-  )
+    a(d.prototype, {
+      insertNodes: function (a) {
+        a.forEach(function (a) {
+          this.root.insert(a, this.maxDepth)
+        }, this)
+      },
+      visitNodeRecursive: function (a, b, d) {
+        var g
+        a || (a = this.root)
+        a === this.root && b && (g = b(a))
+        !1 !== g &&
+          (a.nodes.forEach(function (a) {
+            if (a.isInternal) {
+              b && (g = b(a))
+              if (!1 === g) return
+              this.visitNodeRecursive(a, b, d)
+            } else a.body && b && b(a.body)
+            d && d(a)
+          }, this),
+          a === this.root && d && d(a))
+      },
+      calculateMassAndCenter: function () {
+        this.visitNodeRecursive(null, null, function (a) {
+          a.updateMassAndCenter()
+        })
+      }
+    })
+  })
   C(
     d,
-    'Series/Networkgraph/Layouts.js',
-    [d['Core/Chart/Chart.js'], d['Core/Globals.js'], d['Core/Utilities.js']],
+    "Series/Networkgraph/Layouts.js",
+    [d["Core/Chart/Chart.js"], d["Core/Globals.js"], d["Core/Utilities.js"]],
     function (d, a, g) {
       var h = g.addEvent,
         b = g.clamp,
@@ -2766,8 +2650,8 @@
         x = g.isFunction,
         B = g.pick,
         z = g.setAnimation
-      a.layouts = { 'reingold-fruchterman': function () {} }
-      t(a.layouts['reingold-fruchterman'].prototype, {
+      a.layouts = { "reingold-fruchterman": function () {} }
+      t(a.layouts["reingold-fruchterman"].prototype, {
         init: function (b) {
           this.options = b
           this.nodes = []
@@ -2804,10 +2688,9 @@
           var b = this,
             d = this.series
           b.currentStep++
-          'barnes-hut' === b.approximation &&
-            (b.createQuadTree(), b.quadTree.calculateMassAndCenter())
+          "barnes-hut" === b.approximation && (b.createQuadTree(), b.quadTree.calculateMassAndCenter())
           b.forces.forEach(function (a) {
-            b[a + 'Forces'](b.temperature)
+            b[a + "Forces"](b.temperature)
           })
           b.applyLimits(b.temperature)
           b.temperature = b.coolDown(b.startTemperature, b.diffTemperature, b.currentStep)
@@ -2876,12 +2759,7 @@
           this.initialRendering = a
         },
         createQuadTree: function () {
-          this.quadTree = new a.QuadTree(
-            this.box.left,
-            this.box.top,
-            this.box.width,
-            this.box.height
-          )
+          this.quadTree = new a.QuadTree(this.box.left, this.box.top, this.box.width, this.box.height)
           this.quadTree.insertNodes(this.nodes)
         },
         initPositions: function () {
@@ -2894,7 +2772,7 @@
                 a.dispX = 0
                 a.dispY = 0
               }))
-            : 'circle' === a
+            : "circle" === a
               ? this.setCircularPositions()
               : this.setRandomPositions()
         },
@@ -2949,7 +2827,7 @@
         },
         barycenterForces: function () {
           this.getBarycenter()
-          this.force('barycenter')
+          this.force("barycenter")
         },
         getBarycenter: function () {
           var a = 0,
@@ -2969,15 +2847,15 @@
             if (b.isInternal)
               if (b.boxSize / e < this.options.theta && 0 !== e) {
                 var l = this.repulsiveForce(e, this.k)
-                this.force('repulsive', a, l * b.mass, d, e)
+                this.force("repulsive", a, l * b.mass, d, e)
                 var g = !1
               } else g = !0
-            else (l = this.repulsiveForce(e, this.k)), this.force('repulsive', a, l * b.mass, d, e)
+            else (l = this.repulsiveForce(e, this.k)), this.force("repulsive", a, l * b.mass, d, e)
           return g
         },
         repulsiveForces: function () {
           var a = this
-          'barnes-hut' === a.approximation
+          "barnes-hut" === a.approximation
             ? a.nodes.forEach(function (b) {
                 a.quadTree.visitNodeRecursive(null, function (d) {
                   return a.barnesHutApproximation(b, d)
@@ -2990,7 +2868,7 @@
                     var l = a.vectorLength(e)
                     if (0 !== l) {
                       var g = a.repulsiveForce(l, a.k)
-                      a.force('repulsive', b, g * d.mass, e, l)
+                      a.force("repulsive", b, g * d.mass, e, l)
                     }
                   }
                 })
@@ -3006,17 +2884,13 @@
               g.toNode &&
               ((b = a.getDistXY(g.fromNode, g.toNode)),
               (d = a.vectorLength(b)),
-              0 !== d && ((e = a.attractiveForce(d, a.k)), a.force('attractive', g, e, b, d)))
+              0 !== d && ((e = a.attractiveForce(d, a.k)), a.force("attractive", g, e, b, d)))
           })
         },
         applyLimits: function () {
           var a = this
           a.nodes.forEach(function (b) {
-            b.fixedPosition ||
-              (a.integration.integrate(a, b),
-              a.applyLimitBox(b, a.box),
-              (b.dispX = 0),
-              (b.dispY = 0))
+            b.fixedPosition || (a.integration.integrate(a, b), a.applyLimitBox(b, a.box), (b.dispX = 0), (b.dispY = 0))
           })
         },
         applyLimitBox: function (a, d) {
@@ -3028,10 +2902,7 @@
           return a - b * d
         },
         isStable: function () {
-          return (
-            0.00001 > Math.abs(this.systemTemperature - this.prevSystemTemperature) ||
-            0 >= this.temperature
-          )
+          return 0.00001 > Math.abs(this.systemTemperature - this.prevSystemTemperature) || 0 >= this.temperature
         },
         getSystemTemperature: function () {
           return this.nodes.reduce(function (a, b) {
@@ -3051,13 +2922,13 @@
           return { x: d, y: a, absX: Math.abs(d), absY: Math.abs(a) }
         }
       })
-      h(d, 'predraw', function () {
+      h(d, "predraw", function () {
         this.graphLayoutsLookup &&
           this.graphLayoutsLookup.forEach(function (a) {
             a.stop()
           })
       })
-      h(d, 'render', function () {
+      h(d, "render", function () {
         function a(a) {
           a.maxIterations-- &&
             isFinite(a.temperature) &&
@@ -3084,14 +2955,14 @@
             })
         }
       })
-      h(d, 'beforePrint', function () {
+      h(d, "beforePrint", function () {
         this.graphLayoutsLookup &&
           (this.graphLayoutsLookup.forEach(function (a) {
             a.updateSimulation(!1)
           }),
           this.redraw())
       })
-      h(d, 'afterPrint', function () {
+      h(d, "afterPrint", function () {
         this.graphLayoutsLookup &&
           this.graphLayoutsLookup.forEach(function (a) {
             a.updateSimulation()
@@ -3102,13 +2973,13 @@
   )
   C(
     d,
-    'Series/PackedBubbleSeries.js',
+    "Series/PackedBubbleSeries.js",
     [
-      d['Core/Chart/Chart.js'],
-      d['Core/Color.js'],
-      d['Core/Globals.js'],
-      d['Core/Series/Point.js'],
-      d['Core/Utilities.js']
+      d["Core/Chart/Chart.js"],
+      d["Core/Color.js"],
+      d["Core/Globals.js"],
+      d["Core/Series/Point.js"],
+      d["Core/Utilities.js"]
     ],
     function (d, a, g, h, b) {
       var r = a.parse,
@@ -3124,7 +2995,7 @@
         y = b.pick
       b = b.seriesType
       var w = g.Series,
-        k = g.layouts['reingold-fruchterman'],
+        k = g.layouts["reingold-fruchterman"],
         p = g.dragNodesMixin
       d.prototype.getSelectedParentNodes = function () {
         var a = []
@@ -3205,10 +3076,8 @@
                 ((d = a.getDistXY(c, n)),
                 (b = a.vectorLength(d) - (c.marker.radius + n.marker.radius + e)),
                 0 > b &&
-                  ((c.degree += 0.01),
-                  c.neighbours++,
-                  (f = a.repulsiveForce(-b / Math.sqrt(c.neighbours), a.k, c, n))),
-                a.force('repulsive', c, f * n.mass, d, n, b))
+                  ((c.degree += 0.01), c.neighbours++, (f = a.repulsiveForce(-b / Math.sqrt(c.neighbours), a.k, c, n))),
+                a.force("repulsive", c, f * n.mass, d, n, b))
             })
           })
         },
@@ -3222,15 +3091,15 @@
         }
       })
       b(
-        'packedbubble',
-        'bubble',
+        "packedbubble",
+        "bubble",
         {
-          minSize: '10%',
-          maxSize: '50%',
-          sizeBy: 'area',
-          zoneAxis: 'y',
+          minSize: "10%",
+          maxSize: "50%",
+          sizeBy: "area",
+          zoneAxis: "y",
           crisp: !1,
-          tooltip: { pointFormat: 'Value: {point.value}' },
+          tooltip: { pointFormat: "Value: {point.value}" },
           draggable: !0,
           useSimulation: !0,
           parentNode: { allowPointSelect: !1 },
@@ -3243,10 +3112,10 @@
             },
             parentNodeTextPath: { enabled: !0 },
             padding: 0,
-            style: { transition: 'opacity 2000ms' }
+            style: { transition: "opacity 2000ms" }
           },
           layoutAlgorithm: {
-            initialPositions: 'circle',
+            initialPositions: "circle",
             initialPositionRadius: 20,
             bubblePadding: 5,
             parentNodeLimit: !1,
@@ -3263,12 +3132,12 @@
                 fillOpacity: 1,
                 lineWidth: 1,
                 lineColor: null,
-                symbol: 'circle'
+                symbol: "circle"
               }
             },
             enableSimulation: !0,
-            type: 'packedbubble',
-            integration: 'packedbubble',
+            type: "packedbubble",
+            integration: "packedbubble",
             maxIterations: 1e3,
             splitSeries: !1,
             maxSpeed: 5,
@@ -3278,10 +3147,10 @@
         },
         {
           hasDraggableNodes: !0,
-          forces: ['barycenter', 'repulsive'],
-          pointArrayMap: ['value'],
-          trackerGroups: ['group', 'dataLabelsGroup', 'parentNodesGroup'],
-          pointValKey: 'value',
+          forces: ["barycenter", "repulsive"],
+          pointArrayMap: ["value"],
+          trackerGroups: ["group", "dataLabelsGroup", "parentNodesGroup"],
+          pointValKey: "value",
           isCartesian: !1,
           requireSorting: !1,
           directTouch: !0,
@@ -3294,17 +3163,14 @@
               d,
               e
             for (d = 0; d < c.series.length; d++)
-              if (
-                ((a = c.series[d]),
-                (a.is('packedbubble') && a.visible) || !c.options.chart.ignoreHiddenSeries)
-              )
+              if (((a = c.series[d]), (a.is("packedbubble") && a.visible) || !c.options.chart.ignoreHiddenSeries))
                 for (e = 0; e < a.yData.length; e++)
                   b.push([null, null, a.yData[e], a.index, e, { id: e, marker: { radius: 0 } }])
             return b
           },
           init: function () {
             w.prototype.init.apply(this, arguments)
-            t(this, 'updatedData', function () {
+            t(this, "updatedData", function () {
               this.chart.series.forEach(function (a) {
                 a.type === this.type && (a.isDirty = !0)
               }, this)
@@ -3330,10 +3196,7 @@
               ? a.visible
                 ? (a.graph.show(), a.parentNode.dataLabel && a.parentNode.dataLabel.show())
                 : (a.graph.hide(),
-                  a.parentNodeLayout.removeElementFromCollection(
-                    a.parentNode,
-                    a.parentNodeLayout.nodes
-                  ),
+                  a.parentNodeLayout.removeElementFromCollection(a.parentNode, a.parentNodeLayout.nodes),
                   a.parentNode.dataLabel && a.parentNode.dataLabel.hide())
               : a.layout &&
                 (a.visible
@@ -3347,7 +3210,7 @@
               b = this.points
             w.prototype.drawDataLabels.apply(this, arguments)
             this.parentNode &&
-              ((this.parentNode.formatPrefix = 'parentNode'),
+              ((this.parentNode.formatPrefix = "parentNode"),
               (this.points = [this.parentNode]),
               (this.options.dataLabels.textPath = this.options.dataLabels.parentNodeTextPath),
               w.prototype.drawDataLabels.apply(this, arguments),
@@ -3381,8 +3244,7 @@
                 ? Math.max(Math.sqrt(Math.pow(a.width, 2) + Math.pow(a.height, 2)) / 2 + 20, 20)
                 : Math.sqrt((2 * this.parentNodeMass) / Math.PI) + 20
             )
-            this.parentNode &&
-              (this.parentNode.marker.radius = this.parentNode.radius = this.parentNodeRadius)
+            this.parentNode && (this.parentNode.marker.radius = this.parentNode.radius = this.parentNodeRadius)
           },
           drawGraph: function () {
             if (this.layout && this.layout.options.splitSeries) {
@@ -3392,17 +3254,11 @@
                 fill: b.fillColor || r(this.color).brighten(0.4).get(),
                 opacity: b.fillOpacity,
                 stroke: b.lineColor || this.color,
-                'stroke-width': b.lineWidth
+                "stroke-width": b.lineWidth
               }
-              var d = this.visible ? 'inherit' : 'hidden'
+              var d = this.visible ? "inherit" : "hidden"
               this.parentNodesGroup ||
-                ((this.parentNodesGroup = this.plotGroup(
-                  'parentNodesGroup',
-                  'parentNode',
-                  d,
-                  0.1,
-                  a.seriesGroup
-                )),
+                ((this.parentNodesGroup = this.plotGroup("parentNodesGroup", "parentNode", d, 0.1, a.seriesGroup)),
                 this.group.attr({ zIndex: 2 }))
               this.calculateParentRadius()
               d = e(
@@ -3415,8 +3271,7 @@
                 b
               )
               this.parentNode.graphic ||
-                (this.graph = this.parentNode.graphic =
-                  a.renderer.symbol(b.symbol).add(this.parentNodesGroup))
+                (this.graph = this.parentNode.graphic = a.renderer.symbol(b.symbol).add(this.parentNodesGroup))
               this.parentNode.graphic.attr(d)
             }
           },
@@ -3470,11 +3325,8 @@
               h = e(a, a.parentNodeOptions, {
                 enableSimulation: this.layout.options.enableSimulation
               })
-            var l = b[a.type + '-series']
-            l ||
-              ((b[a.type + '-series'] = l = new g.layouts[a.type]()),
-              l.init(h),
-              d.splice(l.index, 0, l))
+            var l = b[a.type + "-series"]
+            l || ((b[a.type + "-series"] = l = new g.layouts[a.type]()), l.init(h), d.splice(l.index, 0, l))
             this.parentNodeLayout = l
             this.createParentNodes()
           },
@@ -3483,8 +3335,7 @@
               b = this.chart.graphLayoutsStorage,
               d = this.chart.graphLayoutsLookup,
               e = this.chart.options.chart
-            b ||
-              ((this.chart.graphLayoutsStorage = b = {}), (this.chart.graphLayoutsLookup = d = []))
+            b || ((this.chart.graphLayoutsStorage = b = {}), (this.chart.graphLayoutsLookup = d = []))
             var h = b[a.type]
             h ||
               ((a.enableSimulation = B(e.forExport) ? !e.forExport : a.enableSimulation),
@@ -3513,22 +3364,19 @@
               g = this.options.useSimulation
             this.processedXData = this.xData
             this.generatePoints()
-            B(a.allDataPoints) ||
-              ((a.allDataPoints = this.accumulateAllPoints(this)), this.getPointRadius())
+            B(a.allDataPoints) || ((a.allDataPoints = this.accumulateAllPoints(this)), this.getPointRadius())
             if (g) var q = a.allDataPoints
             else (q = this.placeBubbles(a.allDataPoints)), (this.options.draggable = !1)
             for (e = 0; e < q.length; e++)
               if (q[e][3] === d) {
                 var h = b[q[e][4]]
                 var k = q[e][2]
-                g ||
-                  ((h.plotX = q[e][0] - a.plotLeft + a.diffX),
-                  (h.plotY = q[e][1] - a.plotTop + a.diffY))
+                g || ((h.plotX = q[e][0] - a.plotLeft + a.diffX), (h.plotY = q[e][1] - a.plotTop + a.diffY))
                 h.marker = z(h.marker, { radius: k, width: 2 * k, height: 2 * k })
                 h.radius = k
               }
             g && this.deferLayout()
-            l(this, 'afterTranslate')
+            l(this, "afterTranslate")
           },
           checkOverlap: function (a, b) {
             var c = a[0] - b[0],
@@ -3544,15 +3392,8 @@
             c = c(e(a[0] - b[0], 2) + e(a[1] - b[1], 2))
             n = n((e(c, 2) + e(d[2] + b[2], 2) - e(d[2] + a[2], 2)) / (2 * (d[2] + b[2]) * c))
             f = f(g(a[0] - b[0]) / c)
-            a =
-              (0 > a[1] - b[1] ? 0 : Math.PI) + n + f * (0 > (a[0] - b[0]) * (a[1] - b[1]) ? 1 : -1)
-            return [
-              b[0] + (b[2] + d[2]) * Math.sin(a),
-              b[1] - (b[2] + d[2]) * Math.cos(a),
-              d[2],
-              d[3],
-              d[4]
-            ]
+            a = (0 > a[1] - b[1] ? 0 : Math.PI) + n + f * (0 > (a[0] - b[0]) * (a[1] - b[1]) ? 1 : -1)
+            return [b[0] + (b[2] + d[2]) * Math.sin(a), b[1] - (b[2] + d[2]) * Math.cos(a), d[2], d[3], d[4]]
           },
           placeBubbles: function (a) {
             var b = this.checkOverlap,
@@ -3569,19 +3410,11 @@
             if (a.length) {
               d.push([[0, 0, a[0][2], a[0][3], a[0][4]]])
               if (1 < a.length)
-                for (
-                  d.push([[0, 0 - a[1][2] - a[0][2], a[1][2], a[1][3], a[1][4]]]), k = 2;
-                  k < a.length;
-                  k++
-                )
+                for (d.push([[0, 0 - a[1][2] - a[0][2], a[1][2], a[1][3], a[1][4]]]), k = 2; k < a.length; k++)
                   (a[k][2] = a[k][2] || 1),
                     (l = c(d[e][g], d[e - 1][h], a[k])),
                     b(l, d[e][0])
-                      ? (d.push([]),
-                        (h = 0),
-                        d[e + 1].push(c(d[e][g], d[e][0], a[k])),
-                        e++,
-                        (g = 0))
+                      ? (d.push([]), (h = 0), d[e + 1].push(c(d[e][g], d[e][0], a[k])), e++, (g = 0))
                       : 1 < e && d[e - 1][h + 1] && b(l, d[e - 1][h + 1])
                         ? (h++, d[e].push(c(d[e][g], d[e - 1][h], a[k])), g++)
                         : (g++, d[e].push(l))
@@ -3648,7 +3481,7 @@
               p,
               r,
               t
-            ;['minSize', 'maxSize'].forEach(function (a) {
+            ;["minSize", "maxSize"].forEach(function (a) {
               var b = parseInt(d[a], 10),
                 c = /%$/.test(d[a])
               h[a] = c ? (g * b) / 100 : b * Math.sqrt(k.length)
@@ -3696,20 +3529,15 @@
                 a.removeElementFromCollection(this, a.series)
               }, this)
             this.parentNode &&
-              (this.parentNodeLayout.removeElementFromCollection(
-                this.parentNode,
-                this.parentNodeLayout.nodes
-              ),
-              this.parentNode.dataLabel &&
-                (this.parentNode.dataLabel = this.parentNode.dataLabel.destroy()))
+              (this.parentNodeLayout.removeElementFromCollection(this.parentNode, this.parentNodeLayout.nodes),
+              this.parentNode.dataLabel && (this.parentNode.dataLabel = this.parentNode.dataLabel.destroy()))
             g.Series.prototype.destroy.apply(this, arguments)
           },
           alignDataLabel: g.Series.prototype.alignDataLabel
         },
         {
           destroy: function () {
-            this.series.layout &&
-              this.series.layout.removeElementFromCollection(this, this.series.layout.nodes)
+            this.series.layout && this.series.layout.removeElementFromCollection(this, this.series.layout.nodes)
             return h.prototype.destroy.apply(this, arguments)
           },
           firePointEvent: function (a, b, d) {
@@ -3731,22 +3559,22 @@
           }
         }
       )
-      t(d, 'beforeRedraw', function () {
+      t(d, "beforeRedraw", function () {
         this.allDataPoints && delete this.allDataPoints
       })
-      ;('')
+      ;("")
     }
   )
   C(
     d,
-    'Extensions/Polar.js',
+    "Extensions/Polar.js",
     [
-      d['Core/Chart/Chart.js'],
-      d['Core/Globals.js'],
-      d['Extensions/Pane.js'],
-      d['Core/Pointer.js'],
-      d['Core/Renderer/SVG/SVGRenderer.js'],
-      d['Core/Utilities.js']
+      d["Core/Chart/Chart.js"],
+      d["Core/Globals.js"],
+      d["Extensions/Pane.js"],
+      d["Core/Pointer.js"],
+      d["Core/Renderer/SVG/SVGRenderer.js"],
+      d["Core/Utilities.js"]
     ],
     function (d, a, g, h, b, r) {
       var t = r.addEvent,
@@ -3766,9 +3594,7 @@
         var b = this.chart,
           c = this.xAxis.pane.center
         return this.searchKDTree({
-          clientX:
-            180 +
-            (-180 / Math.PI) * Math.atan2(a.chartX - c[0] - b.plotLeft, a.chartY - c[1] - b.plotTop)
+          clientX: 180 + (-180 / Math.PI) * Math.atan2(a.chartX - c[0] - b.plotLeft, a.chartY - c[1] - b.plotTop)
         })
       }
       p.getConnectors = function (a, b, c, d) {
@@ -3811,7 +3637,7 @@
           h = b.inverted,
           l = a.y,
           k = h ? f : d.len - e
-        h && g && !g.isRadialBar && (a.plotY = e = 'number' === typeof l ? d.translate(l) || 0 : 0)
+        h && g && !g.isRadialBar && (a.plotY = e = "number" === typeof l ? d.translate(l) || 0 : 0)
         a.rectPlotX = f
         a.rectPlotY = e
         d.center && (k += d.center[3] / 2)
@@ -3819,18 +3645,16 @@
         a.plotX = a.polarPlotX = d.x - b.plotLeft
         a.plotY = a.polarPlotY = d.y - b.plotTop
         this.kdByAngle
-          ? ((b = ((f / Math.PI) * 180 + c.pane.options.startAngle) % 360),
-            0 > b && (b += 360),
-            (a.clientX = b))
+          ? ((b = ((f / Math.PI) * 180 + c.pane.options.startAngle) % 360), 0 > b && (b += 360), (a.clientX = b))
           : (a.clientX = a.plotX)
       }
       k.spline &&
-        (y(k.spline.prototype, 'getPointSpline', function (a, b, c, d) {
+        (y(k.spline.prototype, "getPointSpline", function (a, b, c, d) {
           this.chart.polar
             ? d
               ? ((a = this.getConnectors(b, d, !0, this.connectEnds)),
                 (a = [
-                  'C',
+                  "C",
                   a.prevPointCont.rightContX,
                   a.prevPointCont.rightContY,
                   a.leftContX,
@@ -3838,31 +3662,27 @@
                   a.plotX,
                   a.plotY
                 ]))
-              : (a = ['M', c.plotX, c.plotY])
+              : (a = ["M", c.plotX, c.plotY])
             : (a = a.call(this, b, c, d))
           return a
         }),
-        k.areasplinerange &&
-          (k.areasplinerange.prototype.getPointSpline = k.spline.prototype.getPointSpline))
+        k.areasplinerange && (k.areasplinerange.prototype.getPointSpline = k.spline.prototype.getPointSpline))
       t(
         w,
-        'afterTranslate',
+        "afterTranslate",
         function () {
           var b = this.chart
           if (b.polar && this.xAxis) {
             ;(this.kdByAngle = b.tooltip && b.tooltip.shared)
               ? (this.searchPoint = this.searchPointByAngle)
-              : (this.options.findNearestPointBy = 'xy')
+              : (this.options.findNearestPointBy = "xy")
             if (!this.preventPostTranslate)
               for (var c = this.points, d = c.length; d--; )
                 this.toXY(c[d]),
-                  !b.hasParallelCoordinates &&
-                    !this.yAxis.reversed &&
-                    c[d].y < this.yAxis.min &&
-                    (c[d].isNull = !0)
+                  !b.hasParallelCoordinates && !this.yAxis.reversed && c[d].y < this.yAxis.min && (c[d].isNull = !0)
             this.hasClipCircleSetter ||
               (this.hasClipCircleSetter = !!this.eventsToUnbind.push(
-                t(this, 'afterRender', function () {
+                t(this, "afterRender", function () {
                   if (b.polar) {
                     var c = this.yAxis.pane.center
                     this.clipCircle
@@ -3877,7 +3697,7 @@
         },
         { order: 2 }
       )
-      y(p, 'getGraphPath', function (a, b) {
+      y(p, "getGraphPath", function (a, b) {
         var c = this,
           d
         if (this.chart.polar) {
@@ -3887,13 +3707,13 @@
               var f = d
               break
             }
-          if (!1 !== this.options.connectEnds && 'undefined' !== typeof f) {
+          if (!1 !== this.options.connectEnds && "undefined" !== typeof f) {
             this.connectEnds = !0
             b.splice(b.length, 0, b[f])
             var e = !0
           }
           b.forEach(function (a) {
-            'undefined' === typeof a.polarPlotY && c.toXY(a)
+            "undefined" === typeof a.polarPlotY && c.toXY(a)
           })
         }
         d = a.apply(this, [].slice.call(arguments, 1))
@@ -3920,17 +3740,14 @@
               a.seriesTypes.pie.prototype.animate.call(d, c))
           else {
             if (f.renderer.isSVG)
-              if (((e = x(e)), d.is('column'))) {
+              if (((e = x(e)), d.is("column"))) {
                 if (!c) {
                   var w = n[3] / 2
                   d.points.forEach(function (a) {
                     p = a.graphic
                     t = (r = a.shapeArgs) && r.r
                     v = r && r.innerR
-                    p &&
-                      r &&
-                      (p.attr({ r: w, innerR: w }),
-                      p.animate({ r: t, innerR: v }, d.options.animation))
+                    p && r && (p.attr({ r: w, innerR: w }), p.animate({ r: t, innerR: v }, d.options.animation))
                   })
                 }
               } else
@@ -3949,7 +3766,7 @@
           }
         else b.call(this, c)
       }
-      y(p, 'animate', c)
+      y(p, "animate", c)
       k.column &&
         ((w = k.arearange.prototype),
         (k = k.column.prototype),
@@ -3962,8 +3779,8 @@
           this.yAxis.reversed && (0 > b && (b = g), 0 > a && (a = g))
           return { x: f[0], y: f[1], r: b, innerR: a, start: c, end: d }
         }),
-        y(k, 'animate', c),
-        y(k, 'translate', function (a) {
+        y(k, "animate", c),
+        y(k, "translate", function (a) {
           var b = this.options,
             c = b.stacking,
             d = this.chart,
@@ -3990,12 +3807,12 @@
               var w = b.barX
               var z = b.x
               var y = b.y
-              b.shapeType = 'arc'
+              b.shapeType = "arc"
               if (d.inverted) {
                 b.plotY = e.translate(y)
                 if (c && e.stacking) {
                   if (
-                    ((y = e.stacking.stacks[(0 > y ? '-' : '') + this.stackKey]),
+                    ((y = e.stacking.stacks[(0 > y ? "-" : "") + this.stackKey]),
                     this.visible && y && y[z] && !b.isNull)
                   ) {
                     var x = y[z].points[this.getStackIndicator(void 0, z, this.index).key]
@@ -4022,10 +3839,8 @@
                 y = Math.max(w + b.pointWidth, 0)
                 b.shapeArgs = { x: h && h[0], y: h && h[1], r: y, innerR: z, start: C, end: x }
                 b.opacity = C === x ? 0 : void 0
-                b.plotY =
-                  (B(this.translatedThreshold) && (C < this.translatedThreshold ? C : x)) - k
-              } else
-                (C = w + k), (b.shapeArgs = this.polarArc(b.yBottom, b.plotY, C, C + b.pointWidth))
+                b.plotY = (B(this.translatedThreshold) && (C < this.translatedThreshold ? C : x)) - k
+              } else (C = w + k), (b.shapeArgs = this.polarArc(b.yBottom, b.plotY, C, C + b.pointWidth))
               this.toXY(b)
               d.inverted
                 ? ((w = e.postTranslate(b.rectPlotY, w + b.pointWidth / 2)),
@@ -4036,14 +3851,13 @@
           }
         }),
         (k.findAlignments = function (a, b) {
-          null === b.align &&
-            (b.align = 20 < a && 160 > a ? 'left' : 200 < a && 340 > a ? 'right' : 'center')
+          null === b.align && (b.align = 20 < a && 160 > a ? "left" : 200 < a && 340 > a ? "right" : "center")
           null === b.verticalAlign &&
-            (b.verticalAlign = 45 > a || 315 < a ? 'bottom' : 135 < a && 225 > a ? 'top' : 'middle')
+            (b.verticalAlign = 45 > a || 315 < a ? "bottom" : 135 < a && 225 > a ? "top" : "middle")
           return b
         }),
         w && (w.findAlignments = k.findAlignments),
-        y(k, 'alignDataLabel', function (a, b, c, d, e, g) {
+        y(k, "alignDataLabel", function (a, b, c, d, e, g) {
           var f = this.chart,
             h = m(d.inside, !!this.options.stacking)
           f.polar
@@ -4058,32 +3872,26 @@
                       )),
                       (e = { x: e.x - f.plotLeft, y: e.y - f.plotTop }))
                     : b.tooltipPos && (e = { x: b.tooltipPos[0], y: b.tooltipPos[1] }),
-                  (d.align = m(d.align, 'center')),
-                  (d.verticalAlign = m(d.verticalAlign, 'middle')))
+                  (d.align = m(d.align, "center")),
+                  (d.verticalAlign = m(d.verticalAlign, "middle")))
                 : this.findAlignments && (d = this.findAlignments(a, d)),
               p.alignDataLabel.call(this, b, c, d, e, g),
-              this.isRadialBar &&
-                b.shapeArgs &&
-                b.shapeArgs.start === b.shapeArgs.end &&
-                c.hide(!0))
+              this.isRadialBar && b.shapeArgs && b.shapeArgs.start === b.shapeArgs.end && c.hide(!0))
             : a.call(this, b, c, d, e, g)
         }))
-      y(h, 'getCoordinates', function (a, b) {
+      y(h, "getCoordinates", function (a, b) {
         var c = this.chart,
           d = { xAxis: [], yAxis: [] }
         c.polar
           ? c.axes.forEach(function (a) {
               var e = a.isXAxis,
                 f = a.center
-              if ('colorAxis' !== a.coll) {
+              if ("colorAxis" !== a.coll) {
                 var g = b.chartX - f[0] - c.plotLeft
                 f = b.chartY - f[1] - c.plotTop
-                d[e ? 'xAxis' : 'yAxis'].push({
+                d[e ? "xAxis" : "yAxis"].push({
                   axis: a,
-                  value: a.translate(
-                    e ? Math.PI - Math.atan2(g, f) : Math.sqrt(Math.pow(g, 2) + Math.pow(f, 2)),
-                    !0
-                  )
+                  value: a.translate(e ? Math.PI - Math.atan2(g, f) : Math.sqrt(Math.pow(g, 2) + Math.pow(f, 2)), !0)
                 })
               }
             })
@@ -4092,30 +3900,28 @@
       })
       b.prototype.clipCircle = function (a, b, c, d) {
         var f = e(),
-          g = this.createElement('clipPath').attr({ id: f }).add(this.defs)
+          g = this.createElement("clipPath").attr({ id: f }).add(this.defs)
         a = d ? this.arc(a, b, c, d, 0, 2 * Math.PI).add(g) : this.circle(a, b, c).add(g)
         a.id = f
         a.clipPath = g
         return a
       }
-      t(d, 'getAxes', function () {
+      t(d, "getAxes", function () {
         this.pane || (this.pane = [])
         v(this.options.pane).forEach(function (a) {
           new g(a, this)
         }, this)
       })
-      t(d, 'afterDrawChartBox', function () {
+      t(d, "afterDrawChartBox", function () {
         this.pane.forEach(function (a) {
           a.render()
         })
       })
-      t(a.Series, 'afterInit', function () {
+      t(a.Series, "afterInit", function () {
         var a = this.chart
-        a.inverted &&
-          a.polar &&
-          ((this.isRadialSeries = !0), this.is('column') && (this.isRadialBar = !0))
+        a.inverted && a.polar && ((this.isRadialSeries = !0), this.is("column") && (this.isRadialBar = !0))
       })
-      y(d.prototype, 'get', function (a, b) {
+      y(d.prototype, "get", function (a, b) {
         return (
           z(this.pane, function (a) {
             return a.options.id === b
@@ -4124,6 +3930,6 @@
       })
     }
   )
-  C(d, 'masters/highcharts-more.src.js', [], function () {})
+  C(d, "masters/highcharts-more.src.js", [], function () {})
 })
 //# sourceMappingURL=highcharts-more.js.map

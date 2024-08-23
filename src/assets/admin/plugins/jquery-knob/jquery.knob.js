@@ -14,7 +14,7 @@
   /**
    * Kontrol library
    */
-  'use strict'
+  "use strict"
 
   /**
    * Definition of globals and core
@@ -78,34 +78,32 @@
         s._configure()._draw()
       }
 
-      if (this.$.data('kontroled')) return
-      this.$.data('kontroled', true)
+      if (this.$.data("kontroled")) return
+      this.$.data("kontroled", true)
 
       this.extend()
       this.o = $.extend(
         {
           // Config
-          min: this.$.data('min') || 0,
-          max: this.$.data('max') || 100,
+          min: this.$.data("min") || 0,
+          max: this.$.data("max") || 100,
           stopper: true,
-          readOnly: this.$.data('readonly') || this.$.attr('readonly') === 'readonly',
+          readOnly: this.$.data("readonly") || this.$.attr("readonly") === "readonly",
 
           // UI
-          cursor: (this.$.data('cursor') === true && 30) || this.$.data('cursor') || 0,
-          thickness:
-            (this.$.data('thickness') && Math.max(Math.min(this.$.data('thickness'), 1), 0.01)) ||
-            0.35,
-          lineCap: this.$.data('linecap') || 'butt',
-          width: this.$.data('width') || 200,
-          height: this.$.data('height') || 200,
-          displayInput: this.$.data('displayinput') == null || this.$.data('displayinput'),
-          displayPrevious: this.$.data('displayprevious'),
-          fgColor: this.$.data('fgcolor') || '#87CEEB',
-          inputColor: this.$.data('inputcolor'),
-          font: this.$.data('font') || 'Arial',
-          fontWeight: this.$.data('font-weight') || 'bold',
+          cursor: (this.$.data("cursor") === true && 30) || this.$.data("cursor") || 0,
+          thickness: (this.$.data("thickness") && Math.max(Math.min(this.$.data("thickness"), 1), 0.01)) || 0.35,
+          lineCap: this.$.data("linecap") || "butt",
+          width: this.$.data("width") || 200,
+          height: this.$.data("height") || 200,
+          displayInput: this.$.data("displayinput") == null || this.$.data("displayinput"),
+          displayPrevious: this.$.data("displayprevious"),
+          fgColor: this.$.data("fgcolor") || "#87CEEB",
+          inputColor: this.$.data("inputcolor"),
+          font: this.$.data("font") || "Arial",
+          fontWeight: this.$.data("font-weight") || "bold",
           inline: false,
-          step: this.$.data('step') || 1,
+          step: this.$.data("step") || 1,
 
           // Hooks
           draw: null, // function () {}
@@ -122,29 +120,29 @@
       }
 
       // routing value
-      if (this.$.is('fieldset')) {
+      if (this.$.is("fieldset")) {
         // fieldset = array of integer
         this.v = {}
-        this.i = this.$.find('input')
+        this.i = this.$.find("input")
         this.i.each(function (k) {
           var $this = $(this)
           s.i[k] = $this
           s.v[k] = $this.val()
 
-          $this.bind('change blur', function () {
+          $this.bind("change blur", function () {
             var val = {}
             val[k] = $this.val()
             s.val(val)
           })
         })
-        this.$.find('legend').remove()
+        this.$.find("legend").remove()
       } else {
         // input = integer
         this.i = this.$
         this.v = this.$.val()
-        this.v === '' && (this.v = this.o.min)
+        this.v === "" && (this.v = this.o.min)
 
-        this.$.bind('change blur', function () {
+        this.$.bind("change blur", function () {
           s.val(s._validate(s.$.val()))
         })
       }
@@ -152,7 +150,7 @@
       !this.o.displayInput && this.$.hide()
 
       // adds needed DOM elements (canvas, div)
-      this.$c = $(document.createElement('canvas')).attr({
+      this.$c = $(document.createElement("canvas")).attr({
         width: this.o.width,
         height: this.o.height
       })
@@ -161,30 +159,30 @@
       // add to DOM before Canvas init is triggered
       this.$div = $(
         '<div style="' +
-          (this.o.inline ? 'display:inline;' : '') +
-          'width:' +
+          (this.o.inline ? "display:inline;" : "") +
+          "width:" +
           this.o.width +
-          'px;height:' +
+          "px;height:" +
           this.o.height +
-          'px;' +
+          "px;" +
           '"></div>'
       )
 
       this.$.wrap(this.$div).before(this.$c)
       this.$div = this.$.parent()
 
-      if (typeof G_vmlCanvasManager !== 'undefined') {
+      if (typeof G_vmlCanvasManager !== "undefined") {
         G_vmlCanvasManager.initElement(this.$c[0])
       }
 
-      this.c = this.$c[0].getContext ? this.$c[0].getContext('2d') : null
+      this.c = this.$c[0].getContext ? this.$c[0].getContext("2d") : null
 
       if (!this.c) {
         throw {
-          name: 'CanvasNotSupportedException',
-          message: 'Canvas not supported. Please use excanvas on IE8.0.',
+          name: "CanvasNotSupportedException",
+          message: "Canvas not supported. Please use excanvas on IE8.0.",
           toString: function () {
-            return this.name + ': ' + this.message
+            return this.name + ": " + this.message
           }
         }
       }
@@ -200,8 +198,8 @@
           1)
 
       // detects relative width / height
-      this.relativeWidth = this.o.width % 1 !== 0 && this.o.width.indexOf('%')
-      this.relativeHeight = this.o.height % 1 !== 0 && this.o.height.indexOf('%')
+      this.relativeWidth = this.o.width % 1 !== 0 && this.o.width.indexOf("%")
+      this.relativeHeight = this.o.height % 1 !== 0 && this.o.height.indexOf("%")
       this.relative = this.relativeWidth || this.relativeHeight
 
       // computes size and carves the component
@@ -216,7 +214,7 @@
       }
 
       // binds configure event
-      this.$.bind('configure', cf).parent().bind('configure', cf)
+      this.$.bind("configure", cf).parent().bind("configure", cf)
 
       // finalize init
       this._listen()._configure()._xy().init()
@@ -247,8 +245,8 @@
 
       // finalize div
       this.$div.css({
-        width: this.w + 'px',
-        height: this.h + 'px'
+        width: this.w + "px",
+        height: this.h + "px"
       })
 
       // finalize canvas with computed width
@@ -300,8 +298,8 @@
       touchMove(e)
 
       // Touch events listeners
-      k.c.d.bind('touchmove.k', touchMove).bind('touchend.k', function () {
-        k.c.d.unbind('touchmove.k touchend.k')
+      k.c.d.bind("touchmove.k", touchMove).bind("touchend.k", function () {
+        k.c.d.unbind("touchmove.k touchend.k")
         s.val(s.cv)
       })
 
@@ -325,13 +323,13 @@
 
       // Mouse events listeners
       k.c.d
-        .bind('mousemove.k', mouseMove)
+        .bind("mousemove.k", mouseMove)
         .bind(
           // Escape key cancel current change
-          'keyup.k',
+          "keyup.k",
           function (e) {
             if (e.keyCode === 27) {
-              k.c.d.unbind('mouseup.k mousemove.k keyup.k')
+              k.c.d.unbind("mouseup.k mousemove.k keyup.k")
 
               if (s.eH && s.eH() === false) return
 
@@ -339,8 +337,8 @@
             }
           }
         )
-        .bind('mouseup.k', function (e) {
-          k.c.d.unbind('mousemove.k mouseup.k keyup.k')
+        .bind("mouseup.k", function (e) {
+          k.c.d.unbind("mousemove.k mouseup.k keyup.k")
           s.val(s.cv)
         })
 
@@ -357,18 +355,18 @@
     this._listen = function () {
       if (!this.o.readOnly) {
         this.$c
-          .bind('mousedown', function (e) {
+          .bind("mousedown", function (e) {
             e.preventDefault()
             s._xy()._mouse(e)
           })
-          .bind('touchstart', function (e) {
+          .bind("touchstart", function (e) {
             e.preventDefault()
             s._xy()._touch(e)
           })
 
         this.listen()
       } else {
-        this.$.attr('readonly', 'readonly')
+        this.$.attr("readonly", "readonly")
       }
 
       if (this.relative) {
@@ -389,8 +387,8 @@
       if (this.o.release) this.rH = this.o.release
 
       if (this.o.displayPrevious) {
-        this.pColor = this.h2rgba(this.o.fgColor, '0.4')
-        this.fgColor = this.h2rgba(this.o.fgColor, '0.6')
+        this.pColor = this.h2rgba(this.o.fgColor, "0.4")
+        this.fgColor = this.h2rgba(this.o.fgColor, "0.6")
       } else {
         this.fgColor = this.o.fgColor
       }
@@ -422,12 +420,8 @@
     this.h2rgba = function (h, a) {
       var rgb
       h = h.substring(1, 7)
-      rgb = [
-        parseInt(h.substring(0, 2), 16),
-        parseInt(h.substring(2, 4), 16),
-        parseInt(h.substring(4, 6), 16)
-      ]
-      return 'rgba(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ',' + a + ')'
+      rgb = [parseInt(h.substring(0, 2), 16), parseInt(h.substring(2, 4), 16), parseInt(h.substring(4, 6), 16)]
+      return "rgba(" + rgb[0] + "," + rgb[1] + "," + rgb[2] + "," + a + ")"
     }
 
     this.copy = function (f, t) {
@@ -454,9 +448,9 @@
     this.extend = function () {
       this.o = $.extend(
         {
-          bgColor: this.$.data('bgcolor') || '#EEEEEE',
-          angleOffset: this.$.data('angleoffset') || 0,
-          angleArc: this.$.data('anglearc') || 360,
+          bgColor: this.$.data("bgcolor") || "#EEEEEE",
+          angleOffset: this.$.data("angleoffset") || 0,
+          angleArc: this.$.data("anglearc") || 360,
           inline: true
         },
         this.o
@@ -507,8 +501,7 @@
             deltaX = ori.detail || ori.wheelDeltaX,
             deltaY = ori.detail || ori.wheelDeltaY,
             v =
-              s._validate(s.$.val()) +
-              (deltaX > 0 || deltaY > 0 ? s.o.step : deltaX < 0 || deltaY < 0 ? -s.o.step : 0)
+              s._validate(s.$.val()) + (deltaX > 0 || deltaY > 0 ? s.o.step : deltaX < 0 || deltaY < 0 ? -s.o.step : 0)
 
           v = max(min(v, s.o.max), s.o.min)
 
@@ -536,7 +529,7 @@
         m = 1,
         kv = { 37: -s.o.step, 38: s.o.step, 39: s.o.step, 40: -s.o.step }
 
-      this.$.bind('keydown', function (e) {
+      this.$.bind("keydown", function (e) {
         var kc = e.keyCode
 
         // numpad support
@@ -570,7 +563,7 @@
             }, 30)
           }
         }
-      }).bind('keyup', function (e) {
+      }).bind("keyup", function (e) {
         if (isNaN(kval)) {
           if (to) {
             window.clearTimeout(to)
@@ -584,8 +577,8 @@
         }
       })
 
-      this.$c.bind('mousewheel DOMMouseScroll', mw)
-      this.$.bind('mousewheel DOMMouseScroll', mw)
+      this.$c.bind("mousewheel DOMMouseScroll", mw)
+      this.$.bind("mousewheel DOMMouseScroll", mw)
     }
 
     this.init = function () {
@@ -599,8 +592,7 @@
       this.lineCap = this.o.lineCap
       this.radius = this.xy - this.lineWidth / 2
 
-      this.o.angleOffset &&
-        (this.o.angleOffset = isNaN(this.o.angleOffset) ? 0 : this.o.angleOffset)
+      this.o.angleOffset && (this.o.angleOffset = isNaN(this.o.angleOffset) ? 0 : this.o.angleOffset)
 
       this.o.angleArc && (this.o.angleArc = isNaN(this.o.angleArc) ? this.PI2 : this.o.angleArc)
 
@@ -616,23 +608,23 @@
 
       ;(this.o.displayInput &&
         this.i.css({
-          width: ((this.w / 2 + 4) >> 0) + 'px',
-          height: ((this.w / 3) >> 0) + 'px',
-          position: 'absolute',
-          'vertical-align': 'middle',
-          'margin-top': ((this.w / 3) >> 0) + 'px',
-          'margin-left': '-' + (((this.w * 3) / 4 + 2) >> 0) + 'px',
+          width: ((this.w / 2 + 4) >> 0) + "px",
+          height: ((this.w / 3) >> 0) + "px",
+          position: "absolute",
+          "vertical-align": "middle",
+          "margin-top": ((this.w / 3) >> 0) + "px",
+          "margin-left": "-" + (((this.w * 3) / 4 + 2) >> 0) + "px",
           border: 0,
-          background: 'none',
-          font: this.o.fontWeight + ' ' + ((this.w / s) >> 0) + 'px ' + this.o.font,
-          'text-align': 'center',
+          background: "none",
+          font: this.o.fontWeight + " " + ((this.w / s) >> 0) + "px " + this.o.font,
+          "text-align": "center",
           color: this.o.inputColor || this.o.fgColor,
-          padding: '0px',
-          '-webkit-appearance': 'none'
+          padding: "0px",
+          "-webkit-appearance": "none"
         })) ||
         this.i.css({
-          width: '0px',
-          visibility: 'hidden'
+          width: "0px",
+          visibility: "hidden"
         })
     }
 

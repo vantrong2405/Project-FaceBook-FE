@@ -19,7 +19,7 @@
 
 .lobibox,
 .lobibox-notify {
-  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
 
 .lobibox-notify-wrapper-large.bottom,
@@ -556,7 +556,7 @@ body.lobibox-open {
   transition: none;
 }
 
-.lobibox.lobibox-progress .lobibox-body .lobibox-progress-outer [data-role='progress-text'] {
+.lobibox.lobibox-progress .lobibox-body .lobibox-progress-outer [data-role="progress-text"] {
   font-weight: 700;
   color: rgba(0, 0, 0, 0.7);
 }
@@ -972,7 +972,7 @@ fieldset[disabled] .lobibox .lobibox-btn.lobibox-btn-default:hover {
 }
 
 .lobibox-notify-wrapper-large .lb-notify-tabs:after {
-  content: '';
+  content: "";
   display: block;
   clear: both;
 }
@@ -999,12 +999,7 @@ fieldset[disabled] .lobibox .lobibox-btn.lobibox-btn-default:hover {
   width: 100px;
 }
 
-.lobibox-notify-wrapper-large
-  .lb-notify-wrapper
-  .lobibox-notify
-  .lobibox-notify-icon
-  > div
-  .icon-el {
+.lobibox-notify-wrapper-large .lb-notify-wrapper .lobibox-notify .lobibox-notify-icon > div .icon-el {
   font-size: 78px;
 }
 

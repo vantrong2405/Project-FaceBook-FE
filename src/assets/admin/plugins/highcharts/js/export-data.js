@@ -8,25 +8,21 @@
  License: www.highcharts.com/license
 */
 ;(function (a) {
-  'object' === typeof module && module.exports
-    ? ((a['default'] = a), (module.exports = a))
-    : 'function' === typeof define && define.amd
-      ? define(
-          'highcharts/modules/export-data',
-          ['highcharts', 'highcharts/modules/exporting'],
-          function (g) {
-            a(g)
-            a.Highcharts = g
-            return a
-          }
-        )
-      : a('undefined' !== typeof Highcharts ? Highcharts : void 0)
+  "object" === typeof module && module.exports
+    ? ((a["default"] = a), (module.exports = a))
+    : "function" === typeof define && define.amd
+      ? define("highcharts/modules/export-data", ["highcharts", "highcharts/modules/exporting"], function (g) {
+          a(g)
+          a.Highcharts = g
+          return a
+        })
+      : a("undefined" !== typeof Highcharts ? Highcharts : void 0)
 })(function (a) {
   function g(a, d, e, c) {
     a.hasOwnProperty(d) || (a[d] = c.apply(null, e))
   }
   a = a ? a._modules : {}
-  g(a, 'Extensions/DownloadURL.js', [a['Core/Globals.js']], function (a) {
+  g(a, "Extensions/DownloadURL.js", [a["Core/Globals.js"]], function (a) {
     var d = a.win,
       e = d.navigator,
       c = d.document,
@@ -51,17 +47,16 @@
         }
       })
     a = a.downloadURL = function (a, p) {
-      var f = c.createElement('a')
-      if ('string' === typeof a || a instanceof String || !e.msSaveOrOpenBlob) {
-        a = '' + a
-        if (u || 2e6 < a.length)
-          if (((a = v(a) || ''), !a)) throw Error('Failed to convert to blob')
-        if ('undefined' !== typeof f.download)
+      var f = c.createElement("a")
+      if ("string" === typeof a || a instanceof String || !e.msSaveOrOpenBlob) {
+        a = "" + a
+        if (u || 2e6 < a.length) if (((a = v(a) || ""), !a)) throw Error("Failed to convert to blob")
+        if ("undefined" !== typeof f.download)
           (f.href = a), (f.download = p), c.body.appendChild(f), f.click(), c.body.removeChild(f)
         else
           try {
-            var g = d.open(a, 'chart')
-            if ('undefined' === typeof g || null === g) throw Error('Failed to open window')
+            var g = d.open(a, "chart")
+            if ("undefined" === typeof g || null === g) throw Error("Failed to open window")
           } catch (E) {
             d.location.href = a
           }
@@ -71,26 +66,26 @@
   })
   g(
     a,
-    'Extensions/ExportData.js',
+    "Extensions/ExportData.js",
     [
-      a['Core/Axis/Axis.js'],
-      a['Core/Chart/Chart.js'],
-      a['Core/Globals.js'],
-      a['Core/Utilities.js'],
-      a['Extensions/DownloadURL.js']
+      a["Core/Axis/Axis.js"],
+      a["Core/Chart/Chart.js"],
+      a["Core/Globals.js"],
+      a["Core/Utilities.js"],
+      a["Extensions/DownloadURL.js"]
     ],
     function (a, d, e, c, g) {
       function u(a, d) {
         var b = p.navigator,
-          f = -1 < b.userAgent.indexOf('WebKit') && 0 > b.userAgent.indexOf('Chrome'),
+          f = -1 < b.userAgent.indexOf("WebKit") && 0 > b.userAgent.indexOf("Chrome"),
           c = p.URL || p.webkitURL || p
         try {
           if (b.msSaveOrOpenBlob && p.MSBlobBuilder) {
             var q = new p.MSBlobBuilder()
             q.append(a)
-            return q.getBlob('image/svg+xml')
+            return q.getBlob("image/svg+xml")
           }
-          if (!f) return c.createObjectURL(new p.Blob(['\ufeff' + a], { type: d }))
+          if (!f) return c.createObjectURL(new p.Blob(["\ufeff" + a], { type: d }))
         } catch (M) {}
       }
       var v = e.doc,
@@ -109,30 +104,30 @@
       c({
         exporting: {
           csv: {
-            annotations: { itemDelimiter: '; ', join: !1 },
+            annotations: { itemDelimiter: "; ", join: !1 },
             columnHeaderFormatter: null,
-            dateFormat: '%Y-%m-%d %H:%M:%S',
+            dateFormat: "%Y-%m-%d %H:%M:%S",
             decimalPoint: null,
             itemDelimiter: null,
-            lineDelimiter: '\n'
+            lineDelimiter: "\n"
           },
           showTable: !1,
           useMultiLevelHeaders: !0,
           useRowspanHeaders: !0
         },
         lang: {
-          downloadCSV: 'Download CSV',
-          downloadXLS: 'Download XLS',
+          downloadCSV: "Download CSV",
+          downloadXLS: "Download XLS",
           exportData: {
-            annotationHeader: 'Annotations',
-            categoryHeader: 'Category',
-            categoryDatetimeHeader: 'DateTime'
+            annotationHeader: "Annotations",
+            categoryHeader: "Category",
+            categoryDatetimeHeader: "DateTime"
           },
-          viewData: 'View data table',
-          hideData: 'Hide data table'
+          viewData: "View data table",
+          hideData: "Hide data table"
         }
       })
-      e(d, 'render', function () {
+      e(d, "render", function () {
         this.options &&
           this.options.exporting &&
           this.options.exporting.showTable &&
@@ -141,8 +136,8 @@
           this.viewData()
       })
       d.prototype.setUpKeyToAxis = function () {
-        f.arearange && (f.arearange.prototype.keyToAxis = { low: 'y', high: 'y' })
-        f.gantt && (f.gantt.prototype.keyToAxis = { start: 'x', end: 'x' })
+        f.arearange && (f.arearange.prototype.keyToAxis = { low: "y", high: "y" })
+        f.gantt && (f.gantt.prototype.keyToAxis = { start: "x", end: "x" })
       }
       d.prototype.getDataRows = function (b) {
         var d = this.hasParallelCoordinates,
@@ -167,14 +162,14 @@
                 ? (l.options.title && l.options.title.text) || (l.dateTime ? x : A)
                 : b
                   ? { columnTitle: 1 < f ? d : l.name, topLevelColumnTitle: l.name }
-                  : l.name + (1 < f ? ' (' + d + ')' : '')
+                  : l.name + (1 < f ? " (" + d + ")" : "")
               : A
           },
           H = function (l, a, b) {
             var d = {},
               f = {}
             a.forEach(function (a) {
-              var c = ((l.keyToAxis && l.keyToAxis[a]) || a) + 'Axis'
+              var c = ((l.keyToAxis && l.keyToAxis[a]) || a) + "Axis"
               c = L(b) ? l.chart[c][b] : l[c]
               d[a] = (c && c.categories) || []
               f[a] = c && c.dateTime
@@ -183,18 +178,18 @@
           },
           y = function (a, b) {
             return a.data.filter(function (a) {
-              return 'undefined' !== typeof a.y && a.name
+              return "undefined" !== typeof a.y && a.name
             }).length &&
               b &&
               !b.categories &&
               !a.keyToAxis
               ? a.pointArrayMap &&
                 a.pointArrayMap.filter(function (a) {
-                  return 'x' === a
+                  return "x" === a
                 }).length
-                ? (a.pointArrayMap.unshift('x'), a.pointArrayMap)
-                : ['x', 'y']
-              : a.pointArrayMap || ['y']
+                ? (a.pointArrayMap.unshift("x"), a.pointArrayMap)
+                : ["x", "y"]
+              : a.pointArrayMap || ["y"]
           },
           h = []
         var z = 0
@@ -212,10 +207,7 @@
               return a[0] === C
             }) || h.push([C, z])
             for (k = 0; k < g; )
-              (r = G(a, l[k], l.length)),
-                n.push(r.columnTitle || r),
-                b && p.push(r.topLevelColumnTitle || r),
-                k++
+              (r = G(a, l[k], l.length)), n.push(r.columnTitle || r), b && p.push(r.topLevelColumnTitle || r), k++
             var t = {
               chart: a.chart,
               autoIncrement: a.autoIncrement,
@@ -229,8 +221,8 @@
               b = y.x
               var e = a.data[h] && a.data[h].name
               k = 0
-              if (!x || 'name' === a.exportKey || (!d && x && x.hasNames && e)) b = e
-              m && (m[b] && (b += '|' + h), (m[b] = !0))
+              if (!x || "name" === a.exportKey || (!d && x && x.hasNames && e)) b = e
+              m && (m[b] && (b += "|" + h), (m[b] = !0))
               q[b] || ((q[b] = []), (q[b].xValues = []))
               q[b].x = y.x
               q[b].name = e
@@ -264,28 +256,27 @@
             B &&
               !I(b) &&
               (B.dateTime
-                ? (a.x instanceof Date && (a.x = a.x.getTime()),
-                  (b = f.dateFormat(c.dateFormat, a.x)))
+                ? (a.x instanceof Date && (a.x = a.x.getTime()), (b = f.dateFormat(c.dateFormat, a.x)))
                 : (b = B.categories ? w(B.names[a.x], B.categories[a.x], a.x) : a.x))
             a.splice(v, 0, b)
           })
         }
         m = m.concat(g)
-        D(this, 'exportData', { dataRows: m })
+        D(this, "exportData", { dataRows: m })
         return m
       }
       d.prototype.getCSV = function (a) {
-        var b = '',
+        var b = "",
           d = this.getDataRows(),
           c = this.options.exporting.csv,
-          f = w(c.decimalPoint, ',' !== c.itemDelimiter && a ? (1.1).toLocaleString()[1] : '.'),
-          e = w(c.itemDelimiter, ',' === f ? ';' : ','),
+          f = w(c.decimalPoint, "," !== c.itemDelimiter && a ? (1.1).toLocaleString()[1] : "."),
+          e = w(c.itemDelimiter, "," === f ? ";" : ","),
           g = c.lineDelimiter
         d.forEach(function (a, c) {
           for (var k, q = a.length; q--; )
             (k = a[q]),
-              'string' === typeof k && (k = '"' + k + '"'),
-              'number' === typeof k && '.' !== f && (k = k.toString().replace('.', f)),
+              "string" === typeof k && (k = '"' + k + '"'),
+              "number" === typeof k && "." !== f && (k = k.toString().replace(".", f)),
               (a[q] = k)
           b += a.join(e)
           c < d.length - 1 && (b += g)
@@ -295,19 +286,19 @@
       d.prototype.getTable = function (a) {
         var b = '<table id="highcharts-data-table-' + this.index + '">',
           c = this.options,
-          d = a ? (1.1).toLocaleString()[1] : '.',
+          d = a ? (1.1).toLocaleString()[1] : ".",
           f = w(c.exporting.useMultiLevelHeaders, !0)
         a = this.getDataRows(f)
         var e = 0,
           g = f ? a.shift() : null,
           p = a.shift(),
           n = function (a, b, c, f) {
-            var e = w(f, '')
-            b = 'text' + (b ? ' ' + b : '')
-            'number' === typeof e
-              ? ((e = e.toString()), ',' === d && (e = e.replace('.', d)), (b = 'number'))
-              : f || (b = 'empty')
-            return '<' + a + (c ? ' ' + c : '') + ' class="' + b + '">' + e + '</' + a + '>'
+            var e = w(f, "")
+            b = "text" + (b ? " " + b : "")
+            "number" === typeof e
+              ? ((e = e.toString()), "," === d && (e = e.replace(".", d)), (b = "number"))
+              : f || (b = "empty")
+            return "<" + a + (c ? " " + c : "") + ' class="' + b + '">' + e + "</" + a + ">"
           }
         !1 !== c.exporting.tableCaption &&
           (b +=
@@ -316,18 +307,18 @@
               c.exporting.tableCaption,
               c.title.text
                 ? c.title.text
-                    .replace(/&/g, '&amp;')
-                    .replace(/</g, '&lt;')
-                    .replace(/>/g, '&gt;')
-                    .replace(/"/g, '&quot;')
-                    .replace(/'/g, '&#x27;')
-                    .replace(/\//g, '&#x2F;')
-                : 'Chart'
+                    .replace(/&/g, "&amp;")
+                    .replace(/</g, "&lt;")
+                    .replace(/>/g, "&gt;")
+                    .replace(/"/g, "&quot;")
+                    .replace(/'/g, "&#x27;")
+                    .replace(/\//g, "&#x2F;")
+                : "Chart"
             ) +
-            '</caption>')
+            "</caption>")
         for (var r = 0, t = a.length; r < t; ++r) a[r].length > e && (e = a[r].length)
         b += (function (a, b, d) {
-          var e = '<thead>',
+          var e = "<thead>",
             g = 0
           d = d || (b && b.length)
           var h,
@@ -344,86 +335,74 @@
             h = !h
           }
           if (h) {
-            for (e += '<tr>'; g < d; ++g) {
+            for (e += "<tr>"; g < d; ++g) {
               h = a[g]
               var m = a[g + 1]
               h === m
                 ? ++k
                 : k
-                  ? ((e += n(
-                      'th',
-                      'highcharts-table-topheading',
-                      'scope="col" colspan="' + (k + 1) + '"',
-                      h
-                    )),
-                    (k = 0))
+                  ? ((e += n("th", "highcharts-table-topheading", 'scope="col" colspan="' + (k + 1) + '"', h)), (k = 0))
                   : (h === b[g]
                       ? c.exporting.useRowspanHeaders
                         ? ((m = 2), delete b[g])
-                        : ((m = 1), (b[g] = ''))
+                        : ((m = 1), (b[g] = ""))
                       : (m = 1),
                     (e += n(
-                      'th',
-                      'highcharts-table-topheading',
-                      'scope="col"' + (1 < m ? ' valign="top" rowspan="' + m + '"' : ''),
+                      "th",
+                      "highcharts-table-topheading",
+                      'scope="col"' + (1 < m ? ' valign="top" rowspan="' + m + '"' : ""),
                       h
                     )))
             }
-            e += '</tr>'
+            e += "</tr>"
           }
           if (b) {
-            e += '<tr>'
+            e += "<tr>"
             g = 0
-            for (d = b.length; g < d; ++g)
-              'undefined' !== typeof b[g] && (e += n('th', null, 'scope="col"', b[g]))
-            e += '</tr>'
+            for (d = b.length; g < d; ++g) "undefined" !== typeof b[g] && (e += n("th", null, 'scope="col"', b[g]))
+            e += "</tr>"
           }
-          return e + '</thead>'
+          return e + "</thead>"
         })(g, p, Math.max(e, p.length))
-        b += '<tbody>'
+        b += "<tbody>"
         a.forEach(function (a) {
-          b += '<tr>'
-          for (var c = 0; c < e; c++) b += n(c ? 'td' : 'th', null, c ? '' : 'scope="row"', a[c])
-          b += '</tr>'
+          b += "<tr>"
+          for (var c = 0; c < e; c++) b += n(c ? "td" : "th", null, c ? "" : 'scope="row"', a[c])
+          b += "</tr>"
         })
-        b += '</tbody></table>'
+        b += "</tbody></table>"
         a = { html: b }
-        D(this, 'afterGetTable', a)
+        D(this, "afterGetTable", a)
         return a.html
       }
       d.prototype.downloadCSV = function () {
         var a = this.getCSV(!0)
-        F(
-          u(a, 'text/csv') || 'data:text/csv,\ufeff' + encodeURIComponent(a),
-          this.getFilename() + '.csv'
-        )
+        F(u(a, "text/csv") || "data:text/csv,\ufeff" + encodeURIComponent(a), this.getFilename() + ".csv")
       }
       d.prototype.downloadXLS = function () {
         var a =
           '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head>\x3c!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>Ark1</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--\x3e<style>td{border:none;font-family: Calibri, sans-serif;} .number{mso-number-format:"0.00";} .text{ mso-number-format:"@";}</style><meta name=ProgId content=Excel.Sheet><meta charset=UTF-8></head><body>' +
           this.getTable(!0) +
-          '</body></html>'
+          "</body></html>"
         F(
-          u(a, 'application/vnd.ms-excel') ||
-            'data:application/vnd.ms-excel;base64,' + p.btoa(unescape(encodeURIComponent(a))),
-          this.getFilename() + '.xls'
+          u(a, "application/vnd.ms-excel") ||
+            "data:application/vnd.ms-excel;base64," + p.btoa(unescape(encodeURIComponent(a))),
+          this.getFilename() + ".xls"
         )
       }
       d.prototype.viewData = function () {
         this.dataTableDiv ||
-          ((this.dataTableDiv = v.createElement('div')),
-          (this.dataTableDiv.className = 'highcharts-data-table'),
+          ((this.dataTableDiv = v.createElement("div")),
+          (this.dataTableDiv.className = "highcharts-data-table"),
           this.renderTo.parentNode.insertBefore(this.dataTableDiv, this.renderTo.nextSibling),
           (this.dataTableDiv.innerHTML = this.getTable()))
-        if ('' === this.dataTableDiv.style.display || 'none' === this.dataTableDiv.style.display)
-          this.dataTableDiv.style.display = 'block'
+        if ("" === this.dataTableDiv.style.display || "none" === this.dataTableDiv.style.display)
+          this.dataTableDiv.style.display = "block"
         this.isDataTableVisible = !0
-        D(this, 'afterViewData', this.dataTableDiv)
+        D(this, "afterViewData", this.dataTableDiv)
       }
       d.prototype.hideData = function () {
-        this.dataTableDiv &&
-          'block' === this.dataTableDiv.style.display &&
-          (this.dataTableDiv.style.display = 'none')
+        this.dataTableDiv && "block" === this.dataTableDiv.style.display && (this.dataTableDiv.style.display = "none")
         this.isDataTableVisible = !1
       }
       d.prototype.toggleDataTable = function () {
@@ -441,42 +420,36 @@
           d &&
           c &&
           c.length &&
-          (c[d.indexOf('viewData')].innerHTML = this.isDataTableVisible ? a.hideData : a.viewData)
+          (c[d.indexOf("viewData")].innerHTML = this.isDataTableVisible ? a.hideData : a.viewData)
       }
       var n = K().exporting
       n &&
         (J(n.menuItemDefinitions, {
           downloadCSV: {
-            textKey: 'downloadCSV',
+            textKey: "downloadCSV",
             onclick: function () {
               this.downloadCSV()
             }
           },
           downloadXLS: {
-            textKey: 'downloadXLS',
+            textKey: "downloadXLS",
             onclick: function () {
               this.downloadXLS()
             }
           },
           viewData: {
-            textKey: 'viewData',
+            textKey: "viewData",
             onclick: function () {
               this.toggleDataTable()
             }
           }
         }),
-        n.buttons &&
-          n.buttons.contextButton.menuItems.push(
-            'separator',
-            'downloadCSV',
-            'downloadXLS',
-            'viewData'
-          ))
-      f.map && (f.map.prototype.exportKey = 'name')
-      f.mapbubble && (f.mapbubble.prototype.exportKey = 'name')
-      f.treemap && (f.treemap.prototype.exportKey = 'name')
+        n.buttons && n.buttons.contextButton.menuItems.push("separator", "downloadCSV", "downloadXLS", "viewData"))
+      f.map && (f.map.prototype.exportKey = "name")
+      f.mapbubble && (f.mapbubble.prototype.exportKey = "name")
+      f.treemap && (f.treemap.prototype.exportKey = "name")
     }
   )
-  g(a, 'masters/modules/export-data.src.js', [], function () {})
+  g(a, "masters/modules/export-data.src.js", [], function () {})
 })
 //# sourceMappingURL=export-data.js.map

@@ -4,7 +4,7 @@ Docs & License: https://fullcalendar.io/
 (c) 2020 Adam Shaw
 */
 var FullCalendar = (function (exports) {
-  'use strict'
+  "use strict"
 
   /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -85,9 +85,9 @@ var FullCalendar = (function (exports) {
     var i,
       t = arguments,
       r = {}
-    for (i in l) 'key' !== i && 'ref' !== i && (r[i] = l[i])
+    for (i in l) "key" !== i && "ref" !== i && (r[i] = l[i])
     if (arguments.length > 3) for (u = [u], i = 3; i < arguments.length; i++) u.push(t[i])
-    if ((null != u && (r.children = u), 'function' == typeof n && null != n.defaultProps))
+    if ((null != u && (r.children = u), "function" == typeof n && null != n.defaultProps))
       for (i in n.defaultProps) void 0 === r[i] && (r[i] = n.defaultProps[i])
     return p(n, r, l && l.key, l && l.ref, null)
   }
@@ -120,7 +120,7 @@ var FullCalendar = (function (exports) {
   function w(n, l) {
     if (null == l) return n.__ ? w(n.__, n.__.__k.indexOf(n) + 1) : null
     for (var u; l < n.__k.length; l++) if (null != (u = n.__k[l]) && null != u.__e) return u.__e
-    return 'function' == typeof n.type ? w(n) : null
+    return "function" == typeof n.type ? w(n) : null
   }
   function k(n) {
     var l, u
@@ -134,8 +134,7 @@ var FullCalendar = (function (exports) {
     }
   }
   function g(l) {
-    ;((!l.__d && (l.__d = !0) && u.push(l) && !i++) || r !== n.debounceRendering) &&
-      ((r = n.debounceRendering) || t)(_)
+    ;((!l.__d && (l.__d = !0) && u.push(l) && !i++) || r !== n.debounceRendering) && ((r = n.debounceRendering) || t)(_)
   }
   function _() {
     for (var n; (i = u.length); )
@@ -170,11 +169,7 @@ var FullCalendar = (function (exports) {
       (a = 0),
       (l.__k = x(l.__k, function (u) {
         if (null != u) {
-          if (
-            ((u.__ = l),
-            (u.__b = l.__b + 1),
-            null === (p = g[a]) || (p && u.key == p.key && u.type === p.type))
-          )
+          if (((u.__ = l), (u.__b = l.__b + 1), null === (p = g[a]) || (p && u.key == p.key && u.type === p.type)))
             g[a] = void 0
           else
             for (h = 0; h < _; h++) {
@@ -186,9 +181,7 @@ var FullCalendar = (function (exports) {
             }
           if (
             ((y = A(n, u, (p = p || e), i, t, r, o, f, s)),
-            (h = u.ref) &&
-              p.ref != h &&
-              (k || (k = []), p.ref && k.push(p.ref, null, u), k.push(h, u.__c || y, u)),
+            (h = u.ref) && p.ref != h && (k || (k = []), p.ref && k.push(p.ref, null, u), k.push(h, u.__c || y, u)),
             null != y)
           ) {
             var c
@@ -199,28 +192,28 @@ var FullCalendar = (function (exports) {
                 for (d = f, h = 0; (d = d.nextSibling) && h < _; h += 2) if (d == y) break n
                 n.insertBefore(y, f), (c = f)
               }
-              'option' == l.type && (n.value = '')
+              "option" == l.type && (n.value = "")
             }
-            ;(f = void 0 !== c ? c : y.nextSibling), 'function' == typeof l.type && (l.__d = f)
+            ;(f = void 0 !== c ? c : y.nextSibling), "function" == typeof l.type && (l.__d = f)
           } else f && p.__e == f && f.parentNode != n && (f = w(p))
         }
         return a++, u
       })),
       (l.__e = m),
-      null != r && 'function' != typeof l.type)
+      null != r && "function" != typeof l.type)
     )
       for (a = r.length; a--; ) null != r[a] && v(r[a])
     for (a = _; a--; ) null != g[a] && D(g[a], g[a])
     if (k) for (a = 0; a < k.length; a++) j(k[a], k[++a], k[++a])
   }
   function x(n, l, u) {
-    if ((null == u && (u = []), null == n || 'boolean' == typeof n)) l && u.push(l(null))
+    if ((null == u && (u = []), null == n || "boolean" == typeof n)) l && u.push(l(null))
     else if (Array.isArray(n)) for (var i = 0; i < n.length; i++) x(n[i], l, u)
     else
       u.push(
         l
           ? l(
-              'string' == typeof n || 'number' == typeof n
+              "string" == typeof n || "number" == typeof n
                 ? p(null, n, null, null, n)
                 : null != n.__e || null != n.__c
                   ? p(n.type, n.props, n.key, null, n.__v)
@@ -232,54 +225,43 @@ var FullCalendar = (function (exports) {
   }
   function P(n, l, u, i, t) {
     var r
-    for (r in u) 'children' === r || 'key' === r || r in l || N(n, r, null, u[r], i)
+    for (r in u) "children" === r || "key" === r || r in l || N(n, r, null, u[r], i)
     for (r in l)
-      (t && 'function' != typeof l[r]) ||
-        'children' === r ||
-        'key' === r ||
-        'value' === r ||
-        'checked' === r ||
+      (t && "function" != typeof l[r]) ||
+        "children" === r ||
+        "key" === r ||
+        "value" === r ||
+        "checked" === r ||
         u[r] === l[r] ||
         N(n, r, l[r], u[r], i)
   }
   function C(n, l, u) {
-    '-' === l[0]
+    "-" === l[0]
       ? n.setProperty(l, u)
-      : (n[l] = 'number' == typeof u && !1 === s.test(l) ? u + 'px' : null == u ? '' : u)
+      : (n[l] = "number" == typeof u && !1 === s.test(l) ? u + "px" : null == u ? "" : u)
   }
   function N(n, l, u, i, t) {
     var r, o, f, e, c
-    if (
-      (t ? 'className' === l && (l = 'class') : 'class' === l && (l = 'className'), 'style' === l)
-    )
-      if (((r = n.style), 'string' == typeof u)) r.cssText = u
+    if ((t ? "className" === l && (l = "class") : "class" === l && (l = "className"), "style" === l))
+      if (((r = n.style), "string" == typeof u)) r.cssText = u
       else {
-        if (('string' == typeof i && ((r.cssText = ''), (i = null)), i))
-          for (e in i) (u && e in u) || C(r, e, '')
+        if (("string" == typeof i && ((r.cssText = ""), (i = null)), i)) for (e in i) (u && e in u) || C(r, e, "")
         if (u) for (c in u) (i && u[c] === i[c]) || C(r, c, u[c])
       }
     else
-      'o' === l[0] && 'n' === l[1]
-        ? ((o = l !== (l = l.replace(/Capture$/, ''))),
+      "o" === l[0] && "n" === l[1]
+        ? ((o = l !== (l = l.replace(/Capture$/, ""))),
           (f = l.toLowerCase()),
           (l = (f in n ? f : l).slice(2)),
-          u
-            ? (i || n.addEventListener(l, z, o), ((n.l || (n.l = {}))[l] = u))
-            : n.removeEventListener(l, z, o))
-        : 'list' !== l &&
-            'tagName' !== l &&
-            'form' !== l &&
-            'type' !== l &&
-            'size' !== l &&
-            !t &&
-            l in n
-          ? (n[l] = null == u ? '' : u)
-          : 'function' != typeof u &&
-            'dangerouslySetInnerHTML' !== l &&
-            (l !== (l = l.replace(/^xlink:?/, ''))
+          u ? (i || n.addEventListener(l, z, o), ((n.l || (n.l = {}))[l] = u)) : n.removeEventListener(l, z, o))
+        : "list" !== l && "tagName" !== l && "form" !== l && "type" !== l && "size" !== l && !t && l in n
+          ? (n[l] = null == u ? "" : u)
+          : "function" != typeof u &&
+            "dangerouslySetInnerHTML" !== l &&
+            (l !== (l = l.replace(/^xlink:?/, ""))
               ? null == u || !1 === u
-                ? n.removeAttributeNS('http://www.w3.org/1999/xlink', l.toLowerCase())
-                : n.setAttributeNS('http://www.w3.org/1999/xlink', l.toLowerCase(), u)
+                ? n.removeAttributeNS("http://www.w3.org/1999/xlink", l.toLowerCase())
+                : n.setAttributeNS("http://www.w3.org/1999/xlink", l.toLowerCase(), u)
               : null == u || (!1 === u && !/^ar/.test(l))
                 ? n.removeAttribute(l)
                 : n.setAttribute(l, u))
@@ -302,14 +284,14 @@ var FullCalendar = (function (exports) {
     if (void 0 !== u.constructor) return null
     ;(s = n.__b) && s(u)
     try {
-      n: if ('function' == typeof P) {
+      n: if ("function" == typeof P) {
         if (
           ((g = u.props),
           (_ = (s = P.contextType) && t[s.__c]),
           (x = s ? (_ ? _.props.value : s.__) : t),
           i.__c
             ? (k = (v = u.__c = i.__c).__ = v.__E)
-            : ('prototype' in P && P.prototype.render
+            : ("prototype" in P && P.prototype.render
                 ? (u.__c = v = new P(g, x))
                 : ((u.__c = v = new m(g, x)), (v.constructor = P), (v.render = E)),
               _ && _.sub(v),
@@ -321,15 +303,12 @@ var FullCalendar = (function (exports) {
               (v.__h = [])),
           null == v.__s && (v.__s = v.state),
           null != P.getDerivedStateFromProps &&
-            (v.__s == v.state && (v.__s = a({}, v.__s)),
-            a(v.__s, P.getDerivedStateFromProps(g, v.__s))),
+            (v.__s == v.state && (v.__s = a({}, v.__s)), a(v.__s, P.getDerivedStateFromProps(g, v.__s))),
           (p = v.props),
           (y = v.state),
           h)
         )
-          null == P.getDerivedStateFromProps &&
-            null != v.componentWillMount &&
-            v.componentWillMount(),
+          null == P.getDerivedStateFromProps && null != v.componentWillMount && v.componentWillMount(),
             null != v.componentDidMount && v.__h.push(v.componentDidMount)
         else {
           if (
@@ -337,9 +316,7 @@ var FullCalendar = (function (exports) {
               g !== p &&
               null != v.componentWillReceiveProps &&
               v.componentWillReceiveProps(g, x),
-            (!v.__e &&
-              null != v.shouldComponentUpdate &&
-              !1 === v.shouldComponentUpdate(g, v.__s, x)) ||
+            (!v.__e && null != v.shouldComponentUpdate && !1 === v.shouldComponentUpdate(g, v.__s, x)) ||
               (u.__v === i.__v && !v.__))
           ) {
             for (
@@ -371,12 +348,7 @@ var FullCalendar = (function (exports) {
           (v.__v = u),
           (v.__P = l),
           (s = v.render(v.props, v.state, v.context)),
-          (u.__k =
-            null != s && s.type == d && null == s.key
-              ? s.props.children
-              : Array.isArray(s)
-                ? s
-                : [s]),
+          (u.__k = null != s && s.type == d && null == s.key ? s.props.children : Array.isArray(s) ? s : [s]),
           null != v.getChildContext && (t = a(a({}, t), v.getChildContext())),
           h || null == v.getSnapshotBeforeUpdate || (w = v.getSnapshotBeforeUpdate(p, y)),
           b(l, u, i, t, r, o, f, e, c),
@@ -384,10 +356,7 @@ var FullCalendar = (function (exports) {
           v.__h.length && f.push(v),
           k && (v.__E = v.__ = null),
           (v.__e = !1)
-      } else
-        null == o && u.__v === i.__v
-          ? ((u.__k = i.__k), (u.__e = i.__e))
-          : (u.__e = $(i.__e, u, i, t, r, o, f, c))
+      } else null == o && u.__v === i.__v ? ((u.__k = i.__k), (u.__e = i.__e)) : (u.__e = $(i.__e, u, i, t, r, o, f, c))
       ;(s = n.diffed) && s(u)
     } catch (l) {
       ;(u.__v = null), n.__e(l, u, i)
@@ -416,19 +385,16 @@ var FullCalendar = (function (exports) {
       p,
       y = u.props,
       d = l.props
-    if (((t = 'svg' === l.type || t), null != r))
+    if (((t = "svg" === l.type || t), null != r))
       for (s = 0; s < r.length; s++)
-        if (
-          null != (a = r[s]) &&
-          ((null === l.type ? 3 === a.nodeType : a.localName === l.type) || n == a)
-        ) {
+        if (null != (a = r[s]) && ((null === l.type ? 3 === a.nodeType : a.localName === l.type) || n == a)) {
           ;(n = a), (r[s] = null)
           break
         }
     if (null == n) {
       if (null === l.type) return document.createTextNode(d)
       ;(n = t
-        ? document.createElementNS('http://www.w3.org/2000/svg', l.type)
+        ? document.createElementNS("http://www.w3.org/2000/svg", l.type)
         : document.createElement(l.type, d.is && { is: d.is })),
         (r = null),
         (f = !1)
@@ -441,31 +407,20 @@ var FullCalendar = (function (exports) {
         (h = d.dangerouslySetInnerHTML),
         !f)
       ) {
-        if (y === e)
-          for (y = {}, p = 0; p < n.attributes.length; p++)
-            y[n.attributes[p].name] = n.attributes[p].value
-        ;(h || v) && ((h && v && h.__html == v.__html) || (n.innerHTML = (h && h.__html) || ''))
+        if (y === e) for (y = {}, p = 0; p < n.attributes.length; p++) y[n.attributes[p].name] = n.attributes[p].value
+        ;(h || v) && ((h && v && h.__html == v.__html) || (n.innerHTML = (h && h.__html) || ""))
       }
       P(n, d, y, t, f),
-        h
-          ? (l.__k = [])
-          : ((l.__k = l.props.children),
-            b(n, l, u, i, 'foreignObject' !== l.type && t, r, o, e, f)),
+        h ? (l.__k = []) : ((l.__k = l.props.children), b(n, l, u, i, "foreignObject" !== l.type && t, r, o, e, f)),
         f ||
-          ('value' in d &&
-            void 0 !== (s = d.value) &&
-            s !== n.value &&
-            N(n, 'value', s, y.value, !1),
-          'checked' in d &&
-            void 0 !== (s = d.checked) &&
-            s !== n.checked &&
-            N(n, 'checked', s, y.checked, !1))
+          ("value" in d && void 0 !== (s = d.value) && s !== n.value && N(n, "value", s, y.value, !1),
+          "checked" in d && void 0 !== (s = d.checked) && s !== n.checked && N(n, "checked", s, y.checked, !1))
     }
     return n
   }
   function j(l, u, i) {
     try {
-      'function' == typeof l ? l(u) : (l.current = u)
+      "function" == typeof l ? l(u) : (l.current = u)
     } catch (l) {
       n.__e(l, i)
     }
@@ -475,7 +430,7 @@ var FullCalendar = (function (exports) {
     if (
       (n.unmount && n.unmount(l),
       (t = l.ref) && ((t.current && t.current !== l.__e) || j(t, null, u)),
-      i || 'function' == typeof l.type || (i = null != (r = l.__e)),
+      i || "function" == typeof l.type || (i = null != (r = l.__e)),
       (l.__e = l.__d = void 0),
       null != (t = l.__c))
     ) {
@@ -515,7 +470,7 @@ var FullCalendar = (function (exports) {
   function M(n) {
     var l = {},
       u = {
-        __c: '__cC' + f++,
+        __c: "__cC" + f++,
         __: n,
         Consumer: function (n, l) {
           return n.children(l)
@@ -570,7 +525,7 @@ var FullCalendar = (function (exports) {
     (m.prototype.setState = function (n, l) {
       var u
       ;(u = this.__s !== this.state ? this.__s : (this.__s = a({}, this.state))),
-        'function' == typeof n && (n = n(u, this.props)),
+        "function" == typeof n && (n = n(u, this.props)),
         n && a(u, n),
         null != n && this.__v && (l && this.__h.push(l), g(this))
     }),
@@ -580,11 +535,10 @@ var FullCalendar = (function (exports) {
     (m.prototype.render = d),
     (u = []),
     (i = 0),
-    (t =
-      'function' == typeof Promise ? Promise.prototype.then.bind(Promise.resolve()) : setTimeout),
+    (t = "function" == typeof Promise ? Promise.prototype.then.bind(Promise.resolve()) : setTimeout),
     (o = e),
     (f = 0)
-  ;(typeof globalThis !== 'undefined' ? globalThis : window).FullCalendarVDom = {
+  ;(typeof globalThis !== "undefined" ? globalThis : window).FullCalendarVDom = {
     Component: m,
     createElement: h,
     render: H,
@@ -603,7 +557,7 @@ var FullCalendar = (function (exports) {
       callbackQ.push(callback)
     }
     n.debounceRendering = execCallbackSync
-    H(h(FakeComponent, {}), document.createElement('div'))
+    H(h(FakeComponent, {}), document.createElement("div"))
     while (callbackQ.length) {
       callbackQ.shift()()
     }
@@ -615,7 +569,7 @@ var FullCalendar = (function (exports) {
       return (_super !== null && _super.apply(this, arguments)) || this
     }
     FakeComponent.prototype.render = function () {
-      return h('div', {})
+      return h("div", {})
     }
     FakeComponent.prototype.componentDidMount = function () {
       this.setState({})
@@ -665,24 +619,24 @@ var FullCalendar = (function (exports) {
     }
     EventSourceApi.prototype.remove = function () {
       this.context.dispatch({
-        type: 'REMOVE_EVENT_SOURCE',
+        type: "REMOVE_EVENT_SOURCE",
         sourceId: this.internalEventSource.sourceId
       })
     }
     EventSourceApi.prototype.refetch = function () {
       this.context.dispatch({
-        type: 'FETCH_EVENT_SOURCES',
+        type: "FETCH_EVENT_SOURCES",
         sourceIds: [this.internalEventSource.sourceId]
       })
     }
-    Object.defineProperty(EventSourceApi.prototype, 'id', {
+    Object.defineProperty(EventSourceApi.prototype, "id", {
       get: function () {
         return this.internalEventSource.publicId
       },
       enumerable: false,
       configurable: true
     })
-    Object.defineProperty(EventSourceApi.prototype, 'url', {
+    Object.defineProperty(EventSourceApi.prototype, "url", {
       // only relevant to json-feed event sources
       get: function () {
         return this.internalEventSource.meta.url
@@ -762,9 +716,9 @@ var FullCalendar = (function (exports) {
   }
   function applyStyleProp(el, name, val) {
     if (val == null) {
-      el.style[name] = ''
-    } else if (typeof val === 'number' && PIXEL_PROP_RE.test(name)) {
-      el.style[name] = val + 'px'
+      el.style[name] = ""
+    } else if (typeof val === "number" && PIXEL_PROP_RE.test(name)) {
+      el.style[name] = val + "px"
     } else {
       el.style[name] = val
     }
@@ -793,28 +747,28 @@ var FullCalendar = (function (exports) {
   }
   function listenToHoverBySelector(container, selector, onMouseEnter, onMouseLeave) {
     var currentMatchedChild
-    return listenBySelector(container, 'mouseover', selector, function (ev, matchedChild) {
+    return listenBySelector(container, "mouseover", selector, function (ev, matchedChild) {
       if (matchedChild !== currentMatchedChild) {
         currentMatchedChild = matchedChild
         onMouseEnter(ev, matchedChild)
         var realOnMouseLeave_1 = function (ev) {
           currentMatchedChild = null
           onMouseLeave(ev, matchedChild)
-          matchedChild.removeEventListener('mouseleave', realOnMouseLeave_1)
+          matchedChild.removeEventListener("mouseleave", realOnMouseLeave_1)
         }
         // listen to the next mouseleave, and then unattach
-        matchedChild.addEventListener('mouseleave', realOnMouseLeave_1)
+        matchedChild.addEventListener("mouseleave", realOnMouseLeave_1)
       }
     })
   }
   // Animation
   // ----------------------------------------------------------------------------------------------------------------
   var transitionEventNames = [
-    'webkitTransitionEnd',
-    'otransitionend',
-    'oTransitionEnd',
-    'msTransitionEnd',
-    'transitionend'
+    "webkitTransitionEnd",
+    "otransitionend",
+    "oTransitionEnd",
+    "msTransitionEnd",
+    "transitionend"
   ]
   // triggered only when the next single subsequent transition finishes
   function whenTransitionDone(el, callback) {
@@ -837,51 +791,47 @@ var FullCalendar = (function (exports) {
     ----------------------------------------------------------------------------------------------------------------------*/
   // Make the mouse cursor express that an event is not allowed in the current area
   function disableCursor() {
-    document.body.classList.add('fc-not-allowed')
+    document.body.classList.add("fc-not-allowed")
   }
   // Returns the mouse cursor to its original look
   function enableCursor() {
-    document.body.classList.remove('fc-not-allowed')
+    document.body.classList.remove("fc-not-allowed")
   }
   /* Selection
     ----------------------------------------------------------------------------------------------------------------------*/
   function preventSelection(el) {
-    el.classList.add('fc-unselectable')
-    el.addEventListener('selectstart', preventDefault)
+    el.classList.add("fc-unselectable")
+    el.addEventListener("selectstart", preventDefault)
   }
   function allowSelection(el) {
-    el.classList.remove('fc-unselectable')
-    el.removeEventListener('selectstart', preventDefault)
+    el.classList.remove("fc-unselectable")
+    el.removeEventListener("selectstart", preventDefault)
   }
   /* Context Menu
     ----------------------------------------------------------------------------------------------------------------------*/
   function preventContextMenu(el) {
-    el.addEventListener('contextmenu', preventDefault)
+    el.addEventListener("contextmenu", preventDefault)
   }
   function allowContextMenu(el) {
-    el.removeEventListener('contextmenu', preventDefault)
+    el.removeEventListener("contextmenu", preventDefault)
   }
   function parseFieldSpecs(input) {
     var specs = []
     var tokens = []
     var i
     var token
-    if (typeof input === 'string') {
+    if (typeof input === "string") {
       tokens = input.split(/\s*,\s*/)
-    } else if (typeof input === 'function') {
+    } else if (typeof input === "function") {
       tokens = [input]
     } else if (Array.isArray(input)) {
       tokens = input
     }
     for (i = 0; i < tokens.length; i++) {
       token = tokens[i]
-      if (typeof token === 'string') {
-        specs.push(
-          token.charAt(0) === '-'
-            ? { field: token.substring(1), order: -1 }
-            : { field: token, order: 1 }
-        )
-      } else if (typeof token === 'function') {
+      if (typeof token === "string") {
+        specs.push(token.charAt(0) === "-" ? { field: token.substring(1), order: -1 } : { field: token, order: 1 })
+      } else if (typeof token === "function") {
         specs.push({ func: token })
       }
     }
@@ -914,7 +864,7 @@ var FullCalendar = (function (exports) {
     if (a == null) {
       return 1
     }
-    if (typeof a === 'string' || typeof b === 'string') {
+    if (typeof a === "string" || typeof b === "string") {
       return String(a).localeCompare(String(b))
     }
     return a - b
@@ -923,7 +873,7 @@ var FullCalendar = (function (exports) {
     ----------------------------------------------------------------------------------------------------------------------*/
   function padStart(val, len) {
     var s = String(val)
-    return '000'.substr(0, len - s.length) + s
+    return "000".substr(0, len - s.length) + s
   }
   /* Number Utilities
     ----------------------------------------------------------------------------------------------------------------------*/
@@ -936,13 +886,13 @@ var FullCalendar = (function (exports) {
   /* FC-specific DOM dimension stuff
     ----------------------------------------------------------------------------------------------------------------------*/
   function computeSmallestCellWidth(cellEl) {
-    var allWidthEl = cellEl.querySelector('.fc-scrollgrid-shrink-frame')
-    var contentWidthEl = cellEl.querySelector('.fc-scrollgrid-shrink-cushion')
+    var allWidthEl = cellEl.querySelector(".fc-scrollgrid-shrink-frame")
+    var contentWidthEl = cellEl.querySelector(".fc-scrollgrid-shrink-cushion")
     if (!allWidthEl) {
-      throw new Error('needs fc-scrollgrid-shrink-frame className') // TODO: use const
+      throw new Error("needs fc-scrollgrid-shrink-frame className") // TODO: use const
     }
     if (!contentWidthEl) {
-      throw new Error('needs fc-scrollgrid-shrink-cushion className')
+      throw new Error("needs fc-scrollgrid-shrink-cushion className")
     }
     return (
       cellEl.getBoundingClientRect().width -
@@ -951,7 +901,7 @@ var FullCalendar = (function (exports) {
     )
   }
 
-  var DAY_IDS = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']
+  var DAY_IDS = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"]
   // Adding
   function addWeeks(m, n) {
     var a = dateToUtcArray(m)
@@ -1017,13 +967,7 @@ var FullCalendar = (function (exports) {
     return arrayToUtcDate([m.getUTCFullYear(), m.getUTCMonth(), m.getUTCDate(), m.getUTCHours()])
   }
   function startOfMinute(m) {
-    return arrayToUtcDate([
-      m.getUTCFullYear(),
-      m.getUTCMonth(),
-      m.getUTCDate(),
-      m.getUTCHours(),
-      m.getUTCMinutes()
-    ])
+    return arrayToUtcDate([m.getUTCFullYear(), m.getUTCMonth(), m.getUTCDate(), m.getUTCHours(), m.getUTCMinutes()])
   }
   function startOfSecond(m) {
     return arrayToUtcDate([
@@ -1137,7 +1081,7 @@ var FullCalendar = (function (exports) {
         // collect the trailing object values, stopping when a non-object is discovered
         for (var i = propObjs.length - 1; i >= 0; i--) {
           var val = propObjs[i][name_1]
-          if (typeof val === 'object' && val) {
+          if (typeof val === "object" && val) {
             // non-null object
             complexObjs.unshift(val)
           } else if (val !== undefined) {
@@ -1334,17 +1278,9 @@ var FullCalendar = (function (exports) {
       if (def.recurringDef) {
         var duration = def.recurringDef.duration
         if (!duration) {
-          duration = def.allDay
-            ? options.defaultAllDayEventDuration
-            : options.defaultTimedEventDuration
+          duration = def.allDay ? options.defaultAllDayEventDuration : options.defaultTimedEventDuration
         }
-        var starts = expandRecurringRanges(
-          def,
-          duration,
-          framingRange,
-          dateEnv,
-          pluginHooks.recurringTypes
-        )
+        var starts = expandRecurringRanges(def, duration, framingRange, dateEnv, pluginHooks.recurringTypes)
         for (var _i = 0, starts_1 = starts; _i < starts_1.length; _i++) {
           var start = starts_1[_i]
           var instance = createEventInstance(defId, {
@@ -1377,18 +1313,18 @@ var FullCalendar = (function (exports) {
     return markers
   }
 
-  var INTERNAL_UNITS = ['years', 'months', 'days', 'milliseconds']
+  var INTERNAL_UNITS = ["years", "months", "days", "milliseconds"]
   var PARSE_RE = /^(-?)(?:(\d+)\.)?(\d+):(\d\d)(?::(\d\d)(?:\.(\d\d\d))?)?/
   // Parsing and Creation
   function createDuration(input, unit) {
     var _a
-    if (typeof input === 'string') {
+    if (typeof input === "string") {
       return parseString(input)
-    } else if (typeof input === 'object' && input) {
+    } else if (typeof input === "object" && input) {
       // non-null object
       return parseObject(input)
-    } else if (typeof input === 'number') {
-      return parseObject(((_a = {}), (_a[unit || 'milliseconds'] = input), _a))
+    } else if (typeof input === "number") {
+      return parseObject(((_a = {}), (_a[unit || "milliseconds"] = input), _a))
     } else {
       return null
     }
@@ -1432,10 +1368,7 @@ var FullCalendar = (function (exports) {
   // Equality
   function durationsEqual(d0, d1) {
     return (
-      d0.years === d1.years &&
-      d0.months === d1.months &&
-      d0.days === d1.days &&
-      d0.milliseconds === d1.milliseconds
+      d0.years === d1.years && d0.months === d1.months && d0.days === d1.days && d0.milliseconds === d1.milliseconds
     )
   }
   function asCleanDays(dur) {
@@ -1487,9 +1420,7 @@ var FullCalendar = (function (exports) {
     return asRoughMs(dur) / 1000
   }
   function asRoughMs(dur) {
-    return (
-      dur.years * (365 * 864e5) + dur.months * (30 * 864e5) + dur.days * 864e5 + dur.milliseconds
-    )
+    return dur.years * (365 * 864e5) + dur.months * (30 * 864e5) + dur.days * 864e5 + dur.milliseconds
   }
   // Advanced Math
   function wholeDivideDurations(numerator, denominator) {
@@ -1513,31 +1444,31 @@ var FullCalendar = (function (exports) {
     var ms = dur.milliseconds
     if (ms) {
       if (ms % 1000 !== 0) {
-        return { unit: 'millisecond', value: ms }
+        return { unit: "millisecond", value: ms }
       }
       if (ms % (1000 * 60) !== 0) {
-        return { unit: 'second', value: ms / 1000 }
+        return { unit: "second", value: ms / 1000 }
       }
       if (ms % (1000 * 60 * 60) !== 0) {
-        return { unit: 'minute', value: ms / (1000 * 60) }
+        return { unit: "minute", value: ms / (1000 * 60) }
       }
       if (ms) {
-        return { unit: 'hour', value: ms / (1000 * 60 * 60) }
+        return { unit: "hour", value: ms / (1000 * 60 * 60) }
       }
     }
     if (dur.days) {
       if (dur.specifiedWeeks && dur.days % 7 === 0) {
-        return { unit: 'week', value: dur.days / 7 }
+        return { unit: "week", value: dur.days / 7 }
       }
-      return { unit: 'day', value: dur.days }
+      return { unit: "day", value: dur.days }
     }
     if (dur.months) {
-      return { unit: 'month', value: dur.months }
+      return { unit: "month", value: dur.months }
     }
     if (dur.years) {
-      return { unit: 'year', value: dur.years }
+      return { unit: "year", value: dur.years }
     }
-    return { unit: 'millisecond', value: 0 }
+    return { unit: "millisecond", value: 0 }
   }
 
   // timeZoneOffset is in minutes
@@ -1546,16 +1477,16 @@ var FullCalendar = (function (exports) {
       stripZeroTime = false
     }
     var s = marker.toISOString()
-    s = s.replace('.000', '')
+    s = s.replace(".000", "")
     if (stripZeroTime) {
-      s = s.replace('T00:00:00Z', '')
+      s = s.replace("T00:00:00Z", "")
     }
     if (s.length > 10) {
       // time part wasn't stripped, can add timezone info
       if (timeZoneOffset == null) {
-        s = s.replace('Z', '')
+        s = s.replace("Z", "")
       } else if (timeZoneOffset !== 0) {
-        s = s.replace('Z', formatTimeZoneOffset(timeZoneOffset, true))
+        s = s.replace("Z", formatTimeZoneOffset(timeZoneOffset, true))
       }
       // otherwise, its UTC-0 and we want to keep the Z
     }
@@ -1565,15 +1496,15 @@ var FullCalendar = (function (exports) {
   // TODO: somehow merge with buildIsoString and stripZeroTime
   // TODO: rename. omit "string"
   function formatDayString(marker) {
-    return marker.toISOString().replace(/T.*$/, '')
+    return marker.toISOString().replace(/T.*$/, "")
   }
   // TODO: use Date::toISOString and use everything after the T?
   function formatIsoTimeString(marker) {
     return (
       padStart(marker.getUTCHours(), 2) +
-      ':' +
+      ":" +
       padStart(marker.getUTCMinutes(), 2) +
-      ':' +
+      ":" +
       padStart(marker.getUTCSeconds(), 2)
     )
   }
@@ -1581,14 +1512,14 @@ var FullCalendar = (function (exports) {
     if (doIso === void 0) {
       doIso = false
     }
-    var sign = minutes < 0 ? '-' : '+'
+    var sign = minutes < 0 ? "-" : "+"
     var abs = Math.abs(minutes)
     var hours = Math.floor(abs / 60)
     var mins = Math.round(abs % 60)
     if (doIso) {
-      return sign + padStart(hours, 2) + ':' + padStart(mins, 2)
+      return sign + padStart(hours, 2) + ":" + padStart(mins, 2)
     } else {
-      return 'GMT' + sign + hours + (mins ? ':' + padStart(mins, 2) : '')
+      return "GMT" + sign + hours + (mins ? ":" + padStart(mins, 2) : "")
     }
   }
 
@@ -1715,8 +1646,7 @@ var FullCalendar = (function (exports) {
             teardownFunc(currentResHash[key])
           }
           var res = workerFunc.apply(this, newArgHash[key])
-          newResHash[key] =
-            resEquality && resEquality(res, currentResHash[key]) ? currentResHash[key] : res
+          newResHash[key] = resEquality && resEquality(res, currentResHash[key]) ? currentResHash[key] : res
         } else {
           newResHash[key] = currentResHash[key]
         }
@@ -1786,9 +1716,9 @@ var FullCalendar = (function (exports) {
       var biggestUnitForPartial = diffSeverity
       if (
         biggestUnitForPartial > 1 && // the two dates are different in a way that's larger scale than time
-        (standardDateProps.year === 'numeric' || standardDateProps.year === '2-digit') &&
-        (standardDateProps.month === 'numeric' || standardDateProps.month === '2-digit') &&
-        (standardDateProps.day === 'numeric' || standardDateProps.day === '2-digit')
+        (standardDateProps.year === "numeric" || standardDateProps.year === "2-digit") &&
+        (standardDateProps.month === "numeric" || standardDateProps.month === "2-digit") &&
+        (standardDateProps.day === "numeric" || standardDateProps.day === "2-digit")
       ) {
         biggestUnitForPartial = 1 // make it look like the dates are only different in terms of time
       }
@@ -1797,16 +1727,12 @@ var FullCalendar = (function (exports) {
       if (full0 === full1) {
         return full0
       }
-      var partialDateProps = computePartialFormattingOptions(
-        standardDateProps,
-        biggestUnitForPartial
-      )
+      var partialDateProps = computePartialFormattingOptions(standardDateProps, biggestUnitForPartial)
       var partialFormattingFunc = buildFormattingFunc(partialDateProps, extendedSettings, context)
       var partial0 = partialFormattingFunc(start)
       var partial1 = partialFormattingFunc(end)
       var insertion = findCommonInsertion(full0, partial0, full1, partial1)
-      var separator =
-        extendedSettings.separator || betterDefaultSeparator || context.defaultSeparator || ''
+      var separator = extendedSettings.separator || betterDefaultSeparator || context.defaultSeparator || ""
       if (insertion) {
         return insertion.before + partial0 + separator + partial1 + insertion.after
       }
@@ -1817,22 +1743,22 @@ var FullCalendar = (function (exports) {
         case 7:
         case 6:
         case 5:
-          return 'year'
+          return "year"
         case 4:
-          return 'month'
+          return "month"
         case 3:
-          return 'week'
+          return "week"
         case 2:
-          return 'day'
+          return "day"
         default:
-          return 'time' // really?
+          return "time" // really?
       }
     }
     return NativeFormatter
   })()
   function buildFormattingFunc(standardDateProps, extendedSettings, context) {
     var standardDatePropCnt = Object.keys(standardDateProps).length
-    if (standardDatePropCnt === 1 && standardDateProps.timeZoneName === 'short') {
+    if (standardDatePropCnt === 1 && standardDateProps.timeZoneName === "short") {
       return function (date) {
         return formatTimeZoneOffset(date.timeZoneOffset)
       }
@@ -1853,7 +1779,7 @@ var FullCalendar = (function (exports) {
     standardDateProps = __assign({}, standardDateProps) // copy
     extendedSettings = __assign({}, extendedSettings) // copy
     sanitizeSettings(standardDateProps, extendedSettings)
-    standardDateProps.timeZone = 'UTC' // we leverage the only guaranteed timeZone for our UTC markers
+    standardDateProps.timeZone = "UTC" // we leverage the only guaranteed timeZone for our UTC markers
     var normalFormat = new Intl.DateTimeFormat(context.locale.codes, standardDateProps)
     var zeroFormat // needed?
     if (extendedSettings.omitZeroMinute) {
@@ -1878,61 +1804,58 @@ var FullCalendar = (function (exports) {
     // requires that the hour/minute be present.
     if (standardDateProps.timeZoneName) {
       if (!standardDateProps.hour) {
-        standardDateProps.hour = '2-digit'
+        standardDateProps.hour = "2-digit"
       }
       if (!standardDateProps.minute) {
-        standardDateProps.minute = '2-digit'
+        standardDateProps.minute = "2-digit"
       }
     }
     // only support short timezone names
-    if (standardDateProps.timeZoneName === 'long') {
-      standardDateProps.timeZoneName = 'short'
+    if (standardDateProps.timeZoneName === "long") {
+      standardDateProps.timeZoneName = "short"
     }
     // if requesting to display seconds, MUST display minutes
-    if (
-      extendedSettings.omitZeroMinute &&
-      (standardDateProps.second || standardDateProps.millisecond)
-    ) {
+    if (extendedSettings.omitZeroMinute && (standardDateProps.second || standardDateProps.millisecond)) {
       delete extendedSettings.omitZeroMinute
     }
   }
   function postProcess(s, date, standardDateProps, extendedSettings, context) {
-    s = s.replace(LTR_RE, '') // remove left-to-right control chars. do first. good for other regexes
-    if (standardDateProps.timeZoneName === 'short') {
+    s = s.replace(LTR_RE, "") // remove left-to-right control chars. do first. good for other regexes
+    if (standardDateProps.timeZoneName === "short") {
       s = injectTzoStr(
         s,
-        context.timeZone === 'UTC' || date.timeZoneOffset == null
-          ? 'UTC' // important to normalize for IE, which does "GMT"
+        context.timeZone === "UTC" || date.timeZoneOffset == null
+          ? "UTC" // important to normalize for IE, which does "GMT"
           : formatTimeZoneOffset(date.timeZoneOffset)
       )
     }
     if (extendedSettings.omitCommas) {
-      s = s.replace(COMMA_RE, '').trim()
+      s = s.replace(COMMA_RE, "").trim()
     }
     if (extendedSettings.omitZeroMinute) {
-      s = s.replace(':00', '') // zeroFormat doesn't always achieve this
+      s = s.replace(":00", "") // zeroFormat doesn't always achieve this
     }
     // ^ do anything that might create adjacent spaces before this point,
     // because MERIDIEM_RE likes to eat up loading spaces
     if (extendedSettings.meridiem === false) {
-      s = s.replace(MERIDIEM_RE, '').trim()
-    } else if (extendedSettings.meridiem === 'narrow') {
+      s = s.replace(MERIDIEM_RE, "").trim()
+    } else if (extendedSettings.meridiem === "narrow") {
       // a/p
       s = s.replace(MERIDIEM_RE, function (m0, m1) {
         return m1.toLocaleLowerCase()
       })
-    } else if (extendedSettings.meridiem === 'short') {
+    } else if (extendedSettings.meridiem === "short") {
       // am/pm
       s = s.replace(MERIDIEM_RE, function (m0, m1) {
-        return m1.toLocaleLowerCase() + 'm'
+        return m1.toLocaleLowerCase() + "m"
       })
-    } else if (extendedSettings.meridiem === 'lowercase') {
+    } else if (extendedSettings.meridiem === "lowercase") {
       // other meridiem transformers already converted to lowercase
       s = s.replace(MERIDIEM_RE, function (m0) {
         return m0.toLocaleLowerCase()
       })
     }
-    s = s.replace(MULTI_SPACE_RE, ' ')
+    s = s.replace(MULTI_SPACE_RE, " ")
     s = s.trim()
     return s
   }
@@ -1944,24 +1867,24 @@ var FullCalendar = (function (exports) {
     })
     // IE11 doesn't include UTC/GMT in the original string, so append to end
     if (!replaced) {
-      s += ' ' + tzoStr
+      s += " " + tzoStr
     }
     return s
   }
   function formatWeekNumber(num, weekText, locale, display) {
     var parts = []
-    if (display === 'narrow') {
+    if (display === "narrow") {
       parts.push(weekText)
-    } else if (display === 'short') {
-      parts.push(weekText, ' ')
+    } else if (display === "short") {
+      parts.push(weekText, " ")
     }
     // otherwise, considered 'numeric'
     parts.push(locale.simpleNumberFormat.format(num))
-    if (locale.options.direction === 'rtl') {
+    if (locale.options.direction === "rtl") {
       // TODO: use control characters instead?
       parts.reverse()
     }
-    return parts.join('')
+    return parts.join("")
   }
   // Range Formatting Utils
   // 0 = exactly the same
@@ -2065,16 +1988,10 @@ var FullCalendar = (function (exports) {
       this.cmdStr = cmdStr
     }
     CmdFormatter.prototype.format = function (date, context, betterDefaultSeparator) {
-      return context.cmdFormatter(
-        this.cmdStr,
-        createVerboseFormattingArg(date, null, context, betterDefaultSeparator)
-      )
+      return context.cmdFormatter(this.cmdStr, createVerboseFormattingArg(date, null, context, betterDefaultSeparator))
     }
     CmdFormatter.prototype.formatRange = function (start, end, context, betterDefaultSeparator) {
-      return context.cmdFormatter(
-        this.cmdStr,
-        createVerboseFormattingArg(start, end, context, betterDefaultSeparator)
-      )
+      return context.cmdFormatter(this.cmdStr, createVerboseFormattingArg(start, end, context, betterDefaultSeparator))
     }
     return CmdFormatter
   })()
@@ -2093,12 +2010,12 @@ var FullCalendar = (function (exports) {
   })()
 
   function createFormatter(input) {
-    if (typeof input === 'object' && input) {
+    if (typeof input === "object" && input) {
       // non-null object
       return new NativeFormatter(input)
-    } else if (typeof input === 'string') {
+    } else if (typeof input === "string") {
       return new CmdFormatter(input)
-    } else if (typeof input === 'function') {
+    } else if (typeof input === "function") {
       return new FuncFormatter(input)
     }
   }
@@ -2259,45 +2176,45 @@ var FullCalendar = (function (exports) {
   // do NOT give a type here. need `typeof BASE_OPTION_DEFAULTS` to give real results.
   // raw values.
   var BASE_OPTION_DEFAULTS = {
-    eventDisplay: 'auto',
-    defaultRangeSeparator: ' - ',
-    titleRangeSeparator: ' \u2013 ',
-    defaultTimedEventDuration: '01:00:00',
+    eventDisplay: "auto",
+    defaultRangeSeparator: " - ",
+    titleRangeSeparator: " \u2013 ",
+    defaultTimedEventDuration: "01:00:00",
     defaultAllDayEventDuration: { day: 1 },
     forceEventDuration: false,
-    nextDayThreshold: '00:00:00',
+    nextDayThreshold: "00:00:00",
     dayHeaders: true,
-    initialView: '',
+    initialView: "",
     aspectRatio: 1.35,
     headerToolbar: {
-      start: 'title',
-      center: '',
-      end: 'today prev,next'
+      start: "title",
+      center: "",
+      end: "today prev,next"
     },
     weekends: true,
     weekNumbers: false,
-    weekNumberCalculation: 'local',
+    weekNumberCalculation: "local",
     editable: false,
     nowIndicator: false,
-    scrollTime: '06:00:00',
-    slotMinTime: '00:00:00',
-    slotMaxTime: '24:00:00',
+    scrollTime: "06:00:00",
+    slotMinTime: "00:00:00",
+    slotMaxTime: "24:00:00",
     showNonCurrentDates: true,
     lazyFetching: true,
-    startParam: 'start',
-    endParam: 'end',
-    timeZoneParam: 'timeZone',
-    timeZone: 'local',
+    startParam: "start",
+    endParam: "end",
+    timeZoneParam: "timeZone",
+    timeZone: "local",
     locales: [],
-    locale: '',
-    themeSystem: 'standard',
+    locale: "",
+    themeSystem: "standard",
     dragRevertDuration: 500,
     dragScroll: true,
     allDayMaintainDuration: false,
     unselectAuto: true,
-    dropAccept: '*',
-    eventOrder: 'start,-duration,allDay,title',
-    dayPopoverFormat: { month: 'long', day: 'numeric', year: 'numeric' },
+    dropAccept: "*",
+    eventOrder: "start,-duration,allDay,title",
+    dayPopoverFormat: { month: "long", day: "numeric", year: "numeric" },
     handleWindowResize: true,
     windowResizeDelay: 100,
     longPressDelay: 1000,
@@ -2347,7 +2264,7 @@ var FullCalendar = (function (exports) {
     buttonIcons: isBoolComplexEqual
   }
   function isBoolComplexEqual(a, b) {
-    if (typeof a === 'object' && typeof b === 'object' && a && b) {
+    if (typeof a === "object" && typeof b === "object" && a && b) {
       // both non-null objects
       return isPropsEqual(a, b)
     } else {
@@ -2480,7 +2397,7 @@ var FullCalendar = (function (exports) {
   function normalizeConstraint(input, context) {
     if (Array.isArray(input)) {
       return parseEvents(input, null, context, true) // allowOpenRange=true
-    } else if (typeof input === 'object' && input) {
+    } else if (typeof input === "object" && input) {
       // non-null object
       return parseEvents([input], null, context, true) // allowOpenRange=true
     } else if (input != null) {
@@ -2493,7 +2410,7 @@ var FullCalendar = (function (exports) {
   function parseClassNames(raw) {
     if (Array.isArray(raw)) {
       return raw
-    } else if (typeof raw === 'string') {
+    } else if (typeof raw === "string") {
       return raw.split(/\s+/)
     } else {
       return []
@@ -2523,14 +2440,13 @@ var FullCalendar = (function (exports) {
     return {
       display: refined.display || null,
       startEditable: refined.startEditable != null ? refined.startEditable : refined.editable,
-      durationEditable:
-        refined.durationEditable != null ? refined.durationEditable : refined.editable,
+      durationEditable: refined.durationEditable != null ? refined.durationEditable : refined.editable,
       constraints: constraint != null ? [constraint] : [],
       overlap: refined.overlap != null ? refined.overlap : null,
       allows: refined.allow != null ? [refined.allow] : [],
-      backgroundColor: refined.backgroundColor || refined.color || '',
-      borderColor: refined.borderColor || refined.color || '',
-      textColor: refined.textColor || '',
+      backgroundColor: refined.backgroundColor || refined.color || "",
+      borderColor: refined.borderColor || refined.color || "",
+      textColor: refined.textColor || "",
       classNames: (refined.className || []).concat(refined.classNames || []) // join singular and plural
     }
   }
@@ -2542,10 +2458,9 @@ var FullCalendar = (function (exports) {
     return {
       display: item1.display != null ? item1.display : item0.display,
       startEditable: item1.startEditable != null ? item1.startEditable : item0.startEditable,
-      durationEditable:
-        item1.durationEditable != null ? item1.durationEditable : item0.durationEditable,
+      durationEditable: item1.durationEditable != null ? item1.durationEditable : item0.durationEditable,
       constraints: item0.constraints.concat(item1.constraints),
-      overlap: typeof item1.overlap === 'boolean' ? item1.overlap : item0.overlap,
+      overlap: typeof item1.overlap === "boolean" ? item1.overlap : item0.overlap,
       allows: item0.allows.concat(item1.allows),
       backgroundColor: item1.backgroundColor || item0.backgroundColor,
       borderColor: item1.borderColor || item0.borderColor,
@@ -2560,9 +2475,9 @@ var FullCalendar = (function (exports) {
     constraints: [],
     overlap: null,
     allows: [],
-    backgroundColor: '',
-    borderColor: '',
-    textColor: '',
+    backgroundColor: "",
+    borderColor: "",
+    textColor: "",
     classNames: []
   }
 
@@ -2578,10 +2493,9 @@ var FullCalendar = (function (exports) {
     date: identity,
     allDay: Boolean
   }
-  var EVENT_REFINERS = __assign(
-    __assign(__assign({}, EVENT_NON_DATE_REFINERS), EVENT_DATE_REFINERS),
-    { extendedProps: identity }
-  )
+  var EVENT_REFINERS = __assign(__assign(__assign({}, EVENT_NON_DATE_REFINERS), EVENT_DATE_REFINERS), {
+    extendedProps: identity
+  })
   function parseEvent(raw, eventSource, context, allowOpenRange, refiners) {
     if (refiners === void 0) {
       refiners = buildEventRefiners(context)
@@ -2590,17 +2504,12 @@ var FullCalendar = (function (exports) {
       refined = _a.refined,
       extra = _a.extra
     var defaultAllDay = computeIsDefaultAllDay(eventSource, context)
-    var recurringRes = parseRecurring(
-      refined,
-      defaultAllDay,
-      context.dateEnv,
-      context.pluginHooks.recurringTypes
-    )
+    var recurringRes = parseRecurring(refined, defaultAllDay, context.dateEnv, context.pluginHooks.recurringTypes)
     if (recurringRes) {
       var def = parseEventDef(
         refined,
         extra,
-        eventSource ? eventSource.sourceId : '',
+        eventSource ? eventSource.sourceId : "",
         recurringRes.allDay,
         Boolean(recurringRes.duration),
         context
@@ -2617,17 +2526,12 @@ var FullCalendar = (function (exports) {
         var def = parseEventDef(
           refined,
           extra,
-          eventSource ? eventSource.sourceId : '',
+          eventSource ? eventSource.sourceId : "",
           singleRes.allDay,
           singleRes.hasEnd,
           context
         )
-        var instance = createEventInstance(
-          def.defId,
-          singleRes.range,
-          singleRes.forcedStartTzo,
-          singleRes.forcedEndTzo
-        )
+        var instance = createEventInstance(def.defId, singleRes.range, singleRes.forcedStartTzo, singleRes.forcedEndTzo)
         return { def: def, instance: instance }
       }
     }
@@ -2640,10 +2544,7 @@ var FullCalendar = (function (exports) {
     return refineProps(raw, refiners)
   }
   function buildEventRefiners(context) {
-    return __assign(
-      __assign(__assign({}, EVENT_UI_REFINERS), EVENT_REFINERS),
-      context.pluginHooks.eventRefiners
-    )
+    return __assign(__assign(__assign({}, EVENT_UI_REFINERS), EVENT_REFINERS), context.pluginHooks.eventRefiners)
   }
   /*
     Will NOT populate extendedProps with the leftover properties.
@@ -2651,10 +2552,10 @@ var FullCalendar = (function (exports) {
     */
   function parseEventDef(refined, extra, sourceId, allDay, hasEnd, context) {
     var def = {
-      title: refined.title || '',
-      groupId: refined.groupId || '',
-      publicId: refined.id || '',
-      url: refined.url || '',
+      title: refined.title || "",
+      groupId: refined.groupId || "",
+      publicId: refined.id || "",
+      url: refined.url || "",
       recurringDef: null,
       defId: guid(),
       sourceId: sourceId,
@@ -2694,8 +2595,7 @@ var FullCalendar = (function (exports) {
         allDay = defaultAllDay
       } else {
         // fall back to the date props LAST
-        allDay =
-          (!startMeta || startMeta.isTimeUnspecified) && (!endMeta || endMeta.isTimeUnspecified)
+        allDay = (!startMeta || startMeta.isTimeUnspecified) && (!endMeta || endMeta.isTimeUnspecified)
       }
     }
     if (allDay && startMarker) {
@@ -2716,9 +2616,7 @@ var FullCalendar = (function (exports) {
       hasEnd = context.options.forceEventDuration || false
       endMarker = context.dateEnv.add(
         startMarker,
-        allDay
-          ? context.options.defaultAllDayEventDuration
-          : context.options.defaultTimedEventDuration
+        allDay ? context.options.defaultAllDayEventDuration : context.options.defaultTimedEventDuration
       )
     }
     return {
@@ -2783,10 +2681,10 @@ var FullCalendar = (function (exports) {
     return diffDays(visibleRange.start, visibleRange.end) > 1
   }
   function diffDates(date0, date1, dateEnv, largeUnit) {
-    if (largeUnit === 'year') {
-      return createDuration(dateEnv.diffWholeYears(date0, date1), 'year')
-    } else if (largeUnit === 'month') {
-      return createDuration(dateEnv.diffWholeMonths(date0, date1), 'month')
+    if (largeUnit === "year") {
+      return createDuration(dateEnv.diffWholeYears(date0, date1), "year")
+    } else if (largeUnit === "month") {
+      return createDuration(dateEnv.diffWholeMonths(date0, date1), "month")
     } else {
       return diffDayAndTime(date0, date1) // returns a duration
     }
@@ -2866,8 +2764,7 @@ var FullCalendar = (function (exports) {
     return (
       (range0.start === null ? null : range0.start.valueOf()) ===
         (range1.start === null ? null : range1.start.valueOf()) &&
-      (range0.end === null ? null : range0.end.valueOf()) ===
-        (range1.end === null ? null : range1.end.valueOf())
+      (range0.end === null ? null : range0.end.valueOf()) === (range1.end === null ? null : range1.end.valueOf())
     )
   }
   function rangesIntersect(range0, range1) {
@@ -2878,8 +2775,7 @@ var FullCalendar = (function (exports) {
   }
   function rangeContainsRange(outerRange, innerRange) {
     return (
-      (outerRange.start === null ||
-        (innerRange.start !== null && innerRange.start >= outerRange.start)) &&
+      (outerRange.start === null || (innerRange.start !== null && innerRange.start >= outerRange.start)) &&
       (outerRange.end === null || (innerRange.end !== null && innerRange.end <= outerRange.end))
     )
   }
@@ -2911,7 +2807,7 @@ var FullCalendar = (function (exports) {
     for (var defId in eventStore.defs) {
       var def = eventStore.defs[defId]
       var ui = eventUis[def.defId]
-      if (ui.display === 'inverse-background') {
+      if (ui.display === "inverse-background") {
         if (def.groupId) {
           inverseBgByGroupId[def.groupId] = []
           if (!defByGroupId[def.groupId]) {
@@ -2928,25 +2824,22 @@ var FullCalendar = (function (exports) {
       var ui = eventUis[def.defId]
       var origRange = instance.range
       var normalRange =
-        !def.allDay && nextDayThreshold
-          ? computeVisibleDayRange(origRange, nextDayThreshold)
-          : origRange
+        !def.allDay && nextDayThreshold ? computeVisibleDayRange(origRange, nextDayThreshold) : origRange
       var slicedRange = intersectRanges(normalRange, framingRange)
       if (slicedRange) {
-        if (ui.display === 'inverse-background') {
+        if (ui.display === "inverse-background") {
           if (def.groupId) {
             inverseBgByGroupId[def.groupId].push(slicedRange)
           } else {
             inverseBgByDefId[instance.defId].push(slicedRange)
           }
-        } else if (ui.display !== 'none') {
-          ;(ui.display === 'background' ? bgRanges : fgRanges).push({
+        } else if (ui.display !== "none") {
+          ;(ui.display === "background" ? bgRanges : fgRanges).push({
             def: def,
             ui: ui,
             instance: instance,
             range: slicedRange,
-            isStart:
-              normalRange.start && normalRange.start.valueOf() === slicedRange.start.valueOf(),
+            isStart: normalRange.start && normalRange.start.valueOf() === slicedRange.start.valueOf(),
             isEnd: normalRange.end && normalRange.end.valueOf() === slicedRange.end.valueOf()
           })
         }
@@ -2988,7 +2881,7 @@ var FullCalendar = (function (exports) {
     return { bg: bgRanges, fg: fgRanges }
   }
   function hasBgRendering(def) {
-    return def.ui.display === 'background' || def.ui.display === 'inverse-background'
+    return def.ui.display === "background" || def.ui.display === "inverse-background"
   }
   function setElSeg(el, seg) {
     el.fcSeg = seg
@@ -3008,8 +2901,8 @@ var FullCalendar = (function (exports) {
   }
   function compileEventUi(eventDef, eventUiBases) {
     var uis = []
-    if (eventUiBases['']) {
-      uis.push(eventUiBases[''])
+    if (eventUiBases[""]) {
+      uis.push(eventUiBases[""])
     }
     if (eventUiBases[eventDef.defId]) {
       uis.push(eventUiBases[eventDef.defId])
@@ -3056,9 +2949,7 @@ var FullCalendar = (function (exports) {
     return val
   }
   function computeSegStartResizable(seg, context) {
-    return (
-      seg.isStart && seg.eventRange.ui.durationEditable && context.options.eventResizableFromStart
-    )
+    return seg.isStart && seg.eventRange.ui.durationEditable && context.options.eventResizableFromStart
   }
   function computeSegEndResizable(seg, context) {
     return seg.isEnd && seg.eventRange.ui.durationEditable
@@ -3086,10 +2977,8 @@ var FullCalendar = (function (exports) {
     }
     if (displayEventTime && !eventDef.allDay && (seg.isStart || seg.isEnd)) {
       var segStart =
-        startOverride ||
-        (seg.isStart ? eventInstance.range.start : seg.start || seg.eventRange.range.start)
-      var segEnd =
-        endOverride || (seg.isEnd ? eventInstance.range.end : seg.end || seg.eventRange.range.end)
+        startOverride || (seg.isStart ? eventInstance.range.start : seg.start || seg.eventRange.range.start)
+      var segEnd = endOverride || (seg.isEnd ? eventInstance.range.end : seg.end || seg.eventRange.range.end)
       if (displayEventEnd && eventDef.hasEnd) {
         return dateEnv.formatRange(segStart, segEnd, timeFormat, {
           forcedStartTzo: startOverride ? null : eventInstance.forcedStartTzo,
@@ -3101,7 +2990,7 @@ var FullCalendar = (function (exports) {
         })
       }
     }
-    return ''
+    return ""
   }
   function getSegMeta(seg, todayRange, nowDate) {
     var segRange = seg.eventRange.range
@@ -3112,46 +3001,46 @@ var FullCalendar = (function (exports) {
     }
   }
   function getEventClassNames(props) {
-    var classNames = ['fc-event']
+    var classNames = ["fc-event"]
     if (props.isMirror) {
-      classNames.push('fc-event-mirror')
+      classNames.push("fc-event-mirror")
     }
     if (props.isDraggable) {
-      classNames.push('fc-event-draggable')
+      classNames.push("fc-event-draggable")
     }
     if (props.isStartResizable || props.isEndResizable) {
-      classNames.push('fc-event-resizable')
+      classNames.push("fc-event-resizable")
     }
     if (props.isDragging) {
-      classNames.push('fc-event-dragging')
+      classNames.push("fc-event-dragging")
     }
     if (props.isResizing) {
-      classNames.push('fc-event-resizing')
+      classNames.push("fc-event-resizing")
     }
     if (props.isSelected) {
-      classNames.push('fc-event-selected')
+      classNames.push("fc-event-selected")
     }
     if (props.isStart) {
-      classNames.push('fc-event-start')
+      classNames.push("fc-event-start")
     }
     if (props.isEnd) {
-      classNames.push('fc-event-end')
+      classNames.push("fc-event-end")
     }
     if (props.isPast) {
-      classNames.push('fc-event-past')
+      classNames.push("fc-event-past")
     }
     if (props.isToday) {
-      classNames.push('fc-event-today')
+      classNames.push("fc-event-today")
     }
     if (props.isFuture) {
-      classNames.push('fc-event-future')
+      classNames.push("fc-event-future")
     }
     return classNames
   }
   function buildEventRangeKey(eventRange) {
     return eventRange.instance
       ? eventRange.instance.instanceId
-      : eventRange.def.defId + ':' + eventRange.range.start.toISOString()
+      : eventRange.def.defId + ":" + eventRange.range.start.toISOString()
     // inverse-background events don't have specific instances. TODO: better solution
   }
 
@@ -3201,16 +3090,12 @@ var FullCalendar = (function (exports) {
     )
   }
   function isDateSpansEqual(span0, span1) {
-    return (
-      rangesEqual(span0.range, span1.range) &&
-      span0.allDay === span1.allDay &&
-      isSpanPropsEqual(span0, span1)
-    )
+    return rangesEqual(span0.range, span1.range) && span0.allDay === span1.allDay && isSpanPropsEqual(span0, span1)
   }
   // the NON-DATE-RELATED props
   function isSpanPropsEqual(span0, span1) {
     for (var propName in span1) {
-      if (propName !== 'range' && propName !== 'allDay') {
+      if (propName !== "range" && propName !== "allDay") {
         if (span0[propName] !== span1[propName]) {
           return false
         }
@@ -3248,7 +3133,7 @@ var FullCalendar = (function (exports) {
     var def = parseEventDef(
       res.refined,
       res.extra,
-      '', // sourceId
+      "", // sourceId
       dateSpan.allDay,
       true, // hasEnd
       context
@@ -3265,7 +3150,7 @@ var FullCalendar = (function (exports) {
 
   function triggerDateSelect(selection, pev, context) {
     context.emitter.trigger(
-      'select',
+      "select",
       __assign(__assign({}, buildDateSpanApiWithContext(selection, context)), {
         jsEvent: pev ? pev.origEvent : null,
         view: context.viewApi || context.calendarApi.view
@@ -3273,7 +3158,7 @@ var FullCalendar = (function (exports) {
     )
   }
   function triggerDateUnselect(pev, context) {
-    context.emitter.trigger('unselect', {
+    context.emitter.trigger("unselect", {
       jsEvent: pev ? pev.origEvent : null,
       view: context.viewApi || context.calendarApi.view
     })
@@ -3328,11 +3213,7 @@ var FullCalendar = (function (exports) {
     // if hasEnd has not been specified, guess a good value based on deltas.
     // if duration will change, there's no way the default duration will persist,
     // and thus, we need to mark the event as having a real end
-    if (
-      standardProps.hasEnd == null &&
-      eventConfig.durationEditable &&
-      (mutation.startDelta || mutation.endDelta)
-    ) {
+    if (standardProps.hasEnd == null && eventConfig.durationEditable && (mutation.startDelta || mutation.endDelta)) {
       standardProps.hasEnd = true // TODO: is this mutation okay?
     }
     var copy = __assign(__assign(__assign({}, eventDef), standardProps), {
@@ -3411,42 +3292,42 @@ var FullCalendar = (function (exports) {
       this.getCurrentData = getCurrentData
       this.dateEnv = dateEnv
     }
-    Object.defineProperty(ViewApi.prototype, 'calendar', {
+    Object.defineProperty(ViewApi.prototype, "calendar", {
       get: function () {
         return this.getCurrentData().calendarApi
       },
       enumerable: false,
       configurable: true
     })
-    Object.defineProperty(ViewApi.prototype, 'title', {
+    Object.defineProperty(ViewApi.prototype, "title", {
       get: function () {
         return this.getCurrentData().viewTitle
       },
       enumerable: false,
       configurable: true
     })
-    Object.defineProperty(ViewApi.prototype, 'activeStart', {
+    Object.defineProperty(ViewApi.prototype, "activeStart", {
       get: function () {
         return this.dateEnv.toDate(this.getCurrentData().dateProfile.activeRange.start)
       },
       enumerable: false,
       configurable: true
     })
-    Object.defineProperty(ViewApi.prototype, 'activeEnd', {
+    Object.defineProperty(ViewApi.prototype, "activeEnd", {
       get: function () {
         return this.dateEnv.toDate(this.getCurrentData().dateProfile.activeRange.end)
       },
       enumerable: false,
       configurable: true
     })
-    Object.defineProperty(ViewApi.prototype, 'currentStart', {
+    Object.defineProperty(ViewApi.prototype, "currentStart", {
       get: function () {
         return this.dateEnv.toDate(this.getCurrentData().dateProfile.currentRange.start)
       },
       enumerable: false,
       configurable: true
     })
-    Object.defineProperty(ViewApi.prototype, 'currentEnd', {
+    Object.defineProperty(ViewApi.prototype, "currentEnd", {
       get: function () {
         return this.dateEnv.toDate(this.getCurrentData().dateProfile.currentRange.end)
       },
@@ -3474,11 +3355,11 @@ var FullCalendar = (function (exports) {
       refiners = buildEventSourceRefiners(context)
     }
     var rawObj
-    if (typeof raw === 'string') {
+    if (typeof raw === "string") {
       rawObj = { url: raw }
-    } else if (typeof raw === 'function' || Array.isArray(raw)) {
+    } else if (typeof raw === "function" || Array.isArray(raw)) {
       rawObj = { events: raw }
-    } else if (typeof raw === 'object' && raw) {
+    } else if (typeof raw === "object" && raw) {
       // not null
       rawObj = raw
     }
@@ -3491,13 +3372,13 @@ var FullCalendar = (function (exports) {
         return {
           _raw: raw,
           isFetching: false,
-          latestFetchId: '',
+          latestFetchId: "",
           fetchRange: null,
           defaultAllDay: refined.defaultAllDay,
           eventDataTransform: refined.eventDataTransform,
           success: refined.success,
           failure: refined.failure,
-          publicId: refined.id || '',
+          publicId: refined.id || "",
           sourceId: guid(),
           sourceDefId: metaRes.sourceDefId,
           meta: metaRes.meta,
@@ -3529,7 +3410,7 @@ var FullCalendar = (function (exports) {
 
   function reduceCurrentDate(currentDate, action) {
     switch (action.type) {
-      case 'CHANGE_DATE':
+      case "CHANGE_DATE":
         return action.dateMarker
       default:
         return currentDate
@@ -3545,7 +3426,7 @@ var FullCalendar = (function (exports) {
     }
   }
   function getNow(nowInput, dateEnv) {
-    if (typeof nowInput === 'function') {
+    if (typeof nowInput === "function") {
       nowInput = nowInput()
     }
     if (nowInput == null) {
@@ -3562,7 +3443,7 @@ var FullCalendar = (function (exports) {
     CalendarApi.prototype.dispatch = function (action) {
       return this.currentDataManager.dispatch(action)
     }
-    Object.defineProperty(CalendarApi.prototype, 'view', {
+    Object.defineProperty(CalendarApi.prototype, "view", {
       get: function () {
         return this.getCurrentData().viewApi
       }, // for public API
@@ -3573,13 +3454,13 @@ var FullCalendar = (function (exports) {
       callback()
     }
     CalendarApi.prototype.updateSize = function () {
-      this.trigger('_resize', true)
+      this.trigger("_resize", true)
     }
     // Options
     // -----------------------------------------------------------------------------------------------------------------
     CalendarApi.prototype.setOption = function (name, val) {
       this.dispatch({
-        type: 'SET_OPTION',
+        type: "SET_OPTION",
         optionName: name,
         rawOptionValue: val
       })
@@ -3622,25 +3503,25 @@ var FullCalendar = (function (exports) {
           if (dateOrRange.start && dateOrRange.end) {
             // a range
             _this.dispatch({
-              type: 'CHANGE_VIEW_TYPE',
+              type: "CHANGE_VIEW_TYPE",
               viewType: viewType
             })
             _this.dispatch({
-              type: 'SET_OPTION',
-              optionName: 'visibleRange',
+              type: "SET_OPTION",
+              optionName: "visibleRange",
               rawOptionValue: dateOrRange
             })
           } else {
             var dateEnv = _this.getCurrentData().dateEnv
             _this.dispatch({
-              type: 'CHANGE_VIEW_TYPE',
+              type: "CHANGE_VIEW_TYPE",
               viewType: viewType,
               dateMarker: dateEnv.createMarker(dateOrRange)
             })
           }
         } else {
           _this.dispatch({
-            type: 'CHANGE_VIEW_TYPE',
+            type: "CHANGE_VIEW_TYPE",
             viewType: viewType
           })
         }
@@ -3652,18 +3533,18 @@ var FullCalendar = (function (exports) {
     CalendarApi.prototype.zoomTo = function (dateMarker, viewType) {
       var state = this.getCurrentData()
       var spec
-      viewType = viewType || 'day' // day is default zoom
+      viewType = viewType || "day" // day is default zoom
       spec = state.viewSpecs[viewType] || this.getUnitViewSpec(viewType)
       this.unselect()
       if (spec) {
         this.dispatch({
-          type: 'CHANGE_VIEW_TYPE',
+          type: "CHANGE_VIEW_TYPE",
           viewType: spec.type,
           dateMarker: dateMarker
         })
       } else {
         this.dispatch({
-          type: 'CHANGE_DATE',
+          type: "CHANGE_DATE",
           dateMarker: dateMarker
         })
       }
@@ -3693,17 +3574,17 @@ var FullCalendar = (function (exports) {
     // -----------------------------------------------------------------------------------------------------------------
     CalendarApi.prototype.prev = function () {
       this.unselect()
-      this.dispatch({ type: 'PREV' })
+      this.dispatch({ type: "PREV" })
     }
     CalendarApi.prototype.next = function () {
       this.unselect()
-      this.dispatch({ type: 'NEXT' })
+      this.dispatch({ type: "NEXT" })
     }
     CalendarApi.prototype.prevYear = function () {
       var state = this.getCurrentData()
       this.unselect()
       this.dispatch({
-        type: 'CHANGE_DATE',
+        type: "CHANGE_DATE",
         dateMarker: state.dateEnv.addYears(state.currentDate, -1)
       })
     }
@@ -3711,7 +3592,7 @@ var FullCalendar = (function (exports) {
       var state = this.getCurrentData()
       this.unselect()
       this.dispatch({
-        type: 'CHANGE_DATE',
+        type: "CHANGE_DATE",
         dateMarker: state.dateEnv.addYears(state.currentDate, 1)
       })
     }
@@ -3719,7 +3600,7 @@ var FullCalendar = (function (exports) {
       var state = this.getCurrentData()
       this.unselect()
       this.dispatch({
-        type: 'CHANGE_DATE',
+        type: "CHANGE_DATE",
         dateMarker: getNow(state.calendarOptions.now, state.dateEnv)
       })
     }
@@ -3727,7 +3608,7 @@ var FullCalendar = (function (exports) {
       var state = this.getCurrentData()
       this.unselect()
       this.dispatch({
-        type: 'CHANGE_DATE',
+        type: "CHANGE_DATE",
         dateMarker: state.dateEnv.createMarker(zonedDateInput)
       })
     }
@@ -3738,7 +3619,7 @@ var FullCalendar = (function (exports) {
         // else, warn about invalid input?
         this.unselect()
         this.dispatch({
-          type: 'CHANGE_DATE',
+          type: "CHANGE_DATE",
           dateMarker: state.dateEnv.add(state.currentDate, delta)
         })
       }
@@ -3797,7 +3678,7 @@ var FullCalendar = (function (exports) {
       )
       if (selection) {
         // throw parse error otherwise?
-        this.dispatch({ type: 'SELECT_DATES', selection: selection })
+        this.dispatch({ type: "SELECT_DATES", selection: selection })
         triggerDateSelect(selection, null, state)
       }
     }
@@ -3805,7 +3686,7 @@ var FullCalendar = (function (exports) {
     CalendarApi.prototype.unselect = function (pev) {
       var state = this.getCurrentData()
       if (state.dateSelection) {
-        this.dispatch({ type: 'UNSELECT_DATES' })
+        this.dispatch({ type: "UNSELECT_DATES" })
         triggerDateUnselect(pev, state)
       }
     }
@@ -3819,7 +3700,7 @@ var FullCalendar = (function (exports) {
         // not already present? don't want to add an old snapshot
         if (!currentData.eventStore.defs[def.defId]) {
           this.dispatch({
-            type: 'ADD_EVENTS',
+            type: "ADD_EVENTS",
             eventStore: eventTupleToStore({ def: def, instance: instance }) // TODO: better util for two args?
           })
           this.triggerEventAdd(eventInput)
@@ -3830,7 +3711,7 @@ var FullCalendar = (function (exports) {
       var eventSource
       if (sourceInput instanceof EventSourceApi) {
         eventSource = sourceInput.internalEventSource
-      } else if (typeof sourceInput === 'boolean') {
+      } else if (typeof sourceInput === "boolean") {
         if (sourceInput) {
           // true. part of the first event source
           eventSource = hashValuesToArray(state.eventSources)[0]
@@ -3847,13 +3728,9 @@ var FullCalendar = (function (exports) {
       }
       var tuple = parseEvent(eventInput, eventSource, state, false)
       if (tuple) {
-        var newEventApi = new EventApi(
-          state,
-          tuple.def,
-          tuple.def.recurringDef ? null : tuple.instance
-        )
+        var newEventApi = new EventApi(state, tuple.def, tuple.def.recurringDef ? null : tuple.instance)
         this.dispatch({
-          type: 'ADD_EVENTS',
+          type: "ADD_EVENTS",
           eventStore: eventTupleToStore(tuple)
         })
         this.triggerEventAdd(newEventApi)
@@ -3864,12 +3741,12 @@ var FullCalendar = (function (exports) {
     CalendarApi.prototype.triggerEventAdd = function (eventApi) {
       var _this = this
       var emitter = this.getCurrentData().emitter
-      emitter.trigger('eventAdd', {
+      emitter.trigger("eventAdd", {
         event: eventApi,
         relatedEvents: [],
         revert: function () {
           _this.dispatch({
-            type: 'REMOVE_EVENTS',
+            type: "REMOVE_EVENTS",
             eventStore: eventApiToStore(eventApi)
           })
         }
@@ -3904,7 +3781,7 @@ var FullCalendar = (function (exports) {
       return buildEventApis(currentData.eventStore, currentData)
     }
     CalendarApi.prototype.removeAllEvents = function () {
-      this.dispatch({ type: 'REMOVE_ALL_EVENTS' })
+      this.dispatch({ type: "REMOVE_ALL_EVENTS" })
     }
     // Public Event Sources API
     // -----------------------------------------------------------------------------------------------------------------
@@ -3934,7 +3811,7 @@ var FullCalendar = (function (exports) {
         // not already present? don't want to add an old snapshot
         if (!state.eventSources[sourceInput.internalEventSource.sourceId]) {
           this.dispatch({
-            type: 'ADD_EVENT_SOURCES',
+            type: "ADD_EVENT_SOURCES",
             sources: [sourceInput.internalEventSource]
           })
         }
@@ -3943,23 +3820,23 @@ var FullCalendar = (function (exports) {
       var eventSource = parseEventSource(sourceInput, state)
       if (eventSource) {
         // TODO: error otherwise?
-        this.dispatch({ type: 'ADD_EVENT_SOURCES', sources: [eventSource] })
+        this.dispatch({ type: "ADD_EVENT_SOURCES", sources: [eventSource] })
         return new EventSourceApi(state, eventSource)
       }
       return null
     }
     CalendarApi.prototype.removeAllEventSources = function () {
-      this.dispatch({ type: 'REMOVE_ALL_EVENT_SOURCES' })
+      this.dispatch({ type: "REMOVE_ALL_EVENT_SOURCES" })
     }
     CalendarApi.prototype.refetchEvents = function () {
-      this.dispatch({ type: 'FETCH_EVENT_SOURCES' })
+      this.dispatch({ type: "FETCH_EVENT_SOURCES" })
     }
     // Scroll
     // -----------------------------------------------------------------------------------------------------------------
     CalendarApi.prototype.scrollToTime = function (timeInput) {
       var time = createDuration(timeInput)
       if (time) {
-        this.trigger('_scrollRequest', { time: time })
+        this.trigger("_scrollRequest", { time: time })
       }
     }
     return CalendarApi
@@ -3979,9 +3856,7 @@ var FullCalendar = (function (exports) {
     EventApi.prototype.setProp = function (name, val) {
       var _a, _b
       if (name in EVENT_DATE_REFINERS) {
-        console.warn(
-          "Could not set date-related prop 'name'. Use one of the date-related methods instead."
-        )
+        console.warn("Could not set date-related prop 'name'. Use one of the date-related methods instead.")
       } else if (name in EVENT_NON_DATE_REFINERS) {
         val = EVENT_NON_DATE_REFINERS[name](val)
         this.mutate({
@@ -3989,9 +3864,9 @@ var FullCalendar = (function (exports) {
         })
       } else if (name in EVENT_UI_REFINERS) {
         var ui = EVENT_UI_REFINERS[name](val)
-        if (name === 'color') {
+        if (name === "color") {
           ui = { backgroundColor: val, borderColor: val }
-        } else if (name === 'editable') {
+        } else if (name === "editable") {
           ui = { startEditable: val, durationEditable: val }
         } else {
           ui = ((_b = {}), (_b[name] = val), _b)
@@ -4149,39 +4024,34 @@ var FullCalendar = (function (exports) {
         var eventStore = context_1.getCurrentData().eventStore
         var relevantEvents_1 = getRelevantEvents(eventStore, instance.instanceId)
         var eventConfigBase = {
-          '': {
-            display: '',
+          "": {
+            display: "",
             startEditable: true,
             durationEditable: true,
             constraints: [],
             overlap: null,
             allows: [],
-            backgroundColor: '',
-            borderColor: '',
-            textColor: '',
+            backgroundColor: "",
+            borderColor: "",
+            textColor: "",
             classNames: []
           }
         }
-        relevantEvents_1 = applyMutationToEventStore(
-          relevantEvents_1,
-          eventConfigBase,
-          mutation,
-          context_1
-        )
+        relevantEvents_1 = applyMutationToEventStore(relevantEvents_1, eventConfigBase, mutation, context_1)
         var oldEvent = new EventApi(context_1, def, instance) // snapshot
         this._def = relevantEvents_1.defs[def.defId]
         this._instance = relevantEvents_1.instances[instance.instanceId]
         context_1.dispatch({
-          type: 'MERGE_EVENTS',
+          type: "MERGE_EVENTS",
           eventStore: relevantEvents_1
         })
-        context_1.emitter.trigger('eventChange', {
+        context_1.emitter.trigger("eventChange", {
           oldEvent: oldEvent,
           event: this,
           relatedEvents: buildEventApis(relevantEvents_1, context_1, instance),
           revert: function () {
             context_1.dispatch({
-              type: 'REMOVE_EVENTS',
+              type: "REMOVE_EVENTS",
               eventStore: relevantEvents_1
             })
           }
@@ -4192,51 +4062,46 @@ var FullCalendar = (function (exports) {
       var context = this._context
       var asStore = eventApiToStore(this)
       context.dispatch({
-        type: 'REMOVE_EVENTS',
+        type: "REMOVE_EVENTS",
         eventStore: asStore
       })
-      context.emitter.trigger('eventRemove', {
+      context.emitter.trigger("eventRemove", {
         event: this,
         relatedEvents: [],
         revert: function () {
           context.dispatch({
-            type: 'MERGE_EVENTS',
+            type: "MERGE_EVENTS",
             eventStore: asStore
           })
         }
       })
     }
-    Object.defineProperty(EventApi.prototype, 'source', {
+    Object.defineProperty(EventApi.prototype, "source", {
       get: function () {
         var sourceId = this._def.sourceId
         if (sourceId) {
-          return new EventSourceApi(
-            this._context,
-            this._context.getCurrentData().eventSources[sourceId]
-          )
+          return new EventSourceApi(this._context, this._context.getCurrentData().eventSources[sourceId])
         }
         return null
       },
       enumerable: false,
       configurable: true
     })
-    Object.defineProperty(EventApi.prototype, 'start', {
+    Object.defineProperty(EventApi.prototype, "start", {
       get: function () {
         return this._instance ? this._context.dateEnv.toDate(this._instance.range.start) : null
       },
       enumerable: false,
       configurable: true
     })
-    Object.defineProperty(EventApi.prototype, 'end', {
+    Object.defineProperty(EventApi.prototype, "end", {
       get: function () {
-        return this._instance && this._def.hasEnd
-          ? this._context.dateEnv.toDate(this._instance.range.end)
-          : null
+        return this._instance && this._def.hasEnd ? this._context.dateEnv.toDate(this._instance.range.end) : null
       },
       enumerable: false,
       configurable: true
     })
-    Object.defineProperty(EventApi.prototype, 'startStr', {
+    Object.defineProperty(EventApi.prototype, "startStr", {
       get: function () {
         var instance = this._instance
         if (instance) {
@@ -4245,12 +4110,12 @@ var FullCalendar = (function (exports) {
             forcedTzo: instance.forcedStartTzo
           })
         }
-        return ''
+        return ""
       },
       enumerable: false,
       configurable: true
     })
-    Object.defineProperty(EventApi.prototype, 'endStr', {
+    Object.defineProperty(EventApi.prototype, "endStr", {
       get: function () {
         var instance = this._instance
         if (instance && this._def.hasEnd) {
@@ -4259,12 +4124,12 @@ var FullCalendar = (function (exports) {
             forcedTzo: instance.forcedEndTzo
           })
         }
-        return ''
+        return ""
       },
       enumerable: false,
       configurable: true
     })
-    Object.defineProperty(EventApi.prototype, 'id', {
+    Object.defineProperty(EventApi.prototype, "id", {
       // computable props that all access the def
       // TODO: find a TypeScript-compatible way to do this at scale
       get: function () {
@@ -4273,98 +4138,98 @@ var FullCalendar = (function (exports) {
       enumerable: false,
       configurable: true
     })
-    Object.defineProperty(EventApi.prototype, 'groupId', {
+    Object.defineProperty(EventApi.prototype, "groupId", {
       get: function () {
         return this._def.groupId
       },
       enumerable: false,
       configurable: true
     })
-    Object.defineProperty(EventApi.prototype, 'allDay', {
+    Object.defineProperty(EventApi.prototype, "allDay", {
       get: function () {
         return this._def.allDay
       },
       enumerable: false,
       configurable: true
     })
-    Object.defineProperty(EventApi.prototype, 'title', {
+    Object.defineProperty(EventApi.prototype, "title", {
       get: function () {
         return this._def.title
       },
       enumerable: false,
       configurable: true
     })
-    Object.defineProperty(EventApi.prototype, 'url', {
+    Object.defineProperty(EventApi.prototype, "url", {
       get: function () {
         return this._def.url
       },
       enumerable: false,
       configurable: true
     })
-    Object.defineProperty(EventApi.prototype, 'display', {
+    Object.defineProperty(EventApi.prototype, "display", {
       get: function () {
-        return this._def.ui.display || 'auto'
+        return this._def.ui.display || "auto"
       }, // bad. just normalize the type earlier
       enumerable: false,
       configurable: true
     })
-    Object.defineProperty(EventApi.prototype, 'startEditable', {
+    Object.defineProperty(EventApi.prototype, "startEditable", {
       get: function () {
         return this._def.ui.startEditable
       },
       enumerable: false,
       configurable: true
     })
-    Object.defineProperty(EventApi.prototype, 'durationEditable', {
+    Object.defineProperty(EventApi.prototype, "durationEditable", {
       get: function () {
         return this._def.ui.durationEditable
       },
       enumerable: false,
       configurable: true
     })
-    Object.defineProperty(EventApi.prototype, 'constraint', {
+    Object.defineProperty(EventApi.prototype, "constraint", {
       get: function () {
         return this._def.ui.constraints[0] || null
       },
       enumerable: false,
       configurable: true
     })
-    Object.defineProperty(EventApi.prototype, 'overlap', {
+    Object.defineProperty(EventApi.prototype, "overlap", {
       get: function () {
         return this._def.ui.overlap
       },
       enumerable: false,
       configurable: true
     })
-    Object.defineProperty(EventApi.prototype, 'allow', {
+    Object.defineProperty(EventApi.prototype, "allow", {
       get: function () {
         return this._def.ui.allows[0] || null
       },
       enumerable: false,
       configurable: true
     })
-    Object.defineProperty(EventApi.prototype, 'backgroundColor', {
+    Object.defineProperty(EventApi.prototype, "backgroundColor", {
       get: function () {
         return this._def.ui.backgroundColor
       },
       enumerable: false,
       configurable: true
     })
-    Object.defineProperty(EventApi.prototype, 'borderColor', {
+    Object.defineProperty(EventApi.prototype, "borderColor", {
       get: function () {
         return this._def.ui.borderColor
       },
       enumerable: false,
       configurable: true
     })
-    Object.defineProperty(EventApi.prototype, 'textColor', {
+    Object.defineProperty(EventApi.prototype, "textColor", {
       get: function () {
         return this._def.ui.textColor
       },
       enumerable: false,
       configurable: true
     })
-    Object.defineProperty(EventApi.prototype, 'classNames', {
+    Object.defineProperty(EventApi.prototype, "classNames", {
       // NOTE: user can't modify these because Object.freeze was called in event-def parsing
       get: function () {
         return this._def.ui.classNames
@@ -4372,7 +4237,7 @@ var FullCalendar = (function (exports) {
       enumerable: false,
       configurable: true
     })
-    Object.defineProperty(EventApi.prototype, 'extendedProps', {
+    Object.defineProperty(EventApi.prototype, "extendedProps", {
       get: function () {
         return this._def.extendedProps
       },
@@ -4407,7 +4272,7 @@ var FullCalendar = (function (exports) {
       if (def.url) {
         res.url = def.url
       }
-      if (ui.display && ui.display !== 'auto') {
+      if (ui.display && ui.display !== "auto") {
         res.display = ui.display
       }
       // TODO: what about recurring-event properties???
@@ -4455,7 +4320,7 @@ var FullCalendar = (function (exports) {
     var defs = eventStore.defs,
       instances = eventStore.instances
     var eventApis = []
-    var excludeInstanceId = excludeInstance ? excludeInstance.instanceId : ''
+    var excludeInstanceId = excludeInstance ? excludeInstance.instanceId : ""
     for (var id in instances) {
       var instance = instances[id]
       var def = defs[instance.defId]
@@ -4492,7 +4357,7 @@ var FullCalendar = (function (exports) {
     }
     return GregorianCalendarSystem
   })()
-  registerCalendarSystem('gregory', GregorianCalendarSystem)
+  registerCalendarSystem("gregory", GregorianCalendarSystem)
 
   var ISO_RE =
     /^\s*(\d{4})(-?(\d{2})(-?(\d{2})([T ](\d{2}):?(\d{2})(:?(\d{2})(\.(\d+))?)?(Z|(([-+])(\d{2})(:?(\d{2}))?))?)?)?)?$/
@@ -4507,13 +4372,13 @@ var FullCalendar = (function (exports) {
           Number(m[7] || 0),
           Number(m[8] || 0),
           Number(m[10] || 0),
-          m[12] ? Number('0.' + m[12]) * 1000 : 0
+          m[12] ? Number("0." + m[12]) * 1000 : 0
         )
       )
       if (isValidDate(marker)) {
         var timeZoneOffset = null
         if (m[13]) {
-          timeZoneOffset = (m[15] === '-' ? -1 : 1) * (Number(m[16] || 0) * 60 + Number(m[18] || 0))
+          timeZoneOffset = (m[15] === "-" ? -1 : 1) * (Number(m[16] || 0) * 60 + Number(m[18] || 0))
         }
         return {
           marker: marker,
@@ -4528,7 +4393,7 @@ var FullCalendar = (function (exports) {
   var DateEnv = /** @class */ (function () {
     function DateEnv(settings) {
       var timeZone = (this.timeZone = settings.timeZone)
-      var isNamedTimeZone = timeZone !== 'local' && timeZone !== 'UTC'
+      var isNamedTimeZone = timeZone !== "local" && timeZone !== "UTC"
       if (settings.namedTimeZoneImpl && isNamedTimeZone) {
         this.namedTimeZoneImpl = new settings.namedTimeZoneImpl(timeZone)
       }
@@ -4537,18 +4402,17 @@ var FullCalendar = (function (exports) {
       this.locale = settings.locale
       this.weekDow = settings.locale.week.dow
       this.weekDoy = settings.locale.week.doy
-      if (settings.weekNumberCalculation === 'ISO') {
+      if (settings.weekNumberCalculation === "ISO") {
         this.weekDow = 1
         this.weekDoy = 4
       }
-      if (typeof settings.firstDay === 'number') {
+      if (typeof settings.firstDay === "number") {
         this.weekDow = settings.firstDay
       }
-      if (typeof settings.weekNumberCalculation === 'function') {
+      if (typeof settings.weekNumberCalculation === "function") {
         this.weekNumberFunc = settings.weekNumberCalculation
       }
-      this.weekText =
-        settings.weekText != null ? settings.weekText : settings.locale.options.weekText
+      this.weekText = settings.weekText != null ? settings.weekText : settings.locale.options.weekText
       this.cmdFormatter = settings.cmdFormatter
       this.defaultSeparator = settings.defaultSeparator
     }
@@ -4570,11 +4434,11 @@ var FullCalendar = (function (exports) {
       }
     }
     DateEnv.prototype.createMarkerMeta = function (input) {
-      if (typeof input === 'string') {
+      if (typeof input === "string") {
         return this.parse(input)
       }
       var marker = null
-      if (typeof input === 'number') {
+      if (typeof input === "number") {
         marker = this.timestampToMarker(input)
       } else if (input instanceof Date) {
         input = input.valueOf()
@@ -4653,10 +4517,7 @@ var FullCalendar = (function (exports) {
     }
     DateEnv.prototype.diffWholeMonths = function (m0, m1) {
       var calendarSystem = this.calendarSystem
-      if (
-        timeAsMs(m0) === timeAsMs(m1) &&
-        calendarSystem.getMarkerDay(m0) === calendarSystem.getMarkerDay(m1)
-      ) {
+      if (timeAsMs(m0) === timeAsMs(m1) && calendarSystem.getMarkerDay(m0) === calendarSystem.getMarkerDay(m1)) {
         return (
           calendarSystem.getMarkerMonth(m1) -
           calendarSystem.getMarkerMonth(m0) +
@@ -4669,33 +4530,33 @@ var FullCalendar = (function (exports) {
     DateEnv.prototype.greatestWholeUnit = function (m0, m1) {
       var n = this.diffWholeYears(m0, m1)
       if (n !== null) {
-        return { unit: 'year', value: n }
+        return { unit: "year", value: n }
       }
       n = this.diffWholeMonths(m0, m1)
       if (n !== null) {
-        return { unit: 'month', value: n }
+        return { unit: "month", value: n }
       }
       n = diffWholeWeeks(m0, m1)
       if (n !== null) {
-        return { unit: 'week', value: n }
+        return { unit: "week", value: n }
       }
       n = diffWholeDays(m0, m1)
       if (n !== null) {
-        return { unit: 'day', value: n }
+        return { unit: "day", value: n }
       }
       n = diffHours(m0, m1)
       if (isInt(n)) {
-        return { unit: 'hour', value: n }
+        return { unit: "hour", value: n }
       }
       n = diffMinutes(m0, m1)
       if (isInt(n)) {
-        return { unit: 'minute', value: n }
+        return { unit: "minute", value: n }
       }
       n = diffSeconds(m0, m1)
       if (isInt(n)) {
-        return { unit: 'second', value: n }
+        return { unit: "second", value: n }
       }
-      return { unit: 'millisecond', value: m1.valueOf() - m0.valueOf() }
+      return { unit: "millisecond", value: m1.valueOf() - m0.valueOf() }
     }
     DateEnv.prototype.countDurationsBetween = function (m0, m1, d) {
       // TODO: can use greatestWholeUnit
@@ -4723,19 +4584,19 @@ var FullCalendar = (function (exports) {
     // Start-Of
     // these DON'T return zoned-dates. only UTC start-of dates
     DateEnv.prototype.startOf = function (m, unit) {
-      if (unit === 'year') {
+      if (unit === "year") {
         return this.startOfYear(m)
-      } else if (unit === 'month') {
+      } else if (unit === "month") {
         return this.startOfMonth(m)
-      } else if (unit === 'week') {
+      } else if (unit === "week") {
         return this.startOfWeek(m)
-      } else if (unit === 'day') {
+      } else if (unit === "day") {
         return startOfDay(m)
-      } else if (unit === 'hour') {
+      } else if (unit === "hour") {
         return startOfHour(m)
-      } else if (unit === 'minute') {
+      } else if (unit === "minute") {
         return startOfMinute(m)
-      } else if (unit === 'second') {
+      } else if (unit === "second") {
         return startOfSecond(m)
       }
     }
@@ -4771,8 +4632,7 @@ var FullCalendar = (function (exports) {
       return formatter.format(
         {
           marker: marker,
-          timeZoneOffset:
-            dateOptions.forcedTzo != null ? dateOptions.forcedTzo : this.offsetForMarker(marker)
+          timeZoneOffset: dateOptions.forcedTzo != null ? dateOptions.forcedTzo : this.offsetForMarker(marker)
         },
         this
       )
@@ -4787,15 +4647,11 @@ var FullCalendar = (function (exports) {
       return formatter.formatRange(
         {
           marker: start,
-          timeZoneOffset:
-            dateOptions.forcedStartTzo != null
-              ? dateOptions.forcedStartTzo
-              : this.offsetForMarker(start)
+          timeZoneOffset: dateOptions.forcedStartTzo != null ? dateOptions.forcedStartTzo : this.offsetForMarker(start)
         },
         {
           marker: end,
-          timeZoneOffset:
-            dateOptions.forcedEndTzo != null ? dateOptions.forcedEndTzo : this.offsetForMarker(end)
+          timeZoneOffset: dateOptions.forcedEndTzo != null ? dateOptions.forcedEndTzo : this.offsetForMarker(end)
         },
         this,
         dateOptions.defaultSeparator
@@ -4821,18 +4677,18 @@ var FullCalendar = (function (exports) {
     }
     // TimeZone
     DateEnv.prototype.timestampToMarker = function (ms) {
-      if (this.timeZone === 'local') {
+      if (this.timeZone === "local") {
         return arrayToUtcDate(dateToLocalArray(new Date(ms)))
-      } else if (this.timeZone === 'UTC' || !this.namedTimeZoneImpl) {
+      } else if (this.timeZone === "UTC" || !this.namedTimeZoneImpl) {
         return new Date(ms)
       } else {
         return arrayToUtcDate(this.namedTimeZoneImpl.timestampToArray(ms))
       }
     }
     DateEnv.prototype.offsetForMarker = function (m) {
-      if (this.timeZone === 'local') {
+      if (this.timeZone === "local") {
         return -arrayToLocalDate(dateToUtcArray(m)).getTimezoneOffset() // convert "inverse" offset to "normal" offset
-      } else if (this.timeZone === 'UTC') {
+      } else if (this.timeZone === "UTC") {
         return 0
       } else if (this.namedTimeZoneImpl) {
         return this.namedTimeZoneImpl.offsetForArray(dateToUtcArray(m))
@@ -4841,9 +4697,9 @@ var FullCalendar = (function (exports) {
     }
     // Conversion
     DateEnv.prototype.toDate = function (m, forcedTzo) {
-      if (this.timeZone === 'local') {
+      if (this.timeZone === "local") {
         return arrayToLocalDate(dateToUtcArray(m))
-      } else if (this.timeZone === 'UTC') {
+      } else if (this.timeZone === "UTC") {
         return new Date(m.valueOf()) // make sure it's a copy
       } else if (!this.namedTimeZoneImpl) {
         return new Date(m.valueOf() - (forcedTzo || 0))
@@ -4859,31 +4715,31 @@ var FullCalendar = (function (exports) {
   var globalLocales = []
 
   var RAW_EN_LOCALE = {
-    code: 'en',
+    code: "en",
     week: {
       dow: 0,
       doy: 4 // 4 days need to be within the year to be considered the first week
     },
-    direction: 'ltr',
+    direction: "ltr",
     buttonText: {
-      prev: 'prev',
-      next: 'next',
-      prevYear: 'prev year',
-      nextYear: 'next year',
-      year: 'year',
-      today: 'today',
-      month: 'month',
-      week: 'week',
-      day: 'day',
-      list: 'list'
+      prev: "prev",
+      next: "next",
+      prevYear: "prev year",
+      nextYear: "next year",
+      year: "year",
+      today: "today",
+      month: "month",
+      week: "week",
+      day: "day",
+      list: "list"
     },
-    weekText: 'W',
-    allDayText: 'all-day',
-    moreLinkText: 'more',
-    noEventsText: 'No events to display'
+    weekText: "W",
+    allDayText: "all-day",
+    moreLinkText: "more",
+    noEventsText: "No events to display"
   }
   function organizeRawLocales(explicitRawLocales) {
-    var defaultCode = explicitRawLocales.length > 0 ? explicitRawLocales[0].code : 'en'
+    var defaultCode = explicitRawLocales.length > 0 ? explicitRawLocales[0].code : "en"
     var allRawLocales = globalLocales.concat(explicitRawLocales)
     var rawLocaleMap = {
       en: RAW_EN_LOCALE // necessary?
@@ -4898,7 +4754,7 @@ var FullCalendar = (function (exports) {
     }
   }
   function buildLocale(inputSingular, available) {
-    if (typeof inputSingular === 'object' && !Array.isArray(inputSingular)) {
+    if (typeof inputSingular === "object" && !Array.isArray(inputSingular)) {
       return parseLocale(inputSingular.code, [inputSingular.code], inputSingular)
     } else {
       return queryLocale(inputSingular, available)
@@ -4911,9 +4767,9 @@ var FullCalendar = (function (exports) {
   }
   function queryRawLocale(codes, available) {
     for (var i = 0; i < codes.length; i++) {
-      var parts = codes[i].toLocaleLowerCase().split('-')
+      var parts = codes[i].toLocaleLowerCase().split("-")
       for (var j = parts.length; j > 0; j--) {
-        var simpleId = parts.slice(0, j).join('-')
+        var simpleId = parts.slice(0, j).join("-")
         if (available[simpleId]) {
           return available[simpleId]
         }
@@ -4922,7 +4778,7 @@ var FullCalendar = (function (exports) {
     return null
   }
   function parseLocale(codeArg, codes, raw) {
-    var merged = mergeProps([RAW_EN_LOCALE, raw], ['buttonText'])
+    var merged = mergeProps([RAW_EN_LOCALE, raw], ["buttonText"])
     delete merged.code // don't want this part of the options
     var week = merged.week
     delete merged.week
@@ -4944,7 +4800,7 @@ var FullCalendar = (function (exports) {
     var dateMeta = dateEnv.createMarkerMeta(dateInput)
     if (!dateMeta) {
       // TODO: warning?
-      return ''
+      return ""
     }
     return dateEnv.format(dateMeta.marker, formatter, {
       forcedTzo: dateMeta.forcedTzo
@@ -4955,13 +4811,13 @@ var FullCalendar = (function (exports) {
     endInput,
     options // mixture of env and formatter settings
   ) {
-    var dateEnv = buildDateEnv(typeof options === 'object' && options ? options : {}) // pass in if non-null object
+    var dateEnv = buildDateEnv(typeof options === "object" && options ? options : {}) // pass in if non-null object
     var formatter = createFormatter(options)
     var startMeta = dateEnv.createMarkerMeta(startInput)
     var endMeta = dateEnv.createMarkerMeta(endInput)
     if (!startMeta || !endMeta) {
       // TODO: warning?
-      return ''
+      return ""
     }
     return dateEnv.formatRange(startMeta.marker, endMeta.marker, formatter, {
       forcedStartTzo: startMeta.forcedTzo,
@@ -4972,22 +4828,21 @@ var FullCalendar = (function (exports) {
   }
   // TODO: more DRY and optimized
   function buildDateEnv(settings) {
-    var locale = buildLocale(settings.locale || 'en', organizeRawLocales([]).map) // TODO: don't hardcode 'en' everywhere
+    var locale = buildLocale(settings.locale || "en", organizeRawLocales([]).map) // TODO: don't hardcode 'en' everywhere
     return new DateEnv(
-      __assign(
-        __assign({ timeZone: BASE_OPTION_DEFAULTS.timeZone, calendarSystem: 'gregory' }, settings),
-        { locale: locale }
-      )
+      __assign(__assign({ timeZone: BASE_OPTION_DEFAULTS.timeZone, calendarSystem: "gregory" }, settings), {
+        locale: locale
+      })
     )
   }
 
   var DEF_DEFAULTS = {
-    startTime: '09:00',
-    endTime: '17:00',
+    startTime: "09:00",
+    endTime: "17:00",
     daysOfWeek: [1, 2, 3, 4, 5],
-    display: 'inverse-background',
-    classNames: 'fc-non-business',
-    groupId: '_businessHours' // so multiple defs get grouped
+    display: "inverse-background",
+    classNames: "fc-non-business",
+    groupId: "_businessHours" // so multiple defs get grouped
   }
   /*
     TODO: pass around as EventDefHash!!!
@@ -5004,7 +4859,7 @@ var FullCalendar = (function (exports) {
       rawDefs = input.filter(function (rawDef) {
         return rawDef.daysOfWeek
       })
-    } else if (typeof input === 'object' && input) {
+    } else if (typeof input === "object" && input) {
       // non-null object
       rawDefs = [input]
     } else {
@@ -5018,12 +4873,7 @@ var FullCalendar = (function (exports) {
   }
 
   function pointInsideRect(point, rect) {
-    return (
-      point.left >= rect.left &&
-      point.left < rect.right &&
-      point.top >= rect.top &&
-      point.top < rect.bottom
-    )
+    return point.left >= rect.left && point.left < rect.right && point.top >= rect.top && point.top < rect.bottom
   }
   // Returns a new rectangle that is the intersection of the two rectangles. If they don't intersect, returns false
   function intersectRects(rect1, rect2) {
@@ -5078,18 +4928,18 @@ var FullCalendar = (function (exports) {
   function computeCanVGrowWithinCell() {
     // for SSR, because this function is call immediately at top-level
     // TODO: just make this logic execute top-level, immediately, instead of doing lazily
-    if (typeof document === 'undefined') {
+    if (typeof document === "undefined") {
       return true
     }
-    var el = document.createElement('div')
-    el.style.position = 'absolute'
-    el.style.top = '0px'
-    el.style.left = '0px'
-    el.innerHTML = '<table><tr><td><div></div></td></tr></table>'
-    el.querySelector('table').style.height = '100px'
-    el.querySelector('div').style.height = '100%'
+    var el = document.createElement("div")
+    el.style.position = "absolute"
+    el.style.top = "0px"
+    el.style.left = "0px"
+    el.innerHTML = "<table><tr><td><div></div></td></tr></table>"
+    el.querySelector("table").style.height = "100px"
+    el.querySelector("div").style.height = "100%"
     document.body.appendChild(el)
-    var div = el.querySelector('div')
+    var div = el.querySelector("div")
     var possible = div.offsetHeight > 0
     document.body.removeChild(el)
     return possible
@@ -5127,8 +4977,8 @@ var FullCalendar = (function (exports) {
           businessHours: keyInfo.businessHours || props.businessHours,
           dateSelection: dateSelections[key] || null,
           eventStore: eventStore,
-          eventUiBases: buildEventUi(props.eventUiBases[''], keyInfo.ui, individualUi[key]),
-          eventSelection: eventStore.instances[props.eventSelection] ? props.eventSelection : '',
+          eventUiBases: buildEventUi(props.eventUiBases[""], keyInfo.ui, individualUi[key]),
+          eventSelection: eventStore.instances[props.eventSelection] ? props.eventSelection : "",
           eventDrag: eventDrags[key] || null,
           eventResize: eventResizes[key] || null
         }
@@ -5232,7 +5082,7 @@ var FullCalendar = (function (exports) {
       baseParts.push(eventUiForKey)
     }
     var stuff = {
-      '': combineEventUis(baseParts)
+      "": combineEventUis(baseParts)
     }
     if (individualUi) {
       __assign(stuff, individualUi)
@@ -5251,40 +5101,40 @@ var FullCalendar = (function (exports) {
     }
   }
   function getDayClassNames(meta, theme) {
-    var classNames = ['fc-day', 'fc-day-' + DAY_IDS[meta.dow]]
+    var classNames = ["fc-day", "fc-day-" + DAY_IDS[meta.dow]]
     if (meta.isDisabled) {
-      classNames.push('fc-day-disabled')
+      classNames.push("fc-day-disabled")
     } else {
       if (meta.isToday) {
-        classNames.push('fc-day-today')
-        classNames.push(theme.getClass('today'))
+        classNames.push("fc-day-today")
+        classNames.push(theme.getClass("today"))
       }
       if (meta.isPast) {
-        classNames.push('fc-day-past')
+        classNames.push("fc-day-past")
       }
       if (meta.isFuture) {
-        classNames.push('fc-day-future')
+        classNames.push("fc-day-future")
       }
       if (meta.isOther) {
-        classNames.push('fc-day-other')
+        classNames.push("fc-day-other")
       }
     }
     return classNames
   }
   function getSlotClassNames(meta, theme) {
-    var classNames = ['fc-slot', 'fc-slot-' + DAY_IDS[meta.dow]]
+    var classNames = ["fc-slot", "fc-slot-" + DAY_IDS[meta.dow]]
     if (meta.isDisabled) {
-      classNames.push('fc-slot-disabled')
+      classNames.push("fc-slot-disabled")
     } else {
       if (meta.isToday) {
-        classNames.push('fc-slot-today')
-        classNames.push(theme.getClass('today'))
+        classNames.push("fc-slot-today")
+        classNames.push(theme.getClass("today"))
       }
       if (meta.isPast) {
-        classNames.push('fc-slot-past')
+        classNames.push("fc-slot-past")
       }
       if (meta.isFuture) {
-        classNames.push('fc-slot-future')
+        classNames.push("fc-slot-future")
       }
     }
     return classNames
@@ -5292,7 +5142,7 @@ var FullCalendar = (function (exports) {
 
   function buildNavLinkData(date, type) {
     if (type === void 0) {
-      type = 'day'
+      type = "day"
     }
     return JSON.stringify({
       date: formatDayString(date),
@@ -5308,17 +5158,17 @@ var FullCalendar = (function (exports) {
     return _isRtlScrollbarOnLeft
   }
   function computeIsRtlScrollbarOnLeft() {
-    var outerEl = document.createElement('div')
+    var outerEl = document.createElement("div")
     applyStyle(outerEl, {
-      position: 'absolute',
+      position: "absolute",
       top: -1000,
       left: 0,
       border: 0,
       padding: 0,
-      overflow: 'scroll',
-      direction: 'rtl'
+      overflow: "scroll",
+      direction: "rtl"
     })
-    outerEl.innerHTML = '<div></div>'
+    outerEl.innerHTML = "<div></div>"
     document.body.appendChild(outerEl)
     var innerEl = outerEl.firstChild
     var res = innerEl.getBoundingClientRect().left > outerEl.getBoundingClientRect().left
@@ -5334,8 +5184,8 @@ var FullCalendar = (function (exports) {
     return _scrollbarWidths
   }
   function computeScrollbarWidths() {
-    var el = document.createElement('div')
-    el.style.overflow = 'scroll'
+    var el = document.createElement("div")
+    el.style.overflow = "scroll"
     document.body.appendChild(el)
     var res = computeScrollbarWidthsForEl(el)
     document.body.removeChild(el)
@@ -5370,7 +5220,7 @@ var FullCalendar = (function (exports) {
       scrollbarLeft: 0,
       scrollbarRight: 0
     }
-    if (getIsRtlScrollbarOnLeft() && computedStyle.direction === 'rtl') {
+    if (getIsRtlScrollbarOnLeft() && computedStyle.direction === "rtl") {
       // is the scrollbar on the left side?
       res.scrollbarLeft = scrollbarLeftRight
     } else {
@@ -5426,14 +5276,10 @@ var FullCalendar = (function (exports) {
     while (el instanceof HTMLElement) {
       // will stop when gets to document or null
       var computedStyle = window.getComputedStyle(el)
-      if (computedStyle.position === 'fixed') {
+      if (computedStyle.position === "fixed") {
         break
       }
-      if (
-        /(auto|scroll)/.test(
-          computedStyle.overflow + computedStyle.overflowY + computedStyle.overflowX
-        )
-      ) {
+      if (/(auto|scroll)/.test(computedStyle.overflow + computedStyle.overflowY + computedStyle.overflowX)) {
         parents.push(el)
       }
       el = el.parentNode
@@ -5464,7 +5310,7 @@ var FullCalendar = (function (exports) {
       }
     }
     var res = func(wrappedSuccess, wrappedFailure)
-    if (res && typeof res.then === 'function') {
+    if (res && typeof res.then === "function") {
       res.then(wrappedSuccess, wrappedFailure)
     }
   }
@@ -5500,9 +5346,7 @@ var FullCalendar = (function (exports) {
       }
     }
     Emitter.prototype.hasHandlers = function (type) {
-      return (
-        (this.handlers[type] && this.handlers[type].length) || (this.options && this.options[type])
-      )
+      return (this.handlers[type] && this.handlers[type].length) || (this.options && this.options[type])
     }
     return Emitter
   })()
@@ -5707,7 +5551,7 @@ var FullCalendar = (function (exports) {
     Theme.prototype.setIconOverride = function (iconOverrideHash) {
       var iconClassesCopy
       var buttonName
-      if (typeof iconOverrideHash === 'object' && iconOverrideHash) {
+      if (typeof iconOverrideHash === "object" && iconOverrideHash) {
         // non-null object
         iconClassesCopy = __assign({}, this.iconClasses)
         for (buttonName in iconOverrideHash) {
@@ -5727,7 +5571,7 @@ var FullCalendar = (function (exports) {
       return className
     }
     Theme.prototype.getClass = function (key) {
-      return this.classes[key] || ''
+      return this.classes[key] || ""
     }
     Theme.prototype.getIconClass = function (buttonName, isRtl) {
       var className
@@ -5737,32 +5581,30 @@ var FullCalendar = (function (exports) {
         className = this.iconClasses[buttonName]
       }
       if (className) {
-        return this.baseIconClass + ' ' + className
+        return this.baseIconClass + " " + className
       }
-      return ''
+      return ""
     }
     Theme.prototype.getCustomButtonIconClass = function (customButtonProps) {
       var className
       if (this.iconOverrideCustomButtonOption) {
         className = customButtonProps[this.iconOverrideCustomButtonOption]
         if (className) {
-          return this.baseIconClass + ' ' + this.applyIconOverridePrefix(className)
+          return this.baseIconClass + " " + this.applyIconOverridePrefix(className)
         }
       }
-      return ''
+      return ""
     }
     return Theme
   })()
   Theme.prototype.classes = {}
   Theme.prototype.iconClasses = {}
-  Theme.prototype.baseIconClass = ''
-  Theme.prototype.iconOverridePrefix = ''
+  Theme.prototype.baseIconClass = ""
+  Theme.prototype.iconOverridePrefix = ""
 
   /// <reference types="@fullcalendar/core-vdom" />
-  if (typeof FullCalendarVDom === 'undefined') {
-    throw new Error(
-      'Please import the top-level fullcalendar lib before attempting to import a plugin.'
-    )
+  if (typeof FullCalendarVDom === "undefined") {
+    throw new Error("Please import the top-level fullcalendar lib before attempting to import a plugin.")
   }
   var Component = FullCalendarVDom.Component
   var createElement = FullCalendarVDom.createElement
@@ -5782,11 +5624,11 @@ var FullCalendar = (function (exports) {
         _this.queuedRequest = __assign({}, _this.queuedRequest || {}, request)
         _this.drain()
       }
-      emitter.on('_scrollRequest', this.handleScrollRequest)
+      emitter.on("_scrollRequest", this.handleScrollRequest)
       this.fireInitialScroll()
     }
     ScrollResponder.prototype.detach = function () {
-      this.emitter.off('_scrollRequest', this.handleScrollRequest)
+      this.emitter.off("_scrollRequest", this.handleScrollRequest)
     }
     ScrollResponder.prototype.update = function (isDatesNew) {
       if (isDatesNew) {
@@ -5836,12 +5678,12 @@ var FullCalendar = (function (exports) {
       viewApi: viewApi,
       dateProfileGenerator: dateProfileGenerator,
       theme: theme,
-      isRtl: viewOptions.direction === 'rtl',
+      isRtl: viewOptions.direction === "rtl",
       addResizeHandler: function (handler) {
-        emitter.on('_resize', handler)
+        emitter.on("_resize", handler)
       },
       removeResizeHandler: function (handler) {
-        emitter.off('_resize', handler)
+        emitter.off("_resize", handler)
       },
       createScrollResponder: function (execFunc) {
         return new ScrollResponder(execFunc, emitter, createDuration(viewOptions.scrollTime))
@@ -5892,7 +5734,7 @@ var FullCalendar = (function (exports) {
   }
   // use other one
   function setRef(ref, current) {
-    if (typeof ref === 'function') {
+    if (typeof ref === "function") {
       ref(current)
     } else if (ref) {
       // see https://github.com/facebook/react/issues/13029
@@ -5902,7 +5744,7 @@ var FullCalendar = (function (exports) {
 
   function reduceEventStore(eventStore, action, eventSources, dateProfile, context) {
     switch (action.type) {
-      case 'RECEIVE_EVENTS': // raw
+      case "RECEIVE_EVENTS": // raw
         return receiveRawEvents(
           eventStore,
           eventSources[action.sourceId],
@@ -5911,33 +5753,33 @@ var FullCalendar = (function (exports) {
           action.rawEvents,
           context
         )
-      case 'ADD_EVENTS': // already parsed, but not expanded
+      case "ADD_EVENTS": // already parsed, but not expanded
         return addEvent(
           eventStore,
           action.eventStore, // new ones
           dateProfile ? dateProfile.activeRange : null,
           context
         )
-      case 'MERGE_EVENTS': // already parsed and expanded
+      case "MERGE_EVENTS": // already parsed and expanded
         return mergeEventStores(eventStore, action.eventStore)
-      case 'PREV': // TODO: how do we track all actions that affect dateProfile :(
-      case 'NEXT':
-      case 'CHANGE_DATE':
-      case 'CHANGE_VIEW_TYPE':
+      case "PREV": // TODO: how do we track all actions that affect dateProfile :(
+      case "NEXT":
+      case "CHANGE_DATE":
+      case "CHANGE_VIEW_TYPE":
         if (dateProfile) {
           return expandRecurring(eventStore, dateProfile.activeRange, context)
         } else {
           return eventStore
         }
-      case 'REMOVE_EVENTS':
+      case "REMOVE_EVENTS":
         return excludeSubEventStore(eventStore, action.eventStore)
-      case 'REMOVE_EVENT_SOURCE':
+      case "REMOVE_EVENT_SOURCE":
         return excludeEventsBySourceId(eventStore, action.sourceId)
-      case 'REMOVE_ALL_EVENT_SOURCES':
+      case "REMOVE_ALL_EVENT_SOURCES":
         return filterEventStoreDefs(eventStore, function (eventDef) {
           return !eventDef.sourceId // only keep events with no source id
         })
-      case 'REMOVE_ALL_EVENTS':
+      case "REMOVE_ALL_EVENTS":
         return createEmptyEventStore()
       default:
         return eventStore
@@ -5948,11 +5790,7 @@ var FullCalendar = (function (exports) {
       eventSource && // not already removed
       fetchId === eventSource.latestFetchId // TODO: wish this logic was always in event-sources
     ) {
-      var subset = parseEvents(
-        transformRawEvents(rawEvents, eventSource, context),
-        eventSource,
-        context
-      )
+      var subset = parseEvents(transformRawEvents(rawEvents, eventSource, context), eventSource, context)
       if (fetchRange) {
         subset = expandRecurring(subset, fetchRange, context)
       }
@@ -6004,12 +5842,8 @@ var FullCalendar = (function (exports) {
       } else {
         return __assign(__assign({}, instance), {
           range: {
-            start: newDateEnv.createMarker(
-              oldDateEnv.toDate(instance.range.start, instance.forcedStartTzo)
-            ),
-            end: newDateEnv.createMarker(
-              oldDateEnv.toDate(instance.range.end, instance.forcedEndTzo)
-            )
+            start: newDateEnv.createMarker(oldDateEnv.toDate(instance.range.start, instance.forcedStartTzo)),
+            end: newDateEnv.createMarker(oldDateEnv.toDate(instance.range.end, instance.forcedEndTzo))
           },
           forcedStartTzo: newDateEnv.canComputeOffset ? null : instance.forcedStartTzo,
           forcedEndTzo: newDateEnv.canComputeOffset ? null : instance.forcedEndTzo
@@ -6046,10 +5880,10 @@ var FullCalendar = (function (exports) {
     var props = __assign(
       {
         businessHours: calendarState.businessHours,
-        dateSelection: '',
+        dateSelection: "",
         eventStore: calendarState.eventStore,
         eventUiBases: calendarState.eventUiBases,
-        eventSelection: '',
+        eventSelection: "",
         eventDrag: null,
         eventResize: null
       },
@@ -6064,10 +5898,7 @@ var FullCalendar = (function (exports) {
     if (state.eventDrag && !isInteractionPropsValid(state, context, dateSpanMeta, filterConfig)) {
       return false
     }
-    if (
-      state.dateSelection &&
-      !isDateSelectionPropsValid(state, context, dateSpanMeta, filterConfig)
-    ) {
+    if (state.dateSelection && !isDateSelectionPropsValid(state, context, dateSpanMeta, filterConfig)) {
       return false
     }
     return true
@@ -6082,7 +5913,7 @@ var FullCalendar = (function (exports) {
     var subjectInstances = subjectEventStore.instances
     var subjectConfigs = compileEventUis(
       subjectDefs,
-      interaction.isEvent ? state.eventUiBases : { '': currentState.selectionConfig } // if not a real event, validate as a selection
+      interaction.isEvent ? state.eventUiBases : { "": currentState.selectionConfig } // if not a real event, validate as a selection
     )
     if (filterConfig) {
       subjectConfigs = mapHash(subjectConfigs, filterConfig)
@@ -6097,20 +5928,12 @@ var FullCalendar = (function (exports) {
       var subjectConfig = subjectConfigs[subjectInstance.defId]
       var subjectDef = subjectDefs[subjectInstance.defId]
       // constraint
-      if (
-        !allConstraintsPass(
-          subjectConfig.constraints,
-          subjectRange,
-          otherEventStore,
-          state.businessHours,
-          context
-        )
-      ) {
+      if (!allConstraintsPass(subjectConfig.constraints, subjectRange, otherEventStore, state.businessHours, context)) {
         return false
       }
       // overlap
       var eventOverlap = context.options.eventOverlap
-      var eventOverlapFunc = typeof eventOverlap === 'function' ? eventOverlap : null
+      var eventOverlapFunc = typeof eventOverlap === "function" ? eventOverlap : null
       for (var otherInstanceId in otherInstances) {
         var otherInstance = otherInstances[otherInstanceId]
         // intersect! evaluate
@@ -6173,19 +5996,13 @@ var FullCalendar = (function (exports) {
     }
     // constraint
     if (
-      !allConstraintsPass(
-        selectionConfig.constraints,
-        selectionRange,
-        relevantEventStore,
-        state.businessHours,
-        context
-      )
+      !allConstraintsPass(selectionConfig.constraints, selectionRange, relevantEventStore, state.businessHours, context)
     ) {
       return false
     }
     // overlap
     var selectOverlap = context.options.selectOverlap
-    var selectOverlapFunc = typeof selectOverlap === 'function' ? selectOverlap : null
+    var selectOverlapFunc = typeof selectOverlap === "function" ? selectOverlap : null
     for (var relevantInstanceId in relevantInstances) {
       var relevantInstance = relevantInstances[relevantInstanceId]
       // intersect! evaluate
@@ -6195,10 +6012,7 @@ var FullCalendar = (function (exports) {
         }
         if (
           selectOverlapFunc &&
-          !selectOverlapFunc(
-            new EventApi(context, relevantDefs[relevantInstance.defId], relevantInstance),
-            null
-          )
+          !selectOverlapFunc(new EventApi(context, relevantDefs[relevantInstance.defId], relevantInstance), null)
         ) {
           return false
         }
@@ -6216,24 +6030,12 @@ var FullCalendar = (function (exports) {
   }
   // Constraint Utils
   // ------------------------------------------------------------------------------------------------------------------------
-  function allConstraintsPass(
-    constraints,
-    subjectRange,
-    otherEventStore,
-    businessHoursUnexpanded,
-    context
-  ) {
+  function allConstraintsPass(constraints, subjectRange, otherEventStore, businessHoursUnexpanded, context) {
     for (var _i = 0, constraints_1 = constraints; _i < constraints_1.length; _i++) {
       var constraint = constraints_1[_i]
       if (
         !anyRangesContainRange(
-          constraintToRanges(
-            constraint,
-            subjectRange,
-            otherEventStore,
-            businessHoursUnexpanded,
-            context
-          ),
+          constraintToRanges(constraint, subjectRange, otherEventStore, businessHoursUnexpanded, context),
           subjectRange
         )
       ) {
@@ -6249,16 +6051,16 @@ var FullCalendar = (function (exports) {
     businessHoursUnexpanded, // for if constraint is 'businessHours'
     context // for expanding businesshours
   ) {
-    if (constraint === 'businessHours') {
+    if (constraint === "businessHours") {
       return eventStoreToRanges(expandRecurring(businessHoursUnexpanded, subjectRange, context))
-    } else if (typeof constraint === 'string') {
+    } else if (typeof constraint === "string") {
       // an group ID
       return eventStoreToRanges(
         filterEventStoreDefs(otherEventStore, function (eventDef) {
           return eventDef.groupId === constraint
         })
       )
-    } else if (typeof constraint === 'object' && constraint) {
+    } else if (typeof constraint === "object" && constraint) {
       // non-null object
       return eventStoreToRanges(expandRecurring(constraint, subjectRange, context))
     }
@@ -6335,7 +6137,7 @@ var FullCalendar = (function (exports) {
       return (
         !this.props.eventDrag && // HACK
         !this.props.eventResize && // HACK
-        !elementClosest(el, '.fc-event-mirror') &&
+        !elementClosest(el, ".fc-event-mirror") &&
         (this.isPopover() || !this.isInPopover(el))
       )
       // ^above line ensures we don't detect a seg interaction within a nested component.
@@ -6343,9 +6145,9 @@ var FullCalendar = (function (exports) {
     }
     DateComponent.prototype.isValidDateDownEl = function (el) {
       return (
-        !elementClosest(el, '.fc-event:not(.fc-bg-event)') &&
-        !elementClosest(el, '.fc-daygrid-more-link') && // a "more.." link
-        !elementClosest(el, 'a[data-navlink]') && // a clickable nav link
+        !elementClosest(el, ".fc-event:not(.fc-bg-event)") &&
+        !elementClosest(el, ".fc-daygrid-more-link") && // a "more.." link
+        !elementClosest(el, "a[data-navlink]") && // a clickable nav link
         !this.isInPopover(el)
       )
     }
@@ -6353,7 +6155,7 @@ var FullCalendar = (function (exports) {
       return false
     }
     DateComponent.prototype.isInPopover = function (el) {
-      return Boolean(elementClosest(el, '.fc-popover'))
+      return Boolean(elementClosest(el, ".fc-popover"))
     }
     return DateComponent
   })(BaseComponent)
@@ -6388,7 +6190,7 @@ var FullCalendar = (function (exports) {
       cmdFormatter: input.cmdFormatter,
       recurringTypes: input.recurringTypes || [],
       namedTimeZonedImpl: input.namedTimeZonedImpl,
-      initialView: input.initialView || '',
+      initialView: input.initialView || "",
       elementDraggingImpl: input.elementDraggingImpl,
       optionChangeHandlers: input.optionChangeHandlers || {},
       scrollGridImpl: input.scrollGridImpl || null,
@@ -6426,7 +6228,7 @@ var FullCalendar = (function (exports) {
       cmdFormatter: null,
       recurringTypes: [],
       namedTimeZonedImpl: null,
-      initialView: '',
+      initialView: "",
       elementDraggingImpl: null,
       optionChangeHandlers: {},
       scrollGridImpl: null,
@@ -6474,31 +6276,18 @@ var FullCalendar = (function (exports) {
       contextInit: hooks0.contextInit.concat(hooks1.contextInit),
       eventRefiners: __assign(__assign({}, hooks0.eventRefiners), hooks1.eventRefiners),
       eventDefMemberAdders: hooks0.eventDefMemberAdders.concat(hooks1.eventDefMemberAdders),
-      eventSourceRefiners: __assign(
-        __assign({}, hooks0.eventSourceRefiners),
-        hooks1.eventSourceRefiners
-      ),
-      isDraggableTransformers: hooks0.isDraggableTransformers.concat(
-        hooks1.isDraggableTransformers
-      ),
-      eventDragMutationMassagers: hooks0.eventDragMutationMassagers.concat(
-        hooks1.eventDragMutationMassagers
-      ),
-      eventDefMutationAppliers: hooks0.eventDefMutationAppliers.concat(
-        hooks1.eventDefMutationAppliers
-      ),
-      dateSelectionTransformers: hooks0.dateSelectionTransformers.concat(
-        hooks1.dateSelectionTransformers
-      ),
+      eventSourceRefiners: __assign(__assign({}, hooks0.eventSourceRefiners), hooks1.eventSourceRefiners),
+      isDraggableTransformers: hooks0.isDraggableTransformers.concat(hooks1.isDraggableTransformers),
+      eventDragMutationMassagers: hooks0.eventDragMutationMassagers.concat(hooks1.eventDragMutationMassagers),
+      eventDefMutationAppliers: hooks0.eventDefMutationAppliers.concat(hooks1.eventDefMutationAppliers),
+      dateSelectionTransformers: hooks0.dateSelectionTransformers.concat(hooks1.dateSelectionTransformers),
       datePointTransforms: hooks0.datePointTransforms.concat(hooks1.datePointTransforms),
       dateSpanTransforms: hooks0.dateSpanTransforms.concat(hooks1.dateSpanTransforms),
       views: __assign(__assign({}, hooks0.views), hooks1.views),
       viewPropsTransformers: hooks0.viewPropsTransformers.concat(hooks1.viewPropsTransformers),
       isPropsValid: hooks1.isPropsValid || hooks0.isPropsValid,
       externalDefTransforms: hooks0.externalDefTransforms.concat(hooks1.externalDefTransforms),
-      eventResizeJoinTransforms: hooks0.eventResizeJoinTransforms.concat(
-        hooks1.eventResizeJoinTransforms
-      ),
+      eventResizeJoinTransforms: hooks0.eventResizeJoinTransforms.concat(hooks1.eventResizeJoinTransforms),
       viewContainerAppends: hooks0.viewContainerAppends.concat(hooks1.viewContainerAppends),
       eventDropTransformers: hooks0.eventDropTransformers.concat(hooks1.eventDropTransformers),
       calendarInteractions: hooks0.calendarInteractions.concat(hooks1.calendarInteractions),
@@ -6510,15 +6299,9 @@ var FullCalendar = (function (exports) {
       namedTimeZonedImpl: hooks1.namedTimeZonedImpl || hooks0.namedTimeZonedImpl,
       initialView: hooks0.initialView || hooks1.initialView,
       elementDraggingImpl: hooks0.elementDraggingImpl || hooks1.elementDraggingImpl,
-      optionChangeHandlers: __assign(
-        __assign({}, hooks0.optionChangeHandlers),
-        hooks1.optionChangeHandlers
-      ),
+      optionChangeHandlers: __assign(__assign({}, hooks0.optionChangeHandlers), hooks1.optionChangeHandlers),
       scrollGridImpl: hooks1.scrollGridImpl || hooks0.scrollGridImpl,
-      contentTypeHandlers: __assign(
-        __assign({}, hooks0.contentTypeHandlers),
-        hooks1.contentTypeHandlers
-      ),
+      contentTypeHandlers: __assign(__assign({}, hooks0.contentTypeHandlers), hooks1.contentTypeHandlers),
       listenerRefiners: __assign(__assign({}, hooks0.listenerRefiners), hooks1.listenerRefiners),
       optionRefiners: __assign(__assign({}, hooks0.optionRefiners), hooks1.optionRefiners),
       propSetHandlers: __assign(__assign({}, hooks0.propSetHandlers), hooks1.propSetHandlers)
@@ -6533,29 +6316,29 @@ var FullCalendar = (function (exports) {
     return StandardTheme
   })(Theme)
   StandardTheme.prototype.classes = {
-    root: 'fc-theme-standard',
-    tableCellShaded: 'fc-cell-shaded',
-    buttonGroup: 'fc-button-group',
-    button: 'fc-button fc-button-primary',
-    buttonActive: 'fc-button-active'
+    root: "fc-theme-standard",
+    tableCellShaded: "fc-cell-shaded",
+    buttonGroup: "fc-button-group",
+    button: "fc-button fc-button-primary",
+    buttonActive: "fc-button-active"
   }
-  StandardTheme.prototype.baseIconClass = 'fc-icon'
+  StandardTheme.prototype.baseIconClass = "fc-icon"
   StandardTheme.prototype.iconClasses = {
-    close: 'fc-icon-x',
-    prev: 'fc-icon-chevron-left',
-    next: 'fc-icon-chevron-right',
-    prevYear: 'fc-icon-chevrons-left',
-    nextYear: 'fc-icon-chevrons-right'
+    close: "fc-icon-x",
+    prev: "fc-icon-chevron-left",
+    next: "fc-icon-chevron-right",
+    prevYear: "fc-icon-chevrons-left",
+    nextYear: "fc-icon-chevrons-right"
   }
   StandardTheme.prototype.rtlIconClasses = {
-    prev: 'fc-icon-chevron-right',
-    next: 'fc-icon-chevron-left',
-    prevYear: 'fc-icon-chevrons-right',
-    nextYear: 'fc-icon-chevrons-left'
+    prev: "fc-icon-chevron-right",
+    next: "fc-icon-chevron-left",
+    prevYear: "fc-icon-chevrons-right",
+    nextYear: "fc-icon-chevrons-left"
   }
-  StandardTheme.prototype.iconOverrideOption = 'buttonIcons' // TODO: make TS-friendly
-  StandardTheme.prototype.iconOverrideCustomButtonOption = 'icon'
-  StandardTheme.prototype.iconOverridePrefix = 'fc-icon-'
+  StandardTheme.prototype.iconOverrideOption = "buttonIcons" // TODO: make TS-friendly
+  StandardTheme.prototype.iconOverrideCustomButtonOption = "icon"
+  StandardTheme.prototype.iconOverridePrefix = "fc-icon-"
 
   function compileViewDefs(defaultConfigs, overrideConfigs) {
     var hash = {}
@@ -6588,8 +6371,8 @@ var FullCalendar = (function (exports) {
           ? overrideConfig[name]
           : null
     }
-    var theComponent = queryProp('component')
-    var superType = queryProp('superType')
+    var theComponent = queryProp("component")
+    var superType = queryProp("superType")
     var superDef = null
     if (superType) {
       if (superType === viewType) {
@@ -6705,7 +6488,7 @@ var FullCalendar = (function (exports) {
         // we allow custom content handlers to return nothing
         if (customContentInfo) {
           customContentInfo.contentVal = innerContent[customContentInfo.contentKey]
-        } else if (typeof innerContent === 'object') {
+        } else if (typeof innerContent === "object") {
           // look for a prop that would indicate a custom content handler is needed
           for (var contentKey in contentTypeHandlers) {
             if (innerContent[contentKey] !== undefined) {
@@ -6766,11 +6549,7 @@ var FullCalendar = (function (exports) {
     var currentHookProps
     var currentClassNames = []
     return function (generator, hookProps) {
-      if (
-        !currentHookProps ||
-        !isPropsEqual(currentHookProps, hookProps) ||
-        generator !== currentGenerator
-      ) {
+      if (!currentHookProps || !isPropsEqual(currentHookProps, hookProps) || generator !== currentGenerator) {
         currentGenerator = generator
         currentHookProps = hookProps
         currentClassNames = normalizeClassNames(generator, hookProps)
@@ -6779,13 +6558,13 @@ var FullCalendar = (function (exports) {
     }
   }
   function normalizeClassNames(classNames, hookProps) {
-    if (typeof classNames === 'function') {
+    if (typeof classNames === "function") {
       classNames = classNames(hookProps)
     }
     return parseClassNames(classNames)
   }
   function normalizeContent(input, hookProps) {
-    if (typeof input === 'function') {
+    if (typeof input === "function") {
       return input(hookProps, createElement) // give the function the vdom-creation func
     } else {
       return input
@@ -6815,10 +6594,7 @@ var FullCalendar = (function (exports) {
           elRef: props.elRef
         },
         function (rootElRef) {
-          return props.children(
-            rootElRef,
-            ['fc-' + props.viewSpec.type + '-view', 'fc-view'].concat(customClassNames)
-          )
+          return props.children(rootElRef, ["fc-" + props.viewSpec.type + "-view", "fc-view"].concat(customClassNames))
         }
       )
     }
@@ -6829,7 +6605,7 @@ var FullCalendar = (function (exports) {
     return mapHash(inputs, parseViewConfig)
   }
   function parseViewConfig(input) {
-    var rawOptions = typeof input === 'function' ? { component: input } : input
+    var rawOptions = typeof input === "function" ? { component: input } : input
     var component = rawOptions.component
     if (rawOptions.content) {
       component = createViewHookComponent(rawOptions)
@@ -6844,33 +6620,29 @@ var FullCalendar = (function (exports) {
   function createViewHookComponent(options) {
     return function (viewProps) {
       return createElement(ViewContextType.Consumer, null, function (context) {
-        return createElement(
-          ViewRoot,
-          { viewSpec: context.viewSpec },
-          function (rootElRef, viewClassNames) {
-            var hookProps = __assign(__assign({}, viewProps), {
-              nextDayThreshold: context.options.nextDayThreshold
-            })
-            return createElement(
-              RenderHook,
-              {
-                hookProps: hookProps,
-                classNames: options.classNames,
-                content: options.content,
-                didMount: options.didMount,
-                willUnmount: options.willUnmount,
-                elRef: rootElRef
-              },
-              function (rootElRef, customClassNames, innerElRef, innerContent) {
-                return createElement(
-                  'div',
-                  { className: viewClassNames.concat(customClassNames).join(' '), ref: rootElRef },
-                  innerContent
-                )
-              }
-            )
-          }
-        )
+        return createElement(ViewRoot, { viewSpec: context.viewSpec }, function (rootElRef, viewClassNames) {
+          var hookProps = __assign(__assign({}, viewProps), {
+            nextDayThreshold: context.options.nextDayThreshold
+          })
+          return createElement(
+            RenderHook,
+            {
+              hookProps: hookProps,
+              classNames: options.classNames,
+              content: options.content,
+              didMount: options.didMount,
+              willUnmount: options.willUnmount,
+              elRef: rootElRef
+            },
+            function (rootElRef, customClassNames, innerElRef, innerContent) {
+              return createElement(
+                "div",
+                { className: viewClassNames.concat(customClassNames).join(" "), ref: rootElRef },
+                innerContent
+              )
+            }
+          )
+        })
       })
     }
   }
@@ -6880,30 +6652,18 @@ var FullCalendar = (function (exports) {
     var overrideConfigs = parseViewConfigs(optionOverrides.views)
     var viewDefs = compileViewDefs(defaultConfigs, overrideConfigs)
     return mapHash(viewDefs, function (viewDef) {
-      return buildViewSpec(
-        viewDef,
-        overrideConfigs,
-        optionOverrides,
-        dynamicOptionOverrides,
-        localeDefaults
-      )
+      return buildViewSpec(viewDef, overrideConfigs, optionOverrides, dynamicOptionOverrides, localeDefaults)
     })
   }
-  function buildViewSpec(
-    viewDef,
-    overrideConfigs,
-    optionOverrides,
-    dynamicOptionOverrides,
-    localeDefaults
-  ) {
+  function buildViewSpec(viewDef, overrideConfigs, optionOverrides, dynamicOptionOverrides, localeDefaults) {
     var durationInput =
       viewDef.overrides.duration ||
       viewDef.defaults.duration ||
       dynamicOptionOverrides.duration ||
       optionOverrides.duration
     var duration = null
-    var durationUnit = ''
-    var singleUnit = ''
+    var durationUnit = ""
+    var singleUnit = ""
     var singleUnitOverrides = {}
     if (durationInput) {
       duration = createDurationCached(durationInput)
@@ -6913,9 +6673,7 @@ var FullCalendar = (function (exports) {
         durationUnit = denom.unit
         if (denom.value === 1) {
           singleUnit = durationUnit
-          singleUnitOverrides = overrideConfigs[durationUnit]
-            ? overrideConfigs[durationUnit].rawOptions
-            : {}
+          singleUnitOverrides = overrideConfigs[durationUnit] ? overrideConfigs[durationUnit].rawOptions : {}
         }
       }
     }
@@ -6972,11 +6730,7 @@ var FullCalendar = (function (exports) {
     /* Date Range Computation
         ------------------------------------------------------------------------------------------------------------------*/
     // Builds a structure with info about what the dates/ranges will be for the "prev" view.
-    DateProfileGenerator.prototype.buildPrev = function (
-      currentDateProfile,
-      currentDate,
-      forceToValid
-    ) {
+    DateProfileGenerator.prototype.buildPrev = function (currentDateProfile, currentDate, forceToValid) {
       var dateEnv = this.props.dateEnv
       var prevDate = dateEnv.subtract(
         dateEnv.startOf(currentDate, currentDateProfile.currentRangeUnit), // important for start-of-month
@@ -6985,11 +6739,7 @@ var FullCalendar = (function (exports) {
       return this.build(prevDate, -1, forceToValid)
     }
     // Builds a structure with info about what the dates/ranges will be for the "next" view.
-    DateProfileGenerator.prototype.buildNext = function (
-      currentDateProfile,
-      currentDate,
-      forceToValid
-    ) {
+    DateProfileGenerator.prototype.buildNext = function (currentDateProfile, currentDate, forceToValid) {
       var dateEnv = this.props.dateEnv
       var nextDate = dateEnv.add(
         dateEnv.startOf(currentDate, currentDateProfile.currentRangeUnit), // important for start-of-month
@@ -7018,11 +6768,7 @@ var FullCalendar = (function (exports) {
       }
       currentInfo = this.buildCurrentRangeInfo(currentDate, direction)
       isRangeAllDay = /^(year|month|week|day)$/.test(currentInfo.unit)
-      renderRange = this.buildRenderRange(
-        this.trimHiddenDays(currentInfo.range),
-        currentInfo.unit,
-        isRangeAllDay
-      )
+      renderRange = this.buildRenderRange(this.trimHiddenDays(currentInfo.range), currentInfo.unit, isRangeAllDay)
       renderRange = this.trimHiddenDays(renderRange)
       activeRange = renderRange
       if (!props.showNonCurrentDates) {
@@ -7064,8 +6810,7 @@ var FullCalendar = (function (exports) {
     // not responsible for trimming hidden days.
     DateProfileGenerator.prototype.buildValidRange = function () {
       var input = this.props.validRangeInput
-      var simpleInput =
-        typeof input === 'function' ? input.call(this.props.calendarApi, this.nowDate) : input
+      var simpleInput = typeof input === "function" ? input.call(this.props.calendarApi, this.nowDate) : input
       return this.refineRange(simpleInput) || { start: null, end: null } // completely open-ended
     }
     // Builds a structure with info about the "current" range, the range that is
@@ -7083,7 +6828,7 @@ var FullCalendar = (function (exports) {
         unit = props.durationUnit
         range = this.buildRangeFromDuration(date, direction, duration, unit)
       } else if ((dayCount = this.props.dayCount)) {
-        unit = 'day'
+        unit = "day"
         range = this.buildRangeFromDayCount(date, direction, dayCount)
       } else if ((range = this.buildCustomVisibleRange(date))) {
         unit = props.dateEnv.greatestWholeUnit(range.start, range.end).unit
@@ -7124,12 +6869,7 @@ var FullCalendar = (function (exports) {
     }
     // Builds the "current" range when it is specified as an explicit duration.
     // `unit` is the already-computed greatestDurationDenominator unit of duration.
-    DateProfileGenerator.prototype.buildRangeFromDuration = function (
-      date,
-      direction,
-      duration,
-      unit
-    ) {
+    DateProfileGenerator.prototype.buildRangeFromDuration = function (date, direction, duration, unit) {
       var _a = this.props,
         dateEnv = _a.dateEnv,
         dateAlignment = _a.dateAlignment
@@ -7197,10 +6937,7 @@ var FullCalendar = (function (exports) {
     DateProfileGenerator.prototype.buildCustomVisibleRange = function (date) {
       var props = this.props
       var input = props.visibleRangeInput
-      var simpleInput =
-        typeof input === 'function'
-          ? input.call(props.calendarApi, props.dateEnv.toDate(date))
-          : input
+      var simpleInput = typeof input === "function" ? input.call(props.calendarApi, props.dateEnv.toDate(date)) : input
       var range = this.refineRange(simpleInput)
       if (range && (range.start == null || range.end == null)) {
         return null
@@ -7210,11 +6947,7 @@ var FullCalendar = (function (exports) {
     // Computes the range that will represent the element/cells for *rendering*,
     // but which may have voided days/times.
     // not responsible for trimming hidden days.
-    DateProfileGenerator.prototype.buildRenderRange = function (
-      currentRange,
-      currentRangeUnit,
-      isRangeAllDay
-    ) {
+    DateProfileGenerator.prototype.buildRenderRange = function (currentRange, currentRangeUnit, isRangeAllDay) {
       return currentRange
     }
     // Compute the duration value that should be added/substracted to the current date
@@ -7259,7 +6992,7 @@ var FullCalendar = (function (exports) {
         }
       }
       if (!dayCnt) {
-        throw new Error('invalid hiddenDays') // all days were hidden? bad.
+        throw new Error("invalid hiddenDays") // all days were hidden? bad.
       }
       this.isHiddenDayHash = isHiddenDayHash
     }
@@ -7309,7 +7042,7 @@ var FullCalendar = (function (exports) {
 
   function reduceViewType(viewType, action) {
     switch (action.type) {
-      case 'CHANGE_VIEW_TYPE':
+      case "CHANGE_VIEW_TYPE":
         return (viewType = action.viewType)
     }
     return viewType
@@ -7318,7 +7051,7 @@ var FullCalendar = (function (exports) {
   function reduceDynamicOptionOverrides(dynamicOptionOverrides, action) {
     var _a
     switch (action.type) {
-      case 'SET_OPTION':
+      case "SET_OPTION":
         return __assign(
           __assign({}, dynamicOptionOverrides),
           ((_a = {}), (_a[action.optionName] = action.rawOptionValue), _a)
@@ -7331,9 +7064,9 @@ var FullCalendar = (function (exports) {
   function reduceDateProfile(currentDateProfile, action, currentDate, dateProfileGenerator) {
     var dp
     switch (action.type) {
-      case 'CHANGE_VIEW_TYPE':
+      case "CHANGE_VIEW_TYPE":
         return dateProfileGenerator.build(action.dateMarker || currentDate)
-      case 'CHANGE_DATE':
+      case "CHANGE_DATE":
         if (
           !currentDateProfile.activeRange ||
           !rangeContainsMarker(currentDateProfile.currentRange, action.dateMarker) // don't move if date already in view
@@ -7341,13 +7074,13 @@ var FullCalendar = (function (exports) {
           return dateProfileGenerator.build(action.dateMarker)
         }
         break
-      case 'PREV':
+      case "PREV":
         dp = dateProfileGenerator.buildPrev(currentDateProfile, currentDate)
         if (dp.isValid) {
           return dp
         }
         break
-      case 'NEXT':
+      case "NEXT":
         dp = dateProfileGenerator.buildNext(currentDateProfile, currentDate)
         if (dp.isValid) {
           return dp
@@ -7364,20 +7097,20 @@ var FullCalendar = (function (exports) {
   function reduceEventSources(eventSources, action, dateProfile, context) {
     var activeRange = dateProfile ? dateProfile.activeRange : null // need this check?
     switch (action.type) {
-      case 'ADD_EVENT_SOURCES': // already parsed
+      case "ADD_EVENT_SOURCES": // already parsed
         return addSources(eventSources, action.sources, activeRange, context)
-      case 'REMOVE_EVENT_SOURCE':
+      case "REMOVE_EVENT_SOURCE":
         return removeSource(eventSources, action.sourceId)
-      case 'PREV': // TODO: how do we track all actions that affect dateProfile :(
-      case 'NEXT':
-      case 'CHANGE_DATE':
-      case 'CHANGE_VIEW_TYPE':
+      case "PREV": // TODO: how do we track all actions that affect dateProfile :(
+      case "NEXT":
+      case "CHANGE_DATE":
+      case "CHANGE_VIEW_TYPE":
         if (dateProfile) {
           return fetchDirtySources(eventSources, activeRange, context)
         } else {
           return eventSources
         }
-      case 'FETCH_EVENT_SOURCES':
+      case "FETCH_EVENT_SOURCES":
         return fetchSourcesByIds(
           eventSources,
           action.sourceIds // why no type?
@@ -7386,10 +7119,10 @@ var FullCalendar = (function (exports) {
           activeRange,
           context
         )
-      case 'RECEIVE_EVENTS':
-      case 'RECEIVE_EVENT_ERROR':
+      case "RECEIVE_EVENTS":
+      case "RECEIVE_EVENT_ERROR":
         return receiveResponse(eventSources, action.sourceId, action.fetchId, action.fetchRange)
-      case 'REMOVE_ALL_EVENT_SOURCES':
+      case "REMOVE_ALL_EVENT_SOURCES":
         return {}
       default:
         return eventSources
@@ -7397,12 +7130,7 @@ var FullCalendar = (function (exports) {
   }
   function reduceEventSourcesNewTimeZone(eventSources, dateProfile, context) {
     var activeRange = dateProfile ? dateProfile.activeRange : null // need this check?
-    return fetchSourcesByIds(
-      eventSources,
-      excludeStaticSources(eventSources, context),
-      activeRange,
-      context
-    )
+    return fetchSourcesByIds(eventSources, excludeStaticSources(eventSources, context), activeRange, context)
   }
   function computeEventSourceLoadingLevel(eventSources) {
     var cnt = 0
@@ -7484,7 +7212,7 @@ var FullCalendar = (function (exports) {
           rawEvents = eventSource.success.call(calendarApi, rawEvents, res.xhr) || rawEvents
         }
         context.dispatch({
-          type: 'RECEIVE_EVENTS',
+          type: "RECEIVE_EVENTS",
           sourceId: eventSource.sourceId,
           fetchId: fetchId,
           fetchRange: fetchRange,
@@ -7500,7 +7228,7 @@ var FullCalendar = (function (exports) {
           eventSource.failure(error)
         }
         context.dispatch({
-          type: 'RECEIVE_EVENT_ERROR',
+          type: "RECEIVE_EVENT_ERROR",
           sourceId: eventSource.sourceId,
           fetchId: fetchId,
           fetchRange: fetchRange,
@@ -7560,9 +7288,9 @@ var FullCalendar = (function (exports) {
 
   function reduceDateSelection(currentSelection, action) {
     switch (action.type) {
-      case 'UNSELECT_DATES':
+      case "UNSELECT_DATES":
         return null
-      case 'SELECT_DATES':
+      case "SELECT_DATES":
         return action.selection
       default:
         return currentSelection
@@ -7571,9 +7299,9 @@ var FullCalendar = (function (exports) {
 
   function reduceSelectedEvent(currentInstanceId, action) {
     switch (action.type) {
-      case 'UNSELECT_EVENT':
-        return ''
-      case 'SELECT_EVENT':
+      case "UNSELECT_EVENT":
+        return ""
+      case "SELECT_EVENT":
         return action.eventInstanceId
       default:
         return currentInstanceId
@@ -7583,9 +7311,9 @@ var FullCalendar = (function (exports) {
   function reduceEventDrag(currentDrag, action) {
     var newDrag
     switch (action.type) {
-      case 'UNSET_EVENT_DRAG':
+      case "UNSET_EVENT_DRAG":
         return null
-      case 'SET_EVENT_DRAG':
+      case "SET_EVENT_DRAG":
         newDrag = action.state
         return {
           affectedEvents: newDrag.affectedEvents,
@@ -7600,9 +7328,9 @@ var FullCalendar = (function (exports) {
   function reduceEventResize(currentResize, action) {
     var newResize
     switch (action.type) {
-      case 'UNSET_EVENT_RESIZE':
+      case "UNSET_EVENT_RESIZE":
         return null
-      case 'SET_EVENT_RESIZE':
+      case "SET_EVENT_RESIZE":
         newResize = action.state
         return {
           affectedEvents: newResize.affectedEvents,
@@ -7677,14 +7405,14 @@ var FullCalendar = (function (exports) {
     calendarApi,
     viewsWithButtons // dump side effects
   ) {
-    var isRtl = calendarOptions.direction === 'rtl'
+    var isRtl = calendarOptions.direction === "rtl"
     var calendarCustomButtons = calendarOptions.customButtons || {}
     var calendarButtonTextOverrides = calendarOptionOverrides.buttonText || {}
     var calendarButtonText = calendarOptions.buttonText || {}
-    var sectionSubstrs = sectionStr ? sectionStr.split(' ') : []
+    var sectionSubstrs = sectionStr ? sectionStr.split(" ") : []
     return sectionSubstrs.map(function (buttonGroupStr) {
-      return buttonGroupStr.split(',').map(function (buttonName) {
-        if (buttonName === 'title') {
+      return buttonGroupStr.split(",").map(function (buttonName) {
+        if (buttonName === "title") {
           return { buttonName: buttonName }
         } else {
           var customButtonProps_1
@@ -7750,7 +7478,7 @@ var FullCalendar = (function (exports) {
 
   var eventSourceDef$1 = {
     parseMeta: function (refined) {
-      if (typeof refined.events === 'function') {
+      if (typeof refined.events === "function") {
         return refined.events
       }
       return null
@@ -7774,15 +7502,15 @@ var FullCalendar = (function (exports) {
   function requestJson(method, url, params, successCallback, failureCallback) {
     method = method.toUpperCase()
     var body = null
-    if (method === 'GET') {
+    if (method === "GET") {
       url = injectQueryStringParams(url, params)
     } else {
       body = encodeParams(params)
     }
     var xhr = new XMLHttpRequest()
     xhr.open(method, url, true)
-    if (method !== 'GET') {
-      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+    if (method !== "GET") {
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
     }
     xhr.onload = function () {
       if (xhr.status >= 200 && xhr.status < 400) {
@@ -7797,26 +7525,26 @@ var FullCalendar = (function (exports) {
         if (parsed) {
           successCallback(res, xhr)
         } else {
-          failureCallback('Failure parsing JSON', xhr)
+          failureCallback("Failure parsing JSON", xhr)
         }
       } else {
-        failureCallback('Request failed', xhr)
+        failureCallback("Request failed", xhr)
       }
     }
     xhr.onerror = function () {
-      failureCallback('Request failed', xhr)
+      failureCallback("Request failed", xhr)
     }
     xhr.send(body)
   }
   function injectQueryStringParams(url, params) {
-    return url + (url.indexOf('?') === -1 ? '?' : '&') + encodeParams(params)
+    return url + (url.indexOf("?") === -1 ? "?" : "&") + encodeParams(params)
   }
   function encodeParams(params) {
     var parts = []
     for (var key in params) {
-      parts.push(encodeURIComponent(key) + '=' + encodeURIComponent(params[key]))
+      parts.push(encodeURIComponent(key) + "=" + encodeURIComponent(params[key]))
     }
-    return parts.join('&')
+    return parts.join("&")
   }
 
   var JSON_FEED_EVENT_SOURCE_REFINERS = {
@@ -7832,7 +7560,7 @@ var FullCalendar = (function (exports) {
       if (refined.url) {
         return {
           url: refined.url,
-          method: (refined.method || 'GET').toUpperCase(),
+          method: (refined.method || "GET").toUpperCase(),
           extraParams: refined.extraParams,
           startParam: refined.startParam,
           endParam: refined.endParam,
@@ -7882,7 +7610,7 @@ var FullCalendar = (function (exports) {
       timeZoneParam = options.timeZoneParam
     }
     // retrieve any outbound GET/POST data from the options
-    if (typeof meta.extraParams === 'function') {
+    if (typeof meta.extraParams === "function") {
       // supplied as a function that returns a key/value object
       customRequestParams = meta.extraParams()
     } else {
@@ -7892,7 +7620,7 @@ var FullCalendar = (function (exports) {
     __assign(params, customRequestParams)
     params[startParam] = dateEnv.formatIso(range.start)
     params[endParam] = dateEnv.formatIso(range.end)
-    if (dateEnv.timeZone !== 'local') {
+    if (dateEnv.timeZone !== "local") {
       params[timeZoneParam] = dateEnv.timeZone
     }
     return params
@@ -7909,13 +7637,7 @@ var FullCalendar = (function (exports) {
 
   var recurring = {
     parse: function (refined, dateEnv) {
-      if (
-        refined.daysOfWeek ||
-        refined.startTime ||
-        refined.endTime ||
-        refined.startRecur ||
-        refined.endRecur
-      ) {
+      if (refined.daysOfWeek || refined.startTime || refined.endTime || refined.startRecur || refined.endRecur) {
         var recurringData = {
           daysOfWeek: refined.daysOfWeek || null,
           startTime: refined.startTime || null,
@@ -8008,7 +7730,7 @@ var FullCalendar = (function (exports) {
     for (var _a = 0, unfoundSources_1 = unfoundSources; _a < unfoundSources_1.length; _a++) {
       var unfoundSource = unfoundSources_1[_a]
       context.dispatch({
-        type: 'REMOVE_EVENT_SOURCE',
+        type: "REMOVE_EVENT_SOURCE",
         sourceId: unfoundSource.sourceId
       })
     }
@@ -8020,7 +7742,7 @@ var FullCalendar = (function (exports) {
 
   function handleDateProfile(dateProfile, context) {
     context.emitter.trigger(
-      'datesSet',
+      "datesSet",
       __assign(__assign({}, buildRangeApiWithTimeZone(dateProfile.activeRange, context.dateEnv)), {
         view: context.viewApi
       })
@@ -8029,8 +7751,8 @@ var FullCalendar = (function (exports) {
 
   function handleEventStore(eventStore, context) {
     var emitter = context.emitter
-    if (emitter.hasHandlers('eventsSet')) {
-      emitter.trigger('eventsSet', buildEventApis(eventStore, context))
+    if (emitter.hasHandlers("eventsSet")) {
+      emitter.trigger("eventsSet", buildEventApis(eventStore, context))
     }
   }
 
@@ -8099,7 +7821,7 @@ var FullCalendar = (function (exports) {
     }
     DelayedRunner.prototype.pause = function (scope) {
       if (scope === void 0) {
-        scope = ''
+        scope = ""
       }
       var pauseDepths = this.pauseDepths
       pauseDepths[scope] = (pauseDepths[scope] || 0) + 1
@@ -8107,7 +7829,7 @@ var FullCalendar = (function (exports) {
     }
     DelayedRunner.prototype.resume = function (scope, force) {
       if (scope === void 0) {
-        scope = ''
+        scope = ""
       }
       var pauseDepths = this.pauseDepths
       if (scope in pauseDepths) {
@@ -8219,18 +7941,18 @@ var FullCalendar = (function (exports) {
   // Attempts to compute the most appropriate format if not explicitly specified with `titleFormat`.
   function buildTitleFormat(dateProfile) {
     var currentRangeUnit = dateProfile.currentRangeUnit
-    if (currentRangeUnit === 'year') {
-      return { year: 'numeric' }
-    } else if (currentRangeUnit === 'month') {
-      return { year: 'numeric', month: 'long' } // like "September 2014"
+    if (currentRangeUnit === "year") {
+      return { year: "numeric" }
+    } else if (currentRangeUnit === "month") {
+      return { year: "numeric", month: "long" } // like "September 2014"
     } else {
       var days = diffWholeDays(dateProfile.currentRange.start, dateProfile.currentRange.end)
       if (days !== null && days > 1) {
         // multi-day range. shorter, like "Sep 9 - 10 2014"
-        return { year: 'numeric', month: 'short', day: 'numeric' }
+        return { year: "numeric", month: "short", day: "numeric" }
       } else {
         // one day. longer, like "September 9 2014"
-        return { year: 'numeric', month: 'long', day: 'numeric' }
+        return { year: "numeric", month: "long", day: "numeric" }
       }
     }
   }
@@ -8272,13 +7994,8 @@ var FullCalendar = (function (exports) {
       this.props = props
       this.actionRunner.pause()
       var dynamicOptionOverrides = {}
-      var optionsData = this.computeOptionsData(
-        props.optionOverrides,
-        dynamicOptionOverrides,
-        props.calendarApi
-      )
-      var currentViewType =
-        optionsData.calendarOptions.initialView || optionsData.pluginHooks.initialView
+      var optionsData = this.computeOptionsData(props.optionOverrides, dynamicOptionOverrides, props.calendarApi)
+      var currentViewType = optionsData.calendarOptions.initialView || optionsData.pluginHooks.initialView
       var currentViewData = this.computeCurrentViewData(
         currentViewType,
         optionsData,
@@ -8323,7 +8040,7 @@ var FullCalendar = (function (exports) {
         eventStore: createEmptyEventStore(),
         renderableEventStore: createEmptyEventStore(),
         dateSelection: null,
-        eventSelection: '',
+        eventSelection: "",
         eventDrag: null,
         eventResize: null,
         selectionConfig: this.buildViewUiProps(calendarContext).selectionConfig
@@ -8334,7 +8051,7 @@ var FullCalendar = (function (exports) {
         __assign(initialState, reducer(null, null, contextAndState))
       }
       if (initialState.loadingLevel) {
-        this.emitter.trigger('loading', true) // NOT DRY
+        this.emitter.trigger("loading", true) // NOT DRY
       }
       this.state = initialState
       this.updateData()
@@ -8342,11 +8059,9 @@ var FullCalendar = (function (exports) {
     }
     CalendarDataManager.prototype.resetOptions = function (optionOverrides, append) {
       var props = this.props
-      props.optionOverrides = append
-        ? __assign(__assign({}, props.optionOverrides), optionOverrides)
-        : optionOverrides
+      props.optionOverrides = append ? __assign(__assign({}, props.optionOverrides), optionOverrides) : optionOverrides
       this.actionRunner.request({
-        type: 'NOTHING'
+        type: "NOTHING"
       })
     }
     CalendarDataManager.prototype._handleAction = function (action) {
@@ -8354,15 +8069,8 @@ var FullCalendar = (function (exports) {
         props = _a.props,
         state = _a.state,
         emitter = _a.emitter
-      var dynamicOptionOverrides = reduceDynamicOptionOverrides(
-        state.dynamicOptionOverrides,
-        action
-      )
-      var optionsData = this.computeOptionsData(
-        props.optionOverrides,
-        dynamicOptionOverrides,
-        props.calendarApi
-      )
+      var dynamicOptionOverrides = reduceDynamicOptionOverrides(state.dynamicOptionOverrides, action)
+      var optionsData = this.computeOptionsData(props.optionOverrides, dynamicOptionOverrides, props.calendarApi)
       var currentViewType = reduceViewType(state.currentViewType, action)
       var currentViewData = this.computeCurrentViewData(
         currentViewType,
@@ -8391,29 +8099,13 @@ var FullCalendar = (function (exports) {
         dateProfile = currentViewData.dateProfileGenerator.build(currentDate)
       }
       currentDate = reduceCurrentDate(currentDate, action)
-      dateProfile = reduceDateProfile(
-        dateProfile,
-        action,
-        currentDate,
-        currentViewData.dateProfileGenerator
-      )
+      dateProfile = reduceDateProfile(dateProfile, action, currentDate, currentViewData.dateProfileGenerator)
       if (!rangeContainsMarker(dateProfile.currentRange, currentDate)) {
         currentDate = dateProfile.currentRange.start
       }
-      var eventSources = reduceEventSources(
-        state.eventSources,
-        action,
-        dateProfile,
-        calendarContext
-      )
+      var eventSources = reduceEventSources(state.eventSources, action, dateProfile, calendarContext)
       var eventSourceLoadingLevel = computeEventSourceLoadingLevel(eventSources)
-      var eventStore = reduceEventStore(
-        state.eventStore,
-        action,
-        eventSources,
-        dateProfile,
-        calendarContext
-      )
+      var eventStore = reduceEventStore(state.eventStore, action, eventSources, dateProfile, calendarContext)
       var renderableEventStore =
         eventSourceLoadingLevel && !currentViewData.options.progressiveEventRendering
           ? state.renderableEventStore || eventStore // try from previous state
@@ -8422,11 +8114,7 @@ var FullCalendar = (function (exports) {
         eventUiSingleBase = _b.eventUiSingleBase,
         selectionConfig = _b.selectionConfig // will memoize obj
       var eventUiBySource = this.buildEventUiBySource(eventSources)
-      var eventUiBases = this.buildEventUiBases(
-        renderableEventStore.defs,
-        eventUiSingleBase,
-        eventUiBySource
-      )
+      var eventUiBases = this.buildEventUiBases(renderableEventStore.defs, eventUiSingleBase, eventUiBySource)
       var prevLoadingLevel = state.loadingLevel || 0
       var loadingLevel = eventSourceLoadingLevel
       var newState = {
@@ -8453,9 +8141,9 @@ var FullCalendar = (function (exports) {
       }
       // TODO: use propSetHandlers in plugin system
       if (!prevLoadingLevel && loadingLevel) {
-        emitter.trigger('loading', true)
+        emitter.trigger("loading", true)
       } else if (prevLoadingLevel && !loadingLevel) {
-        emitter.trigger('loading', false)
+        emitter.trigger("loading", false)
       }
       this.state = newState
       if (props.onAction) {
@@ -8467,11 +8155,7 @@ var FullCalendar = (function (exports) {
         props = _a.props,
         state = _a.state
       var oldData = this.data
-      var optionsData = this.computeOptionsData(
-        props.optionOverrides,
-        state.dynamicOptionOverrides,
-        props.calendarApi
-      )
+      var optionsData = this.computeOptionsData(props.optionOverrides, state.dynamicOptionOverrides, props.calendarApi)
       var currentViewData = this.computeCurrentViewData(
         state.currentViewType,
         optionsData,
@@ -8482,11 +8166,7 @@ var FullCalendar = (function (exports) {
         __assign(
           __assign(
             {
-              viewTitle: this.buildTitle(
-                state.dateProfile,
-                currentViewData.options,
-                optionsData.dateEnv
-              ),
+              viewTitle: this.buildTitle(state.dateProfile, currentViewData.options, optionsData.dateEnv),
               calendarApi: props.calendarApi,
               dispatch: this.dispatch,
               emitter: this.emitter,
@@ -8509,11 +8189,7 @@ var FullCalendar = (function (exports) {
             state.dateProfile,
             data
           )
-          state.eventStore = data.eventStore = rezoneEventStoreDates(
-            data.eventStore,
-            oldData.dateEnv,
-            data.dateEnv
-          )
+          state.eventStore = data.eventStore = rezoneEventStoreDates(data.eventStore, oldData.dateEnv, data.dateEnv)
         }
         for (var optionName in changeHandlers) {
           if (oldCalendarOptions[optionName] !== newCalendarOptions[optionName]) {
@@ -8548,20 +8224,9 @@ var FullCalendar = (function (exports) {
         availableLocaleData,
         refinedOptions.defaultRangeSeparator
       )
-      var viewSpecs = this.buildViewSpecs(
-        pluginHooks.views,
-        optionOverrides,
-        dynamicOptionOverrides,
-        localeDefaults
-      )
+      var viewSpecs = this.buildViewSpecs(pluginHooks.views, optionOverrides, dynamicOptionOverrides, localeDefaults)
       var theme = this.buildTheme(refinedOptions, pluginHooks)
-      var toolbarConfig = this.parseToolbars(
-        refinedOptions,
-        optionOverrides,
-        theme,
-        viewSpecs,
-        calendarApi
-      )
+      var toolbarConfig = this.parseToolbars(refinedOptions, optionOverrides, theme, viewSpecs, calendarApi)
       return {
         calendarOptions: refinedOptions,
         pluginHooks: pluginHooks,
@@ -8574,43 +8239,29 @@ var FullCalendar = (function (exports) {
       }
     }
     // always called from behind a memoizer
-    CalendarDataManager.prototype.processRawCalendarOptions = function (
-      optionOverrides,
-      dynamicOptionOverrides
-    ) {
+    CalendarDataManager.prototype.processRawCalendarOptions = function (optionOverrides, dynamicOptionOverrides) {
       var _a = mergeRawOptions([BASE_OPTION_DEFAULTS, optionOverrides, dynamicOptionOverrides]),
         locales = _a.locales,
         locale = _a.locale
       var availableLocaleData = this.organizeRawLocales(locales)
       var availableRawLocales = availableLocaleData.map
-      var localeDefaults = this.buildLocale(
-        locale || availableLocaleData.defaultCode,
-        availableRawLocales
-      ).options
+      var localeDefaults = this.buildLocale(locale || availableLocaleData.defaultCode, availableRawLocales).options
       var pluginHooks = this.buildPluginHooks(optionOverrides.plugins || [], globalPlugins)
       var refiners = (this.currentCalendarOptionsRefiners = __assign(
         __assign(
-          __assign(
-            __assign(__assign({}, BASE_OPTION_REFINERS), CALENDAR_LISTENER_REFINERS),
-            CALENDAR_OPTION_REFINERS
-          ),
+          __assign(__assign(__assign({}, BASE_OPTION_REFINERS), CALENDAR_LISTENER_REFINERS), CALENDAR_OPTION_REFINERS),
           pluginHooks.listenerRefiners
         ),
         pluginHooks.optionRefiners
       ))
       var extra = {}
-      var raw = mergeRawOptions([
-        BASE_OPTION_DEFAULTS,
-        localeDefaults,
-        optionOverrides,
-        dynamicOptionOverrides
-      ])
+      var raw = mergeRawOptions([BASE_OPTION_DEFAULTS, localeDefaults, optionOverrides, dynamicOptionOverrides])
       var refined = {}
       var currentRaw = this.currentCalendarOptionsInput
       var currentRefined = this.currentCalendarOptionsRefined
       var anyChanges = false
       for (var optionName in raw) {
-        if (optionName !== 'plugins') {
+        if (optionName !== "plugins") {
           // because plugins is special-cased
           if (
             raw[optionName] === currentRaw[optionName] ||
@@ -8649,9 +8300,7 @@ var FullCalendar = (function (exports) {
       var viewSpec = optionsData.viewSpecs[viewType]
       if (!viewSpec) {
         throw new Error(
-          'viewType "' +
-            viewType +
-            '" is not available. Please make sure you\'ve loaded all neccessary plugins'
+          'viewType "' + viewType + "\" is not available. Please make sure you've loaded all neccessary plugins"
         )
       }
       var _a = this.processRawViewOptions(
@@ -8765,12 +8414,9 @@ var FullCalendar = (function (exports) {
     availableLocaleData,
     defaultSeparator
   ) {
-    var locale = buildLocale(
-      explicitLocale || availableLocaleData.defaultCode,
-      availableLocaleData.map
-    )
+    var locale = buildLocale(explicitLocale || availableLocaleData.defaultCode, availableLocaleData.map)
     return new DateEnv({
-      calendarSystem: 'gregory',
+      calendarSystem: "gregory",
       timeZone: timeZone,
       namedTimeZoneImpl: pluginHooks.namedTimeZonedImpl,
       locale: locale,
@@ -8798,7 +8444,7 @@ var FullCalendar = (function (exports) {
     })
   }
   function buildEventUiBases(eventDefs, eventUiSingleBase, eventUiBySource) {
-    var eventUiBases = { '': eventUiSingleBase }
+    var eventUiBases = { "": eventUiSingleBase }
     for (var defId in eventDefs) {
       var def = eventDefs[defId]
       if (def.sourceId && eventUiBySource[def.sourceId]) {
@@ -8817,7 +8463,7 @@ var FullCalendar = (function (exports) {
           startEditable: options.eventStartEditable,
           durationEditable: options.eventDurationEditable,
           constraint: options.eventConstraint,
-          overlap: typeof options.eventOverlap === 'boolean' ? options.eventOverlap : undefined,
+          overlap: typeof options.eventOverlap === "boolean" ? options.eventOverlap : undefined,
           allow: options.eventAllow,
           backgroundColor: options.eventBackgroundColor,
           borderColor: options.eventBorderColor,
@@ -8830,7 +8476,7 @@ var FullCalendar = (function (exports) {
       selectionConfig: createEventUi(
         {
           constraint: options.selectConstraint,
-          overlap: typeof options.selectOverlap === 'boolean' ? options.selectOverlap : undefined,
+          overlap: typeof options.selectOverlap === "boolean" ? options.selectOverlap : undefined,
           allow: options.selectAllow
         },
         calendarContext
@@ -8842,9 +8488,7 @@ var FullCalendar = (function (exports) {
   }
   function warnUnknownOptions(options, viewName) {
     for (var optionName in options) {
-      console.warn(
-        "Unknown option '" + optionName + "'" + (viewName ? " for view '" + viewName + "'" : '')
-      )
+      console.warn("Unknown option '" + optionName + "'" + (viewName ? " for view '" + viewName + "'" : ""))
     }
   }
 
@@ -9005,13 +8649,13 @@ var FullCalendar = (function (exports) {
       } else {
         endContent = model.end
       }
-      var classNames = [extraClassName || '', 'fc-toolbar', forceLtr ? 'fc-toolbar-ltr' : '']
+      var classNames = [extraClassName || "", "fc-toolbar", forceLtr ? "fc-toolbar-ltr" : ""]
       return createElement(
-        'div',
-        { className: classNames.join(' ') },
-        this.renderSection('start', startContent || []),
-        this.renderSection('center', centerContent || []),
-        this.renderSection('end', endContent || [])
+        "div",
+        { className: classNames.join(" ") },
+        this.renderSection("start", startContent || []),
+        this.renderSection("center", centerContent || []),
+        this.renderSection("end", endContent || [])
       )
     }
     Toolbar.prototype.renderSection = function (key, widgetGroups) {
@@ -9038,10 +8682,7 @@ var FullCalendar = (function (exports) {
       var children = this.props.widgetGroups.map(function (widgetGroup) {
         return _this.renderWidgetGroup(widgetGroup)
       })
-      return createElement.apply(
-        void 0,
-        __spreadArrays(['div', { className: 'fc-toolbar-chunk' }], children)
-      )
+      return createElement.apply(void 0, __spreadArrays(["div", { className: "fc-toolbar-chunk" }], children))
     }
     ToolbarSection.prototype.renderWidgetGroup = function (widgetGroup) {
       var props = this.props
@@ -9054,42 +8695,39 @@ var FullCalendar = (function (exports) {
           buttonClick = widget.buttonClick,
           buttonText = widget.buttonText,
           buttonIcon = widget.buttonIcon
-        if (buttonName === 'title') {
+        if (buttonName === "title") {
           isOnlyButtons = false
-          children.push(createElement('h2', { className: 'fc-toolbar-title' }, props.title))
+          children.push(createElement("h2", { className: "fc-toolbar-title" }, props.title))
         } else {
-          var ariaAttrs = buttonIcon ? { 'aria-label': buttonName } : {}
-          var buttonClasses = ['fc-' + buttonName + '-button', theme.getClass('button')]
+          var ariaAttrs = buttonIcon ? { "aria-label": buttonName } : {}
+          var buttonClasses = ["fc-" + buttonName + "-button", theme.getClass("button")]
           if (buttonName === props.activeButton) {
-            buttonClasses.push(theme.getClass('buttonActive'))
+            buttonClasses.push(theme.getClass("buttonActive"))
           }
           var isDisabled =
-            (!props.isTodayEnabled && buttonName === 'today') ||
-            (!props.isPrevEnabled && buttonName === 'prev') ||
-            (!props.isNextEnabled && buttonName === 'next')
+            (!props.isTodayEnabled && buttonName === "today") ||
+            (!props.isPrevEnabled && buttonName === "prev") ||
+            (!props.isNextEnabled && buttonName === "next")
           children.push(
             createElement(
-              'button',
+              "button",
               __assign(
                 {
                   disabled: isDisabled,
-                  className: buttonClasses.join(' '),
+                  className: buttonClasses.join(" "),
                   onClick: buttonClick,
-                  type: 'button'
+                  type: "button"
                 },
                 ariaAttrs
               ),
-              buttonText || (buttonIcon ? createElement('span', { className: buttonIcon }) : '')
+              buttonText || (buttonIcon ? createElement("span", { className: buttonIcon }) : "")
             )
           )
         }
       }
       if (children.length > 1) {
-        var groupClassName = (isOnlyButtons && theme.getClass('buttonGroup')) || ''
-        return createElement.apply(
-          void 0,
-          __spreadArrays(['div', { className: groupClassName }], children)
-        )
+        var groupClassName = (isOnlyButtons && theme.getClass("buttonGroup")) || ""
+        return createElement.apply(void 0, __spreadArrays(["div", { className: groupClassName }], children))
       } else {
         return children[0]
       }
@@ -9121,13 +8759,13 @@ var FullCalendar = (function (exports) {
         state = _a.state
       var aspectRatio = props.aspectRatio
       var classNames = [
-        'fc-view-harness',
+        "fc-view-harness",
         aspectRatio || props.liquid || props.height
-          ? 'fc-view-harness-active' // harness controls the height
-          : 'fc-view-harness-passive' // let the view do the height
+          ? "fc-view-harness-active" // harness controls the height
+          : "fc-view-harness-passive" // let the view do the height
       ]
-      var height = ''
-      var paddingBottom = ''
+      var height = ""
+      var paddingBottom = ""
       if (aspectRatio) {
         if (state.availableWidth !== null) {
           height = state.availableWidth / aspectRatio
@@ -9136,17 +8774,17 @@ var FullCalendar = (function (exports) {
           // because will cause lots of unnecessary scrollbars within scrollgrid.
           // BETTER: don't start rendering ANYTHING yet until we know container width
           // NOTE: why not always use paddingBottom? Causes height oscillation (issue 5606)
-          paddingBottom = (1 / aspectRatio) * 100 + '%'
+          paddingBottom = (1 / aspectRatio) * 100 + "%"
         }
       } else {
-        height = props.height || ''
+        height = props.height || ""
       }
       return createElement(
-        'div',
+        "div",
         {
           ref: this.handleEl,
           onClick: props.onClick,
-          className: classNames.join(' '),
+          className: classNames.join(" "),
           style: { height: height, paddingBottom: paddingBottom }
         },
         props.children
@@ -9186,9 +8824,9 @@ var FullCalendar = (function (exports) {
         ) {
           // our way to simulate a link click for elements that can't be <a> tags
           // grab before trigger fired in case trigger trashes DOM thru rerendering
-          var hasUrlContainer = elementClosest(ev.target, '.fc-event-forced-url')
-          var url = hasUrlContainer ? hasUrlContainer.querySelector('a[href]').href : ''
-          context.emitter.trigger('eventClick', {
+          var hasUrlContainer = elementClosest(ev.target, ".fc-event-forced-url")
+          var url = hasUrlContainer ? hasUrlContainer.querySelector("a[href]").href : ""
+          context.emitter.trigger("eventClick", {
             el: segEl,
             event: new EventApi(component.context, seg.eventRange.def, seg.eventRange.instance),
             jsEvent: ev,
@@ -9201,8 +8839,8 @@ var FullCalendar = (function (exports) {
       }
       _this.destroy = listenBySelector(
         settings.el,
-        'click',
-        '.fc-event', // on both fg and bg events
+        "click",
+        ".fc-event", // on both fg and bg events
         _this.handleSegClick
       )
       return _this
@@ -9228,18 +8866,18 @@ var FullCalendar = (function (exports) {
         if (getElSeg(segEl)) {
           // TODO: better way to make sure not hovering over more+ link or its wrapper
           _this.currentSegEl = segEl
-          _this.triggerEvent('eventMouseEnter', ev, segEl)
+          _this.triggerEvent("eventMouseEnter", ev, segEl)
         }
       }
       _this.handleSegLeave = function (ev, segEl) {
         if (_this.currentSegEl) {
           _this.currentSegEl = null
-          _this.triggerEvent('eventMouseLeave', ev, segEl)
+          _this.triggerEvent("eventMouseLeave", ev, segEl)
         }
       }
       _this.removeHoverListeners = listenToHoverBySelector(
         settings.el,
-        '.fc-event', // on both fg and bg events
+        ".fc-event", // on both fg and bg events
         _this.handleSegEnter,
         _this.handleSegLeave
       )
@@ -9271,10 +8909,7 @@ var FullCalendar = (function (exports) {
       _this.buildViewContext = memoize(buildViewContext)
       _this.buildViewPropTransformers = memoize(buildViewPropTransformers)
       _this.buildToolbarProps = memoize(buildToolbarProps)
-      _this.handleNavLinkClick = buildDelegationHandler(
-        'a[data-navlink]',
-        _this._handleNavLinkClick.bind(_this)
-      )
+      _this.handleNavLinkClick = buildDelegationHandler("a[data-navlink]", _this._handleNavLinkClick.bind(_this))
       _this.headerRef = createRef()
       _this.footerRef = createRef()
       _this.interactionsStore = {}
@@ -9283,9 +8918,7 @@ var FullCalendar = (function (exports) {
       _this.registerInteractiveComponent = function (component, settingsInput) {
         var settings = parseInteractionSettings(component, settingsInput)
         var DEFAULT_INTERACTIONS = [EventClicking, EventHovering]
-        var interactionClasses = DEFAULT_INTERACTIONS.concat(
-          _this.props.pluginHooks.componentInteractions
-        )
+        var interactionClasses = DEFAULT_INTERACTIONS.concat(_this.props.pluginHooks.componentInteractions)
         var interactions = interactionClasses.map(function (interactionClass) {
           return new interactionClass(settings)
         })
@@ -9303,8 +8936,8 @@ var FullCalendar = (function (exports) {
       // Resizing
       // -----------------------------------------------------------------------------------------------------------------
       _this.resizeRunner = new DelayedRunner(function () {
-        _this.props.emitter.trigger('_resize', true) // should window resizes be considered "forced" ?
-        _this.props.emitter.trigger('windowResize', { view: _this.props.viewApi })
+        _this.props.emitter.trigger("_resize", true) // should window resizes be considered "forced" ?
+        _this.props.emitter.trigger("windowResize", { view: _this.props.viewApi })
       })
       _this.handleWindowResize = function (ev) {
         var options = _this.props.options
@@ -9333,10 +8966,10 @@ var FullCalendar = (function (exports) {
         props.viewTitle
       )
       var viewVGrow = false
-      var viewHeight = ''
+      var viewHeight = ""
       var viewAspectRatio
       if (props.isHeightAuto || props.forPrint) {
-        viewHeight = ''
+        viewHeight = ""
       } else if (options.height != null) {
         viewVGrow = true
       } else if (options.contentHeight != null) {
@@ -9368,7 +9001,7 @@ var FullCalendar = (function (exports) {
             __assign(
               {
                 ref: this.headerRef,
-                extraClassName: 'fc-header-toolbar',
+                extraClassName: "fc-header-toolbar",
                 model: toolbarConfig.headerToolbar
               },
               toolbarProps
@@ -9391,7 +9024,7 @@ var FullCalendar = (function (exports) {
             __assign(
               {
                 ref: this.footerRef,
-                extraClassName: 'fc-footer-toolbar',
+                extraClassName: "fc-footer-toolbar",
                 model: toolbarConfig.footerToolbar
               },
               toolbarProps
@@ -9401,12 +9034,10 @@ var FullCalendar = (function (exports) {
     }
     CalendarContent.prototype.componentDidMount = function () {
       var props = this.props
-      this.calendarInteractions = props.pluginHooks.calendarInteractions.map(
-        function (calendarInteractionClass) {
-          return new calendarInteractionClass(props)
-        }
-      )
-      window.addEventListener('resize', this.handleWindowResize)
+      this.calendarInteractions = props.pluginHooks.calendarInteractions.map(function (calendarInteractionClass) {
+        return new calendarInteractionClass(props)
+      })
+      window.addEventListener("resize", this.handleWindowResize)
       var propSetHandlers = props.pluginHooks.propSetHandlers
       for (var propName in propSetHandlers) {
         propSetHandlers[propName](props[propName], props)
@@ -9422,33 +9053,29 @@ var FullCalendar = (function (exports) {
       }
     }
     CalendarContent.prototype.componentWillUnmount = function () {
-      window.removeEventListener('resize', this.handleWindowResize)
+      window.removeEventListener("resize", this.handleWindowResize)
       this.resizeRunner.clear()
       for (var _i = 0, _a = this.calendarInteractions; _i < _a.length; _i++) {
         var interaction = _a[_i]
         interaction.destroy()
       }
-      this.props.emitter.trigger('_unmount')
+      this.props.emitter.trigger("_unmount")
     }
     CalendarContent.prototype._handleNavLinkClick = function (ev, anchorEl) {
       var _a = this.props,
         dateEnv = _a.dateEnv,
         options = _a.options,
         calendarApi = _a.calendarApi
-      var navLinkOptions = anchorEl.getAttribute('data-navlink')
+      var navLinkOptions = anchorEl.getAttribute("data-navlink")
       navLinkOptions = navLinkOptions ? JSON.parse(navLinkOptions) : {}
       var dateMarker = dateEnv.createMarker(navLinkOptions.date)
       var viewType = navLinkOptions.type
       var customAction =
-        viewType === 'day'
-          ? options.navLinkDayClick
-          : viewType === 'week'
-            ? options.navLinkWeekClick
-            : null
-      if (typeof customAction === 'function') {
+        viewType === "day" ? options.navLinkDayClick : viewType === "week" ? options.navLinkWeekClick : null
+      if (typeof customAction === "function") {
         customAction.call(calendarApi, dateEnv.toDate(dateMarker), ev)
       } else {
-        if (typeof customAction === 'string') {
+        if (typeof customAction === "string") {
           viewType = customAction
         }
         calendarApi.zoomTo(dateMarker, viewType)
@@ -9526,28 +9153,28 @@ var FullCalendar = (function (exports) {
       var props = this.props
       var options = props.options
       var forPrint = this.state.forPrint
-      var isHeightAuto = forPrint || options.height === 'auto' || options.contentHeight === 'auto'
-      var height = !isHeightAuto && options.height != null ? options.height : ''
+      var isHeightAuto = forPrint || options.height === "auto" || options.contentHeight === "auto"
+      var height = !isHeightAuto && options.height != null ? options.height : ""
       var classNames = [
-        'fc',
-        forPrint ? 'fc-media-print' : 'fc-media-screen',
-        'fc-direction-' + options.direction,
-        props.theme.getClass('root')
+        "fc",
+        forPrint ? "fc-media-print" : "fc-media-screen",
+        "fc-direction-" + options.direction,
+        props.theme.getClass("root")
       ]
       if (!getCanVGrowWithinCell()) {
-        classNames.push('fc-liquid-hack')
+        classNames.push("fc-liquid-hack")
       }
       return props.children(classNames, height, isHeightAuto, forPrint)
     }
     CalendarRoot.prototype.componentDidMount = function () {
       var emitter = this.props.emitter
-      emitter.on('_beforeprint', this.handleBeforePrint)
-      emitter.on('_afterprint', this.handleAfterPrint)
+      emitter.on("_beforeprint", this.handleBeforePrint)
+      emitter.on("_afterprint", this.handleAfterPrint)
     }
     CalendarRoot.prototype.componentWillUnmount = function () {
       var emitter = this.props.emitter
-      emitter.off('_beforeprint', this.handleBeforePrint)
-      emitter.off('_afterprint', this.handleAfterPrint)
+      emitter.off("_beforeprint", this.handleBeforePrint)
+      emitter.off("_afterprint", this.handleAfterPrint)
     }
     return CalendarRoot
   })(BaseComponent)
@@ -9557,20 +9184,20 @@ var FullCalendar = (function (exports) {
     // if more than one week row, or if there are a lot of columns with not much space,
     // put just the day numbers will be in each cell
     if (!datesRepDistinctDays || dayCnt > 10) {
-      return createFormatter({ weekday: 'short' }) // "Sat"
+      return createFormatter({ weekday: "short" }) // "Sat"
     } else if (dayCnt > 1) {
       return createFormatter({
-        weekday: 'short',
-        month: 'numeric',
-        day: 'numeric',
+        weekday: "short",
+        month: "numeric",
+        day: "numeric",
         omitCommas: true
       }) // "Sat 11/12"
     } else {
-      return createFormatter({ weekday: 'long' }) // "Saturday"
+      return createFormatter({ weekday: "long" }) // "Saturday"
     }
   }
 
-  var CLASS_NAME = 'fc-col-header-cell' // do the cushion too? no
+  var CLASS_NAME = "fc-col-header-cell" // do the cushion too? no
   var TableDateCell = /** @class */ (function (_super) {
     __extends(TableDateCell, _super)
     function TableDateCell() {
@@ -9591,7 +9218,7 @@ var FullCalendar = (function (exports) {
       // if colCnt is 1, we are already in a day-view and don't need a navlink
       var navLinkAttrs =
         options.navLinks && !dayMeta.isDisabled && props.colCnt > 1
-          ? { 'data-navlink': buildNavLinkData(date), tabIndex: 0 }
+          ? { "data-navlink": buildNavLinkData(date), tabIndex: 0 }
           : {}
       var hookProps = __assign(
         __assign(__assign({ date: dateEnv.toDate(date), view: viewApi }, props.extraHookProps), {
@@ -9611,29 +9238,26 @@ var FullCalendar = (function (exports) {
         },
         function (rootElRef, customClassNames, innerElRef, innerContent) {
           return createElement(
-            'th',
+            "th",
             __assign(
               {
                 ref: rootElRef,
-                className: classNames.concat(customClassNames).join(' '),
-                'data-date': !dayMeta.isDisabled ? formatDayString(date) : undefined,
+                className: classNames.concat(customClassNames).join(" "),
+                "data-date": !dayMeta.isDisabled ? formatDayString(date) : undefined,
                 colSpan: props.colSpan
               },
               props.extraDataAttrs
             ),
             createElement(
-              'div',
-              { className: 'fc-scrollgrid-sync-inner' },
+              "div",
+              { className: "fc-scrollgrid-sync-inner" },
               !dayMeta.isDisabled &&
                 createElement(
-                  'a',
+                  "a",
                   __assign(
                     {
                       ref: innerElRef,
-                      className: [
-                        'fc-col-header-cell-cushion',
-                        props.isSticky ? 'fc-sticky' : ''
-                      ].join(' ')
+                      className: ["fc-col-header-cell-cushion", props.isSticky ? "fc-sticky" : ""].join(" ")
                     },
                     navLinkAttrs
                   ),
@@ -9667,10 +9291,7 @@ var FullCalendar = (function (exports) {
         isToday: false,
         isOther: false
       }
-      var classNames = [CLASS_NAME].concat(
-        getDayClassNames(dateMeta, theme),
-        props.extraClassNames || []
-      )
+      var classNames = [CLASS_NAME].concat(getDayClassNames(dateMeta, theme), props.extraClassNames || [])
       var text = dateEnv.format(date, props.dayHeaderFormat)
       var hookProps = __assign(
         __assign(
@@ -9700,24 +9321,22 @@ var FullCalendar = (function (exports) {
         },
         function (rootElRef, customClassNames, innerElRef, innerContent) {
           return createElement(
-            'th',
+            "th",
             __assign(
               {
                 ref: rootElRef,
-                className: classNames.concat(customClassNames).join(' '),
+                className: classNames.concat(customClassNames).join(" "),
                 colSpan: props.colSpan
               },
               props.extraDataAttrs
             ),
             createElement(
-              'div',
-              { className: 'fc-scrollgrid-sync-inner' },
+              "div",
+              { className: "fc-scrollgrid-sync-inner" },
               createElement(
-                'a',
+                "a",
                 {
-                  className: ['fc-col-header-cell-cushion', props.isSticky ? 'fc-sticky' : ''].join(
-                    ' '
-                  ),
+                  className: ["fc-col-header-cell-cushion", props.isSticky ? "fc-sticky" : ""].join(" "),
                   ref: innerElRef
                 },
                 innerContent
@@ -9818,9 +9437,9 @@ var FullCalendar = (function (exports) {
         datesRepDistinctDays,
         dates.length
       )
-      return createElement(NowTimer, { unit: 'day' }, function (nowDate, todayRange) {
+      return createElement(NowTimer, { unit: "day" }, function (nowDate, todayRange) {
         return createElement(
-          'tr',
+          "tr",
           null,
           renderIntro && renderIntro(),
           dates.map(function (date) {
@@ -10020,10 +9639,7 @@ var FullCalendar = (function (exports) {
         ),
         eventResize: this.sliceEventResize.apply(
           this,
-          __spreadArrays(
-            [props.eventResize, eventUiBases, dateProfile, nextDayThreshold],
-            extraArgs
-          )
+          __spreadArrays([props.eventResize, eventUiBases, dateProfile, nextDayThreshold], extraArgs)
         ),
         eventSelection: props.eventSelection
       } // TODO: give interactionSegs?
@@ -10039,18 +9655,10 @@ var FullCalendar = (function (exports) {
       }
       return this._sliceDateSpan.apply(
         this,
-        __spreadArrays(
-          [{ range: { start: date, end: addMs(date, 1) }, allDay: false }, {}, context],
-          extraArgs
-        )
+        __spreadArrays([{ range: { start: date, end: addMs(date, 1) }, allDay: false }, {}, context], extraArgs)
       )
     }
-    Slicer.prototype._sliceBusinessHours = function (
-      businessHours,
-      dateProfile,
-      nextDayThreshold,
-      context
-    ) {
+    Slicer.prototype._sliceBusinessHours = function (businessHours, dateProfile, nextDayThreshold, context) {
       var extraArgs = []
       for (var _i = 4; _i < arguments.length; _i++) {
         extraArgs[_i - 4] = arguments[_i]
@@ -10062,11 +9670,7 @@ var FullCalendar = (function (exports) {
         this,
         __spreadArrays(
           [
-            expandRecurring(
-              businessHours,
-              computeActiveRange(dateProfile, Boolean(nextDayThreshold)),
-              context
-            ),
+            expandRecurring(businessHours, computeActiveRange(dateProfile, Boolean(nextDayThreshold)), context),
             {},
             dateProfile,
             nextDayThreshold
@@ -10075,12 +9679,7 @@ var FullCalendar = (function (exports) {
         )
       ).bg
     }
-    Slicer.prototype._sliceEventStore = function (
-      eventStore,
-      eventUiBases,
-      dateProfile,
-      nextDayThreshold
-    ) {
+    Slicer.prototype._sliceEventStore = function (eventStore, eventUiBases, dateProfile, nextDayThreshold) {
       var extraArgs = []
       for (var _i = 4; _i < arguments.length; _i++) {
         extraArgs[_i - 4] = arguments[_i]
@@ -10100,12 +9699,7 @@ var FullCalendar = (function (exports) {
         return { bg: [], fg: [] }
       }
     }
-    Slicer.prototype._sliceInteraction = function (
-      interaction,
-      eventUiBases,
-      dateProfile,
-      nextDayThreshold
-    ) {
+    Slicer.prototype._sliceInteraction = function (interaction, eventUiBases, dateProfile, nextDayThreshold) {
       var extraArgs = []
       for (var _i = 4; _i < arguments.length; _i++) {
         extraArgs[_i - 4] = arguments[_i]
@@ -10158,7 +9752,7 @@ var FullCalendar = (function (exports) {
     Slicer.prototype.sliceEventRange = function (eventRange, extraArgs) {
       var dateRange = eventRange.range
       // hack to make multi-day events that are being force-displayed as list-items to take up only one day
-      if (this.forceDayIfListItem && eventRange.ui.display === 'list-item') {
+      if (this.forceDayIfListItem && eventRange.ui.display === "list-item") {
         dateRange = {
           start: dateRange.start,
           end: addDays(dateRange.start, 1)
@@ -10207,29 +9801,29 @@ var FullCalendar = (function (exports) {
       var liquid = props.liquid,
         liquidIsAbsolute = props.liquidIsAbsolute
       var isAbsolute = liquid && liquidIsAbsolute
-      var className = ['fc-scroller']
+      var className = ["fc-scroller"]
       if (liquid) {
         if (liquidIsAbsolute) {
-          className.push('fc-scroller-liquid-absolute')
+          className.push("fc-scroller-liquid-absolute")
         } else {
-          className.push('fc-scroller-liquid')
+          className.push("fc-scroller-liquid")
         }
       }
       return createElement(
-        'div',
+        "div",
         {
           ref: this.handleEl,
-          className: className.join(' '),
+          className: className.join(" "),
           style: {
             overflowX: props.overflowX,
             overflowY: props.overflowY,
-            left: (isAbsolute && -(props.overcomeLeft || 0)) || '',
-            right: (isAbsolute && -(props.overcomeRight || 0)) || '',
-            bottom: (isAbsolute && -(props.overcomeBottom || 0)) || '',
-            marginLeft: (!isAbsolute && -(props.overcomeLeft || 0)) || '',
-            marginRight: (!isAbsolute && -(props.overcomeRight || 0)) || '',
-            marginBottom: (!isAbsolute && -(props.overcomeBottom || 0)) || '',
-            maxHeight: props.maxHeight || ''
+            left: (isAbsolute && -(props.overcomeLeft || 0)) || "",
+            right: (isAbsolute && -(props.overcomeRight || 0)) || "",
+            bottom: (isAbsolute && -(props.overcomeBottom || 0)) || "",
+            marginLeft: (!isAbsolute && -(props.overcomeLeft || 0)) || "",
+            marginRight: (!isAbsolute && -(props.overcomeRight || 0)) || "",
+            marginBottom: (!isAbsolute && -(props.overcomeBottom || 0)) || "",
+            maxHeight: props.maxHeight || ""
           }
         },
         props.children
@@ -10348,7 +9942,7 @@ var FullCalendar = (function (exports) {
   })()
 
   function computeShrinkWidth(chunkEls) {
-    var shrinkCells = findElements(chunkEls, '.fc-scrollgrid-shrink')
+    var shrinkCells = findElements(chunkEls, ".fc-scrollgrid-shrink")
     var largestWidth = 0
     for (var _i = 0, shrinkCells_1 = shrinkCells; _i < shrinkCells_1.length; _i++) {
       var shrinkCell = shrinkCells_1[_i]
@@ -10369,28 +9963,26 @@ var FullCalendar = (function (exports) {
   function renderChunkContent(sectionConfig, chunkConfig, arg) {
     var expandRows = arg.expandRows
     var content =
-      typeof chunkConfig.content === 'function'
+      typeof chunkConfig.content === "function"
         ? chunkConfig.content(arg)
         : createElement(
-            'table',
+            "table",
             {
               className: [
                 chunkConfig.tableClassName,
-                sectionConfig.syncRowHeights ? 'fc-scrollgrid-sync-table' : ''
-              ].join(' '),
+                sectionConfig.syncRowHeights ? "fc-scrollgrid-sync-table" : ""
+              ].join(" "),
               style: {
                 minWidth: arg.tableMinWidth,
                 width: arg.clientWidth,
-                height: expandRows ? arg.clientHeight : '' // css `height` on a <table> serves as a min-height
+                height: expandRows ? arg.clientHeight : "" // css `height` on a <table> serves as a min-height
               }
             },
             arg.tableColGroupNode,
             createElement(
-              'tbody',
+              "tbody",
               {},
-              typeof chunkConfig.rowContent === 'function'
-                ? chunkConfig.rowContent(arg)
-                : chunkConfig.rowContent
+              typeof chunkConfig.rowContent === "function" ? chunkConfig.rowContent(arg) : chunkConfig.rowContent
             )
           )
     return content
@@ -10410,19 +10002,16 @@ var FullCalendar = (function (exports) {
       var span = colProps.span || 1
       for (var i = 0; i < span; i++) {
         colNodes.push(
-          createElement('col', {
+          createElement("col", {
             style: {
-              width:
-                colProps.width === 'shrink'
-                  ? sanitizeShrinkWidth(shrinkWidth)
-                  : colProps.width || '',
-              minWidth: colProps.minWidth || ''
+              width: colProps.width === "shrink" ? sanitizeShrinkWidth(shrinkWidth) : colProps.width || "",
+              minWidth: colProps.minWidth || ""
             }
           })
         )
       }
     }
-    return createElement.apply(void 0, __spreadArrays(['colgroup', {}], colNodes))
+    return createElement.apply(void 0, __spreadArrays(["colgroup", {}], colNodes))
   }
   function sanitizeShrinkWidth(shrinkWidth) {
     /* why 4? if we do 0, it will kill any border, which are needed for computeSmallestCellWidth
@@ -10432,36 +10021,36 @@ var FullCalendar = (function (exports) {
   function hasShrinkWidth(cols) {
     for (var _i = 0, cols_2 = cols; _i < cols_2.length; _i++) {
       var col = cols_2[_i]
-      if (col.width === 'shrink') {
+      if (col.width === "shrink") {
         return true
       }
     }
     return false
   }
   function getScrollGridClassNames(liquid, context) {
-    var classNames = ['fc-scrollgrid', context.theme.getClass('table')]
+    var classNames = ["fc-scrollgrid", context.theme.getClass("table")]
     if (liquid) {
-      classNames.push('fc-scrollgrid-liquid')
+      classNames.push("fc-scrollgrid-liquid")
     }
     return classNames
   }
   function getSectionClassNames(sectionConfig, wholeTableVGrow) {
     var classNames = [
-      'fc-scrollgrid-section',
-      'fc-scrollgrid-section-' + sectionConfig.type,
+      "fc-scrollgrid-section",
+      "fc-scrollgrid-section-" + sectionConfig.type,
       sectionConfig.className // used?
     ]
     if (wholeTableVGrow && sectionConfig.liquid && sectionConfig.maxHeight == null) {
-      classNames.push('fc-scrollgrid-section-liquid')
+      classNames.push("fc-scrollgrid-section-liquid")
     }
     if (sectionConfig.isSticky) {
-      classNames.push('fc-scrollgrid-section-sticky')
+      classNames.push("fc-scrollgrid-section-sticky")
     }
     return classNames
   }
   function renderScrollShim(arg) {
-    return createElement('div', {
-      className: 'fc-scrollgrid-sticky-shim',
+    return createElement("div", {
+      className: "fc-scrollgrid-sticky-shim",
       style: {
         width: arg.clientWidth,
         minWidth: arg.tableMinWidth
@@ -10470,15 +10059,15 @@ var FullCalendar = (function (exports) {
   }
   function getStickyHeaderDates(options) {
     var stickyHeaderDates = options.stickyHeaderDates
-    if (stickyHeaderDates == null || stickyHeaderDates === 'auto') {
-      stickyHeaderDates = options.height === 'auto' || options.viewHeight === 'auto'
+    if (stickyHeaderDates == null || stickyHeaderDates === "auto") {
+      stickyHeaderDates = options.height === "auto" || options.viewHeight === "auto"
     }
     return stickyHeaderDates
   }
   function getStickyFooterScrollbar(options) {
     var stickyFooterScrollbar = options.stickyFooterScrollbar
-    if (stickyFooterScrollbar == null || stickyFooterScrollbar === 'auto') {
-      stickyFooterScrollbar = options.height === 'auto' || options.viewHeight === 'auto'
+    if (stickyFooterScrollbar == null || stickyFooterScrollbar === "auto") {
+      stickyFooterScrollbar = options.height === "auto" || options.viewHeight === "auto"
     }
     return stickyFooterScrollbar
   }
@@ -10501,9 +10090,7 @@ var FullCalendar = (function (exports) {
       }
       // TODO: can do a really simple print-view. dont need to join rows
       _this.handleSizing = function () {
-        _this.setState(
-          __assign({ shrinkWidth: _this.computeShrinkWidth() }, _this.computeScrollerDims())
-        )
+        _this.setState(__assign({ shrinkWidth: _this.computeShrinkWidth() }, _this.computeScrollerDims()))
       }
       return _this
     }
@@ -10523,15 +10110,15 @@ var FullCalendar = (function (exports) {
       var headSectionNodes = []
       var bodySectionNodes = []
       var footSectionNodes = []
-      while (configI < configCnt && (currentConfig = sectionConfigs[configI]).type === 'header') {
+      while (configI < configCnt && (currentConfig = sectionConfigs[configI]).type === "header") {
         headSectionNodes.push(this.renderSection(currentConfig, configI, microColGroupNode))
         configI++
       }
-      while (configI < configCnt && (currentConfig = sectionConfigs[configI]).type === 'body') {
+      while (configI < configCnt && (currentConfig = sectionConfigs[configI]).type === "body") {
         bodySectionNodes.push(this.renderSection(currentConfig, configI, microColGroupNode))
         configI++
       }
-      while (configI < configCnt && (currentConfig = sectionConfigs[configI]).type === 'footer') {
+      while (configI < configCnt && (currentConfig = sectionConfigs[configI]).type === "footer") {
         footSectionNodes.push(this.renderSection(currentConfig, configI, microColGroupNode))
         configI++
       }
@@ -10541,48 +10128,39 @@ var FullCalendar = (function (exports) {
       // if so, use a simpler dom structure, jam everything into a lone tbody.
       var isBuggy = !getCanVGrowWithinCell()
       return createElement(
-        'table',
+        "table",
         {
-          className: classNames.join(' '),
+          className: classNames.join(" "),
           style: { height: props.height }
         },
         Boolean(!isBuggy && headSectionNodes.length) &&
-          createElement.apply(void 0, __spreadArrays(['thead', {}], headSectionNodes)),
+          createElement.apply(void 0, __spreadArrays(["thead", {}], headSectionNodes)),
         Boolean(!isBuggy && bodySectionNodes.length) &&
-          createElement.apply(void 0, __spreadArrays(['tbody', {}], bodySectionNodes)),
+          createElement.apply(void 0, __spreadArrays(["tbody", {}], bodySectionNodes)),
         Boolean(!isBuggy && footSectionNodes.length) &&
-          createElement.apply(void 0, __spreadArrays(['tfoot', {}], footSectionNodes)),
+          createElement.apply(void 0, __spreadArrays(["tfoot", {}], footSectionNodes)),
         isBuggy &&
           createElement.apply(
             void 0,
-            __spreadArrays(['tbody', {}], headSectionNodes, bodySectionNodes, footSectionNodes)
+            __spreadArrays(["tbody", {}], headSectionNodes, bodySectionNodes, footSectionNodes)
           )
       )
     }
-    SimpleScrollGrid.prototype.renderSection = function (
-      sectionConfig,
-      sectionI,
-      microColGroupNode
-    ) {
-      if ('outerContent' in sectionConfig) {
+    SimpleScrollGrid.prototype.renderSection = function (sectionConfig, sectionI, microColGroupNode) {
+      if ("outerContent" in sectionConfig) {
         return createElement(Fragment, { key: sectionConfig.key }, sectionConfig.outerContent)
       }
       return createElement(
-        'tr',
+        "tr",
         {
           key: sectionConfig.key,
-          className: getSectionClassNames(sectionConfig, this.props.liquid).join(' ')
+          className: getSectionClassNames(sectionConfig, this.props.liquid).join(" ")
         },
         this.renderChunkTd(sectionConfig, sectionI, microColGroupNode, sectionConfig.chunk)
       )
     }
-    SimpleScrollGrid.prototype.renderChunkTd = function (
-      sectionConfig,
-      sectionI,
-      microColGroupNode,
-      chunkConfig
-    ) {
-      if ('outerContent' in chunkConfig) {
+    SimpleScrollGrid.prototype.renderChunkTd = function (sectionConfig, sectionI, microColGroupNode, chunkConfig) {
+      if ("outerContent" in chunkConfig) {
         return chunkConfig.outerContent
       }
       var props = this.props
@@ -10594,38 +10172,30 @@ var FullCalendar = (function (exports) {
       var isLiquid = getSectionHasLiquidHeight(props, sectionConfig)
       // for `!props.liquid` - is WHOLE scrollgrid natural height?
       // TODO: do same thing in advanced scrollgrid? prolly not b/c always has horizontal scrollbars
-      var overflowY = !props.liquid
-        ? 'visible'
-        : forceYScrollbars
-          ? 'scroll'
-          : !needsYScrolling
-            ? 'hidden'
-            : 'auto'
+      var overflowY = !props.liquid ? "visible" : forceYScrollbars ? "scroll" : !needsYScrolling ? "hidden" : "auto"
       var content = renderChunkContent(sectionConfig, chunkConfig, {
         tableColGroupNode: microColGroupNode,
-        tableMinWidth: '',
-        clientWidth:
-          scrollerClientWidths[sectionI] !== undefined ? scrollerClientWidths[sectionI] : null,
-        clientHeight:
-          scrollerClientHeights[sectionI] !== undefined ? scrollerClientHeights[sectionI] : null,
+        tableMinWidth: "",
+        clientWidth: scrollerClientWidths[sectionI] !== undefined ? scrollerClientWidths[sectionI] : null,
+        clientHeight: scrollerClientHeights[sectionI] !== undefined ? scrollerClientHeights[sectionI] : null,
         expandRows: sectionConfig.expandRows,
         syncRowHeights: false,
         rowSyncHeights: [],
         reportRowHeightChange: function () {}
       })
       return createElement(
-        'td',
+        "td",
         { ref: chunkConfig.elRef },
         createElement(
-          'div',
-          { className: 'fc-scroller-harness' + (isLiquid ? ' fc-scroller-harness-liquid' : '') },
+          "div",
+          { className: "fc-scroller-harness" + (isLiquid ? " fc-scroller-harness-liquid" : "") },
           createElement(
             Scroller,
             {
               ref: this.scrollerRefs.createRef(sectionI),
               elRef: this.scrollerElRefs.createRef(sectionI),
               overflowY: overflowY,
-              overflowX: !props.liquid ? 'visible' : 'hidden' /* natural height? */,
+              overflowX: !props.liquid ? "visible" : "hidden" /* natural height? */,
               maxHeight: sectionConfig.maxHeight,
               liquid: isLiquid,
               liquidIsAbsolute: true /* because its within a harness */
@@ -10810,10 +10380,10 @@ var FullCalendar = (function (exports) {
         },
         function (rootElRef, classNames, innerElRef, innerContent, hookProps) {
           return createElement(
-            'a',
+            "a",
             __assign(
               {
-                className: props.extraClassNames.concat(classNames).join(' '),
+                className: props.extraClassNames.concat(classNames).join(" "),
                 style: {
                   borderColor: hookProps.borderColor,
                   backgroundColor: hookProps.backgroundColor
@@ -10823,18 +10393,17 @@ var FullCalendar = (function (exports) {
               getSegAnchorAttrs(seg)
             ),
             createElement(
-              'div',
+              "div",
               {
-                className: 'fc-event-main',
+                className: "fc-event-main",
                 ref: innerElRef,
                 style: { color: hookProps.textColor }
               },
               innerContent
             ),
             hookProps.isStartResizable &&
-              createElement('div', { className: 'fc-event-resizer fc-event-resizer-start' }),
-            hookProps.isEndResizable &&
-              createElement('div', { className: 'fc-event-resizer fc-event-resizer-end' })
+              createElement("div", { className: "fc-event-resizer fc-event-resizer-start" }),
+            hookProps.isEndResizable && createElement("div", { className: "fc-event-resizer fc-event-resizer-end" })
           )
         }
       )
@@ -10843,17 +10412,16 @@ var FullCalendar = (function (exports) {
   })(BaseComponent)
   function renderInnerContent(innerProps) {
     return createElement(
-      'div',
-      { className: 'fc-event-main-frame' },
-      innerProps.timeText &&
-        createElement('div', { className: 'fc-event-time' }, innerProps.timeText),
+      "div",
+      { className: "fc-event-main-frame" },
+      innerProps.timeText && createElement("div", { className: "fc-event-time" }, innerProps.timeText),
       createElement(
-        'div',
-        { className: 'fc-event-title-container' },
+        "div",
+        { className: "fc-event-title-container" },
         createElement(
-          'div',
-          { className: 'fc-event-title fc-sticky' },
-          innerProps.event.title || createElement(Fragment, null, '\u00A0')
+          "div",
+          { className: "fc-event-title fc-sticky" },
+          innerProps.event.title || createElement(Fragment, null, "\u00A0")
         )
       )
     )
@@ -10885,7 +10453,7 @@ var FullCalendar = (function (exports) {
     })
   }
 
-  var DAY_NUM_FORMAT = createFormatter({ day: 'numeric' })
+  var DAY_NUM_FORMAT = createFormatter({ day: "numeric" })
   var DayCellRoot = /** @class */ (function (_super) {
     __extends(DayCellRoot, _super)
     function DayCellRoot() {
@@ -10916,7 +10484,7 @@ var FullCalendar = (function (exports) {
       var dataAttrs = hookProps.isDisabled
         ? {}
         : {
-            'data-date': formatDayString(props.date)
+            "data-date": formatDayString(props.date)
           }
       return createElement(
         MountHook,
@@ -10970,14 +10538,14 @@ var FullCalendar = (function (exports) {
     var dayMeta = getDateMeta(date, raw.todayRange, null, raw.dateProfile)
     return __assign(
       __assign(__assign({ date: dateEnv.toDate(date), view: raw.viewApi }, dayMeta), {
-        dayNumberText: raw.showDayNumber ? dateEnv.format(date, DAY_NUM_FORMAT) : ''
+        dayNumberText: raw.showDayNumber ? dateEnv.format(date, DAY_NUM_FORMAT) : ""
       }),
       raw.extraProps
     )
   }
 
   function renderFill(fillType) {
-    return createElement('div', { className: 'fc-' + fillType })
+    return createElement("div", { className: "fc-" + fillType })
   }
   var BgEvent = function (props) {
     return createElement(
@@ -10985,7 +10553,7 @@ var FullCalendar = (function (exports) {
       {
         defaultContent: renderInnerContent$1,
         seg: props.seg /* uselesss i think */,
-        timeText: '' /* weird */,
+        timeText: "" /* weird */,
         disableDragging: true,
         disableResizing: true,
         isDragging: false,
@@ -10998,10 +10566,10 @@ var FullCalendar = (function (exports) {
       },
       function (rootElRef, classNames, innerElRef, innerContent, hookProps) {
         return createElement(
-          'div',
+          "div",
           {
             ref: rootElRef,
-            className: ['fc-bg-event'].concat(classNames).join(' '),
+            className: ["fc-bg-event"].concat(classNames).join(" "),
             style: {
               backgroundColor: hookProps.backgroundColor
             }
@@ -11013,7 +10581,7 @@ var FullCalendar = (function (exports) {
   }
   function renderInnerContent$1(props) {
     var title = props.event.title
-    return title && createElement('div', { className: 'fc-event-title' }, props.event.title)
+    return title && createElement("div", { className: "fc-event-title" }, props.event.title)
   }
 
   var WeekNumberRoot = function (props) {
@@ -11045,7 +10613,7 @@ var FullCalendar = (function (exports) {
 
   // exports
   // --------------------------------------------------------------------------------------------------
-  var version = '5.3.2' // important to type it, so .d.ts has generic string
+  var version = "5.3.2" // important to type it, so .d.ts has generic string
 
   var Calendar = /** @class */ (function (_super) {
     __extends(Calendar, _super)
@@ -11061,8 +10629,8 @@ var FullCalendar = (function (exports) {
       _this.handleAction = function (action) {
         // actions we know we want to render immediately
         switch (action.type) {
-          case 'SET_EVENT_DRAG':
-          case 'SET_EVENT_RESIZE':
+          case "SET_EVENT_DRAG":
+          case "SET_EVENT_RESIZE":
             _this.renderRunner.tryDrain()
         }
       }
@@ -11101,7 +10669,7 @@ var FullCalendar = (function (exports) {
           _this.isRendered = false
           render(null, _this.el)
           _this.setClassNames([])
-          _this.setHeight('')
+          _this.setHeight("")
         }
         flushToDom$1()
       }
@@ -11115,7 +10683,7 @@ var FullCalendar = (function (exports) {
       })
       return _this
     }
-    Object.defineProperty(Calendar.prototype, 'view', {
+    Object.defineProperty(Calendar.prototype, "view", {
       get: function () {
         return this.currentData.viewApi
       }, // for public API
@@ -11145,15 +10713,15 @@ var FullCalendar = (function (exports) {
       flushToDom$1()
     }
     Calendar.prototype.batchRendering = function (func) {
-      this.renderRunner.pause('batchRendering')
+      this.renderRunner.pause("batchRendering")
       func()
-      this.renderRunner.resume('batchRendering')
+      this.renderRunner.resume("batchRendering")
     }
     Calendar.prototype.pauseRendering = function () {
-      this.renderRunner.pause('pauseRendering')
+      this.renderRunner.pause("pauseRendering")
     }
     Calendar.prototype.resumeRendering = function () {
-      this.renderRunner.resume('pauseRendering', true)
+      this.renderRunner.resume("pauseRendering", true)
     }
     Calendar.prototype.resetOptions = function (optionOverrides, append) {
       this.currentDataManager.resetOptions(optionOverrides, append)
@@ -11173,7 +10741,7 @@ var FullCalendar = (function (exports) {
       }
     }
     Calendar.prototype.setHeight = function (height) {
-      applyStyleProp(this.el, 'height', height)
+      applyStyleProp(this.el, "height", height)
     }
     return Calendar
   })(CalendarApi)
@@ -11200,8 +10768,8 @@ var FullCalendar = (function (exports) {
       var _this = this
       this.subjectEl = null
       // options that can be directly assigned by caller
-      this.selector = '' // will cause subjectEl in all emitted events to be this element
-      this.handleSelector = ''
+      this.selector = "" // will cause subjectEl in all emitted events to be this element
+      this.handleSelector = ""
       this.shouldIgnoreMove = false
       this.shouldWatchScroll = true // for simulating pointermove on scroll
       // internal states
@@ -11213,23 +10781,23 @@ var FullCalendar = (function (exports) {
       this.handleMouseDown = function (ev) {
         if (!_this.shouldIgnoreMouse() && isPrimaryMouseButton(ev) && _this.tryStart(ev)) {
           var pev = _this.createEventFromMouse(ev, true)
-          _this.emitter.trigger('pointerdown', pev)
+          _this.emitter.trigger("pointerdown", pev)
           _this.initScrollWatch(pev)
           if (!_this.shouldIgnoreMove) {
-            document.addEventListener('mousemove', _this.handleMouseMove)
+            document.addEventListener("mousemove", _this.handleMouseMove)
           }
-          document.addEventListener('mouseup', _this.handleMouseUp)
+          document.addEventListener("mouseup", _this.handleMouseUp)
         }
       }
       this.handleMouseMove = function (ev) {
         var pev = _this.createEventFromMouse(ev)
         _this.recordCoords(pev)
-        _this.emitter.trigger('pointermove', pev)
+        _this.emitter.trigger("pointermove", pev)
       }
       this.handleMouseUp = function (ev) {
-        document.removeEventListener('mousemove', _this.handleMouseMove)
-        document.removeEventListener('mouseup', _this.handleMouseUp)
-        _this.emitter.trigger('pointerup', _this.createEventFromMouse(ev))
+        document.removeEventListener("mousemove", _this.handleMouseMove)
+        document.removeEventListener("mouseup", _this.handleMouseUp)
+        _this.emitter.trigger("pointerup", _this.createEventFromMouse(ev))
         _this.cleanup() // call last so that pointerup has access to props
       }
       // Touch
@@ -11238,21 +10806,21 @@ var FullCalendar = (function (exports) {
         if (_this.tryStart(ev)) {
           _this.isTouchDragging = true
           var pev = _this.createEventFromTouch(ev, true)
-          _this.emitter.trigger('pointerdown', pev)
+          _this.emitter.trigger("pointerdown", pev)
           _this.initScrollWatch(pev)
           // unlike mouse, need to attach to target, not document
           // https://stackoverflow.com/a/45760014
           var targetEl = ev.target
           if (!_this.shouldIgnoreMove) {
-            targetEl.addEventListener('touchmove', _this.handleTouchMove)
+            targetEl.addEventListener("touchmove", _this.handleTouchMove)
           }
-          targetEl.addEventListener('touchend', _this.handleTouchEnd)
-          targetEl.addEventListener('touchcancel', _this.handleTouchEnd) // treat it as a touch end
+          targetEl.addEventListener("touchend", _this.handleTouchEnd)
+          targetEl.addEventListener("touchcancel", _this.handleTouchEnd) // treat it as a touch end
           // attach a handler to get called when ANY scroll action happens on the page.
           // this was impossible to do with normal on/off because 'scroll' doesn't bubble.
           // http://stackoverflow.com/a/32954565/96342
           window.addEventListener(
-            'scroll',
+            "scroll",
             _this.handleTouchScroll,
             true // useCapture
           )
@@ -11261,17 +10829,17 @@ var FullCalendar = (function (exports) {
       this.handleTouchMove = function (ev) {
         var pev = _this.createEventFromTouch(ev)
         _this.recordCoords(pev)
-        _this.emitter.trigger('pointermove', pev)
+        _this.emitter.trigger("pointermove", pev)
       }
       this.handleTouchEnd = function (ev) {
         if (_this.isDragging) {
           // done to guard against touchend followed by touchcancel
           var targetEl = ev.target
-          targetEl.removeEventListener('touchmove', _this.handleTouchMove)
-          targetEl.removeEventListener('touchend', _this.handleTouchEnd)
-          targetEl.removeEventListener('touchcancel', _this.handleTouchEnd)
-          window.removeEventListener('scroll', _this.handleTouchScroll, true) // useCaptured=true
-          _this.emitter.trigger('pointerup', _this.createEventFromTouch(ev))
+          targetEl.removeEventListener("touchmove", _this.handleTouchMove)
+          targetEl.removeEventListener("touchend", _this.handleTouchEnd)
+          targetEl.removeEventListener("touchcancel", _this.handleTouchEnd)
+          window.removeEventListener("scroll", _this.handleTouchScroll, true) // useCaptured=true
+          _this.emitter.trigger("pointerup", _this.createEventFromTouch(ev))
           _this.cleanup() // call last so that pointerup has access to props
           _this.isTouchDragging = false
           startIgnoringMouse()
@@ -11284,7 +10852,7 @@ var FullCalendar = (function (exports) {
         if (!_this.shouldIgnoreMove) {
           var pageX = window.pageXOffset - _this.prevScrollX + _this.prevPageX
           var pageY = window.pageYOffset - _this.prevScrollY + _this.prevPageY
-          _this.emitter.trigger('pointermove', {
+          _this.emitter.trigger("pointermove", {
             origEvent: ev,
             isTouch: _this.isTouchDragging,
             subjectEl: _this.subjectEl,
@@ -11297,13 +10865,13 @@ var FullCalendar = (function (exports) {
       }
       this.containerEl = containerEl
       this.emitter = new Emitter()
-      containerEl.addEventListener('mousedown', this.handleMouseDown)
-      containerEl.addEventListener('touchstart', this.handleTouchStart, { passive: true })
+      containerEl.addEventListener("mousedown", this.handleMouseDown)
+      containerEl.addEventListener("touchstart", this.handleTouchStart, { passive: true })
       listenerCreated()
     }
     PointerDragging.prototype.destroy = function () {
-      this.containerEl.removeEventListener('mousedown', this.handleMouseDown)
-      this.containerEl.removeEventListener('touchstart', this.handleTouchStart, { passive: true })
+      this.containerEl.removeEventListener("mousedown", this.handleMouseDown)
+      this.containerEl.removeEventListener("touchstart", this.handleTouchStart, { passive: true })
       listenerDestroyed()
     }
     PointerDragging.prototype.tryStart = function (ev) {
@@ -11345,7 +10913,7 @@ var FullCalendar = (function (exports) {
     PointerDragging.prototype.initScrollWatch = function (ev) {
       if (this.shouldWatchScroll) {
         this.recordCoords(ev)
-        window.addEventListener('scroll', this.handleScroll, true) // useCapture=true
+        window.addEventListener("scroll", this.handleScroll, true) // useCapture=true
       }
     }
     PointerDragging.prototype.recordCoords = function (ev) {
@@ -11358,7 +10926,7 @@ var FullCalendar = (function (exports) {
     }
     PointerDragging.prototype.destroyScrollWatch = function () {
       if (this.shouldWatchScroll) {
-        window.removeEventListener('scroll', this.handleScroll, true) // useCaptured=true
+        window.removeEventListener("scroll", this.handleScroll, true) // useCaptured=true
       }
     }
     // Event Normalization
@@ -11435,12 +11003,12 @@ var FullCalendar = (function (exports) {
   // ----------------------------------------------------------------------------------------------------
   function listenerCreated() {
     if (!listenerCnt++) {
-      window.addEventListener('touchmove', onWindowTouchMove, { passive: false })
+      window.addEventListener("touchmove", onWindowTouchMove, { passive: false })
     }
   }
   function listenerDestroyed() {
     if (!--listenerCnt) {
-      window.removeEventListener('touchmove', onWindowTouchMove, { passive: false })
+      window.removeEventListener("touchmove", onWindowTouchMove, { passive: false })
     }
   }
   function onWindowTouchMove(ev) {
@@ -11484,7 +11052,7 @@ var FullCalendar = (function (exports) {
       if (bool) {
         if (!this.isVisible) {
           if (this.mirrorEl) {
-            this.mirrorEl.style.display = ''
+            this.mirrorEl.style.display = ""
           }
           this.isVisible = bool // needs to happen before updateElPosition
           this.updateElPosition() // because was not updating the position while invisible
@@ -11492,7 +11060,7 @@ var FullCalendar = (function (exports) {
       } else {
         if (this.isVisible) {
           if (this.mirrorEl) {
-            this.mirrorEl.style.display = 'none'
+            this.mirrorEl.style.display = "none"
           }
           this.isVisible = bool
         }
@@ -11520,13 +11088,13 @@ var FullCalendar = (function (exports) {
     ElementMirror.prototype.doRevertAnimation = function (callback, revertDuration) {
       var mirrorEl = this.mirrorEl
       var finalSourceElRect = this.sourceEl.getBoundingClientRect() // because autoscrolling might have happened
-      mirrorEl.style.transition = 'top ' + revertDuration + 'ms,' + 'left ' + revertDuration + 'ms'
+      mirrorEl.style.transition = "top " + revertDuration + "ms," + "left " + revertDuration + "ms"
       applyStyle(mirrorEl, {
         left: finalSourceElRect.left,
         top: finalSourceElRect.top
       })
       whenTransitionDone(mirrorEl, function () {
-        mirrorEl.style.transition = ''
+        mirrorEl.style.transition = ""
         callback()
       })
     }
@@ -11552,17 +11120,17 @@ var FullCalendar = (function (exports) {
         mirrorEl = this.mirrorEl = this.sourceEl.cloneNode(true) // cloneChildren=true
         // we don't want long taps or any mouse interaction causing selection/menus.
         // would use preventSelection(), but that prevents selectstart, causing problems.
-        mirrorEl.classList.add('fc-unselectable')
-        mirrorEl.classList.add('fc-event-dragging')
+        mirrorEl.classList.add("fc-unselectable")
+        mirrorEl.classList.add("fc-event-dragging")
         applyStyle(mirrorEl, {
-          position: 'fixed',
+          position: "fixed",
           zIndex: this.zIndex,
-          visibility: '',
-          boxSizing: 'border-box',
+          visibility: "",
+          boxSizing: "border-box",
           width: sourceElRect.right - sourceElRect.left,
           height: sourceElRect.bottom - sourceElRect.top,
-          right: 'auto',
-          bottom: 'auto',
+          right: "auto",
+          bottom: "auto",
           margin: 0
         })
         this.parentNode.appendChild(mirrorEl)
@@ -11599,13 +11167,13 @@ var FullCalendar = (function (exports) {
       _this.clientHeight = scrollController.getClientHeight()
       _this.clientRect = _this.computeClientRect() // do last in case it needs cached values
       if (_this.doesListening) {
-        _this.getEventTarget().addEventListener('scroll', _this.handleScroll)
+        _this.getEventTarget().addEventListener("scroll", _this.handleScroll)
       }
       return _this
     }
     ScrollGeomCache.prototype.destroy = function () {
       if (this.doesListening) {
-        this.getEventTarget().removeEventListener('scroll', this.handleScroll)
+        this.getEventTarget().removeEventListener("scroll", this.handleScroll)
       }
     }
     ScrollGeomCache.prototype.getScrollTop = function () {
@@ -11687,7 +11255,7 @@ var FullCalendar = (function (exports) {
   // If available we are using native "performance" API instead of "Date"
   // Read more about it on MDN:
   // https://developer.mozilla.org/en-US/docs/Web/API/Performance
-  var getTime = typeof performance === 'function' ? performance.now : Date.now
+  var getTime = typeof performance === "function" ? performance.now : Date.now
   /*
     For a pointer interaction, automatically scrolls certain scroll containers when the pointer
     approaches the edge.
@@ -11699,7 +11267,7 @@ var FullCalendar = (function (exports) {
       var _this = this
       // options that can be set by caller
       this.isEnabled = true
-      this.scrollQuery = [window, '.fc-scroller']
+      this.scrollQuery = [window, ".fc-scroller"]
       this.edgeThreshold = 50 // pixels
       this.maxVelocity = 300 // pixels per second
       // internal state
@@ -11789,16 +11357,16 @@ var FullCalendar = (function (exports) {
         seconds
       var sign = 1
       switch (edge.name) {
-        case 'left':
+        case "left":
           sign = -1
         // falls through
-        case 'right':
+        case "right":
           scrollCache.setScrollLeft(scrollCache.getScrollLeft() + velocity * sign)
           break
-        case 'top':
+        case "top":
           sign = -1
         // falls through
-        case 'bottom':
+        case "bottom":
           scrollCache.setScrollTop(scrollCache.getScrollTop() + velocity * sign)
           break
       }
@@ -11822,7 +11390,7 @@ var FullCalendar = (function (exports) {
             scrollCache.canScrollUp() &&
             (!bestSide || bestSide.distance > topDist)
           ) {
-            bestSide = { scrollCache: scrollCache, name: 'top', distance: topDist }
+            bestSide = { scrollCache: scrollCache, name: "top", distance: topDist }
           }
           if (
             bottomDist <= edgeThreshold &&
@@ -11830,7 +11398,7 @@ var FullCalendar = (function (exports) {
             scrollCache.canScrollDown() &&
             (!bestSide || bestSide.distance > bottomDist)
           ) {
-            bestSide = { scrollCache: scrollCache, name: 'bottom', distance: bottomDist }
+            bestSide = { scrollCache: scrollCache, name: "bottom", distance: bottomDist }
           }
           if (
             leftDist <= edgeThreshold &&
@@ -11838,7 +11406,7 @@ var FullCalendar = (function (exports) {
             scrollCache.canScrollLeft() &&
             (!bestSide || bestSide.distance > leftDist)
           ) {
-            bestSide = { scrollCache: scrollCache, name: 'left', distance: leftDist }
+            bestSide = { scrollCache: scrollCache, name: "left", distance: leftDist }
           }
           if (
             rightDist <= edgeThreshold &&
@@ -11846,7 +11414,7 @@ var FullCalendar = (function (exports) {
             scrollCache.canScrollRight() &&
             (!bestSide || bestSide.distance > rightDist)
           ) {
-            bestSide = { scrollCache: scrollCache, name: 'right', distance: rightDist }
+            bestSide = { scrollCache: scrollCache, name: "right", distance: rightDist }
           }
         }
       }
@@ -11865,7 +11433,7 @@ var FullCalendar = (function (exports) {
       var els = []
       for (var _i = 0, _a = this.scrollQuery; _i < _a.length; _i++) {
         var query = _a[_i]
-        if (typeof query === 'object') {
+        if (typeof query === "object") {
           els.push(query)
         } else {
           els.push.apply(els, Array.prototype.slice.call(document.querySelectorAll(query)))
@@ -11911,7 +11479,7 @@ var FullCalendar = (function (exports) {
           if (!ev.isTouch) {
             ev.origEvent.preventDefault()
           }
-          _this.emitter.trigger('pointerdown', ev)
+          _this.emitter.trigger("pointerdown", ev)
           if (
             _this.isInteracting && // not destroyed via pointerdown handler
             !_this.pointer.shouldIgnoreMove
@@ -11928,7 +11496,7 @@ var FullCalendar = (function (exports) {
       }
       _this.onPointerMove = function (ev) {
         if (_this.isInteracting) {
-          _this.emitter.trigger('pointermove', ev)
+          _this.emitter.trigger("pointermove", ev)
           if (!_this.isDistanceSurpassed) {
             var minDistance = _this.minDistance
             var distanceSq = void 0 // current distance from the origin, squared
@@ -11942,11 +11510,11 @@ var FullCalendar = (function (exports) {
           }
           if (_this.isDragging) {
             // a real pointer move? (not one simulated by scrolling)
-            if (ev.origEvent.type !== 'scroll') {
+            if (ev.origEvent.type !== "scroll") {
               _this.mirror.handleMove(ev.pageX, ev.pageY)
               _this.autoScroller.handleMove(ev.pageX, ev.pageY)
             }
-            _this.emitter.trigger('dragmove', ev)
+            _this.emitter.trigger("dragmove", ev)
           }
         }
       }
@@ -11955,7 +11523,7 @@ var FullCalendar = (function (exports) {
           _this.isInteracting = false
           allowSelection(document.body)
           allowContextMenu(document.body)
-          _this.emitter.trigger('pointerup', ev) // can potentially set mirrorNeedsRevert
+          _this.emitter.trigger("pointerup", ev) // can potentially set mirrorNeedsRevert
           if (_this.isDragging) {
             _this.autoScroller.stop()
             _this.tryStopDrag(ev) // which will stop the mirror
@@ -11967,9 +11535,9 @@ var FullCalendar = (function (exports) {
         }
       }
       var pointer = (_this.pointer = new PointerDragging(containerEl))
-      pointer.emitter.on('pointerdown', _this.onPointerDown)
-      pointer.emitter.on('pointermove', _this.onPointerMove)
-      pointer.emitter.on('pointerup', _this.onPointerUp)
+      pointer.emitter.on("pointerdown", _this.onPointerDown)
+      pointer.emitter.on("pointermove", _this.onPointerMove)
+      pointer.emitter.on("pointerup", _this.onPointerUp)
       if (selector) {
         pointer.selector = selector
       }
@@ -11985,7 +11553,7 @@ var FullCalendar = (function (exports) {
     }
     FeaturefulElementDragging.prototype.startDelay = function (ev) {
       var _this = this
-      if (typeof this.delay === 'number') {
+      if (typeof this.delay === "number") {
         this.delayTimeoutId = setTimeout(function () {
           _this.delayTimeoutId = null
           _this.handleDelayEnd(ev)
@@ -12008,7 +11576,7 @@ var FullCalendar = (function (exports) {
           this.isDragging = true
           this.mirrorNeedsRevert = false
           this.autoScroller.start(ev.pageX, ev.pageY)
-          this.emitter.trigger('dragstart', ev)
+          this.emitter.trigger("dragstart", ev)
           if (this.touchScrollAllowed === false) {
             this.pointer.cancelTouchScroll()
           }
@@ -12025,7 +11593,7 @@ var FullCalendar = (function (exports) {
     }
     FeaturefulElementDragging.prototype.stopDrag = function (ev) {
       this.isDragging = false
-      this.emitter.trigger('dragend', ev)
+      this.emitter.trigger("dragend", ev)
     }
     // fill in the implementations...
     FeaturefulElementDragging.prototype.setIgnoreMove = function (bool) {
@@ -12085,10 +11653,7 @@ var FullCalendar = (function (exports) {
       var point = { left: pageX, top: pageY }
       for (var _i = 0, _a = this.scrollCaches; _i < _a.length; _i++) {
         var scrollCache = _a[_i]
-        if (
-          !isIgnoredClipping(scrollCache.getEventTarget()) &&
-          !pointInsideRect(point, scrollCache.clientRect)
-        ) {
+        if (!isIgnoredClipping(scrollCache.getEventTarget()) && !pointInsideRect(point, scrollCache.clientRect)) {
           return false
         }
       }
@@ -12100,7 +11665,7 @@ var FullCalendar = (function (exports) {
   // https://github.com/fullcalendar/fullcalendar/issues/3615
   function isIgnoredClipping(node) {
     var tagName = node.tagName
-    return tagName === 'HTML' || tagName === 'BODY'
+    return tagName === "HTML" || tagName === "BODY"
   }
 
   /*
@@ -12134,37 +11699,37 @@ var FullCalendar = (function (exports) {
         _this.processFirstCoord(ev)
         if (_this.initialHit || !_this.requireInitial) {
           dragging.setIgnoreMove(false)
-          _this.emitter.trigger('pointerdown', ev) // TODO: fire this before computing processFirstCoord, so listeners can cancel. this gets fired by almost every handler :(
+          _this.emitter.trigger("pointerdown", ev) // TODO: fire this before computing processFirstCoord, so listeners can cancel. this gets fired by almost every handler :(
         } else {
           dragging.setIgnoreMove(true)
         }
       }
       this.handleDragStart = function (ev) {
-        _this.emitter.trigger('dragstart', ev)
+        _this.emitter.trigger("dragstart", ev)
         _this.handleMove(ev, true) // force = fire even if initially null
       }
       this.handleDragMove = function (ev) {
-        _this.emitter.trigger('dragmove', ev)
+        _this.emitter.trigger("dragmove", ev)
         _this.handleMove(ev)
       }
       this.handlePointerUp = function (ev) {
         _this.releaseHits()
-        _this.emitter.trigger('pointerup', ev)
+        _this.emitter.trigger("pointerup", ev)
       }
       this.handleDragEnd = function (ev) {
         if (_this.movingHit) {
-          _this.emitter.trigger('hitupdate', null, true, ev)
+          _this.emitter.trigger("hitupdate", null, true, ev)
         }
         _this.finalHit = _this.movingHit
         _this.movingHit = null
-        _this.emitter.trigger('dragend', ev)
+        _this.emitter.trigger("dragend", ev)
       }
       this.droppableStore = droppableStore
-      dragging.emitter.on('pointerdown', this.handlePointerDown)
-      dragging.emitter.on('dragstart', this.handleDragStart)
-      dragging.emitter.on('dragmove', this.handleDragMove)
-      dragging.emitter.on('pointerup', this.handlePointerUp)
-      dragging.emitter.on('dragend', this.handleDragEnd)
+      dragging.emitter.on("pointerdown", this.handlePointerDown)
+      dragging.emitter.on("dragstart", this.handleDragStart)
+      dragging.emitter.on("dragmove", this.handleDragMove)
+      dragging.emitter.on("pointerup", this.handlePointerUp)
+      dragging.emitter.on("dragend", this.handleDragEnd)
       this.dragging = dragging
       this.emitter = new Emitter()
     }
@@ -12179,10 +11744,7 @@ var FullCalendar = (function (exports) {
         subjectRect = computeRect(subjectEl)
         adjustedPoint = constrainPoint(adjustedPoint, subjectRect)
       }
-      var initialHit = (this.initialHit = this.queryHitForOffset(
-        adjustedPoint.left,
-        adjustedPoint.top
-      ))
+      var initialHit = (this.initialHit = this.queryHitForOffset(adjustedPoint.left, adjustedPoint.top))
       if (initialHit) {
         if (this.useSubjectCenter && subjectRect) {
           var slicedSubjectRect = intersectRects(subjectRect, initialHit.rect)
@@ -12196,13 +11758,10 @@ var FullCalendar = (function (exports) {
       }
     }
     HitDragging.prototype.handleMove = function (ev, forceHandle) {
-      var hit = this.queryHitForOffset(
-        ev.pageX + this.coordAdjust.left,
-        ev.pageY + this.coordAdjust.top
-      )
+      var hit = this.queryHitForOffset(ev.pageX + this.coordAdjust.left, ev.pageY + this.coordAdjust.top)
       if (forceHandle || !isHitsEqual(this.movingHit, hit)) {
         this.movingHit = hit
-        this.emitter.trigger('hitupdate', hit, false, ev)
+        this.emitter.trigger("hitupdate", hit, false, ev)
       }
     }
     HitDragging.prototype.prepareHits = function () {
@@ -12317,27 +11876,21 @@ var FullCalendar = (function (exports) {
             finalHit = _a.finalHit
           if (initialHit && finalHit && isHitsEqual(initialHit, finalHit)) {
             var context = component.context
-            var arg = __assign(
-              __assign({}, buildDatePointApiWithContext(initialHit.dateSpan, context)),
-              {
-                dayEl: initialHit.dayEl,
-                jsEvent: ev.origEvent,
-                view: context.viewApi || context.calendarApi.view
-              }
-            )
-            context.emitter.trigger('dateClick', arg)
+            var arg = __assign(__assign({}, buildDatePointApiWithContext(initialHit.dateSpan, context)), {
+              dayEl: initialHit.dayEl,
+              jsEvent: ev.origEvent,
+              view: context.viewApi || context.calendarApi.view
+            })
+            context.emitter.trigger("dateClick", arg)
           }
         }
       }
       // we DO want to watch pointer moves because otherwise finalHit won't get populated
       _this.dragging = new FeaturefulElementDragging(settings.el)
       _this.dragging.autoScroller.isEnabled = false
-      var hitDragging = (_this.hitDragging = new HitDragging(
-        _this.dragging,
-        interactionSettingsToStore(settings)
-      ))
-      hitDragging.emitter.on('pointerdown', _this.handlePointerDown)
-      hitDragging.emitter.on('dragend', _this.handleDragEnd)
+      var hitDragging = (_this.hitDragging = new HitDragging(_this.dragging, interactionSettingsToStore(settings)))
+      hitDragging.emitter.on("pointerdown", _this.handlePointerDown)
+      hitDragging.emitter.on("dragend", _this.handleDragEnd)
       return _this
     }
     DateClicking.prototype.destroy = function () {
@@ -12385,10 +11938,10 @@ var FullCalendar = (function (exports) {
           }
         }
         if (dragSelection) {
-          context.dispatch({ type: 'SELECT_DATES', selection: dragSelection })
+          context.dispatch({ type: "SELECT_DATES", selection: dragSelection })
         } else if (!isFinal) {
           // only unselect if moved away while dragging
-          context.dispatch({ type: 'UNSELECT_DATES' })
+          context.dispatch({ type: "UNSELECT_DATES" })
         }
         if (!isInvalid) {
           enableCursor()
@@ -12412,14 +11965,11 @@ var FullCalendar = (function (exports) {
       dragging.touchScrollAllowed = false
       dragging.minDistance = options.selectMinDistance || 0
       dragging.autoScroller.isEnabled = options.dragScroll
-      var hitDragging = (_this.hitDragging = new HitDragging(
-        _this.dragging,
-        interactionSettingsToStore(settings)
-      ))
-      hitDragging.emitter.on('pointerdown', _this.handlePointerDown)
-      hitDragging.emitter.on('dragstart', _this.handleDragStart)
-      hitDragging.emitter.on('hitupdate', _this.handleHitUpdate)
-      hitDragging.emitter.on('pointerup', _this.handlePointerUp)
+      var hitDragging = (_this.hitDragging = new HitDragging(_this.dragging, interactionSettingsToStore(settings)))
+      hitDragging.emitter.on("pointerdown", _this.handlePointerDown)
+      hitDragging.emitter.on("dragstart", _this.handleDragStart)
+      hitDragging.emitter.on("hitupdate", _this.handleHitUpdate)
+      hitDragging.emitter.on("pointerup", _this.handlePointerUp)
       return _this
     }
     DateSelecting.prototype.destroy = function () {
@@ -12438,12 +11988,7 @@ var FullCalendar = (function (exports) {
   function joinHitsIntoSelection(hit0, hit1, dateSelectionTransformers) {
     var dateSpan0 = hit0.dateSpan
     var dateSpan1 = hit1.dateSpan
-    var ms = [
-      dateSpan0.range.start,
-      dateSpan0.range.end,
-      dateSpan1.range.start,
-      dateSpan1.range.end
-    ]
+    var ms = [dateSpan0.range.start, dateSpan0.range.end, dateSpan1.range.start, dateSpan1.range.end]
     ms.sort(compareNumbers)
     var props = {}
     for (
@@ -12489,24 +12034,18 @@ var FullCalendar = (function (exports) {
         var subjectSeg = (_this.subjectSeg = getElSeg(ev.subjectEl))
         var eventRange = (_this.eventRange = subjectSeg.eventRange)
         var eventInstanceId = eventRange.instance.instanceId
-        _this.relevantEvents = getRelevantEvents(
-          initialContext.getCurrentData().eventStore,
-          eventInstanceId
-        )
+        _this.relevantEvents = getRelevantEvents(initialContext.getCurrentData().eventStore, eventInstanceId)
         dragging.minDistance = ev.isTouch ? 0 : options.eventDragMinDistance
         dragging.delay =
           // only do a touch delay if touch and this event hasn't been selected yet
-          ev.isTouch && eventInstanceId !== component.props.eventSelection
-            ? getComponentTouchDelay$1(component)
-            : null
-        mirror.parentNode = elementClosest(origTarget, '.fc')
+          ev.isTouch && eventInstanceId !== component.props.eventSelection ? getComponentTouchDelay$1(component) : null
+        mirror.parentNode = elementClosest(origTarget, ".fc")
         mirror.revertDuration = options.dragRevertDuration
-        var isValid =
-          component.isValidSegDownEl(origTarget) && !elementClosest(origTarget, '.fc-event-resizer') // NOT on a resizer
+        var isValid = component.isValidSegDownEl(origTarget) && !elementClosest(origTarget, ".fc-event-resizer") // NOT on a resizer
         dragging.setIgnoreMove(!isValid)
         // disable dragging for elements that are resizable (ie, selectable)
         // but are not draggable
-        _this.isDragging = isValid && ev.subjectEl.classList.contains('fc-event-draggable')
+        _this.isDragging = isValid && ev.subjectEl.classList.contains("fc-event-draggable")
       }
       _this.handleDragStart = function (ev) {
         var initialContext = _this.component.context
@@ -12515,15 +12054,15 @@ var FullCalendar = (function (exports) {
         if (ev.isTouch) {
           // need to select a different event?
           if (eventInstanceId !== _this.component.props.eventSelection) {
-            initialContext.dispatch({ type: 'SELECT_EVENT', eventInstanceId: eventInstanceId })
+            initialContext.dispatch({ type: "SELECT_EVENT", eventInstanceId: eventInstanceId })
           }
         } else {
           // if now using mouse, but was previous touch interaction, clear selected event
-          initialContext.dispatch({ type: 'UNSELECT_EVENT' })
+          initialContext.dispatch({ type: "UNSELECT_EVENT" })
         }
         if (_this.isDragging) {
           initialContext.calendarApi.unselect(ev) // unselect *date* selection
-          initialContext.emitter.trigger('eventDragStart', {
+          initialContext.emitter.trigger("eventDragStart", {
             el: _this.subjectEl,
             event: new EventApi(initialContext, eventRange.def, eventRange.instance),
             jsEvent: ev.origEvent,
@@ -12552,10 +12091,7 @@ var FullCalendar = (function (exports) {
           var receivingComponent = hit.component
           receivingContext = receivingComponent.context
           var receivingOptions = receivingContext.options
-          if (
-            initialContext === receivingContext ||
-            (receivingOptions.editable && receivingOptions.droppable)
-          ) {
+          if (initialContext === receivingContext || (receivingOptions.editable && receivingOptions.droppable)) {
             mutation = computeEventMutation(
               initialHit,
               hit,
@@ -12596,7 +12132,7 @@ var FullCalendar = (function (exports) {
           _this.dragging.setMirrorNeedsRevert(!mutation)
           // render the mirror if no already-rendered mirror
           // TODO: wish we could somehow wait for dispatch to guarantee render
-          _this.dragging.setMirrorIsVisible(!hit || !document.querySelector('.fc-event-mirror'))
+          _this.dragging.setMirrorIsVisible(!hit || !document.querySelector(".fc-event-mirror"))
           // assign states based on new hit
           _this.receivingContext = receivingContext
           _this.validMutation = mutation
@@ -12622,7 +12158,7 @@ var FullCalendar = (function (exports) {
           var mutatedRelevantEvents_1 = _this.mutatedRelevantEvents
           var finalHit = _this.hitDragging.finalHit
           _this.clearDrag() // must happen after revert animation
-          initialContext_1.emitter.trigger('eventDragStop', {
+          initialContext_1.emitter.trigger("eventDragStop", {
             el: _this.subjectEl,
             event: eventApi,
             jsEvent: ev.origEvent,
@@ -12637,28 +12173,23 @@ var FullCalendar = (function (exports) {
                 eventInstance ? mutatedRelevantEvents_1.instances[eventInstance.instanceId] : null
               )
               initialContext_1.dispatch({
-                type: 'MERGE_EVENTS',
+                type: "MERGE_EVENTS",
                 eventStore: mutatedRelevantEvents_1
               })
               var eventChangeArg = {
                 oldEvent: eventApi,
                 event: updatedEventApi,
-                relatedEvents: buildEventApis(
-                  mutatedRelevantEvents_1,
-                  initialContext_1,
-                  eventInstance
-                ),
+                relatedEvents: buildEventApis(mutatedRelevantEvents_1, initialContext_1, eventInstance),
                 revert: function () {
                   initialContext_1.dispatch({
-                    type: 'MERGE_EVENTS',
+                    type: "MERGE_EVENTS",
                     eventStore: relevantEvents_1 // the pre-change data
                   })
                 }
               }
               var transformed = {}
               for (
-                var _i = 0,
-                  _b = initialContext_1.getCurrentData().pluginHooks.eventDropTransformers;
+                var _i = 0, _b = initialContext_1.getCurrentData().pluginHooks.eventDropTransformers;
                 _i < _b.length;
                 _i++
               ) {
@@ -12666,7 +12197,7 @@ var FullCalendar = (function (exports) {
                 __assign(transformed, transformer(validMutation, initialContext_1))
               }
               initialContext_1.emitter.trigger(
-                'eventDrop',
+                "eventDrop",
                 __assign(__assign(__assign({}, eventChangeArg), transformed), {
                   el: ev.subjectEl,
                   delta: validMutation.datesDelta,
@@ -12674,7 +12205,7 @@ var FullCalendar = (function (exports) {
                   view: initialView
                 })
               )
-              initialContext_1.emitter.trigger('eventChange', eventChangeArg)
+              initialContext_1.emitter.trigger("eventChange", eventChangeArg)
               // dropped in different calendar
             } else if (receivingContext_1) {
               var eventRemoveArg = {
@@ -12682,68 +12213,57 @@ var FullCalendar = (function (exports) {
                 relatedEvents: buildEventApis(relevantEvents_1, initialContext_1, eventInstance),
                 revert: function () {
                   initialContext_1.dispatch({
-                    type: 'MERGE_EVENTS',
+                    type: "MERGE_EVENTS",
                     eventStore: relevantEvents_1
                   })
                 }
               }
               initialContext_1.emitter.trigger(
-                'eventLeave',
+                "eventLeave",
                 __assign(__assign({}, eventRemoveArg), {
                   draggedEl: ev.subjectEl,
                   view: initialView
                 })
               )
               initialContext_1.dispatch({
-                type: 'REMOVE_EVENTS',
+                type: "REMOVE_EVENTS",
                 eventStore: relevantEvents_1
               })
-              initialContext_1.emitter.trigger('eventRemove', eventRemoveArg)
+              initialContext_1.emitter.trigger("eventRemove", eventRemoveArg)
               var addedEventDef = mutatedRelevantEvents_1.defs[eventDef.defId]
               var addedEventInstance = mutatedRelevantEvents_1.instances[eventInstance.instanceId]
-              var addedEventApi = new EventApi(
-                receivingContext_1,
-                addedEventDef,
-                addedEventInstance
-              )
+              var addedEventApi = new EventApi(receivingContext_1, addedEventDef, addedEventInstance)
               receivingContext_1.dispatch({
-                type: 'MERGE_EVENTS',
+                type: "MERGE_EVENTS",
                 eventStore: mutatedRelevantEvents_1
               })
               var eventAddArg = {
                 event: addedEventApi,
-                relatedEvents: buildEventApis(
-                  mutatedRelevantEvents_1,
-                  receivingContext_1,
-                  addedEventInstance
-                ),
+                relatedEvents: buildEventApis(mutatedRelevantEvents_1, receivingContext_1, addedEventInstance),
                 revert: function () {
                   receivingContext_1.dispatch({
-                    type: 'REMOVE_EVENTS',
+                    type: "REMOVE_EVENTS",
                     eventStore: mutatedRelevantEvents_1
                   })
                 }
               }
-              receivingContext_1.emitter.trigger('eventAdd', eventAddArg)
+              receivingContext_1.emitter.trigger("eventAdd", eventAddArg)
               if (ev.isTouch) {
                 receivingContext_1.dispatch({
-                  type: 'SELECT_EVENT',
+                  type: "SELECT_EVENT",
                   eventInstanceId: eventInstance.instanceId
                 })
               }
               receivingContext_1.emitter.trigger(
-                'drop',
-                __assign(
-                  __assign({}, buildDatePointApiWithContext(finalHit.dateSpan, receivingContext_1)),
-                  {
-                    draggedEl: ev.subjectEl,
-                    jsEvent: ev.origEvent,
-                    view: finalHit.component.context.viewApi
-                  }
-                )
+                "drop",
+                __assign(__assign({}, buildDatePointApiWithContext(finalHit.dateSpan, receivingContext_1)), {
+                  draggedEl: ev.subjectEl,
+                  jsEvent: ev.origEvent,
+                  view: finalHit.component.context.viewApi
+                })
               )
               receivingContext_1.emitter.trigger(
-                'eventReceive',
+                "eventReceive",
                 __assign(__assign({}, eventAddArg), {
                   draggedEl: ev.subjectEl,
                   view: finalHit.component.context.viewApi
@@ -12751,7 +12271,7 @@ var FullCalendar = (function (exports) {
               )
             }
           } else {
-            initialContext_1.emitter.trigger('_noEventDrop')
+            initialContext_1.emitter.trigger("_noEventDrop")
           }
         }
         _this.cleanup()
@@ -12762,16 +12282,13 @@ var FullCalendar = (function (exports) {
       dragging.pointer.selector = EventDragging.SELECTOR
       dragging.touchScrollAllowed = false
       dragging.autoScroller.isEnabled = options.dragScroll
-      var hitDragging = (_this.hitDragging = new HitDragging(
-        _this.dragging,
-        interactionSettingsStore
-      ))
+      var hitDragging = (_this.hitDragging = new HitDragging(_this.dragging, interactionSettingsStore))
       hitDragging.useSubjectCenter = settings.useEventCenter
-      hitDragging.emitter.on('pointerdown', _this.handlePointerDown)
-      hitDragging.emitter.on('dragstart', _this.handleDragStart)
-      hitDragging.emitter.on('hitupdate', _this.handleHitUpdate)
-      hitDragging.emitter.on('pointerup', _this.handlePointerUp)
-      hitDragging.emitter.on('dragend', _this.handleDragEnd)
+      hitDragging.emitter.on("pointerdown", _this.handlePointerDown)
+      hitDragging.emitter.on("dragstart", _this.handleDragStart)
+      hitDragging.emitter.on("hitupdate", _this.handleHitUpdate)
+      hitDragging.emitter.on("pointerup", _this.handlePointerUp)
+      hitDragging.emitter.on("dragend", _this.handleDragEnd)
       return _this
     }
     EventDragging.prototype.destroy = function () {
@@ -12787,7 +12304,7 @@ var FullCalendar = (function (exports) {
         // if so, don't clear all the way. we still need to to hide the affectedEvents
         if (prevContext === initialContext) {
           prevContext.dispatch({
-            type: 'SET_EVENT_DRAG',
+            type: "SET_EVENT_DRAG",
             state: {
               affectedEvents: state.affectedEvents,
               mutatedEvents: createEmptyEventStore(),
@@ -12796,22 +12313,22 @@ var FullCalendar = (function (exports) {
           })
           // completely clear the old calendar if it wasn't the initial
         } else {
-          prevContext.dispatch({ type: 'UNSET_EVENT_DRAG' })
+          prevContext.dispatch({ type: "UNSET_EVENT_DRAG" })
         }
       }
       if (nextContext) {
-        nextContext.dispatch({ type: 'SET_EVENT_DRAG', state: state })
+        nextContext.dispatch({ type: "SET_EVENT_DRAG", state: state })
       }
     }
     EventDragging.prototype.clearDrag = function () {
       var initialCalendar = this.component.context
       var receivingContext = this.receivingContext
       if (receivingContext) {
-        receivingContext.dispatch({ type: 'UNSET_EVENT_DRAG' })
+        receivingContext.dispatch({ type: "UNSET_EVENT_DRAG" })
       }
       // the initial calendar might have an dummy drag state from displayDrag
       if (initialCalendar !== receivingContext) {
-        initialCalendar.dispatch({ type: 'UNSET_EVENT_DRAG' })
+        initialCalendar.dispatch({ type: "UNSET_EVENT_DRAG" })
       }
     }
     EventDragging.prototype.cleanup = function () {
@@ -12825,7 +12342,7 @@ var FullCalendar = (function (exports) {
     }
     // TODO: test this in IE11
     // QUESTION: why do we need it on the resizable???
-    EventDragging.SELECTOR = '.fc-event-draggable, .fc-event-resizable'
+    EventDragging.SELECTOR = ".fc-event-draggable, .fc-event-resizable"
     return EventDragging
   })(Interaction)
   function computeEventMutation(hit0, hit1, massagers) {
@@ -12906,7 +12423,7 @@ var FullCalendar = (function (exports) {
         _this.draggingSegEl = segEl
         _this.draggingSeg = getElSeg(segEl)
         context.calendarApi.unselect()
-        context.emitter.trigger('eventResizeStart', {
+        context.emitter.trigger("eventResizeStart", {
           el: segEl,
           event: new EventApi(context, eventRange.def, eventRange.instance),
           jsEvent: ev.origEvent,
@@ -12930,7 +12447,7 @@ var FullCalendar = (function (exports) {
           mutation = computeMutation(
             initialHit,
             hit,
-            ev.subjectEl.classList.contains('fc-event-resizer-start'),
+            ev.subjectEl.classList.contains("fc-event-resizer-start"),
             eventInstance.range,
             context.pluginHooks.eventResizeJoinTransforms
           )
@@ -12952,11 +12469,11 @@ var FullCalendar = (function (exports) {
         }
         if (mutatedRelevantEvents) {
           context.dispatch({
-            type: 'SET_EVENT_RESIZE',
+            type: "SET_EVENT_RESIZE",
             state: interaction
           })
         } else {
-          context.dispatch({ type: 'UNSET_EVENT_RESIZE' })
+          context.dispatch({ type: "UNSET_EVENT_RESIZE" })
         }
         if (!isInvalid) {
           enableCursor()
@@ -12978,7 +12495,7 @@ var FullCalendar = (function (exports) {
         var eventApi = new EventApi(context, eventDef, eventInstance)
         var relevantEvents = _this.relevantEvents
         var mutatedRelevantEvents = _this.mutatedRelevantEvents
-        context.emitter.trigger('eventResizeStop', {
+        context.emitter.trigger("eventResizeStop", {
           el: _this.draggingSegEl,
           event: eventApi,
           jsEvent: ev.origEvent,
@@ -12991,7 +12508,7 @@ var FullCalendar = (function (exports) {
             eventInstance ? mutatedRelevantEvents.instances[eventInstance.instanceId] : null
           )
           context.dispatch({
-            type: 'MERGE_EVENTS',
+            type: "MERGE_EVENTS",
             eventStore: mutatedRelevantEvents
           })
           var eventChangeArg = {
@@ -13000,13 +12517,13 @@ var FullCalendar = (function (exports) {
             relatedEvents: buildEventApis(mutatedRelevantEvents, context, eventInstance),
             revert: function () {
               context.dispatch({
-                type: 'MERGE_EVENTS',
+                type: "MERGE_EVENTS",
                 eventStore: relevantEvents // the pre-change events
               })
             }
           }
           context.emitter.trigger(
-            'eventResize',
+            "eventResize",
             __assign(__assign({}, eventChangeArg), {
               el: _this.draggingSegEl,
               startDelta: _this.validMutation.startDelta || createDuration(0),
@@ -13015,9 +12532,9 @@ var FullCalendar = (function (exports) {
               view: context.viewApi
             })
           )
-          context.emitter.trigger('eventChange', eventChangeArg)
+          context.emitter.trigger("eventChange", eventChangeArg)
         } else {
-          context.emitter.trigger('_noEventResize')
+          context.emitter.trigger("_noEventResize")
         }
         // reset all internal state
         _this.draggingSeg = null
@@ -13027,24 +12544,21 @@ var FullCalendar = (function (exports) {
       }
       var component = settings.component
       var dragging = (_this.dragging = new FeaturefulElementDragging(settings.el))
-      dragging.pointer.selector = '.fc-event-resizer'
+      dragging.pointer.selector = ".fc-event-resizer"
       dragging.touchScrollAllowed = false
       dragging.autoScroller.isEnabled = component.context.options.dragScroll
-      var hitDragging = (_this.hitDragging = new HitDragging(
-        _this.dragging,
-        interactionSettingsToStore(settings)
-      ))
-      hitDragging.emitter.on('pointerdown', _this.handlePointerDown)
-      hitDragging.emitter.on('dragstart', _this.handleDragStart)
-      hitDragging.emitter.on('hitupdate', _this.handleHitUpdate)
-      hitDragging.emitter.on('dragend', _this.handleDragEnd)
+      var hitDragging = (_this.hitDragging = new HitDragging(_this.dragging, interactionSettingsToStore(settings)))
+      hitDragging.emitter.on("pointerdown", _this.handlePointerDown)
+      hitDragging.emitter.on("dragstart", _this.handleDragStart)
+      hitDragging.emitter.on("hitupdate", _this.handleHitUpdate)
+      hitDragging.emitter.on("dragend", _this.handleDragEnd)
       return _this
     }
     EventResizing.prototype.destroy = function () {
       this.dragging.destroy()
     }
     EventResizing.prototype.querySegEl = function (ev) {
-      return elementClosest(ev.subjectEl, '.fc-event')
+      return elementClosest(ev.subjectEl, ".fc-event")
     }
     return EventResizing
   })(Interaction)
@@ -13114,7 +12628,7 @@ var FullCalendar = (function (exports) {
             calendarState.eventSelection && // an existing event selected?
             !_this.matchesEvent // interaction DIDN'T start on an event
           ) {
-            context.dispatch({ type: 'UNSELECT_EVENT' })
+            context.dispatch({ type: "UNSELECT_EVENT" })
           }
         }
         _this.isRecentPointerDateSelect = false
@@ -13122,15 +12636,15 @@ var FullCalendar = (function (exports) {
       var documentPointer = (this.documentPointer = new PointerDragging(document))
       documentPointer.shouldIgnoreMove = true
       documentPointer.shouldWatchScroll = false
-      documentPointer.emitter.on('pointerdown', this.onDocumentPointerDown)
-      documentPointer.emitter.on('pointerup', this.onDocumentPointerUp)
+      documentPointer.emitter.on("pointerdown", this.onDocumentPointerDown)
+      documentPointer.emitter.on("pointerup", this.onDocumentPointerUp)
       /*
             TODO: better way to know about whether there was a selection with the pointer
             */
-      context.emitter.on('select', this.onSelect)
+      context.emitter.on("select", this.onSelect)
     }
     UnselectAuto.prototype.destroy = function () {
-      this.context.emitter.off('select', this.onSelect)
+      this.context.emitter.off("select", this.onSelect)
       this.documentPointer.destroy()
     }
     return UnselectAuto
@@ -13189,9 +12703,7 @@ var FullCalendar = (function (exports) {
         _this.displayDrag(receivingContext, interaction)
         // show mirror if no already-rendered mirror element OR if we are shutting down the mirror (?)
         // TODO: wish we could somehow wait for dispatch to guarantee render
-        dragging.setMirrorIsVisible(
-          isFinal || !droppableEvent || !document.querySelector('.fc-event-mirror')
-        )
+        dragging.setMirrorIsVisible(isFinal || !droppableEvent || !document.querySelector(".fc-event-mirror"))
         if (!isInvalid) {
           enableCursor()
         } else {
@@ -13213,31 +12725,32 @@ var FullCalendar = (function (exports) {
           var finalView = finalHit.component.context.viewApi
           var dragMeta = _this.dragMeta
           receivingContext.emitter.trigger(
-            'drop',
-            __assign(
-              __assign({}, buildDatePointApiWithContext(finalHit.dateSpan, receivingContext)),
-              { draggedEl: pev.subjectEl, jsEvent: pev.origEvent, view: finalView }
-            )
+            "drop",
+            __assign(__assign({}, buildDatePointApiWithContext(finalHit.dateSpan, receivingContext)), {
+              draggedEl: pev.subjectEl,
+              jsEvent: pev.origEvent,
+              view: finalView
+            })
           )
           if (dragMeta.create) {
             var addingEvents_1 = eventTupleToStore(droppableEvent)
             receivingContext.dispatch({
-              type: 'MERGE_EVENTS',
+              type: "MERGE_EVENTS",
               eventStore: addingEvents_1
             })
             if (pev.isTouch) {
               receivingContext.dispatch({
-                type: 'SELECT_EVENT',
+                type: "SELECT_EVENT",
                 eventInstanceId: droppableEvent.instance.instanceId
               })
             }
             // signal that an external event landed
-            receivingContext.emitter.trigger('eventReceive', {
+            receivingContext.emitter.trigger("eventReceive", {
               event: new EventApi(receivingContext, droppableEvent.def, droppableEvent.instance),
               relatedEvents: [],
               revert: function () {
                 receivingContext.dispatch({
-                  type: 'REMOVE_EVENTS',
+                  type: "REMOVE_EVENTS",
                   eventStore: addingEvents_1
                 })
               },
@@ -13251,15 +12764,15 @@ var FullCalendar = (function (exports) {
       }
       var hitDragging = (this.hitDragging = new HitDragging(dragging, interactionSettingsStore))
       hitDragging.requireInitial = false // will start outside of a component
-      hitDragging.emitter.on('dragstart', this.handleDragStart)
-      hitDragging.emitter.on('hitupdate', this.handleHitUpdate)
-      hitDragging.emitter.on('dragend', this.handleDragEnd)
+      hitDragging.emitter.on("dragstart", this.handleDragStart)
+      hitDragging.emitter.on("hitupdate", this.handleHitUpdate)
+      hitDragging.emitter.on("dragend", this.handleDragEnd)
       this.suppliedDragMeta = suppliedDragMeta
     }
     ExternalElementDragging.prototype.buildDragMeta = function (subjectEl) {
-      if (typeof this.suppliedDragMeta === 'object') {
+      if (typeof this.suppliedDragMeta === "object") {
         return parseDragMeta(this.suppliedDragMeta)
-      } else if (typeof this.suppliedDragMeta === 'function') {
+      } else if (typeof this.suppliedDragMeta === "function") {
         return parseDragMeta(this.suppliedDragMeta(subjectEl))
       } else {
         return getDragMetaFromEl(subjectEl)
@@ -13268,22 +12781,22 @@ var FullCalendar = (function (exports) {
     ExternalElementDragging.prototype.displayDrag = function (nextContext, state) {
       var prevContext = this.receivingContext
       if (prevContext && prevContext !== nextContext) {
-        prevContext.dispatch({ type: 'UNSET_EVENT_DRAG' })
+        prevContext.dispatch({ type: "UNSET_EVENT_DRAG" })
       }
       if (nextContext) {
-        nextContext.dispatch({ type: 'SET_EVENT_DRAG', state: state })
+        nextContext.dispatch({ type: "SET_EVENT_DRAG", state: state })
       }
     }
     ExternalElementDragging.prototype.clearDrag = function () {
       if (this.receivingContext) {
-        this.receivingContext.dispatch({ type: 'UNSET_EVENT_DRAG' })
+        this.receivingContext.dispatch({ type: "UNSET_EVENT_DRAG" })
       }
     }
     ExternalElementDragging.prototype.canDropElOnCalendar = function (el, receivingContext) {
       var dropAccept = receivingContext.options.dropAccept
-      if (typeof dropAccept === 'function') {
+      if (typeof dropAccept === "function") {
         return dropAccept.call(receivingContext.calendarApi, el)
-      } else if (typeof dropAccept === 'string' && dropAccept) {
+      } else if (typeof dropAccept === "string" && dropAccept) {
         return Boolean(elementMatches(el, dropAccept))
       }
       return true
@@ -13324,15 +12837,15 @@ var FullCalendar = (function (exports) {
   // Utils for extracting data from element
   // ----------------------------------------------------------------------------------------------------
   function getDragMetaFromEl(el) {
-    var str = getEmbeddedElData(el, 'event')
+    var str = getEmbeddedElData(el, "event")
     var obj = str ? JSON.parse(str) : { create: false } // if no embedded data, assume no event creation
     return parseDragMeta(obj)
   }
-  config.dataAttrPrefix = ''
+  config.dataAttrPrefix = ""
   function getEmbeddedElData(el, name) {
     var prefix = config.dataAttrPrefix
-    var prefixedName = (prefix ? prefix + '-' : '') + name
-    return el.getAttribute('data-' + prefixedName) || ''
+    var prefixedName = (prefix ? prefix + "-" : "") + name
+    return el.getAttribute("data-" + prefixedName) || ""
   }
 
   /*
@@ -13352,11 +12865,7 @@ var FullCalendar = (function (exports) {
           minDistance = _a.minDistance,
           longPressDelay = _a.longPressDelay
         dragging.minDistance =
-          minDistance != null
-            ? minDistance
-            : ev.isTouch
-              ? 0
-              : BASE_OPTION_DEFAULTS.eventDragMinDistance
+          minDistance != null ? minDistance : ev.isTouch ? 0 : BASE_OPTION_DEFAULTS.eventDragMinDistance
         dragging.delay = ev.isTouch // TODO: eventually read eventLongPressDelay instead vvv
           ? longPressDelay != null
             ? longPressDelay
@@ -13364,8 +12873,8 @@ var FullCalendar = (function (exports) {
           : 0
       }
       this.handleDragStart = function (ev) {
-        if (ev.isTouch && _this.dragging.delay && ev.subjectEl.classList.contains('fc-event')) {
-          _this.dragging.mirror.getMirrorEl().classList.add('fc-event-selected')
+        if (ev.isTouch && _this.dragging.delay && ev.subjectEl.classList.contains("fc-event")) {
+          _this.dragging.mirror.getMirrorEl().classList.add("fc-event-selected")
         }
       }
       this.settings = settings
@@ -13377,8 +12886,8 @@ var FullCalendar = (function (exports) {
       if (settings.appendTo != null) {
         dragging.mirror.parentNode = settings.appendTo // TODO: write tests
       }
-      dragging.emitter.on('pointerdown', this.handlePointerDown)
-      dragging.emitter.on('dragstart', this.handleDragStart)
+      dragging.emitter.on("pointerdown", this.handlePointerDown)
+      dragging.emitter.on("dragstart", this.handleDragStart)
       new ExternalElementDragging(dragging, settings.eventData)
     }
     ExternalDraggable.prototype.destroy = function () {
@@ -13398,31 +12907,31 @@ var FullCalendar = (function (exports) {
     function InferredElementDragging(containerEl) {
       var _this = _super.call(this, containerEl) || this
       _this.shouldIgnoreMove = false
-      _this.mirrorSelector = ''
+      _this.mirrorSelector = ""
       _this.currentMirrorEl = null
       _this.handlePointerDown = function (ev) {
-        _this.emitter.trigger('pointerdown', ev)
+        _this.emitter.trigger("pointerdown", ev)
         if (!_this.shouldIgnoreMove) {
           // fire dragstart right away. does not support delay or min-distance
-          _this.emitter.trigger('dragstart', ev)
+          _this.emitter.trigger("dragstart", ev)
         }
       }
       _this.handlePointerMove = function (ev) {
         if (!_this.shouldIgnoreMove) {
-          _this.emitter.trigger('dragmove', ev)
+          _this.emitter.trigger("dragmove", ev)
         }
       }
       _this.handlePointerUp = function (ev) {
-        _this.emitter.trigger('pointerup', ev)
+        _this.emitter.trigger("pointerup", ev)
         if (!_this.shouldIgnoreMove) {
           // fire dragend right away. does not support a revert animation
-          _this.emitter.trigger('dragend', ev)
+          _this.emitter.trigger("dragend", ev)
         }
       }
       var pointer = (_this.pointer = new PointerDragging(containerEl))
-      pointer.emitter.on('pointerdown', _this.handlePointerDown)
-      pointer.emitter.on('pointermove', _this.handlePointerMove)
-      pointer.emitter.on('pointerup', _this.handlePointerUp)
+      pointer.emitter.on("pointerdown", _this.handlePointerDown)
+      pointer.emitter.on("pointermove", _this.handlePointerMove)
+      pointer.emitter.on("pointerup", _this.handlePointerUp)
       return _this
     }
     InferredElementDragging.prototype.destroy = function () {
@@ -13436,14 +12945,14 @@ var FullCalendar = (function (exports) {
         // restore a previously hidden element.
         // use the reference in case the selector class has already been removed.
         if (this.currentMirrorEl) {
-          this.currentMirrorEl.style.visibility = ''
+          this.currentMirrorEl.style.visibility = ""
           this.currentMirrorEl = null
         }
       } else {
         var mirrorEl = this.mirrorSelector ? document.querySelector(this.mirrorSelector) : null
         if (mirrorEl) {
           this.currentMirrorEl = mirrorEl
-          mirrorEl.style.visibility = 'hidden'
+          mirrorEl.style.visibility = "hidden"
         }
       }
     }
@@ -13468,12 +12977,12 @@ var FullCalendar = (function (exports) {
         settings = containerOrSettings || {}
       }
       var dragging = (this.dragging = new InferredElementDragging(containerEl))
-      if (typeof settings.itemSelector === 'string') {
+      if (typeof settings.itemSelector === "string") {
         dragging.pointer.selector = settings.itemSelector
       } else if (containerEl === document) {
-        dragging.pointer.selector = '[data-event]'
+        dragging.pointer.selector = "[data-event]"
       }
-      if (typeof settings.mirrorSelector === 'string') {
+      if (typeof settings.mirrorSelector === "string") {
         dragging.mirrorSelector = settings.mirrorSelector
       }
       new ExternalElementDragging(dragging, settings.eventData)
@@ -13510,47 +13019,38 @@ var FullCalendar = (function (exports) {
       var stickyHeaderDates = getStickyHeaderDates(context.options)
       if (headerRowContent) {
         sections.push({
-          type: 'header',
-          key: 'header',
+          type: "header",
+          key: "header",
           isSticky: stickyHeaderDates,
           chunk: {
             elRef: this.headerElRef,
-            tableClassName: 'fc-col-header',
+            tableClassName: "fc-col-header",
             rowContent: headerRowContent
           }
         })
       }
       sections.push({
-        type: 'body',
-        key: 'body',
+        type: "body",
+        key: "body",
         liquid: true,
         chunk: { content: bodyContent }
       })
-      return createElement(
-        ViewRoot,
-        { viewSpec: context.viewSpec },
-        function (rootElRef, classNames) {
-          return createElement(
-            'div',
-            { ref: rootElRef, className: ['fc-daygrid'].concat(classNames).join(' ') },
-            createElement(SimpleScrollGrid, {
-              liquid: !props.isHeightAuto && !props.forPrint,
-              cols: [] /* TODO: make optional? */,
-              sections: sections
-            })
-          )
-        }
-      )
+      return createElement(ViewRoot, { viewSpec: context.viewSpec }, function (rootElRef, classNames) {
+        return createElement(
+          "div",
+          { ref: rootElRef, className: ["fc-daygrid"].concat(classNames).join(" ") },
+          createElement(SimpleScrollGrid, {
+            liquid: !props.isHeightAuto && !props.forPrint,
+            cols: [] /* TODO: make optional? */,
+            sections: sections
+          })
+        )
+      })
     }
-    TableView.prototype.renderHScrollLayout = function (
-      headerRowContent,
-      bodyContent,
-      colCnt,
-      dayMinWidth
-    ) {
+    TableView.prototype.renderHScrollLayout = function (headerRowContent, bodyContent, colCnt, dayMinWidth) {
       var ScrollGrid = this.context.pluginHooks.scrollGridImpl
       if (!ScrollGrid) {
-        throw new Error('No ScrollGrid implementation')
+        throw new Error("No ScrollGrid implementation")
       }
       var _a = this,
         props = _a.props,
@@ -13560,58 +13060,54 @@ var FullCalendar = (function (exports) {
       var sections = []
       if (headerRowContent) {
         sections.push({
-          type: 'header',
-          key: 'header',
+          type: "header",
+          key: "header",
           isSticky: stickyHeaderDates,
           chunks: [
             {
-              key: 'main',
+              key: "main",
               elRef: this.headerElRef,
-              tableClassName: 'fc-col-header',
+              tableClassName: "fc-col-header",
               rowContent: headerRowContent
             }
           ]
         })
       }
       sections.push({
-        type: 'body',
-        key: 'body',
+        type: "body",
+        key: "body",
         liquid: true,
         chunks: [
           {
-            key: 'main',
+            key: "main",
             content: bodyContent
           }
         ]
       })
       if (stickyFooterScrollbar) {
         sections.push({
-          type: 'footer',
-          key: 'footer',
+          type: "footer",
+          key: "footer",
           isSticky: true,
           chunks: [
             {
-              key: 'main',
+              key: "main",
               content: renderScrollShim
             }
           ]
         })
       }
-      return createElement(
-        ViewRoot,
-        { viewSpec: context.viewSpec },
-        function (rootElRef, classNames) {
-          return createElement(
-            'div',
-            { ref: rootElRef, className: ['fc-daygrid'].concat(classNames).join(' ') },
-            createElement(ScrollGrid, {
-              liquid: !props.isHeightAuto && !props.forPrint,
-              colGroups: [{ cols: [{ span: colCnt, minWidth: dayMinWidth }] }],
-              sections: sections
-            })
-          )
-        }
-      )
+      return createElement(ViewRoot, { viewSpec: context.viewSpec }, function (rootElRef, classNames) {
+        return createElement(
+          "div",
+          { ref: rootElRef, className: ["fc-daygrid"].concat(classNames).join(" ") },
+          createElement(ScrollGrid, {
+            liquid: !props.isHeightAuto && !props.forPrint,
+            colGroups: [{ cols: [{ span: colCnt, minWidth: dayMinWidth }] }],
+            sections: sections
+          })
+        )
+      })
     }
     return TableView
   })(DateComponent)
@@ -13660,7 +13156,7 @@ var FullCalendar = (function (exports) {
     return byRow
   }
 
-  var DEFAULT_WEEK_NUM_FORMAT = createFormatter({ week: 'narrow' })
+  var DEFAULT_WEEK_NUM_FORMAT = createFormatter({ week: "narrow" })
   var TableCell = /** @class */ (function (_super) {
     __extends(TableCell, _super)
     function TableCell() {
@@ -13701,9 +13197,7 @@ var FullCalendar = (function (exports) {
         text: props.buildMoreLinkText(props.moreCnt),
         view: viewApi
       }
-      var navLinkAttrs = options.navLinks
-        ? { 'data-navlink': buildNavLinkData(date, 'week'), tabIndex: 0 }
-        : {}
+      var navLinkAttrs = options.navLinks ? { "data-navlink": buildNavLinkData(date, "week"), tabIndex: 0 } : {}
       return createElement(
         DayCellRoot,
         {
@@ -13716,21 +13210,19 @@ var FullCalendar = (function (exports) {
         },
         function (rootElRef, classNames, rootDataAttrs, isDisabled) {
           return createElement(
-            'td',
+            "td",
             __assign(
               {
                 ref: rootElRef,
-                className: ['fc-daygrid-day']
-                  .concat(classNames, props.extraClassNames || [])
-                  .join(' ')
+                className: ["fc-daygrid-day"].concat(classNames, props.extraClassNames || []).join(" ")
               },
               rootDataAttrs,
               props.extraDataAttrs
             ),
             createElement(
-              'div',
+              "div",
               {
-                className: 'fc-daygrid-day-frame fc-scrollgrid-sync-inner',
+                className: "fc-daygrid-day-frame fc-scrollgrid-sync-inner",
                 ref: props.innerElRef /* different from hook system! RENAME */
               },
               props.showWeekNumber &&
@@ -13739,11 +13231,11 @@ var FullCalendar = (function (exports) {
                   { date: date, defaultFormat: DEFAULT_WEEK_NUM_FORMAT },
                   function (rootElRef, classNames, innerElRef, innerContent) {
                     return createElement(
-                      'a',
+                      "a",
                       __assign(
                         {
                           ref: rootElRef,
-                          className: ['fc-daygrid-week-number'].concat(classNames).join(' ')
+                          className: ["fc-daygrid-week-number"].concat(classNames).join(" ")
                         },
                         navLinkAttrs
                       ),
@@ -13761,18 +13253,18 @@ var FullCalendar = (function (exports) {
                   extraHookProps: props.extraHookProps
                 }),
               createElement(
-                'div',
+                "div",
                 {
-                  className: 'fc-daygrid-day-events',
+                  className: "fc-daygrid-day-events",
                   ref: props.fgContentElRef,
                   style: { paddingBottom: props.fgPaddingBottom }
                 },
                 props.fgContent,
                 Boolean(props.moreCnt) &&
                   createElement(
-                    'div',
+                    "div",
                     {
-                      className: 'fc-daygrid-day-bottom',
+                      className: "fc-daygrid-day-bottom",
                       style: { marginTop: props.moreMarginTop }
                     },
                     createElement(
@@ -13787,11 +13279,11 @@ var FullCalendar = (function (exports) {
                       },
                       function (rootElRef, classNames, innerElRef, innerContent) {
                         return createElement(
-                          'a',
+                          "a",
                           {
                             onClick: _this.handleMoreLinkClick,
                             ref: rootElRef,
-                            className: ['fc-daygrid-more-link'].concat(classNames).join(' ')
+                            className: ["fc-daygrid-more-link"].concat(classNames).join(" ")
                           },
                           innerContent
                         )
@@ -13799,7 +13291,7 @@ var FullCalendar = (function (exports) {
                     )
                   )
               ),
-              createElement('div', { className: 'fc-daygrid-day-bg' }, props.bgContent)
+              createElement("div", { className: "fc-daygrid-day-bg" }, props.bgContent)
             )
           )
         }
@@ -13821,7 +13313,7 @@ var FullCalendar = (function (exports) {
     TableCellTop.prototype.render = function () {
       var props = this.props
       var navLinkAttrs = this.context.options.navLinks
-        ? { 'data-navlink': buildNavLinkData(props.date), tabIndex: 0 }
+        ? { "data-navlink": buildNavLinkData(props.date), tabIndex: 0 }
         : {}
       return createElement(
         DayCellContent,
@@ -13837,12 +13329,12 @@ var FullCalendar = (function (exports) {
           return (
             (innerContent || props.forceDayTop) &&
             createElement(
-              'div',
-              { className: 'fc-daygrid-day-top', ref: innerElRef },
+              "div",
+              { className: "fc-daygrid-day-top", ref: innerElRef },
               createElement(
-                'a',
-                __assign({ className: 'fc-daygrid-day-number' }, navLinkAttrs),
-                innerContent || createElement(Fragment, null, '\u00A0')
+                "a",
+                __assign({ className: "fc-daygrid-day-number" }, navLinkAttrs),
+                innerContent || createElement(Fragment, null, "\u00A0")
               )
             )
           )
@@ -13853,16 +13345,16 @@ var FullCalendar = (function (exports) {
   })(BaseComponent)
 
   var DEFAULT_TABLE_EVENT_TIME_FORMAT = createFormatter({
-    hour: 'numeric',
-    minute: '2-digit',
+    hour: "numeric",
+    minute: "2-digit",
     omitZeroMinute: true,
-    meridiem: 'narrow'
+    meridiem: "narrow"
   })
   function hasListItemDisplay(seg) {
     var display = seg.eventRange.ui.display
     return (
-      display === 'list-item' ||
-      (display === 'auto' &&
+      display === "list-item" ||
+      (display === "auto" &&
         !seg.eventRange.def.allDay &&
         seg.firstCol === seg.lastCol && // can't be multi-day
         seg.isStart && // "
@@ -13880,13 +13372,7 @@ var FullCalendar = (function (exports) {
         props = _a.props,
         context = _a.context
       var timeFormat = context.options.eventTimeFormat || DEFAULT_TABLE_EVENT_TIME_FORMAT
-      var timeText = buildSegTimeText(
-        props.seg,
-        timeFormat,
-        context,
-        true,
-        props.defaultDisplayEventEnd
-      )
+      var timeText = buildSegTimeText(props.seg, timeFormat, context, true, props.defaultDisplayEventEnd)
       return createElement(
         EventRoot,
         {
@@ -13905,12 +13391,10 @@ var FullCalendar = (function (exports) {
           return (
             // we don't use styles!
             createElement(
-              'a',
+              "a",
               __assign(
                 {
-                  className: ['fc-daygrid-event', 'fc-daygrid-dot-event']
-                    .concat(classNames)
-                    .join(' '),
+                  className: ["fc-daygrid-event", "fc-daygrid-dot-event"].concat(classNames).join(" "),
                   ref: rootElRef
                 },
                 getSegAnchorAttrs$1(props.seg)
@@ -13927,16 +13411,15 @@ var FullCalendar = (function (exports) {
     return createElement(
       Fragment,
       null,
-      createElement('div', {
-        className: 'fc-daygrid-event-dot',
+      createElement("div", {
+        className: "fc-daygrid-event-dot",
         style: { borderColor: innerProps.borderColor || innerProps.backgroundColor }
       }),
-      innerProps.timeText &&
-        createElement('div', { className: 'fc-event-time' }, innerProps.timeText),
+      innerProps.timeText && createElement("div", { className: "fc-event-time" }, innerProps.timeText),
       createElement(
-        'div',
-        { className: 'fc-event-title' },
-        innerProps.event.title || createElement(Fragment, null, '\u00A0')
+        "div",
+        { className: "fc-event-title" },
+        innerProps.event.title || createElement(Fragment, null, "\u00A0")
       )
     )
   }
@@ -13955,7 +13438,7 @@ var FullCalendar = (function (exports) {
       return createElement(
         StandardEvent,
         __assign({}, props, {
-          extraClassNames: ['fc-daygrid-event', 'fc-daygrid-block-event', 'fc-h-event'],
+          extraClassNames: ["fc-daygrid-event", "fc-daygrid-block-event", "fc-h-event"],
           defaultTimeFormat: DEFAULT_TABLE_EVENT_TIME_FORMAT,
           defaultDisplayEventEnd: props.defaultDisplayEventEnd,
           disableResizing: !props.seg.eventRange.def.allDay
@@ -13990,14 +13473,14 @@ var FullCalendar = (function (exports) {
     for (var _i = 0, segs_1 = segs; _i < segs_1.length; _i++) {
       var seg = segs_1[_i]
       var instanceId = seg.eventRange.instance.instanceId
-      var eventHeight = eventHeights[instanceId + ':' + seg.firstCol]
+      var eventHeight = eventHeights[instanceId + ":" + seg.firstCol]
       placeSeg(seg, eventHeight || 0) // will keep colPlacements sorted by top
     }
     if (dayMaxEvents === true || dayMaxEventRows === true) {
       limitByMaxHeight(moreCnts, segIsHidden, colPlacements, maxContentHeight) // populates moreCnts/segIsHidden
-    } else if (typeof dayMaxEvents === 'number') {
+    } else if (typeof dayMaxEvents === "number") {
       limitByMaxEvents(moreCnts, segIsHidden, colPlacements, dayMaxEvents) // populates moreCnts/segIsHidden
-    } else if (typeof dayMaxEventRows === 'number') {
+    } else if (typeof dayMaxEventRows === "number") {
       limitByMaxRows(moreCnts, segIsHidden, colPlacements, dayMaxEventRows) // populates moreCnts/segIsHidden
     }
     // computes segTops/segMarginTops/moreTops/paddingBottoms
@@ -14076,7 +13559,7 @@ var FullCalendar = (function (exports) {
     // what does this do!?
     for (var instanceIdAndFirstCol in eventHeights) {
       if (!eventHeights[instanceIdAndFirstCol]) {
-        segIsHidden[instanceIdAndFirstCol.split(':')[0]] = true
+        segIsHidden[instanceIdAndFirstCol.split(":")[0]] = true
       }
     }
     var segsByFirstCol = colPlacements.map(extractFirstColSegs) // operates on the sorted cols
@@ -14133,13 +13616,7 @@ var FullCalendar = (function (exports) {
     populates the given hiddenCnts/segIsHidden, which are supplied empty.
     TODO: return them instead
     */
-  function limitEvents(
-    hiddenCnts,
-    segIsHidden,
-    colPlacements,
-    _moreLinkConsumesLevel,
-    isPlacementInBounds
-  ) {
+  function limitEvents(hiddenCnts, segIsHidden, colPlacements, _moreLinkConsumesLevel, isPlacementInBounds) {
     var colCnt = hiddenCnts.length
     var segIsVisible = {} // TODO: instead, use segIsHidden with true/false?
     var visibleColPlacements = [] // will mirror colPlacements
@@ -14274,7 +13751,7 @@ var FullCalendar = (function (exports) {
         (props.eventResize && props.eventResize.affectedInstances) ||
         {}
       return createElement(
-        'tr',
+        "tr",
         { ref: this.rootElRef },
         props.renderIntro && props.renderIntro(),
         props.cells.map(function (cell, col) {
@@ -14307,8 +13784,7 @@ var FullCalendar = (function (exports) {
             date: cell.date,
             showDayNumber: props.showDayNumbers,
             showWeekNumber: props.showWeekNumbers && col === 0,
-            forceDayTop:
-              props.showWeekNumbers /* even displaying weeknum for row, not necessarily day */,
+            forceDayTop: props.showWeekNumbers /* even displaying weeknum for row, not necessarily day */,
             todayRange: props.todayRange,
             extraHookProps: cell.extraHookProps,
             extraDataAttrs: cell.extraDataAttrs,
@@ -14332,9 +13808,9 @@ var FullCalendar = (function (exports) {
             bgContent: createElement(
               Fragment,
               null,
-              _this.renderFillSegs(highlightSegsByCol[col], 'highlight'),
-              _this.renderFillSegs(businessHoursByCol[col], 'non-business'),
-              _this.renderFillSegs(bgEventSegsByCol[col], 'bg-event')
+              _this.renderFillSegs(highlightSegsByCol[col], "highlight"),
+              _this.renderFillSegs(businessHoursByCol[col], "non-business"),
+              _this.renderFillSegs(bgEventSegsByCol[col], "bg-event")
             )
           })
         })
@@ -14392,11 +13868,7 @@ var FullCalendar = (function (exports) {
           var isSelected = selectedInstanceHash[instanceId]
           var isInvisible = segIsHidden[instanceId] || isSelected
           var isAbsolute =
-            segIsHidden[instanceId] ||
-            isMirror ||
-            seg.firstCol !== seg.lastCol ||
-            !seg.isStart ||
-            !seg.isEnd // TODO: simpler way? NOT DRY
+            segIsHidden[instanceId] || isMirror || seg.firstCol !== seg.lastCol || !seg.isStart || !seg.isEnd // TODO: simpler way? NOT DRY
           var marginTop = void 0
           var top_1 = void 0
           var left = void 0
@@ -14418,22 +13890,21 @@ var FullCalendar = (function (exports) {
                     */
           nodes.push(
             createElement(
-              'div',
+              "div",
               {
-                className:
-                  'fc-daygrid-event-harness' + (isAbsolute ? ' fc-daygrid-event-harness-abs' : ''),
+                className: "fc-daygrid-event-harness" + (isAbsolute ? " fc-daygrid-event-harness-abs" : ""),
                 key: instanceId,
                 ref: isMirror
                   ? null
                   : this.segHarnessRefs.createRef(
-                      instanceId + ':' + seg.firstCol
+                      instanceId + ":" + seg.firstCol
                     ) /* in print mode when in mult cols, could collide */,
                 style: {
-                  visibility: isInvisible ? 'hidden' : '',
-                  marginTop: marginTop || '',
-                  top: top_1 || '',
-                  left: left || '',
-                  right: right || ''
+                  visibility: isInvisible ? "hidden" : "",
+                  marginTop: marginTop || "",
+                  top: top_1 || "",
+                  left: left || "",
+                  right: right || ""
                 }
               },
               hasListItemDisplay(seg)
@@ -14488,13 +13959,13 @@ var FullCalendar = (function (exports) {
               }
           nodes.push(
             createElement(
-              'div',
+              "div",
               {
                 key: buildEventRangeKey(seg.eventRange),
-                className: 'fc-daygrid-bg-harness',
+                className: "fc-daygrid-bg-harness",
                 style: leftRightCss
               },
-              fillType === 'bg-event'
+              fillType === "bg-event"
                 ? createElement(BgEvent, __assign({ seg: seg }, getSegMeta(seg, todayRange)))
                 : renderFill(fillType)
             )
@@ -14590,34 +14061,30 @@ var FullCalendar = (function (exports) {
     Popover.prototype.render = function () {
       var theme = this.context.theme
       var props = this.props
-      var classNames = ['fc-popover', theme.getClass('popover')].concat(props.extraClassNames || [])
+      var classNames = ["fc-popover", theme.getClass("popover")].concat(props.extraClassNames || [])
       return createElement(
-        'div',
-        __assign({ className: classNames.join(' ') }, props.extraAttrs, { ref: this.handleRootEl }),
+        "div",
+        __assign({ className: classNames.join(" ") }, props.extraAttrs, { ref: this.handleRootEl }),
         createElement(
-          'div',
-          { className: 'fc-popover-header ' + theme.getClass('popoverHeader') },
-          createElement('span', { className: 'fc-popover-title' }, props.title),
-          createElement('span', {
-            className: 'fc-popover-close ' + theme.getIconClass('close'),
+          "div",
+          { className: "fc-popover-header " + theme.getClass("popoverHeader") },
+          createElement("span", { className: "fc-popover-title" }, props.title),
+          createElement("span", {
+            className: "fc-popover-close " + theme.getIconClass("close"),
             onClick: this.handleCloseClick
           })
         ),
-        createElement(
-          'div',
-          { className: 'fc-popover-body ' + theme.getClass('popoverContent') },
-          props.children
-        )
+        createElement("div", { className: "fc-popover-body " + theme.getClass("popoverContent") }, props.children)
       )
     }
     Popover.prototype.componentDidMount = function () {
-      document.addEventListener('mousedown', this.handleDocumentMousedown)
-      document.addEventListener('scroll', this.handleDocumentScroll)
+      document.addEventListener("mousedown", this.handleDocumentMousedown)
+      document.addEventListener("scroll", this.handleDocumentScroll)
       this.updateSize()
     }
     Popover.prototype.componentWillUnmount = function () {
-      document.removeEventListener('mousedown', this.handleDocumentMousedown)
-      document.removeEventListener('scroll', this.handleDocumentScroll)
+      document.removeEventListener("mousedown", this.handleDocumentMousedown)
+      document.removeEventListener("scroll", this.handleDocumentScroll)
     }
     // TODO: adjust on window resize
     /*
@@ -14693,7 +14160,7 @@ var FullCalendar = (function (exports) {
             {
               elRef: rootElRef,
               title: title,
-              extraClassNames: ['fc-more-popover'].concat(dayClassNames),
+              extraClassNames: ["fc-more-popover"].concat(dayClassNames),
               extraAttrs: dataAttrs,
               onClose: props.onCloseClick,
               alignmentEl: props.alignmentEl,
@@ -14705,23 +14172,19 @@ var FullCalendar = (function (exports) {
               function (innerElRef, innerContent) {
                 return (
                   innerContent &&
-                  createElement(
-                    'div',
-                    { className: 'fc-more-popover-misc', ref: innerElRef },
-                    innerContent
-                  )
+                  createElement("div", { className: "fc-more-popover-misc", ref: innerElRef }, innerContent)
                 )
               }
             ),
             props.segs.map(function (seg) {
               var instanceId = seg.eventRange.instance.instanceId
               return createElement(
-                'div',
+                "div",
                 {
-                  className: 'fc-daygrid-event-harness',
+                  className: "fc-daygrid-event-harness",
                   key: instanceId,
                   style: {
-                    visibility: hiddenInstances[instanceId] ? 'hidden' : ''
+                    visibility: hiddenInstances[instanceId] ? "hidden" : ""
                   }
                 },
                 hasListItemDisplay(seg)
@@ -14819,7 +14282,7 @@ var FullCalendar = (function (exports) {
             isEnd: seg.isEnd
           }
         }
-        if (typeof clickOption === 'function') {
+        if (typeof clickOption === "function") {
           clickOption = clickOption({
             date: dateEnv.toDate(arg.date),
             allDay: true,
@@ -14829,13 +14292,13 @@ var FullCalendar = (function (exports) {
             view: context.viewApi
           }) // hack to handle void
         }
-        if (!clickOption || clickOption === 'popover') {
+        if (!clickOption || clickOption === "popover") {
           _this.setState({
             morePopoverState: __assign(__assign({}, arg), {
               currentFgEventSegs: _this.props.fgEventSegs
             })
           })
-        } else if (typeof clickOption === 'string') {
+        } else if (typeof clickOption === "string") {
           // a view name
           context.calendarApi.zoomTo(arg.date, clickOption)
         }
@@ -14872,14 +14335,14 @@ var FullCalendar = (function (exports) {
         dayMaxEvents = null
       }
       var classNames = [
-        'fc-daygrid-body',
-        limitViaBalanced ? 'fc-daygrid-body-balanced' : 'fc-daygrid-body-unbalanced',
-        expandRows ? '' : 'fc-daygrid-body-natural' // will height of one row depend on the others?
+        "fc-daygrid-body",
+        limitViaBalanced ? "fc-daygrid-body-balanced" : "fc-daygrid-body-unbalanced",
+        expandRows ? "" : "fc-daygrid-body-natural" // will height of one row depend on the others?
       ]
       return createElement(
-        'div',
+        "div",
         {
-          className: classNames.join(' '),
+          className: classNames.join(" "),
           ref: this.handleRootEl,
           style: {
             // these props are important to give this wrapper correct dimensions for interactions
@@ -14888,23 +14351,23 @@ var FullCalendar = (function (exports) {
             minWidth: props.tableMinWidth
           }
         },
-        createElement(NowTimer, { unit: 'day' }, function (nowDate, todayRange) {
+        createElement(NowTimer, { unit: "day" }, function (nowDate, todayRange) {
           return createElement(
             Fragment,
             null,
             createElement(
-              'table',
+              "table",
               {
-                className: 'fc-scrollgrid-sync-table',
+                className: "fc-scrollgrid-sync-table",
                 style: {
                   width: props.clientWidth,
                   minWidth: props.tableMinWidth,
-                  height: expandRows ? props.clientHeight : ''
+                  height: expandRows ? props.clientHeight : ""
                 }
               },
               props.colGroupNode,
               createElement(
-                'tbody',
+                "tbody",
                 null,
                 props.cells.map(function (cells, row) {
                   return createElement(TableRow, {
@@ -15010,11 +14473,11 @@ var FullCalendar = (function (exports) {
     return Table
   })(DateComponent)
   function buildBuildMoreLinkText(moreLinkTextInput) {
-    if (typeof moreLinkTextInput === 'function') {
+    if (typeof moreLinkTextInput === "function") {
       return moreLinkTextInput
     } else {
       return function (num) {
-        return '+' + num + ' ' + moreLinkTextInput
+        return "+" + num + " " + moreLinkTextInput
       }
     }
   }
@@ -15045,13 +14508,7 @@ var FullCalendar = (function (exports) {
         Table,
         __assign(
           { ref: this.tableRef, elRef: this.handleRootEl },
-          this.slicer.sliceProps(
-            props,
-            props.dateProfile,
-            props.nextDayThreshold,
-            context,
-            props.dayTableModel
-          ),
+          this.slicer.sliceProps(props, props.dateProfile, props.nextDayThreshold, context, props.dayTableModel),
           {
             dateProfile: props.dateProfile,
             cells: props.dayTableModel.cells,
@@ -15155,12 +14612,7 @@ var FullCalendar = (function (exports) {
         })
       }
       return options.dayMinWidth
-        ? this.renderHScrollLayout(
-            headerContent,
-            bodyContent,
-            dayTableModel.colCnt,
-            options.dayMinWidth
-          )
+        ? this.renderHScrollLayout(headerContent, bodyContent, dayTableModel.colCnt, options.dayMinWidth)
         : this.renderSimpleLayout(headerContent, bodyContent)
     }
     return DayTableView
@@ -15176,18 +14628,9 @@ var FullCalendar = (function (exports) {
       return (_super !== null && _super.apply(this, arguments)) || this
     }
     // Computes the date range that will be rendered.
-    TableDateProfileGenerator.prototype.buildRenderRange = function (
-      currentRange,
-      currentRangeUnit,
-      isRangeAllDay
-    ) {
+    TableDateProfileGenerator.prototype.buildRenderRange = function (currentRange, currentRangeUnit, isRangeAllDay) {
       var dateEnv = this.props.dateEnv
-      var renderRange = _super.prototype.buildRenderRange.call(
-        this,
-        currentRange,
-        currentRangeUnit,
-        isRangeAllDay
-      )
+      var renderRange = _super.prototype.buildRenderRange.call(this, currentRange, currentRangeUnit, isRangeAllDay)
       var start = renderRange.start
       var end = renderRange.end
       var endOfWeek
@@ -15222,7 +14665,7 @@ var FullCalendar = (function (exports) {
   }
 
   var dayGridPlugin = createPlugin({
-    initialView: 'dayGridMonth',
+    initialView: "dayGridMonth",
     optionRefiners: OPTION_REFINERS,
     views: {
       dayGrid: {
@@ -15230,15 +14673,15 @@ var FullCalendar = (function (exports) {
         dateProfileGeneratorClass: TableDateProfileGenerator
       },
       dayGridDay: {
-        type: 'dayGrid',
+        type: "dayGrid",
         duration: { days: 1 }
       },
       dayGridWeek: {
-        type: 'dayGrid',
+        type: "dayGrid",
         duration: { weeks: 1 }
       },
       dayGridMonth: {
-        type: 'dayGrid',
+        type: "dayGrid",
         duration: { months: 1 },
         monthMode: true,
         fixedWeekCount: true
@@ -15259,18 +14702,18 @@ var FullCalendar = (function (exports) {
     }
     AllDaySplitter.prototype.getKeysForDateSpan = function (dateSpan) {
       if (dateSpan.allDay) {
-        return ['allDay']
+        return ["allDay"]
       } else {
-        return ['timed']
+        return ["timed"]
       }
     }
     AllDaySplitter.prototype.getKeysForEventDef = function (eventDef) {
       if (!eventDef.allDay) {
-        return ['timed']
+        return ["timed"]
       } else if (hasBgRendering(eventDef)) {
-        return ['timed', 'allDay']
+        return ["timed", "allDay"]
       } else {
-        return ['allDay']
+        return ["allDay"]
       }
     }
     return AllDaySplitter
@@ -15287,10 +14730,7 @@ var FullCalendar = (function (exports) {
       if (rangeContainsMarker(dateProfile.currentRange, date)) {
         var startOfDayDate = startOfDay(date)
         var timeMs = date.valueOf() - startOfDayDate.valueOf()
-        if (
-          timeMs >= asRoughMs(dateProfile.slotMinTime) &&
-          timeMs < asRoughMs(dateProfile.slotMaxTime)
-        ) {
+        if (timeMs >= asRoughMs(dateProfile.slotMinTime) && timeMs < asRoughMs(dateProfile.slotMaxTime)) {
           return this.computeTimeTop(createDuration(timeMs))
         }
       }
@@ -15313,8 +14753,7 @@ var FullCalendar = (function (exports) {
         slatMetas = _a.slatMetas
       var len = positions.els.length
       var slotDurationMs = slatMetas[1].date.valueOf() - slatMetas[0].date.valueOf() // we assume dates are uniform
-      var slatCoverage =
-        (duration.milliseconds - asRoughMs(dateProfile.slotMinTime)) / slotDurationMs // floating-point value of # of slots covered
+      var slatCoverage = (duration.milliseconds - asRoughMs(dateProfile.slotMinTime)) / slotDurationMs // floating-point value of # of slots covered
       var slatIndex
       var slatRemainder
       // compute a floating-point number for how many slats should be progressed through.
@@ -15336,13 +14775,7 @@ var FullCalendar = (function (exports) {
 
   // potential nice values for the slot-duration and interval-duration
   // from largest to smallest
-  var STOCK_SUB_DURATIONS = [
-    { hours: 1 },
-    { minutes: 30 },
-    { minutes: 15 },
-    { seconds: 30 },
-    { seconds: 15 }
-  ]
+  var STOCK_SUB_DURATIONS = [{ hours: 1 }, { minutes: 30 }, { minutes: 15 }, { seconds: 30 }, { seconds: 15 }]
   /*
     for the horizontal "slats" that run width-wise. Has a time axis on a side. Depends on RTL.
     */
@@ -15359,12 +14792,12 @@ var FullCalendar = (function (exports) {
         props = _a.props,
         context = _a.context
       return createElement(
-        'div',
-        { className: 'fc-timegrid-slots', ref: this.rootElRef },
+        "div",
+        { className: "fc-timegrid-slots", ref: this.rootElRef },
         createElement(
-          'table',
+          "table",
           {
-            className: context.theme.getClass('table'),
+            className: context.theme.getClass("table"),
             style: {
               minWidth: props.tableMinWidth,
               width: props.clientWidth,
@@ -15434,7 +14867,7 @@ var FullCalendar = (function (exports) {
       var options = context.options
       var slatElRefs = props.slatElRefs
       return createElement(
-        'tbody',
+        "tbody",
         null,
         props.slatMetas.map(function (slatMeta, i) {
           var hookProps = {
@@ -15443,12 +14876,12 @@ var FullCalendar = (function (exports) {
             view: context.viewApi
           }
           var classNames = [
-            'fc-timegrid-slot',
-            'fc-timegrid-slot-lane',
-            slatMeta.isLabeled ? '' : 'fc-timegrid-slot-minor'
+            "fc-timegrid-slot",
+            "fc-timegrid-slot-lane",
+            slatMeta.isLabeled ? "" : "fc-timegrid-slot-minor"
           ]
           return createElement(
-            'tr',
+            "tr",
             { key: slatMeta.key, ref: slatElRefs.createRef(slatMeta.key) },
             props.axis && createElement(TimeColsAxisCell, __assign({}, slatMeta)),
             createElement(
@@ -15462,11 +14895,11 @@ var FullCalendar = (function (exports) {
               },
               function (rootElRef, customClassNames, innerElRef, innerContent) {
                 return createElement(
-                  'td',
+                  "td",
                   {
                     ref: rootElRef,
-                    className: classNames.concat(customClassNames).join(' '),
-                    'data-time': slatMeta.isoTimeStr
+                    className: classNames.concat(customClassNames).join(" "),
+                    "data-time": slatMeta.isoTimeStr
                   },
                   innerContent
                 )
@@ -15479,22 +14912,22 @@ var FullCalendar = (function (exports) {
     return TimeColsSlatsBody
   })(BaseComponent)
   var DEFAULT_SLAT_LABEL_FORMAT = createFormatter({
-    hour: 'numeric',
-    minute: '2-digit',
+    hour: "numeric",
+    minute: "2-digit",
     omitZeroMinute: true,
-    meridiem: 'short'
+    meridiem: "short"
   })
   function TimeColsAxisCell(props) {
     var classNames = [
-      'fc-timegrid-slot',
-      'fc-timegrid-slot-label',
-      props.isLabeled ? 'fc-scrollgrid-shrink' : 'fc-timegrid-slot-minor'
+      "fc-timegrid-slot",
+      "fc-timegrid-slot-label",
+      props.isLabeled ? "fc-scrollgrid-shrink" : "fc-timegrid-slot-minor"
     ]
     return createElement(ViewContextType.Consumer, null, function (context) {
       if (!props.isLabeled) {
-        return createElement('td', {
-          className: classNames.join(' '),
-          'data-time': props.isoTimeStr
+        return createElement("td", {
+          className: classNames.join(" "),
+          "data-time": props.isoTimeStr
         })
       } else {
         var dateEnv = context.dateEnv,
@@ -15525,19 +14958,19 @@ var FullCalendar = (function (exports) {
           },
           function (rootElRef, customClassNames, innerElRef, innerContent) {
             return createElement(
-              'td',
+              "td",
               {
                 ref: rootElRef,
-                className: classNames.concat(customClassNames).join(' '),
-                'data-time': props.isoTimeStr
+                className: classNames.concat(customClassNames).join(" "),
+                "data-time": props.isoTimeStr
               },
               createElement(
-                'div',
-                { className: 'fc-timegrid-slot-label-frame fc-scrollgrid-shrink-frame' },
+                "div",
+                { className: "fc-timegrid-slot-label-frame fc-scrollgrid-shrink-frame" },
                 createElement(
-                  'div',
+                  "div",
                   {
-                    className: 'fc-timegrid-slot-label-cushion fc-scrollgrid-shrink-cushion',
+                    className: "fc-timegrid-slot-label-cushion fc-scrollgrid-shrink-cushion",
                     ref: innerElRef
                   },
                   innerContent
@@ -15589,7 +15022,7 @@ var FullCalendar = (function (exports) {
     return slotDuration // fall back
   }
 
-  var DEFAULT_WEEK_NUM_FORMAT$1 = createFormatter({ week: 'short' })
+  var DEFAULT_WEEK_NUM_FORMAT$1 = createFormatter({ week: "short" })
   var AUTO_ALL_DAY_MAX_EVENT_ROWS = 5
   var TimeColsView = /** @class */ (function (_super) {
     __extends(TimeColsView, _super)
@@ -15613,7 +15046,7 @@ var FullCalendar = (function (exports) {
             ------------------------------------------------------------------------------------------------------------------*/
       _this.renderHeadAxis = function (frameHeight) {
         if (frameHeight === void 0) {
-          frameHeight = ''
+          frameHeight = ""
         }
         var options = _this.context.options
         var dateProfile = _this.props.dateProfile
@@ -15621,7 +15054,7 @@ var FullCalendar = (function (exports) {
         var dayCnt = diffDays(range.start, range.end)
         var navLinkAttrs =
           options.navLinks && dayCnt === 1 // only do in day views (to avoid doing in week views that dont need it)
-            ? { 'data-navlink': buildNavLinkData(range.start, 'week'), tabIndex: 0 }
+            ? { "data-navlink": buildNavLinkData(range.start, "week"), tabIndex: 0 }
             : {}
         if (options.weekNumbers) {
           return createElement(
@@ -15629,27 +15062,23 @@ var FullCalendar = (function (exports) {
             { date: range.start, defaultFormat: DEFAULT_WEEK_NUM_FORMAT$1 },
             function (rootElRef, classNames, innerElRef, innerContent) {
               return createElement(
-                'th',
+                "th",
                 {
                   ref: rootElRef,
-                  className: ['fc-timegrid-axis', 'fc-scrollgrid-shrink']
-                    .concat(classNames)
-                    .join(' ')
+                  className: ["fc-timegrid-axis", "fc-scrollgrid-shrink"].concat(classNames).join(" ")
                 },
                 createElement(
-                  'div',
+                  "div",
                   {
-                    className:
-                      'fc-timegrid-axis-frame fc-scrollgrid-shrink-frame fc-timegrid-axis-frame-liquid',
+                    className: "fc-timegrid-axis-frame fc-scrollgrid-shrink-frame fc-timegrid-axis-frame-liquid",
                     style: { height: frameHeight }
                   },
                   createElement(
-                    'a',
+                    "a",
                     __assign(
                       {
                         ref: innerElRef,
-                        className:
-                          'fc-timegrid-axis-cushion fc-scrollgrid-shrink-cushion fc-scrollgrid-sync-inner'
+                        className: "fc-timegrid-axis-cushion fc-scrollgrid-shrink-cushion fc-scrollgrid-sync-inner"
                       },
                       navLinkAttrs
                     ),
@@ -15661,10 +15090,10 @@ var FullCalendar = (function (exports) {
           )
         }
         return createElement(
-          'th',
-          { className: 'fc-timegrid-axis' },
-          createElement('div', {
-            className: 'fc-timegrid-axis-frame',
+          "th",
+          { className: "fc-timegrid-axis" },
+          createElement("div", {
+            className: "fc-timegrid-axis-frame",
             style: { height: frameHeight }
           })
         )
@@ -15695,26 +15124,23 @@ var FullCalendar = (function (exports) {
             },
             function (rootElRef, classNames, innerElRef, innerContent) {
               return createElement(
-                'td',
+                "td",
                 {
                   ref: rootElRef,
-                  className: ['fc-timegrid-axis', 'fc-scrollgrid-shrink']
-                    .concat(classNames)
-                    .join(' ')
+                  className: ["fc-timegrid-axis", "fc-scrollgrid-shrink"].concat(classNames).join(" ")
                 },
                 createElement(
-                  'div',
+                  "div",
                   {
                     className:
-                      'fc-timegrid-axis-frame fc-scrollgrid-shrink-frame' +
-                      (rowHeight == null ? ' fc-timegrid-axis-frame-liquid' : ''),
+                      "fc-timegrid-axis-frame fc-scrollgrid-shrink-frame" +
+                      (rowHeight == null ? " fc-timegrid-axis-frame-liquid" : ""),
                     style: { height: rowHeight }
                   },
                   createElement(
-                    'span',
+                    "span",
                     {
-                      className:
-                        'fc-timegrid-axis-cushion fc-scrollgrid-shrink-cushion fc-scrollgrid-sync-inner',
+                      className: "fc-timegrid-axis-cushion fc-scrollgrid-shrink-cushion fc-scrollgrid-sync-inner",
                       ref: innerElRef
                     },
                     innerContent
@@ -15732,11 +15158,7 @@ var FullCalendar = (function (exports) {
     }
     // rendering
     // ----------------------------------------------------------------------------------------------------
-    TimeColsView.prototype.renderSimpleLayout = function (
-      headerRowContent,
-      allDayContent,
-      timeContent
-    ) {
+    TimeColsView.prototype.renderSimpleLayout = function (headerRowContent, allDayContent, timeContent) {
       var _a = this,
         context = _a.context,
         props = _a.props
@@ -15744,38 +15166,38 @@ var FullCalendar = (function (exports) {
       var stickyHeaderDates = getStickyHeaderDates(context.options)
       if (headerRowContent) {
         sections.push({
-          type: 'header',
-          key: 'header',
+          type: "header",
+          key: "header",
           isSticky: stickyHeaderDates,
           chunk: {
             elRef: this.headerElRef,
-            tableClassName: 'fc-col-header',
+            tableClassName: "fc-col-header",
             rowContent: headerRowContent
           }
         })
       }
       if (allDayContent) {
         sections.push({
-          type: 'body',
-          key: 'all-day',
+          type: "body",
+          key: "all-day",
           chunk: { content: allDayContent }
         })
         sections.push({
-          type: 'body',
-          key: 'all-day-divider',
+          type: "body",
+          key: "all-day-divider",
           // TODO: rename to cellContent so don't need to define <tr>?
           outerContent: createElement(
-            'tr',
-            { className: 'fc-scrollgrid-section' },
-            createElement('td', {
-              className: 'fc-timegrid-divider ' + context.theme.getClass('tableCellShaded')
+            "tr",
+            { className: "fc-scrollgrid-section" },
+            createElement("td", {
+              className: "fc-timegrid-divider " + context.theme.getClass("tableCellShaded")
             })
           )
         })
       }
       sections.push({
-        type: 'body',
-        key: 'body',
+        type: "body",
+        key: "body",
         liquid: true,
         expandRows: Boolean(context.options.expandRows),
         chunk: {
@@ -15788,11 +15210,11 @@ var FullCalendar = (function (exports) {
         { viewSpec: context.viewSpec, elRef: this.rootElRef },
         function (rootElRef, classNames) {
           return createElement(
-            'div',
-            { className: ['fc-timegrid'].concat(classNames).join(' '), ref: rootElRef },
+            "div",
+            { className: ["fc-timegrid"].concat(classNames).join(" "), ref: rootElRef },
             createElement(SimpleScrollGrid, {
               liquid: !props.isHeightAuto && !props.forPrint,
-              cols: [{ width: 'shrink' }],
+              cols: [{ width: "shrink" }],
               sections: sections
             })
           )
@@ -15811,7 +15233,7 @@ var FullCalendar = (function (exports) {
       var _this = this
       var ScrollGrid = this.context.pluginHooks.scrollGridImpl
       if (!ScrollGrid) {
-        throw new Error('No ScrollGrid implementation')
+        throw new Error("No ScrollGrid implementation")
       }
       var _a = this,
         context = _a.context,
@@ -15821,21 +15243,21 @@ var FullCalendar = (function (exports) {
       var sections = []
       if (headerRowContent) {
         sections.push({
-          type: 'header',
-          key: 'header',
+          type: "header",
+          key: "header",
           isSticky: stickyHeaderDates,
           syncRowHeights: true,
           chunks: [
             {
-              key: 'axis',
+              key: "axis",
               rowContent: function (arg) {
-                return createElement('tr', null, _this.renderHeadAxis(arg.rowSyncHeights[0]))
+                return createElement("tr", null, _this.renderHeadAxis(arg.rowSyncHeights[0]))
               }
             },
             {
-              key: 'cols',
+              key: "cols",
               elRef: this.headerElRef,
-              tableClassName: 'fc-col-header',
+              tableClassName: "fc-col-header",
               rowContent: headerRowContent
             }
           ]
@@ -15843,101 +15265,86 @@ var FullCalendar = (function (exports) {
       }
       if (allDayContent) {
         sections.push({
-          type: 'body',
-          key: 'all-day',
+          type: "body",
+          key: "all-day",
           syncRowHeights: true,
           chunks: [
             {
-              key: 'axis',
+              key: "axis",
               rowContent: function (contentArg) {
-                return createElement(
-                  'tr',
-                  null,
-                  _this.renderTableRowAxis(contentArg.rowSyncHeights[0])
-                )
+                return createElement("tr", null, _this.renderTableRowAxis(contentArg.rowSyncHeights[0]))
               }
             },
             {
-              key: 'cols',
+              key: "cols",
               content: allDayContent
             }
           ]
         })
         sections.push({
-          key: 'all-day-divider',
-          type: 'body',
+          key: "all-day-divider",
+          type: "body",
           // TODO: rename to cellContent so don't need to define <tr>?
           outerContent: createElement(
-            'tr',
-            { className: 'fc-scrollgrid-section' },
-            createElement('td', {
+            "tr",
+            { className: "fc-scrollgrid-section" },
+            createElement("td", {
               colSpan: 2,
-              className: 'fc-timegrid-divider ' + context.theme.getClass('tableCellShaded')
+              className: "fc-timegrid-divider " + context.theme.getClass("tableCellShaded")
             })
           )
         })
       }
       var isNowIndicator = context.options.nowIndicator
       sections.push({
-        type: 'body',
-        key: 'body',
+        type: "body",
+        key: "body",
         liquid: true,
         expandRows: Boolean(context.options.expandRows),
         chunks: [
           {
-            key: 'axis',
+            key: "axis",
             content: function (arg) {
               // TODO: make this now-indicator arrow more DRY with TimeColsContent
               return createElement(
-                'div',
-                { className: 'fc-timegrid-axis-chunk' },
+                "div",
+                { className: "fc-timegrid-axis-chunk" },
                 createElement(
-                  'table',
-                  { style: { height: arg.expandRows ? arg.clientHeight : '' } },
+                  "table",
+                  { style: { height: arg.expandRows ? arg.clientHeight : "" } },
                   arg.tableColGroupNode,
-                  createElement(
-                    'tbody',
-                    null,
-                    createElement(TimeBodyAxis, { slatMetas: slatMetas })
-                  )
+                  createElement("tbody", null, createElement(TimeBodyAxis, { slatMetas: slatMetas }))
                 ),
                 createElement(
-                  'div',
-                  { className: 'fc-timegrid-now-indicator-container' },
-                  createElement(
-                    NowTimer,
-                    { unit: isNowIndicator ? 'minute' : 'day' /* hacky */ },
-                    function (nowDate) {
-                      var nowIndicatorTop =
-                        isNowIndicator && slatCoords && slatCoords.safeComputeTop(nowDate) // might return void
-                      if (typeof nowIndicatorTop === 'number') {
-                        return createElement(
-                          NowIndicatorRoot,
-                          { isAxis: true, date: nowDate },
-                          function (rootElRef, classNames, innerElRef, innerContent) {
-                            return createElement(
-                              'div',
-                              {
-                                ref: rootElRef,
-                                className: ['fc-timegrid-now-indicator-arrow']
-                                  .concat(classNames)
-                                  .join(' '),
-                                style: { top: nowIndicatorTop }
-                              },
-                              innerContent
-                            )
-                          }
-                        )
-                      }
-                      return null
+                  "div",
+                  { className: "fc-timegrid-now-indicator-container" },
+                  createElement(NowTimer, { unit: isNowIndicator ? "minute" : "day" /* hacky */ }, function (nowDate) {
+                    var nowIndicatorTop = isNowIndicator && slatCoords && slatCoords.safeComputeTop(nowDate) // might return void
+                    if (typeof nowIndicatorTop === "number") {
+                      return createElement(
+                        NowIndicatorRoot,
+                        { isAxis: true, date: nowDate },
+                        function (rootElRef, classNames, innerElRef, innerContent) {
+                          return createElement(
+                            "div",
+                            {
+                              ref: rootElRef,
+                              className: ["fc-timegrid-now-indicator-arrow"].concat(classNames).join(" "),
+                              style: { top: nowIndicatorTop }
+                            },
+                            innerContent
+                          )
+                        }
+                      )
                     }
-                  )
+                    return null
+                  })
                 )
               )
             }
           },
           {
-            key: 'cols',
+            key: "cols",
             scrollerElRef: this.scrollerElRef,
             content: timeContent
           }
@@ -15945,16 +15352,16 @@ var FullCalendar = (function (exports) {
       })
       if (stickyFooterScrollbar) {
         sections.push({
-          key: 'footer',
-          type: 'footer',
+          key: "footer",
+          type: "footer",
           isSticky: true,
           chunks: [
             {
-              key: 'axis',
+              key: "axis",
               content: renderScrollShim
             },
             {
-              key: 'cols',
+              key: "cols",
               content: renderScrollShim
             }
           ]
@@ -15965,12 +15372,12 @@ var FullCalendar = (function (exports) {
         { viewSpec: context.viewSpec, elRef: this.rootElRef },
         function (rootElRef, classNames) {
           return createElement(
-            'div',
-            { className: ['fc-timegrid'].concat(classNames).join(' '), ref: rootElRef },
+            "div",
+            { className: ["fc-timegrid"].concat(classNames).join(" "), ref: rootElRef },
             createElement(ScrollGrid, {
               liquid: !props.isHeightAuto && !props.forPrint,
               colGroups: [
-                { width: 'shrink', cols: [{ width: 'shrink' }] },
+                { width: "shrink", cols: [{ width: "shrink" }] },
                 { cols: [{ span: colCnt, minWidth: dayMinWidth }] }
               ],
               sections: sections
@@ -16004,11 +15411,7 @@ var FullCalendar = (function (exports) {
     }
     TimeBodyAxis.prototype.render = function () {
       return this.props.slatMetas.map(function (slatMeta) {
-        return createElement(
-          'tr',
-          { key: slatMeta.key },
-          createElement(TimeColsAxisCell, __assign({}, slatMeta))
-        )
+        return createElement("tr", { key: slatMeta.key }, createElement(TimeColsAxisCell, __assign({}, slatMeta)))
       })
     }
     return TimeBodyAxis
@@ -16178,12 +15581,7 @@ var FullCalendar = (function (exports) {
   // who's width is unknown until an edge has been hit. `seriesBackwardPressure` is the number of
   // segments behind this one in the current series, and `seriesBackwardCoord` is the starting
   // coordinate of the first segment in the series.
-  function computeSegForwardBack(
-    seg,
-    seriesBackwardPressure,
-    seriesBackwardCoord,
-    eventOrderSpecs
-  ) {
+  function computeSegForwardBack(seg, seriesBackwardPressure, seriesBackwardCoord, eventOrderSpecs) {
     var forwardSegs = seg.forwardSegs
     var i
     if (seg.forwardCoord == null) {
@@ -16196,12 +15594,7 @@ var FullCalendar = (function (exports) {
         sortForwardSegs(forwardSegs, eventOrderSpecs)
         // this segment's forwardCoord will be calculated from the backwardCoord of the
         // highest-pressure forward segment.
-        computeSegForwardBack(
-          forwardSegs[0],
-          seriesBackwardPressure + 1,
-          seriesBackwardCoord,
-          eventOrderSpecs
-        )
+        computeSegForwardBack(forwardSegs[0], seriesBackwardPressure + 1, seriesBackwardCoord, eventOrderSpecs)
         seg.forwardCoord = forwardSegs[0].backwardCoord
       }
       // calculate the backwardCoord from the forwardCoord. consider the series
@@ -16220,9 +15613,9 @@ var FullCalendar = (function (exports) {
     var objs = forwardSegs.map(buildTimeGridSegCompareObj)
     var specs = [
       // put higher-pressure first
-      { field: 'forwardPressure', order: -1 },
+      { field: "forwardPressure", order: -1 },
       // put segments that are closer to initial edge first (and favor ones with no coords yet)
-      { field: 'backwardCoord', order: 1 }
+      { field: "backwardCoord", order: 1 }
     ].concat(eventOrderSpecs)
     objs.sort(function (obj0, obj1) {
       return compareByFieldSpecs(obj0, obj1, specs)
@@ -16239,8 +15632,8 @@ var FullCalendar = (function (exports) {
   }
 
   var DEFAULT_TIME_FORMAT = createFormatter({
-    hour: 'numeric',
-    minute: '2-digit',
+    hour: "numeric",
+    minute: "2-digit",
     meridiem: false
   })
   var TimeColEvent = /** @class */ (function (_super) {
@@ -16249,9 +15642,9 @@ var FullCalendar = (function (exports) {
       return (_super !== null && _super.apply(this, arguments)) || this
     }
     TimeColEvent.prototype.render = function () {
-      var classNames = ['fc-timegrid-event', 'fc-v-event']
+      var classNames = ["fc-timegrid-event", "fc-v-event"]
       if (this.props.isCondensed) {
-        classNames.push('fc-timegrid-event-condensed')
+        classNames.push("fc-timegrid-event-condensed")
       }
       return createElement(
         StandardEvent,
@@ -16296,35 +15689,33 @@ var FullCalendar = (function (exports) {
         },
         function (rootElRef, classNames, dataAttrs) {
           return createElement(
-            'td',
+            "td",
             __assign(
               {
                 ref: rootElRef,
-                className: ['fc-timegrid-col']
-                  .concat(classNames, props.extraClassNames || [])
-                  .join(' ')
+                className: ["fc-timegrid-col"].concat(classNames, props.extraClassNames || []).join(" ")
               },
               dataAttrs,
               props.extraDataAttrs
             ),
             createElement(
-              'div',
-              { className: 'fc-timegrid-col-frame' },
+              "div",
+              { className: "fc-timegrid-col-frame" },
               createElement(
-                'div',
-                { className: 'fc-timegrid-col-bg' },
-                _this.renderFillSegs(props.businessHourSegs, 'non-business'),
-                _this.renderFillSegs(props.bgEventSegs, 'bg-event'),
-                _this.renderFillSegs(props.dateSelectionSegs, 'highlight')
+                "div",
+                { className: "fc-timegrid-col-bg" },
+                _this.renderFillSegs(props.businessHourSegs, "non-business"),
+                _this.renderFillSegs(props.bgEventSegs, "bg-event"),
+                _this.renderFillSegs(props.dateSelectionSegs, "highlight")
               ),
               createElement(
-                'div',
-                { className: 'fc-timegrid-col-events' },
+                "div",
+                { className: "fc-timegrid-col-events" },
                 _this.renderFgSegs(props.fgEventSegs, interactionAffectedInstances)
               ),
               createElement(
-                'div',
-                { className: 'fc-timegrid-col-events' },
+                "div",
+                { className: "fc-timegrid-col-events" },
                 _this.renderFgSegs(
                   mirrorSegs,
                   {},
@@ -16335,8 +15726,8 @@ var FullCalendar = (function (exports) {
                 )
               ),
               createElement(
-                'div',
-                { className: 'fc-timegrid-now-indicator-container' },
+                "div",
+                { className: "fc-timegrid-now-indicator-container" },
                 _this.renderNowIndicator(props.nowIndicatorSegs)
               ),
               createElement(TimeColMisc, {
@@ -16350,24 +15741,12 @@ var FullCalendar = (function (exports) {
         }
       )
     }
-    TimeCol.prototype.renderFgSegs = function (
-      segs,
-      segIsInvisible,
-      isDragging,
-      isResizing,
-      isDateSelecting
-    ) {
+    TimeCol.prototype.renderFgSegs = function (segs, segIsInvisible, isDragging, isResizing, isDateSelecting) {
       var props = this.props
       if (props.forPrint) {
         return this.renderPrintFgSegs(segs)
       } else if (props.slatCoords) {
-        return this.renderPositionedFgSegs(
-          segs,
-          segIsInvisible,
-          isDragging,
-          isResizing,
-          isDateSelecting
-        )
+        return this.renderPositionedFgSegs(segs, segIsInvisible, isDragging, isResizing, isDateSelecting)
       }
     }
     TimeCol.prototype.renderPrintFgSegs = function (segs) {
@@ -16378,8 +15757,8 @@ var FullCalendar = (function (exports) {
       segs = sortEventSegs(segs, context.options.eventOrder)
       return segs.map(function (seg) {
         return createElement(
-          'div',
-          { className: 'fc-timegrid-event-harness', key: seg.eventRange.instance.instanceId },
+          "div",
+          { className: "fc-timegrid-event-harness", key: seg.eventRange.instance.instanceId },
           createElement(
             TimeColEvent,
             __assign(
@@ -16424,13 +15803,11 @@ var FullCalendar = (function (exports) {
           ? __assign({ left: 0, right: 0 }, _this.computeSegTopBottomCss(seg))
           : _this.computeFgSegPositionCss(seg)
         return createElement(
-          'div',
+          "div",
           {
-            className:
-              'fc-timegrid-event-harness' +
-              (seg.level > 0 ? ' fc-timegrid-event-harness-inset' : ''),
+            className: "fc-timegrid-event-harness" + (seg.level > 0 ? " fc-timegrid-event-harness-inset" : ""),
             key: instanceId,
-            style: __assign({ visibility: segIsInvisible[instanceId] ? 'hidden' : '' }, positionCss)
+            style: __assign({ visibility: segIsInvisible[instanceId] ? "hidden" : "" }, positionCss)
           },
           createElement(
             TimeColEvent,
@@ -16461,17 +15838,14 @@ var FullCalendar = (function (exports) {
       computeSegVerticals(segs, props.date, props.slatCoords, context.options.eventMinHeight)
       var children = segs.map(function (seg) {
         return createElement(
-          'div',
+          "div",
           {
             key: buildEventRangeKey(seg.eventRange),
-            className: 'fc-timegrid-bg-harness',
+            className: "fc-timegrid-bg-harness",
             style: _this.computeSegTopBottomCss(seg)
           },
-          fillType === 'bg-event'
-            ? createElement(
-                BgEvent,
-                __assign({ seg: seg }, getSegMeta(seg, props.todayRange, props.nowDate))
-              )
+          fillType === "bg-event"
+            ? createElement(BgEvent, __assign({ seg: seg }, getSegMeta(seg, props.todayRange, props.nowDate)))
             : renderFill(fillType)
         )
       })
@@ -16490,10 +15864,10 @@ var FullCalendar = (function (exports) {
           { isAxis: false, date: date, key: i /* key doesn't matter. will only ever be one */ },
           function (rootElRef, classNames, innerElRef, innerContent) {
             return createElement(
-              'div',
+              "div",
               {
                 ref: rootElRef,
-                className: ['fc-timegrid-now-indicator-line'].concat(classNames).join(' '),
+                className: ["fc-timegrid-now-indicator-line"].concat(classNames).join(" "),
                 style: { top: slatCoords.computeDateTop(seg.start, date) }
               },
               innerContent
@@ -16524,12 +15898,12 @@ var FullCalendar = (function (exports) {
       }
       var props = {
         zIndex: seg.level + 1,
-        left: left * 100 + '%',
-        right: right * 100 + '%'
+        left: left * 100 + "%",
+        right: right * 100 + "%"
       }
       if (shouldOverlap && seg.forwardPressure) {
         // add padding to the edge so that forward stacked events don't cover the resizer's icon
-        props[isRtl ? 'marginLeft' : 'marginRight'] = 10 * 2 // 10 is a guesstimate of the icon's width
+        props[isRtl ? "marginLeft" : "marginRight"] = 10 * 2 // 10 is a guesstimate of the icon's width
       }
       return __assign(__assign({}, props), this.computeSegTopBottomCss(seg))
     }
@@ -16558,12 +15932,7 @@ var FullCalendar = (function (exports) {
         },
         function (innerElRef, innerContent) {
           return (
-            innerContent &&
-            createElement(
-              'div',
-              { className: 'fc-timegrid-col-misc', ref: innerElRef },
-              innerContent
-            )
+            innerContent && createElement("div", { className: "fc-timegrid-col-misc", ref: innerElRef }, innerContent)
           )
         }
       )
@@ -16592,9 +15961,7 @@ var FullCalendar = (function (exports) {
         props = _a.props,
         context = _a.context
       var nowIndicatorTop =
-        context.options.nowIndicator &&
-        props.slatCoords &&
-        props.slatCoords.safeComputeTop(props.nowDate) // might return void
+        context.options.nowIndicator && props.slatCoords && props.slatCoords.safeComputeTop(props.nowDate) // might return void
       var colCnt = props.cells.length
       var fgEventSegsByRow = this.splitFgEventSegs(props.fgEventSegs, colCnt)
       var bgEventSegsByRow = this.splitBgEventSegs(props.bgEventSegs, colCnt)
@@ -16604,10 +15971,10 @@ var FullCalendar = (function (exports) {
       var eventDragByRow = this.splitEventDrag(props.eventDrag, colCnt)
       var eventResizeByRow = this.splitEventResize(props.eventResize, colCnt)
       return createElement(
-        'div',
-        { className: 'fc-timegrid-cols', ref: this.rootElRef },
+        "div",
+        { className: "fc-timegrid-cols", ref: this.rootElRef },
         createElement(
-          'table',
+          "table",
           {
             style: {
               minWidth: props.tableMinWidth,
@@ -16616,33 +15983,31 @@ var FullCalendar = (function (exports) {
           },
           props.tableColGroupNode,
           createElement(
-            'tbody',
+            "tbody",
             null,
             createElement(
-              'tr',
+              "tr",
               null,
               props.axis &&
                 createElement(
-                  'td',
-                  { className: 'fc-timegrid-col fc-timegrid-axis' },
+                  "td",
+                  { className: "fc-timegrid-col fc-timegrid-axis" },
                   createElement(
-                    'div',
-                    { className: 'fc-timegrid-col-frame' },
+                    "div",
+                    { className: "fc-timegrid-col-frame" },
                     createElement(
-                      'div',
-                      { className: 'fc-timegrid-now-indicator-container' },
-                      typeof nowIndicatorTop === 'number' &&
+                      "div",
+                      { className: "fc-timegrid-now-indicator-container" },
+                      typeof nowIndicatorTop === "number" &&
                         createElement(
                           NowIndicatorRoot,
                           { isAxis: true, date: props.nowDate },
                           function (rootElRef, classNames, innerElRef, innerContent) {
                             return createElement(
-                              'div',
+                              "div",
                               {
                                 ref: rootElRef,
-                                className: ['fc-timegrid-now-indicator-arrow']
-                                  .concat(classNames)
-                                  .join(' '),
+                                className: ["fc-timegrid-now-indicator-arrow"].concat(classNames).join(" "),
                                 style: { top: nowIndicatorTop }
                               },
                               innerContent
@@ -16751,9 +16116,9 @@ var FullCalendar = (function (exports) {
         props = _a.props,
         state = _a.state
       return createElement(
-        'div',
+        "div",
         {
-          className: 'fc-timegrid-body',
+          className: "fc-timegrid-body",
           ref: props.rootElRef,
           style: {
             // these props are important to give this wrapper correct dimensions for interactions
@@ -16767,11 +16132,9 @@ var FullCalendar = (function (exports) {
           dateProfile: props.dateProfile,
           slatMetas: props.slatMetas,
           clientWidth: props.clientWidth,
-          minHeight: props.expandRows ? props.clientHeight : '',
+          minHeight: props.expandRows ? props.clientHeight : "",
           tableMinWidth: props.tableMinWidth,
-          tableColGroupNode: props.axis
-            ? props.tableColGroupNode
-            : null /* axis depends on the colgroup's shrinking */,
+          tableColGroupNode: props.axis ? props.tableColGroupNode : null /* axis depends on the colgroup's shrinking */,
           onCoords: this.handleSlatCoords
         }),
         createElement(TimeColsContent, {
@@ -16884,38 +16247,33 @@ var FullCalendar = (function (exports) {
       var dayRanges = this.buildDayRanges(dayTableModel, dateProfile, context.dateEnv)
       // give it the first row of cells
       // TODO: would move this further down hierarchy, but sliceNowDate needs it
-      return createElement(
-        NowTimer,
-        { unit: isNowIndicator ? 'minute' : 'day' },
-        function (nowDate, todayRange) {
-          return createElement(
-            TimeCols,
-            __assign(
-              { ref: _this.timeColsRef, rootElRef: _this.handleRootEl },
-              _this.slicer.sliceProps(props, dateProfile, null, context, dayRanges),
-              {
-                forPrint: props.forPrint,
-                axis: props.axis,
-                dateProfile: dateProfile,
-                slatMetas: props.slatMetas,
-                slotDuration: props.slotDuration,
-                cells: dayTableModel.cells[0],
-                tableColGroupNode: props.tableColGroupNode,
-                tableMinWidth: props.tableMinWidth,
-                clientWidth: props.clientWidth,
-                clientHeight: props.clientHeight,
-                expandRows: props.expandRows,
-                nowDate: nowDate,
-                nowIndicatorSegs:
-                  isNowIndicator && _this.slicer.sliceNowDate(nowDate, context, dayRanges),
-                todayRange: todayRange,
-                onScrollTopRequest: props.onScrollTopRequest,
-                onSlatCoords: props.onSlatCoords
-              }
-            )
+      return createElement(NowTimer, { unit: isNowIndicator ? "minute" : "day" }, function (nowDate, todayRange) {
+        return createElement(
+          TimeCols,
+          __assign(
+            { ref: _this.timeColsRef, rootElRef: _this.handleRootEl },
+            _this.slicer.sliceProps(props, dateProfile, null, context, dayRanges),
+            {
+              forPrint: props.forPrint,
+              axis: props.axis,
+              dateProfile: dateProfile,
+              slatMetas: props.slatMetas,
+              slotDuration: props.slotDuration,
+              cells: dayTableModel.cells[0],
+              tableColGroupNode: props.tableColGroupNode,
+              tableMinWidth: props.tableMinWidth,
+              clientWidth: props.clientWidth,
+              clientHeight: props.clientHeight,
+              expandRows: props.expandRows,
+              nowDate: nowDate,
+              nowIndicatorSegs: isNowIndicator && _this.slicer.sliceNowDate(nowDate, context, dayRanges),
+              todayRange: todayRange,
+              onScrollTopRequest: props.onScrollTopRequest,
+              onSlatCoords: props.onSlatCoords
+            }
           )
-        }
-      )
+        )
+      })
     }
     DayTimeCols.prototype.queryHit = function (positionLeft, positionTop) {
       var rawHit = this.timeColsRef.current.positionToHit(positionLeft, positionTop)
@@ -17014,7 +16372,7 @@ var FullCalendar = (function (exports) {
             DayTable,
             __assign(
               {},
-              splitProps['allDay'],
+              splitProps["allDay"],
               {
                 dateProfile: dateProfile,
                 dayTableModel: dayTableModel,
@@ -17036,7 +16394,7 @@ var FullCalendar = (function (exports) {
       var timeGridContent = function (contentArg) {
         return createElement(
           DayTimeCols,
-          __assign({}, splitProps['timed'], {
+          __assign({}, splitProps["timed"], {
             dayTableModel: dayTableModel,
             dateProfile: dateProfile,
             axis: hasAttachedAxis,
@@ -17077,22 +16435,22 @@ var FullCalendar = (function (exports) {
   }
 
   var timeGridPlugin = createPlugin({
-    initialView: 'timeGridWeek',
+    initialView: "timeGridWeek",
     optionRefiners: OPTION_REFINERS$1,
     views: {
       timeGrid: {
         component: DayTimeColsView,
         usesMinMaxTime: true,
         allDaySlot: true,
-        slotDuration: '00:30:00',
+        slotDuration: "00:30:00",
         slotEventOverlap: true // a bad name. confused with overlap/constraint system
       },
       timeGridDay: {
-        type: 'timeGrid',
+        type: "timeGrid",
         duration: { days: 1 }
       },
       timeGridWeek: {
-        type: 'timeGrid',
+        type: "timeGrid",
         duration: { weeks: 1 }
       }
     }
@@ -17113,10 +16471,8 @@ var FullCalendar = (function (exports) {
         options = _b.options,
         viewApi = _b.viewApi
       var dayMeta = getDateMeta(dayDate, todayRange)
-      var text = options.listDayFormat ? dateEnv.format(dayDate, options.listDayFormat) : '' // will ever be falsy?
-      var sideText = options.listDaySideFormat
-        ? dateEnv.format(dayDate, options.listDaySideFormat)
-        : '' // will ever be falsy? also, BAD NAME "alt"
+      var text = options.listDayFormat ? dateEnv.format(dayDate, options.listDayFormat) : "" // will ever be falsy?
+      var sideText = options.listDaySideFormat ? dateEnv.format(dayDate, options.listDaySideFormat) : "" // will ever be falsy? also, BAD NAME "alt"
       var navLinkData = options.navLinks ? buildNavLinkData(dayDate) : null
       var hookProps = __assign(
         {
@@ -17128,7 +16484,7 @@ var FullCalendar = (function (exports) {
         },
         dayMeta
       )
-      var classNames = ['fc-list-day'].concat(getDayClassNames(dayMeta, theme))
+      var classNames = ["fc-list-day"].concat(getDayClassNames(dayMeta, theme))
       // TODO: make a reusable HOC for dayHeader (used in daygrid/timegrid too)
       return createElement(
         RenderHook,
@@ -17142,19 +16498,19 @@ var FullCalendar = (function (exports) {
         },
         function (rootElRef, customClassNames, innerElRef, innerContent) {
           return createElement(
-            'tr',
+            "tr",
             {
               ref: rootElRef,
-              className: classNames.concat(customClassNames).join(' '),
-              'data-date': formatDayString(dayDate)
+              className: classNames.concat(customClassNames).join(" "),
+              "data-date": formatDayString(dayDate)
             },
             createElement(
-              'th',
+              "th",
               { colSpan: 3 },
               createElement(
-                'div',
+                "div",
                 {
-                  className: 'fc-list-day-cushion ' + theme.getClass('tableCellShaded'),
+                  className: "fc-list-day-cushion " + theme.getClass("tableCellShaded"),
                   ref: innerElRef
                 },
                 innerContent
@@ -17168,26 +16524,21 @@ var FullCalendar = (function (exports) {
   })(BaseComponent)
   function renderInnerContent$4(props) {
     var navLinkAttrs = props.navLinkData // is there a type for this?
-      ? { 'data-navlink': props.navLinkData, tabIndex: 0 }
+      ? { "data-navlink": props.navLinkData, tabIndex: 0 }
       : {}
     return createElement(
       Fragment,
       null,
-      props.text &&
-        createElement('a', __assign({ className: 'fc-list-day-text' }, navLinkAttrs), props.text),
+      props.text && createElement("a", __assign({ className: "fc-list-day-text" }, navLinkAttrs), props.text),
       props.sideText &&
-        createElement(
-          'a',
-          __assign({ className: 'fc-list-day-side-text' }, navLinkAttrs),
-          props.sideText
-        )
+        createElement("a", __assign({ className: "fc-list-day-side-text" }, navLinkAttrs), props.sideText)
     )
   }
 
   var DEFAULT_TIME_FORMAT$1 = createFormatter({
-    hour: 'numeric',
-    minute: '2-digit',
-    meridiem: 'short'
+    hour: "numeric",
+    minute: "2-digit",
+    meridiem: "short"
   })
   var ListViewEventRow = /** @class */ (function (_super) {
     __extends(ListViewEventRow, _super)
@@ -17204,7 +16555,7 @@ var FullCalendar = (function (exports) {
         EventRoot,
         {
           seg: seg,
-          timeText: '' /* BAD. because of all-day content */,
+          timeText: "" /* BAD. because of all-day content */,
           disableDragging: true,
           disableResizing: true,
           defaultContent: renderEventInnerContent,
@@ -17218,23 +16569,23 @@ var FullCalendar = (function (exports) {
         },
         function (rootElRef, classNames, innerElRef, innerContent, hookProps) {
           return createElement(
-            'tr',
+            "tr",
             {
-              className: ['fc-list-event', hookProps.event.url ? 'fc-event-forced-url' : '']
+              className: ["fc-list-event", hookProps.event.url ? "fc-event-forced-url" : ""]
                 .concat(classNames)
-                .join(' '),
+                .join(" "),
               ref: rootElRef
             },
             buildTimeContent(seg, timeFormat, context),
             createElement(
-              'td',
-              { className: 'fc-list-event-graphic' },
-              createElement('span', {
-                className: 'fc-list-event-dot',
+              "td",
+              { className: "fc-list-event-graphic" },
+              createElement("span", {
+                className: "fc-list-event-dot",
                 style: { borderColor: hookProps.borderColor || hookProps.backgroundColor }
               })
             ),
-            createElement('td', { className: 'fc-list-event-title', ref: innerElRef }, innerContent)
+            createElement("td", { className: "fc-list-event-title", ref: innerElRef }, innerContent)
           )
         }
       )
@@ -17245,7 +16596,7 @@ var FullCalendar = (function (exports) {
     var event = props.event
     var url = event.url
     var anchorAttrs = url ? { href: url } : {}
-    return createElement('a', __assign({}, anchorAttrs), event.title)
+    return createElement("a", __assign({}, anchorAttrs), event.title)
   }
   function buildTimeContent(seg, timeFormat, context) {
     var options = context.options
@@ -17259,25 +16610,9 @@ var FullCalendar = (function (exports) {
       } else if (isMultiDayRange(seg.eventRange.range)) {
         // TODO: use (!isStart || !isEnd) instead?
         if (seg.isStart) {
-          timeText = buildSegTimeText(
-            seg,
-            timeFormat,
-            context,
-            null,
-            null,
-            eventInstance.range.start,
-            seg.end
-          )
+          timeText = buildSegTimeText(seg, timeFormat, context, null, null, eventInstance.range.start, seg.end)
         } else if (seg.isEnd) {
-          timeText = buildSegTimeText(
-            seg,
-            timeFormat,
-            context,
-            null,
-            null,
-            seg.start,
-            eventInstance.range.end
-          )
+          timeText = buildSegTimeText(seg, timeFormat, context, null, null, seg.start, eventInstance.range.end)
         } else {
           doAllDay = true
         }
@@ -17301,14 +16636,14 @@ var FullCalendar = (function (exports) {
           },
           function (rootElRef, classNames, innerElRef, innerContent) {
             return createElement(
-              'td',
-              { className: ['fc-list-event-time'].concat(classNames).join(' '), ref: rootElRef },
+              "td",
+              { className: ["fc-list-event-time"].concat(classNames).join(" "), ref: rootElRef },
               innerContent
             )
           }
         )
       } else {
-        return createElement('td', { className: 'fc-list-event-time' }, timeText)
+        return createElement("td", { className: "fc-list-event-time" }, timeText)
       }
     }
     return null
@@ -17343,9 +16678,9 @@ var FullCalendar = (function (exports) {
         props = _a.props,
         context = _a.context
       var extraClassNames = [
-        'fc-list',
-        context.theme.getClass('table'),
-        context.options.stickyHeaderDates !== false ? 'fc-list-sticky' : ''
+        "fc-list",
+        context.theme.getClass("table"),
+        context.options.stickyHeaderDates !== false ? "fc-list-sticky" : ""
       ]
       var _b = this.computeDateVars(props.dateProfile),
         dayDates = _b.dayDates,
@@ -17356,18 +16691,16 @@ var FullCalendar = (function (exports) {
         { viewSpec: context.viewSpec, elRef: this.setRootEl },
         function (rootElRef, classNames) {
           return createElement(
-            'div',
-            { ref: rootElRef, className: extraClassNames.concat(classNames).join(' ') },
+            "div",
+            { ref: rootElRef, className: extraClassNames.concat(classNames).join(" ") },
             createElement(
               Scroller,
               {
                 liquid: !props.isHeightAuto,
-                overflowX: props.isHeightAuto ? 'visible' : 'hidden',
-                overflowY: props.isHeightAuto ? 'visible' : 'auto'
+                overflowX: props.isHeightAuto ? "visible" : "hidden",
+                overflowY: props.isHeightAuto ? "visible" : "auto"
               },
-              eventSegs.length > 0
-                ? _this.renderSegList(eventSegs, dayDates)
-                : _this.renderEmptyMessage()
+              eventSegs.length > 0 ? _this.renderSegList(eventSegs, dayDates) : _this.renderEmptyMessage()
             )
           )
         }
@@ -17393,13 +16726,9 @@ var FullCalendar = (function (exports) {
         },
         function (rootElRef, classNames, innerElRef, innerContent) {
           return createElement(
-            'div',
-            { className: ['fc-list-empty'].concat(classNames).join(' '), ref: rootElRef },
-            createElement(
-              'div',
-              { className: 'fc-list-empty-cushion', ref: innerElRef },
-              innerContent
-            )
+            "div",
+            { className: ["fc-list-empty"].concat(classNames).join(" "), ref: rootElRef },
+            createElement("div", { className: "fc-list-empty-cushion", ref: innerElRef }, innerContent)
           )
         }
       )
@@ -17409,7 +16738,7 @@ var FullCalendar = (function (exports) {
         theme = _a.theme,
         options = _a.options
       var segsByDay = groupSegsByDay(allSegs) // sparse array
-      return createElement(NowTimer, { unit: 'day' }, function (nowDate, todayRange) {
+      return createElement(NowTimer, { unit: "day" }, function (nowDate, todayRange) {
         var innerNodes = []
         for (var dayIndex = 0; dayIndex < segsByDay.length; dayIndex++) {
           var daySegs = segsByDay[dayIndex]
@@ -17432,11 +16761,7 @@ var FullCalendar = (function (exports) {
                   ListViewEventRow,
                   __assign(
                     {
-                      key:
-                        dayStr +
-                        ':' +
-                        seg.eventRange.instance
-                          .instanceId /* are multiple segs for an instanceId */,
+                      key: dayStr + ":" + seg.eventRange.instance.instanceId /* are multiple segs for an instanceId */,
                       seg: seg,
                       isDragging: false,
                       isResizing: false,
@@ -17451,9 +16776,9 @@ var FullCalendar = (function (exports) {
           }
         }
         return createElement(
-          'table',
-          { className: 'fc-list-table ' + theme.getClass('table') },
-          createElement('tbody', null, innerNodes)
+          "table",
+          { className: "fc-list-table " + theme.getClass("table") },
+          createElement("tbody", null, innerNodes)
         )
       })
     }
@@ -17564,29 +16889,29 @@ var FullCalendar = (function (exports) {
     views: {
       list: {
         component: ListView,
-        buttonTextKey: 'list',
-        listDayFormat: { month: 'long', day: 'numeric', year: 'numeric' } // like "January 1, 2016"
+        buttonTextKey: "list",
+        listDayFormat: { month: "long", day: "numeric", year: "numeric" } // like "January 1, 2016"
       },
       listDay: {
-        type: 'list',
+        type: "list",
         duration: { days: 1 },
-        listDayFormat: { weekday: 'long' } // day-of-week is all we need. full date is probably in headerToolbar
+        listDayFormat: { weekday: "long" } // day-of-week is all we need. full date is probably in headerToolbar
       },
       listWeek: {
-        type: 'list',
+        type: "list",
         duration: { weeks: 1 },
-        listDayFormat: { weekday: 'long' },
-        listDaySideFormat: { month: 'long', day: 'numeric', year: 'numeric' }
+        listDayFormat: { weekday: "long" },
+        listDaySideFormat: { month: "long", day: "numeric", year: "numeric" }
       },
       listMonth: {
-        type: 'list',
+        type: "list",
         duration: { month: 1 },
-        listDaySideFormat: { weekday: 'long' } // day-of-week is nice-to-have
+        listDaySideFormat: { weekday: "long" } // day-of-week is nice-to-have
       },
       listYear: {
-        type: 'list',
+        type: "list",
         duration: { year: 1 },
-        listDaySideFormat: { weekday: 'long' } // day-of-week is nice-to-have
+        listDaySideFormat: { weekday: "long" } // day-of-week is nice-to-have
       }
     }
   })
@@ -17599,33 +16924,33 @@ var FullCalendar = (function (exports) {
     return BootstrapTheme
   })(Theme)
   BootstrapTheme.prototype.classes = {
-    root: 'fc-theme-bootstrap',
-    table: 'table-bordered',
-    tableCellShaded: 'table-active',
-    buttonGroup: 'btn-group',
-    button: 'btn btn-primary',
-    buttonActive: 'active',
-    popover: 'popover',
-    popoverHeader: 'popover-header',
-    popoverContent: 'popover-body'
+    root: "fc-theme-bootstrap",
+    table: "table-bordered",
+    tableCellShaded: "table-active",
+    buttonGroup: "btn-group",
+    button: "btn btn-primary",
+    buttonActive: "active",
+    popover: "popover",
+    popoverHeader: "popover-header",
+    popoverContent: "popover-body"
   }
-  BootstrapTheme.prototype.baseIconClass = 'fa'
+  BootstrapTheme.prototype.baseIconClass = "fa"
   BootstrapTheme.prototype.iconClasses = {
-    close: 'fa-times',
-    prev: 'fa-chevron-left',
-    next: 'fa-chevron-right',
-    prevYear: 'fa-angle-double-left',
-    nextYear: 'fa-angle-double-right'
+    close: "fa-times",
+    prev: "fa-chevron-left",
+    next: "fa-chevron-right",
+    prevYear: "fa-angle-double-left",
+    nextYear: "fa-angle-double-right"
   }
   BootstrapTheme.prototype.rtlIconClasses = {
-    prev: 'fa-chevron-right',
-    next: 'fa-chevron-left',
-    prevYear: 'fa-angle-double-right',
-    nextYear: 'fa-angle-double-left'
+    prev: "fa-chevron-right",
+    next: "fa-chevron-left",
+    prevYear: "fa-angle-double-right",
+    nextYear: "fa-angle-double-left"
   }
-  BootstrapTheme.prototype.iconOverrideOption = 'bootstrapFontAwesome' // TODO: make TS-friendly. move the option-processing into this plugin
-  BootstrapTheme.prototype.iconOverrideCustomButtonOption = 'bootstrapFontAwesome'
-  BootstrapTheme.prototype.iconOverridePrefix = 'fa-'
+  BootstrapTheme.prototype.iconOverrideOption = "bootstrapFontAwesome" // TODO: make TS-friendly. move the option-processing into this plugin
+  BootstrapTheme.prototype.iconOverrideCustomButtonOption = "bootstrapFontAwesome"
+  BootstrapTheme.prototype.iconOverridePrefix = "fa-"
   var plugin = createPlugin({
     themeClasses: {
       bootstrap: BootstrapTheme
@@ -17645,7 +16970,7 @@ var FullCalendar = (function (exports) {
   }
 
   // TODO: expose somehow
-  var API_BASE = 'https://www.googleapis.com/calendar/v3/calendars'
+  var API_BASE = "https://www.googleapis.com/calendar/v3/calendars"
   var eventSourceDef$3 = {
     parseMeta: function (refined) {
       var googleCalendarId = refined.googleCalendarId
@@ -17670,23 +16995,22 @@ var FullCalendar = (function (exports) {
       var apiKey = meta.googleCalendarApiKey || options.googleCalendarApiKey
       if (!apiKey) {
         onFailure({
-          message:
-            'Specify a googleCalendarApiKey. See http://fullcalendar.io/docs/google_calendar/'
+          message: "Specify a googleCalendarApiKey. See http://fullcalendar.io/docs/google_calendar/"
         })
       } else {
         var url = buildUrl(meta)
         // TODO: make DRY with json-feed-event-source
         var extraParams = meta.extraParams
-        var extraParamsObj = typeof extraParams === 'function' ? extraParams() : extraParams
+        var extraParamsObj = typeof extraParams === "function" ? extraParams() : extraParams
         var requestParams_1 = buildRequestParams$1(arg.range, apiKey, extraParamsObj, dateEnv)
         requestJson(
-          'GET',
+          "GET",
           url,
           requestParams_1,
           function (body, xhr) {
             if (body.error) {
               onFailure({
-                message: 'Google Calendar API: ' + body.error.message,
+                message: "Google Calendar API: " + body.error.message,
                 errors: body.error.errors,
                 xhr: xhr
               })
@@ -17722,7 +17046,7 @@ var FullCalendar = (function (exports) {
     if (!apiBase) {
       apiBase = API_BASE
     }
-    return apiBase + '/' + encodeURIComponent(meta.googleCalendarId) + '/events'
+    return apiBase + "/" + encodeURIComponent(meta.googleCalendarId) + "/events"
   }
   function buildRequestParams$1(range, apiKey, extraParams, dateEnv) {
     var params
@@ -17746,7 +17070,7 @@ var FullCalendar = (function (exports) {
       singleEvents: true,
       maxResults: 9999
     })
-    if (dateEnv.timeZone !== 'local') {
+    if (dateEnv.timeZone !== "local") {
       params.timeZone = dateEnv.timeZone
     }
     return params
@@ -17760,7 +17084,7 @@ var FullCalendar = (function (exports) {
     var url = item.htmlLink || null
     // make the URLs for each event show times in the correct timezone
     if (url && gcalTimezone) {
-      url = injectQsComponent(url, 'ctz=' + gcalTimezone)
+      url = injectQsComponent(url, "ctz=" + gcalTimezone)
     }
     return {
       id: item.id,
@@ -17777,7 +17101,7 @@ var FullCalendar = (function (exports) {
   function injectQsComponent(url, component) {
     // inject it after the querystring but before the fragment
     return url.replace(/(\?.*?)?(#|$)/, function (whole, qs, hash) {
-      return (qs ? qs + '&' : '?') + component + hash
+      return (qs ? qs + "&" : "?") + component + hash
     })
   }
   var googleCalendarPlugin = createPlugin({
@@ -17786,14 +17110,7 @@ var FullCalendar = (function (exports) {
     eventSourceRefiners: EVENT_SOURCE_REFINERS$1
   })
 
-  globalPlugins.push(
-    interactionPlugin,
-    dayGridPlugin,
-    timeGridPlugin,
-    listPlugin,
-    plugin,
-    googleCalendarPlugin
-  )
+  globalPlugins.push(interactionPlugin, dayGridPlugin, timeGridPlugin, listPlugin, plugin, googleCalendarPlugin)
 
   exports.BASE_OPTION_DEFAULTS = BASE_OPTION_DEFAULTS
   exports.BASE_OPTION_REFINERS = BASE_OPTION_REFINERS

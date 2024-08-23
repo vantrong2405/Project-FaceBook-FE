@@ -4,13 +4,13 @@
  */
 
 ;(function ($) {
-  'use strict'
+  "use strict"
 
   var defaultOptions = {
     tagClass: function (item) {
-      return 'badge bg-primary'
+      return "badge bg-primary"
     },
-    focusClass: 'focus',
+    focusClass: "focus",
     itemValue: function (item) {
       return item ? item.toString() : item
     },
@@ -25,7 +25,7 @@
     maxTags: undefined,
     maxChars: undefined,
     confirmKeys: [13, 44],
-    delimiter: ',',
+    delimiter: ",",
     delimiterRegex: null,
     cancelConfirmKeysOnEmpty: false,
     onTagExists: function (item, $tag) {
@@ -45,20 +45,16 @@
     this.itemsArray = []
 
     this.$element = $(element)
-    this.$element.addClass('visually-hidden')
+    this.$element.addClass("visually-hidden")
 
-    this.isSelect = element.tagName === 'SELECT'
-    this.multiple = this.isSelect && element.hasAttribute('multiple')
+    this.isSelect = element.tagName === "SELECT"
+    this.multiple = this.isSelect && element.hasAttribute("multiple")
     this.objectItems = options && options.itemValue
-    this.placeholderText = element.hasAttribute('placeholder')
-      ? this.$element.attr('placeholder')
-      : ''
+    this.placeholderText = element.hasAttribute("placeholder") ? this.$element.attr("placeholder") : ""
     this.inputSize = Math.max(1, this.placeholderText.length)
 
     this.$container = $('<div class="bootstrap-tagsinput"></div>')
-    this.$input = $('<input type="text" placeholder="' + this.placeholderText + '"/>').appendTo(
-      this.$container
-    )
+    this.$input = $('<input type="text" placeholder="' + this.placeholderText + '"/>').appendTo(this.$container)
 
     this.$element.before(this.$container)
 
@@ -82,25 +78,21 @@
       if (item !== false && !item) return
 
       // Trim value
-      if (typeof item === 'string' && self.options.trimValue) {
+      if (typeof item === "string" && self.options.trimValue) {
         item = $.trim(item)
       }
 
       // Throw an error when trying to add an object while the itemValue option was not set
-      if (typeof item === 'object' && !self.objectItems)
-        throw "Can't add objects when itemValue option is not set"
+      if (typeof item === "object" && !self.objectItems) throw "Can't add objects when itemValue option is not set"
 
       // Ignore strings only containg whitespace
       if (item.toString().match(/^\s*$/)) return
 
       // If SELECT but not multiple, remove current tag
-      if (self.isSelect && !self.multiple && self.itemsArray.length > 0)
-        self.remove(self.itemsArray[0])
+      if (self.isSelect && !self.multiple && self.itemsArray.length > 0) self.remove(self.itemsArray[0])
 
-      if (typeof item === 'string' && this.$element[0].tagName === 'INPUT') {
-        var delimiter = self.options.delimiterRegex
-          ? self.options.delimiterRegex
-          : self.options.delimiter
+      if (typeof item === "string" && this.$element[0].tagName === "INPUT") {
+        var delimiter = self.options.delimiterRegex ? self.options.delimiterRegex : self.options.delimiter
         var items = item.split(delimiter)
         if (items.length > 1) {
           for (var i = 0; i < items.length; i++) {
@@ -124,8 +116,8 @@
       if (existing && !self.options.allowDuplicates) {
         // Invoke onTagExists
         if (self.options.onTagExists) {
-          var $existingTag = $('.badge', self.$container).filter(function () {
-            return $(this).data('item') === existing
+          var $existingTag = $(".badge", self.$container).filter(function () {
+            return $(this).data("item") === existing
           })
           self.options.onTagExists(item, $existingTag)
         }
@@ -136,7 +128,7 @@
       if (self.items().toString().length + item.length + 1 > self.options.maxInputLength) return
 
       // raise beforeItemAdd arg
-      var beforeItemAddEvent = $.Event('beforeItemAdd', {
+      var beforeItemAddEvent = $.Event("beforeItemAdd", {
         item: item,
         cancel: false,
         options: options
@@ -152,28 +144,24 @@
       var $tag = $(
         '<span class="' +
           htmlEncode(tagClass) +
-          (itemTitle !== null ? '" title="' + itemTitle : '') +
+          (itemTitle !== null ? '" title="' + itemTitle : "") +
           '">' +
           htmlEncode(itemText) +
           '<span data-role="remove"></span></span>'
       )
-      $tag.data('item', item)
+      $tag.data("item", item)
       self.findInputWrapper().before($tag)
 
       // Check to see if the tag exists in its raw or uri-encoded form
       var optionExists =
-        $(
-          'option[value="' + encodeURIComponent(itemValue).replace(/"/g, '\\"') + '"]',
-          self.$element
-        ).length ||
-        $('option[value="' + htmlEncode(itemValue).replace(/"/g, '\\"') + '"]', self.$element)
-          .length
+        $('option[value="' + encodeURIComponent(itemValue).replace(/"/g, '\\"') + '"]', self.$element).length ||
+        $('option[value="' + htmlEncode(itemValue).replace(/"/g, '\\"') + '"]', self.$element).length
 
       // add <option /> if item represents a value not present in one of the <select />'s options
       if (self.isSelect && !optionExists) {
-        var $option = $('<option selected>' + htmlEncode(itemText) + '</option>')
-        $option.data('item', item)
-        $option.attr('value', itemValue)
+        var $option = $("<option selected>" + htmlEncode(itemText) + "</option>")
+        $option.data("item", item)
+        $option.attr("value", itemValue)
         self.$element.append($option)
       }
 
@@ -184,17 +172,17 @@
         self.options.maxTags === self.itemsArray.length ||
         self.items().toString().length === self.options.maxInputLength
       )
-        self.$container.addClass('bootstrap-tagsinput-max')
+        self.$container.addClass("bootstrap-tagsinput-max")
 
       // If using typeahead, once the tag has been added, clear the typeahead value so it does not stick around in the input.
-      if ($('.typeahead, .twitter-typeahead', self.$container).length) {
-        self.$input.typeahead('val', '')
+      if ($(".typeahead, .twitter-typeahead", self.$container).length) {
+        self.$input.typeahead("val", "")
       }
 
       if (this.isInit) {
-        self.$element.trigger($.Event('itemAddedOnInit', { item: item, options: options }))
+        self.$element.trigger($.Event("itemAddedOnInit", { item: item, options: options }))
       } else {
-        self.$element.trigger($.Event('itemAdded', { item: item, options: options }))
+        self.$element.trigger($.Event("itemAdded", { item: item, options: options }))
       }
     },
 
@@ -206,7 +194,7 @@
       var self = this
 
       if (self.objectItems) {
-        if (typeof item === 'object')
+        if (typeof item === "object")
           item = $.grep(self.itemsArray, function (other) {
             return self.options.itemValue(other) == self.options.itemValue(item)
           })
@@ -219,7 +207,7 @@
       }
 
       if (item) {
-        var beforeItemRemoveEvent = $.Event('beforeItemRemove', {
+        var beforeItemRemoveEvent = $.Event("beforeItemRemove", {
           item: item,
           cancel: false,
           options: options
@@ -227,27 +215,25 @@
         self.$element.trigger(beforeItemRemoveEvent)
         if (beforeItemRemoveEvent.cancel) return
 
-        $('.badge', self.$container)
+        $(".badge", self.$container)
           .filter(function () {
-            return $(this).data('item') === item
+            return $(this).data("item") === item
           })
           .remove()
-        $('option', self.$element)
+        $("option", self.$element)
           .filter(function () {
-            return $(this).data('item') === item
+            return $(this).data("item") === item
           })
           .remove()
-        if ($.inArray(item, self.itemsArray) !== -1)
-          self.itemsArray.splice($.inArray(item, self.itemsArray), 1)
+        if ($.inArray(item, self.itemsArray) !== -1) self.itemsArray.splice($.inArray(item, self.itemsArray), 1)
       }
 
       if (!dontPushVal) self.pushVal(self.options.triggerChange)
 
       // Remove class when reached maxTags
-      if (self.options.maxTags > self.itemsArray.length)
-        self.$container.removeClass('bootstrap-tagsinput-max')
+      if (self.options.maxTags > self.itemsArray.length) self.$container.removeClass("bootstrap-tagsinput-max")
 
-      self.$element.trigger($.Event('itemRemoved', { item: item, options: options }))
+      self.$element.trigger($.Event("itemRemoved", { item: item, options: options }))
     },
 
     /**
@@ -256,8 +242,8 @@
     removeAll: function () {
       var self = this
 
-      $('.badge', self.$container).remove()
-      $('option', self.$element).remove()
+      $(".badge", self.$container).remove()
+      $("option", self.$element).remove()
 
       while (self.itemsArray.length > 0) self.itemsArray.pop()
 
@@ -270,25 +256,25 @@
      */
     refresh: function () {
       var self = this
-      $('.badge', self.$container).each(function () {
+      $(".badge", self.$container).each(function () {
         var $tag = $(this),
-          item = $tag.data('item'),
+          item = $tag.data("item"),
           itemValue = self.options.itemValue(item),
           itemText = self.options.itemText(item),
           tagClass = self.options.tagClass(item)
 
         // Update tag's class and inner text
-        $tag.attr('class', null)
-        $tag.addClass('badge ' + htmlEncode(tagClass))
+        $tag.attr("class", null)
+        $tag.addClass("badge " + htmlEncode(tagClass))
         $tag.contents().filter(function () {
           return this.nodeType == 3
         })[0].nodeValue = htmlEncode(itemText)
 
         if (self.isSelect) {
-          var option = $('option', self.$element).filter(function () {
-            return $(this).data('item') === item
+          var option = $("option", self.$element).filter(function () {
+            return $(this).data("item") === item
           })
-          option.attr('value', itemValue)
+          option.attr("value", itemValue)
         }
       })
     },
@@ -312,7 +298,7 @@
 
       self.$element.val(val.join(self.options.delimiter))
 
-      if (self.options.triggerChange) self.$element.trigger('change')
+      if (self.options.triggerChange) self.$element.trigger("change")
     },
 
     /**
@@ -325,15 +311,15 @@
       // When itemValue is set, freeInput should always be false
       if (self.objectItems) self.options.freeInput = false
 
-      makeOptionItemFunction(self.options, 'itemValue')
-      makeOptionItemFunction(self.options, 'itemText')
-      makeOptionFunction(self.options, 'tagClass')
+      makeOptionItemFunction(self.options, "itemValue")
+      makeOptionItemFunction(self.options, "itemText")
+      makeOptionFunction(self.options, "tagClass")
 
       // Typeahead Bootstrap version 2.3.2
       if (self.options.typeahead) {
         var typeahead = self.options.typeahead || {}
 
-        makeOptionFunction(typeahead, 'source')
+        makeOptionFunction(typeahead, "source")
 
         self.$input.typeahead(
           $.extend({}, typeahead, {
@@ -375,8 +361,8 @@
               return texts.sort()
             },
             highlighter: function (text) {
-              var regex = new RegExp('(' + this.query + ')', 'gi')
-              return text.replace(regex, '<strong>$1</strong>')
+              var regex = new RegExp("(" + this.query + ")", "gi")
+              return text.replace(regex, "<strong>$1</strong>")
             }
           })
         )
@@ -391,7 +377,7 @@
         }
 
         $.fn.typeahead.apply(self.$input, typeaheadjs).on(
-          'typeahead:selected',
+          "typeahead:selected",
           $.proxy(function (obj, datum, name) {
             var index = 0
             typeaheadjs.some(function (dataset, _index) {
@@ -409,16 +395,16 @@
               self.add(datum)
             }
 
-            self.$input.typeahead('val', '')
+            self.$input.typeahead("val", "")
           }, self)
         )
       }
 
       self.$container.on(
-        'click',
+        "click",
         $.proxy(function (event) {
-          if (!self.$element.attr('disabled')) {
-            self.$input.removeAttr('disabled')
+          if (!self.$element.attr("disabled")) {
+            self.$input.removeAttr("disabled")
           }
           self.$input.focus()
         }, self)
@@ -426,13 +412,13 @@
 
       if (self.options.addOnBlur && self.options.freeInput) {
         self.$input.on(
-          'focusout',
+          "focusout",
           $.proxy(function (event) {
             // HACK: only process on focusout when no typeahead opened, to
             //       avoid adding the typeahead text as tag
-            if ($('.typeahead, .twitter-typeahead', self.$container).length === 0) {
+            if ($(".typeahead, .twitter-typeahead", self.$container).length === 0) {
               self.add(self.$input.val())
-              self.$input.val('')
+              self.$input.val("")
             }
           }, self)
         )
@@ -449,14 +435,14 @@
       })
 
       self.$container.on(
-        'keydown',
-        'input',
+        "keydown",
+        "input",
         $.proxy(function (event) {
           var $input = $(event.target),
             $inputWrapper = self.findInputWrapper()
 
-          if (self.$element.attr('disabled')) {
-            self.$input.attr('disabled', 'disabled')
+          if (self.$element.attr("disabled")) {
+            self.$input.attr("disabled", "disabled")
             return
           }
 
@@ -467,9 +453,9 @@
                 var prev = $inputWrapper.prev()
                 if (prev.length) {
                   if (self.options.editOnBackspace === true) {
-                    $input.val(prev.data('item'))
+                    $input.val(prev.data("item"))
                   }
-                  self.remove(prev.data('item'))
+                  self.remove(prev.data("item"))
                 }
               }
               break
@@ -479,7 +465,7 @@
               if (doGetCaretPosition($input[0]) === 0) {
                 var next = $inputWrapper.next()
                 if (next.length) {
-                  self.remove(next.data('item'))
+                  self.remove(next.data("item"))
                 }
               }
               break
@@ -510,31 +496,28 @@
           var textLength = $input.val().length,
             wordSpace = Math.ceil(textLength / 5),
             size = textLength + wordSpace + 1
-          $input.attr('size', Math.max(this.inputSize, size))
+          $input.attr("size", Math.max(this.inputSize, size))
         }, self)
       )
 
       self.$container.on(
-        'keypress',
-        'input',
+        "keypress",
+        "input",
         $.proxy(function (event) {
           var $input = $(event.target)
 
-          if (self.$element.attr('disabled')) {
-            self.$input.attr('disabled', 'disabled')
+          if (self.$element.attr("disabled")) {
+            self.$input.attr("disabled", "disabled")
             return
           }
 
           var text = $input.val(),
             maxLengthReached = self.options.maxChars && text.length >= self.options.maxChars
-          if (
-            self.options.freeInput &&
-            (keyCombinationInList(event, self.options.confirmKeys) || maxLengthReached)
-          ) {
+          if (self.options.freeInput && (keyCombinationInList(event, self.options.confirmKeys) || maxLengthReached)) {
             // Only attempt to add a tag if there is data in the field
             if (text.length !== 0) {
               self.add(maxLengthReached ? text.substr(0, self.options.maxChars) : text)
-              $input.val('')
+              $input.val("")
             }
 
             // If the field is empty, let the event triggered fire as usual
@@ -547,29 +530,29 @@
           var textLength = $input.val().length,
             wordSpace = Math.ceil(textLength / 5),
             size = textLength + wordSpace + 1
-          $input.attr('size', Math.max(this.inputSize, size))
+          $input.attr("size", Math.max(this.inputSize, size))
         }, self)
       )
 
       // Remove icon clicked
       self.$container.on(
-        'click',
-        '[data-role=remove]',
+        "click",
+        "[data-role=remove]",
         $.proxy(function (event) {
-          if (self.$element.attr('disabled')) {
+          if (self.$element.attr("disabled")) {
             return
           }
-          self.remove($(event.target).closest('.badge').data('item'))
+          self.remove($(event.target).closest(".badge").data("item"))
         }, self)
       )
 
       // Only add existing value as tags when using strings as tags
       if (self.options.itemValue === defaultOptions.itemValue) {
-        if (self.$element[0].tagName === 'INPUT') {
+        if (self.$element[0].tagName === "INPUT") {
           self.add(self.$element.val())
         } else {
-          $('option', self.$element).each(function () {
-            self.add($(this).attr('value'), true)
+          $("option", self.$element).each(function () {
+            self.add($(this).attr("value"), true)
           })
         }
       }
@@ -582,11 +565,11 @@
       var self = this
 
       // Unbind events
-      self.$container.off('keypress', 'input')
-      self.$container.off('click', '[role=remove]')
+      self.$container.off("keypress", "input")
+      self.$container.off("click", "[role=remove]")
 
       self.$container.remove()
-      self.$element.removeData('tagsinput')
+      self.$element.removeData("tagsinput")
       self.$element.show()
     },
 
@@ -624,15 +607,15 @@
     var results = []
 
     this.each(function () {
-      var tagsinput = $(this).data('tagsinput')
+      var tagsinput = $(this).data("tagsinput")
       // Initialize a new tags input
       if (!tagsinput) {
         tagsinput = new TagsInput(this, arg1)
-        $(this).data('tagsinput', tagsinput)
+        $(this).data("tagsinput", tagsinput)
         results.push(tagsinput)
 
-        if (this.tagName === 'SELECT') {
-          $('option', $(this)).attr('selected', 'selected')
+        if (this.tagName === "SELECT") {
+          $("option", $(this)).attr("selected", "selected")
         }
 
         // Init tags from $(this).val()
@@ -652,7 +635,7 @@
       }
     })
 
-    if (typeof arg1 == 'string') {
+    if (typeof arg1 == "string") {
       // Return the results from the invoked function calls
       return results.length > 1 ? results : results[0]
     } else {
@@ -668,7 +651,7 @@
    * key in the given options is wrapped in a function
    */
   function makeOptionItemFunction(options, key) {
-    if (typeof options[key] !== 'function') {
+    if (typeof options[key] !== "function") {
       var propertyName = options[key]
       options[key] = function (item) {
         return item[propertyName]
@@ -676,7 +659,7 @@
     }
   }
   function makeOptionFunction(options, key) {
-    if (typeof options[key] !== 'function') {
+    if (typeof options[key] !== "function") {
       var value = options[key]
       options[key] = function () {
         return value
@@ -686,12 +669,12 @@
   /**
    * HtmlEncodes the given value
    */
-  var htmlEncodeContainer = $('<div />')
+  var htmlEncodeContainer = $("<div />")
   function htmlEncode(value) {
     if (value) {
       return htmlEncodeContainer.text(value).html()
     } else {
-      return ''
+      return ""
     }
   }
 
@@ -704,9 +687,9 @@
     if (document.selection) {
       oField.focus()
       var oSel = document.selection.createRange()
-      oSel.moveStart('character', -oField.value.length)
+      oSel.moveStart("character", -oField.value.length)
       iCaretPos = oSel.text.length
-    } else if (oField.selectionStart || oField.selectionStart == '0') {
+    } else if (oField.selectionStart || oField.selectionStart == "0") {
       iCaretPos = oField.selectionStart
     }
     return iCaretPos
@@ -722,21 +705,15 @@
   function keyCombinationInList(keyPressEvent, lookupList) {
     var found = false
     $.each(lookupList, function (index, keyCombination) {
-      if (typeof keyCombination === 'number' && keyPressEvent.which === keyCombination) {
+      if (typeof keyCombination === "number" && keyPressEvent.which === keyCombination) {
         found = true
         return false
       }
 
       if (keyPressEvent.which === keyCombination.which) {
-        var alt =
-            !keyCombination.hasOwnProperty('altKey') ||
-            keyPressEvent.altKey === keyCombination.altKey,
-          shift =
-            !keyCombination.hasOwnProperty('shiftKey') ||
-            keyPressEvent.shiftKey === keyCombination.shiftKey,
-          ctrl =
-            !keyCombination.hasOwnProperty('ctrlKey') ||
-            keyPressEvent.ctrlKey === keyCombination.ctrlKey
+        var alt = !keyCombination.hasOwnProperty("altKey") || keyPressEvent.altKey === keyCombination.altKey,
+          shift = !keyCombination.hasOwnProperty("shiftKey") || keyPressEvent.shiftKey === keyCombination.shiftKey,
+          ctrl = !keyCombination.hasOwnProperty("ctrlKey") || keyPressEvent.ctrlKey === keyCombination.ctrlKey
         if (alt && shift && ctrl) {
           found = true
           return false
@@ -752,6 +729,6 @@
    * data-role=tagsinput
    */
   $(function () {
-    $('input[data-role=tagsinput], select[multiple][data-role=tagsinput]').tagsinput()
+    $("input[data-role=tagsinput], select[multiple][data-role=tagsinput]").tagsinput()
   })
 })(window.jQuery)

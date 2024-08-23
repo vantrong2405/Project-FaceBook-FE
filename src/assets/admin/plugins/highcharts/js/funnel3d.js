@@ -8,19 +8,19 @@
  License: www.highcharts.com/license
 */
 ;(function (d) {
-  'object' === typeof module && module.exports
-    ? ((d['default'] = d), (module.exports = d))
-    : 'function' === typeof define && define.amd
+  "object" === typeof module && module.exports
+    ? ((d["default"] = d), (module.exports = d))
+    : "function" === typeof define && define.amd
       ? define(
-          'highcharts/modules/funnel3d',
-          ['highcharts', 'highcharts/highcharts-3d', 'highcharts/modules/cylinder'],
+          "highcharts/modules/funnel3d",
+          ["highcharts", "highcharts/highcharts-3d", "highcharts/modules/cylinder"],
           function (y) {
             d(y)
             d.Highcharts = y
             return d
           }
         )
-      : d('undefined' !== typeof Highcharts ? Highcharts : void 0)
+      : d("undefined" !== typeof Highcharts ? Highcharts : void 0)
 })(function (d) {
   function y(d, m, k, h) {
     d.hasOwnProperty(m) || (d[m] = h.apply(null, k))
@@ -28,8 +28,8 @@
   d = d ? d._modules : {}
   y(
     d,
-    'Series/Funnel3DSeries.js',
-    [d['Core/Globals.js'], d['Extensions/Math3D.js'], d['Core/Color.js'], d['Core/Utilities.js']],
+    "Series/Funnel3DSeries.js",
+    [d["Core/Globals.js"], d["Extensions/Math3D.js"], d["Core/Color.js"], d["Core/Utilities.js"]],
     function (d, m, k, h) {
       var y = m.perspective,
         l = k.parse,
@@ -44,21 +44,21 @@
       m = d.Renderer.prototype
       var L = m.cuboidPath
       k(
-        'funnel3d',
-        'column',
+        "funnel3d",
+        "column",
         {
-          center: ['50%', '50%'],
-          width: '90%',
-          neckWidth: '30%',
-          height: '100%',
-          neckHeight: '25%',
+          center: ["50%", "50%"],
+          width: "90%",
+          neckWidth: "30%",
+          height: "100%",
+          neckHeight: "25%",
           reversed: !1,
           gradientForSides: !0,
           animation: !1,
           edgeWidth: 0,
           colorByPoint: !0,
           showInLegend: !1,
-          dataLabels: { align: 'right', crop: !1, inside: !1, overflow: 'allow' }
+          dataLabels: { align: "right", crop: !1, inside: !1, overflow: "allow" }
         },
         {
           bindAxes: function () {
@@ -139,11 +139,7 @@
               e.percentage = 100 * z
               e.plotX = w
               e.plotY = g ? t + n / 2 - (f + z / 2) * n : (x + (G || A)) / 2
-              l = y(
-                [{ x: w, y: e.plotY, z: g ? -(p - v(e.plotY)) / 2 : -v(e.plotY) / 2 }],
-                b,
-                !0
-              )[0]
+              l = y([{ x: w, y: e.plotY, z: g ? -(p - v(e.plotY)) / 2 : -v(e.plotY) / 2 }], b, !0)[0]
               e.tooltipPos = [l.x, l.y]
               e.dlBoxRaw = { x: w, width: v(e.plotY), y: x, bottom: r.height, fullWidth: p }
               ;(u && !1 === e.visible) || (f += z)
@@ -155,67 +151,65 @@
               e = a.plotY > C(this.translatedThreshold, this.yAxis.len),
               d = C(c.inside, !!this.options.stacking),
               f = { x: g.x, y: g.y, height: 0 }
-            c.align = C(c.align, !u || d ? 'center' : e ? 'right' : 'left')
-            c.verticalAlign = C(c.verticalAlign, u || d ? 'middle' : e ? 'top' : 'bottom')
-            'top' !== c.verticalAlign && (f.y += g.bottom / ('bottom' === c.verticalAlign ? 1 : 2))
+            c.align = C(c.align, !u || d ? "center" : e ? "right" : "left")
+            c.verticalAlign = C(c.verticalAlign, u || d ? "middle" : e ? "top" : "bottom")
+            "top" !== c.verticalAlign && (f.y += g.bottom / ("bottom" === c.verticalAlign ? 1 : 2))
             f.width = this.getWidthAt(f.y)
             this.options.reversed && (f.width = g.fullWidth - f.width)
             d
               ? (f.x -= f.width / 2)
-              : 'left' === c.align
-                ? ((c.align = 'right'), (f.x -= 1.5 * f.width))
-                : 'right' === c.align
-                  ? ((c.align = 'left'), (f.x += f.width / 2))
+              : "left" === c.align
+                ? ((c.align = "right"), (f.x -= 1.5 * f.width))
+                : "right" === c.align
+                  ? ((c.align = "left"), (f.x += f.width / 2))
                   : (f.x -= f.width / 2)
             a.dlBox = f
             K.column.prototype.alignDataLabel.apply(this, arguments)
           }
         },
         {
-          shapeType: 'funnel3d',
+          shapeType: "funnel3d",
           hasNewShapeType: d.seriesTypes.column.prototype.pointClass.prototype.hasNewShapeType
         }
       )
       k = p(m.elements3d.cuboid, {
-        parts: 'top bottom frontUpper backUpper frontLower backLower rightUpper rightLower'.split(
-          ' '
-        ),
-        mainParts: ['top', 'bottom'],
-        sideGroups: ['upperGroup', 'lowerGroup'],
+        parts: "top bottom frontUpper backUpper frontLower backLower rightUpper rightLower".split(" "),
+        mainParts: ["top", "bottom"],
+        sideGroups: ["upperGroup", "lowerGroup"],
         sideParts: {
-          upperGroup: ['frontUpper', 'backUpper', 'rightUpper'],
-          lowerGroup: ['frontLower', 'backLower', 'rightLower']
+          upperGroup: ["frontUpper", "backUpper", "rightUpper"],
+          lowerGroup: ["frontLower", "backLower", "rightLower"]
         },
-        pathType: 'funnel3d',
+        pathType: "funnel3d",
         opacitySetter: function (a) {
           var b = this,
             c = b.parts,
             g = d.charts[b.renderer.chartIndex],
-            u = 'group-opacity-' + a + '-' + g.index
+            u = "group-opacity-" + a + "-" + g.index
           b.parts = b.mainParts
-          b.singleSetterForParts('opacity', a)
+          b.singleSetterForParts("opacity", a)
           b.parts = c
           g.renderer.filterId ||
             (g.renderer.definition({
-              tagName: 'filter',
+              tagName: "filter",
               id: u,
               children: [
                 {
-                  tagName: 'feComponentTransfer',
-                  children: [{ tagName: 'feFuncA', type: 'table', tableValues: '0 ' + a }]
+                  tagName: "feComponentTransfer",
+                  children: [{ tagName: "feFuncA", type: "table", tableValues: "0 " + a }]
                 }
               ]
             }),
             b.sideGroups.forEach(function (a) {
-              b[a].attr({ filter: 'url(#' + u + ')' })
+              b[a].attr({ filter: "url(#" + u + ")" })
             }),
             b.renderer.styledMode &&
               (g.renderer.definition({
-                tagName: 'style',
-                textContent: '.highcharts-' + u + ' {filter:url(#' + u + ')}'
+                tagName: "style",
+                textContent: ".highcharts-" + u + " {filter:url(#" + u + ")}"
               }),
               b.sideGroups.forEach(function (b) {
-                b.addClass('highcharts-' + u)
+                b.addClass("highcharts-" + u)
               })))
           return b
         },
@@ -224,7 +218,7 @@
             c = l(a),
             g = c.rgba[3],
             d = { top: l(a).brighten(0.1).get(), bottom: l(a).brighten(-0.2).get() }
-          1 > g ? ((c.rgba[3] = 1), (c = c.get('rgb')), b.attr({ opacity: g })) : (c = a)
+          1 > g ? ((c.rgba[3] = 1), (c = c.get("rgb")), b.attr({ opacity: g })) : (c = a)
           c.linearGradient ||
             c.radialGradient ||
             !b.gradientForSides ||
@@ -270,13 +264,13 @@
                     b[a].setRadialReference([e, g, d])
                   })
                 }))
-          b.singleSetterForParts('fill', null, d)
+          b.singleSetterForParts("fill", null, d)
           b.color = b.fill = a
           c.linearGradient &&
             [b.frontLower, b.frontUpper].forEach(function (a) {
               ;(a = (a = a.element) && b.renderer.gradients[a.gradient]) &&
-                'userSpaceOnUse' !== a.attr('gradientUnits') &&
-                a.attr({ gradientUnits: 'userSpaceOnUse' })
+                "userSpaceOnUse" !== a.attr("gradientUnits") &&
+                a.attr({ gradientUnits: "userSpaceOnUse" })
             })
           return b
         },
@@ -305,15 +299,15 @@
       })
       m.elements3d.funnel3d = k
       m.funnel3d = function (a) {
-        var b = this.element3d('funnel3d', a),
+        var b = this.element3d("funnel3d", a),
           c = this.styledMode,
-          d = { 'stroke-width': 1, stroke: 'none' }
-        b.upperGroup = this.g('funnel3d-upper-group').attr({ zIndex: b.frontUpper.zIndex }).add(b)
+          d = { "stroke-width": 1, stroke: "none" }
+        b.upperGroup = this.g("funnel3d-upper-group").attr({ zIndex: b.frontUpper.zIndex }).add(b)
         ;[b.frontUpper, b.backUpper, b.rightUpper].forEach(function (a) {
           c || a.attr(d)
           a.add(b.upperGroup)
         })
-        b.lowerGroup = this.g('funnel3d-lower-group').attr({ zIndex: b.frontLower.zIndex }).add(b)
+        b.lowerGroup = this.g("funnel3d-lower-group").attr({ zIndex: b.frontLower.zIndex }).add(b)
         ;[b.frontLower, b.backLower, b.rightLower].forEach(function (a) {
           c || a.attr(d)
           a.add(b.lowerGroup)
@@ -322,18 +316,14 @@
         return b
       }
       m.funnel3dPath = function (a) {
-        this.getCylinderEnd ||
-          J('A required Highcharts module is missing: cylinder.js', !0, H[this.chartIndex])
+        this.getCylinderEnd || J("A required Highcharts module is missing: cylinder.js", !0, H[this.chartIndex])
         var b = H[this.chartIndex],
           c = (a.alphaCorrection = 90 - Math.abs((b.options.chart.options3d.alpha % 180) - 90)),
           d = L.call(this, p(a, { depth: a.width, width: (a.width + a.bottom.width) / 2 })),
           m = d.isTop,
           e = !d.isFront,
           k = !!a.middle,
-          f = this.getCylinderEnd(
-            b,
-            p(a, { x: a.x - a.width / 2, z: a.z - a.width / 2, alphaCorrection: c })
-          ),
+          f = this.getCylinderEnd(b, p(a, { x: a.x - a.width / 2, z: a.z - a.width / 2, alphaCorrection: c })),
           h = a.bottom.width,
           w = p(a, { width: h, x: a.x - h / 2, z: a.z - h / 2, alphaCorrection: c }),
           t = this.getCylinderEnd(b, w, !0),
@@ -367,11 +357,7 @@
         d.backUpper = this.getCylinderBack(f, v)
         f = 1 !== Math.min(l, a.width) / Math.max(l, a.width)
         d.rightUpper = this.getCylinderFront(
-          this.getCylinderEnd(
-            b,
-            p(a, { x: a.x - a.width / 2, z: a.z - a.width / 2, alphaCorrection: f ? -c : 0 }),
-            !1
-          ),
+          this.getCylinderEnd(b, p(a, { x: a.x - a.width / 2, z: a.z - a.width / 2, alphaCorrection: f ? -c : 0 }), !1),
           this.getCylinderEnd(b, p(q, { alphaCorrection: f ? -c : 0 }), !k)
         )
         k &&
@@ -389,6 +375,6 @@
       }
     }
   )
-  y(d, 'masters/modules/funnel3d.src.js', [], function () {})
+  y(d, "masters/modules/funnel3d.src.js", [], function () {})
 })
 //# sourceMappingURL=funnel3d.js.map

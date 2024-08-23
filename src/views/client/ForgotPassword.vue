@@ -6,10 +6,9 @@
           <div class="col-lg-5 border-end">
             <div class="card-body">
               <div class="p-5">
-                <p class="text-4xl ml-7 font-semibold">Lấy lại mật khẩu</p>
-                <p class="text-muted mt-3 mb-5">
-                  Chúng tôi đã nhận được yêu cầu đặt lại mật khẩu của bạn. Vui lòng nhập mật khẩu
-                  mới của bạn!
+                <p class="ml-7 text-4xl font-semibold">Lấy lại mật khẩu</p>
+                <p class="text-muted mb-5 mt-3">
+                  Chúng tôi đã nhận được yêu cầu đặt lại mật khẩu của bạn. Vui lòng nhập mật khẩu mới của bạn!
                 </p>
                 <div class="mb-3 mt-3">
                   <label class="form-label">Mật khẩu mới</label>
@@ -20,9 +19,7 @@
                   <input type="text" class="form-control" placeholder="Xác nhận mật khẩu" v-model="retype_password" />
                 </div>
                 <div class="d-grid gap-2">
-                  <button type="button" class="btn btn-primary" @click="changePassword()">
-                    Thay đổi mật khẩu
-                  </button>
+                  <button type="button" class="btn btn-primary" @click="changePassword()">Thay đổi mật khẩu</button>
                   <a href="authentication-login.html" class="btn btn-light"><i class="bx bx-arrow-back mr-1"></i>Đăng
                     nhập</a>
                 </div>
@@ -40,16 +37,17 @@
   </div>
 </template>
 <script>
-import http from '@/baseAPI/http'
-import axios from 'axios'
-import { useToast } from 'vue-toast-notification'
-import 'vue-toast-notification/dist/theme-sugar.css'
+import apiAuth from "@/apis/auth.api"
+import http from "@/baseAPI/http"
+import axios from "axios"
+import { useToast } from "vue-toast-notification"
+import "vue-toast-notification/dist/theme-sugar.css"
 export default {
   data() {
     return {
-      password: '',
-      retype_password: '',
-      token: ''
+      password: "",
+      retype_password: "",
+      token: ""
     }
   },
   mounted() {
@@ -57,26 +55,21 @@ export default {
   },
   methods: {
     changePassword() {
-      const obj = {
+      const body = {
         password: this.password,
         comfirm_password: this.retype_password,
         forgot_password_token: this.token
       }
-
-      http
-        .post('/users/reset-password', obj)
-        .then((res) => {
-          console.log(res)
-          this.$toast.success('Đổi thành công', {
-            position: 'bottom-right'
-          })
-          setTimeout(() => {
-            this.$router.push('/')
-          }, 2000)
+      const resetPassword = apiAuth.changePassword(body)
+      resetPassword.then((res) => {
+        console.log(res)
+        this.$toast.success(res.data.message, {
+          position: "bottom-right"
         })
-        .catch((errors) => {
-          console.log(errors)
-        })
+        setTimeout(() => {
+          this.$router.push("/")
+        }, 2000)
+      })
     }
   }
 }

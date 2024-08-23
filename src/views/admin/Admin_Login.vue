@@ -12,13 +12,13 @@
         </div>
 
         <!-- Right column container with form -->
-        <div class="md:w-5/12 lg:ms-6 lg:w-5/12 border-3 p-4 border-black">
+        <div class="border-3 border-black p-4 md:w-5/12 lg:ms-6 lg:w-5/12">
           <div>
             <!-- Email input -->
             <div class="relative mb-6" data-twe-input-wrapper-init>
               <input
                 type="text"
-                class="border border-black peer block min-h-[auto] w-full rounded bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0"
+                class="peer-focus:text-primary dark:autofill:shadow-autofill dark:peer-focus:text-primary peer block min-h-[auto] w-full rounded border border-black bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0"
                 id="exampleFormControlInput3"
                 placeholder="Email address"
                 v-model="account"
@@ -29,7 +29,7 @@
             <div class="relative mb-6" data-twe-input-wrapper-init>
               <input
                 type="password"
-                class="border border-black peer block min-h-[auto] w-full rounded bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0"
+                class="peer-focus:text-primary dark:autofill:shadow-autofill dark:peer-focus:text-primary peer block min-h-[auto] w-full rounded border border-black bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0"
                 id="exampleFormControlInput33"
                 placeholder="Password"
                 v-model="pass"
@@ -40,27 +40,23 @@
             <div class="mb-6 flex items-center justify-between">
               <div class="mb-[0.125rem] block min-h-[1.5rem] ps-[1.5rem]">
                 <input
-                  class="relative float-left -ms-[1.5rem] me-[6px] mt-[0.15rem] h-[1.125rem] w-[1.125rem] appearance-none rounded-[0.25rem] border-[0.125rem] border-solid border-secondary-500 outline-none before:pointer-events-none before:absolute before:h-[0.875rem] before:w-[0.875rem] before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-checkbox before:shadow-transparent before:content-[''] checked:border-primary checked:bg-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:-mt-px checked:after:ms-[0.25rem] checked:after:block checked:after:h-[0.8125rem] checked:after:w-[0.375rem] checked:after:rotate-45 checked:after:border-[0.125rem] checked:after:border-l-0 checked:after:border-t-0 checked:after:border-solid checked:after:border-white checked:after:bg-transparent checked:after:content-[''] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-black/60 focus:shadow-none focus:transition-[border-color_0.2s] focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-black/60 focus:before:transition-[box-shadow_0.2s,transform_0.2s] focus:after:absolute focus:after:z-[1] focus:after:block focus:after:h-[0.875rem] focus:after:w-[0.875rem] focus:after:rounded-[0.125rem] focus:after:content-[''] checked:focus:before:scale-100 checked:focus:before:shadow-checkbox checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:after:-mt-px checked:focus:after:ms-[0.25rem] checked:focus:after:h-[0.8125rem] checked:focus:after:w-[0.375rem] checked:focus:after:rotate-45 checked:focus:after:rounded-none checked:focus:after:border-[0.125rem] checked:focus:after:border-l-0 checked:focus:after:border-t-0 checked:focus:after:border-solid checked:focus:after:border-white checked:focus:after:bg-transparent rtl:float-right dark:border-neutral-400 dark:checked:border-primary dark:checked:bg-primary"
+                  class="border-secondary-500 before:shadow-checkbox checked:border-primary checked:bg-primary checked:focus:before:shadow-checkbox dark:checked:border-primary dark:checked:bg-primary relative float-left -ms-[1.5rem] me-[6px] mt-[0.15rem] h-[1.125rem] w-[1.125rem] appearance-none rounded-[0.25rem] border-[0.125rem] border-solid outline-none before:pointer-events-none before:absolute before:h-[0.875rem] before:w-[0.875rem] before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-transparent before:content-[''] checked:before:opacity-[0.16] checked:after:absolute checked:after:-mt-px checked:after:ms-[0.25rem] checked:after:block checked:after:h-[0.8125rem] checked:after:w-[0.375rem] checked:after:rotate-45 checked:after:border-[0.125rem] checked:after:border-l-0 checked:after:border-t-0 checked:after:border-solid checked:after:border-white checked:after:bg-transparent checked:after:content-[''] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-black/60 focus:shadow-none focus:transition-[border-color_0.2s] focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-black/60 focus:before:transition-[box-shadow_0.2s,transform_0.2s] focus:after:absolute focus:after:z-[1] focus:after:block focus:after:h-[0.875rem] focus:after:w-[0.875rem] focus:after:rounded-[0.125rem] focus:after:content-[''] checked:focus:before:scale-100 checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:after:-mt-px checked:focus:after:ms-[0.25rem] checked:focus:after:h-[0.8125rem] checked:focus:after:w-[0.375rem] checked:focus:after:rotate-45 checked:focus:after:rounded-none checked:focus:after:border-[0.125rem] checked:focus:after:border-l-0 checked:focus:after:border-t-0 checked:focus:after:border-solid checked:focus:after:border-white checked:focus:after:bg-transparent rtl:float-right dark:border-neutral-400"
                   type="checkbox"
                   value=""
                   id="exampleCheck3"
                   checked
                 />
-                <label class="inline-block ps-[0.15rem] hover:cursor-pointer" for="exampleCheck3">
-                  Remember me
-                </label>
+                <label class="inline-block ps-[0.15rem] hover:cursor-pointer" for="exampleCheck3"> Remember me </label>
               </div>
 
               <!-- Forgot password link -->
-              <a href="#!" class="text-primary focus:outline-none dark:text-primary-400"
-                >Forgot password?</a
-              >
+              <a href="#!" class="text-primary dark:text-primary-400 focus:outline-none">Forgot password?</a>
             </div>
 
             <!-- Submit button -->
             <button
               @click="login()"
-              class="inline-block w-full rounded bg-primary px-7 pb-2.5 pt-3 text-sm font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong"
+              class="bg-primary shadow-primary-3 hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 active:bg-primary-600 active:shadow-primary-2 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong inline-block w-full rounded px-7 pb-2.5 pt-3 text-sm font-medium uppercase leading-normal text-white transition duration-150 ease-in-out focus:outline-none focus:ring-0 dark:shadow-black/30"
               data-twe-ripple-init
               data-twe-ripple-color="light"
             >
@@ -76,7 +72,7 @@
 
             <!-- Social login buttons -->
             <a
-              class="mb-3 flex w-full items-center justify-center rounded bg-primary px-7 pb-2.5 pt-3 text-center text-sm font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong"
+              class="bg-primary shadow-primary-3 hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 active:bg-primary-600 active:shadow-primary-2 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong mb-3 flex w-full items-center justify-center rounded px-7 pb-2.5 pt-3 text-center text-sm font-medium uppercase leading-normal text-white transition duration-150 ease-in-out focus:outline-none focus:ring-0 dark:shadow-black/30"
               style="background-color: #3b5998"
               href="#!"
               role="button"
@@ -95,7 +91,7 @@
               Continue with Facebook
             </a>
             <a
-              class="mb-3 flex w-full items-center justify-center rounded bg-info px-7 pb-2.5 pt-3 text-center text-sm font-medium uppercase leading-normal text-white shadow-info-3 transition duration-150 ease-in-out hover:bg-info-accent-300 hover:shadow-info-2 focus:bg-info-accent-300 focus:shadow-info-2 focus:outline-none focus:ring-0 active:bg-info-600 active:shadow-info-2 dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong"
+              class="bg-info shadow-info-3 hover:bg-info-accent-300 hover:shadow-info-2 focus:bg-info-accent-300 focus:shadow-info-2 active:bg-info-600 active:shadow-info-2 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong mb-3 flex w-full items-center justify-center rounded px-7 pb-2.5 pt-3 text-center text-sm font-medium uppercase leading-normal text-white transition duration-150 ease-in-out focus:outline-none focus:ring-0 dark:shadow-black/30"
               style="background-color: #55acee"
               href="#!"
               role="button"
@@ -120,23 +116,23 @@
   </section>
 </template>
 <script>
-import axios from 'axios'
-import { useToast } from 'vue-toast-notification'
-import 'vue-toast-notification/dist/theme-sugar.css'
+import axios from "axios"
+import { useToast } from "vue-toast-notification"
+import "vue-toast-notification/dist/theme-sugar.css"
 export default {
   mounted() {
     this.checkToken()
   },
   data() {
     return {
-      email: '',
-      password: '',
-      comfirm_password: '',
-      date_of_birth: '',
-      firstName: '',
-      lastName: '',
-      account: '',
-      pass: ''
+      email: "",
+      password: "",
+      comfirm_password: "",
+      date_of_birth: "",
+      firstName: "",
+      lastName: "",
+      account: "",
+      pass: ""
     }
   },
   methods: {
@@ -147,43 +143,43 @@ export default {
       }
 
       try {
-        const res = await axios.post('http://localhost:4000/users/login', objectLogin)
+        const res = await axios.post("http://localhost:4000/users/login", objectLogin)
         if (res.status === 200) {
-          localStorage.setItem('access_token', res.data.result.access_token)
-          localStorage.setItem('refresh_token', res.data.result.refresh_token)
+          localStorage.setItem("access_token", res.data.result.access_token)
+          localStorage.setItem("refresh_token", res.data.result.refresh_token)
           const isAuthorized = await this.checkToken()
           if (isAuthorized) {
             this.$toast.success(res.data.message, {
-              position: 'bottom-right'
+              position: "bottom-right"
             })
             // this.$router.push('/admin/post');
           } else {
-            throw new Error('Bạn không có quyền truy cập')
+            throw new Error("Bạn không có quyền truy cập")
           }
         }
       } catch (errors) {
         console.error(errors) // In ra lỗi để gỡ lỗi dễ dàng hơn
-        this.$toast.error('Đăng nhập không thành công', {
-          position: 'bottom-right'
+        this.$toast.error("Đăng nhập không thành công", {
+          position: "bottom-right"
         })
       }
     },
     async checkToken() {
       try {
-        const res = await axios.get('http://localhost:4000/users/me', {
+        const res = await axios.get("http://localhost:4000/users/me", {
           headers: {
-            Authorization: 'Bearer ' + localStorage.getItem('access_token')
+            Authorization: "Bearer " + localStorage.getItem("access_token")
           }
         })
         if (res.status === 200) {
           if (res.data.result.role == 1) {
-            this.$router.push('/admin/post')
+            this.$router.push("/admin/post")
             return true
           } else {
-            localStorage.removeItem('access_token')
-            localStorage.removeItem('refresh_token')
-            localStorage.removeItem('profile')
-            throw new Error('Unauthorized role')
+            localStorage.removeItem("access_token")
+            localStorage.removeItem("refresh_token")
+            localStorage.removeItem("profile")
+            throw new Error("Unauthorized role")
           }
         }
       } catch (error) {

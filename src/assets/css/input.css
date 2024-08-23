@@ -6,7 +6,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Arial, sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
 }
 
 .active-icon {
@@ -18,7 +18,7 @@
 }
 
 .active-tag::after {
-  content: '';
+  content: "";
   width: 100%;
   position: absolute;
   height: 4px;
@@ -32,75 +32,75 @@
   position: relative;
 }
 
-  .avatar::after {
-    content: '';
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.148);
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: none;
-  }
+.avatar::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.148);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+}
 
-  .avatar:hover::after {
-    display: initial;
-  }
+.avatar:hover::after {
+  display: initial;
+}
 
-  .item-group:hover div {
-    visibility: visible;
-  }
+.item-group:hover div {
+  visibility: visible;
+}
 
-  .image-avatar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.242);
-    display: none;
-  }
+.image-avatar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.242);
+  display: none;
+}
 
-  .activeFull {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.315);
-    display: none;
-    transition: 0.3s;
-  }
+.activeFull {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.315);
+  display: none;
+  transition: 0.3s;
+}
 
-  .activeFull::after {
-    content: 'Xem thêm';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+.activeFull::after {
+  content: "Xem thêm";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
-  .main:hover .activeFull {
-    display: block;
-  }
+.main:hover .activeFull {
+  display: block;
+}
 
-  #pp:hover .image-avatar {
-    display: block;
-  }
+#pp:hover .image-avatar {
+  display: block;
+}
 
-  .scroll-container {
-    overflow-y: auto;
-    visibility: hidden;
-  }
+.scroll-container {
+  overflow-y: auto;
+  visibility: hidden;
+}
 
-  .scroll-container:hover {
-    visibility: visible;
-  }
+.scroll-container:hover {
+  visibility: visible;
+}
 
-  ::-webkit-scrollbar {
-    width: 8px;
-    opacity: 0;
-    transition: opacity 0.3s;
+::-webkit-scrollbar {
+  width: 8px;
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 
 .scroll-container:hover ::-webkit-scrollbar {

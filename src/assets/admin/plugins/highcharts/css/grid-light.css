@@ -1,4 +1,4 @@
-@import 'https://fonts.googleapis.com/css?family=Dosis:400,600';
+@import "https://fonts.googleapis.com/css?family=Dosis:400,600";
 .highcharts-title,
 .highcharts-subtitle,
 .highcharts-yaxis .highcharts-axis-title {
@@ -26,7 +26,7 @@
   z-index: 0;
   /* #1072 */
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  font-family: 'Dosis', Arial, Helvetica, sans-serif;
+  font-family: "Dosis", Arial, Helvetica, sans-serif;
   font-size: 12px;
 }
 

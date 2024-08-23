@@ -8,19 +8,15 @@
  License: www.highcharts.com/license
 */
 ;(function (a) {
-  'object' === typeof module && module.exports
-    ? ((a['default'] = a), (module.exports = a))
-    : 'function' === typeof define && define.amd
-      ? define(
-          'highcharts/modules/solid-gauge',
-          ['highcharts', 'highcharts/highcharts-more'],
-          function (g) {
-            a(g)
-            a.Highcharts = g
-            return a
-          }
-        )
-      : a('undefined' !== typeof Highcharts ? Highcharts : void 0)
+  "object" === typeof module && module.exports
+    ? ((a["default"] = a), (module.exports = a))
+    : "function" === typeof define && define.amd
+      ? define("highcharts/modules/solid-gauge", ["highcharts", "highcharts/highcharts-more"], function (g) {
+          a(g)
+          a.Highcharts = g
+          return a
+        })
+      : a("undefined" !== typeof Highcharts ? Highcharts : void 0)
 })(function (a) {
   function g(a, r, g, c) {
     a.hasOwnProperty(r) || (a[r] = c.apply(null, g))
@@ -28,8 +24,8 @@
   a = a ? a._modules : {}
   g(
     a,
-    'Series/SolidGaugeSeries.js',
-    [a['Core/Color.js'], a['Core/Globals.js'], a['Mixins/LegendSymbol.js'], a['Core/Utilities.js']],
+    "Series/SolidGaugeSeries.js",
+    [a["Core/Color.js"], a["Core/Globals.js"], a["Mixins/LegendSymbol.js"], a["Core/Utilities.js"]],
     function (a, g, x, c) {
       var k = a.parse,
         r = c.clamp,
@@ -40,17 +36,15 @@
         w = c.pInt
       a = c.seriesType
       c = c.wrap
-      c(g.Renderer.prototype.symbols, 'arc', function (e, a, l, b, z, d) {
+      c(g.Renderer.prototype.symbols, "arc", function (e, a, l, b, z, d) {
         e = e(a, l, b, z, d)
         d.rounded &&
           ((b = ((d.r || b) - (d.innerR || 0)) / 2),
           (a = e[0]),
           (d = e[2]),
-          'M' === a[0] &&
-            'L' === d[0] &&
-            ((a = ['A', b, b, 0, 1, 1, a[1], a[2]]),
-            (e[2] = ['A', b, b, 0, 1, 1, d[1], d[2]]),
-            (e[4] = a)))
+          "M" === a[0] &&
+            "L" === d[0] &&
+            ((a = ["A", b, b, 0, 1, 1, a[1], a[2]]), (e[2] = ["A", b, b, 0, 1, 1, d[1], d[2]]), (e[4] = a)))
         return e
       })
       var m
@@ -66,12 +60,9 @@
               b = y(b)
               l.push(b)
               b.color ||
-                ('category' === h.dataClassColor
+                ("category" === h.dataClassColor
                   ? ((f = e.options.colors), (b.color = f[d++]), d === f.length && (d = 0))
-                  : (b.color = k(h.minColor).tweenTo(
-                      k(h.maxColor),
-                      f / (a.dataClasses.length - 1)
-                    )))
+                  : (b.color = k(h.minColor).tweenTo(k(h.maxColor), f / (a.dataClasses.length - 1))))
             })
           },
           initStops: function (a) {
@@ -92,7 +83,7 @@
                 var c = d[h]
                 var f = c.from
                 b = c.to
-                if (('undefined' === typeof f || a >= f) && ('undefined' === typeof b || a <= b)) {
+                if (("undefined" === typeof f || a >= f) && ("undefined" === typeof b || a <= b)) {
                   var g = c.color
                   e && (e.dataClass = h)
                   break
@@ -115,8 +106,8 @@
         }
       })(m || (m = {}))
       a(
-        'solidgauge',
-        'gauge',
+        "solidgauge",
+        "gauge",
         { colorByPoint: !0, dataLabels: { y: 0 } },
         {
           drawLegendSymbol: x.drawRectangle,
@@ -147,8 +138,8 @@
                   p = c.toColor(f.y, f),
                   q = Math.min(c.startAngleRad, c.endAngleRad),
                   l = Math.max(c.startAngleRad, c.endAngleRad)
-                'none' === p && (p = f.color || a.color || 'none')
-                'none' !== p && (f.color = p)
+                "none" === p && (p = f.color || a.color || "none")
+                "none" !== p && (f.color = p)
                 e = r(e, q - h, l + h)
                 !1 === b.wrap && (e = r(e, q, l))
                 q = Math.min(e, a.thresholdAngleRad)
@@ -166,26 +157,23 @@
                 f.startR = k
                 d
                   ? ((k = n.d), d.animate(u({ fill: p }, n)), k && (n.d = k))
-                  : (f.graphic = d = m.arc(n).attr({ fill: p, 'sweep-flag': 0 }).add(a.group))
+                  : (f.graphic = d = m.arc(n).attr({ fill: p, "sweep-flag": 0 }).add(a.group))
                 a.chart.styledMode ||
-                  ('square' !== b.linecap &&
-                    d.attr({ 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }),
-                  d.attr({ stroke: b.borderColor || 'none', 'stroke-width': b.borderWidth || 0 }))
+                  ("square" !== b.linecap && d.attr({ "stroke-linecap": "round", "stroke-linejoin": "round" }),
+                  d.attr({ stroke: b.borderColor || "none", "stroke-width": b.borderWidth || 0 }))
                 d && d.addClass(f.getClassName(), !0)
               }
             })
           },
           animate: function (a) {
-            a ||
-              ((this.startAngleRad = this.thresholdAngleRad),
-              g.seriesTypes.pie.prototype.animate.call(this, a))
+            a || ((this.startAngleRad = this.thresholdAngleRad), g.seriesTypes.pie.prototype.animate.call(this, a))
           }
         }
       )
-      ;('')
+      ;("")
       return m
     }
   )
-  g(a, 'masters/modules/solid-gauge.src.js', [], function () {})
+  g(a, "masters/modules/solid-gauge.src.js", [], function () {})
 })
 //# sourceMappingURL=solid-gauge.js.map

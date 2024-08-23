@@ -9,35 +9,35 @@
   float: right;
   line-height: 1.42857;
 }
-[dir='rtl'] .metismenu .arrow {
+[dir="rtl"] .metismenu .arrow {
   float: left;
 }
 .metismenu .glyphicon.arrow:before {
-  content: '\e079';
+  content: "\e079";
 }
 .metismenu .mm-active > a > .glyphicon.arrow:before {
-  content: '\e114';
+  content: "\e114";
 }
 .metismenu .fa.arrow:before {
-  content: '\f104';
+  content: "\f104";
 }
 .metismenu .mm-active > a > .fa.arrow:before {
-  content: '\f107';
+  content: "\f107";
 }
 .metismenu .ion.arrow:before {
-  content: '\f3d2';
+  content: "\f3d2";
 }
 .metismenu .mm-active > a > .ion.arrow:before {
-  content: '\f3d0';
+  content: "\f3d0";
 }
 .metismenu .plus-times {
   float: right;
 }
-[dir='rtl'] .metismenu .plus-times {
+[dir="rtl"] .metismenu .plus-times {
   float: left;
 }
 .metismenu .fa.plus-times:before {
-  content: '\f067';
+  content: "\f067";
 }
 .metismenu .mm-active > a > .fa.plus-times {
   transform: rotate(45deg);
@@ -45,14 +45,14 @@
 .metismenu .plus-minus {
   float: right;
 }
-[dir='rtl'] .metismenu .plus-minus {
+[dir="rtl"] .metismenu .plus-minus {
   float: left;
 }
 .metismenu .fa.plus-minus:before {
-  content: '\f067';
+  content: "\f067";
 }
 .metismenu .mm-active > a > .fa.plus-minus:before {
-  content: '\f068';
+  content: "\f068";
 }
 .metismenu .mm-collapse:not(.mm-show) {
   display: none;
@@ -70,7 +70,7 @@
 }
 .metismenu .has-arrow:after {
   position: absolute;
-  content: '';
+  content: "";
   width: 0.5em;
   height: 0.5em;
   border-style: solid;
@@ -82,17 +82,17 @@
   top: 50%;
   transition: all 0.3s ease-out;
 }
-[dir='rtl'] .metismenu .has-arrow:after {
+[dir="rtl"] .metismenu .has-arrow:after {
   right: auto;
   left: 1em;
   transform: rotate(135deg) translateY(-50%);
 }
-.metismenu .has-arrow[aria-expanded='true']:after,
+.metismenu .has-arrow[aria-expanded="true"]:after,
 .metismenu .mm-active > .has-arrow:after {
   transform: rotate(-135deg) translateY(-50%);
 }
-[dir='rtl'] .metismenu .has-arrow[aria-expanded='true']:after,
-[dir='rtl'] .metismenu .mm-active > .has-arrow:after {
+[dir="rtl"] .metismenu .has-arrow[aria-expanded="true"]:after,
+[dir="rtl"] .metismenu .mm-active > .has-arrow:after {
   transform: rotate(225deg) translateY(-50%);
 }
 /*# sourceMappingURL=metisMenu.min.css.map */

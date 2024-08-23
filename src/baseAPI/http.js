@@ -1,27 +1,50 @@
-import axios from 'axios'
-const apiUrl = 'http://localhost:4000'
+import { getAccessTokenFromLS } from "@/utils/auth"
+import axios from "axios"
+import { createApp } from "vue"
+import ToastPlugin from "vue-toast-notification"
+import "vue-toast-notification/dist/theme-sugar.css"
+const app = createApp({})
+app.use(ToastPlugin)
+const toast = app.config.globalProperties.$toast
+class Http {
+  constructor() {
+    this.accessToken = getAccessTokenFromLS()
+    this.instance = axios.create({
+      baseURL: "http://localhost:4000/",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    this.instance.interceptors.request.use(
+      (config) => {
+        config.headers.authorization = this.accessToken
+        return config
+      },
+      function (error) {
+        return Promise.reject(error)
+      }
+    )
+    this.instance.interceptors.response.use(
+      function (response) {
+        return response
+      },
+      (error) => {
+        console.log(error)
 
-export default {
-  getHeader() {
-    let token = window.localStorage.getItem('access_token')
-    if (token == null) {
-      return {}
-    }
-    return { Authorization: 'Bearer ' + token }
-  },
-  get(url) {
-    return axios.get(apiUrl + url, { headers: this.getHeader() })
-  },
-  post(url, data) {
-    return axios.post(apiUrl + url, data, { headers: this.getHeader() })
-  },
-  delete(url) {
-    return axios.delete(apiUrl + url, { headers: this.getHeader() })
-  },
-  put(url, data) {
-    return axios.put(apiUrl + url, data, { headers: this.getHeader() })
-  },
-  patch(url, data) {
-    return axios.patch(apiUrl + url, data, { headers: this.getHeader() })
-  },
+        if (error?.response?.status !== 422) {
+          const message = error.response?.data?.message || error.message
+          console.log(message)
+          if (toast) {
+            toast.error(message, {
+              position: "bottom-right"
+            })
+          }
+        }
+        return Promise.reject(error)
+      }
+    )
+  }
 }
+
+const http = new Http().instance
+export default http
