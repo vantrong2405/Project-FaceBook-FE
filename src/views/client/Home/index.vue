@@ -151,7 +151,7 @@
                             <p class="mt-1 flex items-center text-xs">
                               <span class="cursor-pointer hover:underline">{{
                                 formatDate(valueDetailPost?.created_at ?? "")
-                              }}</span>
+                                }}</span>
                               <span class="mx-1">·</span>
                               <svg-world class="w-3" />
                             </p>
@@ -418,18 +418,14 @@ import svgCreate from "@/components/svg/svgCreate.vue"
 import svgLiveVideo from "@/components/svg/svgLiveVideo.vue"
 import svgPhoto from "@/components/svg/svgPhoto.vue"
 import svgSmile from "@/components/svg/svgSmile.vue"
-// item
 import svgDots from "@/components/svg/svgDots.vue"
 import svgWorld from "@/components/svg/svgWorld.vue"
 import svgLike from "@/components/svg/svgLike.vue"
-import svgLike2 from "@/components/svg/svgLike2.vue"
 import svgComment from "@/components/svg/svgComment.vue"
 import svgMenu from "@/components/svg/svgMenu.vue"
 import { Forward } from "lucide-vue-next"
 import svgNewMessage from "@/components/svg/svgNewMessage.vue"
 import { X, Trash2 } from "lucide-vue-next"
-import http from "@/baseAPI/http"
-import axios from "axios"
 import leftBarHome from "./components/leftBarHome.vue"
 import rightBarHome from "./components/rightBarHome.vue"
 import modalShare from "./components/modalShare.vue"

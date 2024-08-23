@@ -53,13 +53,13 @@
                 <img class="mb-[5px] h-[60px] w-[60px] rounded-full"
                   src="https://images.ctfassets.net/hrltx12pl8hq/4MFiRr9vFnbWzYoNSPiYXy/fca130dd40da59b06e83ee8d5789a23e/file-converter-shutterstock.jpg"
                   alt="" />
-                <p class="max-w-[60px] break-words text-center text-[13px] text-black">Ân Nguyên</p>
+                <p class="max-w-[60px] break-words text-center text-[13px] truncateMenu text-black">Ân Nguyên</p>
               </div>
             </template>
           </div>
           <p class="text-[17px] font-medium text-black">Chia sẻ lên</p>
           <div class="ml-[-5px] flex w-full">
-            <template v-for="index in 10" :key="index">
+            <template v-for="index in 4" :key="index">
               <div class="w-[17%] cursor-pointer rounded-lg py-[8px] pb-[10px] hover:bg-[#F2F2F2]">
                 <div
                   class="mx-auto mb-[10px] flex h-[60px] w-[60px] items-center justify-center rounded-full bg-[#D8DADF]">

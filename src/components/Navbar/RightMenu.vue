@@ -53,18 +53,21 @@
   <!--Menu-->
   <div v-if="isShowMenu == true">
     <div
-      class="absolute right-0 top-full box-border max-w-xl border-spacing-0 rounded-xl border-2 border-solid bg-gray-100 shadow-2xl">
-      <header class="mx-4 my-2 px-2 pt-1 text-2xl font-semibold">Menu</header>
-      <div class="flex">
-        <div class="mx-2 my-2 w-96 rounded-xl bg-white">
+      class=" h-[80vh] absolute right-0 top-full box-border border-spacing-0 rounded-xl border-2 border-solid bg-gray-100 shadow-2xl">
+      <div class="flex justify-between mx-2 bg-white">
+        <h3 class="mx-2 text-xl font-bold my-2">Menu</h3>
+
+      </div>
+      <div class="flex h-[80vh] rounded-xl overflow-hidden">
+        <div class="hover:overflow-auto  w-96 bg-white">
           <div>
             <div class="">
-              <input type="text" class="mx-2 my-3 rounded-2xl border-none bg-gray-100 outline-none"
+              <input type="text" class="mx-2 my-3 w-56 rounded-2xl border-none bg-gray-100 outline-none"
                 placeholder="Tìm kiếm trong menu" />
             </div>
           </div>
 
-          <div>
+          <div class="overflow-scroll">
             <span class="mx-4 font-semibold">Xã hội</span>
             <div>
               <a href="" class="mx-2 my-2 flex rounded-xl hover:bg-gray-100">
@@ -83,10 +86,7 @@
 
             <div>
               <a href="" class="mx-2 my-2 flex rounded-xl hover:bg-gray-100">
-                <div>
-                  <Users class="ml-6 mr-2 mt-3" />
-                </div>
-
+                <Users class="ml-6 mr-2 mt-3" />
                 <div class="m-1">
                   <p class="font-semibold">Bạn bè</p>
                   <p class="text-xs text-gray-400">Tìm kiếm bạn bè hoặc những người bạn có thể biết.</p>
@@ -96,10 +96,7 @@
 
             <div>
               <a href="" class="mx-2 my-2 flex rounded-xl hover:bg-gray-100">
-                <div>
-                  <Group class="ml-6 mr-2 mt-3" />
-                </div>
-
+                <Group class="ml-6 mr-2 mt-3" />
                 <div class="m-1">
                   <p class="font-semibold">Nhóm</p>
                   <p class="text-xs text-gray-400">Kết nối với những người cùng chung sở thích.</p>
@@ -109,10 +106,7 @@
 
             <div>
               <a href="" class="mx-2 my-2 flex rounded-xl hover:bg-gray-100">
-                <div>
-                  <Newspaper class="ml-6 mr-2 mt-3" />
-                </div>
-
+                <Newspaper class="ml-6 mr-2 mt-3" />
                 <div class="m-1">
                   <p class="font-semibold">Bảng tin</p>
                   <p class="text-xs text-gray-400">Xem bài viết phù hợp của những người và Trang bạn theo dõi.</p>
@@ -127,9 +121,7 @@
             <span class="mx-4 font-semibold">Giải trí</span>
             <div>
               <a href="" class="mx-2 my-2 flex rounded-xl hover:bg-gray-100">
-                <div>
-                  <MonitorPlay class="ml-6 mr-2 mt-3" />
-                </div>
+                <MonitorPlay class="ml-6 mr-2 mt-3" />
 
                 <div class="m-1">
                   <p class="font-semibold">Video chơi game</p>
@@ -142,10 +134,7 @@
 
             <div>
               <a href="" class="mx-2 my-2 flex rounded-xl hover:bg-gray-100">
-                <div>
-                  <Tv class="ml-6 mr-2 mt-3" />
-                </div>
-
+                <Tv class="ml-6 mr-2 mt-3" />
                 <div class="m-1">
                   <p class="font-semibold">Video</p>
                   <p class="text-xs text-gray-400">
@@ -157,14 +146,14 @@
           </div>
         </div>
 
-        <div class="my-2 mr-2 h-[450px] w-52 rounded-xl bg-white">
+        <div class="hover:overflow-auto w-52 bg-white">
           <div>
             <h1 class="m-2 mx-4 box-border text-xl font-semibold">Tạo</h1>
           </div>
           <div>
-            <div class="mx-2 my-3 box-border rounded-xl py-1 hover:bg-gray-100">
+            <div class="mx-2 my-3 box-border  py-1 hover:bg-gray-100">
               <a href="" class="flex">
-                <div class="mx-2 h-8 w-8 rounded-xl bg-gray-200">
+                <div class="mx-2 h-8 w-8  bg-gray-200">
                   <SquarePen class="m-1" />
                 </div>
                 <div>
@@ -250,8 +239,8 @@
   <!--Mess-->
   <div v-if="isShowMessager == true">
     <div class="absolute right-0 top-full box-border w-[350px] rounded-lg border-2 border-solid bg-white">
-      <div class="flex justify-between">
-        <h3 class="font-semiboldbold mx-3 my-1 text-2xl"><b>Đoạn chat</b></h3>
+      <div class="flex justify-between mt-2 mx-2">
+        <h3 class="mx-2 text-xl font-bold">Đoạn chát</h3>
         <div class="flex">
           <div class="mx-1 my-2 box-border cursor-pointer rounded-xl px-2 py-1 hover:bg-gray-200">
             <Ellipsis class="h-5 w-5" />
@@ -266,9 +255,8 @@
           <div></div>
         </div>
       </div>
-
       <div>
-        <input type="text" class="mx-4 rounded-xl bg-gray-100" placeholder="Tìm kiếm trên Messenger" />
+        <input type="text" class="mx-4 rounded-xl bg-gray-100 w-56" placeholder="Tìm kiếm trên Messenger" />
       </div>
 
       <div>
@@ -349,7 +337,7 @@
   <div v-if="isShowNotice == true"
     class="absolute right-0 top-full box-border h-[80vh] w-96 overflow-auto rounded-lg border-2 border-solid bg-white font-semibold shadow-2xl">
     <div class="m-2">
-      <div class="z-50 my-1 py-1">
+      <div class="z-50 my-2">
         <header class="z-0 flex justify-between bg-white">
           <h3 class="mx-2 text-xl font-bold">Thông báo</h3>
           <Ellipsis class="mx-2 rounded-lg hover:bg-gray-200" />
@@ -454,7 +442,7 @@
           <div class="flex justify-between rounded-xl px-1 py-1 hover:bg-gray-200">
             <div class="flex">
               <div class="rounded-full bg-gray-300 py-1">
-                <LogOut class="mx-1.5 my-0.5 p-1" />
+                <KeyRound class="mx-1.5 my-0.5 p-1" />
               </div>
               <div class="mx-2 py-1 text-base font-semibold">Đổi mật khẩu</div>
             </div>
@@ -480,6 +468,7 @@ import svgMessenger from "../svg/svgMessenger.vue"
 import svgNotifications from "../svg/svgNotifications.vue"
 import svgCreate from "../svg/svgCreate.vue"
 import {
+  KeyRound,
   BookOpen,
   CalendarDays,
   CircleHelp,
@@ -515,6 +504,7 @@ export default {
     svgMessenger,
     svgNotifications,
     svgCreate,
+    KeyRound,
     BookOpen,
     CalendarDays,
     ExternalLink,
