@@ -4,41 +4,31 @@
     <SearchBar class="z-20" />
     <div id="mid" class="hidden h-full items-center justify-center gap-2 md:flex">
       <router-link to="/home">
-        <div
-          id="svg-home-box"
+        <div id="svg-home-box max-w[120px] min-w-[56px]" @click="setActiveItems('home')"
           class="product-items flex h-12 cursor-pointer items-center justify-center rounded-lg transition-colors duration-300 hover:bg-myGray-900 lg:w-40"
-        >
-          <svg-home class="icon w-7" />
+          :class="{ 'active-tag': activeItems === 'home' }">
+          <svg-home class="icon w-7" :class="{ 'active-icon': activeItems === 'home' }" />
         </div>
       </router-link>
       <router-link to="/video">
-        <div
-          id="svg-groups-box"
+        <div id="svg-groups-box max-w[120px] min-w-[56px]" @click="setActiveItems('video')"
           class="product-items flex h-12 cursor-pointer items-center justify-center rounded-lg transition-colors duration-300 hover:bg-myGray-900 lg:w-40"
-        >
-          <svg-video class="icon w-7" />
+          :class="{ 'active-tag': activeItems === 'video' }">
+          <svg-video class="icon w-7" :class="{ 'active-icon': activeItems === 'video' }" />
         </div>
       </router-link>
       <router-link to="/market">
-        <div
-          id="svg-groups-box"
+        <div id="svg-groups-box max-w[120px] min-w-[56px]" @click="setActiveItems('market')"
           class="product-items flex h-12 cursor-pointer items-center justify-center rounded-lg transition-colors duration-300 hover:bg-myGray-900 lg:w-40"
-        >
-          <svg-market class="icon w-7" />
+          :class="{ 'active-tag': activeItems === 'market' }">
+          <svg-market class="icon w-7" :class="{ 'active-icon': activeItems === 'market' }" />
         </div>
       </router-link>
-      <!-- <router-link to="/group">
-        <div id="svg-groups-box"
-          class="product-items lg:w-40 h-12 flex items-center justify-center cursor-pointer hover:bg-myGray-900 rounded-lg transition-colors duration-300">
-          <svg-groups class="w-7 icon" />
-        </div>
-      </router-link> -->
       <router-link to="/game">
-        <div
-          id="svg-groups-box"
+        <div id="svg-groups-box max-w[120px] min-w-[56px]" @click="setActiveItems('game')"
           class="product-items flex h-12 cursor-pointer items-center justify-center rounded-lg transition-colors duration-300 hover:bg-myGray-900 lg:w-40"
-        >
-          <svg-game class="icon w-7" />
+          :class="{ 'active-tag': activeItems === 'game' }">
+          <svg-game class="icon w-7" :class="{ 'active-icon': activeItems === 'game' }" />
         </div>
       </router-link>
     </div>
@@ -47,9 +37,7 @@
 </template>
 
 <script>
-// SVG
 import svgHome from "../svg/svgHome.vue"
-import svgGroups from "../svg/svgGroups.vue"
 import svgVideo from "../svg/svgVideo.vue"
 import svgMarket from "../svg/svgMarket.vue"
 import svgGame from "../svg/svgGame.vue"
@@ -66,46 +54,26 @@ export default {
   },
   components: {
     svgHome,
-    // svgGroups,
     SearchBar,
     RightMenu,
     svgVideo,
     svgMarket,
     svgGame
   },
-  mounted() {
-    this.activeItems()
+  created() {
     this.userCurrent = getProfileFromLS()
   },
   data() {
     return {
-      userCurrent: {}
+      userCurrent: {},
+      activeItems: 'home'
     }
   },
   methods: {
-    activeItems() {
-      const product_items = document.querySelectorAll(".product-items")
-      product_items.forEach((value, index) => {
-        value.addEventListener("click", () => {
-          product_items.forEach((item) => {
-            if (item !== value) {
-              item.classList.remove("active-icon")
-              item.classList.remove("active-tag")
-            }
-          })
-          value.classList.add("active-icon")
-          value.classList.add("active-tag")
-        })
-      })
+    setActiveItems(item) {
+      this.activeItems = item
     }
   }
 }
 </script>
-<style>
-#svg-home-box,
-#svg-groups-box,
-#svg-more-box {
-  max-width: 120px;
-  min-width: 56px;
-}
-</style>
+<style />

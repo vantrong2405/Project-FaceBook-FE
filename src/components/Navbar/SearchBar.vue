@@ -1,35 +1,3 @@
-<script>
-import svgSearch from "../svg/svgSearch.vue"
-import svgFacebook from "../svg/svgFacebook.vue"
-import svgLeft from "../svg/svgLeft.vue"
-import { DoorOpen } from "lucide-vue-next"
-export default {
-  components: {
-    svgSearch,
-    svgLeft,
-    DoorOpen
-  },
-  data() {
-    return {
-      isFocus: false,
-      textSearch: "",
-      isShowAll: false
-    }
-  },
-  computed: {},
-  methods: {
-    async handleChangeIsShowAll() {
-      this.isShowAll = false
-      this.showAllTimeout = clearTimeout(this.showAllTimeout)
-      setTimeout(() => {
-        this.isShowAll = true
-      }, 1000)
-    },
-    async searchInfoUser() { }
-  }
-}
-</script>
-
 <template>
   <div class="relative flex h-14 w-72 items-center gap-1 py-2 sm:gap-2" :class="isFocus ? 'w-screen pr-4 sm:w-72' : ''">
     <router-link to="/home">
@@ -75,3 +43,33 @@ export default {
     </ul>
   </div>
 </template>
+<script>
+import svgSearch from "../svg/svgSearch.vue"
+import svgFacebook from "../svg/svgFacebook.vue"
+import svgLeft from "../svg/svgLeft.vue"
+import { DoorOpen } from "lucide-vue-next"
+export default {
+  components: {
+    svgSearch,
+    svgLeft,
+    DoorOpen
+  },
+  data() {
+    return {
+      isFocus: false,
+      textSearch: "",
+      isShowAll: false
+    }
+  },
+  computed: {},
+  methods: {
+    async handleChangeIsShowAll() {
+      this.isShowAll = false
+      this.showAllTimeout = clearTimeout(this.showAllTimeout)
+      setTimeout(() => {
+        this.isShowAll = true
+      }, 1000)
+    }
+  }
+}
+</script>

@@ -2,7 +2,7 @@ export const setAccessTokenToLS = (access_token) => {
   localStorage.setItem("access_token", access_token)
 }
 export const setRefreshTokenToLS = (access_token) => {
-  localStorage.setItem("refresh_token", access_token)
+  localStorage.setItem("refresh_token", 'Bearer' + ' ' + access_token)
 }
 
 export const clearLS = () => {

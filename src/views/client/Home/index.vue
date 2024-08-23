@@ -4,7 +4,7 @@
   <div class="min-h-screen w-full bg-[#F0F2F5]">
     <div class="flex">
       <left-bar-home :userCurrent="userCurrent" :avatar="avatar" />
-      <div class="mx-44 mt-7 w-full">
+      <div class="mx-44 md:mx-28 mt-7 w-full">
         <div class="">
           <div class="flex flex-col gap-4 rounded-lg border-[1px] bg-[white] p-2 shadow-sm">
             <div id="storie" class="rounded-lg">
@@ -123,7 +123,6 @@
                 </div>
               </div>
             </li>
-            <!-- modal comment ne -->
             <div class="modal fade" id="modalComment" tabindex="-1" aria-labelledby="modalCommentLabel"
               aria-hidden="true">
               <div class="modal-dialog modal-dialog-scrollable modal-lg">
@@ -437,6 +436,7 @@ import rightBarHome from "./components/rightBarHome.vue"
 import modalShare from "./components/modalShare.vue"
 import renderImage from "./components/renderImage.vue"
 import { getProfileFromLS } from "@/utils/auth"
+import apiUploadFile from "@/apis/uploadFile.api"
 export default {
   components: {
     svgCreate,
@@ -457,9 +457,9 @@ export default {
     renderImage,
     Trash2
   },
-  async mounted() {
+  created() {
     this.userCurrent = getProfileFromLS()
-    await this.getDataNewFeed()
+    this.getDataNewFeed()
     if (this.userCurrent && this.userCurrent.name) {
       this.placeholder = `${this.userCurrent.name} ơi, bạn đang nghĩ gì thế?`
       this.placeholderPre = `${this.userCurrent.name} ơi, bạn đang nghĩ gì thế?`
@@ -503,39 +503,30 @@ export default {
     },
     async upFile() {
       if (!this.fileup) {
-        console.error("Chưa chọn file.")
-        return
+        console.error("Chưa chọn file.");
+        return;
       }
-      const formData = new FormData()
-      formData.append("image", this.fileup)
 
-      await axios
-        .post("http://localhost:4000/medias/upload-image", formData, {
-          headers: {
-            Authorization: "Bearer " + localStorage.getItem("access_token"),
-            "Content-Type": "multipart/form-data"
-          }
-        })
-        .then((res) => {
-          if (res.status >= 200 && res.status < 300) {
-            console.log(res)
-            this.media.push({
-              url: res.data.result[0].url,
-              type: res.data.result[0].type
-            })
-            this.fileup = ""
-          } else {
-            console.error("Lỗi:", res.status)
-            console.log(res)
-          }
-        })
-        .catch((error) => {
-          console.error("Lỗi khi gửi yêu cầu:", error)
-          this.$toast.error("Upload file không thành công", {
-            position: "bottom-right"
-          })
-        })
-    },
+      try {
+        console.log(this.fileup);
+
+        const formData = new FormData();
+        formData.append("image", this.fileup);
+
+        const res = await apiUploadFile.upFile(formData);
+        this.media.push({
+          url: res.data.result[0].url,
+          type: res.data.result[0].type
+        });
+
+
+
+        this.fileup = "";
+      } catch (error) {
+        console.error("Lỗi khi upload file:", error);
+      }
+    }
+    ,
     openFileInput() {
       this.$refs.fileInput.click()
     },

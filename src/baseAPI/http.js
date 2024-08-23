@@ -12,12 +12,12 @@ class Http {
     this.instance = axios.create({
       baseURL: "http://localhost:4000/",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       }
     })
     this.instance.interceptors.request.use(
       (config) => {
-        config.headers.authorization = this.accessToken
+        config.headers.authorization = 'Bearear' + ' ' + this.accessToken
         return config
       },
       function (error) {

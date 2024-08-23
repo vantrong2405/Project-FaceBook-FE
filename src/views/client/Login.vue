@@ -8,7 +8,6 @@
           <p class="cursor-default pb-[3%] pt-[17%] text-[62px] font-bold leading-[50px] text-[#0866FF]">WE</p>
           <h2 class="text-[28px] text-black">WE giúp bạn kết nối và chia sẻ với mọi người trong cuộc sống của bạn.</h2>
         </div>
-        <!-- form login -->
         <div class="w-[40%] pt-[30px]">
           <div class="rounded-[10px] bg-white p-[15px] px-[15px] shadow-lg">
             <form class="h-2/4">
@@ -23,15 +22,12 @@
             <div class="pt-[10px] text-center" data-bs-toggle="modal" data-bs-target="#forgot-password">
               <a href="#" class="text-[14px] text-[#0866ff] hover:underline">Quên mật khẩu?</a>
             </div>
-            <!-- start -->
-            <!-- Modal -->
             <div class="modal fade" id="forgot-password" tabindex="-1" aria-labelledby="forgot-passwordLabel"
               aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-body bg-white px-5">
                     <div class="my-6 mb-12 flex w-full items-center justify-center">
-                      <!-- <img src="/src/assets/images/logo.png" width="30%" alt="" class="text-center"> -->
                       <p class="cursor-default text-6xl font-bold leading-[50px] text-[#0866FF]">WE</p>
                     </div>
                     <div
@@ -144,7 +140,6 @@
         </div>
       </div>
     </section>
-    <!-- FOOTER -->
     <footer>
       <div class="container px-[5%] py-[1%]">
         <div class="mx-auto w-[1100px]">

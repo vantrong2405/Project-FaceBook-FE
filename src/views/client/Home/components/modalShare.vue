@@ -10,9 +10,7 @@
         <div class="modal-body">
           <div class="flex w-full">
             <a class="h-[40px] w-[40px] hover:brightness-90" href="">
-              <img class="h-full w-full rounded-full"
-                src="https://scontent.fdad3-6.fna.fbcdn.net/v/t39.30808-1/274456074_1361142244327596_3675729695510261208_n.jpg?stp=c0.2.200.200a_dst-jpg_p200x200&_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEu3DE5x6dR9PxFQ-LK28vEDbjtZrkb4vQNuO1muRvi9Ih5x7QFRzr-YV0Ly3szC91MQcW0YX-b2uUdFa-mQrif&_nc_ohc=Qt8QiDFGOAcQ7kNvgEg42rk&_nc_ht=scontent.fdad3-6.fna&oh=00_AYBFPsf8BS-VIw3-Z8E96YN00GSPXOvNyYMm5GvieB4ICA&oe=6647C7E6"
-                alt="" />
+              <img class="h-full w-full rounded-full" src="../../../../assets/images/png/default.png" alt="" />
             </a>
             <div class="ml-[10px]">
               <p class="text-[15px] font-medium text-black">Ân Nguyên</p>
