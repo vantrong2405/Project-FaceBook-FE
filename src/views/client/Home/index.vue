@@ -63,7 +63,7 @@
                         {{ value.user.name }}
                       </p>
                       <p class="mt-1 flex items-center text-xs">
-                        <span class="cursor-pointer hover:underline">{{ dinhDangNgay(value?.created_at ?? "") }}</span>
+                        <span class="cursor-pointer hover:underline">{{ formatDate(value?.created_at ?? "") }}</span>
                         <span class="mx-1">·</span>
                         <svg-world class="w-3" />
                       </p>
@@ -102,7 +102,7 @@
                   class="my-2 flex items-center border-b border-t border-myGray-900 text-sm font-normal sm:text-tiny">
                   <div
                     class="my-1 flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg p-2 transition-colors duration-300 hover:bg-myGray-900"
-                    :class="{ 'text-[#0861f2]': value.user_liked.liked }" @click="likePost(value, index)">
+                    :class="{ 'text-[#0861f2]': value.user_liked.liked }" @click="changeStatusLikePost(value, index)">
                     <i class="fa-solid fa-thumbs-up text-2xl"></i>
                     <span>Like</span>
                   </div>
@@ -150,8 +150,8 @@
                             </p>
                             <p class="mt-1 flex items-center text-xs">
                               <span class="cursor-pointer hover:underline">{{
-                                dinhDangNgay(valueDetailPost ? valueDetailPost.created_at : "")
-                                }}</span>
+                                formatDate(valueDetailPost?.created_at ?? "")
+                              }}</span>
                               <span class="mx-1">·</span>
                               <svg-world class="w-3" />
                             </p>
@@ -179,7 +179,8 @@
                           class="my-2 flex items-center border-b border-t border-myGray-900 text-sm font-normal sm:text-tiny">
                           <div
                             class="my-1 flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg p-2 transition-colors duration-300 hover:bg-myGray-900"
-                            :class="{ 'text-[#0861f2]': value.user_liked.liked }" @click="likePost(value, index)">
+                            :class="{ 'text-[#0861f2]': value.user_liked.liked }"
+                            @click="changeStatusLikePost(value, index)">
                             <i class="fa-solid fa-thumbs-up text-2xl"></i>
                             <span>Like</span>
                           </div>
@@ -240,7 +241,7 @@
                           <input
                             class="w-full rounded-2xl border-0 bg-transparent px-3 outline-none focus:border-black focus:outline-none focus:ring-transparent"
                             type="text" placeholder="Viết câu trả lời..." v-model="contentComment"
-                            v-on:keyup.enter="commentPost(valueDetailPost._id)" />
+                            v-on:keyup.enter="addCommentPost(valueDetailPost._id)" />
                           <div id="me_comment_buttons" class="flex items-center">
                             <div class="cursor-pointer rounded-full p-2 transition-colors duration-300">
                               <svg-smile class="w-4 text-myGray-600" />
@@ -360,7 +361,7 @@
               </div>
 
               <button class="w-full rounded-lg bg-[#0861F2] py-[10px] font-medium text-white" data-bs-dismiss="modal"
-                aria-label="Close" v-on:click="postArticle">
+                aria-label="Close" v-on:click="addPost">
                 Đăng
               </button>
             </div>
@@ -402,7 +403,7 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
-              @click="handleDeleteComment(valueCommentDetail)">
+              @click="handleDeleteComment(valueCommentDetail.post_id)">
               Xóa ngay
             </button>
           </div>
@@ -426,17 +427,17 @@ import svgComment from "@/components/svg/svgComment.vue"
 import svgMenu from "@/components/svg/svgMenu.vue"
 import { Forward } from "lucide-vue-next"
 import svgNewMessage from "@/components/svg/svgNewMessage.vue"
-import { Users, Ellipsis, Repeat, X, Trash2 } from "lucide-vue-next"
-
+import { X, Trash2 } from "lucide-vue-next"
 import http from "@/baseAPI/http"
 import axios from "axios"
-import { useToast } from "vue-toast-notification"
 import leftBarHome from "./components/leftBarHome.vue"
 import rightBarHome from "./components/rightBarHome.vue"
 import modalShare from "./components/modalShare.vue"
 import renderImage from "./components/renderImage.vue"
 import { getProfileFromLS } from "@/utils/auth"
 import apiUploadFile from "@/apis/uploadFile.api"
+import apiPost from "@/apis/post.api"
+import { formatDate } from "@/utils/utils"
 export default {
   components: {
     svgCreate,
@@ -455,7 +456,7 @@ export default {
     rightBarHome,
     modalShare,
     renderImage,
-    Trash2
+    Trash2,
   },
   created() {
     this.userCurrent = getProfileFromLS()
@@ -496,139 +497,90 @@ export default {
     }
   },
   methods: {
+    formatDate,
+    openFileInput() {
+      this.$refs.fileInput.click()
+    },
     handleFileUpload(event) {
       this.fileup = event.target.files[0]
-      this.upFile()
+      this.handleUpFileImage()
       this.$refs.fileInput.value = ""
     },
-    async upFile() {
+    async handleUpFileImage() {
       if (!this.fileup) {
         console.error("Chưa chọn file.");
         return;
       }
-
       try {
-        console.log(this.fileup);
-
         const formData = new FormData();
         formData.append("image", this.fileup);
-
         const res = await apiUploadFile.upFile(formData);
         this.media.push({
           url: res.data.result[0].url,
           type: res.data.result[0].type
         });
-
-
-
         this.fileup = "";
       } catch (error) {
         console.error("Lỗi khi upload file:", error);
       }
-    }
-    ,
-    openFileInput() {
-      this.$refs.fileInput.click()
     },
-    postArticle() {
+    addPost() {
       if (this.content.trim() != "" || this.media.length > 0) {
-        const obj = {
+        const body = {
           visibility: 1,
           content: this.content,
           mentions: [],
           medias: this.media
         }
-        http
-          .post("/posts", obj)
-          .then((res) => {
-            this.$toast.success("Tạo bài viết thành công", {
-              position: "bottom-right"
-            })
-            this.getDataNewFeed()
-            this.content = ""
-            this.media = []
+        const resPost = apiPost.addPost(body)
+        resPost.then((res) => {
+          this.$toast.success(res.data.message, {
+            position: "bottom-right"
           })
-          .catch((errors) => {
-            console.log(errors)
-            this.$toast.error("Lỗi khi tạo bài viết", {
-              position: "bottom-right"
-            })
-          })
+          this.getDataNewFeed()
+          this.content = ""
+          this.media = []
+        })
       } else {
-        this.$toast.error("Bài viết chưa có nội dung", {
+        this.$toast.error('Nội dung không được để trống', {
           position: "bottom-right"
         })
       }
     },
     getDataNewFeed() {
-      axios
-        .get("http://localhost:4000/posts", {
-          headers: {
-            Authorization: "Bearer " + localStorage.getItem("access_token")
-          },
-          params: {
-            limit: 5,
-            page: 1
-          }
-        })
-        .then((res) => {
-          this.allNewFeed = res.data.result
-          this.allNewFeed.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
-        })
-        .catch((errors) => {
-          console.log(errors)
-        })
-    },
-    chuyenDoiChuoiNgay(chuoiNgay) {
-      return new Date(chuoiNgay)
-    },
-    dinhDangNgay(chuoiNgay) {
-      const ngayHienTai = new Date()
-      const ngayGoc = this.chuyenDoiChuoiNgay(chuoiNgay)
-
-      if (isNaN(ngayGoc.getTime())) {
-        return "Ngày không hợp lệ"
-      }
-      const khoangCach = ngayHienTai - ngayGoc
-      const giay = Math.floor(khoangCach / 1000)
-      const phut = Math.floor(giay / 60)
-      const gio = Math.floor(phut / 60)
-      const ngay = Math.floor(gio / 24)
-      const thang = Math.floor(ngay / 30)
-      const nam = Math.floor(thang / 12)
-
-      if (phut < 60) {
-        return `${phut} phút trước`
-      } else if (gio < 24) {
-        return `${gio} giờ trước`
-      } else if (ngay < 30) {
-        return `${ngay} ngày trước`
-      } else if (thang < 12) {
-        return `${thang} tháng trước`
-      } else {
-        return `${nam} năm trước`
-      }
-    },
-    async likePost(value, index) {
-      const payload = {
-        post_id: value._id
-      }
-      if (value?.user_liked?.liked) {
-        try {
-          const res = await http.delete(`/likes/post/${payload.post_id}`)
-          this.getDataNewFeed()
-        } catch (errors) {
-          console.log(errors)
+      const dataPost = apiPost.getPost({
+        params: {
+          limit: 5,
+          page: 1
         }
+      })
+      dataPost.then((res) => {
+        this.allNewFeed = res.data.result
+        this.allNewFeed.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+      })
+    },
+    async changeStatusLikePost(post, index) {
+      if (post?.user_liked?.liked) {
+        const res = apiPost.deleteLikePost(post._id)
+        res.then((res) => {
+          this.getDataNewFeed()
+          this.$toast.success(res.data.message, {
+            position: "bottom-right"
+          })
+        })
       } else {
-        try {
-          const res = await http.post("/likes", payload)
+        const payload = {
+          post_id: post._id
+        }
+        const res = apiPost.likePost(payload)
+        res.then((res) => {
           this.getDataNewFeed()
           this.liked = this.allNewFeed[index].user_liked.liked
           this.liked = [...this.allNewFeed]
-        } catch (errors) {
-          console.log(errors)
-        }
+          this.$toast.success(res.data.message, {
+            position: "bottom-right"
+          })
+        })
       }
     },
     handlePaste(event) {
@@ -660,71 +612,59 @@ export default {
       if (index >= 0) this.media.splice(index, 1)
     },
     getCommentDetailPost() {
-      axios
-        .get(`http://localhost:4000/comments/${this.valueDetailPost._id}/post`, {
-          headers: {
-            Authorization: "Bearer " + localStorage.getItem("access_token")
-          },
-          params: {
-            limit: 100,
-            page: 1
-          }
-        })
-        .then((res) => {
-          this.valueDetailPost.postComment = res.data.result.postComment
-        })
-        .catch((errors) => {
-          console.log(errors)
-        })
+      const dataCommentDetail = apiPost.getCommentDetailPost(this.valueDetailPost._id, {
+        params: {
+          limit: 20,
+          page: 1
+        }
+      })
+      dataCommentDetail.then((res) => {
+        this.valueDetailPost.postComment = res.data.result.postComment
+      })
     },
     handleDetailPost(index) {
-      console.log(">>>>", index)
       this.valueDetailPost = this.allNewFeed[index]
-      console.log(this.valueDetailPost)
       if (this.valueDetailPost._id) {
         this.getCommentDetailPost()
       }
     },
-    async commentPost(id) {
-      const payload = {
-        post_id: id,
+    async addCommentPost(postId) {
+      const body = {
+        post_id: postId,
         content: this.contentComment
       }
 
       if (this.contentComment.trim() !== "") {
         try {
-          const response = await http.post("/comments", payload)
-          this.contentComment = ""
-          await this.getCommentDetailPost()
-          await this.getDataNewFeed()
+          const res = await apiPost.addCommentPost(body)
+          this.$toast.success(res.data.message, {
+            position: "bottom-right"
+          })
+          this.contentComment = "";
+          await Promise.all([
+            this.getCommentDetailPost(),
+            this.getDataNewFeed()
+          ]);
         } catch (errors) {
-          console.log(errors)
+          console.log(errors);
         }
       }
     },
-    async handleDeleteComment(value) {
-      console.log("id comment:", value._id)
-      console.log("id post:", value.post_id)
-      const payload = {
-        post_id: value.post_id
-      }
-      if (value) {
-        try {
-          const res = await axios.delete(`http://localhost:4000/comments/post/${value._id}`, {
-            headers: {
-              Authorization: "Bearer " + localStorage.getItem("access_token"),
-              "Content-Type": "application/json"
-            },
-            data: payload
-          })
-          await this.getCommentDetailPost()
-          await this.getDataNewFeed()
-          this.$toast.success("Xóa comment thành công", {
-            position: "bottom-right"
-          })
-        } catch (errors) {
-          console.log("Lỗi: ", errors.response ? errors.response.data : errors.message)
+    async handleDeleteComment(postId) {
+      try {
+        const body = {
+          post_id: postId
         }
+        const res = await apiPost.deleteCommentPost(body)
+        await Promise.all([
+          this.getCommentDetailPost(),
+          this.getDataNewFeed()
+        ]
+        )
+        this.$toast.success(res.data.message, {
+          position: "bottom-right"
+        })
+      } catch (error) {
       }
     }
   },
