@@ -1,4 +1,3 @@
-<!-- eslint-disable no-undef -->
 <template>
   <div class="-z-30">
     <div class="flex items-center justify-end gap-1 px-4 sm:gap-2">
@@ -11,11 +10,9 @@
           isShowNotice = false
           ">
         <svg-menu class="hidden w-5 lg:block" />
-
         <svg-create class="block w-5 lg:hidden" />
       </div>
 
-      <!--Mess-->
       <div id="messenger-box"
         class="flex cursor-pointer items-center justify-center rounded-full bg-myGray-900 p-2 transition-colors duration-300 hover:bg-myGray-700"
         @click="
@@ -498,11 +495,11 @@ import {
 
 import "vue-toast-notification/dist/theme-sugar.css"
 import apiProfile from "@/apis/profile.api"
-import { clearLS } from "@/utils/auth"
+import { clearLS, getProfileFromLS } from "@/utils/auth"
 import apiAuth from "@/apis/auth.api"
 export default {
   mounted() {
-    this.userCurrent = JSON.parse(localStorage.getItem("profile"))
+    this.userCurrent = getProfileFromLS()
     this.getProfile()
   },
   components: {
@@ -555,16 +552,6 @@ export default {
       this.$toast.success(res.data.message, {
         position: "bottom-right"
       })
-      // const logout = apiAuth.logoutAcconunt({ refresh_token: localStorage.getItem("refresh_token") || '' })
-      // logout.then((res) => {
-      //   if (res.status === 200) {
-      //     clearLS()
-      //     this.$router.push("/")
-      //     this.$toast.success(res.data.message, {
-      //       position: "bottom-right"
-      //     })
-      //   }
-      // }
     }
   }
 }

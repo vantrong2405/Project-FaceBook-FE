@@ -294,7 +294,7 @@ import rightBarHome from "./components/rightBarHome.vue";
 import modalShare from "./components/modalShare.vue";
 import renderImage from "./components/renderImage.vue";
 import { getProfileFromLS } from "@/utils/auth";
-import { formatDate } from "@/utils/utils";
+import { formatDate, isImageUrl } from "@/utils/utils";
 import apiUploadFile from "@/apis/uploadFile.api";
 import apiPost from "@/apis/post.api";
 import modalCreate from "./components/modalCreate.vue";
@@ -324,7 +324,7 @@ export default {
   },
   created() {
     this.userCurrent = getProfileFromLS()
-    this.getDataNewFeed()
+    this.getDataNewFeed(true)
     if (this.userCurrent && this.userCurrent.name) {
       this.placeholder = `${this.userCurrent.name} ơi, bạn đang nghĩ gì thế?`
     } else {
@@ -409,7 +409,7 @@ export default {
         })
       }
     },
-    getDataNewFeed() {
+    getDataNewFeed(isInitialLoad = false) {
       const dataPost = apiPost.getPost({
         params: {
           limit: 5,
@@ -418,7 +418,11 @@ export default {
       })
       dataPost.then((res) => {
         this.allNewFeed = res.data.result
-        this.allNewFeed.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+        if (isInitialLoad) {
+          this.allNewFeed.sort(() => Math.random() - 0.5)
+        } else {
+          this.allNewFeed.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+        }
       })
     },
     async changeStatusLikePost(post, index) {
@@ -459,7 +463,7 @@ export default {
           reader.readAsDataURL(blob)
         } else if (item.type === "text/plain") {
           item.getAsString((url) => {
-            if (this.isImageUrl(url)) {
+            if (isImageUrl(url)) {
               this.media.push({ url: url, type: 0 })
             }
           })
@@ -467,9 +471,7 @@ export default {
       }
       event.preventDefault()
     },
-    isImageUrl(url) {
-      return /\.(jpeg|jpg|gif|png|webp)$/.test(url)
-    },
+
     handleDeleteMedia(index) {
       if (index >= 0) this.media.splice(index, 1)
     },
@@ -520,19 +522,15 @@ export default {
             post_id: post.post_id
           }
         });
-
-        // Chờ cả hai lời gọi bất đồng bộ hoàn thành
         await Promise.all([
           this.getCommentDetailPost(),
           this.getDataNewFeed()
         ]);
 
-        // Hiển thị thông báo thành công
         this.$toast.success(res.data.message, {
           position: "bottom-right"
         });
       } catch (error) {
-        // Có thể thêm xử lý lỗi ở đây nếu cần thiết
         console.error('Error deleting comment:', error);
       }
     },
@@ -546,4 +544,3 @@ export default {
   }
 }
 </script>
-<style></style>

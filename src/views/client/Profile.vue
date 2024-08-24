@@ -1,16 +1,13 @@
 <template>
   <input type="file" hidden name="file" ref="fileInput" id="file" @change="handleFileUpload" />
-  <input type="file" hidden name="file" ref="fileInputAvatar" id="file" @change="handleFileUploadAvatar" />
+  <input type="file" hidden name="file" ref="fileInputAvatar" id="file" @change="handleUpFileloadAvatar" />
   <div class="w-full bg-[#F0F2F5]">
-    <!-- Header-profile -->
     <div id="header-profile" class="w-full bg-white shadow-md">
       <div class="relative flex w-full flex-col justify-center">
-        <!-- Anh bia -->
         <div class="mx-auto h-[405px] w-[1095px]">
           <img class="h-full w-full cursor-pointer rounded-b-lg" src="https://fileinfo.com/img/ss/xl/jpg_44-2.jpg"
             alt="" />
         </div>
-        <!-- Avatar -->
         <div class="relative mx-auto flex h-[145px] w-[70%] flex-row justify-end">
           <div
             class="absolute left-[15px] top-[-30px] flex h-[176px] w-[176px] cursor-pointer items-center justify-center rounded-full bg-white">
@@ -113,15 +110,12 @@
         </div>
       </div>
     </div>
-    <!-- Body-profile -->
     <div class="min-h-screen w-full bg-[#F0F2F5]">
       <div class="mx-auto w-[1031px]">
         <div class="mt-[15px] flex w-full">
-          <!-- LEFT-BODY -->
           <div class="mb-[20px] mr-[20px] w-[440px]">
             <div class="sticky top-4">
               <div class="flex h-full w-full flex-col">
-                <!-- INFO-PROFILE  ni là tiểu sử nghe-->
                 <div class="mb-[15px] w-full rounded-lg border-b border-gray-300 bg-white p-[16px] shadow-sm"
                   v-if="isOwner">
                   <p class="text-[20px] font-bold text-[#050505]">Giới thiệu</p>
@@ -142,7 +136,6 @@
                     Thêm nội dung đáng chú ý
                   </p>
                 </div>
-                <!-- PHOTO-PROFILE -->
                 <div class="w-full rounded-lg border-b border-gray-300 bg-white px-[16px] pb-[20px] shadow-sm">
                   <div class="mb-[15px] flex w-full flex-row items-center justify-between pt-[8px]">
                     <a class="text-[20px] font-bold text-[#050505] hover:underline" href="">Ảnh</a>
@@ -160,7 +153,6 @@
                     </div>
                   </div>
                 </div>
-                <!-- FRIEND-PROFILE -->
                 <div
                   class="mt-[15px] w-full rounded-lg border-b border-gray-300 bg-white px-[16px] pb-[20px] shadow-sm">
                   <div class="mb-[-2px] flex w-full flex-row items-center justify-between pt-[8px]">
@@ -186,7 +178,6 @@
               </div>
             </div>
           </div>
-          <!-- RIGHT-PROFILE -->
           <div class="w-[560px]">
             <div class="flex w-full flex-col gap-4 rounded-lg border-[1px] bg-[white] p-2 shadow-sm" v-if="isOwner">
               <div id="new-post" class="flex h-32 flex-col justify-between rounded-lg p-2">
@@ -267,7 +258,7 @@
                         </p>
                         <p class="mt-1 flex items-center text-xs">
                           <span class="cursor-pointer hover:underline">{{
-                            dinhDangNgay(value?.created_at ?? "")
+                            formatDate(value?.created_at ?? "")
                             }}</span>
                           <span class="mx-1">·</span>
                           <svg-world class="w-3" />
@@ -307,7 +298,7 @@
                     class="my-2 flex items-center border-b border-t border-myGray-900 text-sm font-normal sm:text-tiny">
                     <div
                       class="my-1 flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg p-2 transition-colors duration-300 hover:bg-myGray-900"
-                      :class="{ 'text-[#0861f2]': value.user_liked.liked }" @click="likePost(value, index)">
+                      :class="{ 'text-[#0861f2]': value.user_liked.liked }" @click="changeStatusLikePost(value, index)">
                       <i class="fa-solid fa-thumbs-up text-2xl"></i>
                       <span>Like</span>
                     </div>
@@ -328,7 +319,6 @@
                   </div>
                 </div>
               </li>
-              <!-- modal comment ne -->
               <div class="modal fade" id="modalComment" tabindex="-1" aria-labelledby="modalCommentLabel"
                 aria-hidden="true">
                 <div class="modal-dialog modal-dialog-scrollable modal-lg">
@@ -356,7 +346,7 @@
                               </p>
                               <p class="mt-1 flex items-center text-xs">
                                 <span class="cursor-pointer hover:underline">{{
-                                  dinhDangNgay(valueDetailPost ? valueDetailPost.created_at : "")
+                                  formatDate(valueDetailPost ? valueDetailPost.created_at : "")
                                   }}</span>
                                 <span class="mx-1">·</span>
                                 <svg-world class="w-3" />
@@ -385,7 +375,8 @@
                             class="my-2 flex items-center border-b border-t border-myGray-900 text-sm font-normal sm:text-tiny">
                             <div
                               class="my-1 flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg p-2 transition-colors duration-300 hover:bg-myGray-900"
-                              :class="{ 'text-[#0861f2]': value.user_liked.liked }" @click="likePost(value, index)">
+                              :class="{ 'text-[#0861f2]': value.user_liked.liked }"
+                              @click="changeStatusLikePost(value, index)">
                               <i class="fa-solid fa-thumbs-up text-2xl"></i>
                               <span>Like</span>
                             </div>
@@ -444,11 +435,10 @@
                         <div class="flex w-full flex-col">
                           <div id="me_comment"
                             class="flex w-full rounded-2xl bg-slate-100 outline-none ring-transparent focus:outline-none">
-                            <!-- input Comment -->
                             <input
                               class="w-full rounded-2xl border-0 bg-transparent px-3 outline-none focus:border-black focus:outline-none focus:ring-transparent"
                               type="text" placeholder="Viết câu trả lời..." v-model="contentComment"
-                              v-on:keyup.enter="commentPost(valueDetailPost._id)" />
+                              v-on:keyup.enter="addCommentPost(valueDetailPost._id)" />
                             <div id="me_comment_buttons" class="flex items-center">
                               <div class="cursor-pointer rounded-full p-2 transition-colors duration-300">
                                 <svg-smile class="w-4 text-myGray-600" />
@@ -478,7 +468,6 @@
         </div>
       </div>
     </div>
-    <!-- Modal Create Post -->
     <div v-if="showModalCreatePost" id="ModalCreatePost"
       class="absolute bottom-0 left-0 right-0 top-[-20%] z-50 bg-white bg-opacity-50">
       <div class="fixed left-[35%] top-[20%] w-[35%]">
@@ -548,7 +537,6 @@
 
             <button class="w-full rounded-lg bg-[#0861F2] py-[10px] font-medium text-white">Đăng</button>
           </div>
-          <!-- Close Modal Create Post -->
           <div @click="showModalCreatePost = false" class="absolute right-[12px] top-2">
             <div
               class="flex h-[36px] w-[36px] cursor-pointer items-center justify-center rounded-full bg-[#E4E6EB] hover:bg-[#D8DADF]">
@@ -560,7 +548,6 @@
     </div>
   </div>
 
-  <!-- modal create ne-->
   <div class="modal fade" id="create_posts" tabindex="-1" aria-labelledby="create_post" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
       <div class="modal-content">
@@ -754,27 +741,25 @@
   </div>
 </template>
 <script>
-import svgCreate from "@/components/svg/svgCreate.vue"
 import svgLiveVideo from "@/components/svg/svgLiveVideo.vue"
 import svgPhoto from "@/components/svg/svgPhoto.vue"
 import svgSmile from "@/components/svg/svgSmile.vue"
-// item
 import svgDots from "@/components/svg/svgDots.vue"
 import svgWorld from "@/components/svg/svgWorld.vue"
 import svgLike from "@/components/svg/svgLike.vue"
-import svgLike2 from "@/components/svg/svgLike2.vue"
-import svgComment from "@/components/svg/svgComment.vue"
 import svgMenu from "@/components/svg/svgMenu.vue"
+import svgComment from "@/components/svg/svgComment.vue"
 import { Forward } from "lucide-vue-next"
-import svgNewMessage from "@/components/svg/svgNewMessage.vue"
-import { Users, Ellipsis, Repeat, X, Trash2 } from "lucide-vue-next"
-// item
+import { X, Trash2 } from "lucide-vue-next"
 import http from "@/baseAPI/http"
 import axios from "axios"
-import { useToast } from "vue-toast-notification"
 import modalShare from "./Home/components/modalShare.vue"
 import renderImage from "./Home/components/renderImage.vue"
-import RightMenu from "@/components/Navbar/RightMenu.vue"
+import apiPost from "@/apis/post.api"
+import { formatDate, isImageUrl } from "@/utils/utils"
+import apiFriend from "@/apis/friend.api"
+import apiProfile from "@/apis/profile.api"
+import apiUploadFile from "@/apis/uploadFile.api"
 export default {
   components: {
     svgLiveVideo,
@@ -804,12 +789,10 @@ export default {
       this.placeholderPre = "Bạn đang nghĩ gì thế?"
     }
     this.isOwner = this.userCurrent.username == this.userName
-    console.log(this.userCurrent)
     if (this.userName) {
       this.getProfile()
       this.name = this.userCurrent.name
       this.avatarUpLoad = this.userCurrent.avatar ? this.userCurrent.avatar : this.avatar
-      console.log(this.userCurrent)
     }
   },
   data() {
@@ -851,21 +834,18 @@ export default {
   },
 
   methods: {
+    formatDate,
     checkStatusFriend() {
-      http.get(`/users/check-friend/${this.userName}`).then((res) => {
+      const res = apiFriend.checkStatusFriend(this.userName)
+      res.then((res) => {
         this.statusFriend = res.data.status
       })
     },
     getProfile() {
-      http
-        .get(`/users/profile/${this.userName}`)
-        .then((res) => {
-          this.profileInFor = res.data.result
-          console.log(">>>>", this.profileInFor)
-        })
-        .catch((errors) => {
-          console.log(">>>>>>>>>", errors)
-        })
+      const dataProfile = apiProfile.getProfile(this.userCurrent.username)
+      dataProfile.then((res) => {
+        this.profileInFor = res.data.result
+      })
     },
     ChangeInformation() {
       const payload = {
@@ -873,22 +853,18 @@ export default {
         gender: this.gender,
         avatar: this.avatarUpLoad
       }
-      console.log(payload)
-      http
-        .patch("/users/update-me", payload)
-        .then((res) => {
-          // Nếu cập nhật thành công
-          this.$toast.success("Cập nhật thông tin thành công", {
-            position: "bottom-right"
-          })
-          const profile = JSON.parse(localStorage.getItem("profile"))
-          profile.name = this.name
-          profile.avatar = this.avatar
-          profile.gender = this.gender
-          localStorage.setItem("profile", JSON.stringify(profile))
-          this.getProfile()
-          window.location.reload()
+      const res = apiProfile.updateProfile(payload)
+      res.then((res) => {
+        this.$toast.success("Cập nhật thông tin thành công", {
+          position: "bottom-right"
         })
+        const profile = JSON.parse(localStorage.getItem("profile"))
+        profile.name = this.name
+        profile.avatar = this.avatar
+        profile.gender = this.gender
+        localStorage.setItem("profile", JSON.stringify(profile))
+        this.getProfile()
+      })
         .catch((error) => {
           console.error(error)
           this.$toast.error("Cập nhật thông tin thất bại", {
@@ -906,7 +882,7 @@ export default {
       this.upFile()
       this.$refs.fileInput.value = ""
     },
-    handleFileUploadAvatar(event) {
+    handleUpFileloadAvatar(event) {
       this.fileup = event.target.files[0]
       this.upFileAvatar()
       this.$refs.fileInput.value = ""
@@ -919,65 +895,30 @@ export default {
       const formData = new FormData()
       formData.append("image", this.fileup)
 
-      await axios
-        .post("http://localhost:4000/medias/upload-image", formData, {
-          headers: {
-            Authorization: "Bearer " + localStorage.getItem("access_token"),
-            "Content-Type": "multipart/form-data"
-          }
-        })
-        .then((res) => {
-          if (res.status >= 200 && res.status < 300) {
-            console.log(res)
-            this.avatarUpLoad = res.data.result[0].url
-            console.log(this.avatarUpLoad)
-            this.fileup = ""
-          } else {
-            console.error("Lỗi:", res.status)
-            console.log(res)
-          }
-        })
-        .catch((error) => {
-          console.error("Lỗi khi gửi yêu cầu:", error)
-          this.$toast.error("Upload file không thành công", {
-            position: "bottom-right"
-          })
-        })
+      const res = await apiUploadFile.upFile(formData);
+      res.then((res) => {
+        this.avatarUpLoad = res.data.result[0].url
+        console.log(this.avatarUpLoad)
+        this.fileup = ""
+      })
     },
     async upFile() {
       if (!this.fileup) {
-        console.error("Chưa chọn file.")
-        return
+        console.error("Chưa chọn file.");
+        return;
       }
-      const formData = new FormData()
-      formData.append("image", this.fileup)
-
-      await axios
-        .post("http://localhost:4000/medias/upload-image", formData, {
-          headers: {
-            Authorization: "Bearer " + localStorage.getItem("access_token"),
-            "Content-Type": "multipart/form-data"
-          }
-        })
-        .then((res) => {
-          if (res.status >= 200 && res.status < 300) {
-            console.log(res)
-            this.media.push({
-              url: res.data.result[0].url,
-              type: res.data.result[0].type
-            })
-            this.fileup = ""
-          } else {
-            console.error("Lỗi:", res.status)
-            console.log(res)
-          }
-        })
-        .catch((error) => {
-          console.error("Lỗi khi gửi yêu cầu:", error)
-          this.$toast.error("Upload file không thành công", {
-            position: "bottom-right"
-          })
-        })
+      try {
+        const formData = new FormData();
+        formData.append("image", this.fileup);
+        const res = await apiUploadFile.upFile(formData);
+        this.media.push({
+          url: res.data.result[0].url,
+          type: res.data.result[0].type
+        });
+        this.fileup = "";
+      } catch (error) {
+        console.error("Lỗi khi upload file:", error);
+      }
     },
     openFileInput() {
       this.$refs.fileInput.click()
@@ -1016,78 +957,39 @@ export default {
       }
     },
     getDataNewFeed() {
-      axios
-        .get("http://localhost:4000/posts", {
-          headers: {
-            Authorization: "Bearer " + localStorage.getItem("access_token")
-          },
-          params: {
-            limit: 5,
-            page: 1
-          }
-        })
-        .then((res) => {
-          this.allNewFeed = res.data.result
-          this.allNewFeed.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
-
-          this.allNewFeed = this.allNewFeed.filter((value, index) => {
-            return value.user.username == this.userName
+      const dataPost = apiPost.getPost({
+        params: {
+          limit: 5,
+          page: 1
+        }
+      })
+      dataPost.then((res) => {
+        this.allNewFeed = res.data.result
+        this.allNewFeed.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+      })
+    },
+    async changeStatusLikePost(post, index) {
+      if (post?.user_liked?.liked) {
+        const res = apiPost.deleteLikePost(post._id)
+        res.then((res) => {
+          this.getDataNewFeed()
+          this.$toast.success(res.data.message, {
+            position: "bottom-right"
           })
         })
-        .catch((errors) => {
-          console.log(errors)
-        })
-    },
-    chuyenDoiChuoiNgay(chuoiNgay) {
-      return new Date(chuoiNgay)
-    },
-    dinhDangNgay(chuoiNgay) {
-      const ngayHienTai = new Date()
-      const ngayGoc = this.chuyenDoiChuoiNgay(chuoiNgay)
-
-      if (isNaN(ngayGoc.getTime())) {
-        return "Ngày không hợp lệ"
-      }
-      const khoangCach = ngayHienTai - ngayGoc
-      const giay = Math.floor(khoangCach / 1000)
-      const phut = Math.floor(giay / 60)
-      const gio = Math.floor(phut / 60)
-      const ngay = Math.floor(gio / 24)
-      const thang = Math.floor(ngay / 30)
-      const nam = Math.floor(thang / 12)
-
-      if (phut < 60) {
-        return `${phut} phút trước`
-      } else if (gio < 24) {
-        return `${gio} giờ trước`
-      } else if (ngay < 30) {
-        return `${ngay} ngày trước`
-      } else if (thang < 12) {
-        return `${thang} tháng trước`
       } else {
-        return `${nam} năm trước`
-      }
-    },
-    async likePost(value, index) {
-      const payload = {
-        post_id: value._id
-      }
-      if (value?.user_liked?.liked) {
-        try {
-          const res = await http.delete(`/likes/post/${payload.post_id}`)
-          this.getDataNewFeed()
-        } catch (errors) {
-          console.log(errors)
+        const payload = {
+          post_id: post._id
         }
-      } else {
-        try {
-          const res = await http.post("/likes", payload)
+        const res = apiPost.likePost(payload)
+        res.then((res) => {
           this.getDataNewFeed()
           this.liked = this.allNewFeed[index].user_liked.liked
           this.liked = [...this.allNewFeed]
-        } catch (errors) {
-          console.log(errors)
-        }
+          this.$toast.success(res.data.message, {
+            position: "bottom-right"
+          })
+        })
       }
     },
     handlePaste(event) {
@@ -1104,7 +1006,7 @@ export default {
           reader.readAsDataURL(blob)
         } else if (item.type === "text/plain") {
           item.getAsString((url) => {
-            if (this.isImageUrl(url)) {
+            if (isImageUrl(url)) {
               this.media.push({ url: url, type: 0 })
             }
           })
@@ -1112,107 +1014,84 @@ export default {
       }
       event.preventDefault()
     },
-    isImageUrl(url) {
-      return /\.(jpeg|jpg|gif|png|webp)$/.test(url)
-    },
+
     handleDeleteMedia(index) {
       if (index >= 0) this.media.splice(index, 1)
     },
     getCommentDetailPost() {
-      axios
-        .get(`http://localhost:4000/comments/${this.valueDetailPost._id}/post`, {
-          headers: {
-            Authorization: "Bearer " + localStorage.getItem("access_token")
-          },
-          params: {
-            limit: 100,
-            page: 1
-          }
-        })
-        .then((res) => {
-          this.valueDetailPost.postComment = res.data.result.postComment
-        })
-        .catch((errors) => {
-          console.log(errors)
-        })
+      const dataCommentDetail = apiPost.getCommentDetailPost(this.valueDetailPost._id, {
+        params: {
+          limit: 20,
+          page: 1
+        }
+      })
+      dataCommentDetail.then((res) => {
+        this.valueDetailPost.postComment = res.data.result.postComment
+      })
     },
     handleDetailPost(index) {
-      console.log(">>>>", index)
       this.valueDetailPost = this.allNewFeed[index]
-      console.log(this.valueDetailPost)
       if (this.valueDetailPost._id) {
         this.getCommentDetailPost()
       }
     },
-    async commentPost(id) {
-      const payload = {
-        post_id: id,
+    async addCommentPost(postId) {
+      const body = {
+        post_id: postId,
         content: this.contentComment
       }
 
       if (this.contentComment.trim() !== "") {
         try {
-          const response = await http.post("/comments", payload)
-          this.contentComment = ""
-          await this.getCommentDetailPost()
-          await this.getDataNewFeed()
+          const res = await apiPost.addCommentPost(body)
+          this.$toast.success(res.data.message, {
+            position: "bottom-right"
+          })
+          this.contentComment = "";
+          await Promise.all([
+            this.getCommentDetailPost(),
+            this.getDataNewFeed()
+          ]);
         } catch (errors) {
-          console.log(errors)
+          console.log(errors);
         }
       }
     },
-    async handleDeleteComment(value) {
-      console.log("id comment:", value._id)
-      console.log("id post:", value.post_id)
-      const payload = {
-        post_id: value.post_id
-      }
-      if (value) {
-        try {
-          const res = await axios.delete(`http://localhost:4000/comments/post/${value._id}`, {
-            headers: {
-              Authorization: "Bearer " + localStorage.getItem("access_token"),
-              "Content-Type": "application/json"
-            },
-            data: payload
-          })
-          await this.getCommentDetailPost()
-          await this.getDataNewFeed()
-          this.$toast.success("Xóa comment thành công", {
-            position: "bottom-right"
-          })
-        } catch (errors) {
-          console.log("Lỗi: ", errors.response ? errors.response.data : errors.message)
-        }
+    async handleDeleteComment(post) {
+      try {
+        const URL = post._id;
+        const res = await apiPost.deleteCommentPost(URL, {
+          data: {
+            post_id: post.post_id
+          }
+        });
+        await Promise.all([
+          this.getCommentDetailPost(),
+          this.getDataNewFeed()
+        ]);
+
+        this.$toast.success(res.data.message, {
+          position: "bottom-right"
+        });
+      } catch (error) {
       }
     },
     async sendFriendRequest() {
-      const payload = {
+      const body = {
         friend_user_id: this.profileInFor._id
       }
-      http
-        .post("/users/send-friend-requests", payload)
-        .then((res) => {
-          console.log(res)
-          this.checkStatusFriend()
-        })
-        .catch((errors) => {
-          console.log(errors)
-        })
+      const res = apiFriend.sendFriendRequest(body)
+      res.then((res) => {
+        this.checkStatusFriend()
+      })
     },
     async deleteFriendRequest() {
-      console.log(this.profileInFor._id)
-      http
-        .delete(`/users/delete-friend-requests/${this.profileInFor._id}`)
-        .then((res) => {
-          console.log(res)
-          this.checkStatusFriend()
-        })
-        .catch((errors) => console.log(errors))
+      const res = apiFriend.deleteFriendRequest(this.profileInFor._id)
+      res.then((res) => {
+        this.checkStatusFriend()
+      })
     }
-  },
-
-  computed: {}
+  }
 }
 </script>
 <style></style>

@@ -38,9 +38,6 @@
 </template>
 <script>
 import apiAuth from "@/apis/auth.api"
-import http from "@/baseAPI/http"
-import axios from "axios"
-import { useToast } from "vue-toast-notification"
 import "vue-toast-notification/dist/theme-sugar.css"
 export default {
   data() {

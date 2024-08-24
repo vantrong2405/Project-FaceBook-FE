@@ -6,8 +6,7 @@
         <li class="flex items-center justify-between">
           <h1 class="text-2xl font-bold">Chơi game</h1>
           <div
-            class="flex h-[36px] w-[36px] cursor-pointer items-center justify-center rounded-full bg-[#E4E6EB] hover:bg-gray-300"
-          >
+            class="flex h-[36px] w-[36px] cursor-pointer items-center justify-center rounded-full bg-[#E4E6EB] hover:bg-gray-300">
             <Settings />
           </div>
         </li>
@@ -15,16 +14,14 @@
           <div class="flex h-14 w-full items-center py-2">
             <div class="__logo"></div>
             <div
-              class="flex h-9 cursor-pointer items-center justify-center rounded-full transition-opacity duration-500"
-            ></div>
+              class="flex h-9 cursor-pointer items-center justify-center rounded-full transition-opacity duration-500">
+            </div>
             <div
-              class="ml-1 flex h-full w-10 cursor-pointer items-center justify-center overflow-hidden rounded-full bg-gray-100 sm:m-0 xl:flex-1 xl:cursor-text xl:px-4"
-            >
+              class="ml-1 flex h-full w-10 cursor-pointer items-center justify-center overflow-hidden rounded-full bg-gray-100 sm:m-0 xl:flex-1 xl:cursor-text xl:px-4">
               <svg-search class="w-5" fill="currentColor" />
               <input
                 class="h-full w-full border-none bg-transparent px-2 text-sm outline-none focus:outline-none focus:ring-transparent xl:block"
-                placeholder="Tìm kiếm nhóm"
-              />
+                placeholder="Tìm kiếm nhóm" />
             </div>
           </div>
         </li>
@@ -203,8 +200,6 @@
           </li>
         </ul>
       </div>
-
-      <!-- end -->
     </div>
   </div>
   <div class="float-right w-[calc(100%-22%)] bg-[#F0F2F5]">
@@ -213,23 +208,19 @@
       <div id="animation-carousel">
         <div class="py-[16px]">
           <div class="flex">
-            <div class="dachoiganday relative mr-[8px] h-auto w-[12%] cursor-pointer shadow-md hover:brightness-90">
-              <img
-                class="h-full w-full rounded-lg"
+            <div class="relative mr-[8px] h-auto w-[12%] cursor-pointer shadow-md hover:brightness-90">
+              <img class="h-full w-full rounded-lg"
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQj8Kr9gKhzEDl0wZRJ-u_DmqO6Fr_ZwwnuD9oulC3Ww&s"
-                alt=""
-              />
+                alt="" />
               <p class="absolute bottom-[12px] left-[12px] h-[40px] text-[17px] font-[600] leading-[20px] text-white">
                 Words With <br />
                 Friends
               </p>
             </div>
-            <div class="dachoiganday relative mr-[8px] h-auto w-[12%] cursor-pointer shadow-md hover:brightness-90">
-              <img
-                class="h-full w-full rounded-lg"
+            <div class="relative mr-[8px] h-auto w-[12%] cursor-pointer shadow-md hover:brightness-90">
+              <img class="h-full w-full rounded-lg"
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQj8Kr9gKhzEDl0wZRJ-u_DmqO6Fr_ZwwnuD9oulC3Ww&s"
-                alt=""
-              />
+                alt="" />
               <p class="absolute bottom-[12px] left-[12px] h-[40px] text-[17px] font-[600] leading-[20px] text-white">
                 Words With <br />
                 Friends
@@ -244,28 +235,22 @@
           <div class="py-[16px]">
             <div class="flex h-full">
               <div
-                class="dachoiganday container relative ml-0 mr-[10px] h-[200px] w-[200px] min-w-[180px] max-w-[250px] cursor-pointer px-0 hover:brightness-90"
-              >
+                class="container relative ml-0 mr-[10px] h-[200px] w-[200px] min-w-[180px] max-w-[250px] cursor-pointer px-0 hover:brightness-90">
                 <div class="flex h-full w-full flex-col overflow-hidden rounded-lg">
                   <div class="h-[62%] w-full">
-                    <img
-                      class="h-full w-full object-cover"
+                    <img class="h-full w-full object-cover"
                       src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQj8Kr9gKhzEDl0wZRJ-u_DmqO6Fr_ZwwnuD9oulC3Ww&s"
-                      alt=""
-                    />
+                      alt="" />
                   </div>
                   <div class="relative h-[38%] w-full">
-                    <img
-                      class="h-full w-full object-cover"
+                    <img class="h-full w-full object-cover"
                       src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQj8Kr9gKhzEDl0wZRJ-u_DmqO6Fr_ZwwnuD9oulC3Ww&s"
-                      alt=""
-                    />
+                      alt="" />
                     <div class="absolute top-0 h-full w-full bg-black bg-opacity-10 backdrop-blur-xl">
                       <div class="ml-[8px] mt-[6px]">
                         <p class="text-[17px] font-medium text-white">Solitarie Classic</p>
                         <p
-                          class="mt-[5px] inline-block rounded-2xl bg-[#203820] px-[6px] py-[4px] text-[13px] font-medium text-white"
-                        >
+                          class="mt-[5px] inline-block rounded-2xl bg-[#203820] px-[6px] py-[4px] text-[13px] font-medium text-white">
                           2,2 triệu người chơi
                         </p>
                       </div>
@@ -274,28 +259,22 @@
                 </div>
               </div>
               <div
-                class="dachoiganday container relative ml-0 mr-[10px] h-[200px] w-[200px] min-w-[180px] max-w-[250px] cursor-pointer px-0 hover:brightness-90"
-              >
+                class=" container relative ml-0 mr-[10px] h-[200px] w-[200px] min-w-[180px] max-w-[250px] cursor-pointer px-0 hover:brightness-90">
                 <div class="flex h-full w-full flex-col overflow-hidden rounded-lg">
                   <div class="h-[62%] w-full">
-                    <img
-                      class="h-full w-full object-cover"
+                    <img class="h-full w-full object-cover"
                       src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQj8Kr9gKhzEDl0wZRJ-u_DmqO6Fr_ZwwnuD9oulC3Ww&s"
-                      alt=""
-                    />
+                      alt="" />
                   </div>
                   <div class="relative h-[38%] w-full">
-                    <img
-                      class="h-full w-full object-cover"
+                    <img class="h-full w-full object-cover"
                       src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQj8Kr9gKhzEDl0wZRJ-u_DmqO6Fr_ZwwnuD9oulC3Ww&s"
-                      alt=""
-                    />
+                      alt="" />
                     <div class="absolute top-0 h-full w-full bg-black bg-opacity-10 backdrop-blur-xl">
                       <div class="ml-[8px] mt-[6px]">
                         <p class="text-[17px] font-medium text-white">Solitarie Classic</p>
                         <p
-                          class="mt-[5px] inline-block rounded-2xl bg-[#203820] px-[6px] py-[4px] text-[13px] font-medium text-white"
-                        >
+                          class="mt-[5px] inline-block rounded-2xl bg-[#203820] px-[6px] py-[4px] text-[13px] font-medium text-white">
                           2,2 triệu người chơi
                         </p>
                       </div>
@@ -309,37 +288,27 @@
       </div>
       <div class="sss mb-2 w-full">
         <div class="mb-4 text-[24px] font-bold">Lựa chọn hàng đầu dành cho bạn</div>
-        <swiper
-          :spaceBetween="10"
-          :autoplay="{
-            delay: 2500,
-            disableOnInteraction: false
-          }"
-          :slidesPerView="6"
-          class="mySwiper"
-        >
+        <swiper :spaceBetween="10" :autoplay="{
+          delay: 2500,
+          disableOnInteraction: false
+        }" :slidesPerView="6" class="mySwiper">
           <swiper-slide v-for="index in 20" :key="index">
-            <div class="dachoiganday container relative h-[200px] w-full cursor-pointer p-0 hover:brightness-90">
+            <div class="container relative h-[200px] w-full cursor-pointer p-0 hover:brightness-90">
               <div class="flex h-full w-full flex-col overflow-hidden rounded-lg">
                 <div class="h-[62%] w-full">
-                  <img
-                    class="h-full w-full object-cover"
+                  <img class="h-full w-full object-cover"
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQj8Kr9gKhzEDl0wZRJ-u_DmqO6Fr_ZwwnuD9oulC3Ww&s"
-                    alt=""
-                  />
+                    alt="" />
                 </div>
                 <div class="relative h-[38%] w-full">
-                  <img
-                    class="h-full w-full object-cover"
+                  <img class="h-full w-full object-cover"
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQj8Kr9gKhzEDl0wZRJ-u_DmqO6Fr_ZwwnuD9oulC3Ww&s"
-                    alt=""
-                  />
+                    alt="" />
                   <div class="absolute top-0 h-full w-full bg-black bg-opacity-10 backdrop-blur-xl">
                     <div class="ml-[8px] mt-[6px]">
                       <p class="text-[17px] font-medium text-white">Solitarie Classic</p>
                       <p
-                        class="mt-[5px] inline-block rounded-2xl bg-[#203820] px-[6px] py-[4px] text-[13px] font-medium text-white"
-                      >
+                        class="mt-[5px] inline-block rounded-2xl bg-[#203820] px-[6px] py-[4px] text-[13px] font-medium text-white">
                         2,2 triệu người chơi
                       </p>
                     </div>
@@ -351,37 +320,27 @@
         </swiper>
       </div>
       <div class="sss mb-2 w-full">
-        <swiper
-          :spaceBetween="10"
-          :autoplay="{
-            delay: 2500,
-            disableOnInteraction: false
-          }"
-          :slidesPerView="6"
-          class="mySwiper"
-        >
+        <swiper :spaceBetween="10" :autoplay="{
+          delay: 2500,
+          disableOnInteraction: false
+        }" :slidesPerView="6" class="mySwiper">
           <swiper-slide v-for="index in 20" :key="index" class="w-full">
-            <div class="dachoiganday container relative h-[200px] w-full cursor-pointer p-0 hover:brightness-90">
+            <div class="container relative h-[200px] w-full cursor-pointer p-0 hover:brightness-90">
               <div class="flex h-full w-full flex-col overflow-hidden rounded-lg">
                 <div class="h-[62%] w-full">
-                  <img
-                    class="h-full w-full object-cover"
+                  <img class="h-full w-full object-cover"
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQj8Kr9gKhzEDl0wZRJ-u_DmqO6Fr_ZwwnuD9oulC3Ww&s"
-                    alt=""
-                  />
+                    alt="" />
                 </div>
                 <div class="relative h-[38%] w-full">
-                  <img
-                    class="h-full w-full object-cover"
+                  <img class="h-full w-full object-cover"
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQj8Kr9gKhzEDl0wZRJ-u_DmqO6Fr_ZwwnuD9oulC3Ww&s"
-                    alt=""
-                  />
+                    alt="" />
                   <div class="absolute top-0 h-full w-full bg-black bg-opacity-10 backdrop-blur-xl">
                     <div class="ml-[8px] mt-[6px]">
                       <p class="text-[17px] font-medium text-white">Solitarie Classic</p>
                       <p
-                        class="mt-[5px] inline-block rounded-2xl bg-[#203820] px-[6px] py-[4px] text-[13px] font-medium text-white"
-                      >
+                        class="mt-[5px] inline-block rounded-2xl bg-[#203820] px-[6px] py-[4px] text-[13px] font-medium text-white">
                         2,2 triệu người chơi
                       </p>
                     </div>
@@ -396,40 +355,36 @@
   </div>
 </template>
 <script>
-// Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from "swiper/vue"
 import { Bike, Settings } from "lucide-vue-next"
-// Import Swiper styles
 import "swiper/css"
-
 import "swiper/css/pagination"
 import "swiper/css/navigation"
-
 import "../../assets/css/input.css"
-import { Autoplay, Pagination, Navigation } from "swiper/modules"
 import svgSearch from "../../components/svg/svgSearch.vue"
-import { Save } from "lucide-vue-next"
-import { Gamepad2 } from "lucide-vue-next"
-import { CircleUser } from "lucide-vue-next"
-import { Bell } from "lucide-vue-next"
-import { TrainFront } from "lucide-vue-next"
-import { Map as MapWord } from "lucide-vue-next"
-import { Computer } from "lucide-vue-next"
-import { Swords } from "lucide-vue-next"
-import { Stamp } from "lucide-vue-next"
-import { Castle } from "lucide-vue-next"
-import { CircleDollarSign } from "lucide-vue-next"
-import { DraftingCompass } from "lucide-vue-next"
-import { Puzzle } from "lucide-vue-next"
-import { Grid2X2 } from "lucide-vue-next"
-import { Timer } from "lucide-vue-next"
-import { MessageCircleQuestion } from "lucide-vue-next"
-import { Flag } from "lucide-vue-next"
-import { PersonStanding } from "lucide-vue-next"
-import { Codepen } from "lucide-vue-next"
-import { Slack } from "lucide-vue-next"
-import { Dumbbell } from "lucide-vue-next"
-import { SquareLibrary } from "lucide-vue-next"
+import {
+  Save,
+  Gamepad2,
+  CircleUser,
+  Bell,
+  TrainFront,
+  Map as MapWord,
+  Computer,
+  Swords,
+  Stamp,
+  Castle,
+  CircleDollarSign,
+  DraftingCompass,
+  Puzzle,
+  Grid2X2,
+  Timer,
+  MessageCircleQuestion,
+  Flag,
+  PersonStanding,
+  Codepen,
+  Slack,
+  SquareLibrary,
+} from "lucide-vue-next"
 
 export default {
   components: {
@@ -459,9 +414,6 @@ export default {
     Slack,
     SquareLibrary,
     MapWord
-  },
-  setup() {
-    return {}
   }
 }
 </script>

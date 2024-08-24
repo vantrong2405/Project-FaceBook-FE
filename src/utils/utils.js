@@ -27,3 +27,7 @@ export const formatDate = (dateString) => {
         return `${years} năm trước`;
     }
 }
+
+export const isImageUrl = (url) => {
+    return /\.(jpeg|jpg|gif|png|webp)$/.test(url)
+}

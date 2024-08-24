@@ -5,8 +5,7 @@
         <li class="flex items-center justify-between">
           <h1 class="text-2xl font-bold">Market</h1>
           <div
-            class="flex h-[36px] w-[36px] cursor-pointer items-center justify-center rounded-full bg-[#E4E6EB] hover:bg-gray-300"
-          >
+            class="flex h-[36px] w-[36px] cursor-pointer items-center justify-center rounded-full bg-[#E4E6EB] hover:bg-gray-300">
             <Settings />
           </div>
         </li>
@@ -14,16 +13,14 @@
           <div class="flex h-14 w-full items-center py-2">
             <div class="__logo"></div>
             <div
-              class="flex h-9 cursor-pointer items-center justify-center rounded-full transition-opacity duration-500"
-            ></div>
+              class="flex h-9 cursor-pointer items-center justify-center rounded-full transition-opacity duration-500">
+            </div>
             <div
-              class="ml-1 flex h-full w-10 cursor-pointer items-center justify-center overflow-hidden rounded-full bg-gray-100 sm:m-0 xl:flex-1 xl:cursor-text xl:px-4"
-            >
+              class="ml-1 flex h-full w-10 cursor-pointer items-center justify-center overflow-hidden rounded-full bg-gray-100 sm:m-0 xl:flex-1 xl:cursor-text xl:px-4">
               <svg-search class="w-5" fill="currentColor" />
               <input
                 class="h-full w-full border-none bg-transparent px-2 text-sm outline-none focus:outline-none focus:ring-transparent xl:block"
-                placeholder="Tìm kiếm nhóm"
-              />
+                placeholder="Tìm kiếm nhóm" />
             </div>
           </div>
         </li>
@@ -197,7 +194,6 @@
           </li>
         </ul>
       </div>
-      <!-- end -->
     </div>
   </div>
   <div class="float-right w-[calc(100%-22%)] bg-[#F0F2F5]">
@@ -211,17 +207,12 @@
       </div>
       <div className="mt-4 grid">
         <div className="grid  grid-cols-4 justify-around">
-          <div
-            className="w-[93%] h-[94%] mb-[18px] rounded-md hover:scale-105 hover:delay-250 duration-300 border"
-            v-for="index in 10"
-            :key="index"
-          >
+          <div className="w-[93%] h-[94%] mb-[18px] rounded-md hover:scale-105 hover:delay-250 duration-300 border"
+            v-for="index in 10" :key="index">
             <a href="link-supplier">
-              <img
-                className="rounded-t-md h-[200px]"
+              <img className="rounded-t-md h-[200px]"
                 src="https://admin.cms.ueb.edu.vn//Uploads/image/News/Thumbnails/2022/1/Thumbnails03012022052442.quan-tri-dai-hoc.jpg"
-                alt=""
-              />
+                alt="" />
               <div class="p-3">
                 <div className="font-semibold text-lg">Tôn Hoa Sen</div>
                 <div className="text-sm">183 Nguyễn Văn Trỗi, Quận Phú Nhuận, HCM</div>
@@ -244,45 +235,39 @@
   </div>
 </template>
 <script>
-import { MonitorPlay } from "lucide-vue-next"
-import { Tv2 } from "lucide-vue-next"
-import { Film } from "lucide-vue-next"
-import { Clapperboard } from "lucide-vue-next"
-import { Rocket } from "lucide-vue-next"
-import { Save } from "lucide-vue-next"
-import { Ellipsis } from "lucide-vue-next"
-import { Settings } from "lucide-vue-next"
-import { AlarmClockCheck } from "lucide-vue-next"
-import { Bell } from "lucide-vue-next"
-import { Mailbox } from "lucide-vue-next"
-import { ShoppingBasket } from "lucide-vue-next"
-import { ChevronRight } from "lucide-vue-next"
-import { Tag } from "lucide-vue-next"
-import { CarFront } from "lucide-vue-next"
-import { Home } from "lucide-vue-next"
-import { Wrench } from "lucide-vue-next"
-import { Heart } from "lucide-vue-next"
-import { Video } from "lucide-vue-next"
-import { Shovel } from "lucide-vue-next"
-import { Guitar } from "lucide-vue-next"
-import { Tags } from "lucide-vue-next"
-import { Bike } from "lucide-vue-next"
-import { PencilLine } from "lucide-vue-next"
-import { Gamepad2 } from "lucide-vue-next"
-import { PawPrint } from "lucide-vue-next"
-import { Shirt } from "lucide-vue-next"
-import { Smartphone } from "lucide-vue-next"
-import { UsersRound } from "lucide-vue-next"
-// video
+import {
+  UsersRound,
+  Smartphone,
+  Shirt,
+  PawPrint,
+  Bike,
+  Tags,
+  Guitar,
+  Shovel,
+  Heart,
+  Wrench,
+  Home,
+  Mailbox,
+  CarFront,
+  Settings,
+  Store,
+  MapPin,
+  Bell,
+  ShoppingBasket,
+  ChevronRight,
+  Tag,
+  PencilLine,
+  Gamepad2
+} from "lucide-vue-next"
 import svgSearch from "../../components/svg/svgSearch.vue"
-import { Store } from "lucide-vue-next"
-import { MapPin } from "lucide-vue-next"
+
 export default {
   data() {
     return {}
   },
   methods: {},
   components: {
+    svgSearch,
     UsersRound,
     Smartphone,
     Shirt,
@@ -297,7 +282,6 @@ export default {
     Mailbox,
     CarFront,
     Settings,
-    svgSearch,
     Store,
     MapPin,
     Bell,

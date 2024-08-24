@@ -30,7 +30,6 @@ class Http {
       },
       (error) => {
         console.log(error)
-
         if (error?.response?.status !== 422) {
           const message = error.response?.data?.message || error.message
           console.log(message)
