@@ -19,8 +19,8 @@ const apiPost = {
     addCommentPost(body) {
         return http.post(`comments`, body)
     },
-    deleteCommentPost(commentId) {
-        return http.delete(`comments/post/${commentId}`)
+    deleteCommentPost(URL, body) {
+        return http.delete(`comments/post/${URL}`, body)
     },
 }
 
