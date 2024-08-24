@@ -5,7 +5,7 @@ const apiFriend = {
         return http.get(`/users/check-friend/${username}`)
     },
     sendFriendRequest(body) {
-        return http.post(`/users/send-friend-request`, body)
+        return http.post(`/users/send-friend-requests`, body)
     },
     deleteFriendRequest(friendId) {
         return http.delete(`/users/delete-friend-request/${friendId}`)

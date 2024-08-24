@@ -26,7 +26,7 @@
                 </div>
                 <modal-create :userCurrent="userCurrent" :placeholder="placeholder" :content="content" :media="media"
                   :avatar="avatar" @contentChangeEvent="handleContentChange" @addPostEvent="addPost"
-                  @openFileInputEvent="openFileInput" />
+                  @openFileInputEvent="openFileInput" @deleteMediaEvent="handleDeleteMedia" />
               </div>
               <hr class="mx-2" />
               <div id="new-post-bottom" class="flex items-center justify-around px-2">
@@ -159,7 +159,7 @@
                         </div>
                       </div>
                       <div id="post-middle">
-                        <div class="p-4 py-2 text-sm font-normal leading-5">
+                        <div class="2">
                           {{ valueDetailPost ? valueDetailPost.content : "" }}
                         </div>
                         <render-image :allNewFeedDetail="valueDetailPost" />

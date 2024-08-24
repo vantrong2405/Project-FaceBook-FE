@@ -134,7 +134,7 @@ export default {
     components: {
         X
     },
-    emits: ['contentChangeEvent', 'addPostEvent', 'openFileInputEvent'],
+    emits: ['contentChangeEvent', 'addPostEvent', 'openFileInputEvent', 'deleteMediaEvent'],
     data() {
         return {
             internalContent: this.content
@@ -151,6 +151,9 @@ export default {
         handleOpenFileInput() {
             this.$emit('openFileInputEvent')
         },
+        handleDeleteMedia(index) {
+            this.$emit('deleteMediaEvent', index)
+        }
     }
 }
 </script>

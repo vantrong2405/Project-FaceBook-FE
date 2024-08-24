@@ -111,3 +111,23 @@
   background: #bcc0c4;
   border-radius: 10px;
 }
+
+@media (forced-colors: active) {
+
+  /* Các kiểu dáng cho chế độ màu bắt buộc */
+  body {
+    color: WindowText;
+    /* Ví dụ về màu bắt buộc */
+    background-color: Window;
+    /* Ví dụ về màu bắt buộc */
+  }
+
+  .button {
+    border: 1px solid Highlight;
+    /* Ví dụ về màu bắt buộc */
+    background-color: Highlight;
+    /* Ví dụ về màu bắt buộc */
+    color: HighlightText;
+    /* Ví dụ về màu bắt buộc */
+  }
+}

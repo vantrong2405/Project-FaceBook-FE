@@ -72,7 +72,7 @@
                   <div
                     class="flex cursor-pointer flex-row items-center justify-center rounded-md bg-[#E4E6EB] px-[9px] py-[6px] hover:bg-[#D8DADF]">
                     <i class="fa-solid fa-pen mr-[5px]"></i>
-                    <p class="text-[15px] font-medium">Nhắn tin</p>
+                    <p class="text-[15px] font-medium" @click="toggleChatBox">Nhắn tin</p>
                   </div>
                   <div class="flex justify-end pt-[10px]"></div>
                 </div>
@@ -113,7 +113,7 @@
     <div class="min-h-screen w-full bg-[#F0F2F5]">
       <div class="mx-auto w-[1031px]">
         <div class="mt-[15px] flex w-full">
-          <div class="mb-[20px] mr-[20px] w-[440px]">
+          <div class="mb-[20px] mr-[20px] w-[440px] overflow-y-auto">
             <div class="sticky top-4">
               <div class="flex h-full w-full flex-col">
                 <div class="mb-[15px] w-full rounded-lg border-b border-gray-300 bg-white p-[16px] shadow-sm"
@@ -144,7 +144,7 @@
                   </div>
                   <div class="w-full">
                     <div class="grid-r grid h-full w-full grid-cols-3 gap-1">
-                      <template v-for="(value, index) in allNewFeed" :key="index">
+                      <template v-for="(value) in allNewFeed" :key="value._id">
                         <div class="col-span-1 block h-full" v-for="(value1, index1) in value.medias" :key="index1">
                           <img class="h-[150px] w-[300px] overflow-hidden rounded-tl-lg object-cover" :src="value1.url"
                             alt="" />
@@ -188,7 +188,7 @@
                   </div>
                   <input data-bs-toggle="modal" data-bs-target="#create_posts"
                     class="h-10 w-full cursor-pointer rounded-full border-[0px] bg-[#F0F2F5] px-3 text-tiny font-semibold outline-none transition-colors hover:bg-[#E4E6E9] focus:shadow-none focus:outline-none focus:ring-transparent mobile-x:text-base"
-                    type="text" name="" :placeholder="placeholderPre" />
+                    type="text" name="" :placeholder="placeholder" />
                 </div>
                 <hr class="mx-2" />
                 <div id="new-post-bottom" class="flex items-center justify-around px-2">
@@ -259,7 +259,7 @@
                         <p class="mt-1 flex items-center text-xs">
                           <span class="cursor-pointer hover:underline">{{
                             formatDate(value?.created_at ?? "")
-                            }}</span>
+                          }}</span>
                           <span class="mx-1">·</span>
                           <svg-world class="w-3" />
                         </p>
@@ -347,7 +347,7 @@
                               <p class="mt-1 flex items-center text-xs">
                                 <span class="cursor-pointer hover:underline">{{
                                   formatDate(valueDetailPost ? valueDetailPost.created_at : "")
-                                  }}</span>
+                                }}</span>
                                 <span class="mx-1">·</span>
                                 <svg-world class="w-3" />
                               </p>
@@ -468,180 +468,11 @@
         </div>
       </div>
     </div>
-    <div v-if="showModalCreatePost" id="ModalCreatePost"
-      class="absolute bottom-0 left-0 right-0 top-[-20%] z-50 bg-white bg-opacity-50">
-      <div class="fixed left-[35%] top-[20%] w-[35%]">
-        <div class="relative h-full w-full rounded-lg bg-white shadow-lg">
-          <p class="border-[rgba(0, 0, 0, 0.1)] border-b py-[14px] text-center text-[20px] font-bold text-black">
-            Tạo bài viết
-          </p>
-          <div class="mx-[16px] flex w-full py-[16px]">
-            <a class="h-[40px] w-[40px] hover:brightness-90" href="">
-              <img class="h-full w-full rounded-full" src="../../assets/images/png/default.png" alt="" />
-            </a>
-            <div class="ml-[10px]">
-              <p class="text-[15px] font-medium text-black">Ân Nguyên</p>
-              <div class="flex w-full">
-                <div class="flex cursor-pointer items-center rounded-md bg-[#E4E6EB] px-[5px] py-[2px]">
-                  <i class="fa-solid fa-earth-americas pr-[4px] text-[12px]"></i>
-                  <p class="pr-[4px] text-[13px] font-medium text-black">Công khai</p>
-                  <i class="fa-solid fa-caret-down text-[15px]"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="w-full px-[16px] pb-[50px]">
-            <input class="w-full border-0 focus:outline-none focus:ring-0" type="text"
-              placeholder="Ân ơi, bạn đang nghĩ gì thế?" />
-          </div>
-          <div class="flex w-full items-center justify-between px-[16px]">
-            <img class="h-[38px] w-[38px] cursor-pointer"
-              src="https://www.facebook.com/images/composer/SATP_Aa_square-2x.png" alt="" />
-            <i class="fa-regular fa-face-smile cursor-pointer text-[26px] text-gray-500"></i>
-          </div>
-          <div class="w-full px-[16px] py-[15px]">
-            <div class="border-1 mb-[15px] flex w-full items-center justify-between rounded-lg border-gray-300 p-[8px]">
-              <span class="cursor-pointer font-medium text-black">Thêm vào bài viết của bạn</span>
-              <div class="flex justify-around">
-                <div class="flex h-[36px] w-[36px] items-center justify-center rounded-full hover:bg-[#F2F2F2]">
-                  <img class="h-[24px] w-[24px] cursor-pointer"
-                    src="https://static.xx.fbcdn.net/rsrc.php/v3/y7/r/Ivw7nhRtXyo.png?_nc_eui2=AeHqUBHb5H6DvGo3fHFIMnuhPL4YoeGsw5I8vhih4azDkvYK82Ph4rTMk09D3rFp2rwKaE5BuKt1RCFgJFAPRiON"
-                    alt="" />
-                </div>
-                <div class="flex h-[36px] w-[36px] items-center justify-center rounded-full hover:bg-[#F2F2F2]">
-                  <img class="h-[24px] w-[24px] cursor-pointer"
-                    src="https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/b37mHA1PjfK.png?_nc_eui2=AeGuHbvZi5VThlabTWO4Jot1ohqwRjkkxMOiGrBGOSTEw013eQjAhLtPOW8G-i21QMySd7WPo7ORquKG89ZSVFi1"
-                    alt="" />
-                </div>
-                <div class="flex h-[36px] w-[36px] items-center justify-center rounded-full hover:bg-[#F2F2F2]">
-                  <img class="h-[24px] w-[24px] cursor-pointer"
-                    src="https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Y4mYLVOhTwq.png?_nc_eui2=AeG3Yrx0YPc7BGvU6hgwmd1wvPIN-OmHLJy88g346YcsnPOTwiP9nl5vjkc3RY4qdb0hvpvvF96JXeJ4M26dypyH"
-                    alt="" />
-                </div>
-                <div class="flex h-[36px] w-[36px] items-center justify-center rounded-full hover:bg-[#F2F2F2]">
-                  <img class="h-[24px] w-[24px] cursor-pointer"
-                    src="https://static.xx.fbcdn.net/rsrc.php/v3/y1/r/8zlaieBcZ72.png?_nc_eui2=AeGJZzAHVkPgsJxKvjTL4bu_88Ps36vvyGDzw-zfq-_IYIzspbLkXkbpS0cEn9JCveilbvBA3AJMRQWcGB70SX8N"
-                    alt="" />
-                </div>
-                <div class="flex h-[36px] w-[36px] items-center justify-center rounded-full hover:bg-[#F2F2F2]">
-                  <img class="h-[24px] w-[24px] cursor-pointer"
-                    src="https://static.xx.fbcdn.net/rsrc.php/v3/yT/r/q7MiRkL7MLC.png?_nc_eui2=AeFPcLUl2wa_geZXrdq03zCoJTqz5hgP3TklOrPmGA_dOccT_16aJXX9MLVp335HzRu9AVI65L3H3CJ-kx3OOE5N"
-                    alt="" />
-                </div>
-                <div
-                  class="flex h-[36px] w-[36px] cursor-pointer items-center justify-center rounded-full hover:bg-[#F2F2F2]">
-                  <i class="fa-solid fa-ellipsis"></i>
-                </div>
-              </div>
-            </div>
-
-            <button class="w-full rounded-lg bg-[#0861F2] py-[10px] font-medium text-white">Đăng</button>
-          </div>
-          <div @click="showModalCreatePost = false" class="absolute right-[12px] top-2">
-            <div
-              class="flex h-[36px] w-[36px] cursor-pointer items-center justify-center rounded-full bg-[#E4E6EB] hover:bg-[#D8DADF]">
-              <i class="fa-solid fa-xmark text-[22px] text-gray-500"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <modal-create :userCurrent="userCurrent" :placeholder="placeholder" :content="content" :media="media"
+      :avatar="avatar" @contentChangeEvent="handleContentChange" @addPostEvent="addPost"
+      @openFileInputEvent="openFileInput" @deleteMediaEvent="handleDeleteMedia" />
   </div>
 
-  <div class="modal fade" id="create_posts" tabindex="-1" aria-labelledby="create_post" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h3 class="modal-title flex justify-center text-2xl font-bold text-blue-500" id="exampleModalLabel">
-            Tạo bài viết
-          </h3>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-
-        <div class="modal-body">
-          <div class="flex w-full">
-            <a class="h-[40px] w-[40px] hover:brightness-90" href="">
-              <img class="h-full w-full rounded-full"
-                src="https://cellphones.com.vn/sforum/wp-content/uploads/2023/10/avatar-trang-4.jpg" alt="" />
-            </a>
-            <div class="ml-[10px]">
-              <p class="text-[15px] font-medium text-black">{{ userCurrent.name }}</p>
-              <div class="flex w-full">
-                <select
-                  class="w-full cursor-pointer rounded-md border-0 bg-[#E4E6EB] px-[5px] text-[15px] font-medium focus:ring-0"
-                  name="" id="">
-                  <option value="1" selected>Công khai</option>
-                  <option value="2">Bạn bè</option>
-                  <option value="3">Bạn bè cụ thể</option>
-                  <option value="4">Bạn bè ngoại trừ</option>
-                  <option value="5">Chỉ mình tôi</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div class="mt-3 w-full pb-[50px]">
-            <textarea class="w-full resize-none break-words border-0 px-0 focus:outline-none focus:ring-0"
-              :placeholder="placeholder" rows="3" v-model="content" @paste="handlePaste">
-          </textarea>
-            <div class="h-[200px] overflow-auto" v-if="media[0]">
-              <div v-for="(value, index) in media" :key="index" class="relative my-3">
-                <img v-if="value.url" :src="value.url" alt="" class="object-content h-[280px] w-full border" />
-                <X class="absolute right-1 top-1 cursor-pointer text-4xl hover:text-gray-500"
-                  @click="handleDeleteMedia(index)" />
-              </div>
-            </div>
-          </div>
-          <div class="flex w-full items-center justify-between">
-            <img class="h-[38px] w-[38px] cursor-pointer"
-              src="https://www.facebook.com/images/composer/SATP_Aa_square-2x.png" alt="" />
-            <i class="fa-regular fa-face-smile cursor-pointer text-[26px] text-gray-500"></i>
-          </div>
-          <div class="w-full py-[15px]">
-            <div class="border-1 mb-[15px] flex w-full items-center justify-between rounded-lg border-gray-300 p-[8px]">
-              <span class="cursor-pointer font-medium text-black">Thêm vào bài viết của bạn</span>
-              <div class="flex justify-around">
-                <div class="flex h-[36px] w-[36px] items-center justify-center rounded-full hover:bg-[#F2F2F2]"
-                  @click="openFileInput">
-                  <img class="h-[24px] w-[24px] cursor-pointer"
-                    src="https://static.xx.fbcdn.net/rsrc.php/v3/y7/r/Ivw7nhRtXyo.png?_nc_eui2=AeHqUBHb5H6DvGo3fHFIMnuhPL4YoeGsw5I8vhih4azDkvYK82Ph4rTMk09D3rFp2rwKaE5BuKt1RCFgJFAPRiON"
-                    alt="" />
-                </div>
-                <div class="flex h-[36px] w-[36px] items-center justify-center rounded-full hover:bg-[#F2F2F2]">
-                  <img class="h-[24px] w-[24px] cursor-pointer"
-                    src="https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/b37mHA1PjfK.png?_nc_eui2=AeGuHbvZi5VThlabTWO4Jot1ohqwRjkkxMOiGrBGOSTEw013eQjAhLtPOW8G-i21QMySd7WPo7ORquKG89ZSVFi1"
-                    alt="" />
-                </div>
-                <div class="flex h-[36px] w-[36px] items-center justify-center rounded-full hover:bg-[#F2F2F2]">
-                  <img class="h-[24px] w-[24px] cursor-pointer"
-                    src="https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Y4mYLVOhTwq.png?_nc_eui2=AeG3Yrx0YPc7BGvU6hgwmd1wvPIN-OmHLJy88g346YcsnPOTwiP9nl5vjkc3RY4qdb0hvpvvF96JXeJ4M26dypyH"
-                    alt="" />
-                </div>
-                <div class="flex h-[36px] w-[36px] items-center justify-center rounded-full hover:bg-[#F2F2F2]">
-                  <img class="h-[24px] w-[24px] cursor-pointer"
-                    src="https://static.xx.fbcdn.net/rsrc.php/v3/y1/r/8zlaieBcZ72.png?_nc_eui2=AeGJZzAHVkPgsJxKvjTL4bu_88Ps36vvyGDzw-zfq-_IYIzspbLkXkbpS0cEn9JCveilbvBA3AJMRQWcGB70SX8N"
-                    alt="" />
-                </div>
-                <div class="flex h-[36px] w-[36px] items-center justify-center rounded-full hover:bg-[#F2F2F2]">
-                  <img class="h-[24px] w-[24px] cursor-pointer"
-                    src="https://static.xx.fbcdn.net/rsrc.php/v3/yT/r/q7MiRkL7MLC.png?_nc_eui2=AeFPcLUl2wa_geZXrdq03zCoJTqz5hgP3TklOrPmGA_dOccT_16aJXX9MLVp335HzRu9AVI65L3H3CJ-kx3OOE5N"
-                    alt="" />
-                </div>
-                <div
-                  class="flex h-[36px] w-[36px] cursor-pointer items-center justify-center rounded-full hover:bg-[#F2F2F2]">
-                  <i class="fa-solid fa-ellipsis"></i>
-                </div>
-              </div>
-            </div>
-
-            <button class="w-full rounded-lg bg-[#0861F2] py-[10px] font-medium text-white" data-bs-dismiss="modal"
-              aria-label="Close" v-on:click="postArticle">
-              Đăng
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
   <!-- Modal update-info -->
   <div class="modal fade" id="update_info" tabindex="-1" aria-labelledby="update_info" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-md">
@@ -667,8 +498,6 @@
               </div>
             </div>
           </div>
-
-          <!-- Tên người dùng -->
           <div class="mb-[10px] w-full">
             <p class="mb-[5px] text-[20px] font-bold text-black">Tên người dùng</p>
             <div class="flex w-full justify-center">
@@ -676,8 +505,6 @@
                 class="form-control border-gray-400 shadow-none outline-none focus:border-gray-500" v-model="name" />
             </div>
           </div>
-          <!-- ngày sinh -->
-          <!-- giới tính -->
           <div class="mb-[10px] w-full">
             <p class="mb-[5px] text-[20px] font-bold text-black">Giới tính</p>
             <div class="w-100%">
@@ -739,6 +566,9 @@
       </div>
     </div>
   </div>
+  <ChatBox v-if='showChat' :showChat="showChat" :setShowChat="setShowChat" :messages="messages" :addMessage="addMessage"
+    @setShowChatEvent='setShowChat' />
+
 </template>
 <script>
 import svgLiveVideo from "@/components/svg/svgLiveVideo.vue"
@@ -752,7 +582,6 @@ import svgComment from "@/components/svg/svgComment.vue"
 import { Forward } from "lucide-vue-next"
 import { X, Trash2 } from "lucide-vue-next"
 import http from "@/baseAPI/http"
-import axios from "axios"
 import modalShare from "./Home/components/modalShare.vue"
 import renderImage from "./Home/components/renderImage.vue"
 import apiPost from "@/apis/post.api"
@@ -760,6 +589,8 @@ import { formatDate, isImageUrl } from "@/utils/utils"
 import apiFriend from "@/apis/friend.api"
 import apiProfile from "@/apis/profile.api"
 import apiUploadFile from "@/apis/uploadFile.api"
+import modalCreate from "./Home/components/modalCreate.vue"
+import ChatBox from "@/components/ChatBox/ChatBox.vue"
 export default {
   components: {
     svgLiveVideo,
@@ -770,11 +601,13 @@ export default {
     svgLike,
     svgComment,
     svgMenu,
-    Forward,
-    X,
     modalShare,
+    Forward,
     Trash2,
-    renderImage
+    X,
+    renderImage,
+    modalCreate,
+    ChatBox
   },
   mounted() {
     this.userName = this.$route.params.id
@@ -783,10 +616,8 @@ export default {
     this.userCurrent = JSON.parse(localStorage.getItem("profile"))
     if (this.userCurrent && this.userCurrent.name) {
       this.placeholder = `${this.userCurrent.name} ơi, bạn đang nghĩ gì thế?`
-      this.placeholderPre = `${this.userCurrent.name} ơi, bạn đang nghĩ gì thế?`
     } else {
       this.placeholder = "Bạn đang nghĩ gì thế?"
-      this.placeholderPre = "Bạn đang nghĩ gì thế?"
     }
     this.isOwner = this.userCurrent.username == this.userName
     if (this.userName) {
@@ -794,6 +625,8 @@ export default {
       this.name = this.userCurrent.name
       this.avatarUpLoad = this.userCurrent.avatar ? this.userCurrent.avatar : this.avatar
     }
+    // this.reversedFeeds()
+
   },
   data() {
     return {
@@ -817,7 +650,6 @@ export default {
       placeholder: "",
       valueDetailPost: {},
       contentComment: "",
-      placeholderPre: "",
       liked: false,
       valueCommentDetail: "",
       statusLike: false,
@@ -829,11 +661,22 @@ export default {
       date_of_birth: "",
       profileInFor: {},
       statusFriend: 0,
-      avatarUpLoad: ""
+      avatarUpLoad: "",
+      showChat: false,
+      messages: [],
     }
   },
 
   methods: {
+    setShowChat(value) {
+      this.showChat = value;
+    },
+    addMessage(newMessage) {
+      this.messages.push(newMessage);
+    },
+    toggleChatBox() {
+      this.showChat = !this.showChat;
+    },
     formatDate,
     checkStatusFriend() {
       const res = apiFriend.checkStatusFriend(this.userName)
@@ -889,7 +732,6 @@ export default {
     },
     async upFileAvatar() {
       if (!this.fileup) {
-        console.error("Chưa chọn file.")
         return
       }
       const formData = new FormData()
@@ -904,7 +746,6 @@ export default {
     },
     async upFile() {
       if (!this.fileup) {
-        console.error("Chưa chọn file.");
         return;
       }
       try {
@@ -926,7 +767,7 @@ export default {
     openFileInputAvatar() {
       this.$refs.fileInputAvatar.click()
     },
-    postArticle() {
+    addPost() {
       if (this.content.trim() != "" || this.media.length > 0) {
         const obj = {
           visibility: 1,
@@ -1014,10 +855,6 @@ export default {
       }
       event.preventDefault()
     },
-
-    handleDeleteMedia(index) {
-      if (index >= 0) this.media.splice(index, 1)
-    },
     getCommentDetailPost() {
       const dataCommentDetail = apiPost.getCommentDetailPost(this.valueDetailPost._id, {
         params: {
@@ -1082,6 +919,7 @@ export default {
       }
       const res = apiFriend.sendFriendRequest(body)
       res.then((res) => {
+        console.log(res);
         this.checkStatusFriend()
       })
     },
@@ -1090,8 +928,13 @@ export default {
       res.then((res) => {
         this.checkStatusFriend()
       })
-    }
+    },
+    handleContentChange(newContent) {
+      this.content = newContent;
+    },
+    handleDeleteMedia(index) {
+      if (index >= 0) this.media.splice(index, 1)
+    },
   }
 }
 </script>
-<style></style>
