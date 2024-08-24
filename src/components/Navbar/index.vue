@@ -4,29 +4,29 @@
     <SearchBar class="z-20" />
     <div id="mid" class="hidden h-full items-center justify-center gap-2 md:flex">
       <router-link to="/home">
-        <div id="svg-home-box max-w[120px] min-w-[56px]" @click="setActiveItems('home')"
-          class="product-items flex h-12 cursor-pointer items-center justify-center rounded-lg transition-colors duration-300 hover:bg-myGray-900 lg:w-40"
+        <div id="svg-home-box " @click="setActiveItems('home')"
+          class="product-items flex h-12 cursor-pointer items-center justify-center rounded-lg transition-colors duration-300 hover:bg-myGray-900 lg:w-40 md:w-20"
           :class="{ 'active-tag': activeItems === 'home' }">
           <svg-home class="icon w-7" :class="{ 'active-icon': activeItems === 'home' }" />
         </div>
       </router-link>
       <router-link to="/video">
-        <div id="svg-groups-box max-w[120px] min-w-[56px]" @click="setActiveItems('video')"
-          class="product-items flex h-12 cursor-pointer items-center justify-center rounded-lg transition-colors duration-300 hover:bg-myGray-900 lg:w-40"
+        <div id="svg-groups-box " @click="setActiveItems('video')"
+          class="product-items flex h-12 cursor-pointer items-center justify-center rounded-lg transition-colors duration-300 hover:bg-myGray-900 lg:w-40 md:w-20"
           :class="{ 'active-tag': activeItems === 'video' }">
           <svg-video class="icon w-7" :class="{ 'active-icon': activeItems === 'video' }" />
         </div>
       </router-link>
       <router-link to="/market">
-        <div id="svg-groups-box max-w[120px] min-w-[56px]" @click="setActiveItems('market')"
-          class="product-items flex h-12 cursor-pointer items-center justify-center rounded-lg transition-colors duration-300 hover:bg-myGray-900 lg:w-40"
+        <div id="svg-groups-box " @click="setActiveItems('market')"
+          class="product-items flex h-12 cursor-pointer items-center justify-center rounded-lg transition-colors duration-300 hover:bg-myGray-900 lg:w-40 md:w-20"
           :class="{ 'active-tag': activeItems === 'market' }">
           <svg-market class="icon w-7" :class="{ 'active-icon': activeItems === 'market' }" />
         </div>
       </router-link>
       <router-link to="/game">
-        <div id="svg-groups-box max-w[120px] min-w-[56px]" @click="setActiveItems('game')"
-          class="product-items flex h-12 cursor-pointer items-center justify-center rounded-lg transition-colors duration-300 hover:bg-myGray-900 lg:w-40"
+        <div id="svg-groups-box" @click="setActiveItems('game')"
+          class="product-items flex h-12 cursor-pointer items-center justify-center rounded-lg transition-colors duration-300 hover:bg-myGray-900 lg:w-40 md:w-20"
           :class="{ 'active-tag': activeItems === 'game' }">
           <svg-game class="icon w-7" :class="{ 'active-icon': activeItems === 'game' }" />
         </div>

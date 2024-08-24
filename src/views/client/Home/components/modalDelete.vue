@@ -1,8 +1,9 @@
 <template>
   <Trash2 class="cursor-pointer hover:text-black" data-bs-toggle="modal" data-bs-target="#modalDeleteCommment"
-    v-if="userCurrent._id == commentDetail.user_id" @click=" handleChangeValueCommentDetail(commentDetail)" />
-  <div class=" modal fade" id="modalDeleteCommment" tabindex="-1" aria-labelledby="modalCommentLabel"
-    aria-hidden="true">
+    v-if="userCurrent._id == commentDetail.user_id" @click="
+      handleChangeValueCommentDetail(commentDetail)
+      " />
+  <div class="modal fade" id="modalDeleteCommment" tabindex="-1" aria-labelledby="modalCommentLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
@@ -43,12 +44,25 @@
   </div>
 </template>
 <script>
+import { Trash2 } from "lucide-vue-next";
 export default {
   props: {
     valueCommentDetail: {
       type: Object,
       default: {}
+    },
+    userCurrent: {
+      type: Object,
+      default: {}
+    },
+    commentDetail: {
+      type: Object,
+      default: {}
     }
+  },
+  emits: ['changeValueCommentDetailEvent', 'deleteCommentEvent'],
+  components: {
+    Trash2
   },
   methods: {
     handleDeleteComment(valueCommentDetail) {
@@ -56,7 +70,7 @@ export default {
     },
     handleChangeValueCommentDetail(commentDetail) {
       this.$emit("changeValueCommentDetailEvent", commentDetail);
-    }
+    },
   }
 }
 </script>

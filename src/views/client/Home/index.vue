@@ -218,12 +218,11 @@
                                 <span class="cursor-pointer hover:underline">2d</span>
                               </div>
                             </div>
-                            <div class="mt-[3%]">
-                              <Trash2 class="cursor-pointer hover:text-black" data-bs-toggle="modal"
-                                data-bs-target="#modalDeleteCommment" v-if="userCurrent._id == commentDetail.user_id"
-                                @click="
-                                  valueCommentDetail = commentDetail
-                                  " />
+                            <div class="flex items-center">
+                              <modal-delete :userCurrent="userCurrent" :commentDetail="commentDetail"
+                                :valueCommentDetail="valueCommentDetail"
+                                @changeValueCommentDetailEvent="handleChangeCommentDetail"
+                                @deleteCommentEvent="handleDeleteComment" />
                             </div>
                           </div>
                         </div>
@@ -275,47 +274,6 @@
       class="fixed bottom-5 right-5 flex cursor-pointer items-center justify-center rounded-full border-2 bg-white p-[14px] text-black transition-colors duration-300 hover:bg-myGray-700">
       <svg-new-message class="w-5" />
     </div>
-    <!-- modal delete-comment -->
-    <div class="modal fade" id="modalDeleteCommment" tabindex="-1" aria-labelledby="modalCommentLabel"
-      aria-hidden="true">
-      <div class="modal-dialog modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5 text-2xl font-bold" id="modalCommentLabel">
-              Xóa bình luận {{ valueCommentDetail?.user?.[0]?.name ?? "" }}
-            </h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="flex h-[100px] items-center rounded-md bg-yellow-500">
-              <div class="w-[10%] text-center">
-                <div
-                  class="ml-[10px] flex h-[32px] w-[32px] items-center justify-center rounded-full border-[3px] border-black">
-                  <i class="fa-solid fa-exclamation text-[20px] text-black"></i>
-                </div>
-              </div>
-              <div class="ml-[10px]">
-                <p class="text-[15px] font-medium text-red-500">Warning</p>
-                <p class="text-[15px] text-black">
-                  Bạn có muốn xóa bình luận
-                  <b>{{ valueCommentDetail ? valueCommentDetail.content : "" }}</b> này không ?
-                </p>
-                <p class="text-[15px] text-black">
-                  <span class="text-[15px] font-semibold text-black">Lưu ý: </span>Điều này không thể hoàn tác!
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
-              @click="handleDeleteComment(valueCommentDetail)">
-              Xóa ngay
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
     <modal-share />
   </div>
 </template>
@@ -341,7 +299,7 @@ import apiUploadFile from "@/apis/uploadFile.api";
 import apiPost from "@/apis/post.api";
 import modalCreate from "./components/modalCreate.vue";
 import pathConstant from "../constant/path.constant";
-
+import modalDelete from "./components/modalDelete.vue";
 export default {
   components: {
     svgCreate,
@@ -362,7 +320,7 @@ export default {
     renderImage,
     Trash2,
     modalCreate,
-
+    modalDelete
   },
   created() {
     this.userCurrent = getProfileFromLS()
@@ -396,7 +354,7 @@ export default {
       valueDetailPost: {},
       contentComment: "",
       liked: false,
-      valueCommentDetail: "",
+      valueCommentDetail: {},
       pathConstant: pathConstant
     }
   },
@@ -556,26 +514,35 @@ export default {
     },
     async handleDeleteComment(post) {
       try {
-        const URL = post._id
+        const URL = post._id;
         const res = await apiPost.deleteCommentPost(URL, {
           data: {
             post_id: post.post_id
           }
-        })
+        });
+
+        // Chờ cả hai lời gọi bất đồng bộ hoàn thành
         await Promise.all([
           this.getCommentDetailPost(),
           this.getDataNewFeed()
-        ]
-        )
+        ]);
+
+        // Hiển thị thông báo thành công
         this.$toast.success(res.data.message, {
           position: "bottom-right"
-        })
+        });
       } catch (error) {
+        // Có thể thêm xử lý lỗi ở đây nếu cần thiết
+        console.error('Error deleting comment:', error);
       }
     },
+
     handleContentChange(newContent) {
       this.content = newContent;
     },
+    handleChangeCommentDetail(data) {
+      this.valueCommentDetail = data;
+    }
   }
 }
 </script>

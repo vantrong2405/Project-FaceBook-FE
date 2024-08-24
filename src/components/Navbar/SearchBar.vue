@@ -1,5 +1,6 @@
 <template>
-  <div class="relative flex h-14 w-72 items-center gap-1 py-2 sm:gap-2" :class="isFocus ? 'w-screen pr-4 sm:w-72' : ''">
+  <div class="relative flex h-14 w-72 items-center gap-1 py-2 sm:gap-2 -z-30"
+    :class="isFocus ? 'w-screen pr-4 sm:w-72' : ''">
     <router-link to="/home">
       <div class="__logo">
         <img src="/src/assets/images/logo.png" alt=""
