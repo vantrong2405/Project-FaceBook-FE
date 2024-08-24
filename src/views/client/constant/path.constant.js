@@ -12,7 +12,8 @@ const pathConstant = {
     post: '/admin/post',
     user: '/admin/user',
     verifyEmail: '/verify-email',
-    forgotPassword: '/forgot-password'
+    forgotPassword: '/forgot-password',
+    profile: '/profile',
 }
 
 export default pathConstant

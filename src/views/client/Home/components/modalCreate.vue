@@ -1,4 +1,7 @@
 <template>
+    <input data-bs-toggle="modal" data-bs-target="#create_posts"
+        class="h-10 w-full cursor-pointer rounded-full border-[0px] bg-[#F0F2F5] px-3 text-tiny font-semibold outline-none transition-colors hover:bg-[#E4E6E9] focus:shadow-none focus:outline-none focus:ring-transparent mobile-x:text-base"
+        type="text" name="" :placeholder="placeholder" />
     <div class="modal fade" id="create_posts" tabindex="-1" aria-labelledby="create_post" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
@@ -17,21 +20,20 @@
                         </a>
                         <div class="ml-[10px]">
                             <p class="text-[15px] font-medium text-black">{{ userCurrent.name }}</p>
-                            <div class="w-32">
-                                <select class="form-select border-black py-1 shadow-none outline-none"
-                                    aria-label="Default select example">
-                                    <option class="truncate" value="1" selected>Công khai</option>
-                                    <option class="truncate" value="2">Bạn bè</option>
-                                    <option class="truncate" value="3">Bạn bè cụ thể</option>
-                                    <option class="truncate" value="4">Chỉ mình tôi</option>
+                            <form class="w-36 mx-auto">
+                                <select id="countries"
+                                    class=" bg-gray-50 border border-gray-300 text-gray-900  rounded-lg block w-full p-1.5 mt-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+                                    <option class="p-2" selected>Công khai</option>
+                                    <option class="p-2" value="US">Bí mật</option>
+                                    <option class="p-2" value="CA">Với bạn bè</option>
                                 </select>
-                            </div>
+                            </form>
                         </div>
                     </div>
                     <div class="mt-3 w-full pb-[50px]">
                         <textarea class="w-full resize-none break-words border-0 px-0 focus:outline-none focus:ring-0"
-                            :placeholder="placeholder" rows="3" v-model="content" @paste="handlePaste">
-              </textarea>
+                            :placeholder="placeholder" rows="3" @input="handleContentInput" v-model="internalContent">
+                        </textarea>
                         <div class="h-[200px] overflow-auto" v-if="media[0]">
                             <div v-for="(value, index) in media" :key="index" class="relative my-3">
                                 <img v-if="value.url" :src="value.url" alt=""
@@ -52,7 +54,7 @@
                             <span class="cursor-pointer font-medium text-black">Thêm vào bài viết của bạn</span>
                             <div class="flex justify-around">
                                 <div class="flex h-[36px] w-[36px] items-center justify-center rounded-full hover:bg-[#F2F2F2]"
-                                    @click="openFileInput">
+                                    @click="handleOpenFileInput">
                                     <img class="h-[24px] w-[24px] cursor-pointer"
                                         src="https://static.xx.fbcdn.net/rsrc.php/v3/y7/r/Ivw7nhRtXyo.png?_nc_eui2=AeHqUBHb5H6DvGo3fHFIMnuhPL4YoeGsw5I8vhih4azDkvYK82Ph4rTMk09D3rFp2rwKaE5BuKt1RCFgJFAPRiON"
                                         alt="" />
@@ -89,7 +91,7 @@
                         </div>
 
                         <button class="w-full rounded-lg bg-[#0861F2] py-[10px] font-medium text-white"
-                            data-bs-dismiss="modal" aria-label="Close" v-on:click="addPost">
+                            data-bs-dismiss="modal" aria-label="Close" v-on:click="handleAddPost">
                             Đăng
                         </button>
                     </div>
@@ -99,8 +101,59 @@
     </div>
 </template>
 <script>
-export default {
+import { X } from "lucide-vue-next";
 
+export default {
+    props: {
+        userCurrent: {
+            type: Object,
+            default: {}
+        },
+        placeholder: {
+            type: String,
+            default: "Bạn đang nghĩ gì đó"
+        },
+        content: {
+            type: String,
+            default: ""
+        },
+        media: {
+            type: Array,
+            default: []
+        },
+        avatar: {
+            type: String,
+            default: "https://cellphones.com.vn/sforum/wp-content/uploads/2023/10/avatar-trang-4.jpg",
+        },
+        onContentChange: {
+            type: Function,
+            default: () => { }
+        },
+
+    },
+    components: {
+        X
+    },
+    emits: ['contentChangeEvent', 'addPostEvent', 'openFileInputEvent'],
+    data() {
+        return {
+            internalContent: this.content
+        };
+    },
+    methods: {
+        handleContentInput() {
+            this.$emit('contentChangeEvent', this.internalContent)
+        },
+        handleAddPost() {
+            this.$emit('addPostEvent')
+            this.internalContent = ''
+        },
+        handleOpenFileInput() {
+            this.$emit('openFileInputEvent')
+        },
+    }
 }
 </script>
+
+
 <style></style>

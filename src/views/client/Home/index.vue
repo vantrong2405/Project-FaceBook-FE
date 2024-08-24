@@ -24,9 +24,9 @@
                 <div class="_pp_ cursor-pointer">
                   <img :src="userCurrent.avatar ? userCurrent.avatar : avatar" class="h-9 w-10 rounded-full" alt="" />
                 </div>
-                <input data-bs-toggle="modal" data-bs-target="#create_posts"
-                  class="h-10 w-full cursor-pointer rounded-full border-[0px] bg-[#F0F2F5] px-3 text-tiny font-semibold outline-none transition-colors hover:bg-[#E4E6E9] focus:shadow-none focus:outline-none focus:ring-transparent mobile-x:text-base"
-                  type="text" name="" :placeholder="placeholderPre" />
+                <modal-create :userCurrent="userCurrent" :placeholder="placeholder" :content="content" :media="media"
+                  :avatar="avatar" @contentChangeEvent="handleContentChange" @addPostEvent="addPost"
+                  @openFileInputEvent="openFileInput" />
               </div>
               <hr class="mx-2" />
               <div id="new-post-bottom" class="flex items-center justify-around px-2">
@@ -52,12 +52,12 @@
             <li class="my-4 w-full rounded-lg border-[1px] bg-[white] py-2 shadow-sm transition-colors duration-300">
               <div id="post-top" class="flex w-full items-center justify-between p-4 py-2">
                 <div id="post-top_left" class="flex items-center gap-2">
-                  <router-link :to="`/profile/${value.user.username}`">
+                  <router-link :to="`${pathConstant.profile}/${value.user.username}`">
                     <div id="post-top_left_pp" class="w-max cursor-pointer rounded-full border-2 ring-opacity-70">
                       <img :src="value.user.avatar ? value.user.avatar : avatar" class="h-8 w-8 rounded-full" alt="" />
                     </div>
                   </router-link>
-                  <router-link :to="`/profile/${value.user.username}`">
+                  <router-link :to="`${pathConstant.profile}/${value.user.username}`">
                     <div id="post-top_left_title">
                       <p class="cursor-pointer font-bold capitalize hover:underline">
                         {{ value.user.name }}
@@ -151,7 +151,7 @@
                             <p class="mt-1 flex items-center text-xs">
                               <span class="cursor-pointer hover:underline">{{
                                 formatDate(valueDetailPost?.created_at ?? "")
-                                }}</span>
+                              }}</span>
                               <span class="mx-1">·</span>
                               <svg-world class="w-3" />
                             </p>
@@ -275,8 +275,6 @@
       class="fixed bottom-5 right-5 flex cursor-pointer items-center justify-center rounded-full border-2 bg-white p-[14px] text-black transition-colors duration-300 hover:bg-myGray-700">
       <svg-new-message class="w-5" />
     </div>
-    <!-- modal create ne-->
-    <modal-create />
     <!-- modal delete-comment -->
     <div class="modal fade" id="modalDeleteCommment" tabindex="-1" aria-labelledby="modalCommentLabel"
       aria-hidden="true">
@@ -342,6 +340,7 @@ import { formatDate } from "@/utils/utils";
 import apiUploadFile from "@/apis/uploadFile.api";
 import apiPost from "@/apis/post.api";
 import modalCreate from "./components/modalCreate.vue";
+import pathConstant from "../constant/path.constant";
 
 export default {
   components: {
@@ -362,17 +361,16 @@ export default {
     modalShare,
     renderImage,
     Trash2,
-    modalCreate
+    modalCreate,
+
   },
   created() {
     this.userCurrent = getProfileFromLS()
     this.getDataNewFeed()
     if (this.userCurrent && this.userCurrent.name) {
       this.placeholder = `${this.userCurrent.name} ơi, bạn đang nghĩ gì thế?`
-      this.placeholderPre = `${this.userCurrent.name} ơi, bạn đang nghĩ gì thế?`
     } else {
       this.placeholder = "Bạn đang nghĩ gì thế?"
-      this.placeholderPre = "Bạn đang nghĩ gì thế?"
     }
   },
   data() {
@@ -397,9 +395,9 @@ export default {
       placeholder: "",
       valueDetailPost: {},
       contentComment: "",
-      placeholderPre: "",
       liked: false,
-      valueCommentDetail: ""
+      valueCommentDetail: "",
+      pathConstant: pathConstant
     }
   },
   methods: {
@@ -444,8 +442,8 @@ export default {
             position: "bottom-right"
           })
           this.getDataNewFeed()
-          this.content = ""
           this.media = []
+          this.content = ""
         })
       } else {
         this.$toast.error('Nội dung không được để trống', {
@@ -574,7 +572,10 @@ export default {
         })
       } catch (error) {
       }
-    }
+    },
+    handleContentChange(newContent) {
+      this.content = newContent;
+    },
   }
 }
 </script>
