@@ -207,10 +207,8 @@
   </div>
 </template>
 <script>
-import axios from "axios"
 import { useToast } from "vue-toast-notification"
 import "vue-toast-notification/dist/theme-sugar.css"
-import http from "@/baseAPI/http"
 import apiAuth from "@/apis/auth.api"
 import { setAccessTokenToLS, setRefreshTokenToLS } from "@/utils/auth"
 export default {

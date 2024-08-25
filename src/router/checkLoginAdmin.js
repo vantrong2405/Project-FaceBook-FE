@@ -7,8 +7,7 @@ export default async function (to, from, next) {
   const toast = useToast()
   const check = localStorage.getItem("access_token")
   const profile = localStorage.getItem("profile")
-
-  if (check && profile !== "undefined" && profile && profile.role == 1) {
+  if (check && profile && profile.role == 1) {
     next()
     return
   }
@@ -20,10 +19,9 @@ export default async function (to, from, next) {
     })
 
     if (res.status === 200) {
-      if (res.data.result.role == 1) {
-        localStorage.setItem("profile", JSON.stringify(res.data.result))
-        next()
-      }
+      localStorage.setItem("profile", JSON.stringify(res.data.result))
+      console.log(res)
+      next()
     } else {
       toast.warning("Thông báo<br>Bạn cần đăng nhập hệ thống trước!", {
         position: "bottom-right"

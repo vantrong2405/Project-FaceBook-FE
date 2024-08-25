@@ -82,6 +82,7 @@
 <script>
 import axios from "axios"
 import "vue-toast-notification/dist/theme-sugar.css"
+import apiAuth from "@/apis/auth.api";
 export default {
   mounted() {
     this.checkToken()
@@ -106,23 +107,25 @@ export default {
       }
 
       try {
-        const res = await axios.post("http://localhost:4000/users/login", objectLogin)
-        if (res.status === 200) {
-          localStorage.setItem("access_token", res.data.result.access_token)
-          localStorage.setItem("refresh_token", res.data.result.refresh_token)
-          const isAuthorized = await this.checkToken()
-          if (isAuthorized) {
-            this.$toast.success(res.data.message, {
-              position: "bottom-right"
-            })
-            // this.$router.push('/admin/post');
-          } else {
-            throw new Error("Bạn không có quyền truy cập")
+        const res = apiAuth.loginAccount(objectLogin).then((res) => {
+          if (res.status === 200) {
+            localStorage.setItem("access_token", res.data.result.access_token)
+            localStorage.setItem("refresh_token", res.data.result.refresh_token)
+            const isAuthorized = this.checkToken()
+            if (isAuthorized) {
+              this.$toast.success(res.data.message, {
+                position: "bottom-right"
+              })
+              this.$router.push('/admin/post');
+            } else {
+              throw new error("Unauthorized role")
+            }
           }
-        }
+        })
+
       } catch (errors) {
-        console.error(errors) // In ra lỗi để gỡ lỗi dễ dàng hơn
-        this.$toast.error("Đăng nhập không thành công", {
+
+        this.$toast.success('Đăng nhập thất bại', {
           position: "bottom-right"
         })
       }
