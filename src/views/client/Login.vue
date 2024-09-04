@@ -250,6 +250,8 @@ export default {
           position: "bottom-right"
         })
         this.$router.push("/home")
+        console.log(res.data.result.access_token);
+        
         setAccessTokenToLS(res.data.result.access_token)
         setRefreshTokenToLS(res.data.result.refresh_token)
       })

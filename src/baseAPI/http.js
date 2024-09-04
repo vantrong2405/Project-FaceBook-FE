@@ -11,6 +11,7 @@ const toast = app.config.globalProperties.$toast;
 
 class Http {
   constructor() {
+    this.updateToken();
     this.accessToken = getAccessTokenFromLS();
     this.instance = axios.create({
       baseURL: "http://localhost:4000/",
@@ -21,8 +22,9 @@ class Http {
 
     this.instance.interceptors.request.use(
       (config) => {
+        this.updateToken();
         if (this.accessToken) {
-          config.headers.authorization = "Bearer " + this.accessToken; 
+          config.headers.Authorization = `Bearer ${this.accessToken}`;
         }
         return config;
       },
@@ -50,7 +52,11 @@ class Http {
       }
     );
   }
+  updateToken() {
+    this.accessToken = getAccessTokenFromLS(); 
+  }
 }
+
 
 const http = new Http().instance;
 export default http;

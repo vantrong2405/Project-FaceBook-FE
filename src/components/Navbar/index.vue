@@ -1,4 +1,3 @@
-<!-- eslint-disable vue/no-unused-components -->
 <template>
   <div class="z-50 grid h-14 w-full grid-cols-2 items-center bg-white shadow-sm md:grid-cols-3">
     <SearchBar class="z-20" />
@@ -32,7 +31,7 @@
         </div>
       </router-link>
     </div>
-    <RightMenu />
+    <RightMenu :userCurrent1 ='userCurrent'/>
   </div>
 </template>
 
@@ -60,7 +59,7 @@ export default {
     svgMarket,
     svgGame
   },
-  created() {
+  mounted() {
     this.userCurrent = getProfileFromLS()
   },
   data() {
