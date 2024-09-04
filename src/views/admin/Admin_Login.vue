@@ -76,7 +76,7 @@ import "vue-toast-notification/dist/theme-sugar.css";
 import apiAuth from "@/apis/auth.api";
 import { clearLS, setAccessTokenToLS, setRefreshTokenToLS } from '@/utils/auth';
 export default {
-  mounted() {
+ async mounted() {
     this.checkToken()
   },
   data() {
@@ -146,4 +146,3 @@ export default {
   }
 }
 </script>
-<style></style>

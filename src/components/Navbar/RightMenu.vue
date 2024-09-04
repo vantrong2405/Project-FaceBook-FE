@@ -43,7 +43,7 @@
         "
         class="flex cursor-pointer items-center justify-center rounded-full bg-myGray-900 transition-colors duration-300 hover:bg-myGray-700">
         <div id="pp" class="naybanoiw relative h-9 w-9 overflow-hidden rounded-full border">
-          <img :src="profileInFor.avatar ? profileInFor.avatar : avatar" alt="" width="100%" style="height: 100%" />
+          <img :src="userCurrent?.avatar ? userCurrent.avatar : avatar" alt="" width="100%" style="height: 100%" />
         </div>
       </div>
     </div>
@@ -390,7 +390,7 @@
         <div class="mx-1 my-1 rounded-xl hover:bg-gray-100">
           <router-link :to="`/profile/${userCurrent.username}`" class="flex">
             <div>
-              <img class="mx-1 my-2 h-10 w-10 rounded-full" :src="profileInFor.avatar ? profileInFor.avatar : avatar"
+              <img class="mx-1 my-2 h-10 w-10 rounded-full" :src="userCurrent.avatar ? userCurrent.avatar : avatar"
                 alt="" />
             </div>
             <div>
@@ -493,13 +493,11 @@ import svgMessenger from "../svg/svgMessenger.vue"
 import svgNotifications from "../svg/svgNotifications.vue"
 import svgCreate from "../svg/svgCreate.vue"
 import "vue-toast-notification/dist/theme-sugar.css"
-import apiProfile from "@/apis/profile.api"
 import { clearLS, getProfileFromLS } from "@/utils/auth"
 import pathConstant from '@/views/client/constant/path.constant'
 export default {
-  created() {
+ async created() {
     this.userCurrent = getProfileFromLS()
-    this.getProfile()
   },
   components: {
     svgMenu,
@@ -535,20 +533,14 @@ export default {
       isShowMore: false,
       avatar: "https://cellphones.com.vn/sforum/wp-content/uploads/2023/10/avatar-trang-4.jpg",
       userCurrent: {},
-      profileInFor: {},
       pathConstant : pathConstant
     }
   },
   methods: {
-    getProfile() {
-    apiProfile.getProfile(this.userCurrent.username).then((res) => {
-        this.profileInFor = res.data.result
-      })
-    },
     logOut() {
       clearLS()
       this.$router.push(pathConstant.default)
-      this.$toast.success(res.data.message, {
+      this.$toast.success('Logout success', {
         position: "bottom-right"
       })
     }
