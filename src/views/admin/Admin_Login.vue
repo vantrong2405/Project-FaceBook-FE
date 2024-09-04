@@ -72,8 +72,7 @@
   </section>
 </template>
 <script>
-import axios from "axios"
-import "vue-toast-notification/dist/theme-sugar.css"
+import "vue-toast-notification/dist/theme-sugar.css";
 import apiAuth from "@/apis/auth.api";
 import { clearLS, setAccessTokenToLS, setRefreshTokenToLS } from '@/utils/auth';
 export default {
@@ -111,6 +110,9 @@ export default {
               })
               this.$router.push('/admin/post');
             } else {
+               this.$toast.success('Login failure', {
+               position: "bottom-right"
+              })
               throw new error("Unauthorized role")
             }
           }
@@ -125,7 +127,7 @@ export default {
     },
     async checkToken() {
       try {
-        apiAuth.checkToken().then((rés)=>{
+        apiAuth.checkToken().then((res)=>{
          if (res.status === 200) {
           if (res.data.result.role == 1) {
             this.$router.push("/admin/post")

@@ -1,32 +1,28 @@
-import axios from 'axios'
+import apiAuth from '@/apis/auth.api'
+import { getAccessTokenFromLS, getProfileFromLS, setProfileToLS } from '@/utils/auth'
 import { useToast } from 'vue-toast-notification'
 import 'vue-toast-notification/dist/theme-sugar.css'
 
 export default async function (to, from, next) {
   const toast = useToast()
-  const check = localStorage.getItem('access_token')
-  const profile = localStorage.getItem('profile')
-  if (check && profile !== 'undefined' && profile) {
+  const accessToken = getAccessTokenFromLS()
+  const profile = getProfileFromLS()
+  if (accessToken && profile ) {
     next()
     return
   }
   try {
-    const res = await axios.get('http://localhost:4000/users/me', {
-      headers: {
-        Authorization: 'Bearer ' + localStorage.getItem('access_token')
+    await apiAuth.checkToken().then((res)=>{
+      if (res.status === 200) {
+        setProfileToLS(res.data.result)
+        next()
+      } else {
+        toast.warning('Thông báo<br>Bạn cần đăng nhập hệ thống trước!', {
+          position: 'bottom-right'
+        })
+        next('/')
       }
     })
-
-    if (res.status === 200) {
-      localStorage.setItem('profile', JSON.stringify(res.data.result))
-      console.log(res)
-      next()
-    } else {
-      toast.warning('Thông báo<br>Bạn cần đăng nhập hệ thống trước!', {
-        position: 'bottom-right'
-      })
-      next('/')
-    }
   } catch (error) {
     toast.warning('Thông báo<br>Bạn cần đăng nhập hệ thống trước!', {
       position: 'bottom-right'
