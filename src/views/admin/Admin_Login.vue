@@ -2,30 +2,25 @@
   <section class="h-screen bg-white">
     <div class="container h-full px-6 py-24">
       <div class="flex h-full flex-wrap items-center justify-center lg:justify-between">
-        <!-- Left column container with background-->
         <div class="mb-12 md:mb-0 md:w-8/12 lg:w-6/12">
           <img src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" class="w-full"
             alt="Phone image" />
         </div>
 
-        <!-- Right column container with form -->
         <div class="border-3 border-black p-4 md:w-5/12 lg:ms-6 lg:w-5/12">
           <div>
-            <!-- Email input -->
             <div class="relative mb-6" data-twe-input-wrapper-init>
               <input type="text"
                 class="peer-focus:text-primary dark:autofill:shadow-autofill dark:peer-focus:text-primary peer block min-h-[auto] w-full rounded border border-black bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0"
                 id="exampleFormControlInput3" placeholder="Email address" v-model="account" />
             </div>
 
-            <!-- Password input -->
             <div class="relative mb-6" data-twe-input-wrapper-init>
               <input type="password"
                 class="peer-focus:text-primary dark:autofill:shadow-autofill dark:peer-focus:text-primary peer block min-h-[auto] w-full rounded border border-black bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0"
                 id="exampleFormControlInput33" placeholder="Password" v-model="pass" />
             </div>
 
-            <!-- Remember me checkbox -->
             <div class="mb-6 flex items-center justify-between">
               <div class="mb-[0.125rem] block min-h-[1.5rem] ps-[1.5rem]">
                 <input
@@ -34,18 +29,15 @@
                 <label class="inline-block ps-[0.15rem] hover:cursor-pointer" for="exampleCheck3"> Remember me </label>
               </div>
 
-              <!-- Forgot password link -->
               <a href="#!" class="text-primary dark:text-primary-400 focus:outline-none">Forgot password?</a>
             </div>
 
-            <!-- Submit button -->
             <button @click="login()"
               class="bg-primary shadow-primary-3 hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 active:bg-primary-600 active:shadow-primary-2 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong inline-block w-full rounded px-7 pb-2.5 pt-3 text-sm font-medium uppercase leading-normal text-white transition duration-150 ease-in-out focus:outline-none focus:ring-0 dark:shadow-black/30"
               data-twe-ripple-init data-twe-ripple-color="light">
               Sign in
             </button>
 
-            <!-- Divider -->
             <div
               class="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300 dark:before:border-neutral-500 dark:after:border-neutral-500">
               <p class="mx-4 mb-0 text-center font-semibold dark:text-neutral-200">OR</p>
@@ -83,6 +75,7 @@
 import axios from "axios"
 import "vue-toast-notification/dist/theme-sugar.css"
 import apiAuth from "@/apis/auth.api";
+import { clearLS, setAccessTokenToLS, setRefreshTokenToLS } from '@/utils/auth';
 export default {
   mounted() {
     this.checkToken()
@@ -107,10 +100,10 @@ export default {
       }
 
       try {
-        const res = apiAuth.loginAccount(objectLogin).then((res) => {
+        apiAuth.loginAccount(objectLogin).then((res) => {
           if (res.status === 200) {
-            localStorage.setItem("access_token", res.data.result.access_token)
-            localStorage.setItem("refresh_token", res.data.result.refresh_token)
+           setAccessTokenToLS(res.data.result.access_token)
+           setRefreshTokenToLS(res.data.result.refresh_token)
             const isAuthorized = this.checkToken()
             if (isAuthorized) {
               this.$toast.success(res.data.message, {
@@ -132,22 +125,18 @@ export default {
     },
     async checkToken() {
       try {
-        const res = await axios.get("http://localhost:4000/users/me", {
-          headers: {
-            Authorization: "Bearer " + localStorage.getItem("access_token")
-          }
-        })
-        if (res.status === 200) {
+        apiAuth.checkToken().then((rés)=>{
+         if (res.status === 200) {
           if (res.data.result.role == 1) {
             this.$router.push("/admin/post")
             return true
           } else {
-            localStorage.removeItem("access_token")
-            localStorage.removeItem("refresh_token")
-            localStorage.removeItem("profile")
+            clearLS()
             throw new Error("Unauthorized role")
           }
         }
+        })
+      
       } catch (error) {
         return false
       }

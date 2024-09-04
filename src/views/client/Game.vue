@@ -388,11 +388,11 @@ import {
 
 export default {
   components: {
-    TrainFront,
     Swiper,
     SwiperSlide,
-    Gamepad2,
     svgSearch,
+    TrainFront,
+    Gamepad2,
     CircleUser,
     Bell,
     Save,
@@ -417,4 +417,3 @@ export default {
   }
 }
 </script>
-<style></style>

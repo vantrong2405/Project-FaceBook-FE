@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router"
 import pathConstant from "@/views/client/constant/path.constant"
-// client
 import Home from "../views/client/Home/index.vue"
 import Video from "../views/client/Video.vue"
 import Market from "../views/client/Market.vue"
@@ -11,13 +10,10 @@ import Profile from "../views/client/Profile.vue"
 import Search from "../views/client/Search.vue"
 import ResetPassWord from "../views/client/ResetPassword.vue"
 import checkLogin from "./checkLoginClient"
-// admin
 import PostVue from "../views/admin/Post.vue"
 import ManagerUserVue from "@/views/admin/ManagerUser.vue"
 import Admin_Login from "@/views/admin/Admin_Login.vue"
 import checkLoginAdmin from "./checkLoginAdmin"
-
-// verify
 import VerifyEmail from "../views/client/VerifyEmail.vue"
 import ForgotPassword from "../views/client/ForgotPassword.vue"
 
@@ -81,8 +77,6 @@ const router = createRouter({
       meta: { layout: "Empty" },
       beforeEnter: checkLogin
     },
-
-    // admin
     {
       path: pathConstant.adminLogin,
       name: "admin_Login",

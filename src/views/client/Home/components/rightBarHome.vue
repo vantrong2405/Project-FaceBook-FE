@@ -110,9 +110,9 @@
   </div>
 </template>
 <script>
+import { Ellipsis, Repeat } from "lucide-vue-next"
 import svgNewRoom from "@/components/svg/svgNewRoom.vue"
 import svgSearch from "@/components/svg/svgSearch.vue"
-import { Ellipsis, Repeat } from "lucide-vue-next"
 import svgDots from "@/components/svg/svgDots.vue"
 import svgCreate from "@/components/svg/svgCreate.vue"
 export default {

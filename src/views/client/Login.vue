@@ -1,5 +1,3 @@
-<!-- eslint-disable no-dupe-keys -->
-<!-- eslint-disable no-undef -->
 <template>
   <div>
     <div id="Login" class="h-screen bg-[#F0F2F5]">
@@ -53,7 +51,6 @@
                 </div>
               </div>
             </div>
-            <!-- end -->
             <hr class="mb-[10px] mt-[16px] pb-[20px]" />
             <div class="pb-[20px] text-center">
               <a @click="showResgister = true" id="creat-acc" href="#"
@@ -71,7 +68,6 @@
         </div>
       </div>
     </div>
-    <!-- section Register -->
     <section v-if="showResgister" id="register"
       class="fixed bottom-0 left-0 right-0 top-0 z-50 bg-[#FFF] bg-opacity-80">
       <div class="w-full py-[3%] text-center">
@@ -84,7 +80,6 @@
               <p class="pt-[2px] text-[15px] text-[#606770]">Nhanh chóng và dễ dàng.</p>
             </div>
             <div class="border-t-[1px] border-[#ccd0d5] p-[16px]">
-              <!-- form register -->
               <form class="w-full">
                 <div class="mb-[10px] flex justify-between gap-2">
                   <input type="text" class="form-control input border-[1px] border-[#ccd0d5]" placeholder="Họ"
@@ -104,13 +99,11 @@
                   <input type="text" class="form-control input w-full border-[1px] border-[#ccd0d5]"
                     placeholder="Nhập lại mật khẩu " v-model="comfirm_password" />
                 </div>
-                <!-- ngày sinh -->
                 <div class="mb-[15px]">
                   <div class="w-100%">
                     <input type="date" name="" id="" class="form-control" v-model="date_of_birth" />
                   </div>
                 </div>
-                <!-- giới tính -->
               </form>
               <div>
                 <p class="my-[11px] text-[11px] text-[#777]">
@@ -207,7 +200,6 @@
   </div>
 </template>
 <script>
-import { useToast } from "vue-toast-notification"
 import "vue-toast-notification/dist/theme-sugar.css"
 import apiAuth from "@/apis/auth.api"
 import { setAccessTokenToLS, setRefreshTokenToLS } from "@/utils/auth"
@@ -241,8 +233,7 @@ export default {
         name: this.firstName + " " + this.lastName,
         role: 0
       }
-      const dataRegister = apiAuth.registerAccount(body)
-      dataRegister.then((res) => {
+    apiAuth.registerAccount(body).then((res) => {
         this.$toast.success(res.data.message, {
           position: "bottom-right"
         })
@@ -254,8 +245,7 @@ export default {
         email: this.emailLogin,
         password: this.passwordLogin
       }
-      const dataLogin = apiAuth.loginAccount(body)
-      dataLogin.then((res) => {
+     apiAuth.loginAccount(body).then((res) => {
         this.$toast.success(res.data.message, {
           position: "bottom-right"
         })
@@ -265,8 +255,7 @@ export default {
       })
     },
     checkToken() {
-      const dataCheck = apiAuth.checkToken()
-      dataCheck.then(() => {
+     apiAuth.checkToken().then(() => {
         this.$router.push("/home")
       })
     },
@@ -275,8 +264,7 @@ export default {
         const body = {
           email: this.email_forgot_password
         }
-        const dataForgot = apiAuth.forgotPassword(body)
-        dataForgot.then((res) => {
+      apiAuth.forgotPassword(body).then((res) => {
           this.$toast.success(res.data.message, {
             position: "bottom-right"
           })
@@ -287,4 +275,3 @@ export default {
   }
 }
 </script>
-<style></style>

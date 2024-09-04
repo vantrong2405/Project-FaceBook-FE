@@ -74,7 +74,6 @@
           </li>
         </ul>
       </div>
-      <!-- end -->
     </div>
   </div>
   <div class="float-right min-h-dvh w-[calc(100%-22%)] bg-[#F0F2F5]" v-if="listUserSearch.length > 0">
@@ -119,10 +118,10 @@
   </div>
 </template>
 <script>
-import svgSeeMore from "@/components/svg/svgSeeMore.vue"
 import svgSearch from "@/components/svg/svgSearch.vue"
-import http from "@/baseAPI/http"
 import { Rocket, Clapperboard, Save, Tv2, Film, Settings, MonitorPlay } from "lucide-vue-next"
+import { getProfileFromLS } from '@/utils/auth'
+import apiSearch from "@/apis/search.api"
 export default {
   components: {
     svgSearch,
@@ -139,7 +138,7 @@ export default {
   },
   async mounted() {
     this.updateSearch()
-    this.userCurrent = JSON.parse(localStorage.getItem("profile"))
+    this.userCurrent = getProfileFromLS()
     await this.getAllUser()
   },
   data() {
@@ -156,14 +155,11 @@ export default {
       this.textSearch = this.$route.params.id
     },
     async getAllUser() {
-      try {
-        const res = await http.get("/users/all-user")
+       await apiSearch.searchUser().then((res)=>{
         this.listUserSearch = res.data.result
         this.listUserSearchClone = [...this.listUserSearch]
-        await this.handleSearchUser()
-      } catch (errors) {
-        console.log(errors)
-      }
+        this.handleSearchUser()
+        })
     },
     handleSearchUser() {
       this.listUserSearch = [...this.listUserSearchClone]
@@ -171,11 +167,7 @@ export default {
       this.listUserSearch = this.listUserSearch.filter((items) => {
         return items.name.toLowerCase().includes(text)
       })
-
-      console.log(">>>>>", this.listUserSearch)
     }
   },
-  computed: {}
 }
 </script>
-<style></style>

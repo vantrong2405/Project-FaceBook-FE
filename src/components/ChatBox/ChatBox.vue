@@ -40,7 +40,6 @@
 
 <script>
 import { SendHorizontal, Minus } from 'lucide-vue-next';
-
 export default {
     components: {
         SendHorizontal,
@@ -72,8 +71,8 @@ export default {
     methods: {
         handleAddMessage() {
             if (this.inputValue.trim() !== '') {
-                this.addMessage(this.inputValue);
-                this.inputValue = '';
+                this.addMessage(this.inputValue)
+                this.inputValue = ''
             }
         },
         toggleChat() {

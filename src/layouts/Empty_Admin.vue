@@ -23,6 +23,4 @@ export default {
 @import "../assets/admin/css/semi-dark.css";
 @import "../assets/admin/css/header-colors.css";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
-/* @import '../assets/admin/css/bootstrap.min.css';
-  @import '../assets/admin/css/bootstrap-extended.css'; */
 </style>

@@ -374,14 +374,14 @@ export default {
         return;
       }
       try {
-        const formData = new FormData();
-        formData.append("image", this.fileup);
-        const res = await apiUploadFile.upFile(formData);
+        const formData = new FormData()
+        formData.append("image", this.fileup)
+        const res = await apiUploadFile.upFile(formData)
         this.media.push({
           url: res.data.result[0].url,
           type: res.data.result[0].type
         });
-        this.fileup = "";
+        this.fileup = ""
       } catch (error) {
         console.error("Lỗi khi upload file:", error);
       }
@@ -394,8 +394,7 @@ export default {
           mentions: [],
           medias: this.media
         }
-        const resPost = apiPost.addPost(body)
-        resPost.then((res) => {
+       apiPost.addPost(body).then((res) => {
           this.$toast.success(res.data.message, {
             position: "bottom-right"
           })
@@ -410,13 +409,12 @@ export default {
       }
     },
     getDataNewFeed(isInitialLoad = false) {
-      const dataPost = apiPost.getPost({
+     apiPost.getPost({
         params: {
           limit: 5,
           page: 1
         }
-      })
-      dataPost.then((res) => {
+      }).then((res) => {
         this.allNewFeed = res.data.result
         if (isInitialLoad) {
           this.allNewFeed.sort(() => Math.random() - 0.5)
@@ -427,8 +425,7 @@ export default {
     },
     async changeStatusLikePost(post, index) {
       if (post?.user_liked?.liked) {
-        const res = apiPost.deleteLikePost(post._id)
-        res.then((res) => {
+          apiPost.deleteLikePost(post._id).then((res) => {
           this.getDataNewFeed()
           this.$toast.success(res.data.message, {
             position: "bottom-right"
@@ -438,8 +435,7 @@ export default {
         const payload = {
           post_id: post._id
         }
-        const res = apiPost.likePost(payload)
-        res.then((res) => {
+          apiPost.likePost(payload).then((res) => {
           this.getDataNewFeed()
           this.liked = this.allNewFeed[index].user_liked.liked
           this.liked = [...this.allNewFeed]
@@ -476,13 +472,12 @@ export default {
       if (index >= 0) this.media.splice(index, 1)
     },
     getCommentDetailPost() {
-      const dataCommentDetail = apiPost.getCommentDetailPost(this.valueDetailPost._id, {
+     apiPost.getCommentDetailPost(this.valueDetailPost._id, {
         params: {
           limit: 20,
           page: 1
         }
-      })
-      dataCommentDetail.then((res) => {
+      }).then((res) => {
         this.valueDetailPost.postComment = res.data.result.postComment
       })
     },
@@ -515,9 +510,8 @@ export default {
       }
     },
     async handleDeleteComment(post) {
-      try {
-        const URL = post._id;
-        const res = await apiPost.deleteCommentPost(URL, {
+        const commentId = post._id;
+        const res = await apiPost.deleteCommentPost(commentId, {
           data: {
             post_id: post.post_id
           }
@@ -530,9 +524,6 @@ export default {
         this.$toast.success(res.data.message, {
           position: "bottom-right"
         });
-      } catch (error) {
-        console.error('Error deleting comment:', error);
-      }
     },
 
     handleContentChange(newContent) {

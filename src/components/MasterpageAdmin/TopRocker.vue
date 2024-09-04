@@ -154,10 +154,12 @@
   </header>
 </template>
 <script>
+import pathConstant from '@/views/client/constant/path.constant'
 export default {
   data() {
     return {
-      ten_hien_thi: "Chưa đăng nhập"
+      ten_hien_thi: "Chưa đăng nhập",
+      pathConstant : pathConstant
     }
   },
   mounted() {
@@ -165,19 +167,11 @@ export default {
   },
   methods: {
     logOut() {
-      try {
-        localStorage.removeItem("access_token")
-        localStorage.removeItem("refresh_token")
-        localStorage.removeItem("profile")
+        clearLS()
         this.$toast.success("Đăng xuất thành công", {
           position: "bottom-right"
         })
-        this.$router.push("/admin/login")
-      } catch (errors) {
-        this.$toast.error("Đăng xuất không thành công", {
-          position: "bottom-right"
-        })
-      }
+    this.$router.push("/admin/login")
     },
     logOutAll() {}
   }

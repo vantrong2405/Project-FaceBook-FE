@@ -57,8 +57,7 @@ export default {
         comfirm_password: this.retype_password,
         forgot_password_token: this.token
       }
-      const resetPassword = apiAuth.changePassword(body)
-      resetPassword.then((res) => {
+     apiAuth.resetPassword(body).then((res) => {
         console.log(res)
         this.$toast.success(res.data.message, {
           position: "bottom-right"

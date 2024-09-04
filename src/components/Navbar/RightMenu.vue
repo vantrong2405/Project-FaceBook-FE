@@ -466,10 +466,6 @@
   </div>
 </template>
 <script>
-import svgMenu from "../svg/svgMenu.vue"
-import svgMessenger from "../svg/svgMessenger.vue"
-import svgNotifications from "../svg/svgNotifications.vue"
-import svgCreate from "../svg/svgCreate.vue"
 import {
   KeyRound,
   BookOpen,
@@ -492,11 +488,14 @@ import {
   MonitorPlay,
   Newspaper
 } from "lucide-vue-next"
-
+import svgMenu from "../svg/svgMenu.vue"
+import svgMessenger from "../svg/svgMessenger.vue"
+import svgNotifications from "../svg/svgNotifications.vue"
+import svgCreate from "../svg/svgCreate.vue"
 import "vue-toast-notification/dist/theme-sugar.css"
 import apiProfile from "@/apis/profile.api"
 import { clearLS, getProfileFromLS } from "@/utils/auth"
-import apiAuth from "@/apis/auth.api"
+import pathConstant from '@/views/client/constant/path.constant'
 export default {
   mounted() {
     this.userCurrent = getProfileFromLS()
@@ -536,19 +535,19 @@ export default {
       isShowMore: false,
       avatar: "https://cellphones.com.vn/sforum/wp-content/uploads/2023/10/avatar-trang-4.jpg",
       userCurrent: {},
-      profileInFor: {}
+      profileInFor: {},
+      pathConstant : pathConstant
     }
   },
   methods: {
     getProfile() {
-      const dataProfile = apiProfile.getProfile(this.userCurrent.username)
-      dataProfile.then((res) => {
+    apiProfile.getProfile(this.userCurrent.username).then((res) => {
         this.profileInFor = res.data.result
       })
     },
     logOut() {
       clearLS()
-      this.$router.push("/")
+      this.$router.push(pathConstant.default)
       this.$toast.success(res.data.message, {
         position: "bottom-right"
       })

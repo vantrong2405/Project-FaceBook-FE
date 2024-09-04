@@ -23,11 +23,9 @@
   </div>
 </template>
 <script>
-import http from "@/baseAPI/http"
-import axios from "axios"
-import { useToast } from "vue-toast-notification"
 import "vue-toast-notification/dist/theme-sugar.css"
 import { ArrowRight } from "lucide-vue-next"
+import apiAuth from '@/apis/auth.api'
 export default {
   components: {
     ArrowRight
@@ -43,20 +41,10 @@ export default {
   },
   methods: {
     verifyEmail() {
-      const obj = {
+      const body = {
         email_verify_token: this.token
       }
-      http
-        .post("/users/verify-email", obj)
-        .then((res) => {
-          console.log(res)
-          // setTimeout(() => {
-          //     this.$router.push('/')
-          // }, 2000)
-        })
-        .catch((errors) => {
-          console.log(errors)
-        })
+      apiAuth.verifyEmail(body)
     }
   }
 }

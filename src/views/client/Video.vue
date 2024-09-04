@@ -158,16 +158,16 @@
   </div>
 </template>
 <script>
-import { MonitorPlay } from "lucide-vue-next"
-import { Tv2 } from "lucide-vue-next"
-import { Film } from "lucide-vue-next"
-import { Clapperboard } from "lucide-vue-next"
-import { Rocket } from "lucide-vue-next"
-import { Save } from "lucide-vue-next"
-import { Ellipsis } from "lucide-vue-next"
-import { Settings } from "lucide-vue-next"
-import { AlarmClockCheck } from "lucide-vue-next" // icon đồng hồ
-// video
+import { 
+MonitorPlay,
+Tv2,
+Film,
+Clapperboard,
+Rocket,
+Save,
+Ellipsis,
+Settings
+ } from "lucide-vue-next"
 import svgSearch from "../../components/svg/svgSearch.vue"
 export default {
   data() {
@@ -175,6 +175,7 @@ export default {
   },
   methods: {},
   components: {
+    svgSearch,
     MonitorPlay,
     Tv2,
     Film,
@@ -182,8 +183,7 @@ export default {
     Rocket,
     Save,
     Ellipsis,
-    Settings,
-    svgSearch
+    Settings
   }
 }
 </script>

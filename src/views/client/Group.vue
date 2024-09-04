@@ -1,4 +1,4 @@
-<template clas="">
+<template>
   <div class="fixed left-0 top-[55px] flex h-screen w-[22%] flex-col bg-white pl-[5px] pt-[5px] shadow-md">
     <div id="left-bar-top" class="p-[10px]">
       <ul>
@@ -126,12 +126,8 @@
   </div>
 </template>
 <script>
-import { Newspaper, Settings } from "lucide-vue-next"
-import { Compass } from "lucide-vue-next"
-import { Users } from "lucide-vue-next"
-import { Ellipsis } from "lucide-vue-next"
+import { Compass , Users , Ellipsis , Plus , Newspaper, Settings } from "lucide-vue-next"
 import svgSearch from "../../components/svg/svgSearch.vue"
-import { Plus } from "lucide-vue-next"
 export default {
   data() {
     return {
@@ -196,11 +192,11 @@ export default {
   },
   method: {},
   components: {
+    svgSearch,
     Newspaper,
     Compass,
     Users,
     Settings,
-    svgSearch,
     Plus,
     Ellipsis
   }

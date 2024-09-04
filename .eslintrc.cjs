@@ -6,7 +6,7 @@ module.exports = {
     'eslint:recommended',
     '@vue/eslint-config-prettier/skip-formatting',
     'plugin:react/recommended',
-    'prettier' // Đảm bảo Prettier là phần mở rộng cuối cùng
+    'prettier' 
   ],
   parserOptions: {
     ecmaVersion: 'latest'
@@ -18,11 +18,11 @@ module.exports = {
     'vue/no-unused-vars': 'off',
     'valid-v-for': 'off',
     'no-mutating-props': 'off',
-    'semi': ['error', 'never'], // Không yêu cầu dấu chấm phẩy
+    'semi': ['error', 'never'], 
     'prettier/prettier': [
       'error',
       {
-        'semi': false, // Đồng bộ với cấu hình Prettier
+        'semi': false, 
         'trailingComma': 'none',
         'singleQuote': false,
         'jsxSingleQuote': true

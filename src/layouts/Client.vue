@@ -1,4 +1,3 @@
-<!-- eslint-disable vue/no-mutating-props -->
 <template>
   <div class="z-20 h-full w-full bg-white font-face">
     <div class="relative z-20 h-14 w-full bg-white">

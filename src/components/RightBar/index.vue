@@ -1,11 +1,9 @@
 <script>
-import { Users, Ellipsis, Repeat } from "lucide-vue-next"
+import { Ellipsis, Repeat } from "lucide-vue-next"
 import svgNewRoom from "../svg/svgNewRoom.vue"
 import svgSearch from "../svg/svgSearch.vue"
 import svgDots from "../svg/svgDots.vue"
 import svgCreate from "../svg/svgCreate.vue"
-//SVG
-
 export default {
   components: {
     svgNewRoom,
@@ -86,8 +84,7 @@ export default {
 
 <template>
   <div class="box-border h-screen w-[359px] overflow-auto px-2 pb-20 pt-10 lg:block">
-    <!--Trang và trang cá nhân-->
-    <div class="">
+    <div>
       <div class="flex justify-between">
         <p class="text-md font-semibold">Quản lý trang và trang cá nhân của bạn</p>
         <ellipsis class="cursor-pointer rounded-lg p-1 hover:bg-gray-300" />
@@ -114,14 +111,12 @@ export default {
       </div>
     </div>
     <hr class="my-2" />
-    <!--Lời mời kết bạn-->
     <div class="mb-3">
       <div>
         <div class="my-1 box-border flex justify-between">
           <p class="p-2 text-base font-semibold text-gray-600">Lời mời kết bạn</p>
           <p class="box-border cursor-pointer rounded-md p-2 text-blue-600 hover:bg-gray-200">Xem tất cả</p>
         </div>
-        <!-- start -->
         <div class="mb-2 flex cursor-pointer rounded-lg p-1 py-2 hover:bg-gray-200" v-for="index in 10" :key="index">
           <img
             class="mr-2 h-10 w-10 rounded-full"

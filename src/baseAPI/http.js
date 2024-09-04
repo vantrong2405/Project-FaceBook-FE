@@ -1,49 +1,56 @@
-import { getAccessTokenFromLS } from "@/utils/auth"
-import axios from "axios"
-import { createApp } from "vue"
-import ToastPlugin from "vue-toast-notification"
-import "vue-toast-notification/dist/theme-sugar.css"
-const app = createApp({})
-app.use(ToastPlugin)
-const toast = app.config.globalProperties.$toast
+import { getAccessTokenFromLS } from "@/utils/auth";
+import { HttpStatusCode } from "@/views/client/constant/httpStatusCode";
+import axios from "axios";
+import { createApp } from "vue";
+import ToastPlugin from "vue-toast-notification";
+import "vue-toast-notification/dist/theme-sugar.css";
+
+const app = createApp({});
+app.use(ToastPlugin);
+const toast = app.config.globalProperties.$toast;
+
 class Http {
   constructor() {
-    this.accessToken = getAccessTokenFromLS()
+    this.accessToken = getAccessTokenFromLS();
     this.instance = axios.create({
       baseURL: "http://localhost:4000/",
       headers: {
         "Content-Type": "application/json",
-      }
-    })
+      },
+    });
+
     this.instance.interceptors.request.use(
       (config) => {
-        config.headers.authorization = 'Bearear' + ' ' + this.accessToken
-        return config
+        if (this.accessToken) {
+          config.headers.authorization = "Bearer " + this.accessToken; 
+        }
+        return config;
       },
       function (error) {
-        return Promise.reject(error)
+        return Promise.reject(error);
       }
-    )
+    );
+
     this.instance.interceptors.response.use(
       function (response) {
-        return response
+        return response;
       },
       (error) => {
-        console.log(error)
-        if (error?.response?.status !== 422) {
-          const message = error.response?.data?.message || error.message
-          console.log(message)
+        console.log(error);
+        if (error?.response?.status !== HttpStatusCode.UnprocessableEntity) {
+          const message = error.response?.data?.message || error.message;
+          console.log(message);
           if (toast) {
             toast.error(message, {
-              position: "bottom-right"
-            })
+              position: "bottom-right",
+            });
           }
         }
-        return Promise.reject(error)
+        return Promise.reject(error);
       }
-    )
+    );
   }
 }
 
-const http = new Http().instance
-export default http
+const http = new Http().instance;
+export default http;

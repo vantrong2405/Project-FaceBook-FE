@@ -72,7 +72,6 @@
                     </div>
                   </div>
                 </ul>
-                <!-- end -->
               </div>
             </div>
           </div>
@@ -100,4 +99,3 @@ export default {
   },
 }
 </script>
-<style lang=""></style>

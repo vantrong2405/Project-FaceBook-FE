@@ -46,14 +46,13 @@
 </template>
 <script>
 import svgSearch from "../svg/svgSearch.vue"
-import svgFacebook from "../svg/svgFacebook.vue"
 import svgLeft from "../svg/svgLeft.vue"
 import { DoorOpen } from "lucide-vue-next"
 export default {
   components: {
+    DoorOpen,
     svgSearch,
     svgLeft,
-    DoorOpen
   },
   data() {
     return {

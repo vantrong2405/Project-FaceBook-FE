@@ -260,7 +260,6 @@ import {
   Gamepad2
 } from "lucide-vue-next"
 import svgSearch from "../../components/svg/svgSearch.vue"
-
 export default {
   data() {
     return {}

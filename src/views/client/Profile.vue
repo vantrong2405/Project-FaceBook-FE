@@ -579,8 +579,7 @@ import svgWorld from "@/components/svg/svgWorld.vue"
 import svgLike from "@/components/svg/svgLike.vue"
 import svgMenu from "@/components/svg/svgMenu.vue"
 import svgComment from "@/components/svg/svgComment.vue"
-import { Forward } from "lucide-vue-next"
-import { X, Trash2 } from "lucide-vue-next"
+import { X, Trash2 , Forward } from "lucide-vue-next"
 import http from "@/baseAPI/http"
 import modalShare from "./Home/components/modalShare.vue"
 import renderImage from "./Home/components/renderImage.vue"
@@ -591,6 +590,7 @@ import apiProfile from "@/apis/profile.api"
 import apiUploadFile from "@/apis/uploadFile.api"
 import modalCreate from "./Home/components/modalCreate.vue"
 import ChatBox from "@/components/ChatBox/ChatBox.vue"
+import { getProfileFromLS, setProfileToLS } from '@/utils/auth'
 export default {
   components: {
     svgLiveVideo,
@@ -625,8 +625,6 @@ export default {
       this.name = this.userCurrent.name
       this.avatarUpLoad = this.userCurrent.avatar ? this.userCurrent.avatar : this.avatar
     }
-    // this.reversedFeeds()
-
   },
   data() {
     return {
@@ -668,6 +666,7 @@ export default {
   },
 
   methods: {
+    formatDate,
     setShowChat(value) {
       this.showChat = value;
     },
@@ -677,16 +676,13 @@ export default {
     toggleChatBox() {
       this.showChat = !this.showChat;
     },
-    formatDate,
     checkStatusFriend() {
-      const res = apiFriend.checkStatusFriend(this.userName)
-      res.then((res) => {
+    apiFriend.checkStatusFriend(this.userName).then((res) => {
         this.statusFriend = res.data.status
       })
     },
     getProfile() {
-      const dataProfile = apiProfile.getProfile(this.userCurrent.username)
-      dataProfile.then((res) => {
+    apiProfile.getProfile(this.userCurrent.username).then((res) => {
         this.profileInFor = res.data.result
       })
     },
@@ -696,16 +692,15 @@ export default {
         gender: this.gender,
         avatar: this.avatarUpLoad
       }
-      const res = apiProfile.updateProfile(payload)
-      res.then((res) => {
+     apiProfile.updateProfile(payload).then((res) => {
         this.$toast.success("Cập nhật thông tin thành công", {
           position: "bottom-right"
         })
-        const profile = JSON.parse(localStorage.getItem("profile"))
+        const profile = getProfileFromLS()
         profile.name = this.name
         profile.avatar = this.avatar
         profile.gender = this.gender
-        localStorage.setItem("profile", JSON.stringify(profile))
+        setProfileToLS(profile)
         this.getProfile()
       })
         .catch((error) => {
@@ -737,8 +732,7 @@ export default {
       const formData = new FormData()
       formData.append("image", this.fileup)
 
-      const res = await apiUploadFile.upFile(formData);
-      res.then((res) => {
+      await apiUploadFile.upFile(formData).then((res) => {
         this.avatarUpLoad = res.data.result[0].url
         console.log(this.avatarUpLoad)
         this.fileup = ""
@@ -749,16 +743,16 @@ export default {
         return;
       }
       try {
-        const formData = new FormData();
-        formData.append("image", this.fileup);
-        const res = await apiUploadFile.upFile(formData);
+        const formData = new FormData()
+        formData.append("image", this.fileup)
+        const res = await apiUploadFile.upFile(formData)
         this.media.push({
           url: res.data.result[0].url,
           type: res.data.result[0].type
         });
-        this.fileup = "";
+        this.fileup = ""
       } catch (error) {
-        console.error("Lỗi khi upload file:", error);
+        console.error("Lỗi khi upload file:", error)
       }
     },
     openFileInput() {
@@ -769,50 +763,40 @@ export default {
     },
     addPost() {
       if (this.content.trim() != "" || this.media.length > 0) {
-        const obj = {
+        const body = {
           visibility: 1,
           content: this.content,
           mentions: [],
           medias: this.media
         }
-        http
-          .post("/posts", obj)
-          .then((res) => {
-            this.$toast.success("Tạo bài viết thành công", {
-              position: "bottom-right"
-            })
-            this.getDataNewFeed()
-            this.content = ""
-            this.media = []
+       apiPost.addPost(body).then((res) => {
+          this.$toast.success(res.data.message, {
+            position: "bottom-right"
           })
-          .catch((errors) => {
-            console.log(errors)
-            this.$toast.error("Lỗi khi tạo bài viết", {
-              position: "bottom-right"
-            })
-          })
+          this.getDataNewFeed()
+          this.media = []
+          this.content = ""
+        })
       } else {
-        this.$toast.error("Bài viết chưa có nội dung", {
+        this.$toast.error('Nội dung không được để trống', {
           position: "bottom-right"
         })
       }
     },
     getDataNewFeed() {
-      const dataPost = apiPost.getPost({
+     apiPost.getPost({
         params: {
           limit: 5,
           page: 1
         }
-      })
-      dataPost.then((res) => {
+      }).then((res) => {
         this.allNewFeed = res.data.result
         this.allNewFeed.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
       })
     },
     async changeStatusLikePost(post, index) {
       if (post?.user_liked?.liked) {
-        const res = apiPost.deleteLikePost(post._id)
-        res.then((res) => {
+      apiPost.deleteLikePost(post._id).then((res) => {
           this.getDataNewFeed()
           this.$toast.success(res.data.message, {
             position: "bottom-right"
@@ -822,8 +806,7 @@ export default {
         const payload = {
           post_id: post._id
         }
-        const res = apiPost.likePost(payload)
-        res.then((res) => {
+      apiPost.likePost(payload).then((res) => {
           this.getDataNewFeed()
           this.liked = this.allNewFeed[index].user_liked.liked
           this.liked = [...this.allNewFeed]
@@ -856,13 +839,12 @@ export default {
       event.preventDefault()
     },
     getCommentDetailPost() {
-      const dataCommentDetail = apiPost.getCommentDetailPost(this.valueDetailPost._id, {
+    apiPost.getCommentDetailPost(this.valueDetailPost._id, {
         params: {
           limit: 20,
           page: 1
         }
-      })
-      dataCommentDetail.then((res) => {
+      }).then((res) => {
         this.valueDetailPost.postComment = res.data.result.postComment
       })
     },
@@ -896,8 +878,8 @@ export default {
     },
     async handleDeleteComment(post) {
       try {
-        const URL = post._id;
-        const res = await apiPost.deleteCommentPost(URL, {
+        const commentId = post._id;
+        const res = await apiPost.deleteCommentPost(commentId, {
           data: {
             post_id: post.post_id
           }
@@ -917,15 +899,13 @@ export default {
       const body = {
         friend_user_id: this.profileInFor._id
       }
-      const res = apiFriend.sendFriendRequest(body)
-      res.then((res) => {
+     apiFriend.sendFriendRequest(body).then((res) => {
         console.log(res);
         this.checkStatusFriend()
       })
     },
     async deleteFriendRequest() {
-      const res = apiFriend.deleteFriendRequest(this.profileInFor._id)
-      res.then((res) => {
+     apiFriend.deleteFriendRequest(this.profileInFor._id).then((res) => {
         this.checkStatusFriend()
       })
     },

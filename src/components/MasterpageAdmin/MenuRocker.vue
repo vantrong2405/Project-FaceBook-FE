@@ -29,7 +29,7 @@
           </ul>
         </li>
         <li class="nav-item dropdown">
-          <router-link to="/admin/user">
+            <router-link to="/admin/user">
             <a href="/admin/user" class="nav-link dropdown-toggle dropdown-toggle-nocaret">
               <div class="parent-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
               <div class="menu-title">Quản Lý Người Dùng</div>
@@ -41,6 +41,13 @@
   </div>
 </template>
 <script>
-export default {}
+import pathConstant from '@/views/client/constant/path.constant'
+export default {
+  data() {
+    return {
+      pathConstant : pathConstant
+    }
+  },
+}
 </script>
 <style></style>

@@ -35,7 +35,7 @@
             <label for="confirm-password" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">Confirm
               Nhập lại mật khẩu mới</label>
             <input type="password" name="confirm-password" id="confirm-password" placeholder="••••••••"
-              v-model="new_comfirmpassword"
+              v-model="new_confirmPassword"
               class="focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
               required="" v-on:keyup.enter="changePassword" />
           </div>
@@ -63,10 +63,10 @@
   </section>
 </template>
 <script>
-import axios from "axios"
 import "vue-toast-notification/dist/theme-sugar.css"
 import { LogOut, Home, LockKeyhole } from "lucide-vue-next"
-import { getProfileFromLS } from "@/utils/auth";
+import { clearLS, getProfileFromLS } from "@/utils/auth";
+import apiAuth from '@/apis/auth.api';
 export default {
   components: {
     LogOut,
@@ -81,23 +81,18 @@ export default {
       profile: {},
       old_password: "",
       new_password: "",
-      new_comfirmpassword: "",
+      new_confirmPassword: "",
       isChangePassWord: false
     }
   },
   methods: {
     changePassword() {
-      const payLoad = {
+      const body = {
         old_password: this.old_password,
         password: this.new_password,
-        comfirmpassword: this.new_comfirmpassword
+        comfirmpassword: this.new_confirmPassword
       }
-      axios
-        .put("http://localhost:4000/users/change-password", payLoad, {
-          headers: {
-            Authorization: "Bearer " + localStorage.getItem("access_token")
-          }
-        })
+        apiAuth.changePassword(body)
         .then((res) => {
           console.log(res)
           this.isChangePassWord = true
@@ -105,18 +100,10 @@ export default {
             position: "bottom-right"
           })
         })
-        .catch((errors) => {
-          console.log(errors)
-          this.$toast.error(errors.response.data.message, {
-            position: "bottom-right"
-          })
-        })
     },
     logOut() {
       try {
-        localStorage.removeItem("access_token")
-        localStorage.removeItem("refresh_token")
-        localStorage.removeItem("profile")
+       clearLS()
         this.$router.push("/")
         this.$toast.success("Đăng xuất thành công", {
           position: "bottom-right"
