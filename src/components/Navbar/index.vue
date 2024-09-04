@@ -31,7 +31,7 @@
         </div>
       </router-link>
     </div>
-    <RightMenu :userCurrent1 ='userCurrent'/>
+    <RightMenu />
   </div>
 </template>
 

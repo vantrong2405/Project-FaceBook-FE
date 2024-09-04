@@ -497,7 +497,7 @@ import apiProfile from "@/apis/profile.api"
 import { clearLS, getProfileFromLS } from "@/utils/auth"
 import pathConstant from '@/views/client/constant/path.constant'
 export default {
-  mounted() {
+  created() {
     this.userCurrent = getProfileFromLS()
     this.getProfile()
   },

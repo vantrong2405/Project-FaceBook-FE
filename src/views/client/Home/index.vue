@@ -324,6 +324,8 @@ export default {
   },
   created() {
     this.userCurrent = getProfileFromLS()
+    console.log(  this.userCurrent);
+    
     this.getDataNewFeed(true)
     if (this.userCurrent && this.userCurrent.name) {
       this.placeholder = `${this.userCurrent.name} ơi, bạn đang nghĩ gì thế?`

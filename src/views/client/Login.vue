@@ -202,7 +202,7 @@
 <script>
 import "vue-toast-notification/dist/theme-sugar.css"
 import apiAuth from "@/apis/auth.api"
-import { setAccessTokenToLS, setRefreshTokenToLS } from "@/utils/auth"
+import { getAccessTokenFromLS, setAccessTokenToLS, setRefreshTokenToLS } from "@/utils/auth"
 export default {
   mounted() {
     this.checkToken()
@@ -254,11 +254,21 @@ export default {
         setRefreshTokenToLS(res.data.result.refresh_token)
       })
     },
-    checkToken() {
-     apiAuth.checkToken().then(() => {
-        this.$router.push("/home")
-      })
-    },
+  async checkToken() {
+  const token = getAccessTokenFromLS(); 
+  if (!token) {
+    this.$router.push('/');
+    return;
+  }
+  try {
+    const tokenResponse = await apiAuth.checkToken();
+    setProfileToLS(tokenResponse.data.result);
+    this.$router.push("/home"); 
+  } catch (error) {
+    this.$router.push('/lores gin');
+  }
+},
+
     forgotPassword() {
       if (this.email_forgot_password) {
         const body = {
