@@ -14,6 +14,6 @@ const pathConstant = {
     verifyEmail: '/verify-email',
     forgotPassword: '/forgot-password',
     profile: '/profile',
-}
+} 
 
 export default pathConstant
