@@ -20,7 +20,11 @@
                     <span class="text-tiny font-semibold">Nhóm</span>
                   </li>
                   <li class="flex w-full cursor-pointer items-center gap-2 rounded-lg px-3 py-2 hover:bg-myGray-900">
-                    <img src="../../../../assets/images/png/marketplace.png" class="w-9 rounded-full" alt="Marketplace" />
+                    <img
+                      src="../../../../assets/images/png/marketplace.png"
+                      class="w-9 rounded-full"
+                      alt="Marketplace"
+                    />
                     <span class="text-tiny font-semibold">Marketplace</span>
                   </li>
                   <li class="flex w-full cursor-pointer items-center gap-2 rounded-lg px-3 py-2 hover:bg-myGray-900">
@@ -96,6 +100,6 @@ export default {
   },
   components: {
     svgSeeMore
-  },
+  }
 }
 </script>

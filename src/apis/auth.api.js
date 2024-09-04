@@ -19,10 +19,10 @@ const apiAuth = {
     return http.put("users/change-password", body)
   },
   logoutAcconunt(body) {
-    return http.post('users/logout', body)
+    return http.post("users/logout", body)
   },
-  verifyEmail(body){
-    return http.post('users/verify-email', body)
+  verifyEmail(body) {
+    return http.post("users/verify-email", body)
   }
 }
 

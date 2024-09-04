@@ -20,8 +20,9 @@
                 </div>
                 <div class="d-grid gap-2">
                   <button type="button" class="btn btn-primary" @click="changePassword()">Thay đổi mật khẩu</button>
-                  <a href="authentication-login.html" class="btn btn-light"><i class="bx bx-arrow-back mr-1"></i>Đăng
-                    nhập</a>
+                  <a href="authentication-login.html" class="btn btn-light"
+                    ><i class="bx bx-arrow-back mr-1"></i>Đăng nhập</a
+                  >
                 </div>
               </div>
             </div>
@@ -29,7 +30,9 @@
           <div class="col-lg-7 w-50">
             <img
               src="https://media.istockphoto.com/id/1306827906/vector/man-forgot-the-password-concept-of-forgotten-password-key-account-access-blocked-access.jpg?s=612x612&w=0&k=20&c=67nYr3ztbOn5uO6-mWBNCSw9mcHD9Z5M-QER-azGQ5w="
-              class="" alt="..." />
+              class=""
+              alt="..."
+            />
           </div>
         </div>
       </div>
@@ -57,7 +60,7 @@ export default {
         comfirm_password: this.retype_password,
         forgot_password_token: this.token
       }
-     apiAuth.resetPassword(body).then((res) => {
+      apiAuth.resetPassword(body).then((res) => {
         console.log(res)
         this.$toast.success(res.data.message, {
           position: "bottom-right"

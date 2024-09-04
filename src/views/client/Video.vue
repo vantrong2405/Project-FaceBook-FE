@@ -158,16 +158,7 @@
   </div>
 </template>
 <script>
-import { 
-MonitorPlay,
-Tv2,
-Film,
-Clapperboard,
-Rocket,
-Save,
-Ellipsis,
-Settings
- } from "lucide-vue-next"
+import { MonitorPlay, Tv2, Film, Clapperboard, Rocket, Save, Ellipsis, Settings } from "lucide-vue-next"
 import svgSearch from "../../components/svg/svgSearch.vue"
 export default {
   data() {

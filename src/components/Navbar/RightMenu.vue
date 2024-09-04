@@ -1,47 +1,42 @@
 <template>
   <div class="-z-30">
     <div class="flex items-center justify-end gap-1 px-4 sm:gap-2">
-      <div id="menu-box"
+      <div
+        id="menu-box"
         class="flex cursor-pointer items-center justify-center rounded-full bg-myGray-900 p-2 text-lg transition-colors duration-300 hover:bg-myGray-700"
-        @click="
-          isShowMenu = !isShowMenu,
-          isShowMore = false,
-          isShowMessager = false,
-          isShowNotice = false
-          ">
+        @click="(isShowMenu = !isShowMenu), (isShowMore = false), (isShowMessager = false), (isShowNotice = false)"
+      >
         <svg-menu class="hidden w-5 lg:block" />
         <svg-create class="block w-5 lg:hidden" />
       </div>
 
-      <div id="messenger-box"
+      <div
+        id="messenger-box"
         class="flex cursor-pointer items-center justify-center rounded-full bg-myGray-900 p-2 transition-colors duration-300 hover:bg-myGray-700"
-        @click="
-          isShowMenu = false,
-          isShowMore = false,
-          isShowMessager = !isShowMessager,
-          isShowNotice = false
-          ">
+        @click="(isShowMenu = false), (isShowMore = false), (isShowMessager = !isShowMessager), (isShowNotice = false)"
+      >
         <svg-messenger class="w-5" />
       </div>
 
-      <div id="notifications-box" @click="
-        isShowMenu = false,
-        isShowMore = false,
-        isShowMessager = false,
-        isShowNotice = !isShowNotice,
-        AnimationEvent
+      <div
+        id="notifications-box"
+        @click="
+          (isShowMenu = false),
+            (isShowMore = false),
+            (isShowMessager = false),
+            (isShowNotice = !isShowNotice),
+            AnimationEvent
         "
-        class="flex cursor-pointer items-center justify-center rounded-full bg-myGray-900 p-2 transition-colors duration-300 hover:bg-myGray-700">
+        class="flex cursor-pointer items-center justify-center rounded-full bg-myGray-900 p-2 transition-colors duration-300 hover:bg-myGray-700"
+      >
         <svg-notifications class="w-5" />
       </div>
 
-      <div id="pp-info" @click="
-        isShowMore = !isShowMore,
-        isShowMenu = false,
-        isShowMessager = false,
-        isShowNotice = false
-        "
-        class="flex cursor-pointer items-center justify-center rounded-full bg-myGray-900 transition-colors duration-300 hover:bg-myGray-700">
+      <div
+        id="pp-info"
+        @click="(isShowMore = !isShowMore), (isShowMenu = false), (isShowMessager = false), (isShowNotice = false)"
+        class="flex cursor-pointer items-center justify-center rounded-full bg-myGray-900 transition-colors duration-300 hover:bg-myGray-700"
+      >
         <div id="pp" class="naybanoiw relative h-9 w-9 overflow-hidden rounded-full border">
           <img :src="userCurrent?.avatar ? userCurrent.avatar : avatar" alt="" width="100%" style="height: 100%" />
         </div>
@@ -51,17 +46,20 @@
     <!--Menu-->
     <div v-if="isShowMenu == true">
       <div
-        class=" h-[80vh] absolute right-0 top-full box-border border-spacing-0 rounded-xl border-2 border-solid bg-gray-100 shadow-2xl">
-        <div class="flex justify-between mx-2 bg-white">
-          <h3 class="mx-2 text-xl font-bold my-2">Menu</h3>
-
+        class="absolute right-0 top-full box-border h-[80vh] border-spacing-0 rounded-xl border-2 border-solid bg-gray-100 shadow-2xl"
+      >
+        <div class="mx-2 flex justify-between bg-white">
+          <h3 class="mx-2 my-2 text-xl font-bold">Menu</h3>
         </div>
-        <div class="flex h-[80vh] rounded-xl overflow-hidden">
-          <div class="hover:overflow-auto  w-96 bg-white">
+        <div class="flex h-[80vh] overflow-hidden rounded-xl">
+          <div class="w-96 bg-white hover:overflow-auto">
             <div>
               <div class="">
-                <input type="text" class="mx-2 my-3 w-56 rounded-2xl border-none bg-gray-100 outline-none"
-                  placeholder="Tìm kiếm trong menu" />
+                <input
+                  type="text"
+                  class="mx-2 my-3 w-56 rounded-2xl border-none bg-gray-100 outline-none"
+                  placeholder="Tìm kiếm trong menu"
+                />
               </div>
             </div>
 
@@ -144,14 +142,14 @@
             </div>
           </div>
 
-          <div class="hover:overflow-auto w-52 bg-white">
+          <div class="w-52 bg-white hover:overflow-auto">
             <div>
               <h1 class="m-2 mx-4 box-border text-xl font-semibold">Tạo</h1>
             </div>
             <div>
-              <div class="mx-2 my-3 box-border  py-1 hover:bg-gray-100">
+              <div class="mx-2 my-3 box-border py-1 hover:bg-gray-100">
                 <a href="" class="flex">
-                  <div class="mx-2 h-8 w-8  bg-gray-200">
+                  <div class="mx-2 h-8 w-8 bg-gray-200">
                     <SquarePen class="m-1" />
                   </div>
                   <div>
@@ -237,7 +235,7 @@
     <!--Mess-->
     <div v-if="isShowMessager == true">
       <div class="absolute right-0 top-full box-border w-[350px] rounded-lg border-2 border-solid bg-white">
-        <div class="flex justify-between mt-2 mx-2">
+        <div class="mx-2 mt-2 flex justify-between">
           <h3 class="mx-2 text-xl font-bold">Đoạn chát</h3>
           <div class="flex">
             <div class="mx-1 my-2 box-border cursor-pointer rounded-xl px-2 py-1 hover:bg-gray-200">
@@ -254,7 +252,7 @@
           </div>
         </div>
         <div>
-          <input type="text" class="mx-4 rounded-xl bg-gray-100 w-56" placeholder="Tìm kiếm trên Messenger" />
+          <input type="text" class="mx-4 w-56 rounded-xl bg-gray-100" placeholder="Tìm kiếm trên Messenger" />
         </div>
 
         <div>
@@ -262,9 +260,11 @@
             <div>
               <div class="m-3 flex cursor-pointer items-center rounded-xl hover:bg-gray-100">
                 <div>
-                  <img class="mx-2 my-2 h-14 w-14 rounded-full"
+                  <img
+                    class="mx-2 my-2 h-14 w-14 rounded-full"
                     src="https://web.hn.ss.bfcplatform.vn/muadienmay/content/article2/0878913035-1620532649.jpg"
-                    alt="" />
+                    alt=""
+                  />
                 </div>
                 <div>
                   <div>
@@ -279,9 +279,11 @@
               </div>
               <div class="m-3 flex cursor-pointer items-center rounded-xl hover:bg-gray-100">
                 <div>
-                  <img class="mx-2 my-2 h-14 w-14 rounded-full"
+                  <img
+                    class="mx-2 my-2 h-14 w-14 rounded-full"
                     src="https://web.hn.ss.bfcplatform.vn/muadienmay/content/article2/0878913035-1620532649.jpg"
-                    alt="" />
+                    alt=""
+                  />
                 </div>
                 <div>
                   <div>
@@ -296,9 +298,11 @@
               </div>
               <div class="m-3 flex cursor-pointer items-center rounded-xl hover:bg-gray-100">
                 <div>
-                  <img class="mx-2 my-2 h-14 w-14 rounded-full"
+                  <img
+                    class="mx-2 my-2 h-14 w-14 rounded-full"
                     src="https://web.hn.ss.bfcplatform.vn/muadienmay/content/article2/0878913035-1620532649.jpg"
-                    alt="" />
+                    alt=""
+                  />
                 </div>
                 <div>
                   <div>
@@ -313,9 +317,11 @@
               </div>
               <div class="m-3 flex cursor-pointer items-center rounded-xl hover:bg-gray-100">
                 <div>
-                  <img class="mx-2 my-2 h-14 w-14 rounded-full"
+                  <img
+                    class="mx-2 my-2 h-14 w-14 rounded-full"
                     src="https://web.hn.ss.bfcplatform.vn/muadienmay/content/article2/0878913035-1620532649.jpg"
-                    alt="" />
+                    alt=""
+                  />
                 </div>
                 <div>
                   <div>
@@ -336,8 +342,10 @@
     <!--EndMess-->
 
     <!--Notice-->
-    <div v-if="isShowNotice == true"
-      class="absolute right-0 top-full box-border h-[80vh] w-96 overflow-auto rounded-lg border-2 border-solid bg-white font-semibold shadow-2xl">
+    <div
+      v-if="isShowNotice == true"
+      class="absolute right-0 top-full box-border h-[80vh] w-96 overflow-auto rounded-lg border-2 border-solid bg-white font-semibold shadow-2xl"
+    >
       <div class="m-2">
         <div class="z-50 my-2">
           <header class="z-0 flex justify-between bg-white">
@@ -348,17 +356,19 @@
 
         <div class="mx-3 bg-white">
           <button
-            class="my-1 mr-3 rounded-3xl px-2 py-1 text-center hover:bg-gray-300 focus:bg-blue-100 focus:text-blue-500">
+            class="my-1 mr-3 rounded-3xl px-2 py-1 text-center hover:bg-gray-300 focus:bg-blue-100 focus:text-blue-500"
+          >
             Tất cả
           </button>
           <button
-            class="my-1 mr-3 rounded-3xl px-2 py-1 text-center hover:bg-gray-300 focus:bg-blue-100 focus:text-blue-500">
+            class="my-1 mr-3 rounded-3xl px-2 py-1 text-center hover:bg-gray-300 focus:bg-blue-100 focus:text-blue-500"
+          >
             Chưa đọc
           </button>
         </div>
 
         <div class="text-end">
-          <a href="https://www.facebook.com/notifications" class="px-2 py-1 text-blue-400  hover:opacity-80">
+          <a href="https://www.facebook.com/notifications" class="px-2 py-1 text-blue-400 hover:opacity-80">
             Xem tất cả
           </a>
         </div>
@@ -369,7 +379,9 @@
               <div class="mr-2">
                 <img
                   src="https://images.ctfassets.net/hrltx12pl8hq/4MFiRr9vFnbWzYoNSPiYXy/fca130dd40da59b06e83ee8d5789a23e/file-converter-shutterstock.jpg"
-                  class="h-12 w-12 rounded-full" alt="" />
+                  class="h-12 w-12 rounded-full"
+                  alt=""
+                />
               </div>
               <div class="">
                 <div class="mr-1">
@@ -379,19 +391,23 @@
               </div>
             </div>
           </a>
-
         </div>
       </div>
     </div>
 
-    <div v-if="isShowMore == true"
-      class="absolute right-0 top-full box-content w-96 rounded-xl border-2 border-solid bg-gray-50 shadow-xl">
-      <div class=" box-border rounded-xl border-2 border-solid bg-white px-2 m-2 shadow-sm">
+    <div
+      v-if="isShowMore == true"
+      class="absolute right-0 top-full box-content w-96 rounded-xl border-2 border-solid bg-gray-50 shadow-xl"
+    >
+      <div class="m-2 box-border rounded-xl border-2 border-solid bg-white px-2 shadow-sm">
         <div class="mx-1 my-1 rounded-xl hover:bg-gray-100">
           <router-link :to="`/profile/${userCurrent.username}`" class="flex">
             <div>
-              <img class="mx-1 my-2 h-10 w-10 rounded-full" :src="userCurrent.avatar ? userCurrent.avatar : avatar"
-                alt="" />
+              <img
+                class="mx-1 my-2 h-10 w-10 rounded-full"
+                :src="userCurrent.avatar ? userCurrent.avatar : avatar"
+                alt=""
+              />
             </div>
             <div>
               <p class="mx-2 my-1 mt-3 text-base font-semibold">{{ userCurrent.name }}</p>
@@ -400,8 +416,10 @@
         </div>
 
         <hr class="mx-2 my-2" />
-        <a href="https://www.facebook.com/notifications"
-          class="mx-2 mb-3 flex rounded-lg bg-gray-200 py-2 hover:bg-gray-400 focus:hidden">
+        <a
+          href="https://www.facebook.com/notifications"
+          class="mx-2 mb-3 flex rounded-lg bg-gray-200 py-2 hover:bg-gray-400 focus:hidden"
+        >
           <div class="mx-auto flex items-center">
             <div class="mr-4">
               <Repeat class="my-1 w-4" />
@@ -494,9 +512,9 @@ import svgNotifications from "../svg/svgNotifications.vue"
 import svgCreate from "../svg/svgCreate.vue"
 import "vue-toast-notification/dist/theme-sugar.css"
 import { clearLS, getProfileFromLS } from "@/utils/auth"
-import pathConstant from '@/views/client/constant/path.constant'
+import pathConstant from "@/views/client/constant/path.constant"
 export default {
- async created() {
+  async created() {
     this.userCurrent = getProfileFromLS()
   },
   components: {
@@ -533,14 +551,14 @@ export default {
       isShowMore: false,
       avatar: "https://cellphones.com.vn/sforum/wp-content/uploads/2023/10/avatar-trang-4.jpg",
       userCurrent: {},
-      pathConstant : pathConstant
+      pathConstant: pathConstant
     }
   },
   methods: {
     logOut() {
       clearLS()
       this.$router.push(pathConstant.default)
-      this.$toast.success('Logout success', {
+      this.$toast.success("Logout success", {
         position: "bottom-right"
       })
     }

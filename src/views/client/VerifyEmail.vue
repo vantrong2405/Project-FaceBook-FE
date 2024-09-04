@@ -25,7 +25,7 @@
 <script>
 import "vue-toast-notification/dist/theme-sugar.css"
 import { ArrowRight } from "lucide-vue-next"
-import apiAuth from '@/apis/auth.api'
+import apiAuth from "@/apis/auth.api"
 export default {
   components: {
     ArrowRight

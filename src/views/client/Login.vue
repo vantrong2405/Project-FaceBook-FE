@@ -9,19 +9,32 @@
         <div class="w-[40%] pt-[30px]">
           <div class="rounded-[10px] bg-white p-[15px] px-[15px] shadow-lg">
             <form class="h-2/4">
-              <input type="text" class="mb-[10px] block w-full rounded-md px-[16px] py-[12px] text-[16px] font-medium"
-                placeholder="Email or hoặc số điện thoại" v-model="emailLogin" />
-              <input type="password" class="mb-[20px] mt-[10px] block w-full rounded-md px-[16px] py-[12px] text-[16px]"
-                placeholder="Mật khẩu" v-model="passwordLogin"
-                v-on:keyup.enter="emailLogin && passwordLogin && login()" />
+              <input
+                type="text"
+                class="mb-[10px] block w-full rounded-md px-[16px] py-[12px] text-[16px] font-medium"
+                placeholder="Email or hoặc số điện thoại"
+                v-model="emailLogin"
+              />
+              <input
+                type="password"
+                class="mb-[20px] mt-[10px] block w-full rounded-md px-[16px] py-[12px] text-[16px]"
+                placeholder="Mật khẩu"
+                v-model="passwordLogin"
+                v-on:keyup.enter="emailLogin && passwordLogin && login()"
+              />
 
               <div class="btn btn-primary w-full" @click="login()">Đăng nhập</div>
             </form>
             <div class="pt-[10px] text-center" data-bs-toggle="modal" data-bs-target="#forgot-password">
               <a href="#" class="text-[14px] text-[#0866ff] hover:underline">Quên mật khẩu?</a>
             </div>
-            <div class="modal fade" id="forgot-password" tabindex="-1" aria-labelledby="forgot-passwordLabel"
-              aria-hidden="true">
+            <div
+              class="modal fade"
+              id="forgot-password"
+              tabindex="-1"
+              aria-labelledby="forgot-passwordLabel"
+              aria-hidden="true"
+            >
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-body bg-white px-5">
@@ -29,21 +42,33 @@
                       <p class="cursor-default text-6xl font-bold leading-[50px] text-[#0866FF]">WE</p>
                     </div>
                     <div
-                      class="mb-4 border-b-2 border-l-8 border-r-2 border-t-2 border-blue-400 bg-white p-2 text-justify">
+                      class="mb-4 border-b-2 border-l-8 border-r-2 border-t-2 border-blue-400 bg-white p-2 text-justify"
+                    >
                       Vui lòng diền vào username hoặc email của bạn . Bạn sẽ nhận được một email với hướng dẫn khôi phục
                       mật khẩu.
                     </div>
                     <div
-                      class="mb-4 border-b-2 border-l-8 border-r-2 border-t-2 border-blue-400 bg-white p-2 text-justify">
+                      class="mb-4 border-b-2 border-l-8 border-r-2 border-t-2 border-blue-400 bg-white p-2 text-justify"
+                    >
                       <label for="" class="mb-2">Tên người dùng hoặc địa chỉ email</label>
-                      <input type="text" name="" id=""
+                      <input
+                        type="text"
+                        name=""
+                        id=""
                         class="form-control border-1 border-black shadow-none outline-none"
-                        placeholder="Nhập tên người dùng hoặc địa chỉ email" v-model="email_forgot_password"
-                        v-on:keyup.enter="forgotPassword()" />
+                        placeholder="Nhập tên người dùng hoặc địa chỉ email"
+                        v-model="email_forgot_password"
+                        v-on:keyup.enter="forgotPassword()"
+                      />
                     </div>
                     <div class="text-end">
-                      <button type="button" class="btn btn-primary" v-on:click="forgotPassword()"
-                        data-bs-dismiss="modal" aria-label="Close">
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        v-on:click="forgotPassword()"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      >
                         Gửi lại mật khẩu mới
                       </button>
                     </div>
@@ -53,9 +78,12 @@
             </div>
             <hr class="mb-[10px] mt-[16px] pb-[20px]" />
             <div class="pb-[20px] text-center">
-              <a @click="showResgister = true" id="creat-acc" href="#"
-                class="rounded-md bg-[#42b72a] px-[18px] py-[13px] text-[17px] text-lg font-[650] text-white hover:bg-[#36A420]">Tạo
-                tài khoản mới
+              <a
+                @click="showResgister = true"
+                id="creat-acc"
+                href="#"
+                class="rounded-md bg-[#42b72a] px-[18px] py-[13px] text-[17px] text-lg font-[650] text-white hover:bg-[#36A420]"
+                >Tạo tài khoản mới
               </a>
             </div>
           </div>
@@ -68,13 +96,18 @@
         </div>
       </div>
     </div>
-    <section v-if="showResgister" id="register"
-      class="fixed bottom-0 left-0 right-0 top-0 z-50 bg-[#FFF] bg-opacity-80">
+    <section
+      v-if="showResgister"
+      id="register"
+      class="fixed bottom-0 left-0 right-0 top-0 z-50 bg-[#FFF] bg-opacity-80"
+    >
       <div class="w-full py-[3%] text-center">
         <div class="relative m-[20px] inline-block text-left">
           <div class="w-[430px] rounded-md bg-white shadow-lg">
-            <i @click="showResgister = false"
-              class="fa-solid fa-xmark absolute right-[12px] top-[10px] cursor-pointer text-[23px] text-[gray] hover:text-[#535252]"></i>
+            <i
+              @click="showResgister = false"
+              class="fa-solid fa-xmark absolute right-[12px] top-[10px] cursor-pointer text-[23px] text-[gray] hover:text-[#535252]"
+            ></i>
             <div class="px-[16px] py-[10px]">
               <h1 class="text-[32px] font-bold leading-[38px]">Đăng ký</h1>
               <p class="pt-[2px] text-[15px] text-[#606770]">Nhanh chóng và dễ dàng.</p>
@@ -82,22 +115,42 @@
             <div class="border-t-[1px] border-[#ccd0d5] p-[16px]">
               <form class="w-full">
                 <div class="mb-[10px] flex justify-between gap-2">
-                  <input type="text" class="form-control input border-[1px] border-[#ccd0d5]" placeholder="Họ"
-                    v-model="firstName" />
-                  <input type="text" class="form-control input border-[1px] border-[#ccd0d5]" placeholder="Tên "
-                    v-model="lastName" />
+                  <input
+                    type="text"
+                    class="form-control input border-[1px] border-[#ccd0d5]"
+                    placeholder="Họ"
+                    v-model="firstName"
+                  />
+                  <input
+                    type="text"
+                    class="form-control input border-[1px] border-[#ccd0d5]"
+                    placeholder="Tên "
+                    v-model="lastName"
+                  />
                 </div>
                 <div class="mb-[10px]">
-                  <input type="text" class="form-control input w-full border-[1px] border-[#ccd0d5]"
-                    placeholder="Số di động hoặc email" v-model="email" />
+                  <input
+                    type="text"
+                    class="form-control input w-full border-[1px] border-[#ccd0d5]"
+                    placeholder="Số di động hoặc email"
+                    v-model="email"
+                  />
                 </div>
                 <div class="mb-[15px]">
-                  <input type="text" class="form-control input w-full border-[1px] border-[#ccd0d5]"
-                    placeholder="Mật khẩu" v-model="password" />
+                  <input
+                    type="text"
+                    class="form-control input w-full border-[1px] border-[#ccd0d5]"
+                    placeholder="Mật khẩu"
+                    v-model="password"
+                  />
                 </div>
                 <div class="mb-[15px]">
-                  <input type="text" class="form-control input w-full border-[1px] border-[#ccd0d5]"
-                    placeholder="Nhập lại mật khẩu " v-model="comfirm_password" />
+                  <input
+                    type="text"
+                    class="form-control input w-full border-[1px] border-[#ccd0d5]"
+                    placeholder="Nhập lại mật khẩu "
+                    v-model="comfirm_password"
+                  />
                 </div>
                 <div class="mb-[15px]">
                   <div class="w-100%">
@@ -122,9 +175,11 @@
                 </p>
               </div>
               <div class="w-full py-[10px] text-center">
-                <div id="registerButton"
+                <div
+                  id="registerButton"
                   class="inline-block h-[36px] w-[194px] cursor-pointer rounded-md bg-[#00a400] leading-[36px] hover:bg-[#6DA160]"
-                  @click="register()">
+                  @click="register()"
+                >
                   <input type="button" value="Đăng ký" class="cursor-pointer text-[18px] font-bold text-white" />
                 </div>
               </div>
@@ -233,7 +288,7 @@ export default {
         name: this.firstName + " " + this.lastName,
         role: 0
       }
-    apiAuth.registerAccount(body).then((res) => {
+      apiAuth.registerAccount(body).then((res) => {
         this.$toast.success(res.data.message, {
           position: "bottom-right"
         })
@@ -245,7 +300,7 @@ export default {
         email: this.emailLogin,
         password: this.passwordLogin
       }
-     apiAuth.loginAccount(body).then((res) => {
+      apiAuth.loginAccount(body).then((res) => {
         this.$toast.success(res.data.message, {
           position: "bottom-right"
         })
@@ -254,27 +309,27 @@ export default {
         setRefreshTokenToLS(res.data.result.refresh_token)
       })
     },
-  async checkToken() {
-  const token = getAccessTokenFromLS(); 
-  if (!token) {
-    this.$router.push('/');
-    return;
-  }
-  try {
-    const tokenResponse = await apiAuth.checkToken();
-    setProfileToLS(tokenResponse.data.result);
-    this.$router.push("/home"); 
-  } catch (error) {
-    this.$router.push('/lores gin');
-  }
-},
+    async checkToken() {
+      const token = getAccessTokenFromLS()
+      if (!token) {
+        this.$router.push("/")
+        return
+      }
+      try {
+        const tokenResponse = await apiAuth.checkToken()
+        setProfileToLS(tokenResponse.data.result)
+        this.$router.push("/home")
+      } catch (error) {
+        this.$router.push("/lores gin")
+      }
+    },
 
     forgotPassword() {
       if (this.email_forgot_password) {
         const body = {
           email: this.email_forgot_password
         }
-      apiAuth.forgotPassword(body).then((res) => {
+        apiAuth.forgotPassword(body).then((res) => {
           this.$toast.success(res.data.message, {
             position: "bottom-right"
           })

@@ -120,7 +120,7 @@
 <script>
 import svgSearch from "@/components/svg/svgSearch.vue"
 import { Rocket, Clapperboard, Save, Tv2, Film, Settings, MonitorPlay } from "lucide-vue-next"
-import { getProfileFromLS } from '@/utils/auth'
+import { getProfileFromLS } from "@/utils/auth"
 import apiSearch from "@/apis/search.api"
 export default {
   components: {
@@ -155,11 +155,11 @@ export default {
       this.textSearch = this.$route.params.id
     },
     async getAllUser() {
-       await apiSearch.searchUser().then((res)=>{
+      await apiSearch.searchUser().then((res) => {
         this.listUserSearch = res.data.result
         this.listUserSearchClone = [...this.listUserSearch]
         this.handleSearchUser()
-        })
+      })
     },
     handleSearchUser() {
       this.listUserSearch = [...this.listUserSearchClone]
@@ -168,6 +168,6 @@ export default {
         return items.name.toLowerCase().includes(text)
       })
     }
-  },
+  }
 }
 </script>

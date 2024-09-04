@@ -5,7 +5,8 @@
         <li class="flex items-center justify-between">
           <h1 class="text-2xl font-bold">Nhóm</h1>
           <div
-            class="flex h-[36px] w-[36px] cursor-pointer items-center justify-center rounded-full bg-[#E4E6EB] hover:bg-gray-300">
+            class="flex h-[36px] w-[36px] cursor-pointer items-center justify-center rounded-full bg-[#E4E6EB] hover:bg-gray-300"
+          >
             <Settings />
           </div>
         </li>
@@ -13,14 +14,16 @@
           <div class="flex h-14 w-full items-center py-2">
             <div class="__logo"></div>
             <div
-              class="flex h-9 cursor-pointer items-center justify-center rounded-full transition-opacity duration-500">
-            </div>
+              class="flex h-9 cursor-pointer items-center justify-center rounded-full transition-opacity duration-500"
+            ></div>
             <div
-              class="ml-1 flex h-full w-10 cursor-pointer items-center justify-center overflow-hidden rounded-full bg-gray-100 sm:m-0 xl:flex-1 xl:cursor-text xl:px-4">
+              class="ml-1 flex h-full w-10 cursor-pointer items-center justify-center overflow-hidden rounded-full bg-gray-100 sm:m-0 xl:flex-1 xl:cursor-text xl:px-4"
+            >
               <svg-search class="w-5" fill="currentColor" />
               <input
                 class="h-full w-full border-none bg-transparent px-2 text-sm outline-none focus:outline-none focus:ring-transparent xl:block"
-                placeholder="Tìm kiếm nhóm" />
+                placeholder="Tìm kiếm nhóm"
+              />
             </div>
           </div>
         </li>
@@ -38,12 +41,14 @@
             <span class="text-tiny font-semibold">Khám phá</span>
           </li>
           <li
-            class="mb-[10px] flex w-full cursor-pointer items-center gap-2 rounded-lg px-3 py-[12px] hover:bg-myGray-900">
+            class="mb-[10px] flex w-full cursor-pointer items-center gap-2 rounded-lg px-3 py-[12px] hover:bg-myGray-900"
+          >
             <Users class="rounded-full" />
             <span class="text-tiny font-semibold">Nhóm của bạn</span>
           </li>
           <li
-            class="flex cursor-pointer items-center justify-center rounded-lg bg-[#EBF5FF] py-[6px] hover:bg-[#DFE9F2]">
+            class="flex cursor-pointer items-center justify-center rounded-lg bg-[#EBF5FF] py-[6px] hover:bg-[#DFE9F2]"
+          >
             <Plus class="text-[#0064D1]"></Plus>
             <span class="text-[15px] font-medium text-[#0064D1]">Tạo nhóm mới</span>
           </li>
@@ -78,7 +83,9 @@
             <div class="flex">
               <img
                 src="https://png.pngtree.com/thumb_back/fh260/background/20230511/pngtree-nature-background-sunset-wallpaer-with-beautiful-flower-farms-image_2592160.jpg"
-                class="mr-3 h-[40px] w-[40px] rounded-lg" alt="" />
+                class="mr-3 h-[40px] w-[40px] rounded-lg"
+                alt=""
+              />
               <div>
                 <div>
                   <div class="flex items-center">
@@ -94,7 +101,9 @@
           <p class="mx-3 mb-2 text-xs font-semibold">HELLO WORLD</p>
           <img
             src="https://png.pngtree.com/thumb_back/fh260/background/20230511/pngtree-nature-background-sunset-wallpaer-with-beautiful-flower-farms-image_2592160.jpg"
-            class="mb-1 h-[500px] w-full object-cover" alt="" />
+            class="mb-1 h-[500px] w-full object-cover"
+            alt=""
+          />
           <div class="mx-3 flex items-center justify-between py-2 text-gray-500">
             <div class="flex">
               <div class="flex cursor-pointer items-center rounded-lg px-[10px] py-[6px] hover:bg-[#F2F2F2]">
@@ -112,9 +121,11 @@
             </div>
             <div class="flex text-xs">
               <i
-                class="fas fa-thumbs-up ml-auto h-5 w-5 items-center rounded-full bg-[#049CFD] px-1 pt-0.5 text-xs text-white"></i>
+                class="fas fa-thumbs-up ml-auto h-5 w-5 items-center rounded-full bg-[#049CFD] px-1 pt-0.5 text-xs text-white"
+              ></i>
               <i
-                class="fa-solid fa-heart mr-0.5 h-5 w-5 items-center rounded-full bg-[#FC464E] px-1 pt-0.5 text-xs text-white"></i>
+                class="fa-solid fa-heart mr-0.5 h-5 w-5 items-center rounded-full bg-[#FC464E] px-1 pt-0.5 text-xs text-white"
+              ></i>
               <span class="mr-2 cursor-pointer hover:underline">Thanh Thư và 22K người khác</span>
               <p class="mr-2 cursor-pointer hover:underline">80 bình luận</p>
               <p>10 triệu lượt xem</p>
@@ -126,7 +137,7 @@
   </div>
 </template>
 <script>
-import { Compass , Users , Ellipsis , Plus , Newspaper, Settings } from "lucide-vue-next"
+import { Compass, Users, Ellipsis, Plus, Newspaper, Settings } from "lucide-vue-next"
 import svgSearch from "../../components/svg/svgSearch.vue"
 export default {
   data() {

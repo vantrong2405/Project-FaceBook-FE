@@ -1,15 +1,15 @@
-<!-- eslint-disable vue/valid-v-model -->
 <template>
   <input type="file" hidden name="file" ref="fileInput" id="file" @change="handleFileUpload" />
   <div class="min-h-screen w-full bg-[#F0F2F5]">
     <div class="flex">
       <left-bar-home :userCurrent="userCurrent" :avatar="avatar" />
-      <div class="mx-44 md:mx-28 mt-7 w-full">
+      <div class="mx-44 mt-7 w-full md:mx-28">
         <div class="">
           <div class="flex flex-col gap-4 rounded-lg border-[1px] bg-[white] p-2 shadow-sm">
             <div id="storie" class="rounded-lg">
               <div
-                class="h-18 flex w-full cursor-pointer items-center gap-3 rounded-lg px-2 py-1 transition-colors duration-300 hover:bg-myGray-900">
+                class="h-18 flex w-full cursor-pointer items-center gap-3 rounded-lg px-2 py-1 transition-colors duration-300 hover:bg-myGray-900"
+              >
                 <div id="post-svg-plus" class="cursor-pointer rounded-full bg-face-blue-light p-2.5">
                   <svg-create class="w-5 text-face-blue" />
                 </div>
@@ -24,24 +24,35 @@
                 <div class="_pp_ cursor-pointer">
                   <img :src="userCurrent.avatar ? userCurrent.avatar : avatar" class="h-9 w-10 rounded-full" alt="" />
                 </div>
-                <modal-create :userCurrent="userCurrent" :placeholder="placeholder" :content="content" :media="media"
-                  :avatar="avatar" @contentChangeEvent="handleContentChange" @addPostEvent="addPost"
-                  @openFileInputEvent="openFileInput" @deleteMediaEvent="handleDeleteMedia" />
+                <modal-create
+                  :userCurrent="userCurrent"
+                  :placeholder="placeholder"
+                  :content="content"
+                  :media="media"
+                  :avatar="avatar"
+                  @contentChangeEvent="handleContentChange"
+                  @addPostEvent="addPost"
+                  @openFileInputEvent="openFileInput"
+                  @deleteMediaEvent="handleDeleteMedia"
+                />
               </div>
               <hr class="mx-2" />
               <div id="new-post-bottom" class="flex items-center justify-around px-2">
                 <div
-                  class="flex h-10 w-full cursor-pointer items-center justify-center gap-2 rounded-lg transition-colors duration-300 hover:bg-myGray-900">
+                  class="flex h-10 w-full cursor-pointer items-center justify-center gap-2 rounded-lg transition-colors duration-300 hover:bg-myGray-900"
+                >
                   <svg-live-video class="w-6 text-red-500" />
                   <span>Live Video</span>
                 </div>
                 <div
-                  class="flex h-10 w-full cursor-pointer items-center justify-center gap-2 rounded-lg transition-colors duration-300 hover:bg-myGray-900">
+                  class="flex h-10 w-full cursor-pointer items-center justify-center gap-2 rounded-lg transition-colors duration-300 hover:bg-myGray-900"
+                >
                   <svg-photo class="w-6 text-green-500" />
                   <span>Photo/video</span>
                 </div>
                 <div
-                  class="hidden h-10 w-full cursor-pointer items-center justify-center gap-2 rounded-lg transition-colors duration-300 hover:bg-myGray-900 mobile-x:flex">
+                  class="hidden h-10 w-full cursor-pointer items-center justify-center gap-2 rounded-lg transition-colors duration-300 hover:bg-myGray-900 mobile-x:flex"
+                >
                   <svg-smile class="w-6 text-yellow-400" />
                   <span>Feeling/activity</span>
                 </div>
@@ -72,11 +83,13 @@
                 </div>
                 <div id="post-top_right" class="flex items-center">
                   <div
-                    class="flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full duration-300 hover:bg-gray-200">
+                    class="flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full duration-300 hover:bg-gray-200"
+                  >
                     <svg-dots class="w-4" />
                   </div>
                   <div
-                    class="flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full duration-300 hover:bg-gray-200">
+                    class="flex h-[32px] w-[32px] cursor-pointer items-center justify-center rounded-full duration-300 hover:bg-gray-200"
+                  >
                     <X class="w-10" />
                   </div>
                 </div>
@@ -98,33 +111,48 @@
                     <span class="cursor-pointer hover:underline">{{ value.shares }} Share</span>
                   </div>
                 </div>
-                <div id="post-bottom_buttons"
-                  class="my-2 flex items-center border-b border-t border-myGray-900 text-sm font-normal sm:text-tiny">
+                <div
+                  id="post-bottom_buttons"
+                  class="my-2 flex items-center border-b border-t border-myGray-900 text-sm font-normal sm:text-tiny"
+                >
                   <div
                     class="my-1 flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg p-2 transition-colors duration-300 hover:bg-myGray-900"
-                    :class="{ 'text-[#0861f2]': value.user_liked.liked }" @click="changeStatusLikePost(value, index)">
+                    :class="{ 'text-[#0861f2]': value.user_liked.liked }"
+                    @click="changeStatusLikePost(value, index)"
+                  >
                     <i class="fa-solid fa-thumbs-up text-2xl"></i>
                     <span>Like</span>
                   </div>
                   <div
                     class="my-1 flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg p-2 transition-colors duration-300 hover:bg-myGray-900"
-                    data-bs-toggle="modal" data-bs-target="#modalComment" @click="
-                      handleDetailPost(index);
-                    contentComment = ''
-                      ">
+                    data-bs-toggle="modal"
+                    data-bs-target="#modalComment"
+                    @click="
+                      handleDetailPost(index)
+                      contentComment = ''
+                    "
+                  >
                     <svg-comment class="w-5" />
                     <span>Comment</span>
                   </div>
-                  <div data-bs-toggle="modal" data-bs-target="#share_posts"
-                    class="my-1 flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg p-2 transition-colors duration-300 hover:bg-myGray-900">
+                  <div
+                    data-bs-toggle="modal"
+                    data-bs-target="#share_posts"
+                    class="my-1 flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg p-2 transition-colors duration-300 hover:bg-myGray-900"
+                  >
                     <Forward class="w-5" />
                     <span>Share</span>
                   </div>
                 </div>
               </div>
             </li>
-            <div class="modal fade" id="modalComment" tabindex="-1" aria-labelledby="modalCommentLabel"
-              aria-hidden="true">
+            <div
+              class="modal fade"
+              id="modalComment"
+              tabindex="-1"
+              aria-labelledby="modalCommentLabel"
+              aria-hidden="true"
+            >
               <div class="modal-dialog modal-dialog-scrollable modal-lg">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -137,12 +165,19 @@
                     <li>
                       <div id="post-top" class="flex w-full items-center justify-between p-4 py-2">
                         <div id="post-top_left" class="flex items-center gap-2">
-                          <div id="post-top_left_pp"
-                            class="w-max cursor-pointer rounded-full border-2 border-black ring-2 ring-blue-500 ring-opacity-70">
-                            <img :src="valueDetailPost && valueDetailPost.user && valueDetailPost.user.avatar
-                              ? valueDetailPost.user.avatar
-                              : avatar
-                              " class="h-8 w-8 rounded-full" alt="" />
+                          <div
+                            id="post-top_left_pp"
+                            class="w-max cursor-pointer rounded-full border-2 border-black ring-2 ring-blue-500 ring-opacity-70"
+                          >
+                            <img
+                              :src="
+                                valueDetailPost && valueDetailPost.user && valueDetailPost.user.avatar
+                                  ? valueDetailPost.user.avatar
+                                  : avatar
+                              "
+                              class="h-8 w-8 rounded-full"
+                              alt=""
+                            />
                           </div>
                           <div id="post-top_left_title">
                             <p class="cursor-pointer font-bold capitalize hover:underline">
@@ -159,7 +194,7 @@
                         </div>
                       </div>
                       <div id="post-middle">
-                        <div class="2">
+                        <div class="px-4">
                           {{ valueDetailPost ? valueDetailPost.content : "" }}
                         </div>
                         <render-image :allNewFeedDetail="valueDetailPost" />
@@ -175,32 +210,46 @@
                             <span class="cursor-pointer hover:underline">{{ value.shares }} Share</span>
                           </div>
                         </div>
-                        <div id="post-bottom_buttons"
-                          class="my-2 flex items-center border-b border-t border-myGray-900 text-sm font-normal sm:text-tiny">
+                        <div
+                          id="post-bottom_buttons"
+                          class="my-2 flex items-center border-b border-t border-myGray-900 text-sm font-normal sm:text-tiny"
+                        >
                           <div
                             class="my-1 flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg p-2 transition-colors duration-300 hover:bg-myGray-900"
                             :class="{ 'text-[#0861f2]': value.user_liked.liked }"
-                            @click="changeStatusLikePost(value, index)">
+                            @click="changeStatusLikePost(value, index)"
+                          >
                             <i class="fa-solid fa-thumbs-up text-2xl"></i>
                             <span>Like</span>
                           </div>
                           <div
-                            class="my-1 flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg p-2 transition-colors duration-300 hover:bg-myGray-900">
+                            class="my-1 flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg p-2 transition-colors duration-300 hover:bg-myGray-900"
+                          >
                             <svg-comment class="w-5" />
                             <span>Comment</span>
                           </div>
-                          <div data-bs-toggle="modal" data-bs-target="#share_posts"
-                            class="my-1 flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg p-2 transition-colors duration-300 hover:bg-myGray-900">
+                          <div
+                            data-bs-toggle="modal"
+                            data-bs-target="#share_posts"
+                            class="my-1 flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg p-2 transition-colors duration-300 hover:bg-myGray-900"
+                          >
                             <Forward class="w-5" />
                             <span>Share</span>
                           </div>
                         </div>
                         <div id="post-bottom-comments ">
-                          <div id="other" class="my-2 flex gap-2"
-                            v-for="(commentDetail, key) in valueDetailPost.postComment" :key="key">
+                          <div
+                            id="other"
+                            class="my-2 flex gap-2"
+                            v-for="(commentDetail, key) in valueDetailPost.postComment"
+                            :key="key"
+                          >
                             <div id="other_pp">
-                              <img :src="userCurrent.avatar ? userCurrent.avatar : avatar"
-                                class="h-9 w-9 cursor-pointer rounded-full" alt="" />
+                              <img
+                                :src="userCurrent.avatar ? userCurrent.avatar : avatar"
+                                class="h-9 w-9 cursor-pointer rounded-full"
+                                alt=""
+                              />
                             </div>
                             <div id="other_comment" class="max-w-[80%] rounded-lg pb-2">
                               <div class="rounded-2xl bg-slate-100 px-3 py-2">
@@ -219,10 +268,13 @@
                               </div>
                             </div>
                             <div class="flex items-center">
-                              <modal-delete :userCurrent="userCurrent" :commentDetail="commentDetail"
+                              <modal-delete
+                                :userCurrent="userCurrent"
+                                :commentDetail="commentDetail"
                                 :valueCommentDetail="valueCommentDetail"
                                 @changeValueCommentDetailEvent="handleChangeCommentDetail"
-                                @deleteCommentEvent="handleDeleteComment" />
+                                @deleteCommentEvent="handleDeleteComment"
+                              />
                             </div>
                           </div>
                         </div>
@@ -231,30 +283,41 @@
                   </div>
                   <div class="modal-footer">
                     <div id="me" class="flex w-full gap-2 px-[15px]">
-                      <img :src="userCurrent.avatar ? userCurrent.avatar : avatar"
-                        class="h-9 w-9 cursor-pointer rounded-full" alt="" />
+                      <img
+                        :src="userCurrent.avatar ? userCurrent.avatar : avatar"
+                        class="h-9 w-9 cursor-pointer rounded-full"
+                        alt=""
+                      />
                       <div class="flex w-full flex-col">
-                        <div id="me_comment"
-                          class="flex w-full rounded-2xl bg-slate-100 outline-none ring-transparent focus:outline-none">
+                        <div
+                          id="me_comment"
+                          class="flex w-full rounded-2xl bg-slate-100 outline-none ring-transparent focus:outline-none"
+                        >
                           <!-- input Comment -->
                           <input
                             class="w-full rounded-2xl border-0 bg-transparent px-3 outline-none focus:border-black focus:outline-none focus:ring-transparent"
-                            type="text" placeholder="Viết câu trả lời..." v-model="contentComment"
-                            v-on:keyup.enter="addCommentPost(valueDetailPost._id)" />
+                            type="text"
+                            placeholder="Viết câu trả lời..."
+                            v-model="contentComment"
+                            v-on:keyup.enter="addCommentPost(valueDetailPost._id)"
+                          />
                           <div id="me_comment_buttons" class="flex items-center">
                             <div class="cursor-pointer rounded-full p-2 transition-colors duration-300">
                               <svg-smile class="w-4 text-myGray-600" />
                             </div>
                             <div
-                              class="cursor-pointer rounded-full p-2 transition-colors duration-300 hover:bg-myGray-900">
+                              class="cursor-pointer rounded-full p-2 transition-colors duration-300 hover:bg-myGray-900"
+                            >
                               <svg-live-video class="w-4 text-myGray-600" />
                             </div>
                             <div
-                              class="cursor-pointer rounded-full p-2 transition-colors duration-300 hover:bg-myGray-900">
+                              class="cursor-pointer rounded-full p-2 transition-colors duration-300 hover:bg-myGray-900"
+                            >
                               <svg-menu class="w-4 text-myGray-600" />
                             </div>
                             <div
-                              class="cursor-pointer rounded-full p-2 transition-colors duration-300 hover:bg-myGray-900">
+                              class="cursor-pointer rounded-full p-2 transition-colors duration-300 hover:bg-myGray-900"
+                            >
                               <svg-photo class="w-4 text-myGray-600" />
                             </div>
                           </div>
@@ -271,35 +334,36 @@
       <right-bar-home />
     </div>
     <div
-      class="fixed bottom-5 right-5 flex cursor-pointer items-center justify-center rounded-full border-2 bg-white p-[14px] text-black transition-colors duration-300 hover:bg-myGray-700">
+      class="fixed bottom-5 right-5 flex cursor-pointer items-center justify-center rounded-full border-2 bg-white p-[14px] text-black transition-colors duration-300 hover:bg-myGray-700"
+    >
       <svg-new-message class="w-5" />
     </div>
     <modal-share />
   </div>
 </template>
 <script>
-import svgCreate from "@/components/svg/svgCreate.vue";
-import svgLiveVideo from "@/components/svg/svgLiveVideo.vue";
-import svgPhoto from "@/components/svg/svgPhoto.vue";
-import svgSmile from "@/components/svg/svgSmile.vue";
-import svgDots from "@/components/svg/svgDots.vue";
-import svgWorld from "@/components/svg/svgWorld.vue";
-import svgLike from "@/components/svg/svgLike.vue";
-import svgComment from "@/components/svg/svgComment.vue";
-import svgMenu from "@/components/svg/svgMenu.vue";
-import svgNewMessage from "@/components/svg/svgNewMessage.vue";
-import { Forward, X, Trash2 } from "lucide-vue-next";
-import leftBarHome from "./components/leftBarHome.vue";
-import rightBarHome from "./components/rightBarHome.vue";
-import modalShare from "./components/modalShare.vue";
-import renderImage from "./components/renderImage.vue";
-import { getProfileFromLS } from "@/utils/auth";
-import { formatDate, isImageUrl } from "@/utils/utils";
-import apiUploadFile from "@/apis/uploadFile.api";
-import apiPost from "@/apis/post.api";
-import modalCreate from "./components/modalCreate.vue";
-import pathConstant from "../constant/path.constant";
-import modalDelete from "./components/modalDelete.vue";
+import svgCreate from "@/components/svg/svgCreate.vue"
+import svgLiveVideo from "@/components/svg/svgLiveVideo.vue"
+import svgPhoto from "@/components/svg/svgPhoto.vue"
+import svgSmile from "@/components/svg/svgSmile.vue"
+import svgDots from "@/components/svg/svgDots.vue"
+import svgWorld from "@/components/svg/svgWorld.vue"
+import svgLike from "@/components/svg/svgLike.vue"
+import svgComment from "@/components/svg/svgComment.vue"
+import svgMenu from "@/components/svg/svgMenu.vue"
+import svgNewMessage from "@/components/svg/svgNewMessage.vue"
+import { Forward, X, Trash2 } from "lucide-vue-next"
+import leftBarHome from "./components/leftBarHome.vue"
+import rightBarHome from "./components/rightBarHome.vue"
+import modalShare from "./components/modalShare.vue"
+import renderImage from "./components/renderImage.vue"
+import { getProfileFromLS } from "@/utils/auth"
+import { formatDate, isImageUrl } from "@/utils/utils"
+import apiUploadFile from "@/apis/uploadFile.api"
+import apiPost from "@/apis/post.api"
+import modalCreate from "./components/modalCreate.vue"
+import pathConstant from "../constant/path.constant"
+import modalDelete from "./components/modalDelete.vue"
 export default {
   components: {
     svgCreate,
@@ -324,8 +388,6 @@ export default {
   },
   created() {
     this.userCurrent = getProfileFromLS()
-    console.log(  this.userCurrent);
-    
     this.getDataNewFeed(true)
     if (this.userCurrent && this.userCurrent.name) {
       this.placeholder = `${this.userCurrent.name} ơi, bạn đang nghĩ gì thế?`
@@ -372,8 +434,8 @@ export default {
     },
     async handleUpFileImage() {
       if (!this.fileup) {
-        console.error("Chưa chọn file.");
-        return;
+        console.error("Chưa chọn file.")
+        return
       }
       try {
         const formData = new FormData()
@@ -382,10 +444,10 @@ export default {
         this.media.push({
           url: res.data.result[0].url,
           type: res.data.result[0].type
-        });
+        })
         this.fileup = ""
       } catch (error) {
-        console.error("Lỗi khi upload file:", error);
+        console.error("Lỗi khi upload file:", error)
       }
     },
     addPost() {
@@ -396,7 +458,7 @@ export default {
           mentions: [],
           medias: this.media
         }
-       apiPost.addPost(body).then((res) => {
+        apiPost.addPost(body).then((res) => {
           this.$toast.success(res.data.message, {
             position: "bottom-right"
           })
@@ -405,29 +467,31 @@ export default {
           this.content = ""
         })
       } else {
-        this.$toast.error('Nội dung không được để trống', {
+        this.$toast.error("Nội dung không được để trống", {
           position: "bottom-right"
         })
       }
     },
     getDataNewFeed(isInitialLoad = false) {
-     apiPost.getPost({
-        params: {
-          limit: 5,
-          page: 1
-        }
-      }).then((res) => {
-        this.allNewFeed = res.data.result
-        if (isInitialLoad) {
-          this.allNewFeed.sort(() => Math.random() - 0.5)
-        } else {
-          this.allNewFeed.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
-        }
-      })
+      apiPost
+        .getPost({
+          params: {
+            limit: 5,
+            page: 1
+          }
+        })
+        .then((res) => {
+          this.allNewFeed = res.data.result
+          if (isInitialLoad) {
+            this.allNewFeed.sort(() => Math.random() - 0.5)
+          } else {
+            this.allNewFeed.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+          }
+        })
     },
     async changeStatusLikePost(post, index) {
       if (post?.user_liked?.liked) {
-          apiPost.deleteLikePost(post._id).then((res) => {
+        apiPost.deleteLikePost(post._id).then((res) => {
           this.getDataNewFeed()
           this.$toast.success(res.data.message, {
             position: "bottom-right"
@@ -437,7 +501,7 @@ export default {
         const payload = {
           post_id: post._id
         }
-          apiPost.likePost(payload).then((res) => {
+        apiPost.likePost(payload).then((res) => {
           this.getDataNewFeed()
           this.liked = this.allNewFeed[index].user_liked.liked
           this.liked = [...this.allNewFeed]
@@ -474,14 +538,16 @@ export default {
       if (index >= 0) this.media.splice(index, 1)
     },
     getCommentDetailPost() {
-     apiPost.getCommentDetailPost(this.valueDetailPost._id, {
-        params: {
-          limit: 20,
-          page: 1
-        }
-      }).then((res) => {
-        this.valueDetailPost.postComment = res.data.result.postComment
-      })
+      apiPost
+        .getCommentDetailPost(this.valueDetailPost._id, {
+          params: {
+            limit: 20,
+            page: 1
+          }
+        })
+        .then((res) => {
+          this.valueDetailPost.postComment = res.data.result.postComment
+        })
     },
     handleDetailPost(index) {
       this.valueDetailPost = this.allNewFeed[index]
@@ -501,38 +567,32 @@ export default {
           this.$toast.success(res.data.message, {
             position: "bottom-right"
           })
-          this.contentComment = "";
-          await Promise.all([
-            this.getCommentDetailPost(),
-            this.getDataNewFeed()
-          ]);
+          this.contentComment = ""
+          await Promise.all([this.getCommentDetailPost(), this.getDataNewFeed()])
         } catch (errors) {
-          console.log(errors);
+          console.log(errors)
         }
       }
     },
     async handleDeleteComment(post) {
-        const commentId = post._id;
-        const res = await apiPost.deleteCommentPost(commentId, {
-          data: {
-            post_id: post.post_id
-          }
-        });
-        await Promise.all([
-          this.getCommentDetailPost(),
-          this.getDataNewFeed()
-        ]);
+      const commentId = post._id
+      const res = await apiPost.deleteCommentPost(commentId, {
+        data: {
+          post_id: post.post_id
+        }
+      })
+      await Promise.all([this.getCommentDetailPost(), this.getDataNewFeed()])
 
-        this.$toast.success(res.data.message, {
-          position: "bottom-right"
-        });
+      this.$toast.success(res.data.message, {
+        position: "bottom-right"
+      })
     },
 
     handleContentChange(newContent) {
-      this.content = newContent;
+      this.content = newContent
     },
     handleChangeCommentDetail(data) {
-      this.valueCommentDetail = data;
+      this.valueCommentDetail = data
     }
   }
 }

@@ -154,12 +154,12 @@
   </header>
 </template>
 <script>
-import pathConstant from '@/views/client/constant/path.constant'
+import pathConstant from "@/views/client/constant/path.constant"
 export default {
   data() {
     return {
       ten_hien_thi: "Chưa đăng nhập",
-      pathConstant : pathConstant
+      pathConstant: pathConstant
     }
   },
   mounted() {
@@ -167,11 +167,11 @@ export default {
   },
   methods: {
     logOut() {
-        clearLS()
-        this.$toast.success("Đăng xuất thành công", {
-          position: "bottom-right"
-        })
-    this.$router.push("/admin/login")
+      clearLS()
+      this.$toast.success("Đăng xuất thành công", {
+        position: "bottom-right"
+      })
+      this.$router.push("/admin/login")
     },
     logOutAll() {}
   }

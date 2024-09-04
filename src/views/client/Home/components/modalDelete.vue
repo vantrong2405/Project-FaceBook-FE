@@ -1,8 +1,11 @@
 <template>
-  <Trash2 class="cursor-pointer hover:text-black" data-bs-toggle="modal" data-bs-target="#modalDeleteCommment"
-    v-if="userCurrent._id == commentDetail.user_id" @click="
-      handleChangeValueCommentDetail(commentDetail)
-      " />
+  <Trash2
+    class="cursor-pointer hover:text-black"
+    data-bs-toggle="modal"
+    data-bs-target="#modalDeleteCommment"
+    v-if="userCurrent._id == commentDetail.user_id"
+    @click="handleChangeValueCommentDetail(commentDetail)"
+  />
   <div class="modal fade" id="modalDeleteCommment" tabindex="-1" aria-labelledby="modalCommentLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
       <div class="modal-content">
@@ -16,7 +19,8 @@
           <div class="flex h-[100px] items-center rounded-md bg-yellow-500">
             <div class="w-[10%] text-center">
               <div
-                class="ml-[10px] flex h-[32px] w-[32px] items-center justify-center rounded-full border-[3px] border-black">
+                class="ml-[10px] flex h-[32px] w-[32px] items-center justify-center rounded-full border-[3px] border-black"
+              >
                 <i class="fa-solid fa-exclamation text-[20px] text-black"></i>
               </div>
             </div>
@@ -34,8 +38,12 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
-            @click="handleDeleteComment(valueCommentDetail)">
+          <button
+            type="button"
+            class="btn btn-danger"
+            data-bs-dismiss="modal"
+            @click="handleDeleteComment(valueCommentDetail)"
+          >
             Xóa ngay
           </button>
         </div>
@@ -44,7 +52,7 @@
   </div>
 </template>
 <script>
-import { Trash2 } from "lucide-vue-next";
+import { Trash2 } from "lucide-vue-next"
 export default {
   props: {
     valueCommentDetail: {
@@ -60,20 +68,18 @@ export default {
       default: {}
     }
   },
-  emits: ['changeValueCommentDetailEvent', 'deleteCommentEvent'],
+  emits: ["changeValueCommentDetailEvent", "deleteCommentEvent"],
   components: {
     Trash2
   },
   methods: {
     handleDeleteComment(valueCommentDetail) {
-      this.$emit("deleteCommentEvent", valueCommentDetail);
+      this.$emit("deleteCommentEvent", valueCommentDetail)
     },
     handleChangeValueCommentDetail(commentDetail) {
-      this.$emit("changeValueCommentDetailEvent", commentDetail);
-    },
+      this.$emit("changeValueCommentDetailEvent", commentDetail)
+    }
   }
 }
 </script>
-<style lang="">
-
-</style>
+<style lang=""></style>

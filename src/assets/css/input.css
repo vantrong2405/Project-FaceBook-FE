@@ -113,7 +113,6 @@
 }
 
 @media (forced-colors: active) {
-
   /* Các kiểu dáng cho chế độ màu bắt buộc */
   body {
     color: WindowText;
