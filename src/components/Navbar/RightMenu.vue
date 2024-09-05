@@ -559,7 +559,7 @@ export default {
       clearLS()
       this.$router.push(pathConstant.default)
       this.$toast.success("Logout success", {
-        position: "bottom-right"
+        position: "top-right"
       })
     }
   }

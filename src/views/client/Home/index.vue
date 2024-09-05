@@ -120,7 +120,7 @@
                     :class="{ 'text-[#0861f2]': value.user_liked.liked }"
                     @click="changeStatusLikePost(value, index)"
                   >
-                    <i class="fa-solid fa-thumbs-up text-2xl"></i>
+               <ThumbsUp />
                     <span>Like</span>
                   </div>
                   <div
@@ -128,7 +128,7 @@
                     data-bs-toggle="modal"
                     data-bs-target="#modalComment"
                     @click="
-                      handleDetailPost(index)
+                      handleDetailPost(index),
                       contentComment = ''
                     "
                   >
@@ -364,6 +364,7 @@ import apiPost from "@/apis/post.api"
 import modalCreate from "./components/modalCreate.vue"
 import pathConstant from "../constant/path.constant"
 import modalDelete from "./components/modalDelete.vue"
+import { ThumbsUp } from 'lucide-vue-next';
 export default {
   components: {
     svgCreate,
@@ -384,7 +385,8 @@ export default {
     renderImage,
     Trash2,
     modalCreate,
-    modalDelete
+    modalDelete,
+    ThumbsUp
   },
   created() {
     this.userCurrent = getProfileFromLS()
@@ -460,7 +462,7 @@ export default {
         }
         apiPost.addPost(body).then((res) => {
           this.$toast.success(res.data.message, {
-            position: "bottom-right"
+            position: "top-right"
           })
           this.getDataNewFeed()
           this.media = []
@@ -468,7 +470,7 @@ export default {
         })
       } else {
         this.$toast.error("Nội dung không được để trống", {
-          position: "bottom-right"
+          position: "top-right"
         })
       }
     },
@@ -491,22 +493,22 @@ export default {
     },
     async changeStatusLikePost(post, index) {
       if (post?.user_liked?.liked) {
-        apiPost.deleteLikePost(post._id).then((res) => {
+       await apiPost.deleteLikePost(post._id).then((res) => {
           this.getDataNewFeed()
           this.$toast.success(res.data.message, {
-            position: "bottom-right"
+            position: "top-right"
           })
         })
       } else {
         const payload = {
           post_id: post._id
         }
-        apiPost.likePost(payload).then((res) => {
+     await apiPost.likePost(payload).then((res) => {
           this.getDataNewFeed()
-          this.liked = this.allNewFeed[index].user_liked.liked
           this.liked = [...this.allNewFeed]
+          this.liked = this.allNewFeed[index].user_liked.liked
           this.$toast.success(res.data.message, {
-            position: "bottom-right"
+            position: "top-right"
           })
         })
       }
@@ -565,7 +567,7 @@ export default {
         try {
           const res = await apiPost.addCommentPost(body)
           this.$toast.success(res.data.message, {
-            position: "bottom-right"
+            position: "top-right"
           })
           this.contentComment = ""
           await Promise.all([this.getCommentDetailPost(), this.getDataNewFeed()])
@@ -584,7 +586,7 @@ export default {
       await Promise.all([this.getCommentDetailPost(), this.getDataNewFeed()])
 
       this.$toast.success(res.data.message, {
-        position: "bottom-right"
+        position: "top-right"
       })
     },
 

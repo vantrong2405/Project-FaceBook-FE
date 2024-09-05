@@ -398,7 +398,7 @@
                       data-bs-toggle="modal"
                       data-bs-target="#modalComment"
                       @click="
-                        handleDetailPost(index)
+                        handleDetailPost(index),
                         contentComment = ''
                       "
                     >
@@ -537,7 +537,6 @@
                                   <span class="cursor-pointer hover:underline">2d</span>
                                 </div>
                               </div>
-                              <div class="mt-[3%]">
                                 <Trash2
                                   class="cursor-pointer hover:text-black"
                                   data-bs-toggle="modal"
@@ -545,10 +544,8 @@
                                   v-if="userCurrent._id == commentDetail.user_id"
                                   @click="
                                     valueCommentDetail = commentDetail
-                                    console.log(commentDetail)
                                   "
                                 />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -861,7 +858,7 @@ export default {
         .updateProfile(payload)
         .then((res) => {
           this.$toast.success("Cập nhật thông tin thành công", {
-            position: "bottom-right"
+            position: "top-right"
           })
           const profile = getProfileFromLS()
           profile.name = this.name
@@ -873,7 +870,7 @@ export default {
         .catch((error) => {
           console.error(error)
           this.$toast.error("Cập nhật thông tin thất bại", {
-            position: "bottom-right"
+            position: "top-right"
           })
         })
     },
@@ -938,7 +935,7 @@ export default {
         }
         apiPost.addPost(body).then((res) => {
           this.$toast.success(res.data.message, {
-            position: "bottom-right"
+            position: "top-right"
           })
           this.getDataNewFeed()
           this.media = []
@@ -946,7 +943,7 @@ export default {
         })
       } else {
         this.$toast.error("Nội dung không được để trống", {
-          position: "bottom-right"
+          position: "top-right"
         })
       }
     },
@@ -964,11 +961,11 @@ export default {
         })
     },
     async changeStatusLikePost(post, index) {
-      if (post?.user_liked?.liked) {
+      if (post.user_liked.liked) {
         apiPost.deleteLikePost(post._id).then((res) => {
           this.getDataNewFeed()
           this.$toast.success(res.data.message, {
-            position: "bottom-right"
+            position: "top-right"
           })
         })
       } else {
@@ -980,7 +977,7 @@ export default {
           this.liked = this.allNewFeed[index].user_liked.liked
           this.liked = [...this.allNewFeed]
           this.$toast.success(res.data.message, {
-            position: "bottom-right"
+            position: "top-right"
           })
         })
       }
@@ -1035,7 +1032,7 @@ export default {
         try {
           const res = await apiPost.addCommentPost(body)
           this.$toast.success(res.data.message, {
-            position: "bottom-right"
+            position: "top-right"
           })
           this.contentComment = ""
           await Promise.all([this.getCommentDetailPost(), this.getDataNewFeed()])
@@ -1055,7 +1052,7 @@ export default {
         await Promise.all([this.getCommentDetailPost(), this.getDataNewFeed()])
 
         this.$toast.success(res.data.message, {
-          position: "bottom-right"
+          position: "top-right"
         })
       } catch (error) {}
     },

@@ -290,7 +290,7 @@ export default {
       }
       apiAuth.registerAccount(body).then((res) => {
         this.$toast.success(res.data.message, {
-          position: "bottom-right"
+          position: "top-right"
         })
         this.showResgister = false
       })
@@ -302,7 +302,7 @@ export default {
       }
       apiAuth.loginAccount(body).then((res) => {
         this.$toast.success(res.data.message, {
-          position: "bottom-right"
+          position: "top-right"
         })
         this.$router.push("/home")
         setAccessTokenToLS(res.data.result.access_token)
@@ -331,7 +331,7 @@ export default {
         }
         apiAuth.forgotPassword(body).then((res) => {
           this.$toast.success(res.data.message, {
-            position: "bottom-right"
+            position: "top-right"
           })
           this.email_forgot_password = ""
         })

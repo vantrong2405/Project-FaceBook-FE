@@ -63,7 +63,7 @@ export default {
       apiAuth.resetPassword(body).then((res) => {
         console.log(res)
         this.$toast.success(res.data.message, {
-          position: "bottom-right"
+          position: "top-right"
         })
         setTimeout(() => {
           this.$router.push("/")

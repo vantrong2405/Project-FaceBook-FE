@@ -137,12 +137,12 @@ export default {
             const isAuthorized = this.checkToken()
             if (isAuthorized) {
               this.$toast.success(res.data.message, {
-                position: "bottom-right"
+                position: "top-right"
               })
               this.$router.push("/admin/post")
             } else {
               this.$toast.success("Login failure", {
-                position: "bottom-right"
+                position: "top-right"
               })
               throw new error("Unauthorized role")
             }
@@ -150,7 +150,7 @@ export default {
         })
       } catch (errors) {
         this.$toast.success("Đăng nhập thất bại", {
-          position: "bottom-right"
+          position: "top-right"
         })
       }
     },

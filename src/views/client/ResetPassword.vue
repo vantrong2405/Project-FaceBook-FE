@@ -125,7 +125,7 @@ export default {
         console.log(res)
         this.isChangePassWord = true
         this.$toast.success(res.data.message, {
-          position: "bottom-right"
+          position: "top-right"
         })
       })
     },
@@ -134,11 +134,11 @@ export default {
         clearLS()
         this.$router.push("/")
         this.$toast.success("Đăng xuất thành công", {
-          position: "bottom-right"
+          position: "top-right"
         })
       } catch (error) {
         this.$toast.error("Đăng xuất không thành công", {
-          position: "bottom-right"
+          position: "top-right"
         })
       }
     }

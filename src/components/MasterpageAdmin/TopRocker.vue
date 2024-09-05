@@ -169,7 +169,7 @@ export default {
     logOut() {
       clearLS()
       this.$toast.success("Đăng xuất thành công", {
-        position: "bottom-right"
+        position: "top-right"
       })
       this.$router.push("/admin/login")
     },

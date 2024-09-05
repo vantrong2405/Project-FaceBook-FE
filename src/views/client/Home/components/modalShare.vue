@@ -16,27 +16,18 @@
             <a class="h-[40px] w-[40px] hover:brightness-90" href="">
               <img class="h-full w-full rounded-full" src="../../../../assets/images/png/default.png" alt="" />
             </a>
-            <div class="ml-[10px]">
-              <p class="text-[15px] font-medium text-black">Ân Nguyên</p>
-              <div class="flex w-full">
-                <p
-                  class="mr-[5px] cursor-pointer rounded-md bg-[#E4E6EB] px-[7px] py-[4px] text-[13px] font-medium text-black"
+               <div class="ml-[10px]">
+              <p class="text-[15px] font-medium text-black">Văn Trọng</p>
+              <form class="mx-auto w-36">
+                <select
+                  id="countries"
+                  class="mt-1 block w-full rounded-lg border border-gray-300 bg-gray-50 p-1.5 text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
                 >
-                  Bảng feed
-                </p>
-                <div class="flex items-center justify-center">
-                  <span class="flex cursor-pointer items-center justify-center rounded-md bg-[#E4E6EB]">
-                    <select
-                      class="ml-[5px] cursor-pointer rounded-md border-0 bg-[#E4E6EB] text-[15px] font-medium focus:ring-0"
-                      name=""
-                      id=""
-                    >
-                      <option @click="showPrivate = false" value="1" selected>Công khai</option>
-                      <option @click="showPrivate = true" value="2">Chỉ mình tôi</option>
-                    </select>
-                  </span>
-                </div>
-              </div>
+                  <option class="p-2" selected>Công khai</option>
+                  <option class="p-2" value="US">Bí mật</option>
+                  <option class="p-2" value="CA">Với bạn bè</option>
+                </select>
+              </form>
             </div>
           </div>
           <div class="w-full">

@@ -11,7 +11,7 @@ export default async function (to, from, next) {
     return
   } else {
     toast.error("Login failure", {
-      position: "bottom-right"
+      position: "top-right"
     })
   }
 
@@ -22,14 +22,14 @@ export default async function (to, from, next) {
         next()
       } else {
         toast.warning("Thông báo<br>Bạn cần đăng nhập hệ thống trước!", {
-          position: "bottom-right"
+          position: "top-right"
         })
         next("/admin/login")
       }
     })
   } catch (error) {
     toast.warning("Thông báo<br>Bạn cần đăng nhập hệ thống trước!", {
-      position: "bottom-right"
+      position: "top-right"
     })
     next("/admin/login")
   }

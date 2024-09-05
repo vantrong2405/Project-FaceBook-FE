@@ -44,7 +44,7 @@ class Http {
           console.log(message)
           if (toast) {
             toast.error(message, {
-              position: "bottom-right"
+              position: "top-right"
             })
           }
         }
