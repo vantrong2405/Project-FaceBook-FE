@@ -484,11 +484,7 @@ export default {
         })
         .then((res) => {
           this.allNewFeed = res.data.result
-          if (isInitialLoad) {
-            this.allNewFeed.sort(() => Math.random() - 0.5)
-          } else {
-            this.allNewFeed.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
-          }
+          this.allNewFeed.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
         })
     },
     async changeStatusLikePost(post, index) {

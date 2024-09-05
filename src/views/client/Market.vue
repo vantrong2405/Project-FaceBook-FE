@@ -211,7 +211,7 @@
       <div className="mt-4 grid">
         <div className="grid  grid-cols-4 justify-around">
           <div
-            className="w-[93%] h-[94%] mb-[18px] rounded-md hover:scale-105 hover:delay-250 duration-300 border"
+            className="w-[93%] h-[94%] mb-[18px] rounded-md hover:scale-105 hover:delay-250 duration-300 border bg-white"
             v-for="index in 10"
             :key="index"
           >
@@ -221,7 +221,7 @@
                 src="https://admin.cms.ueb.edu.vn//Uploads/image/News/Thumbnails/2022/1/Thumbnails03012022052442.quan-tri-dai-hoc.jpg"
                 alt=""
               />
-              <div class="p-3">
+              <div class="p-3 bg-white">
                 <div className="font-semibold text-lg">Tôn Hoa Sen</div>
                 <div className="text-sm">183 Nguyễn Văn Trỗi, Quận Phú Nhuận, HCM</div>
                 <div className="flex justify-between">
