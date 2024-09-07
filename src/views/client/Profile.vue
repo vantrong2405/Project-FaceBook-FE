@@ -670,7 +670,7 @@
           </div>
           <div class="modal-footer border-none pr-0">
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Hủy</button>
-            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @click="ChangeInformation">
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @click="updateProfile">
               Lưu thay đổi
             </button>
           </div>
@@ -742,7 +742,6 @@ import svgLike from "@/components/svg/svgLike.vue"
 import svgMenu from "@/components/svg/svgMenu.vue"
 import svgComment from "@/components/svg/svgComment.vue"
 import { X, Trash2, Forward } from "lucide-vue-next"
-import http from "@/baseAPI/http"
 import modalShare from "./Home/components/modalShare.vue"
 import renderImage from "./Home/components/renderImage.vue"
 import apiPost from "@/apis/post.api"
@@ -776,12 +775,12 @@ export default {
     this.getDataNewFeed()
     this.checkStatusFriend()
     this.userCurrent = JSON.parse(localStorage.getItem("profile"))
+    this.isOwner = this.userCurrent.username == this.userName
     if (this.userCurrent && this.userCurrent.name) {
       this.placeholder = `${this.userCurrent.name} ơi, bạn đang nghĩ gì thế?`
     } else {
       this.placeholder = "Bạn đang nghĩ gì thế?"
     }
-    this.isOwner = this.userCurrent.username == this.userName
     if (this.userName) {
       this.getProfile()
       this.name = this.userCurrent.name
@@ -848,7 +847,7 @@ export default {
         this.profileInFor = res.data.result
       })
     },
-    ChangeInformation() {
+    updateProfile() {
       const payload = {
         name: this.name,
         gender: this.gender,
@@ -856,7 +855,7 @@ export default {
       }
       apiProfile
         .updateProfile(payload)
-        .then((res) => {
+        .then(() => {
           this.$toast.success("Cập nhật thông tin thành công", {
             position: "top-right"
           })
