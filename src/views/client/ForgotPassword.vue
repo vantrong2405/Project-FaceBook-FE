@@ -8,7 +8,7 @@
               <div class="p-5">
                 <p class="ml-7 text-4xl font-semibold">Lấy lại mật khẩu</p>
                 <p class="text-muted mb-5 mt-3">
-                  Chúng tôi đã nhận được yêu cầu đặt lại mật khẩu của bạn. Vui lòng nhập mật khẩu mới của bạn!
+                  Chúng tôi đã nhận được yêu cầu đặt lại mật khẩu của bạn. Vui lòng nhập mậ t khẩu mới của bạn!
                 </p>
                 <div class="mb-3 mt-3">
                   <label class="form-label">Mật khẩu mới</label>

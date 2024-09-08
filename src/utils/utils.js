@@ -30,3 +30,30 @@ export const formatDate = (dateString) => {
 export const isImageUrl = (url) => {
   return /\.(jpeg|jpg|gif|png|webp)$/.test(url)
 }
+
+
+export function handlePaste(event, mediaArray) {
+  const clipboardData = event.clipboardData || window.clipboardData;
+  const items = clipboardData.items;
+
+  for (let i = 0; i < items.length; i++) {
+    const item = items[i];
+
+    if (item.type.indexOf("image") !== -1) {
+      const blob = item.getAsFile();
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        mediaArray.push({ url: e.target.result, type: 0 });
+      };
+      reader.readAsDataURL(blob);
+    } else if (item.type === "text/plain") {
+      item.getAsString((url) => {
+        if (isImageUrl(url)) {
+          mediaArray.push({ url: url, type: 0 });
+        }
+      });
+    }
+  }
+
+  event.preventDefault();
+}
