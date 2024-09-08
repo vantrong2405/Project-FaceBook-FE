@@ -20,9 +20,7 @@
                 </div>
                 <div class="d-grid gap-2">
                   <button type="button" class="btn btn-primary" @click="changePassword()">Thay đổi mật khẩu</button>
-                  <a href="authentication-login.html" class="btn btn-light"
-                    ><i class="bx bx-arrow-back mr-1"></i>Đăng nhập</a
-                  >
+                  <router-link to="/home" class="btn btn-light"><i class="bx bx-arrow-back mr-1"></i>Đăng nhập</router-link>  
                 </div>
               </div>
             </div>
@@ -41,6 +39,7 @@
 </template>
 <script>
 import apiAuth from "@/apis/auth.api"
+import { Link } from "lucide-vue-next";
 import "vue-toast-notification/dist/theme-sugar.css"
 export default {
   data() {
@@ -61,13 +60,9 @@ export default {
         forgot_password_token: this.token
       }
       apiAuth.resetPassword(body).then((res) => {
-        console.log(res)
         this.$toast.success(res.data.message, {
           position: "top-right"
         })
-        setTimeout(() => {
-          this.$router.push("/")
-        }, 2000)
       })
     }
   }

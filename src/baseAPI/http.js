@@ -1,4 +1,4 @@
-import { getAccessTokenFromLS } from "@/utils/auth"
+import { getAccessTokenFromLS, setAccessTokenToLS, setProfileToLS } from "@/utils/auth"
 import { HttpStatusCode } from "@/views/client/constant/httpStatusCode"
 import axios from "axios"
 import { createApp } from "vue"
@@ -34,7 +34,12 @@ class Http {
     )
 
     this.instance.interceptors.response.use(
+      
       function (response) {
+        console.log(response);
+        if(response.config.url === '/users/update-me') {
+          setProfileToLS(response.data.result)
+        }
         return response
       },
       (error) => {

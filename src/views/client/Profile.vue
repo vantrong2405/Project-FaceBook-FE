@@ -17,7 +17,7 @@
           >
             <img
               class="h-[168px] w-[168px] rounded-[168px] hover:brightness-90"
-              :src="profileInFor.avatar ? profileInFor.avatar : avatar"
+              :src="inforUser.avatar ? inforUser.avatar : avatar"
               alt=""
             />
             <div class="absolute bottom-[10px] right-[20px]">
@@ -32,9 +32,10 @@
             <div class="flex h-full w-full flex-grow px-[15px] py-[15px]">
               <div class="w-[50%]">
                 <p class="pt-[8px] text-[32px] font-bold leading-[32px] text-[#050505]">
-                  {{ profileInFor ? profileInFor.name : "" }}
+                  {{ inforUser.name }}
                 </p>
-                <p class="cursor-pointer py-[8px] text-[15px] font-medium text-[#65676B] hover:underline">747 bạn bè</p>
+                <p class="cursor-pointer pt-[8px] text-[15px] font-medium text-[#65676B] hover:underline">747 bạn bè</p>
+                <p class="cursor-pointer text-[15px] font-medium text-[black] hover:underline">{{inforUser.bio}}</p>
                 <div class="flex">
                   <img
                     class="-ml-2 h-[34px] w-[34px] cursor-pointer rounded-full border-[2px] border-white"
@@ -248,7 +249,7 @@
                 <div id="new-post-top" class="flex items-center gap-3 p-1">
                   <div class="_pp_ cursor-pointer">
                     <img
-                      :src="profileInFor.avatar ? profileInFor.avatar : avatar"
+                      :src="inforUser.avatar ? inforUser.avatar : avatar"
                       class="h-9 w-10 rounded-full"
                       alt=""
                     />
@@ -654,6 +655,17 @@
             </div>
           </div>
           <div class="mb-[10px] w-full">
+            <p class="mb-[5px] text-[20px] font-bold text-black">Giới thiệu bản thân</p>
+            <div class="flex w-full justify-center">
+              <input
+                type="text"
+                placeholder="Bio"
+                class="form-control border-gray-400 shadow-none outline-none focus:border-gray-500"
+                v-model="bio"
+              />
+            </div>
+          </div>
+          <div class="mb-[10px] w-full">
             <p class="mb-[5px] text-[20px] font-bold text-black">Giới tính</p>
             <div class="w-100%">
               <select
@@ -813,12 +825,13 @@ export default {
       valueCommentDetail: "",
       statusLike: false,
       isOwner: false,
-      userName: "",
+      userName: '',
       profile: "",
-      name: "",
+      name: getProfileFromLS().name,
+      bio : getProfileFromLS().bio,
       gender: "nam",
       date_of_birth: "",
-      profileInFor: {},
+      inforUser: {},
       statusFriend: 0,
       avatarUpLoad: "",
       showChat: false,
@@ -844,31 +857,30 @@ export default {
     },
     getProfile() {
       apiProfile.getProfile(this.userCurrent.username).then((res) => {
-        this.profileInFor = res.data.result
+        this.inforUser = res.data.result  
       })
     },
     updateProfile() {
       const payload = {
         name: this.name,
         gender: this.gender,
+        bio : this.bio,
         avatar: this.avatarUpLoad
       }
+      
       apiProfile
         .updateProfile(payload)
-        .then(() => {
-          this.$toast.success("Cập nhật thông tin thành công", {
+        .then((res) => {
+          this.$toast.success("Update information success", {
             position: "top-right"
           })
-          const profile = getProfileFromLS()
-          profile.name = this.name
-          profile.avatar = this.avatar
-          profile.gender = this.gender
-          setProfileToLS(profile)
+          console.log(res.data);
+          
           this.getProfile()
         })
         .catch((error) => {
           console.error(error)
-          this.$toast.error("Cập nhật thông tin thất bại", {
+          this.$toast.error("Update information failure", {
             position: "top-right"
           })
         })
@@ -897,7 +909,6 @@ export default {
 
       await apiUploadFile.upFile(formData).then((res) => {
         this.avatarUpLoad = res.data.result[0].url
-        console.log(this.avatarUpLoad)
         this.fileup = ""
       })
     },
@@ -1057,7 +1068,7 @@ export default {
     },
     async sendFriendRequest() {
       const body = {
-        friend_user_id: this.profileInFor._id
+        friend_user_id: this.inforUser._id
       }
       apiFriend.sendFriendRequest(body).then((res) => {
         console.log(res)
@@ -1065,7 +1076,7 @@ export default {
       })
     },
     async deleteFriendRequest() {
-      apiFriend.deleteFriendRequest(this.profileInFor._id).then((res) => {
+      apiFriend.deleteFriendRequest(this.inforUser._id).then((res) => {
         this.checkStatusFriend()
       })
     },
