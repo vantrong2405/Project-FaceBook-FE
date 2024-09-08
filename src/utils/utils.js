@@ -32,7 +32,7 @@ export const isImageUrl = (url) => {
 }
 
 
-export function handlePaste(event, mediaArray) {
+export const handlePaste = (event, mediaArray) => {
   const clipboardData = event.clipboardData || window.clipboardData;
   const items = clipboardData.items;
 

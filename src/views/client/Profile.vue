@@ -72,21 +72,21 @@
               <div class="w-[50%]" v-if="isOwner == false">
                 <div class="mt-[30px] flex flex-row justify-end">
                   <div
-                    v-if="statusFriend == 0"
+                    v-if="statusFriend === -1"
                     class="mr-[8px] flex cursor-pointer flex-row items-center justify-center rounded-md bg-[#0866ff] px-[12px] hover:bg-[#0861F2]"
                   >
                     <i class="fa-solid fa-plus mr-[8px] pl-[5px] text-[12px] text-blue-200"></i>
                     <p class="text-[15px] font-medium text-white" @click="sendFriendRequest()">Thêm bạn bè</p>
                   </div>
                   <div
-                    v-if="statusFriend == 1"
+                    v-if="statusFriend === 0"
                     class="mr-[8px] flex cursor-pointer flex-row items-center justify-center rounded-md bg-[#0866ff] px-[12px] hover:bg-[#0861F2]"
                   >
                     <i class="fa-solid fa-plus mr-[8px] pl-[5px] text-[12px] text-blue-200"></i>
-                    <p class="text-[15px] font-medium text-white">Hủy yêu cầu</p>
+                    <p class="text-[15px] font-medium text-white" @click="deleteFriendRequest()">Hủy yêu cầu</p>
                   </div>
                   <div
-                    v-if="statusFriend == 2"
+                    v-if="statusFriend === 1"
                     class="mr-[8px] flex cursor-pointer flex-row items-center justify-center rounded-md bg-[#0866ff] px-[12px] hover:bg-[#0861F2]"
                   >
                     <i class="fa-solid fa-plus mr-[8px] pl-[5px] text-[12px] text-blue-200"></i>
@@ -613,6 +613,7 @@
       @addPostEvent="addPost"
       @openFileInputEvent="openFileInput"
       @deleteMediaEvent="handleDeleteMedia"
+      @pasteEvent="onPaste"
     />
   </div>
 
@@ -764,6 +765,7 @@ import apiUploadFile from "@/apis/uploadFile.api"
 import modalCreate from "./Home/components/modalCreate.vue"
 import ChatBox from "@/components/ChatBox/ChatBox.vue"
 import { getProfileFromLS, setProfileToLS } from "@/utils/auth"
+import { handlePaste } from "@/utils/utils"
 export default {
   components: {
     svgLiveVideo,
@@ -832,7 +834,7 @@ export default {
       gender: "nam",
       date_of_birth: "",
       inforUser: {},
-      statusFriend: 0,
+      statusFriend: -1,
       avatarUpLoad: "",
       showChat: false,
       messages: []
@@ -855,6 +857,7 @@ export default {
         this.statusFriend = res.data.status
       })
     },
+    
     getProfile() {
       apiProfile.getProfile(this.userCurrent.username).then((res) => {
         this.inforUser = res.data.result  
@@ -1052,12 +1055,13 @@ export default {
         friend_user_id: this.inforUser._id
       }
       apiFriend.sendFriendRequest(body).then((res) => {
-        console.log(res)
+        console.log(res.data)
         this.checkStatusFriend()
       })
     },
     async deleteFriendRequest() {
-      apiFriend.deleteFriendRequest(this.inforUser._id).then((res) => {
+      const {_id} = this.inforUser
+      apiFriend.deleteFriendRequest(_id).then((res) => {
         this.checkStatusFriend()
       })
     },

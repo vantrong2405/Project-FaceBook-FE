@@ -8,7 +8,7 @@ const apiFriend = {
     return http.post(`/users/send-friend-requests`, body)
   },
   deleteFriendRequest(friendId) {
-    return http.delete(`/users/delete-friend-request/${friendId}`)
+    return http.delete(`/users/delete-friend-requests/${friendId}`)
   }
 }
 

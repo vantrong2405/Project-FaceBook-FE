@@ -34,6 +34,7 @@
                   @addPostEvent="addPost"
                   @openFileInputEvent="openFileInput"
                   @deleteMediaEvent="handleDeleteMedia"
+                  @pasteEvent="onPaste"
                 />
               </div>
               <hr class="mx-2" />
@@ -365,6 +366,7 @@ import modalCreate from "./components/modalCreate.vue"
 import pathConstant from "../constant/path.constant"
 import modalDelete from "./components/modalDelete.vue"
 import { ThumbsUp } from 'lucide-vue-next';
+import { handlePaste } from "@/utils/utils"
 export default {
   components: {
     svgCreate,
@@ -510,8 +512,8 @@ export default {
       }
     },
     onPaste(event) {
-      handlePaste(event, this.media);
-    },
+     handlePaste(event, this.media);
+},
     handleDeleteMedia(index) {
       if (index >= 0) this.media.splice(index, 1)
     },

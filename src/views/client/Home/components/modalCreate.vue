@@ -40,6 +40,7 @@
               rows="3"
               @input="handleContentInput"
               v-model="internalContent"
+              @paste="handlePaste"
             >
             </textarea>
             <div class="h-[200px] overflow-auto" v-if="media[0]">
@@ -157,7 +158,7 @@ export default {
   components: {
     X
   },
-  emits: ["contentChangeEvent", "addPostEvent", "openFileInputEvent", "deleteMediaEvent"],
+  emits: ["contentChangeEvent", "addPostEvent", "openFileInputEvent", "deleteMediaEvent","pasteEvent"],
   data() {
     return {
       internalContent: this.content
@@ -176,6 +177,9 @@ export default {
     },
     handleDeleteMedia(index) {
       this.$emit("deleteMediaEvent", index)
+    },
+    handlePaste(event) {
+      this.$emit("pasteEvent", event, this.media);
     }
   }
 }
