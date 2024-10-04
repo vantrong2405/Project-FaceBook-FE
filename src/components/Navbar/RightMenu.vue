@@ -37,9 +37,9 @@
         @click="(isShowMore = !isShowMore), (isShowMenu = false), (isShowMessager = false), (isShowNotice = false)"
         class="flex cursor-pointer items-center justify-center rounded-full bg-myGray-900 transition-colors duration-300 hover:bg-myGray-700"
       >
-        <div id="pp" class="naybanoiw relative h-9 w-9 overflow-hidden rounded-full border">
-          <img :src="userCurrent?.avatar ? userCurrent.avatar : avatar" alt="" width="100%" style="height: 100%" />
-        </div>
+      <div id="pp" class="relative overflow-hidden rounded-full border" style="width: 34px; height: 34px;">
+  <img :src="userCurrent && userCurrent.avatar ? userCurrent.avatar : avatar" alt="" style="width: 100%; height: 100%;" />
+</div>
       </div>
     </div>
 
@@ -516,6 +516,8 @@ import pathConstant from "@/views/client/constant/path.constant"
 export default {
   async created() {
     this.userCurrent = getProfileFromLS()
+    console.log(' this.userCurrent : ', this.userCurrent);
+    
   },
   components: {
     svgMenu,
