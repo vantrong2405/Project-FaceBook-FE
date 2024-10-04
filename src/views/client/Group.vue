@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="fixed left-0 top-[55px] flex h-screen w-[22%] flex-col bg-white pl-[5px] pt-[5px] shadow-md">
     <div id="left-bar-top" class="p-[10px]">
       <ul>
@@ -135,6 +136,7 @@
       </div>
     </div>
   </div>
+</div>
 </template>
 <script>
 import { Compass, Users, Ellipsis, Plus, Newspaper, Settings } from "lucide-vue-next"

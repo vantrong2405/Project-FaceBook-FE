@@ -1,5 +1,6 @@
 <template>
-  <div class="header-wrapper">
+  <div>
+    <div class="header-wrapper">
     <TopRocker></TopRocker>
     <MenuRocker></MenuRocker>
   </div>
@@ -12,6 +13,7 @@
   <div class="overlay toggle-icon"></div>
   <a href="javaScript:;" class="back-to-top"><i class="bx bxs-up-arrow-alt"></i></a>
   <FooterRocker></FooterRocker>
+  </div>
 </template>
 <script>
 import FooterRocker from "../components/MasterpageAdmin/FooterRocker.vue"

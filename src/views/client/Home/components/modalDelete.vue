@@ -1,5 +1,6 @@
 <template>
-  <Trash2
+  <div>
+    <Trash2
     class="cursor-pointer hover:text-black"
     data-bs-toggle="modal"
     data-bs-target="#modalDeleteCommment"
@@ -49,6 +50,7 @@
         </div>
       </div>
     </div>
+  </div>
   </div>
 </template>
 <script>

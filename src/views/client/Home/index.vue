@@ -1,5 +1,6 @@
 <template>
-  <input type="file" hidden name="file" ref="fileInput" id="file" @change="handleFileUpload" />
+  <div>
+    <input type="file" hidden name="file" ref="fileInput" id="file" @change="handleFileUpload" />
   <div class="min-h-screen w-full bg-[#F0F2F5]">
     <div class="flex">
       <left-bar-home :userCurrent="userCurrent" :avatar="avatar" />
@@ -340,6 +341,7 @@
       <svg-new-message class="w-5" />
     </div>
     <modal-share />
+  </div>
   </div>
 </template>
 <script>

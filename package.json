@@ -19,7 +19,7 @@
     "cors": "^2.8.5",
     "lucide-vue-next": "^0.378.0",
     "swiper": "^11.1.1",
-    "vue": "2",
+    "vue": "3.2.26",
     "vue-axios": "^3.5.2",
     "vue-router": "^4.3.0",
     "vue-template-compiler": "^2.7.16",

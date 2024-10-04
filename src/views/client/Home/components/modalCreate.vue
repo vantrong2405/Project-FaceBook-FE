@@ -1,4 +1,5 @@
 <template>
+<div>
   <div
     data-bs-toggle="modal"
     data-bs-target="#create_posts"
@@ -124,6 +125,7 @@
       </div>
     </div>
   </div>
+</div>
 </template>
 <script>
 import { X } from "lucide-vue-next"

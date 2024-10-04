@@ -1,5 +1,6 @@
 <template>
-  <div class="fixed left-0 top-[55px] flex h-screen w-[22%] flex-col bg-white pl-[5px] pt-[5px] shadow-md">
+  <div>
+    <div class="fixed left-0 top-[55px] flex h-screen w-[22%] flex-col bg-white pl-[5px] pt-[5px] shadow-md">
     <div id="left-bar-top" class="p-[10px]">
       <ul>
         <li class="flex items-center justify-between">
@@ -115,6 +116,7 @@
     v-if="listUserSearch.length == 0"
   >
     Không có kết quả nào
+  </div>
   </div>
 </template>
 <script>
