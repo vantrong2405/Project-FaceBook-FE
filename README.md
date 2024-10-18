@@ -1,4 +1,4 @@
-# FE_SE397_N1
+# MẠNG XÃ HỘI WE
 
 This template should help get you started developing with Vue 3 in Vite.
 
